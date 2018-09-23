@@ -1,7 +1,6 @@
 #!/bin/bash
 
 cd /home/aephir/docker/homeassistant
-hass --script check_config
 
 git add .
 git status
