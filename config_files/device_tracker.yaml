@@ -1,0 +1,66 @@
+#############################
+#                           #
+#      DEVICE TRACKERS      #
+#                           #
+#############################
+
+##############
+#    MQTT    #
+##############
+
+#  - platform: mqtt
+#    devices:
+#      phone: /location/phone
+#      mymacbookpro: /
+
+#####################
+#    Google Maps    #
+#####################
+
+  - platform: google_maps
+    username: !secret google_maps_user
+    password: !secret google_maps_pass
+    max_gps_accuracy: 150
+
+###################
+#    Owntracks    #
+###################
+
+  - platform: owntracks
+    max_gps_accuracy: 50
+
+##############
+#    Ping    #
+##############
+
+  - platform: ping
+    hosts:
+      aephir_ping: 192.168.0.5
+      kristina_ping: 192.168.0.18
+      emilie_ipad_ping: 192.168.0.33
+      emilie_iphone_ping: 192.168.0.38 # I think this is her phone, check to be sure.
+
+
+##############
+#    NMAP    #
+##############
+
+#  - platform: nmap_tracker
+#    hosts: 192.168.0.1/24
+#    exclude:
+#      - 192.168.0.160 # Home Assisstant (Can cause problems to show)
+#      - 192.168.0.10  # Hue bridge
+#      - 192.168.0.6   # Wine Fridge
+#      - 192.168.0.11  # Espresso Machine
+#      - 192.168.0.1   # Router
+#      - 192.168.0.20  # iKettle
+#      - 192.168.0.155 # libreELEC
+#      - 192.168.0.145 # Mopidy
+#      - 192.168.0.9   # Galaxy S7 edge
+#      - 192.168.0.3   # TV
+#      - 192.168.0.3   # TV
+#      - 192.168.0.3   # TV
+#      - 192.168.0.3   # TV
+#      - 192.168.0.3   # TV
+#    interval_seconds: 15 # How often to scan network
+#    consider_home: 00:15:00 # Time since lsat seen needed for chaging status to "away"

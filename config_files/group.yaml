@@ -1,0 +1,998 @@
+####################
+#                  #
+#      GROUPS      #
+#                  #
+####################
+
+######################
+#    Default View    #
+######################
+
+  default_view:
+    view: yes
+    name: home
+    entities:
+      - switch.switch
+      - group.all_lights
+      - group.living_room_lights
+      - group.bedroom_lights
+      - group.stairway_lights
+      - switch.living_room_media_master
+      - sensor.someonehome
+      - input_boolean.guest_mode
+
+################
+#    USEFUL    #
+################
+
+  useful:
+    view: no
+    icon: mdi:account-multiple
+    entities:
+      - switch.espresso_machine
+      - group.living_room_lights
+      - group.bedroom_lights
+      - group.stairway_lights
+      - switch.living_room_media_master
+      - scene.night_light
+      - scene.bedroom_dim
+      - sensor.someonehome
+      - input_boolean.guest_mode
+
+#####################
+#    INFORMATION    #
+#####################
+
+#####################
+#__All Information__#
+
+  information:
+    name: Information
+    icon: mdi:information-variant
+    view: yes
+    entities:
+      # - group.weather_display
+      - sensor.api_streams
+#      - sensor.dht22_temperature
+#      - sensor.dht22_humidity
+      - group.home_information
+      - group.dining_room_information
+      - group.tv_room_information
+      - group.bathroom_information
+#      - camera.3110
+#      - sensor.3110_battery_level
+#      - sensor.3110_battery_temperature
+#      - switch.3110_video_recording
+      - weblink.router
+      - weblink.mopidy_iris
+      - weblink.mopidy_party
+      - weblink.mopidy
+      - group.all_people_battery_badges
+      - group.system_information
+      - updater.updater
+      - group.battery_levels
+      - group.door
+#      - group.window
+
+########################
+#__System Information__#
+
+  system_information:
+    name: System Information
+    view: no
+    entities:
+      - sensor.cpu_used
+      - sensor.disk_used
+      - sensor.ram_used
+      - sensor.uptime
+#      - sensor.ssl_certificate_expiry
+      - sensor.ssl_cert_expiry
+      - sensor.connected_clients
+
+######################
+#__Home Information__#
+
+  home_information:
+    name: Home Information
+    icon: mdi:information-variant
+    view: no
+    entities:
+      - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+      - binary_sensor.someonehome360
+#      - group.dining_room_information
+#      - group.tv_room_information
+#      - group.bathroom_information
+
+  dining_room_information:
+    name: Dining Room Information
+    view: no
+    entities:
+      - sensor.illumination_7811dcb8d944
+      - sensor.illumination_158d0001e62ee2
+      - binary_sensor.motion_sensor_158d0001e62ee2
+
+  tv_room_information:
+    name: TV Room Information
+    view: no
+    entities:
+      - sensor.dht22_temperature
+      - sensor.dht22_humidity
+
+  bathroom_information:
+    name: Bathroom Information
+    view: no
+    entities:
+      - sensor.temperature_158d00022c66ff
+      - sensor.humidity_158d00022c66ff
+      - sensor.pressure_158d00022c66ff
+
+  shed_information:
+    name: Shed Information
+    view: no
+    entities:
+      - sensor.temperature_158d000243778b
+      - sensor.humidity_158d000243778b
+      - sensor.pressure_158d000243778b
+
+  wine_cellar_information:
+    name: Wine Cellar Information
+    view: no
+    entities:
+      - sensor.temperature_158d000245b4a2
+      - sensor.humidity_158d000245b4a2
+      - sensor.pressure_158d000243778b
+
+#######################
+#__Doors and Windows__#
+
+  door:
+    name: Door Status
+    icon: mdi:door
+    view: no
+    entities:
+      - binary_sensor.sensor
+      - binary_sensor.door_window_sensor_158d000234dc7b
+      - binary_sensor.door_window_sensor_158d00022d0917
+      - binary_sensor.door_window_sensor_158d00022b3b66
+
+###################
+#__Batter_Levels__#
+
+  battery_levels:
+    name: Battery levels
+    icon: mdi:battery
+    view: no
+    entities:
+      - sensor.x_door_1_bat
+      - sensor.x_motion_1_bat
+      - sensor.x_temphum_1_bat
+
+###############
+#    Media    #
+###############
+
+#######################
+#__All Media PLayers__#
+
+  all_media:
+    name: Media Players
+    icon: mdi:theater
+    view: yes
+    entities:
+      - media_player.kodi
+      - media_player.ue46es8005
+      - media_player.mpd
+      - script.mopidy_shut_off
+      - script.kodi_shut_off
+      - script.living_room_media_off
+      - switch.living_room_media_master
+      - switch.tv_kodi
+      - weblink.mopidy_iris
+      - weblink.mopidy
+      - script.start_kodi
+      - media_player.living_room
+      - script.mopidy_upgrade
+
+###########
+#__Video__#
+
+  video_media:
+    name: Video Players
+    icon: mdi:theater
+    view: no
+    entities:
+      - media_player.kodi
+      - media_player.ue46es8005
+
+###################
+#__Audio Players__#
+
+  audio_media:
+    name: Music Players
+    icon: mdi:speaker
+    view: no
+    entities:
+      - media_player.mpd
+      - weblink.mopidy
+      - weblink.mopidy_iris
+      - weblink.mopidy_party
+      - media_player.living_room
+
+################
+#    Lights    #
+################
+
+################
+#__All Lights_#
+
+  all_lights:
+    name: Lights
+    icon: mdi:lightbulb-outline
+    view: yes
+    entities:
+      - light.basement_entrance
+      - light.bedroom
+      - light.bedroom_stairway
+      - light.color_temperature_light_1
+      - light.color_temperature_light_1_2
+      - light.conservatory
+      - light.dining_room
+      - light.entrance
+      - light.gateway_light_7811dcb8d944
+      - light.hue_ambiance_lamp_1
+      - light.hue_ambiance_lamp_2
+      - light.kitchen
+      - light.kristinas_bedroom
+      - light.tv_room
+      - light.waldens_bedroom
+      - light.walkin_closet
+      - light.wine_cellar
+      # - light.temporary_lights
+      # - group.living_room_lights
+      # - group.downstairs_living_room_lights
+      # - group.bedroom_lights
+      # - group.downstairs_bedroom_lights
+      # - group.stairway_lights
+      # - light.hue_lightstrip_plus_1
+      # - group.light_scenes
+
+##########################
+#__Main Entrance Lights__#
+
+  entrance_lights:
+    name: Entrance Lights
+    view: no
+    entities:
+      # - light.kitchen_spot_1
+
+########################
+#__Dining Room Lights__#
+
+  dining_room_lights:
+    name: Living Room Lights
+    view: no
+    entities:
+      # - light.
+      # - light.
+      # - light.
+
+####################
+#__Kitchen Lights__#
+
+  kitchen_lights:
+    name: Kitchen Lights
+    view: no
+    entities:
+      # - light.kitchen_spot_1
+
+###########################
+#__Master Bedroom Lights__#
+
+  bedroom_lights:
+    name: Bedroom Lights
+    view: no
+    entities:
+      - light.waldens_bedroom
+
+#########################
+#__Conservatory Lights__#
+
+  conservatory_lights:
+    name: Conservatory Lights
+    view: no
+    entities:
+      - light.conservatory
+
+######################
+#__Baby Room Lights__#
+
+  baby_room_lights:
+    name: Baby Room Lights
+    view: no
+    entities:
+      # - light.waldens_bedroom
+
+##############################
+#__Basement Stairway Lights__#
+
+  basement_staiway_lights:
+    name: Basement Stairway Lights
+    view: no
+    entities:
+      # - light.kitchen_spot_1
+
+##############################
+#__Basement Entrance Lights__#
+
+  basement_entrance_lights:
+    name: Entrance Lights
+    view: no
+    entities:
+      - light.basement_entrance
+
+####################
+#__TV Room Lights__#
+
+  tv_room_lights:
+    name: Downstairs Living Room Lights
+    view: no
+    entities:
+      - light.tv_room
+
+##########################
+#__Washing Room Lights__#
+
+  washing_room_lights:
+    name: Washing Room Lights
+    view: no
+    entities:
+      # - light.tv_room
+
+####################
+#__Wine Cellar Lights__#
+
+  wine_cellar_lights:
+    name: Wine Cellar Lights
+    view: no
+    entities:
+      # - light.tv_room
+
+##############################
+#__Upstairs Stairway Lights__#
+
+  upstairs_stairway_lights:
+    name: Upstairs Stairway Lights
+    view: no
+    entities:
+      # - light.hue_ambiance_lamp_1
+
+#################################
+#__Upstairs Living Room Lights__#
+
+  upstairs_living_room_lights:
+    name: Upstairs Living Room Lights
+    view: no
+    entities:
+      # - light.hue_ambiance_lamp_1
+
+##############################
+#__Upstairs Bathroom Lights__#
+
+  upstairs_bathroom_lights:
+    name: Upstairs Bathroom Lights
+    view: no
+    entities:
+      # - light.hue_ambiance_lamp_1
+
+#################################
+#__Emilie's Room Lights__#
+
+  emilies_room_lights:
+    name: Emilie's Room Lights
+    view: no
+    entities:
+      # - light.hue_ambiance_lamp_1
+
+#################################
+#__Naia's Room Lights__#
+
+  naias_room_lights:
+    name: Naia's Room Lights
+    view: no
+    entities:
+      # - light.hue_ambiance_lamp_1
+
+##################
+#    SWITCHES    #
+##################
+
+##################
+#__All Switches__#
+
+  switches:
+    name: Switches
+    view: yes
+    control: hidden
+    entities:
+      - switch.espresso_machine
+      - switch.desktop
+      - switch.tv_kodi
+      - switch.command_on
+      - switch.command_off
+      - switch.kettle
+      - switch.living_room_media_master
+      - switch.switch
+      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+
+######################
+#__Kitchen Switches__#
+
+  kitchen_switches:
+    name: Kitchen WeMo Switches
+    view: no
+    entities:
+      - switch.espresso_machine
+
+#####################
+#__Office Switches__#
+
+  office_switches:
+    name: Office WeMo Switches
+    view: no
+    entities:
+      - switch.desktop
+
+###################
+#__Master Switch__#
+
+  master_switch:
+    name: Master Switches
+    icon: mdi:power
+    view: yes
+    entities:
+      - switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+      - script.living_room_media_off
+      - switch.living_room_media_master
+      - switch.switch
+
+#################
+#    Devices    #
+#################
+
+#################
+#__All Devices__#
+
+  all_device_trackers:
+    name: All Devices and People
+    view: no
+    entities:
+      - device_tracker.aephir_phone_owntracks
+      - device_tracker.aephir_phone_nmap
+      - device_tracker.macbookaephir
+      - device_tracker.macsund30551
+      - device_tracker.google_maps_110730659630480268471
+
+################
+#    People    #
+################
+
+  all_people:
+    name: Family
+    icon: mdi:home
+    view: yes
+    entities:
+      - device_tracker.google_maps_110730659630480268471
+      - sensor.aephir_phone_battery_360
+      - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+      - sensor.kristina_phone_battery_360
+      - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+      - sensor.emilie_phone_battery_360
+      - group.people_presence_input_boolean
+      - sensor.iphone_battery_state
+      - sensor.iphone_battery_level
+      - binary_sensor.aephir_home
+      - group.kristina_ios
+      - device_tracker.kristinas_iphone
+
+  people_presence_input_boolean:
+    name: Input Boolean Presence
+    view: no
+    control: hidden
+    entities:
+      - input_boolean.aephirhome360
+      - input_boolean.someonehome360
+      - input_boolean.kristinahome360
+      - input_boolean.emiliehome360
+
+  all_people_battery_badges:
+    name: Family
+    icon: mdi:home
+    view: no
+    entities:
+      - device_tracker.google_maps_110730659630480268471
+      - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+      - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+      - sensor.kristina_phone_battery_360
+      - sensor.aephir_phone_battery_360
+      - sensor.emilie_phone_battery_360
+
+#  family_tracker:
+#    mame: Family Tracker
+#    icon: mdi:home-heart
+#    view: no
+#    entities:
+#      - device_tracker.google_maps_110730659630480268471
+#      - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+#      - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+
+  aephir:
+    name: Aephir's Phone
+    icon: mdi:human-male
+    view: no
+    entities:
+      - sensor.aephir_phone_battery_360
+      - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
+      - device_tracker.google_maps_110730659630480268471
+
+  kristina:
+    name: Kristina's Phone
+    icon: mdi:human-female
+    view: no
+    entities:
+      - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+      - sensor.kristina_phone_battery_360
+      - device_tracker.kristinas_iphone
+      - sensor.iphone_battery_state
+      - sensor.iphone_battery_level
+
+  kristina_ios:
+    name: Kristina's iOS app
+    view: no
+    entities:
+      - sensor.iphone_battery_state
+      - sensor.iphone_battery_level
+
+  emilie:
+    name: Emilie's Phone
+    icon: mdi:human-child
+    view: no
+    entities:
+      - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+      - sensor.emilie_phone_battery_360
+
+#################
+#    Weather    #
+#################
+
+#################
+#__All Weather__#
+  weather:
+    name: Weather
+    view: no
+    entities:
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_precip_type
+      - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_preci_probability
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_visibility
+      - sensor.dark_sky_nearest_storm_distance
+      - sensor.dark_sky_temperature
+      - sensor.dark_sky_apparent_temprerature_high
+#      - sensor.dark_sky_apparent_temprerature_low
+      - sensor.dark_sky_overnight_low_apparent_temperature
+      - sensor.dark_sky_daytime_high_apparent_temperature
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_wind_speed
+      - sensor.dark_sky_wind_bearing
+      - sensor.dark_sky_minutely_summary
+      - sensor.dark_sky_hourly_summary
+      - sensor.dark_sky_daily_summary
+      - sensor.dark_sky_overnight_low_temperature
+      - sensor.dark_sky_daytime_high_temperature
+#      - sensor.dark_sky_temperature_low
+#      - sensor.dark_sky_temperature_high
+      - sensor.dark_sky_precit_intensity_max
+      - sun.sun
+      - sensor.moon
+      - sensor.yr_temperature
+      - sensor.yr_precipitation
+      - sensor.yr_windSpeed
+      - sensor.yr_windDirection
+      - sensor.yr_cloudiness
+
+#####################
+#__Weather Display__#
+  weather_display:
+    name: Weather Information
+    view: no
+    entities:
+      - sensor.yr_temperature
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_hourly_summary
+      - sensor.dark_sky_humidity
+      - sensor.dark_sky_wind_speed
+      - sensor.dark_sky_wind_bearing
+      - sensor.dark_sky_precip_intensity
+      - sensor.dark_sky_preci_probability
+      - sensor.moon
+      - sun.sun
+      - sensor.yr_symbol
+      - sensor.yr_temperature
+
+################
+#    Scenes    #
+################
+
+################
+#__All scenes__#
+
+  light_scenes:
+    name: Scenes
+    view: no
+    control: hidden
+    entities:
+      - script.scene_living_room_bright
+      - script.scene_living_room_normal
+      - script.scene_living_room_dim
+      - script.scene_living_room_off
+      - script.scene_living_room_off
+      - script.scene_sleepy_bedroom
+      - script.scene_bedroom_dim
+      - script.scene_sleepy_living_room
+
+########################
+#__Living Room Scenes__#
+
+  living_room_scenes:
+    name: Scenes
+    view: no
+    control: hidden
+    entities:
+      - script.scene_living_room_bright
+      - script.scene_living_room_normal
+      - script.scene_living_room_dim
+      - script.scene_living_room_off
+      - script.scene_living_room_off
+      - script.scene_sleepy_living_room
+
+####################
+#__Bedroom Scenes__#
+
+  bedroom_scenes:
+    name: Scenes
+    view: no
+    entities:
+      - script.scene_sleepy_bedroom
+      - script.scene_bedroom_dim
+
+#####################
+#    Automations    #
+#####################
+
+#####################
+#__All Automations__#
+
+########################
+#__Toggle Automations__#
+
+  toggle_automations:
+    name: Automations
+    icon: mdi:autorenew
+    view: yes
+    entities:
+      - group.last_leave_automations
+      - group.first_home_automations
+      - group.sunset_automations
+      - group.sunrise_automations
+      - group.arrive_home_automations
+      - group.leave_home_automations
+      - group.everyone_left_automations
+      - group.motion_based_automations
+#      - automation.update_meta_tracker
+
+############################
+#__Leave Home Automations__#
+
+  leave_home_automations:
+    name: Leave Home Automations
+    view: no
+    entities:
+      - automation.aephir_not_home_360
+      - automation.kristina_not_home_360
+      - automation.emilie_not_home_360
+
+#############################
+#__Arrive Home Automations__#
+
+  arrive_home_automations:
+    name: Arrive Home Automations
+    view: no
+    entities:
+      - automation.aephir_home_360
+      - automation.kristina_home_360
+      - automation.emilie_home_360
+
+###############################
+#__Last to Leave Automations__#
+
+  last_leave_automations:
+    name: Last to Leave Automations
+    view: no
+    entities:
+      - automation.aephir_leaves_last
+      - automation.kristina_leaves_last
+#      - automation.emilie_leaves_last
+
+#################################
+#__First to Arrive Automations__#
+
+  first_home_automations:
+    name: First to Arrive Automations
+    icon: mdi:autorenew
+    view: no
+    entities:
+      - automation.someone_arrives_home
+      - automation.someone_arrives_home_boolean
+      - automation.aephir_home_360
+      - automation.kristina_home_360
+      - automation.emilie_home_360
+
+########################
+#__Sunset Automations__#
+
+  sunset_automations:
+    name: Sunset Automations
+    icon: mdi:autorenew
+    view: no
+    entities:
+      - automation.sunset_with_someone_home
+
+#########################
+#__Sunrise Automations__#
+
+  sunrise_automations:
+    name: Sunrise Automations
+    icon: mdi:autorenew
+    view: no
+    entities:
+      - automation.sunrise_night_light_off
+
+###############################
+#__Everyone Left Automations__#
+
+  everyone_left_automations:
+    name: Everyone Left Turn Off Automations
+    icon: mdi:autorenew
+    view: no
+    entities:
+      - automation.everyone_left
+
+  motion_based_automations:
+    name: Motion Based Automations
+    view: no
+    entities:
+      - automation.bathroom_night_light_on
+      - automation.test_motion
+
+#################
+#    Scripts    #
+#################
+
+#################
+#__All Scripts__#
+
+  scripts:
+    name: Scripts
+    icon: mdi:console
+    view: yes
+    entities:
+      - script.ifftt_test
+      - script.ikettle
+      - script.ikettleon
+      - script.ikettleoff1
+      - script.ifttt_desktop_computer_off
+      - script.mopidy_shut_off
+      - script.kodi_shut_off
+      - script.living_room_media_off
+      - script.going_to_bed
+      - script.going_to_sleep
+      - script.mopidy_upgrade
+      - script.update_home_assistant
+#      - shell_command.ikettle100
+#      - script.ikettle100
+#      - script.ikettle95
+#      - script.ikettle80
+#      - script.ikettle65
+#      - group.ikettle
+#      - script.shutdownlivingroom
+
+#####################
+#__iKettle Scripts__#
+
+  ikettle:
+    name: iKettle Control
+    view: no
+    control: hidden
+    entities:
+      - script.ikettleon
+#      - script.ikettle95
+#      - script.ikettle80
+#      - script.ikettle65
+      - script.ikettleoff1
+
+###################
+#__Media Scripts__#
+
+  media_scripts:
+    name: Media Scripts
+    view: no
+    entities:
+      - script.living_room_media_off
+      - script.mopidy_upgrade
+
+######################
+#    Experimental    #
+#       Branch       #
+######################
+
+  experimental:
+    name: Playground
+    icon: mdi:biohazard
+    view: yes
+    entities:
+      - zwave.neo_coolcam_power_plug_12a
+      - input_number.libreelec_volume
+      - input_number.ue46es8005_volume
+      - input_number.mopidy_volume
+      - input_number.living_room_scenes
+      - script.ifttt_desktop_computer_off
+      - script.going_to_bed
+      - script.going_to_sleep
+      - switch.desktop_pc
+      - switch.livingroom
+      - switch.desktop
+      - switch.living_room_media_master
+      - script.everone_left_turn_off_evrything
+      - ry_sensor.aephirhomecombined
+      - binary_sensor.aephirhome360boolean
+      - media_player.spotify
+      - script.mopidy_reboot
+      - script.kodi_reboot
+      - device_tracker.macbookaephir
+      - binary_sensor.aephirhome360
+      - binary_sensor.someonehome360
+      - binary_sensor.aephirhomecombined
+      - input_boolean.aephirhome360
+      - input_boolean.someonehome360
+      - input_boolean.kristinahome360
+      - input_boolean.emiliehome360
+      - media_player.living_room
+      - camera.wyze
+      - device_tracker.aephir_ping
+      - device_tracker.kristina_ping
+      - device_tracker.meta_walden
+      - device_tracker.meta_kristina
+      - device_tracker.meta_emilie
+
+######################
+#    For The Kids    #
+######################
+
+  kid_control:
+    name: Kid Control
+    icon: mdi:lightbulb-on-outline
+    view: yes
+    entities:
+      - switch.living_room_media_master
+      - group.living_room_lights
+      - group.lounge_lights
+      - group.stairway_lights
+      - group.all_people_battery_badges
+
+################
+#    Plants    #
+################
+
+  plant_sensors:
+    name: Plants
+    icon: mdi:leaf
+    view: yes
+    entities:
+      - plant.lemon
+
+###############
+#    Rooms    #
+###############
+
+#################
+#__Living Room_#
+
+  living_room:
+    name: Living Room
+    icon: mdi:sofa
+    view: no
+    entities:
+      - group.living_room_lights
+      - media_player.kodi
+      - media_player.ue46es8005
+      - media_player.mpd
+      - switch.tv_kodi
+      - group.living_room_scenes
+      - script.mopidy_shut_off
+      - script.kodi_shut_off
+      - switch.living_room_media_master
+
+#############
+#__Kitchen__#
+
+  kitchen:
+    icon: mdi:silverware-variant
+    name: Kitchen
+    view: no
+    entities:
+      - switch.espresso_machine
+      - switch.kettle
+      - input_select.ikettle_select
+
+##############
+#__Entrance__#
+
+  entrance:
+    name: entrance
+    view: no
+    icon: mdi:open-in-app
+    entities:
+      - group.stairway_lights
+
+#############
+#__Bedroom__#
+
+  bedroom:
+    name: Bedroom
+    icon: mdi:hotel
+    view: no
+    entities:
+      - group.bedroom_lights
+      - switch.bedroom_flux
+
+###########################
+#    Docker containers    #
+###########################
+
+  docker_containers:
+    name: Docker Containers
+#    control: hidden
+    view: yes
+    icon: mdi:docker
+    entities:
+      - switch.mqtt
+      - switch.grafana
+      - switch.duckdns
+      - switch.letsencrypt
+#      - switch.home-assistant
+      - switch.mariadb
+      - switch.syncthing
+      - switch.appdaemon
+#      - switch.hadockermon
+      - switch.portainer
+      - switch.influxdb
+      - switch.nodered
+
+  system:
+    name: System
+    view: no
+    entities:
+      - script.restart_hass
+
+##################
+#    Kids Tab    #
+##################
+
+  kids:
+    name: Kids
+    view: yes
+    entities:
+      - group.living_room_lights
+      - group.all_people_battery_badges
+      - switch.living_room_media_maste

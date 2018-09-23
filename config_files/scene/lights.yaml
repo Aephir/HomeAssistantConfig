@@ -1,0 +1,322 @@
+####################
+#                  #
+#      LIGHTS      #
+#                  #
+####################
+
+####################
+#    All Lights    #
+####################
+
+- name: All Lights Off
+  entities:
+    light.couch_lamp:
+      state: off
+      transition: 2
+    light.hue_lightstrip_plus_1:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_1:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_2:
+      state: off
+      transition: 2
+    light.waldens_bedroom:
+      state: off
+      transition: 2
+    light.kristinas_bedroom:
+      state: off
+      transition: 2
+    light.bedroom_stairway:
+      state: off
+      transition: 2
+    light.color_temperature_light_1:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_2:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_3:
+      state: off
+      transition: 2
+    light.kitchen_spot_1:
+      state: off
+      transition: 2
+    light.kitchen_spot_2:
+      state: off
+      transition: 2
+    light.kitchen_spot_3:
+      state: off
+      transition: 2
+    light.kitchen_spot_4:
+      state: off
+      transition: 2
+    light.kitchen_spot_5:
+      state: off
+      transition: 2
+    light.kitchen_spot_6:
+      state: off
+      transition: 2
+
+- name: all_but_bedroom_off
+  entities:
+    light.couch_lamp:
+      state: off
+      transition: 2
+    light.hue_lightstrip_plus_1:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_1:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_2:
+      state: off
+      transition: 2
+    light.bedroom_stairway:
+      state: off
+      transition: 2
+    light.color_temperature_light_1:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_2:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_3:
+      state: off
+      transition: 2
+
+#####################
+#    Living Room    #
+#####################
+
+- name: Living Room Normal
+  entities:
+    light.couch_lamp:
+      state: on
+      transition: 2
+      brightness: 150
+      color_temp: 400
+    light.living_room_lightstrip:
+      state: on
+      transition: 2
+      brightness: 175
+      color_temp: 400
+
+- name: Living Room Bright
+  entities:
+    light.couch_lamp:
+      state: on
+      transition: 2
+      brightness: 255
+      color_temp: 300
+    light.living_room_lightstrip:
+      state: on
+      transition: 2
+      brightness: 255
+      color_temp: 300
+
+- name: Living Room Dim
+  entities:
+    light.couch_lamp:
+      state: on
+      transition: 2
+      brightness: 10
+      xy_color: [ 0.56, 0.45 ]
+    light.living_room_lightstrip:
+      state: on
+      transition: 2
+      brightness: 50
+      xy_color: [ 0.49, 0.40 ]
+
+- name: Living Room Off
+  entities:
+    light.couch_lamp:
+      state: off
+      transition: 2
+    light.living_room_lightstrip:
+      state: off
+      transition: 2
+
+- name: Lounge Off
+  entities:
+    light.color_temperature_light_1:
+      state: off
+      transition: 2
+
+- name: Living Room & Lounge Off
+  entities:
+    light.couch_lamp:
+      state: off
+      transition: 2
+    light.living_room_lightstrip:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_1:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_2:
+      state: off
+      transition: 2
+
+- name: Sleepy Living Room
+  entities:
+    light.couch_lamp:
+      state: on
+      transition: 2
+      brightness: 10
+      xy_color: [ 0.72, 0.26 ]
+    light.living_room_lightstrip:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_1:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_2:
+      state: off
+      transition: 2
+    light.color_temperature_light_1:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_2:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_3:
+      state: off
+      transition: 2
+
+
+- name: Living Room Normal Fade
+  entities:
+    light.couch_lamp:
+      state: on
+      transition: 120
+      brightness: 150
+      color_temp: 400
+    light.living_room_lightstrip:
+      state: on
+      transition: 120
+      brightness: 175
+      color_temp: 400
+
+- name: Lounge Normal Fade
+  entities:
+    light.color_temperature_light_1:
+      state: on
+      transition: 10
+      brightness: 190
+      color_Temp: 375
+
+- name: Night light
+  entities:
+    light.hue_ambiance_lamp_2:
+      state: on
+      transition: 2
+      brightness: 40
+      color_temp: 375
+    light.hue_ambiance_lamp_1:
+      state: off
+      transition: 2
+    light.couch_lamp:
+      state: off
+      transition: 2
+    light.living_room_lightstrip:
+      state: off
+      transition: 2
+    light.hue_lightstrip_plus_1:
+      state: off
+      transition: 2
+    light.color_temperature_light_1:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_2:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_3:
+      state: off
+      transition: 2
+
+- name: Welcome Home
+  entities:
+    light.couch_lamp:
+      state: on
+      transition: 2
+      brightness: 210
+      xy_color: [ 0.45, 0.38 ]
+    light.living_room_lightstrip:
+      state: on
+      transition: 2
+      brightness: 250
+      color_temp: 400
+    light.hue_ambiance_lamp_1:
+      state: on
+      transition: 2
+      brightness: 250
+    light.hue_ambiance_lamp_2:
+      state: on
+      transition: 2
+      brightness: 250
+    light.color_temperature_light_1_2:
+      state: on
+      transition: 2
+      brightness: 250
+    light.color_temperature_light_1_3:
+      state: on
+      transition: 2
+      brightness: 250
+
+- name: Movie Night
+  entities:
+    light.couch_lamp:
+      state: off
+    light.hue_lightstrip_plus_1:
+      state: off
+      transition: 2
+      brightness: 90
+      color_temp: 400
+    light.hue_ambiance_lamp_1:
+      state: off
+      transition: 2
+    light.hue_ambiance_lamp_2:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_2:
+      state: off
+      transition: 2
+    light.color_temperature_light_1_3:
+      state: off
+      transition: 2
+
+#################
+#    Bedroom    #
+#################
+
+- name: Bedroom dim
+  entities:
+    light.kristinas_bedroom:
+      state: on
+      transition: 2
+      brightness: 10
+      xy_color: [ 0.52, 0.40 ]
+    light.waldens_bedroom:
+      state: on
+      transition: 2
+      brightness: 10
+      xy_color: [ 0.52, 0.40 ]
+
+- name: Sleepy Bedroom
+  entities:
+    light.kristinas_bedroom:
+      state: on
+      transition: 2
+      brightness: 10
+      xy_color: [ 0.72, 0.26 ]
+    light.waldens_bedroom:
+      state: on
+      transition: 2
+      brightness: 10
+      xy_color: [ 0.72, 0.26 ]
+
+#########################
+#    Alarm Triggered    #
+#########################

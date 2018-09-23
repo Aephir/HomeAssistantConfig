@@ -1,0 +1,56 @@
+###################
+#    Automatic    #
+#     Shut Off    #
+###################
+
+################
+#__Leave Home__#
+
+  everyone_left_turn_off_everything:
+    alias: Empty Home, Power Off
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.living_room_media_off
+      - service: light.turn_off
+        data:
+          entity_id: light.all_lights
+      - service: switch.turn_off
+        data:
+          entity_id: switch.espresso_machine
+
+################
+#__Night Time__#
+
+  going_to_bed:
+    alias: We're Going to Bed
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.livingroommediaoff
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_off
+      - service: light.turn_on
+        data:
+          entity_id: light.bedroom
+          xy_color: [0.76, 0.45]
+          brightness: 10
+      - service: group.turn_off
+        data:
+          entity_id: group.kitchen_switches
+  going_to_sleep:
+    alias: We’re Going to Sleep
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.livingroommediaoff
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_off
+      - service: light.turn_off
+        data:
+          entity_id: light.bedroom
+      - service: group.turn_off
+        data:
+          entity_id: group.kitchen_switches

@@ -1,0 +1,16 @@
+#####
+#    Android IP Cam
+
+  - host: 192.168.0.24
+    port: 8080
+    name: 3110
+    username: !secret android_ip_cam_user
+    password: !secret android_ip_cam_pass
+#    scan_interval: 10
+    sensors:
+#      - motion
+#      - light
+      - battery_temp
+      - battery_level
+    switches:
+      - video_recording

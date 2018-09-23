@@ -1,0 +1,197 @@
+##
+## Main arguments, all optional
+##
+title: Simple Control
+widget_dimensions: [115, 115]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      light:
+        icon_on: mdi-lightbulb-on
+        icon_off: mdi-lightbulb
+        icon_style_active: "color: yellow"
+        icon_style_inactive: "color: grey"
+
+reload:
+    widget_type: reload
+
+clock:
+    widget_type: clock
+    time_format: 24hr
+    date_format_country: "dk"
+    date_format_options:
+      weekday: "short"
+      day: "numeric"
+      month: "numeric"
+    date_style: "color: white; font-size: 200%"
+    time_style: "color: pink"
+
+kitchen_lights:
+    title: Lys i køkken
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.kitchen_spots
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+dining_room_lights:
+    title: Lys i spisestuen
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.dining_room_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+entrance_lights:
+    title: Lys i entré
+    title_style: "font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.entrance_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+conservatory_lights:
+    title: Lys i udestue
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.conservatory_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+basement_lights:
+    title: Lys i kælder
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.basement_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+top_floor_lights:
+    title: Lys på første sal
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.top_floor_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+outdoor_lights:
+    title: Udendørs lys
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.outdoor_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+
+guest_mode:
+    title: Gæster i huset
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%;"
+    widget_type: switch
+    icon_on: mdi-home-account
+    icon_off: mdi-home
+    icon_style_active: "color: green; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+    entity: input_boolean.guest_mode
+
+walden_presence:
+    title: Walden
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
+
+kristina_presence:
+    title: Kristina
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+
+emilie_presence:
+    title: Emilie
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+
+walden_battery:
+    title: Walden battery
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: sensor.aephir_phone_battery_360
+
+kristina_battery:
+    title: Kristina battery
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: sensor.kristina_phone_battery_360
+
+emilie_battery:
+    title: Emilie battery
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: sensor.emilie_phone_battery_360
+
+espresso_power:
+    title: Espresso Power
+    widget_type: sensor
+    widget_style: "font-size: 100%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    entity: sensor.neo_coolcam_power_plug_12a_power
+
+test:
+    title: Test Picture
+    widget_type: light
+    icon_on: http://192.168.0.100/local/images/home-assistant-512x512.png
+    icon_off: url(/local/images/aephir.jpg)
+    entity: light.waldens_bedroom
+
+layout:
+    - walden_presence, kristina_presence, emilie_presence, clock(2x1), switch.switch, switch.kettle, switch.living_room_media_master
+    - entrance_lights(2x2), kitchen_lights(2x2), dining_room_lights(2x2), guest_mode(1x2), scene.night_light
+    - scene.all_lights_off
+    - basement_lights(2x2), top_floor_lights(2x2), conservatory_lights(2x2), sensor.fibaro_system_fgwpef_wall_plug_gen5_power, script.everyone_left_turn_off_everything
+    - espresso_power, reload

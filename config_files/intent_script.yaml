@@ -1,0 +1,35 @@
+#######################
+#                     #
+#    INENT SCRIPTS    #
+#                     #
+#######################
+
+WhereAreWeIntent:
+  speech:
+    text: >
+      {%- if is_state('device_tracker.google_maps_110730659630480268471', 'home') and
+             is_state('device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24', 'home') and
+             is_state('device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46', 'home') -%}
+        You are both home
+      {%- else -%}
+        Walden is at {{ states.device_tracker.google_maps_110730659630480268471.state.replace('_', ' ') }} Kristina is at {{ states.device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46.state.replace('_', ' ') }} and Emilie is at {{ states.device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24.state.replace('_', ' ') }}.
+      {% endif %}
+  card:
+    type: simple
+    title: Where are We?
+    content: Ask Home Assistant about where everyone is
+
+# WhereAreWeIntent:
+#   speech:
+#     text: >
+#       {%- if is_state('device_tracker.google_maps_110730659630480268471', 'home') and
+#              is_state('device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24', 'home') and
+#              is_state('device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46', 'home') -%}
+#         You are both home
+#       {%- else -%}
+#         Walden is at {{ states.device_tracker.google_maps_110730659630480268471.state.replace('_', ' ') }} Kristina is at {{ states.device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46.state.replace('_', ' ') }} and Emilie is at {{ states.device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24.state.replace('_', ' ') }}.
+#       {% endif %}
+#   card:
+#     type: simple
+#     title: Where are We?
+#     content: Ask Home Assistant about where everyone is

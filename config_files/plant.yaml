@@ -1,0 +1,73 @@
+################
+#              #
+#    PLANTS    #
+#              #
+################
+
+Lemon:
+  sensors:
+    battery: sensor.plant_sensor_1_battery
+    conductivity: sensor.plant_sensor_1_conductivity
+    brightness: sensor.plant_sensor_1_light_intensity
+    moisture: sensor.plant_sensor_1_moisture
+    temperature: sensor.plant_sensor_1_temperature
+  min_moisture: 15
+  max_moisture: 60
+  min_battery: 5
+  min_temperature: 6
+  max_temperature: 35
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 4000
+  max_brightness: 65000
+
+Tomato:
+  sensors:
+    battery: sensor.plant_sensor_2_battery
+    conductivity: sensor.plant_sensor_2_conductivity
+    brightness: sensor.plant_sensor_2_light_intensity
+    moisture: sensor.plant_sensor_2_moisture
+    temperature: sensor.plant_sensor_2_temperature
+  min_moisture: 15
+  max_moisture: 60
+  min_battery: 5
+  min_temperature: 10
+  max_temperature: 32
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 4000
+  max_brightness: 130000
+
+Monstera:
+  sensors:
+    battery: sensor.plant_sensor_3_battery
+    conductivity: sensor.plant_sensor_3_conductivity
+    brightness: sensor.plant_sensor_3_light_intensity
+    moisture: sensor.plant_sensor_3_moisture
+    temperature: sensor.plant_sensor_3_temperature
+  min_moisture: 15
+  max_moisture: 60
+  min_battery: 5
+  min_temperature: 12
+  max_temperature: 32
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 800
+  max_brightness: 15000
+
+Banana:
+  sensors:
+    battery: sensor.plant_sensor_4_battery
+    conductivity: sensor.plant_sensor_4_conductivity
+    brightness: sensor.plant_sensor_4_light_intensity
+    moisture: sensor.plant_sensor_4_moisture
+    temperature: sensor.plant_sensor_4_temperature
+  min_moisture: 15
+  max_moisture: 60
+  min_battery: 5
+  min_temperature: 5
+  max_temperature: 35
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_brightness: 4000
+  max_brightness: 45000

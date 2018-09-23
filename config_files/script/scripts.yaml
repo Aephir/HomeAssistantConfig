@@ -1,0 +1,321 @@
+#####################
+#                   #
+#      SCRIPTS      #
+#                   #
+#####################
+
+####################
+#    Contextual    #
+####################
+
+  morning_workday:
+    alias: Workday Morning
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.switch
+      - delay: 00:45:00
+      - service: homeassistant.turn_off
+        data:
+          entity_id: switch.switch
+
+  morning_no_work:
+    alias: Morning Day Off
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.switch
+
+  night_kids_home:
+    alias: Good Night, Kids
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.everyone_left_turn_off_everything
+      # - service: homeassistant.turn_on
+      #   data:
+      #     entity_id: light.
+
+  night_kids_away:
+    alias: Good Night
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.everyone_left_turn_off_everything
+
+###############
+#    Alarm    #
+###############
+
+  alarm_armed_away:
+    alias: Armed Away
+    sequence:
+      service: alarm_control_panel.alarm_arm_away
+      entity_id: alarm_control_panel.house
+      data:
+        code: !secret alarm_code
+
+####
+#    General
+
+  movie_night:
+    alias: Movie Time
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: scene.movie_night
+      - service: homeassistant.turn_on
+        data:
+          entity_id: switch.living_room_media_master
+      - service: tts.goolge_say
+        entity_id: media_player.living_room
+        data:
+          message: 'Movie night'
+
+  all_but_bedroom_off:
+    alias: All Lights Off Except Bedroom
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: scene.all_but_bedroom_off
+      - service: switch.turn_off
+        data:
+          entity_id: switch.living_room_media_master
+      - service: switch.turn_off
+        data:
+          entity_id: switch.espresso_machine
+
+##
+# Home Modes
+
+  guest_mode_toggle:
+    alias: Guest Mode
+    sequence:
+      - service: input_boolean.toggle
+        data:
+          entity_id: input_boolean.guest_mode
+
+  good_night:
+    alias: Good Night
+    sequence:
+      - service: homeassistant.turn_on
+        data:
+          entity_id: scene.all_lights_off
+      - service: switch.turn_off
+        data:
+          entity_id: switch.living_room_media_master
+      - service: switch.turn_off
+        data:
+          entity_id: switch.espresso_machine
+
+##
+# Light toggles
+
+# From: https://community.home-assistant.io/t/toggle-a-hue-go-for-a-specific-color-or-scene/11449/4?u=smart
+
+  toggle_living_room_lights:
+    sequence:
+    - service_template: script.toggle_living_room_lights_{% if is_state('group.downstairs_living_room_lights', 'off') %}on{% else %}off{% endif %}
+
+  toggle_living_room_lights_on:
+    sequence:
+      - service: light.turn_on
+        entity_id: group.downstairs_living_room_lights
+        data:
+          brightness: 240
+#          rgb_color: [ 255, 0, 0]
+          color_temp: 369
+
+  toggle_living_room_lights_off:
+    sequence:
+      - service: light.turn_off
+        entity_id: group.downstairs_living_room_lights
+
+
+  toggle_entrance_lights:
+    sequence:
+    - service_template: script.toggle_entrance_lights_{% if is_state('group.stairway_lights', 'off') %}on{% else %}off{% endif %}
+
+  toggle_entrance_lights_on:
+    sequence:
+      - service: light.turn_on
+        entity_id: group.stairway_lights
+        data:
+          brightness: 240
+#          rgb_color: [ 255, 0, 0]
+          color_temp: 369
+
+  toggle_entrance_lights_off:
+    sequence:
+      - service: light.turn_off
+        entity_id: group.stairway_lights
+
+  toggle_bedroom_lights:
+    sequence:
+    - service_template: script.toggle_bedroom_lights_{% if is_state('group.bedroom_lights', 'off') %}on{% else %}off{% endif %}
+
+  toggle_bedroom_lights_on:
+    sequence:
+      - service: light.turn_on
+        entity_id: group.bedroom_lights
+        data:
+          brightness: 180
+#          rgb_color: [ 255, 0, 0]
+          color_temp: 369
+
+  toggle_bedroom_lights_off:
+    sequence:
+      - service: light.turn_off
+        entity_id: group.bedroom_lights
+
+  turn_off_all_lights: # script to turn off all lights that are on
+    sequence:
+      - service: homeassistant.turn_off
+        data_template:
+          entity_id: >
+            {% for state in states.light -%}
+              {%- if state.state_with_unit =="on" %}
+                {{state.entity_id}}
+            {% endif -%}
+            {%- endfor -%}
+
+##
+# Say
+
+  say_welcome_home:
+    sequence:
+      - service: tts.picotts_say
+        entity_id: media_player.speaker_1
+        data:
+          delay: 00:00:05
+          message: 'Hello, Welcome Home'
+
+  say_welcome_alarm:
+    sequence:
+      # - service: media_player.volume_set
+      #   data_template:
+      #     entity_id: media_player.livingroom
+      #     volume_level: 0.5
+      - service: tts.google_say
+        entity_id: media_player.living_room
+        data:
+          message: 'Welcome'
+      - delay: 00:00:01
+      - service: tts.google_say
+        entity_id: media_player.living_room
+        data:
+          message: 'The alarm will sound in 30 seconds'
+      - delay: 00:00:02
+      - service: tts.google_say
+        entity_id: media_player.living_room
+        data:
+          message: 'Please dismarm it, or leave immediately'
+
+  say_with_love:
+    sequence:
+      - service: tts.google_say
+        entity_id: media_player.living_room
+        data:
+          message: 'I Love you baby'
+
+  say_walden_told_me:
+    sequence:
+      - service: tts.google_say
+        entity_id: media_player.living_room
+        data:
+          message: 'Walden told me to tell you'
+
+##
+# update
+
+  update_home_assistant:
+    sequence:
+      - service: shell_command.update_hass
+
+#####
+# Docker
+
+  restart_hass:
+    alias: Restart Home Assistant
+    sequence:
+      - service: shell_command.restart_hass
+
+#####
+# Meta trackers
+
+  updatetracker:
+    alias: 'Update tracker'
+    sequence:
+      - service: python_script.meta_device_tracker
+        data_template:
+          entity_id: '{{entityid}}'
+      - condition: template
+        value_template: '{{fromstate != tostate}}'
+      - service: logbook.log
+        data_template:
+          name: "Tracker updated: "
+          message: >-
+            {{ states[entityid.split('.')[0]][entityid.split('.')[1]].name }} is {{ tostate }} at {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p', true) }}.
+
+###########3
+# Doorbell
+
+  doorbell_day:
+    alias: Doorbell daytime ring
+    sequence:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.living_room_speaker
+          volume_level: 0.8
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.living_room_speaker
+          media_content_id: http://192.168.0.100:8123/local/audio/doorbell-1.mp3
+          media_content_type: audio/mp3
+
+  doorbell_day_sonos:
+    alias: Doorbell daytime ring
+    sequence:
+      - service: media_player.sonos_snapshot
+        entity_id:
+          - media_player.sonos_play_5_1
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.sonos_play_5_1
+          volume_level: 0.6
+      - service: media_player.play_media
+        data:
+          entity_id: media_player.sonos_play_5_1
+          media_content_id: http://192.168.0.100:8123/local/audio/doorbell-1.mp3
+          media_content_type: audio/mp3
+      - service: media_player.sonos_restore
+        entity_id:
+          - media_player.sonos_play_5_1
+
+  # doorbell_night:
+  #   alias: Doorbell daytime ring
+  #   sequence:
+  #     - service: media_player.play_media
+  #       data:
+  #
+
+
+######
+# Set Basement Door Sensor State to "Off"
+
+  # basement_door_close:
+  #   alias: Set Basement Door State to "Off"
+  #   sequence:
+  #     - service: binary_sensor.turn_off
+  #       entity_id: binary_sensor.sensor
+  #       state: 'off'
+#         data_template: {
+#   "state": 'off',
+#   "node_id": 5,
+#   "value_index": 0,
+#   "value_instance": 1,
+#   "value_id": "72057594126794752",
+#   "friendly_name": "Basement Door",
+#   "custom_ui_state_card": "state-card-custom-ui",
+#   "device_class": "door"
+# }

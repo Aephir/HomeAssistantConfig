@@ -1,0 +1,11 @@
+######################
+#                    #
+#    XIAOMI AQARA    #
+#                    #
+######################
+
+  discovery_retry: 10
+  gateways:
+    - key: !secret xiaomi_key
+    # - mac: !secret xiaomi_gateway_1_mac
+    #   key: !secret xiaomi_key

@@ -1,0 +1,22 @@
+##################
+#    INFLUXDB    #
+##################
+
+Host: localhost
+Port: 8086
+database: home_assistant
+max_retries: 5
+exclude:
+#  entities:
+#    - sensor.dark_sky_XXXX
+#    - sensor.yr_XXXX
+  domains:
+    - automation
+include:
+  entities:
+    - sensor.pressure_158d00022c66ff
+  domains:
+    - light
+tags:
+  source: home_assistant
+tags_attributes: friendly_name

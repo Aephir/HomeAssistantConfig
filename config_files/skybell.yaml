@@ -1,0 +1,8 @@
+###############################
+#                             #
+#    SkyBell Configuration    #
+#                             #
+###############################
+
+username: !secret skybell_username
+password: !secret skybell_password

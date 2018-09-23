@@ -1,0 +1,138 @@
+####################
+#                  #
+#      LIGHTS      #
+#                  #
+####################
+
+- platform: hue
+  host: 192.168.0.10
+  allow_unreachable: true
+
+- platform: yeelight
+  devices:
+    192.168.0.201:
+      name: Living Room Lightstrip
+
+- platform: skybell
+
+##########################
+#                        #
+#      LIGHT GROUPS      #
+#                        #
+##########################
+
+- platform: group
+  name: All Lights
+  entities:
+    - light.entrance_lights
+    - light.kitchen_light
+    - light.dining_room_lights
+    - light.conservatory_lights
+    - light.basement_lights
+
+- platform: group
+  name: Kitchen Spots
+  entities:
+    - light.kitchen_spot_1
+    - light.kitchen_spot_2
+    - light.kitchen_spot_3
+    - light.kitchen_spot_4
+    - light.kitchen_spot_5
+    - light.kitchen_spot_6
+
+- platform: group
+  name: Kitchen Cabinet Lights
+  entities:
+    - light.kitchen_cabinet_light_1
+    - light.kitchen_cabinet_light_2
+
+- platform: group
+  name: kitchen lights
+  entities:
+    - light.kitchen_spots
+    - light.kitchen_cabinet_lights
+
+# - platform: group
+#   name: Kitchen Cabinet Lights
+#   entities:
+#     - light.
+
+# - platform: group
+#   name: Dining Table Lights
+#   entities:
+#     - light.dining_table_light_1
+#     - light.dining_table_light_2
+
+- platform: group
+  name: Dining Room Lights
+  entities:
+    - light.living_room_lightstrip
+    - light.dining_table_lights
+
+# - platform: group
+#   name: Dining Area Lights
+#   entities:
+#     - light.kitchen_lights
+#     - light.dining_room_lights
+
+- platform: group
+  name: Conservatory Lights
+  entities:
+    - light.conservatory
+    - light.conservatory_reading
+
+- platform: group
+  name: Bedroom Lights
+  entities:
+    - light.waldens_bedroom
+
+- platform: group
+  name: Basement Lights
+  entities:
+    - light.basement_entrance
+    - light.tv_room
+    - light.walkin_closet
+    - light.light_wine_cellar
+
+- platform: group
+  name: Basement Pathway
+  entities:
+    - light.basement_entrance
+    - light.tv_room
+
+# - platform: group
+#   name: Bedroom Lights
+#   entities:
+#     - light.bedroom_stairway
+#     - light.kristinas_bedroom
+#     - light.waldens_bedroom
+
+- platform: group
+  name: Entrance Lights
+  entities:
+    - light.main_floor_entrance_1
+    - light.main_floor_entrance_1
+    - light.stairway
+    - light.stairway_down
+
+- platform: group
+  name: Top Floor Lights
+  entities:
+    - light.top_floor_bathroom
+
+- platform: group
+  name: Outdoor Lights
+  entities:
+    - light.east_garden
+    - light.west_garden
+    - light.outside_shed
+    - light.outside_basement_entrance
+
+- platform: group
+  name: Main Floor Lights
+  entities:
+    - light.kitchen_lights
+    - light.dining_room_lights
+    - light.conservatory_lights
+    - light.baby_room
+    - light.bedroom_lights

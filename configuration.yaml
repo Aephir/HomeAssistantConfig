@@ -1,0 +1,122 @@
+############################
+#                          #
+#      CONFIGURATION       #
+#                          #
+############################
+
+#################
+#    General    #
+#################
+
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
+  unit_system: metric
+  time_zone: !secret timezone
+  customize: !include config_files/customize.yaml
+  customize_glob: !include config_files/customize_glob.yaml
+  auth_providers:
+   - type: homeassistant
+   # - type: legacy_api_password # Uncomment if you want to enable legacy API password support
+
+##############
+#    HTTP    #
+##############
+
+http:
+  # server_port: 8321
+  api_password: !secret api_password
+  # ssl_certificate: !secret my_ssl_certificate
+  # ssl_key: !secret my_ssl_key
+  base_url: !secret secret_base_url
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
+  trusted_networks:
+    - 127.0.0.1 # Loopback. This is the machine running Home Assistant
+    - ::1 # Loopback. This is the machine running Home Assistant (IPV6 addrress)
+    - 192.168.0.0/24 # My home network. Any devices with an IP between 192.168.0.0 and 192.168.0.255 (local devices)
+
+#################
+#    Enables    #
+#################
+
+auth:
+config:
+conversation:
+custom_updater:
+dialogflow:
+#discovery:
+# ifttt:
+#   key: !secret iftttkey
+logbook:
+map:
+# recorder:
+# #  db_url: sqlite:////mnt/hassdata/sqlite/home_assistant/home-assistant_v2.db
+#   purge_interval: 2
+#   purge_keep_days: 8
+# tts:
+# #  platform: picotts
+#   platform: google
+# #  cache: true
+# #  cache_dir: /mnt/hassdata/tts/cache
+python_script:
+shopping_list:
+sun:
+updater:
+
+#################
+#    Include    #
+#################
+
+alarm_control_panel: !include config_files/alarm.yaml
+#android_ip_webcam: !include misc/android_ip_webcam.yaml
+automation: !include config_files/automation.yaml
+#automation: !include_dir_merge_list config_files/automation/
+binary_sensor: !include config_files/binary_sensor.yaml
+camera: !include config_files/camera.yaml
+cast: !include config_files/cast.yaml
+cloud: !include config_files/cloud.yaml
+device_tracker: !include config_files/device_tracker.yaml
+frontend: !include config_files/frontend.yaml
+#google_assistant: !include config_files/google_assistant.yaml
+group: !include config_files/group.yaml
+#group: !include_dir_merge_named group/
+history: !include config_files/history.yaml
+homekit: !include config_files/homekit.yaml
+# http: !include config_files/http.yaml
+hue: !include config_files/hue.yaml
+# influxdb: !include config_files/influxdb.yaml
+input_boolean: !include config_files/input_boolean.yaml
+input_select: !include config_files/input_select.yaml
+input_number: !include config_files/input_number.yaml
+intent_script: !include config_files/intent_script.yaml
+ios: !include config_files/ios.yaml
+joaoapps_join: !include config_files/joaoapps_join.yaml
+light: !include config_files/light.yaml
+logger: !include config_files/logger.yaml
+media_player: !include_dir_merge_list config_files/media_player/
+mqtt: !include config_files/mqtt.yaml
+#mysensors: !include config_files/mysensors.yaml
+notify: !include config_files/notify.yaml
+panel_custom: !include config_files/panel_custom.yaml
+panel_iframe: !include config_files/panel_iframe.yaml
+plant: !include config_files/plant.yaml
+recorder: !include config_files/recorder.yaml
+scene: !include_dir_merge_list config_files/scene/
+script: !include_dir_merge_named config_files/script/
+sensor: !include_dir_merge_list config_files/sensor/
+shell_command: !include config_files/shell_commands.yaml
+skybell: !include config_files/skybell.yaml
+#snips: !include config_files/snips.yaml
+sonos: !include config_files/sonos.yaml
+switch: !include config_files/switch/switch.yaml
+#switch: !include_dir_merge_list switch/
+telegram_bot: !include config_files/telegram_bot.yaml
+tts: !include config_files/tts.yaml
+weblink: !include config_files/weblink.yaml
+# wemo: !include config_files/wemo.yaml
+zone: !include config_files/zone.yaml
+zwave: !include config_files/zwave.yaml
+xiaomi_aqara: !include config_files/xiaomi_aqara.yaml

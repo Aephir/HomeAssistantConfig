@@ -1,0 +1,71 @@
+####################
+#                  #
+#       ZONES      #
+#                  #
+####################
+
+- name: !secret zone1name
+  latitude: !secret zone1lat
+  longitude: !secret zone1lon
+  radius: 150
+  icon: mdi:home
+
+- name: !secret zone2name
+  latitude: !secret zone2lat
+  longitude: !secret zone2lon
+  radius: 150
+  icon: mdi:biohazard
+
+- name: !secret zone3name
+  latitude: !secret zone3lat
+  longitude: !secret zone3lon
+  radius: 150
+  icon: mdi:cake-variant
+
+- name: !secret zone4name
+  latitude: !secret zone4lat
+  longitude: !secret zone4lon
+  radius: 2000
+  icon: mdi:human-female
+
+- name: !secret zone5name
+  latitude: !secret zone5lat
+  longitude: !secret zone5lon
+  radius: 50
+  icon: mdi:shopping
+
+- name: !secret zone6name
+  latitude: !secret zone6lat
+  longitude: !secret zone6lon
+  radius: 1300
+  icon: mdi:city
+
+- name: !secret zone7name
+  latitude: !secret zone7lat
+  longitude: !secret zone7lon
+  radius: 200
+  icon: mdi:movie
+
+- name: !secret zone8name
+  latitude: !secret zone8lat
+  longitude: !secret zone8lon
+  radius: 1000
+  icon: mdi:beach
+
+- name: !secret zone9name
+  latitude: !secret zone9lat
+  longitude: !secret zone9lon
+  radius: 150
+  icon: mdi:school
+
+- name: !secret zone10name
+  latitude: !secret zone10lat
+  longitude: !secret zone10lon
+  radius: 100
+  icon: mdi:gamepad-variant
+
+- name: !secret zone11name
+  latitude: !secret zone11lat
+  longitude: !secret zone11lon
+  radius: 100
+  icon: mdi:airport

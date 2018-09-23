@@ -1,0 +1,137 @@
+##
+## Main arguments, all optional
+##
+title: Simple Control
+widget_dimensions: [120, 120]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+      light:
+        icon_on: mdi-lightbulb-on
+        icon_off: mdi-lightbulb
+        icon_style_active: "color: yellow"
+        icon_style_inactive: "color: grey"
+
+reload:
+    widget_type: reload
+
+clock:
+    widget_type: clock
+    time_format: 24hr
+    date_format_country: "dk"
+    date_format_options:
+      weekday: "short"
+      day: "numeric"
+      month: "numeric"
+    date_style: "color: white; font-size: 200%"
+    time_style: "color: pink"
+
+living_room_lights:
+    title: Lys i stuen
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.living_room_lights
+    icon_style_active: "color: yellow; margin-top: -15px"
+    icon_style_inactive: "color: grey; margin-top: -15px"
+
+stairway_lights:
+    title: Lys på trapperne
+    title_style: "font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.stairway_lights
+    icon_style_active: "color: yellow; margin-top: -15px"
+    icon_style_inactive: "color: grey; margin-top: -15px"
+
+bedroom_lights:
+    title: Lys i soveværelset
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.bedroom_lights
+    icon_style_active: "color: yellow; margin-top: -15px"
+    icon_style_inactive: "color: grey; margin-top: -15px"
+
+guest_mode:
+    title: Gæster i huset
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%;"
+    widget_type: switch
+    icon_on: mdi-home-account
+    icon_off: mdi-home
+    icon_style_active: "color: green; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+    entity: input_boolean.guest_mode
+
+walden_presence:
+    title: Walden
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
+
+kristina_presence:
+    title: Kristina
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+
+emilie_presence:
+    title: Emilie
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
+    widget_type: device_tracker
+    entity: device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+
+walden_battery:
+    title: Walden battery
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 100%"
+    icon_style_active: "margin-top: -5px"
+    icon_style_inactive: "margin-top: -5px"
+    widget_type: device_tracker
+    entity: sensor.aephir_phone_battery_360
+
+kristina_battery:
+    title: Kristina battery
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 100%"
+    icon_style_active: "margin-top: -5px"
+    icon_style_inactive: "margin-top: -5px"
+    widget_type: device_tracker
+    entity: sensor.kristina_phone_battery_360
+
+emilie_battery:
+    title: Emilie battery
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 100%"
+    icon_style_active: "margin-top: -5px"
+    icon_style_inactive: "margin-top: -5px"
+    widget_type: device_tracker
+    entity: sensor.emilie_phone_battery_360
+
+layout:
+    - walden_presence, kristina_presence, emilie_presence, clock(2x1), switch.espresso_machine, switch.kettle, switch.living_room_media_master
+    - walden_battery, kristina_battery, emilie_battery, light.kristinas_bedroom(1x1), light.waldens_bedroom(1x1), light.bedroom_stairway(1x1), script.movie_night, guest_mode(1x2)
+    - light.hue_lightstrip_plus_1(1x1), light.couch_lamp(1x1), light.hue_ambiance_lamp_1(1x1), light.hue_ambiance_lamp_2(1x1), light.color_temperature_light_1, light.color_temperature_light_1_2, light.color_temperature_light_1_3
+    - living_room_lights(2x1), stairway_lights(2x1), bedroom_lights(2x1), scene.night_light, reload
+    -

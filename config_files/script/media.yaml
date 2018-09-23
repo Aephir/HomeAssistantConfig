@@ -1,0 +1,67 @@
+###############
+#    Media    #
+###############
+
+  living_room_media_off:
+    alias: Shut Down Media Center
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.mopidy_shut_off
+      - service: script.turn_on
+        data:
+          entity_id: script.kodi_shut_off
+      - service: script.turn_on
+        data:
+          entity_id: script.matrix_shut_off
+      - delay: 00:00:15
+      - service: switch.turn_off
+        data:
+          entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+
+  matrix_shut_off:
+    alias: Shut down MATRIX voice
+    sequence:
+      - service: shell_command.matrix_off
+
+
+  mopidy_shut_off:
+    alias: Shut down Mopidy
+    sequence:
+      - service: shell_command.mopidy_off
+
+  mopidy_reboot:
+    alias: Reboot Mopidy
+    sequence:
+      - service: shell_command.reboot_mopidy
+
+  mopidy_upgrade:
+    alias: Upgrade Mopidy
+    sequence:
+      - service: shell_command.upgrade_mopidy
+
+  kodi_shut_off:
+    alias: Shut down libreELEC
+    sequence:
+      - service: shell_command.kodi_off
+
+  kodi_reboot:
+    alias: Reboot libreELEC
+    sequence:
+      - service: shell_command.reboot_libreelec
+
+  start_kodi:
+    alias: Kodi Media Center
+    sequence:
+      - service: shell_command.run_kodi
+
+#  arrive_area_home:
+#    alias: Start Up Music, Turn Off TV
+#    sequence:
+#      - service: switch.turn_on
+#        data:
+#          entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+#      - delay: 00:00:30
+#      - service: media_player.turn_off
+#        data:
+#          entity_id: media_player.ue46es8005

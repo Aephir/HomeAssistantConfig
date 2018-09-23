@@ -1,0 +1,729 @@
+#      name: Floorplan
+      page_id: Floorplan
+      image: /local/custom_ui/floorplan/floorplan.svg
+      stylesheet: /local/custom_ui/floorplan/floorplan.css
+
+      # These options are optional
+      warnings:                  # enable warnings (to find out why things might ot be working correctly)
+#      pan_zoom:                  # enable experimental panning / zooming
+      hide_app_toolbar:          # hide the application toolbar (when used as a custom panel)
+      date_format: YYYY-MM-DD   # Date format to use in hover-over text
+
+      groups:
+
+        - name: media_power
+          entities:
+            - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+          text_template: '${entity.state ? Math.ceil(entity.state) + " W": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        # - name: dht22_temperature
+        #   entities:
+        #     - sensor.dht22_temperature
+        #   text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+        #   class_template: '
+        #     var temp = parseFloat(entity.state);
+        #     if (temp < 15)
+        #       return "temp-in-very-low";
+        #     else if (temp < 19)
+        #       return "temp-in-low";
+        #     else if (temp < 21)
+        #       return "temp-in-good";
+        #     else
+        #       return "temp-in-high";
+        #     '
+
+        - name: xiaomi_bathroom_temperature
+          entities:
+            - sensor.temperature_158d00022c66ff
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#          class_template: 'return "static-temp";'
+          class_template: '
+            var temp = parseFloat(entity.state);
+            if (temp < 15)
+              return "temp-in-very-low";
+            else if (temp < 19)
+              return "temp-in-low";
+            else if (temp < 21)
+              return "temp-in-good";
+            else
+              return "temp-in-high";
+            '
+
+        - name: xiaomi_bathroom_humidity
+          entities:
+            - sensor.humidity_158d00022c66ff
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: xiaomi_shed_temperature
+          entities:
+            - sensor.temperature_158d000243778b
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#          class_template: 'return "static-temp";'
+          class_template: '
+            var temp = parseFloat(entity.state);
+            if (temp < 15)
+              return "temp-in-very-low";
+            else if (temp < 19)
+              return "temp-in-low";
+            else if (temp < 21)
+              return "temp-in-good";
+            else
+              return "temp-in-high";
+            '
+
+        - name: xiaomi_shed_humidity
+          entities:
+            - sensor.humidity_158d000243778b
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: xiaomi_wine_cellar_temperature
+          entities:
+            - sensor.temperature_158d000245b4a2
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#          class_template: 'return "static-temp";'
+          class_template: '
+            var temp = parseFloat(entity.state);
+            if (temp < 15)
+              return "temp-in-very-low";
+            else if (temp < 19)
+              return "temp-in-low";
+            else if (temp < 21)
+              return "temp-in-good";
+            else
+              return "temp-in-high";
+            '
+
+        - name: xiaomi_wine_cellar_humidity
+          entities:
+            - sensor.humidity_158d000245b4a2
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: xiaomi_washing_room_temperature
+          entities:
+            - sensor.temperature_158d0002437897
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#          class_template: 'return "static-temp";'
+          class_template: '
+            var temp = parseFloat(entity.state);
+            if (temp < 15)
+              return "temp-in-very-low";
+            else if (temp < 19)
+              return "temp-in-low";
+            else if (temp < 21)
+              return "temp-in-good";
+            else
+              return "temp-in-high";
+            '
+
+        - name: xiaomi_washing_room_humidity
+          entities:
+            - sensor.humidity_158d0002437897
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: motion_sensors
+          entities:
+            - binary_sensor.motion_sensor_158d000200d203
+            - binary_sensor.motion_sensor_158d000200d285
+            - binary_sensor.motion_sensor_158d000236a116
+            - binary_sensor.motion_sensor_158d00023e3742
+          states:
+            - state: 'on'
+              class: 'motion-on'
+            - state: 'off'
+              class: 'motion-off'
+
+#         - name: dark_sky_temperature
+#           entities:
+#             - sensor.dark_sky_temperature
+#           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#           class_template: '
+#             var temp = parseFloat(entity.state);
+#             if (temp < 0)
+#               return "temp-very-low";
+#             else if (temp < 15)
+#               return "temp-low";
+#             else if (temp < 25)
+#               return "temp-good";
+#             else
+#               return "temp-high";
+#             '
+#
+#         - name: dark_sky_temperature_high
+#           entities:
+#             - sensor.dark_sky_daytime_high_temperature
+#           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+# #          class_template: 'return "static-temp";'
+#           class_template: '
+#             var temp = parseFloat(entity.state);
+#             if (temp < 0)
+#               return "temp-very-low";
+#             else if (temp < 15)
+#               return "temp-low";
+#             else if (temp < 25)
+#               return "temp-good";
+#             else
+#               return "temp-high";
+#             '
+#
+#         - name: dark_sky_temperature_low
+#           entities:
+#             - sensor.dark_sky_overnight_low_temperature
+#           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+# #          class_template: 'return "static-temp";'
+#           class_template: '
+#             var temp = parseFloat(entity.state);
+#             if (temp < 0)
+#               return "temp-very-low";
+#             else if (temp < 15)
+#               return "temp-low";
+#             else if (temp < 25)
+#               return "temp-good";
+#             else
+#               return "temp-high";
+#             '
+#
+#         - name: dark_sky_precip_intensity
+#           entities:
+#             - sensor.dark_sky_precip_intensity
+#           text_template: '${entity.state ? Math.ceil(entity.state) + " mm": "undefined"}'
+#           class_template: 'return "static-temp";'
+#
+#         - name: dark_sky_precip_probability
+#           entities:
+#             - sensor.dark_sky_precip_probability
+#           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+#           class_template: 'return "static-temp";'
+#
+#         - name: dark_sky_humidity
+#           entities:
+#             - sensor.dark_sky_humidity
+#           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+#           class_template: 'return "static-temp";'
+
+        - name: aephir_location
+          entities:
+            - device_tracker.google_maps_110730659630480268471
+#          text_template: '${entity.state ? entity.state.replace("not_home", "away") : "undefined"}'
+          text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Walden", "Work").replace("Central_Copenhagen", "City").replace("Irma_Sluseholmen", "Irma") : "undefined"}'
+          states:
+            - state: 'Home'
+              class: 'presence-zone1'
+            - state: 'Work Walden'
+              class: 'presence-zone2'
+            - state: 'Sigynsgade'
+              class: 'presence-zone3'
+            - state: 'Jelling'
+              class: 'presence-zone4'
+            - state: 'Irma_Sluseholmen'
+              class: 'presence-zone5'
+            - state: 'Central_Copenhagen'
+              class: 'presence-zone6'
+            - state: 'Work Kristina'
+              class: 'presence-zone7'
+            - state: 'Sommerhus'
+              class: 'presence-zone8'
+            - state: 'Skole'
+              class: 'presence-zone9'
+            - state: 'Klubben'
+              class: 'presence-zone10'
+            - state: 'not_home'
+              class: 'presence-away'
+
+        - name: kristina_location
+          entities:
+            - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+          text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Kristina", "Work").replace("Irma_Sluseholmen", "Irma").replace("Central_Copenhagen", "City") : "undefined"}'
+          states:
+            - state: 'Home'
+              class: 'presence-zone1'
+            - state: 'Work Walden'
+              class: 'presence-zone2'
+            - state: 'Sigynsgade'
+              class: 'presence-zone3'
+            - state: 'Jelling'
+              class: 'presence-zone4'
+            - state: 'Irma_Sluseholmen'
+              class: 'presence-zone5'
+            - state: 'Central_Copenhagen'
+              class: 'presence-zone6'
+            - state: 'Work Kristina'
+              class: 'presence-zone7'
+            - state: 'Sommerhus'
+              class: 'presence-zone8'
+            - state: 'Skole'
+              class: 'presence-zone9'
+            - state: 'Klubben'
+              class: 'presence-zone10'
+            - state: 'away'
+              class: 'presence-away'
+
+        - name: emilie_location
+          entities:
+            - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+          text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Central_Copenhagen", "City").replace("Irma_Sluseholmen", "Irma") : "undefined"}'
+          states:
+            - state: 'Home'
+              class: 'presence-zone1'
+            - state: 'Work Walden'
+              class: 'presence-zone2'
+            - state: 'Sigynsgade'
+              class: 'presence-zone3'
+            - state: 'Jelling'
+              class: 'presence-zone4'
+            - state: 'Irma_Sluseholmen'
+              class: 'presence-zone5'
+            - state: 'Central_Copenhagen'
+              class: 'presence-zone6'
+            - state: 'Work Kristina'
+              class: 'presence-zone7'
+            - state: 'Sommerhus'
+              class: 'presence-zone8'
+            - state: 'Skole'
+              class: 'presence-zone9'
+            - state: 'Klubben'
+              class: 'presence-zone10'
+
+        - name: aephir_360_battery
+          entities:
+            - sensor.aephir_phone_battery_360
+          text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+          class_template: '
+            var batt = parseFloat(entity.state);
+            if (batt < 5)
+              return "batt-critical";
+            else if (batt < 15)
+              return "batt-low";
+            else if (batt < 60)
+              return "batt-medium";
+            else
+              return "batt-ok";
+            '
+
+        - name: emilie_360_battery
+          entities:
+            - sensor.emilie_phone_battery_360
+          text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+          class_template: '
+            var batt = parseFloat(entity.state);
+            if (batt < 5)
+              return "batt-critical";
+            else if (batt < 15)
+              return "batt-low";
+            else if (batt < 60)
+              return "batt-medium";
+            else
+              return "batt-ok";
+            '
+
+        - name: kristina_360_battery
+          entities:
+            - sensor.kristina_phone_battery_360
+          text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+          class_template: '
+            var batt = parseFloat(entity.state);
+            if (batt < 5)
+              return "batt-critical";
+            else if (batt < 15)
+              return "batt-low";
+            else if (batt < 60)
+              return "batt-medium";
+            else
+              return "batt-ok";
+            '
+
+
+#        - name: Sensors
+#          entities:
+#             -  sensor.aephir_phone_battery_360
+#          text_template: '${entity.state ? entity.state : "unknown"}'
+#          # An example of rounding up a number, i.e. a battery percentage of 90.1 becomes 91
+#          #text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'
+#          class_template: '
+#            var batt = parseFloat(entity.state);
+#            if (batt < 5)
+#              return "batt-critical";
+#            else if (batt < 15)
+#              return "batt-low";
+#            else if (batt < 60)
+#              return "batt-medium";
+#            else
+#              return "batt-ok";
+#            '
+
+        # - name: Gateways
+        #   entities:
+        #     - light.couch_lamp
+        #   rgb_template: '
+        #     return "off-state";
+        #   '
+        #   action:
+        #     service: toggle
+
+
+        - name: Lights
+          entities:
+            - light.basement_hallway
+            - light.tv_room
+            # - light.walkin_closet
+            - light.kitchen_spots
+            # - light.wine_cellar
+            - light.conservatory
+            - light.stairway
+          states:
+            - state: 'on'
+              class: 'light-on'
+            - state: 'off'
+              class: 'light-off'
+          rgb_template: '
+            return "off-state";
+          '
+          action:
+#            domain: class # test
+            service: toggle
+#            data: # test
+#              elements: # test
+#                  - light_halo_layer # test
+#                classes: # test
+#                  - layer-visible # test
+#                  - layer-hidden # test
+#                default_class: layer-hidden # test
+
+        - name: light groups
+          entities:
+             - light.wine_cellar
+             - light.bathroom
+          states:
+            - state: 'on'
+              class: 'light-group-on'
+            - state: 'off'
+              class: 'light-group-off'
+          action:
+#            domain: light
+            service: toggle
+
+        - name: light glow
+          entities:
+            - input_boolean.light_basement_hallway
+            - input_boolean.light_tv_room
+            # - input_boolean.light_walkin_closet
+            - input_boolean.light_wine_cellar
+            - input_boolean.light_conservatory
+            - input_boolean.light_kitchen_spots
+            - input_boolean.light_bathroom
+            - input_boolean.light_stairway
+          states:
+            - state: 'on'
+              class: 'light-glow-on'
+            - state: 'off'
+              class: 'light-glow-off'
+          # action:
+          #   service: toggle
+
+#         - name: light small
+#           entities:
+#              - light.hue_lightstrip_plus_1
+#              - light.color_temperature_light_1_2
+#              - light.color_temperature_light_1_3
+#           states:
+#             - state: 'on'
+#               class: 'light-small-on'
+#             - state: 'off'
+#               class: 'light-small-off'
+#           action:
+# #            domain: light
+#             service: toggle
+
+#         - name: TV
+#           entities:
+#              - media_player.ue46es8005
+#           states:
+#             - state: 'on'
+#               class: 'tv-on'
+#             - state: 'off'
+#               class: 'tv-off'
+#           action:
+# #            domain: media_player
+#             service: toggle
+
+        - name: Espresso
+          entities:
+             - switch.switch
+          states:
+            - state: 'on'
+              class: 'espresso-on'
+            - state: 'off'
+              class: 'espresso-off'
+          action:
+            domain: switch
+            service: toggle
+
+        - name: Desktop
+          entities:
+             - switch.switch
+          states:
+            - state: 'on'
+              class: 'desktop-on'
+            - state: 'off'
+              class: 'desktop-off'
+          action:
+            domain: switch
+            service: toggle
+
+        - name: iKettle
+          entities:
+             - switch.kettle
+          states:
+            - state: 'on'
+              class: 'ikettle-on'
+            - state: 'off'
+              class: 'ikettle-off'
+          action:
+            service: toggle
+
+        # - name: Living Room Media Power
+        #   entities:
+        #      - switch.living_room_media_master
+        #   states:
+        #     - state: 'on'
+        #       class: 'media-on'
+        #     - state: 'off'
+        #       class: 'media-off'
+        #   action:
+        #     domain: switch
+        #     service: toggle
+
+        - name: Everything_Off
+          entities:
+            - script.everyone_left_turn_off_everything
+          action:
+            domain: script
+            service: everyone_left_turn_off_everything
+
+        - name: All_Lights_Off
+          entities:
+             - script.scene_all_lights_off
+          action:
+            domain: script
+            service: scene_all_lights_off
+
+        # - name: Bedtime
+        #   entities:
+        #      - script.all_but_bedroom_off
+        #   action:
+        #     domain: script
+        #     service: all_but_bedroom_off
+
+        - name: movie_night
+          entities:
+             - script.movie_night
+          action:
+            domain: script
+            service: movie_night
+
+#         - name: night_lights
+#           entities:
+#              - script.scene_night_lights
+#           action:
+#             domain: script
+#             service: scene_night_lights
+# #          states:
+# #            - state: 'on'
+# #              class: 'generic-button-on'
+# #            - state: 'off'
+# #              class: 'generic-button-off'
+
+        # - name: welcome_home_lights
+        #   entities:
+        #      - script.scene_welcome_home_lights
+        #   action:
+        #     domain: script
+        #     service: scene_welcome_home_lights
+
+        - name: guest_mode
+          entities:
+             - input_boolean.guest_mode
+          action:
+#            domain: input_boolean
+            service: toggle
+#          action:
+#            domain: input_boolean
+#            service: guest_mode
+          states:
+            - state: 'on'
+              class: 'generic-button-on'
+            - state: 'off'
+              class: 'generic-button-off'
+
+        - name: good_night
+          entities:
+             - script.good_night
+          action:
+            domain: script
+            service: scene_night_lights
+
+        - name: text_font_time
+          entities:
+             - sensor.time
+          text_template: '${entity.state ? entity.state : "undefined"}'
+          class_template: 'return "static-text-time";'
+
+        - name: text_font_date
+          entities:
+             - sensor.date
+          text_template: '${entity.state ? entity.state : "undefined"}'
+          class_template: 'return "static-text-date";'
+
+        - name: SONOS
+          entities:
+             - media_player.sonos_5
+          states:
+            - state: 'playing'
+              class: 'sonos-on'
+            - state: 'paused'
+              class: 'sonos-pause'
+          action:
+            domain: media_player
+            service: media_play_pause
+
+        - name: Door Sensors
+          entities:
+             - binary_sensor.sensor
+             - binary_sensor.door_window_sensor_158d000234dc7b
+             - binary_sensor.door_window_sensor_158d00022b3b66
+             - binary_sensor.door_window_sensor_158d00022d0917
+          states:
+            - state: 'on'
+              class: 'door-open'
+            - state: 'off'
+              class: 'door-closed'
+
+        - name: plant_moisture
+          entities:
+             - sensor.plant_sensor_1_moisture
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+
+        - name: plant_temperature
+          entities:
+             - sensor.plant_sensor_1_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+
+        - name: plant_conductivity
+          entities:
+             - sensor.plant_sensor_1_conductivity
+          text_template: '${entity.state ? Math.ceil(entity.state) + " µS": "undefined"}'
+
+        - name: plant_light
+          entities:
+             - sensor.plant_sensor_1_light_intensity
+          text_template: '${entity.state ? Math.ceil(entity.state) + " lx": "undefined"}'
+          # class_template: '
+          #   var batt = parseFloat(entity.state);
+          #   if (batt < 5)
+          #     return "batt-critical";
+          #   else if (batt < 15)
+          #     return "batt-low";
+          #   else if (batt < 60)
+          #     return "batt-medium";
+          #   else
+          #     return "batt-ok";
+          #   '
+
+        - name: plant_battery
+          entities:
+             - sensor.plant_sensor_1_battery
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+
+        - name: plant_state
+          entities:
+            - plant.lemon
+          states:
+            - state: 'ok'
+              class: 'plant-state-ok'
+            - state: 'problem'
+              class: 'plant-state-problem'
+
+#        - name: NVR
+#          entities:
+#             - binary_sensor.blue_iris_nvr
+#          text_template: '${(entity.state === "on") ? "online" : "offline"}'
+#          states:
+#            - state: 'off'
+#              class: 'danger-text'
+#            - state: 'on'
+#              class: 'success-text'
+
+
+        - name: alarm_panel
+          entities:
+             - alarm_control_panel.house
+          text_template: '${entity.state ? entity.state.replace("unarmed", "Unarmed").replace("armed_away", "Armed Away").replace("armed_home", "Armed Home").replace("armed_perimeter", "Perimeter Mode").replace("triggered", "TRIGGERED!").replace("pending", "Arming") : "undefined"}'
+          states:
+            - state: 'armed_away'
+              class: 'alarm-armed-away'
+            - state: 'armed_home'
+              class: 'alarm-armed-home'
+            - state: 'armed_perimeter'
+              class: 'alarm-armed-perimeter'
+            - state: 'triggered'
+              class: 'alarm-triggered'
+
+
+#        - name: Binary sensors
+#          entities:
+#            - binary_sensor.front_hallway
+#            - binary_sensor.kitchen
+#            - binary_sensor.master_bedroom
+#            - binary_sensor.theatre_room
+#          states:
+#            - state: 'off'
+#              class: 'info-background'
+#            - state: 'on'
+#              class: 'warning-background'
+#          state_transitions:
+#            - name: On to off
+#              from_state: 'on'
+#              to_state: 'off'
+#              duration: 10
+
+
+#        - name: Cameras
+#          entities:
+# #            - camera.hallway
+# #            - camera.driveway
+#            - camera.front_door
+# #            - camera.backyard
+#              element: camera.driveway.image
+#          # states: ## Have either "states" or "camera_image_template"??
+#          #   - state: 'idle'
+#          #     class: 'camera-idle'
+#          camera_image_template: '${entity.attributes.entity_picture}'
+
+#        - name: thermostat_temp
+#          entities:
+#            - climate.downstairs
+#            - climate.upstairs
+#          text_template: '${entity.attributes.current_temperature ? entity.attributes.current_temperature : "undefined"}'
+#
+# The above text_template uses extended attributes from the climate.* objects to get current temperature.
+
+
+#        - name: text_states
+#          entities:
+#            - sensor.dht11_humidity
+#            - sensor.dht11_temperature
+#            - sensor.dark_sky_temperature
+#            - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+#            - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+#            - device_tracker.google_maps_110730659630480268471
+#            - sensor.last_message
+#          text_template: '${entity.state ? entity.state.replace(/\s{2,}/g,"") : "undefined"}'
+#
+# The above text_template uses jQuery syntax to search and replace any instance of 2 consecutive (or more) spaces in a string of text.
+
+# Example of chaining for multiple replaces.
+# '${entity.state ? entity.state.replace("not_home", "away").replace("Miguel_Work", "At Work") : "undefined"}'

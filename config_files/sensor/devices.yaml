@@ -1,0 +1,40 @@
+#################
+#    Devices    #
+#################
+
+#- platform: template
+#  sensors:
+#    battery_MYPHONEID:
+#      unit_of_measurement: '%'
+#      value_template: >-
+#          {%- if states.device_tracker.aephirs7edge.attributes.battery %}
+#              {{ states.device_tracker.aephirs7edge.attributes.battery|round }}
+#          {% else %}
+#              Unknown
+#          {%- endif %}
+
+#- platform: mqtt
+#  state_topic: "owntracks/aephir/phone"
+#  name: "Aephir Phone Battery"
+#  unit_of_measurement: "%"
+#  value_template: "{{ value_json.batt }}"
+
+- platform: mqtt
+  state_topic: "owntracks/Walden/cd926e1b-0476-46b9-86d2-f0c0c3e7d530"
+#  state_topic: !secret aephir_life360_bat_id
+  name: "Aephir Phone Battery 360"
+  unit_of_measurement: "%"
+  value_template: "{{ value_json.batt }}"
+
+- platform: mqtt
+  state_topic: "owntracks/KristinaBrody/612a3f1e-8eae-425e-9cc5-14e48649cc46"
+  name: "Kristina Phone Battery 360"
+  unit_of_measurement: "%"
+#  value_template: "{{ value_json.batt | round(0) }}"
+  value_template: "{{ value_json.batt }}"
+
+- platform: mqtt
+  state_topic: "owntracks/Emilie/aa172623-f9cd-406b-9007-dc08461d2c24"
+  name: "Emilie Phone Battery 360"
+  unit_of_measurement: "%"
+  value_template: "{{ (value_json.batt | float) | round(0) }}"

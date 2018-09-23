@@ -1,0 +1,25 @@
+#######################
+#                     #
+#      MYSENSORS      #
+#                     #
+#######################
+
+######################
+#    Default View    #
+######################
+
+gateways:
+  - device: mqtt
+    persistence_file: '/mnt/hassdata/mysensors/mysensors4.json'
+#    persistence_file: '/home/homeassistant/.homeassistant/mysensors/mysensors4.json'
+    topic_in_prefix: 'mygateway1-out'
+    topic_out_prefix: 'mygateway1-in'
+#    nodes:
+#      1:
+#        name: 'moisture_sensor_1'
+#      2:
+#        name: 'moisture_sensor_2'
+optimistic: false
+persistence: true
+retain: true
+version: '2.0'

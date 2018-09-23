@@ -1,0 +1,31 @@
+############################
+#                          #
+#      MEDIA PLAYERS       #
+#                          #
+############################
+
+###############
+#    VIDEO    #
+###############
+
+- platform: kodi
+  host: 192.168.0.155
+  name: Kodi
+  username: kodi
+  password: !secret libreelecpassword
+  turn_off_action:
+  service: media_player.kodi_call_method
+  data_template:
+    entity_id: '{{ entity_id }}'
+    method: System.Shutdown
+  enable_websocket: true
+
+- platform: samsungtv
+  name: ue46es8005
+  host: 192.168.0.3
+  mac: !secret ue46es8005mac
+
+#- platform: braviatv
+#  name: sony_bravia
+#  host: 192.168.0.10
+#  mac: !secret sony_bravia_mac

@@ -1,0 +1,29 @@
+###################
+#                 #
+#      MQTT       #
+#                 #
+###################
+
+###################
+#    Mosquitto    #
+###################
+
+################
+#__Plain MQTT__#
+
+broker: 127.0.0.1
+port: 1883
+#port: 8883
+# client_id: homeassistant_mqtt
+username: !secret mosquitto_user
+password: !secret mosquitto_pass
+protocol: 3.1
+#certificate: /etc/mosquitto/2017-certificat/client.crt
+#tls_version: auto
+
+###############
+#    snips    #
+###############
+
+#broker: 192.168.0.171
+#port: 1884

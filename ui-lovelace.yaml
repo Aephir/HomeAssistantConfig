@@ -1,0 +1,573 @@
+title: Home
+# Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
+background: center / cover no-repeat url("/background.png") fixed
+# Exclude entities from "Unused entities" view
+# excluded_entities:
+#   - weblink.router
+resources:
+  - url: /local/monster-card.js?v=0.2.3
+    type: js
+  - url: /local/tracker-card.js?v=0.1.4
+    type: js
+  - url: /local/custom-lovelace/monster-card/monster-card.js?v=0.2.3
+    type: js
+  - url: /local/gauge-card.js?v=0.2.0
+    type: js
+  - url: /local/slider-entity-row.js
+    type: js
+  - url: /local/toggle-lock-entity-row.js
+    type: js
+
+views:
+  #   # View tab title.
+  # - title: About us
+  #   # Optional unique id for direct access /lovelace/${id}
+  #   id: about_us
+  #   # Optional background (overwrites the global background).
+  #   # background: radial-gradient(crimson, skyblue)
+  #   # Each view can have a different theme applied. Theme should be defined in the frontend.
+  #   theme: done1
+  #   # The cards to show on this view.
+  #   cards:
+  #       # The filter card will filter entities for their state
+  #     - type: entity-filter
+  #       entities:
+  #         - device_tracker.google_maps_110730659630480268471
+  #         - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+  #         - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+  #       state_filter:
+  #         - 'home'
+  #       card:
+  #         type: glance
+  #         title: People that are home
+  #
+  #       # The picture entity card will represent an entity with a picture
+  #     - type: picture-entity
+  #       image: https://www.home-assistant.io/images/default-social.png
+  #       entity: light.conservatory
+
+    # Specify a tab icon if you want the view tab to be an icon.
+  - icon: mdi:home-assistant
+    # Title of the view. Will be used as the tooltip for tab icon
+    title: Quick Control
+    id: quick_control
+    cards:
+      # - type: glance
+      #   entities:
+      #     - updater.updater
+      #   state_filter:
+      #     - 'on'
+      - type: entities
+        # Title of the entities card
+        title: Main Floor Lights
+        # The entities here will be shown in the same order as specified.
+        # Each entry is an entity ID or a map with extra options.
+        entities:
+          - entity: light.conservatory
+            type: custom:slider-entity-row
+          - entity: light.conservatory_reading
+            type: custom:slider-entity-row
+          - entity: light.kitchen_spots
+            type: custom:slider-entity-row
+          - entity: light.kitchen_cabinet_lights
+            type: custom:slider-entity-row
+          - entity: light.living_room_lightstrip
+            type: custom:slider-entity-row
+          - type: divider
+          - entity: light.waldens_bedroom
+            type: custom:slider-entity-row
+          - entity: light.bedroom
+            # type: custom:slider-entity-row
+            type: custom:toggle-lock-entity-row
+            users:
+              - Aephir
+              - Kristina
+          - entity: light.bathroom
+            type: custom:slider-entity-row
+          - entity: light.stairway
+            type: custom:slider-entity-row
+          - entity: light.baby_room
+            name: Baby Room Light
+            type: custom:slider-entity-row
+          - entity: light.gateway_light_7811dcb8d944
+            # Override the name to use
+            name: Gateway Light
+            type: custom:slider-entity-row
+            # show_value: true
+          # - type: divider
+          #   style:
+          #     height: 1px
+          #     width: 80%
+          #     margin-left: auto
+          #     margin-right: auto
+          #     background: '#62717b'
+      # - type: entities
+      #   title: Kitchen Lights
+      #   entities:
+      #     - light.kitchen_spots
+      # - type: entities
+      #   title: Dining Room Lights
+      #   entities:
+      #     - light.living_room_lightstrip
+      - type: entities
+        title: Basement Lights
+        entities:
+          - entity: light.basement_entrance
+            type: custom:slider-entity-row
+          - entity: light.basement_hallway
+            type: custom:slider-entity-row
+          - entity: light.wine_cellar
+            type: custom:slider-entity-row
+          - entity: light.tv_room
+            type: custom:slider-entity-row
+      - type: entities
+        title: Top Floor Lights
+        entities:
+          - entity: light.top_floor_bathroom
+            type: custom:slider-entity-row
+        # The markdown card will render markdown text.
+      - type: markdown
+        title: Lovelace
+        content: >
+          Welcome to your **Lovelace UI**.
+      - type: entities
+        title: Kitchen Appliances
+        show_header_toggle: false
+        entities:
+          - entity: switch.switch
+            type: custom:toggle-lock-entity-row
+            users:
+              - Aephir
+              - Kristina
+          - entity: switch.kettle
+            type: custom:toggle-lock-entity-row
+            users:
+              - Aephir
+              - Kristina
+
+  - title: Information
+    icon: mdi:information-variant
+    cards:
+      - type: glance
+        title: Door/Window Sensors
+        entities:
+          - binary_sensor.sensor
+          - binary_sensor.door_window_sensor_158d000234dc7b
+          - binary_sensor.door_window_sensor_158d00022d0917
+          - binary_sensor.door_window_sensor_158d00022b3b66
+      - type: glance
+        title: Motion Sensors
+        column_width: calc(100% / 3)
+        entities:
+          - binary_sensor.motion_sensor_158d000200d203
+          - binary_sensor.motion_sensor_158d000200d285
+          - binary_sensor.motion_sensor_158d000200e0c5
+          - binary_sensor.motion_sensor_158d000236a116
+          - binary_sensor.motion_sensor_158d00023e3742
+          - binary_sensor.motion_sensor_158d000236a22f
+          - binary_sensor.motion_sensor_158d000236a0d0
+          - binary_sensor.motion_sensor_158d000236a0f3
+      - type: glance
+        title: Illumination Levels
+        column_width: calc(100% / 3)
+        entities:
+          - sensor.illumination_158d000200d285
+          - sensor.illumination_158d000200d203
+          - sensor.illumination_158d000200e0c5
+          - sensor.illumination_7811dcb8d944
+          - sensor.illumination_158d000236a116
+          - sensor.illumination_158d00023e3742
+          - sensor.illumination_158d000236a22f
+          - sensor.illumination_158d000236a0d0
+          - sensor.illumination_158d000236a0f3
+      - type: glance
+        title: Alarm Status
+        column_width: calc(100% / 2)
+        entities:
+          - alarm_control_panel.house
+          - entity: binary_sensor.someonehome360
+            name: Occupancy
+            text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
+      - type: glance
+        title: Family
+        column_width: calc(100% / 3)
+        entities:
+          - device_tracker.google_maps_110730659630480268471
+          - entity: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+            name: Kristina
+          - entity: device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+            name: Emilie
+          - entity: sensor.aephir_phone_battery_360
+            name: Walden's Battery
+          - entity: sensor.kristina_phone_battery_360
+            name: Kristina's Battery
+          - entity: sensor.emilie_phone_battery_360
+            name: Emilie's Battery
+          # - entity: naiahome360
+      - type: glance
+        title: Sensor Battery Levels
+        entities:
+          - entity: sensor.x_door_1_bat
+            name: Conservatory
+          - entity: sensor.x_door_2_bat
+            name: Shed
+          - entity: sensor.x_door_3_bat
+            name: Front Door
+          - entity: sensor.x_motion_1_bat
+            name: Basement Motion
+          - entity: sensor.x_motion_2_bat
+            name: Conservatory Motion
+          - entity: sensor.x_motion_3_bat
+            name: Bathroom Motion
+          - entity: sensor.x_motion_4_bat
+            name: Upstais Bathroom Motion
+          - entity: sensor.x_motion_5_bat
+            name: Basement Stairway Motion
+          - entity: sensor.x_motion_6_bat
+            name: Basement Bathroom 2 Motion
+          - entity: sensor.x_motion_7_bat
+            name: Basement TV Room Motion
+          - entity: sensor.x_temphum_1_bat
+            name: Bathroom Temp/Hum
+          - entity: sensor.x_temphum_2_bat
+            name: Wine Cellar Temp/Hum
+          - entity: sensor.x_temphum_3_bat
+            name: Washing Room Temp/Hum
+          - entity: sensor.x_temphum_4_bat
+            name: Shed Temp/Hum
+          - entity: sensor.x_smoke_1_bat
+            name: Smoke Sensor
+      - type: glance
+        title: Power Consumption
+        entities:
+          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+            name: Fibaro Power
+          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2
+            name: Fibaro2 Power
+          - entity: sensor.neo_coolcam_power_plug_12a_power
+            name: Espresso Power
+          - entity: sensor.neo_coolcam_power_plug_12a_previous_reading_2
+            name: Neo-previous Power
+          - entity: sensor.sensor_desktop
+            name: WeMo 11 Power
+          - entity: sensor.sensor_espresso
+            name: WeMo 6 Power
+      - type: glance
+        title: Bathroom
+        column_width: calc(100% / 3)
+        entities:
+          - entity: sensor.temperature_158d00022c66ff
+            name: Temperature
+          - entity: sensor.humidity_158d00022c66ff
+            name: Humidity
+          - entity: sensor.pressure_158d00022c66ff
+            name: Pressure
+            # value_template: '{{ value.sensor.pressure_158d00022c66ff | round(1) }}'
+      - type: glance
+        title: Wine Cellar
+        column_width: calc(100% / 3)
+        entities:
+          - entity: sensor.temperature_158d000245b4a2
+            name: Temperature
+          - entity: sensor.humidity_158d000245b4a2
+            name: Humidity
+          - entity: sensor.pressure_158d000245b4a2
+            name: Pressure
+      - type: glance
+        title: Washing Room
+        column_width: calc(100% / 3)
+        entities:
+          - entity: sensor.temperature_158d0002437897
+            name: Temperature
+          - entity: sensor.humidity_158d0002437897
+            name: Humidity
+          - entity: sensor.pressure_158d0002437897
+            name: Pressure
+      - type: glance
+        title: Shed
+        column_width: calc(100% / 3)
+        entities:
+          - entity: sensor.temperature_158d000243778b
+            name: Temperature
+          - entity: sensor.humidity_158d000243778b
+            name: Humidity
+          - entity: sensor.pressure_158d000243778b
+            name: Pressure
+      - type: glance
+        title: Kitchen
+        entities:
+          - entity: binary_sensor.smoke_sensor_158d0001bc49bd
+            name: Smoke Detector
+      - type: glance
+        title: Computer Information
+        entities:
+          - entity: sensor.cpu_temperature
+          - entity: sensor.processor_use
+          - entity: sensor.memory_use_percent
+          - entity: sensor.disk_use_percent_
+      - type: horizontal-stack
+        cards:
+          - type: custom:gauge-card
+            title: CPU Temperature
+            measurement: °C # set yo override default
+            entity: sensor.cpu_temperature
+            scale: 20px
+            min: 0
+            max: 100
+            severity:
+              red: 75
+              amber: 50
+              green: 0
+          - type: custom:gauge-card
+            title: CPU use
+            entity: sensor.processor_use
+            scale: 20px
+            min: 0
+            max: 100
+            severity:
+              red: 75
+              amber: 50
+              green: 0
+          - type: custom:gauge-card
+            title: Memory use
+            entity: sensor.memory_use_percent
+            scale: 20px
+            min: 0
+            max: 100
+            severity:
+              red: 75
+              amber: 50
+              green: 0
+          - type: custom:gauge-card
+            title: Disk use
+            entity: sensor.disk_use_percent_
+            scale: 20px
+            min: 0
+            max: 100
+            severity:
+              red: 75
+              amber: 50
+              green: 0
+      - type: custom:tracker-card
+        title: Custom Components and Cards
+        trackers:
+          - sensor.custom_card_tracker
+          - sensor.custom_component_tracker
+      - type: iframe
+        url: https://embed.windy.com/embed2.html
+
+  - icon: mdi:theater
+    title: Media Players
+    cards:
+      - type: entities
+        title: Audio Players
+        show_header_toggle: false
+        entities:
+          - media_player.sonos_play_5_1
+          - media_player.mpd
+      - type: entities
+        title: Video Players
+        entities:
+          - media_player.ue46es8005
+          - media_player.kodi
+      - type: media-control
+        entity: media_player.ue46es8005
+      - type: media-control
+        entity: media_player.kodi
+      - type: media-control
+        entity: media_player.sonos_play_5_1
+
+  - icon: mdi:leaf
+    id: plants
+    cards:
+      - type: plant-status
+        # title: Plant Sensors
+        entity: plant.lemon
+      - type: plant-status
+        # title: Plant Sensors
+        entity: plant.tomato
+      - type: plant-status
+        # title: Plant Sensors
+        entity: plant.monstera
+      - type: plant-status
+        # title: Plant Sensors
+        entity: plant.banana
+          # - sensor.mi_sensor_1_light_intensity
+          # - sensor.mi_sensor_1_moisture
+          # - sensor.mi_sensor_1_temperature
+          # - sensor.mi_sensor_1_conductivity
+          # - sensor.mi_sensor_1_battery
+
+  - icon: mdi:hammer
+    id: manual_override
+    cards:
+      - type: entities
+        title: Family Toggle
+        entities:
+          - input_boolean.aephirhome360
+          - input_boolean.someonehome360
+          - input_boolean.kristinahome360
+          - input_boolean.emiliehome360
+          - input_boolean.naiahome360
+          - input_boolean.vacation_mode
+          - input_boolean.kids_home
+      - type: entities
+        title: Docker Containers
+        entities:
+          - switch.mqtt
+          - switch.grafana
+          - switch.duckdns
+          - switch.letsencrypt
+    #      - switch.home-assistant
+          - switch.mariadb
+          - switch.syncthing
+          - switch.appdaemon
+    #      - switch.hadockermon
+          - switch.portainer
+          - switch.influxdb
+          - switch.nodered
+          - switch.docker_homepanel_1
+          - switch.docker_homepanelapi_1
+      - type: entities
+        title: Miscellaneous
+        entities:
+          - binary_sensor.xiaomi_aqara_cube_1
+
+
+      - type: custom:monster-card
+        show_empty: false
+        show_header_toggle: false
+        card:
+          type: entities
+          title: Scripts
+        filter:
+          include:
+            - domain: script
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: Active Automations
+        filter:
+          include:
+            - domain: automation
+              state: 'on'
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: Inactive Automations
+        filter:
+          include:
+            - domain: automation
+              state: 'off'
+
+  - icon: mdi:biohazard
+    id: experimental
+    cards:
+      - type: picture-elements
+        image: /local/images/floorplan.png
+        elements:
+          - type: state-icon
+            tap_action: toggle
+            entity: light.conservatory
+            style:
+              top: 47%
+              left: 42%
+          - type: state-icon
+            tap_action: toggle
+            entity: light.wine_cellar
+            style:
+              top: 30%
+              left: 15%
+          - type: state-label
+            entity: sensor.temperature_158d00022c66ff
+            style:
+              top: 82%
+              left: 79%
+          - type: service-button
+            title: Turn lights off
+            style:
+              top: 95%
+              left: 60%
+            service: light.turn_off
+            service_data:
+              entity_id: group.all_lights
+          - type: icon
+            icon: mdi:home
+            tap_action: navigate
+            navigation_path: /lovelace/0
+            style:
+              top: 10%
+              left: 10%
+      # - type: entities
+      #   title: nodeRED
+      #   entities:
+      #     - panel_iframe.nodered
+      - type: entities
+        title: remotes
+        entities:
+          - sensor.kitchen_switch
+      - type: picture-entity
+        image: /local/images/aephir.jpg
+        entity: light.waldens_bedroom
+      - type: entities
+        title: kitchen lights
+        entities:
+          - light.kitchen_spot_1
+          - light.kitchen_spot_2
+          - light.kitchen_spot_3
+          - light.kitchen_spot_4
+          - light.kitchen_spot_5
+          - light.kitchen_spot_6
+          - light.kitchen_cabinet_light_2
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: Lights On
+        filter:
+          include:
+            - domain: light
+              state: 'on'
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: entities
+          title: Lights On
+        filter:
+          include:
+            - domain: light
+              state: 'off'
+      - type: picture-glance
+        title: Wyze Cam
+        entities:
+          - light.kitchen_spots
+        camera_image: camera.wyze_camera_1
+      - type: entities
+        title: Main Floor Lights
+        entities:
+          - entity: light.main_floor_lights
+            type: custom:slider-entity-row
+      - type: entities
+        entities:
+          - camera.front_door
+      - type: picture-elements # See https://www.home-assistant.io/lovelace/picture-elements/
+        elements:
+          - type: image
+            title: SkybellHD
+            entity: camera.front_door
+            camera_image: camera.front_door
+            style:
+              top: 5%
+              left: 10%
+              width: 10%
+              border: 2px solid red
+              border-radius: 10%
+      - type: entities
+        entities:
+          - binary_sensor.skybell_front_door_button
+          - binary_sensor.skybell_front_door_motion
+          - camera.front_door
+          - light.front_door
+          - sensor.skybell_front_door_chime_level

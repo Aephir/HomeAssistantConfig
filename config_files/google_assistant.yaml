@@ -1,0 +1,50 @@
+##########################
+#                        #
+#    Google Assistant    #
+#                        #
+##########################
+
+project_id: !secret google_assistant_project_id
+client_id: !secret google_assistant_client_id
+access_token: !secret google_assistant_access_token
+agent_user_id: !secret my_gmail
+api_key: !secret google_assistant_api_key
+exposed_domains:
+  - switch
+  - light
+  entity_config:
+    light.couch_lamp:
+      name: couch lamp
+      aliases:
+        - sofa lamp
+        - couch light
+        - sofa light
+    input_boolean.guest_mode:
+      name: guest mode
+      expose: true
+    switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
+      expose: false
+    switch.bedroom_flux:
+      expose: false
+    light.bedroom_lights:
+      expose: false
+    light.bedroom:
+      expose: false
+    light.living_room_lights:
+      expose: false
+    light.living_room:
+      expose: false
+    light.stairway_lights:
+      expose: false
+    light.lounge_lights:
+      expose: false
+    light.hallway:
+      expose: false
+    switch.bedroom_flux:
+      expose: false
+    switch.kettle:
+      name: iKettle
+      aliases:
+        - kettle
+        - ikettle
+        - water boiler

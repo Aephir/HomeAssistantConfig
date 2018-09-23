@@ -1,0 +1,76 @@
+################
+#    Scenes    #
+################
+
+############
+#__Lights__#
+
+  scene_welcome_home_lights:
+    alias: Welcome Home Lights
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.welcome_home
+
+  scene_living_room_bright:
+    alias: Bright Living Room
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_bright
+
+  scene_living_room_normal:
+    alias: Normal Living Room
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_normal
+
+  scene_living_room_dim:
+    alias: Dim Living Room
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_dim
+
+  scene_living_room_off:
+    alias: Living Room Lights Off
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_off
+
+  scene_bedroom_dim:
+    alias: Dim Bedroom
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.bedroom_dim
+
+  scene_sleepy_bedroom:
+    alias: Red Bedroom
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.sleepy_bedroom
+
+  scene_sleepy_living_room:
+    alias: Dim Red Living Room
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.sleepy_living_room
+
+  scene_all_lights_off:
+    alias: Turn off all lights
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.all_lights_off
+
+  scene_night_lights:
+    alias: Keep Night Light on For Kids
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.night_light

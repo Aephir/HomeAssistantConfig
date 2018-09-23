@@ -1,0 +1,154 @@
+
+############################
+#                          #
+#      BINARY SENSORS      #
+#                          #
+############################
+
+
+###################
+#    Occupancy    #
+###################
+
+- platform: bayesian
+  prior: 0.1
+  probability_threshold: 0.9
+  name: 'Baysian Aephir Home'
+  observations:
+    - entity_id: 'device_tracker.google_maps_110730659630480268471'
+      prob_given_true: 0.6
+      prob_given_false: 0.2
+      platform: 'state'
+      to_state: 'home'
+    - entity_id: 'device_tracker.aephir_ping'
+      prob_given_true: 0.9
+      prob_given_false: 0.1
+      platform: 'state'
+      to_state: 'home'
+
+#################
+#    SkyBell    #
+#################
+
+- platform: skybell
+  monitored_conditions:
+    - button
+    - motion
+
+#- platform: mqtt
+#  state_topic: "wallpanel/mywallpanel/sensor/motion"
+#  name: "Motion"
+#  payload_on: '{"value":true}'
+#  payload_off: '{"value":false}'
+#  device_class: motion
+
+
+#- platform: template
+#  sensors:
+#    someonehome360:
+#      friendly_name: Is Anyone Home 360
+#      value_template:
+#           {%- if is_state('states.input_boolean.someonehome360.state', 'true') -%}
+#             true
+#           {%- else -%}
+#             false
+#           {%- endif -‰}
+#    entity_id: input_boolean.someonehome360
+#    device_class: occupancy
+
+#- platform: template
+#  sensors:
+#    aephirhome360:
+#      friendly_name: Is Aephir Home 360
+#      value_template: "{{ states.input_boolean.aephirhome360.state == 'on' }}"
+#      entity_id: input_boolean.aephirhome360
+#      unit_of_measurement: '{{ states.input_boolean.aephirhome360.state }}'
+#      device_class: occupancy
+
+#- platform: template
+#  sensors:
+#    aephirhome360_test:
+#     friendly_name: Is Aephir Home 360 Test
+#      value_template: '{{ states.input_boolean.aephirhome360.state }}'
+#      entity_id: input_boolean.aephirhome360
+#      unit_of_measurement: '{{ states.input_boolean.aephirhome360.state }}'
+#      device_class: occupancy
+
+- platform: template
+  sensors:
+    aephirhomecombined:
+      friendly_name: Is Aephir Home (3x)
+      value_template: "{{ states.input_boolean.aephirhome.state == 'on' }}"
+#      entity_id: input_boolean.aephirhome
+      device_class: occupancy
+
+- platform: template
+  sensors:
+    kristinahome360:
+      friendly_name: Is kristina Home (360)
+      value_template: >-
+          {%- if is_state("input_boolean.kristinahome360", "on") -%}
+          On
+          {%- else -%}
+          Off
+          {%- endif %}
+
+- platform: template
+  sensors:
+    aephirhome360:
+      friendly_name: Is Aephir Home 360
+      value_template: >-
+          {%- if is_state("input_boolean.aephirhome360", "on") -%}
+          On
+          {%- else -%}
+          Off
+          {%- endif %}
+
+- platform: template
+  sensors:
+    kristinahome360boolean:
+      friendly_name: Is Krisina Home 360 Boolean
+      value_template: >-
+          {%- if is_state("input_boolean.kristinahome360boolean", "on") -%}
+          On
+          {%- else -%}
+          Off
+          {%- endif %}
+
+- platform: template
+  sensors:
+    aephirhome360boolean:
+      friendly_name: Is Aephir Home 360 Boolean
+      value_template: >-
+          {%- if is_state("input_boolean.aephirhome360boolean", "on") -%}
+          On
+          {%- else -%}
+          Off
+          {%- endif %}
+
+- platform: template
+  sensors:
+    someonehome360:
+      friendly_name: Is Anyone Home 360
+      value_template: >-
+          {%- if is_state("input_boolean.someonehome360", "on") -%}
+          true
+          {%- else -%}
+          false
+          {%- endif %}
+
+###################
+#    Floorplan    #
+###################
+
+- platform: mqtt
+  state_topic: dummy/floorplan/sensor
+  name: Floorplan
+
+#- platform: mqtt
+#  state_topic: floorplan/floorplan
+#  name: Floorplan
+
+#- platform: mqtt
+#  state_topic: floorplan/floorplan_2
+#  name: Floorplan_2

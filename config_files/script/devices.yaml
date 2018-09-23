@@ -1,0 +1,63 @@
+#################
+#    Devices    #
+#################
+
+#############
+#__iKettle__#
+  ikettle:
+    alias: Set iKettle to $temp degrees
+    sequence:
+      service_template: >
+        {% if temp == 100 %}
+          shell_command.ikettle100
+        {% elif temp == 95 %}
+          shell_command.ikettle95
+        {% elif temp == 80 %}
+          shell_command.ikettle80
+        {% elif temp == 65 %}
+          shell_command.ikettle65
+        {% else %}
+          //NOTIFY YOURSELF because this should not happen
+        {% endif %}
+
+  ikettleon:
+    alias: Set iKettle to 100 degrees
+    sequence:
+      - service: shell_command.ikettleon
+
+#  ikettle95:
+#    alias: Set iKettle to 95 degrees
+#    sequence:
+#      - service: shell_command.ikettle95
+
+#  ikettle80:
+#    alias: Set iKettle to 80 degrees
+#    sequence:
+#      - service: shell_command.ikettle80
+
+#  ikettle65:
+#    alias: Set iKettle to 65 degrees
+#    sequence:
+#      - service: shell_command.ikettle65
+
+  ikettleoff1:
+    alias: Turn off iKettle
+    sequence:
+      - service: shell_command.ikettleoff1
+
+
+#  ikettle:
+#    alias: Set iKettle to $temp degrees
+#    sequence:
+#      - service_template: >
+#          {% if temp == 100 %}
+#          shell_command.ikettle100
+#          {% elif temp == 95 %}
+#          shell_command.ikettle95
+#          {% elif temp == 80 %}
+#          shell_command.ikettle80
+#          {% elif temp == 65 %}
+#          shell_command.ikettle65
+#          {% else %}
+#          //NOTIFY YOURSELF because this should not happen
+#          {% endif %}

@@ -1,0 +1,10 @@
+#####################
+#                   #
+#       Z-WAVE      #
+#                   #
+#####################
+
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2_4:
+  ignored: false
+  polling_intensity: 0
+

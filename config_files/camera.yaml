@@ -1,0 +1,23 @@
+########
+#    Camera mjpeg
+
+#- platform: mjpeg
+#  mjpeg_url: http://192.168.0.24:8080/
+#  name: 3110
+#  username: !secret android_ip_cam_user
+#  password: !secret android_ip_cam_pass
+
+#- platform: generic
+#  still_image_url: http://192.168.0.40:8080/
+#  name: Wyze
+#  username: !secret wyze_user
+#  password: !secret wyze_pass
+
+# Wyze Cam
+#- name: Wyze Camera 1
+#  platform: mjpeg
+#  username: !secret wyze_user
+#  password: !secret wyze_pass
+#  mjpeg_url: !secret wyze_cam_url
+
+- platform: skybell

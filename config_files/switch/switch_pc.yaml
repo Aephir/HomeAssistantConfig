@@ -1,0 +1,29 @@
+####################
+#    Desktop PC    #
+####################
+
+#- platform: command_line
+#  switches:
+#    Desktop_PC:
+#      offcmd: 'net rpc shutdown -I 192.168.0.15 ## If needed ## -U user%password'
+
+#- platform: wake_on_lan
+#  mac_address: "80:3F:5D:17:1E:A5"
+#  name: "WOL"
+#  host: "192.168.0.15"
+
+#- platform: template
+#  switches:
+#    copy:
+#      value_template: '{{ states.switch.wol.state }}'
+#      turn_on:
+#        service: switch.turn_on
+#        entity_id: switch.wol
+#      turn_off:
+#        service: switch.turn_off
+#        entity_id: switch.pc
+
+#- platform: wemo
+#  switches:
+#    - switch.wine_fridge
+#    - switch.espresso_machine

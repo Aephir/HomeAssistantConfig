@@ -1,0 +1,66 @@
+###########################
+#                         #
+#      NOTIFICATIONS      #
+#                         #
+###########################
+
+################
+#    Notify    #
+################
+
+- platform: smtp
+  name: pigmail
+  server: smtp.gmail.com
+  port: 587
+  timeout: 15
+  sender: !secret pi_gmail
+  starttls: true
+  username: !secret pi_gmail
+  password: !secret pi_gmail_password
+  recipient: !secret my_gmail
+
+- platform: kodi
+  name: libreelecnotify
+  host: 192.168.0.155
+
+- platform: joaoapps_join
+  device_id: !secret joaoapps_s7e_device_id
+  name: S7Edge
+  api_key: !secret join_api_key
+
+- platform: html5
+  name: HTML5 Push notifications
+  gcm_api_key: !secret gcm-sender-key
+  gcm_sender_id: !secret gcm-sender-id
+
+- platform: telegram
+  name: home_aephir_bot
+  api_key: !secret telegram_key
+  chat_id: !secret telegram_chatID_Aephir
+
+- platform: ios
+  name: iOS
+
+- platform: group
+  name: Home Adult Group
+  services:
+    - service: ios_kristinas_iphone
+    - service: home_aephir_bot
+#    - service: html5_push_notifications
+
+#####################################
+#    Save Scene Generator Output    #
+#####################################
+
+- name: scene_generator
+  platform: file
+  filename: generated_scene.yaml
+  timestamp: false
+
+#####################################
+#    File Output of history data    #
+
+# - platform: file
+#   name: write_history_data
+#   filename: /mnt/hassdata/history.csv
+#   timestamp: true

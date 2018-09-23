@@ -1,0 +1,12 @@
+title: Hello Panel
+widget_dimensions: [120, 120]
+widget_margins: [5, 5]
+columns: 8
+
+label:
+    widget_type: label
+    text: Hello World
+
+layout:
+    - light.conservatory(2x2), light.waldens_bedroom, light.living_room_lightstrip
+    - light.basement_entrance, light.walkin_closet, light.tv_room, light.wine_cellar

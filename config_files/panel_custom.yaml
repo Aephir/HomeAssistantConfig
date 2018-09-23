@@ -1,0 +1,37 @@
+##########################
+#                        #
+#      PANEL CUSTOM      #
+#                        #
+##########################
+
+###################
+#    Floorplan    #
+###################
+
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:floor-plan
+    url_path: floorplan
+    config: !include floorplan.yaml
+
+#  - name: floorplan
+#    sidebar_title: Floorplan
+#    sidebar_icon: mdi:home
+#    url_path: floorplan
+#    config: !include www/custom_ui/floorplan/floorplan.yaml
+
+#  - name: floorplan_2
+#    sidebar_title: Floorplan_2
+#    sidebar_icon: mdi:home
+#    url_path: floorplan
+#    config: !include www/custom_ui/floorplan/floorplan_2.yaml
+
+###############
+#    Alarm    #
+###############
+
+  - name: alarm
+    sidebar_title: Alarm
+    sidebar_icon: mdi:security-home
+    config:
+      alarmid: alarm_control_panel.house ## USE THE SAME ID AS USED IN YOUR ALARM.YAML

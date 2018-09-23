@@ -1,0 +1,34 @@
+###########################
+#                         #
+#      INPUT SLIDERS      #
+                          #
+###########################
+
+###############
+#    Media    #
+###############
+
+libreelec_volume:
+  icon: mdi:volume-high
+#  name: KODI Volume
+  name: libreELEC Volume
+  initial: 30
+  min: 1
+  max: 100
+  step: 1
+
+ue46es8005_volume:
+  icon: mdi:volume-high
+  name: TV Volume
+  initial: 10
+  min: 1
+  max: 100
+  step: 1
+
+mopidy_volume:
+  icon: mdi:volume-high
+  name: Mopidy Volume
+  initial: 30
+  min: 1
+  max: 100
+  step: 1

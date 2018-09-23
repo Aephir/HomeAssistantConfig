@@ -1,0 +1,57 @@
+2018-08-12 08:15:18.091382 INFO AppDaemon Version 3.0.1 starting
+2018-08-12 08:15:18.091541 INFO Configuration read from: /conf/appdaemon.yaml
+2018-08-12 08:15:18.095662 INFO AppDaemon: Starting Apps
+2018-08-12 08:15:18.097600 INFO AppDaemon: Loading Plugin HASS using class HassPlugin from module hassplugin
+2018-08-12 08:15:18.125656 INFO AppDaemon: HASS: HASS Plugin Initializing
+2018-08-12 08:15:18.125936 INFO AppDaemon: HASS: HASS Plugin initialization complete
+2018-08-12 08:15:18.126104 INFO Starting Dashboards
+2018-08-12 08:15:18.129614 INFO Starting API
+2018-08-12 08:15:18.134585 INFO AppDaemon: HASS: Connected to Home Assistant 0.75.3
+2018-08-12 08:15:18.197815 INFO AppDaemon: Got initial state from namespace default
+2018-08-12 08:15:20.172390 INFO AppDaemon: Reading config
+2018-08-12 08:15:20.173639 INFO AppDaemon: /conf/appdaemon/apps/apps.yaml added or modified
+2018-08-12 08:15:20.173735 INFO AppDaemon: /conf/appdaemon/apps/apps.yaml added or modified
+2018-08-12 08:15:20.173794 INFO AppDaemon: App 'hello_world' added
+2018-08-12 08:15:20.173877 INFO AppDaemon: Adding /conf/appdaemon to module import path
+2018-08-12 08:15:20.173972 INFO AppDaemon: Adding /conf/appdaemon/dashboards to module import path
+2018-08-12 08:15:20.174066 INFO AppDaemon: Adding /conf/appdaemon/apps to module import path
+2018-08-12 08:15:20.174155 INFO AppDaemon: Adding /conf/appdaemon/widgets to module import path
+2018-08-12 08:15:20.174347 INFO AppDaemon: Loading App Module: /conf/appdaemon/apps/hello.py
+2018-08-12 08:15:20.179413 WARNING AppDaemon: No app description found for: /conf/appdaemon/apps/meta_device_tracker.py - ignoring
+2018-08-12 08:15:20.179544 INFO AppDaemon: Initializing app hello_world using class HelloWorld from module hello
+2018-08-12 08:15:20.211916 INFO hello_world: Hello from AppDaemon
+2018-08-12 08:15:20.212413 INFO hello_world: You are now ready to run Apps!
+2018-08-12 08:15:20.212821 INFO AppDaemon: App initialization complete
+2018-08-12 08:15:50.556122 INFO AppDaemon Version 3.0.1 starting
+2018-08-12 08:15:50.556374 INFO Configuration read from: /conf/appdaemon.yaml
+2018-08-12 08:15:50.557707 INFO AppDaemon: Starting Apps
+2018-08-12 08:15:50.573095 INFO AppDaemon: Loading Plugin HASS using class HassPlugin from module hassplugin
+2018-08-12 08:15:50.583951 INFO AppDaemon: HASS: HASS Plugin Initializing
+2018-08-12 08:15:50.584258 INFO AppDaemon: HASS: HASS Plugin initialization complete
+2018-08-12 08:15:50.584438 INFO Starting Dashboards
+2018-08-12 08:15:50.596698 INFO Starting API
+2018-08-12 08:15:50.598143 WARNING AppDaemon: HASS: Disconnected from Home Assistant, retrying in 5 seconds
+2018-08-12 08:15:55.600312 WARNING AppDaemon: HASS: Disconnected from Home Assistant, retrying in 5 seconds
+2018-08-12 08:16:00.602578 WARNING AppDaemon: HASS: Disconnected from Home Assistant, retrying in 5 seconds
+2018-08-12 08:16:05.604324 WARNING AppDaemon: HASS: Disconnected from Home Assistant, retrying in 5 seconds
+2018-08-12 08:16:10.607122 WARNING AppDaemon: HASS: Disconnected from Home Assistant, retrying in 5 seconds
+2018-08-12 08:16:15.609666 WARNING AppDaemon: HASS: Disconnected from Home Assistant, retrying in 5 seconds
+2018-08-12 08:16:20.612177 WARNING AppDaemon: HASS: Disconnected from Home Assistant, retrying in 5 seconds
+2018-08-12 08:16:25.613922 WARNING AppDaemon: HASS: Disconnected from Home Assistant, retrying in 5 seconds
+2018-08-12 08:16:30.619290 INFO AppDaemon: HASS: Connected to Home Assistant 0.75.3
+2018-08-12 08:16:30.648897 INFO AppDaemon: Reading config
+2018-08-12 08:16:30.649916 INFO AppDaemon: /conf/appdaemon/apps/apps.yaml added or modified
+2018-08-12 08:16:30.649991 INFO AppDaemon: /conf/appdaemon/apps/apps.yaml added or modified
+2018-08-12 08:16:30.650050 INFO AppDaemon: App 'hello_world' added
+2018-08-12 08:16:30.650132 INFO AppDaemon: Adding /conf/appdaemon to module import path
+2018-08-12 08:16:30.650222 INFO AppDaemon: Adding /conf/appdaemon/dashboards to module import path
+2018-08-12 08:16:30.650314 INFO AppDaemon: Adding /conf/appdaemon/apps to module import path
+2018-08-12 08:16:30.650402 INFO AppDaemon: Adding /conf/appdaemon/widgets to module import path
+2018-08-12 08:16:30.650588 INFO AppDaemon: Processing restart for HASS
+2018-08-12 08:16:30.650666 INFO AppDaemon: Terminating hello_world
+2018-08-12 08:16:30.650745 INFO AppDaemon: Loading App Module: /conf/appdaemon/apps/hello.py
+2018-08-12 08:16:30.667148 WARNING AppDaemon: No app description found for: /conf/appdaemon/apps/meta_device_tracker.py - ignoring
+2018-08-12 08:16:30.667410 INFO AppDaemon: Initializing app hello_world using class HelloWorld from module hello
+2018-08-12 08:16:30.708762 INFO hello_world: Hello from AppDaemon
+2018-08-12 08:16:30.709624 INFO hello_world: You are now ready to run Apps!
+2018-08-12 08:16:31.683034 INFO AppDaemon: App initialization complete

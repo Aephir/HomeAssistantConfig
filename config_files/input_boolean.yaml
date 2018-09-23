@@ -1,0 +1,130 @@
+############################
+#                          #
+#      BOOLEAN INPUTS      #
+#                          #
+############################
+
+############################
+#    Presense Detection    #
+############################
+
+aephirhome:
+  name: Aephir Home
+  icon: mdi:cellphone-android
+
+someonehome360:
+  name: Someone Home 360
+  icon: mdi:home-map-marker
+
+#someonehome360boolean:
+#  name: Someone Home 360 Boolean
+#  icon: mdi:home-map-marker
+
+aephirhome360:
+  name: Aephir Home (L360)
+  icon: mdi:cellphone-android
+
+kristinahome360:
+  name: Kristina Home (L360)
+#  initial: on
+  icon: mdi:panda
+
+emiliehome360:
+  name: Emilie Home (L360)
+#  initial: on
+  icon: mdi:panda
+
+naiahome360:
+  name: Naia Home (L360)
+  icon: mdi:panda
+
+kristinahome:
+  name: Kristina Home
+#  initial: on
+  icon: mdi:panda
+
+someonehome:
+  name: Someone Home
+#  initial: on
+  icon: mdi:home-map-marker
+
+aephirhome360boolean:
+  name: Aephir Home 360 Boolean
+#  initial: on
+  icon: mdi:cellphone-android
+
+kristinahome360boolean:
+  name: Kristina Home 360 Boolean
+#  initial: on
+  icon: mdi:panda
+
+#######################
+# Home Modes #
+
+
+# Guest mode: Wont turn off everything when we leave
+
+guest_mode:
+  name: Guest Mode
+  icon: mdi:account-alert
+#  initial: off
+
+school_mode:
+  name: School Mode
+  icon: mdi:school
+#  initial: on
+
+alert_mode:
+  name: Alert Mode
+  icon: mdi:alert-octagram
+#  initial: off
+
+speech_notifications:
+  name: Speech Notifications
+  icon: mdi:speaker-wireless
+#  initial: on
+
+vacation_mode:
+  name: Vacation
+  # icon: mdi:
+
+kids_home:
+  name: Kids Home
+
+###########################
+#     Dummy switches      #
+###########################
+
+color_temperature_light_1:
+  name: dummy lounge light
+
+light_kitchen_spots:
+  name: dummy kitchen spots
+
+light_basement_hallway:
+  name: dummy basement hallway light
+
+light_stairway:
+  name: dummy stairway light
+
+light_tv_room:
+  name: dummy TV room light
+
+light_walkin_closet:
+  name: dummy walk-in closet light
+
+light_wine_cellar:
+  name: dummy wine cellar light
+
+light_conservatory:
+  name: dummy conservatory light
+
+light_bathroom:
+  name: dummy bathroom light
+
+#########################
+#    Maunal Override    #
+#########################
+
+door_sensor_status_1:
+  name: set door open state

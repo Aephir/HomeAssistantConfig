@@ -1,0 +1,18 @@
+###############
+#    IFTTT    #
+###############
+
+  ifttt_test:
+    alias: IFTTT Test
+    sequence:
+      - service: ifttt.trigger
+        data:
+          event: testhass
+
+  ifttt_desktop_computer_off:
+    alias: Shutdown Desktop Computer
+    sequence:
+      - service: ifttt.trigger
+        data:
+          event: desktop_power_off
+

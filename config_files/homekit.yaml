@@ -1,0 +1,13 @@
+#################
+#               #
+#    HOMEKIT    #
+#               #
+#################   
+
+pincode: !secret homekit_pincode
+auto_start: False
+filter:
+  exclude_domains:
+    - script
+    - sensor
+    - input_boolean

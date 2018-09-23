@@ -1,0 +1,13 @@
+#######################
+#                     #
+#    SNIPS INTENTS    #
+#                     #
+#######################
+
+intents:
+  ActivateLightColor:
+    action:
+      - service: light.turn_on
+        data_template:
+          entity_id: light.{{ objectLocation | replace(" ","_") }}
+          color_name: {{ objectColor }}

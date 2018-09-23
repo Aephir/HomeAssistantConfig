@@ -1,0 +1,21 @@
+##
+## Main arguments, all optional
+##
+title: Test Panel
+widget_dimensions: [120, 120]
+widget_margins: [5, 5]
+columns: 8
+global_parameters:
+    use_comma: 0
+    precision: 1
+    use_hass_icon: 1
+    namespace: default
+    devices:
+
+##label:
+##    widget_type: label
+##    text: Hello World
+
+layout:
+    -
+    - light.hue_lightstrip_plus_1(1x1), light.couch_lamp(1x1), light.hue_ambiance_lamp_1(1x1), light.hue_ambiance_lamp_2(1x1), light.bedroom_stairway(1x1), light.kristinas_bedroom(1x1), light.waldens_bedroom(1x1)

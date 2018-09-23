@@ -1,0 +1,41 @@
+exclude:
+  domains:
+    - automation
+    - weblink
+    - updater
+    - group
+    - scene
+    - zone
+  entities:
+    - binary_sensor.floorplan
+    - sensor.date
+    - sensor.time
+    - sensor.moon
+    - sun.sun
+    - sensor.ssl_cert_expiry
+    - sensor.dark_sky_apparent_temperature
+    - sensor.dark_sky_daily_high_temperature
+    - sensor.dark_sky_daily_low_temperature
+    - sensor.dark_sky_daily_max_precip_intensity
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_humidity_2
+    - sensor.dark_sky_nearest_storm_distance
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_visibility
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_wind_speed
+    - sensor.yr_cloudiness
+    - sensor.yr_fog
+    - sensor.yr_humidity
+    - sensor.yr_precipitation
+    - sensor.yr_pressure
+    - sensor.yr_symbol
+    - sensor.yr_temperature
+    - sensor.yr_wind_direction
+    - sensor.yr_wind_speed

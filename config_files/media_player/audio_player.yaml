@@ -1,0 +1,22 @@
+############################
+#                          #
+#      MEDIA PLAYERS       #
+#                          #
+############################
+
+###############
+#    AUDIO    #
+###############
+
+- platform: mpd
+  host: 192.168.0.145
+  password: !secret mpd1_password
+
+#- platform: spotify
+#  client_id: !secret spotify_client_id
+#  client_secret: !secret spotify_client_secret
+#  cache_path: /mnt/hassdata/spotify/
+
+#- platform: vlc
+#  name: speaker_1
+#  arguments: '--alsa-audio-device=plughw:0,0'

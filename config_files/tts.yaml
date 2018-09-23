@@ -1,0 +1,10 @@
+#############
+#           #
+#    TTS    #
+#           #
+#############
+
+#platform: picotts
+- platform: google
+  cache: true
+  cache_dir: /home/aephir/data/tts/cache

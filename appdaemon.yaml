@@ -1,0 +1,25 @@
+## Appdaemon config file
+
+secrets: /conf/secrets.yaml
+log:
+  accessfile: /logs/access.log
+  errorfile: /logs/error.log
+  logfile: /logs/appdaemon.log
+  log_generations: 3
+  log_size: 1000000
+appdaemon:
+  logfile: STDOUT
+  errorfile: STDERR
+  threads: 10
+  api_port: 5000
+  app_dir: /conf/appdaemon
+  api_key: !secret appdaemon_api_key
+  plugins:
+    HASS:
+      type: hass
+      ha_url: "http://192.168.0.100:8123"
+      ha_key: !secret api_password
+      namespace: default
+hadashboard:
+  dashboard_dir: /conf/appdaemon/dashboards
+  dash_url: "http://192.168.0.100:5050"

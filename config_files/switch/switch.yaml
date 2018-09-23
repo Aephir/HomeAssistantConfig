@@ -1,0 +1,123 @@
+######################
+#                    #
+#      SWITCHES      #
+#                    #
+######################
+
+###############
+#    Media    #
+###############
+
+- platform: command_line
+  switches:
+    tv_kodi:
+      value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
+      command_on: ssh -i /home/homeassistant/connection/privatekey_libreelec root@192.168.0.155 "echo 'on 0' | cec-client -s"
+      command_off: ssh -i /home/homeassistant/connection/privatekey_libreelec root@192.168.0.155 "echo 'standby 0' | cec-client -s"
+      friendly_name: TV
+# OBS! For new HASS, remember to try connecting using the homeassistant user through terminal, so you can accept connections
+
+###############
+#    Plugs    #
+###############
+
+- platform: template
+  switches:
+    living_room_media_master:
+      value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+      turn_off:
+        service: script.turn_on
+        entity_id: script.living_room_media_off
+      friendly_name: Media Center Power
+
+#- platform: command_line
+#  switches:
+#    living_room_media_center_2:
+#       command_on: switch.turn_on_fibaro_system_fgwpef_wall_plug_gen5_switch
+#       command_off: script.livingroommediaoff
+#       friendly_name: Lving Room Media 2
+
+
+###############
+#    Light    #
+###############
+
+- platform: flux
+  lights:
+    - light.bedroom
+  name: Bedroom Flux
+  start_time: '8:00'
+  stop_time: '06:00'
+  start_colortemp: 4000
+  sunset_colortemp: 3000
+  stop_colortemp: 1900
+  brightness: 200
+  disable_brightness_adjust: False
+  mode: xy
+
+#################
+#    Devices    #
+#################
+
+#############
+#__iKettle__#
+- platform: command_line
+  switches:
+    kettle:
+       command_on: echo -e "HELLOKETTLE\nset sys output 0x4\nset sys output 0x80\n" | nc  192.168.0.20 2000
+       command_off: echo -e "HELLOKETTLE\nset sys output 0x4\nset sys output 0x0\n" | nc  192.168.0.20 2000
+       friendly_name: iKettle
+
+################
+#    Docker    #
+################
+
+# component for HA Dockermon switch
+# https://github.com/HalfDecent/HA-Custom_components/tree/master/hadockermon
+
+- platform: hadockermon
+  host: 192.168.0.100
+  port: 8126
+  stats: true
+  # exclude:
+  #   - NGINX
+  #   - ha-dockermon
+
+
+# - platform: rest
+#   resource: http://127.0.0.1:8126/container/grafana
+#   name: Grafana
+#   body_on: '{"state": "start"}'
+#   body_off: '{"state": "stop"}'
+#   is_on_template: '{{ value_json is not none and value_json.state == "running" }}'
+
+################
+#__Desktop PC__#
+#- platform: command_line
+#  switches:
+#    Desktop_PC:
+#      offcmd: 'net rpc shutdown -I 192.168.0.15 ## If needed ## -U user%password'
+
+#- platform: wake_on_lan
+#  mac_address: "80:3F:5D:17:1E:A5"
+#  name: "WOL"
+#  host: "192.168.0.15"
+
+#- platform: template
+#  switches:
+#    copy:
+#      value_template: '{{ states.switch.wol.state }}'
+#      turn_on:
+#        service: switch.turn_on
+#        entity_id: switch.wol
+#      turn_off:
+#        service: switch.turn_off
+#        entity_id: switch.pc
+
+#- platform: wemo
+#  switches:
+#    - switch.wine_fridge
+#    - switch.espresso_machine
