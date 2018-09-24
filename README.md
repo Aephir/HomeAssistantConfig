@@ -31,7 +31,7 @@ EVERYTHING IS A WORK IN PROGRESS. LOT'S OF STUFF IS COMMENTED OUT WHILE I TRY DI
 * [Neo CoolCam Door/Window Sensor](http://www.szneo.com/en/products/index.php?id=42) a z-wave door/window sensor.
 * [Huahuacaocao Flower Care Smart Monitor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/) for monitoring my plants. I'm thinking they'll come in handy when I get a greenhouse, where I can automate windows/watering.
 * [Xiaomi Honeywell Smoke Detector](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mijia-honeywell-smoke-detector-white/).
-
+* [Skybell HD Trim Plus](http://www.skybell.com/product/skybell-video-doorbell-trim-plus/).
 
 **Software:**
 * [Ubuntu Server LTE 18.04](https://downloads.raspberrypi.org/raspbian_lite_latest) as the OS.

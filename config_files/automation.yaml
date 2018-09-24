@@ -1787,21 +1787,26 @@
 #    Doorbell    #
 ##################
 
-- alias: 'Doorbell chime test'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.skybell_front_door_button
-    to: 'on'
-  action:
-    service: notify.home_aephir_bot
-    data:
-      message: "on"
+# The delay is currently unacceptable.
+# I am using RESTtask plugin with tasker to monitor Skybell app,
+# and trigger the "doorbell_day" script through an HTTP POST.
+# See post #5 here https://community.home-assistant.io/t/tasker-long-lived-access-tokens/69253/4
 
-- alias: 'Doorbell chime'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.skybell_front_door_button
-    to: 'on'
-  action:
-    - service: script.turn_on
-      entity_id: doorbell_day
+# - alias: 'Doorbell chime test'
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.skybell_front_door_button
+#     to: 'on'
+#   action:
+#     service: notify.home_aephir_bot
+#     data:
+#       message: "on"
+#
+# - alias: 'Doorbell chime'
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.skybell_front_door_button
+#     to: 'on'
+#   action:
+#     - service: script.turn_on
+#       entity_id: script.doorbell_day
