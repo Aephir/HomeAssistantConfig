@@ -366,43 +366,80 @@
 ##################
 #__Meta_Tracker__#
 
-# - id: update_meta_tracker
-#   alias: "Update Device Meta Tracker"
+# - id: update_aephir_meta_tracker
+#   alias: "Update Aephir Meta Tracker"
 #   initial_state: 'on'
 #   trigger:
 #     # Delayed action for router-based and Owntracks trackers that are not 100% reliable
 #     - platform: state
 #       entity_id:
 #         - device_tracker.aephir_ping
-#         - device_tracker.kristina_ping
-#         - device_tracker.emilie_iphone_ping
-#         - device_tracker.emilie_ipad_ping
+#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
+#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
 #       to: 'not_home'
 #       for: '00:16:00'
+#     - platform: state
+#       entity_id:
+#         - device_tracker.aephir_ping
+#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
+#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
+#       to: 'home'
+#   action:
+#     - service: python_script.meta_device_tracker.py
+#       data_template:
+#         entity_id: '{{trigger.entity_id}}'
+#         meta_entity: 'aephir'
+#
+# - id: update_kristina_meta_tracker
+#   alias: "Update Kristina Meta Tracker"
+#   initial_state: 'on'
+#   trigger:
+#     # Delayed action for router-based and Owntracks trackers that are not 100% reliable
+#     - platform: state
+#       entity_id:
+#         - device_tracker.kristina_ping
+#         - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+#         - device_tracker.kristinas_iphone
+#       to: 'not_home'
+#       for: '00:16:00'
+#     - platform: state
+#       entity_id:
+#         - device_tracker.kristina_ping
+#         - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+#         - device_tracker.kristinas_iphone
+#       to: 'home'
+#   action:
+#     - service: python_script.meta_device_tracker.py
+#       data_template:
+#         entity_id: '{{trigger.entity_id}}'
+#         meta_entity: 'kristina'
+#
+# - id: update_emilie_meta_tracker
+#   alias: "Update Emilie Meta Tracker"
+#   initial_state: 'on'
+#   trigger:
+#     # Delayed action for router-based and Owntracks trackers that are not 100% reliable
+#     - platform: state
+#       entity_id:
+#         - device_tracker.emilie_iphone_ping
+#         - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+#       to: 'not_home'
+#       for: '00:16:00'
+#     - platform: state
+#       entity_id:
+#         - device_tracker.emilie_iphone_ping
+#         - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+#       to: 'home'
 #     - platform: state
 #       entity_id:
 #         - device_tracker.kristinas_iphone
 #       to: 'home'
 #       for: '00:00:30'
-#     - platform: state
-#       entity_id:
-#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
-#         - device_tracker.google_maps_110730659630480268471
-#         - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
-#         - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
-#     - platform: state
-#       entity_id:
-#         - device_tracker.aephir_ping
-#         - device_tracker.kristina_ping
-#         - device_tracker.emilie_iphone_ping
-#         - device_tracker.emilie_ipad_ping
-#       to: 'home'
 #   action:
-#     - service: script.updatetracker
+#     - service: python_script.meta_device_tracker.py
 #       data_template:
-#         entityid: '{{trigger.entity_id}}'
-#         fromstate: '{{trigger.from_state.state}}'
-#         tostate: '{{trigger.to_state.state}}'
+#         entity_id: '{{trigger.entity_id}}'
+#         meta_entity: 'emilie'
 
 ###################
 #__Input_Boolean__#

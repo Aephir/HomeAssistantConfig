@@ -35,9 +35,9 @@
 
   - platform: ping
     hosts:
-      aephir_ping: 192.168.0.5
+      aephir_ping: 192.168.0.11
       kristina_ping: 192.168.0.18
-      emilie_ipad_ping: 192.168.0.33
+      naia_ipad_ping: 192.168.0.35
       emilie_iphone_ping: 192.168.0.38 # I think this is her phone, check to be sure.
 
 

@@ -6,6 +6,8 @@ I drew quite a bit of inspiration from [COOSTAN](https://github.com/CCOSTAN/Home
 ____
 EVERYTHING IS A WORK IN PROGRESS. LOT'S OF STUFF IS COMMENTED OUT WHILE I TRY DIFFERENT THINGS. THAT'S NOT LIKELY TO CHANGE ANY TIME SOON :-)
 
+Some additional scripts, files that contain sensitive information (but where I want to save a "template"), etc. can be found in my [miscellaneous](https://github.com/Aephir/Miscellaneous) repo.
+
 **Hardware**
 * [Fujitsu Esprimo q520](https://sp.ts.fujitsu.com/dmsp/publications/public/ds-esprimo-q520.pdf) running almost everything described below.
 * [Raspberry Pi 3B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) running hass.io to connect to plant sensors (no bluetooth on Esprimo, plus I want this to be close to the greenhouse once that is set up. I'm not sure the main PC would even be within bluetooth range).
@@ -81,16 +83,21 @@ Frontend using "custom UI". UPDATE: I'm using lovelace, so it is currently being
 * Integrate presence sensing for each family member into "anyone home" input_boolean. Used to automate various things.
 * Turn on lights if anyone arrives home later than 1 hour before sunset.
 * Turn on living room lights 1 hour before sunset if someone home (plan to either implement light sensors or sun angle instead in future).
-* turn off lights, espresso machine, send shutdown command through SSH to two other Raspberry Pis (KODI and Mopidy) before cutting the master power to those 15 seconds later.
 * Guest mode - An input_boolean toggle that disables all the general presence-based automations (so the lights don't go out once you leave, if a guest is staying).
+* Motion sensors everywhere, to control light. At night time (unless certain other lights are on, or the TV is on, etc.), the light in the bathroom will turn on at 10% and be red to avoid waking up too much.
 * Automations for my bedside button. Depending on various factors (time of day, workday or day off, kids at home or not, etc.) it will do various things. Usually, it starts up the espresso machine if I press it in the morning, and does various things with the light and/or turning off various appliances if I press it in the evening/night.
 
 **Notable Scripts**
 * Python script to use hue dimmer remotes. I might go to pure automations, since I can't get the python script to use both "click" and "long-press".
+* turn off lights, espresso machine, send shutdown command through SSH to two Raspberry Pis (KODI and Mopidy) before cutting the master power to those 15 seconds later. Used in various automations (such as when no one is home, when we go to bed, etc.)
+
+**Notable Other**
+* I (finally) started using [Tasker](http://tasker.dinglisch.net/) again. The nudge I needed was my doorbell, that has a huge delay if using purely home assistant. I use it with the [RESTask](https://play.google.com/store/apps/details?id=com.freehaha.restask&hl=en) plugin, in able to use the new long-lived access tokens instead of api password.
 
 **Planned future software:**
 * Samba in Docker?
-
+* Or perhaps [SSHFS](https://wiki.archlinux.org/index.php/SSHFS) mounting for more secure access?
+* Combine all my motion sensors into python scripts; avoid having 20 automations that could be solved by one or two python scripts. Oh, and learn Python while I'm at it :-)
 
 **Planned future hardware (purchased, not yet successfully implemented)**
 * Arduino (several, for a few different purposes).
@@ -104,4 +111,4 @@ Frontend using "custom UI". UPDATE: I'm using lovelace, so it is currently being
 
 
 **Planned future misc.**
-* Integrate various [Tasker](http://tasker.dinglisch.net/) automations. Have Tasker send info to home assistant, then have home assistant do the work.
+* Integrate various  additional stuff with Tasker. Have Tasker send info to home assistant, then have home assistant do the work.

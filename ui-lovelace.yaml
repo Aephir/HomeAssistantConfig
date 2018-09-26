@@ -433,7 +433,6 @@ views:
         entities:
           - binary_sensor.xiaomi_aqara_cube_1
 
-
       - type: custom:monster-card
         show_empty: false
         show_header_toggle: false
@@ -534,7 +533,7 @@ views:
         show_empty: false
         card:
           type: entities
-          title: Lights On
+          title: Lights Off
         filter:
           include:
             - domain: light
@@ -552,6 +551,7 @@ views:
       - type: entities
         entities:
           - camera.front_door
+          - sensor.hue_dimmer_1
       - type: picture-elements # See https://www.home-assistant.io/lovelace/picture-elements/
         elements:
           - type: image
@@ -571,3 +571,14 @@ views:
           - camera.front_door
           - light.front_door
           - sensor.skybell_front_door_chime_level
+      - type: custom:monster-card
+        show_empty: false
+        show_header_toggle: false
+        card:
+          type: entities
+          title: Things that are broken
+        filter:
+          include:
+            - state: "unknown"
+          exclude:
+            - entity_id: group.*
