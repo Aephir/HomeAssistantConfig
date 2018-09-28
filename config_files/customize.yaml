@@ -18,12 +18,8 @@ switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
 switch.switch:
   friendly_name: Espresso Machine
   entity_picture: /local/images/silvia.jpg
-switch.desktop:
-  friendly_name: WeMo 11
-  entity_picture: /local/images/pc2.jpg
-  confirm_controls_show_lock: true
-  extra_badge:
-    entity_id: sensor.sensor_desktop
+switch.fountain:
+  icon: mdi:fountain
 switch.espresso_machine:
   friendly_name: WeMo 6
   extra_badge:

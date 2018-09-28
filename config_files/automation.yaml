@@ -70,14 +70,14 @@
       entity_id: sensor.bedroom_switch
       to: '1_click'
   action:
-    - service: light.turn_off
+    - service: switch.toggle
       data:
-        entity_id: light.conservatory_couch
+        entity_id: switch.fountain
 
 - alias: test_hue_tap_2
   trigger:
-    - platform: state
-      entity_id: sensor.bedroom_switch_last_updated
+    platform: state
+    entity_id: sensor.bedroom_switch_last_updated
   condition:
     condition: state
     entity_id: sensor.bedroom_switch
@@ -90,7 +90,7 @@
 - alias: test_hue_tap_3
   trigger:
     - platform: template
-      value_template: '{{ is_state("sensor.bedroom_switch","3_click") and as_timestamp(now()) !=  as_timestamp(states.sensor.bedroom_switch.last_updated) }}'
+      value_template: '{{ is_state("sensor.bedroom_switch","3_click") and strptime(now(), "%d-%m-%Y %H:%M:%S") !=  strptime(states(sensor.bedroom_switch.last_updated), "%d-%m-%Y %H:%M:%S") }}'
       # entity_id: sensor.bedroom_switch
   action:
     - service: light.turn_off
@@ -107,6 +107,24 @@
 
 ###########################
 #__Contextual Bed Button__#
+
+
+# - alias: bedside_button
+#   trigger:
+#     - platform: event
+#       event_type: click
+#       event_data:
+#         entity_id: binary_sensor.switch_158d0001f3ac72
+#         click_type: single
+#   condition:
+#     condition: template
+#
+#   action:
+#     service: template
+#       - data_template:
+#           entity_id: "{{ 'script.blinds_shutters_open' if is_state('sun.sun', 'above_horizon') else 'light.inside_lights' }}"
+#         service_template: "{{ 'script.turn_on' if is_state('sun.sun', 'above_horizon') else 'light.turn_on' }}"
+
 
 - alias: bedside_button_morning_workday
   trigger:
@@ -1148,6 +1166,7 @@
       data:
         entity_id:
           - light.stairway
+          - light.basement_entrance
 
 - alias: Basement Stairway timer basement hallway off
   trigger:

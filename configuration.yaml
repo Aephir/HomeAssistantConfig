@@ -116,7 +116,7 @@ switch: !include config_files/switch/switch.yaml
 telegram_bot: !include config_files/telegram_bot.yaml
 tts: !include config_files/tts.yaml
 weblink: !include config_files/weblink.yaml
-# wemo: !include config_files/wemo.yaml
+wemo: !include config_files/wemo.yaml
 zone: !include config_files/zone.yaml
 zwave: !include config_files/zwave.yaml
 xiaomi_aqara: !include config_files/xiaomi_aqara.yaml

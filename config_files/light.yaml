@@ -58,10 +58,10 @@
 #     - light.
 
 - platform: group
-  name: Dining Table Lights
+  name: Dining Table lights
   entities:
-    - light.dining_table_light_1
-    - light.dining_table_light_2
+    - light.dining_table_1
+    - light.dining_table_2
 
 - platform: group
   name: Dining Room Lights
@@ -84,7 +84,7 @@
 - platform: group
   name: Bedroom Lights
   entities:
-    - light.waldens_bedroom
+    - light.bedroom
 
 - platform: group
   name: Basement Lights

@@ -73,9 +73,9 @@ views:
             type: custom:slider-entity-row
           - entity: light.living_room_lightstrip
             type: custom:slider-entity-row
-          - type: divider
           - entity: light.dining_table_lights
             type: custom:slider-entity-row
+          - type: divider
           - entity: light.bedroom
             # type: custom:slider-entity-row
             type: custom:toggle-lock-entity-row
@@ -144,6 +144,11 @@ views:
             users:
               - Aephir
               - Kristina
+      - type: entities
+        title: Fountain
+        show_header_toggle: false
+        entities:
+          - entity: switch.fountain
 
   - title: Information
     icon: mdi:information-variant
