@@ -18,7 +18,7 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.event import track_time_interval
 import yaml
 
-__version__ = '2.7.0'
+__version__ = '2.7.2'
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -161,6 +161,7 @@ class CustomCards():
         self.hass.data[CARD_DATA] = {}
         self.hass.data[CARD_DATA]['domain'] = 'custom_cards'
         self.hass.data[CARD_DATA]['repo'] = '#'
+        self.hass.data[CARD_DATA]['has_update'] = []
         self._updatable = 0
         if self._hide_sensor:
             self.hass.data[CARD_DATA]['hidden'] = True
@@ -178,6 +179,7 @@ class CustomCards():
                     not_local = (remote_version and not local_version)
                     if has_update and not not_local:
                         self._updatable = self._updatable + 1
+                        self.hass.data[CARD_DATA]['has_update'].append(name)
                     self.hass.data[CARD_DATA][name] = {
                         "local": local_version,
                         "remote": remote_version,
@@ -376,9 +378,10 @@ class CustomCards():
 
     def get_resources(self):
         """Get resources."""
+        yaml.add_constructor(u'!resource', env_constructor)
         if os.path.isfile(self._conf_file_path):
             with open(self._conf_file_path, 'r') as local:
-                content = yaml.safe_load(local)
+                content = yaml.load(local)
                 if content['resources'] is not None:
                     resources = []
                     for tuples in content['resources']:
@@ -386,6 +389,7 @@ class CustomCards():
                         for key, value in tuples.items():
                             resource.setdefault(key, value)
                         resources.append(resource)
+                    _LOGGER.debug(resources)
                     return resources
         return []
 
@@ -426,6 +430,7 @@ class CustomComponents():
         self.hass.data[COMP_DATA] = {}
         self.hass.data[COMP_DATA]['domain'] = 'custom_components'
         self.hass.data[COMP_DATA]['repo'] = '#'
+        self.hass.data[COMP_DATA]['has_update'] = []
         self._updatable = 0
         if self._hide_sensor:
             self.hass.data[COMP_DATA]['hidden'] = True
@@ -443,6 +448,7 @@ class CustomComponents():
                     not_local = (remote_version and not local_version)
                     if has_update and not not_local:
                         self._updatable = self._updatable + 1
+                        self.hass.data[COMP_DATA]['has_update'].append(name)
                     self.hass.data[COMP_DATA][name] = {
                         "local": local_version,
                         "remote": remote_version,
@@ -564,3 +570,9 @@ class CustomComponents():
                         return matcher.group(1)
         _LOGGER.debug('Could not get the local version for %s', name)
         return False
+
+
+def env_constructor(self, loader, node):
+    """Add custom node to yaml loader."""
+    value = loader.construct_scalar(node)
+    return os.environ.get(value)

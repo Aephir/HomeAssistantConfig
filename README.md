@@ -33,7 +33,7 @@ Some additional scripts, files that contain sensitive information (but where I w
 * [Neo CoolCam Door/Window Sensor](http://www.szneo.com/en/products/index.php?id=42) a z-wave door/window sensor.
 * [Huahuacaocao Flower Care Smart Monitor](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-huahuacaocao-flower-care-smart-monitor/) for monitoring my plants. I'm thinking they'll come in handy when I get a greenhouse, where I can automate windows/watering.
 * [Xiaomi Honeywell Smoke Detector](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-mijia-honeywell-smoke-detector-white/).
-* [Skybell HD Trim Plus](http://www.skybell.com/product/skybell-video-doorbell-trim-plus/). It works, but you can't really directly use home assistant to react when someone rings; there's a 10 - 40 second delay. I use a tablet in the basement with Tasker to send a POST via RESTask to home assistant. 
+* [Skybell HD Trim Plus](http://www.skybell.com/product/skybell-video-doorbell-trim-plus/). It works, but you can't really directly use home assistant to react when someone rings; there's a 10 - 40 second delay. I use a tablet in the basement with Tasker to send a POST via RESTask to home assistant.
 
 **Software:**
 * [Ubuntu Server LTE 18.04](https://downloads.raspberrypi.org/raspbian_lite_latest) as the OS.
@@ -73,10 +73,16 @@ OBS! Some are not fully configured yet.
 * [Custom UI](https://github.com/andrey-git/home-assistant-custom-ui) from Andrey, another great project to customize your home assistant frontend. OBS! Not using this at the moment, but as soon as this integrates with lovelace, I'm sure I'll use it again!
 
 ![Screenshot Floorplan](https://github.com/Aephir/Images/blob/master/floorplan_20180811.png)
-Floorplan - Circles with temperature/humidity states can be clicked to toggle all lights in that room. Individual bulbs can be toggles by pressing them (black or yellow circles when off/on). Info about us in the top left side (location and battery status), toggles/scripts/scenes on the right side. The outer doors have door sensors, if closed they are "invisible", if opened, they show a big fat red quarter-circle so you're not in doubt. Some stuff, such as phone battery level indicators and temperatures, changes color based on values. Alarm system status is shown at the bottom, and the greenhouse (just plants for now, greenhouse will likely not come until next year) is the blue rectangle at the top with plant data. In time, I want the buttons showing "Upstairs", "Ground Floor", and "Top Floor" to toggle "pop-ups" zooming in on that floor for more in depth info and control.
+Floorplan - Circles with temperature/humidity states can be clicked to toggle all lights in that room. Individual bulbs (black or yellow circles when off/on) can be toggled. Info about us in the top left side (location and battery status), toggles/scripts/scenes on the right side. The outer doors have door sensors, if closed they are "invisible", if opened, they show a big fat red quarter-circle so you're not in doubt. Some stuff, such as phone battery level indicators and temperatures, changes color based on values. Alarm system status is shown at the bottom, and the greenhouse (just plants for now, greenhouse will likely not come until next year) is the blue rectangle at the top with plant data. In time, I want the buttons showing "Upstairs", "Ground Floor", and "Top Floor" to toggle "pop-ups" zooming in on that floor for more in depth info and control. If I find this useful for control, that is. I actually like it more because it's cool, I haven't used it since we moved (it was easier to fit a small apartment in a scale that was usable).
 
-![Screenshot Custom_UI](https://github.com/Aephir/Images/blob/master/frontend_20180503.png)
-Frontend using "custom UI". UPDATE: I'm using lovelace, so it is currently being rearranged. I will update once I am closer to something usable.
+**Frontend**
+Frontend using lovelace, so it is currently being rearranged and updated as I become more comfortable with lovelace, and as lovelace evolves. Currently, I use the following [integrations and custom cards](https://github.com/ciotlosm/custom-lovelace):
+* [Monster Card](https://github.com/ciotlosm/custom-lovelace/tree/master/monster-card), mostly for the entity_filter. It's very useful when you add e.g. a new light, and don't want to dig through to find the entity_id. I have a card with all lights that are 'on' and a card with all lights that are 'off'. Easy to find and change name/entity_id.
+* [Gauge Card](https://github.com/ciotlosm/custom-lovelace/tree/master/gauge-card). Is it necessary? No. Does it look cool? Yes! I use it for computer stats.
+* [Slider](https://github.com/thomasloven/lovelace-slider-entity-row) because I loved this feature of * [Custom UI](https://github.com/andrey-git/home-assistant-custom-ui).
+* [Toggle Lock](https://github.com/thomasloven/lovelace-toggle-lock-entity-row) because I need to make something so the kids can't control the expresso machine and the lights in our bedroom while we wait for more features of the user system.
+* [Custom Updater](https://github.com/custom-components/custom_updater). Because I want to use the custom tracker.
+* [Tracker Card](https://github.com/custom-cards/tracker-card). Do I want to manually keep track of versions of the custom cards and components? No way.
 
 
 **Notable automations**
