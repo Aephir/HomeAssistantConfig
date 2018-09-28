@@ -21,3 +21,4 @@ OZW_Log.txt
 pyozw.sqlite
 secrets.yaml
 skybell_cache.pickle
+shell_scripts/life360.*

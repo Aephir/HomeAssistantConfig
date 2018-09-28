@@ -61,6 +61,50 @@
 #    Remotes    #
 #################
 
+#############
+#__Hue_Tap__#
+
+- alias: test_hue_tap_1
+  trigger:
+    - platform: state
+      entity_id: sensor.bedroom_switch
+      to: '1_click'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.conservatory_couch
+
+- alias: test_hue_tap_2
+  trigger:
+    - platform: state
+      entity_id: sensor.bedroom_switch_last_updated
+  condition:
+    condition: state
+    entity_id: sensor.bedroom_switch
+    state: '2_click'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.conservatory_couch
+
+- alias: test_hue_tap_3
+  trigger:
+    - platform: template
+      value_template: '{{ is_state("sensor.bedroom_switch","3_click") and as_timestamp(now()) !=  as_timestamp(states.sensor.bedroom_switch.last_updated) }}'
+      # entity_id: sensor.bedroom_switch
+  action:
+    - service: light.turn_off
+      entity_id: light.conservatory_couch
+
+- alias: test_hue_tap_4
+  trigger:
+    - platform: template
+      value_template: '{{ is_state("sensor.bedroom_switch","4_click") and as_timestamp(now()) !=  as_timestamp(states.sensor.bedroom_switch.last_updated) }}'
+      # entity_id: sensor.bedroom_switch
+  action:
+    - service: light.turn_on
+      entity_id: light.conservatory_couch
+
 ###########################
 #__Contextual Bed Button__#
 

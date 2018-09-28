@@ -63,7 +63,7 @@ views:
         # The entities here will be shown in the same order as specified.
         # Each entry is an entity ID or a map with extra options.
         entities:
-          - entity: light.conservatory
+          - entity: light.conservatory_couch
             type: custom:slider-entity-row
           - entity: light.conservatory_reading
             type: custom:slider-entity-row
@@ -74,7 +74,7 @@ views:
           - entity: light.living_room_lightstrip
             type: custom:slider-entity-row
           - type: divider
-          - entity: light.waldens_bedroom
+          - entity: light.dining_table_lights
             type: custom:slider-entity-row
           - entity: light.bedroom
             # type: custom:slider-entity-row
@@ -582,3 +582,7 @@ views:
             - state: "unknown"
           exclude:
             - entity_id: group.*
+      - type: entities
+        title: Stuff for Testing
+        entities:
+          - sensor.bedroom_switch

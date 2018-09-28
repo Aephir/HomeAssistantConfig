@@ -57,11 +57,11 @@
 #   entities:
 #     - light.
 
-# - platform: group
-#   name: Dining Table Lights
-#   entities:
-#     - light.dining_table_light_1
-#     - light.dining_table_light_2
+- platform: group
+  name: Dining Table Lights
+  entities:
+    - light.dining_table_light_1
+    - light.dining_table_light_2
 
 - platform: group
   name: Dining Room Lights
@@ -78,7 +78,7 @@
 - platform: group
   name: Conservatory Lights
   entities:
-    - light.conservatory
+    - light.conservatory_couch
     - light.conservatory_reading
 
 - platform: group
@@ -111,7 +111,7 @@
   name: Entrance Lights
   entities:
     - light.main_floor_entrance_1
-    - light.main_floor_entrance_1
+    - light.main_floor_entrance_2
     - light.stairway
     - light.stairway_down
 
