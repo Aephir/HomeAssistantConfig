@@ -116,11 +116,18 @@ light_walkin_closet:
 light_wine_cellar:
   name: dummy wine cellar light
 
-light_conservatory:
-  name: dummy conservatory light
+light_conservatory_couch:
+  name: dummy conservatory couch light
 
 light_bathroom:
   name: dummy bathroom light
+
+light_kitchen_cabinet:
+  name: dummy kitchen cabinet light
+
+light_dining_table:
+  name: dummy dining table lights
+
 
 #########################
 #    Maunal Override    #

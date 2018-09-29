@@ -51,7 +51,7 @@ OBS! Some are not fully configured yet.
 * [Let's Encrypt](https://letsencrypt.org/) [docker container](https://hub.docker.com/r/linuxserver/letsencrypt/) for certificates.
 * [NGINX](https://www.nginx.com/) [docker container](https://hub.docker.com/r/linuxserver/letsencrypt/) is included in the "Let's Encrypt" image. Used to securely expose only the services I choose (e.g.  Home Assistant) via SSL to the big bad web. Everything else is run locally, and not accessible from the outside.
 * [Home Assistant](https://www.home-assistant.io/) [docker container](https://hub.docker.com/r/homeassistant/home-assistant/) for all my home control and automation needs.
-* [Mosquitto](https://mosquitto.org/2013/01/mosquitto-debian-repository/) [docker container](https://hub.docker.com/_/eclipse-mosquitto/) for device tracking (mainly through Life360), for reporting of plant sensor states from a hass.io on a RPi3B, and future applications.
+* [Mosquitto](https://mosquitto.org/2013/01/mosquitto-debian-repository/) [docker container](https://hub.docker.com/_/eclipse-mosquitto/) for for reporting of plant sensor states from a hass.io on a RPi3B, and future applications.
 * [MariaDB](https://mariadb.org/) [docker container](https://hub.docker.com/_/mariadb/)
 * [Syncthing](https://syncthing.net/) [docker container](https://hub.docker.com/r/linuxserver/syncthing/)
 * [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) [docker container](https://hub.docker.com/r/acockburn/appdaemon/)
@@ -64,7 +64,7 @@ OBS! Some are not fully configured yet.
 
 **Useful scripts set up with crontab**
 * [rsync](https://packages.debian.org/stretch/rsync) script run in crontab for keeping a partial backup on SD card. Not entire image, it's much faster, and takes up less space.
-* [Life360](https://www.life360.com/) for device tracking. I've found that owntracks just doesn't cut it (too slow/irregular update of location, so can't use it to automate based on entering/exiting areas), and so far Life360 is the best device tracker I've found. I am using the script provided by [Brazen1445](https://community.home-assistant.io/t/life-360-support/1690/15). The version I use is provided in this repository. UPDATE: I now use the Google location sharing for my phone, but still use this script for the iOS users in the house.
+* [Life360](https://www.life360.com/) for device tracking. I've found that owntracks just doesn't cut it (too slow/irregular update of location, so can't use it to automate based on entering/exiting areas), and so far Life360 is the best device tracker I've found. I am using the version provided by [pnbruckner](https://community.home-assistant.io/t/life360-device-tracker-platform/52406).
 * script to send email with new IP when IP changes. This is mostly for SSH access from outside my home network.
 
 

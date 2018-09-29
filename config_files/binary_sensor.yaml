@@ -26,14 +26,6 @@
       platform: 'state'
       to_state: 'home'
 
-#################
-#    SkyBell    #
-#################
-
-- platform: skybell
-  monitored_conditions:
-    - button
-    - motion
 
 #- platform: mqtt
 #  state_topic: "wallpanel/mywallpanel/sensor/motion"
@@ -136,6 +128,16 @@
           {%- else -%}
           false
           {%- endif %}
+
+
+#################
+#    SkyBell    #
+#################
+
+- platform: skybell
+  monitored_conditions:
+    - button
+    - motion
 
 ###################
 #    Floorplan    #

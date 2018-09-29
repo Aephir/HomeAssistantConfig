@@ -851,6 +851,39 @@
 #     service: switch.turn_on
 #     entity_id: switch.living_room_media_master
 
+#############
+#__Life360__#
+
+- alias: Life360 Overdue Update
+  trigger:
+    platform: event
+    event_type: device_tracker.life360_update_overdue
+  action:
+    service: notify.home_aephir_bot
+    data_template:
+      title: Life360 update overdue
+      message: >
+        Update for {{
+          state_attr(trigger.event.data.entity_id, 'friendly_name')
+        }} is overdue.
+
+- alias: Life360 Update Restored
+  trigger:
+    platform: event
+    event_type: device_tracker.life360_update_restored
+  action:
+    service: notify.home_aephir_bot
+    data_template:
+      title: Life360 update restored
+      message: >
+        Update for {{
+          state_attr(trigger.event.data.entity_id, 'friendly_name')
+        }} restored after {{ trigger.event.data.wait }}.
+
+#################
+#     Motion    #
+#################
+
 ######################################
 #__Motion Based Lights and Switches__#
 
@@ -1743,25 +1776,25 @@
 #    Dummy switches for floorplan    #
 ######################################
 
-- alias: 'switch dummy conservatory light on'
+- alias: 'switch dummy conservatory couch light on'
   trigger:
     platform: state
-    entity_id: light.conservatory
+    entity_id: light.conservatory_couch
     from: 'off'
     to: 'on'
   action:
     service: input_boolean.turn_on
-    entity_id: input_boolean.light_conservatory
+    entity_id: input_boolean.light_conservatory_couch
 
-- alias: 'switch dummy conservatory light off'
+- alias: 'switch dummy conservatory couch light off'
   trigger:
     platform: state
-    entity_id: light.conservatory
+    entity_id: light.conservatory_couch
     from: 'on'
     to: 'off'
   action:
     service: input_boolean.turn_off
-    entity_id: input_boolean.light_conservatory
+    entity_id: input_boolean.light_conservatory_couch
 
 - alias: 'switch dummy basement entrance light on'
   trigger:
@@ -1803,6 +1836,66 @@
     service: input_boolean.turn_off
     entity_id: input_boolean.light_kitchen_spots
 
+- alias: 'switch dummy kitchen cabinet light on'
+  trigger:
+    platform: state
+    entity_id: light.kitchen_cabinet_lights
+    from: 'off'
+    to: 'on'
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.light_kitchen_cabinet
+
+- alias: 'switch dummy kitchen cabinet light off'
+  trigger:
+    platform: state
+    entity_id: light.kitchen_cabinet_lights
+    from: 'on'
+    to: 'off'
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.light_kitchen_cabinet
+
+- alias: 'switch dummy dining table lights on'
+  trigger:
+    platform: state
+    entity_id: light.dining_table_lights
+    from: 'off'
+    to: 'on'
+  action:
+    service: input_boolean.turn_on
+    entity_id: input_boolean.light_dining_table
+
+- alias: 'switch dummy dining table lights off'
+  trigger:
+    platform: state
+    entity_id: light.dining_table_lights
+    from: 'on'
+    to: 'off'
+  action:
+    service: input_boolean.turn_off
+    entity_id: input_boolean.light_dining_table
+
+# - alias: 'switch dummy dining table 2 light on'
+#   trigger:
+#     platform: state
+#     entity_id: light.dining_table_2
+#     from: 'off'
+#     to: 'on'
+#   action:
+#     service: input_boolean.turn_on
+#     entity_id: input_boolean.light_dining_table_2
+#
+# - alias: 'switch dummy dining table 2 light off'
+#   trigger:
+#     platform: state
+#     entity_id: light.dining_table_2
+#     from: 'on'
+#     to: 'off'
+#   action:
+#     service: input_boolean.turn_off
+#     entity_id: input_boolean.light_dining_table_2
+
 - alias: 'switch dummy TV room light on'
   trigger:
     platform: state
@@ -1823,25 +1916,25 @@
     service: input_boolean.turn_off
     entity_id: input_boolean.light_tv_room
 
-- alias: 'switch dummy walk-in closet light on'
+- alias: 'switch dummy stairway light on'
   trigger:
     platform: state
-    entity_id: light.walkin_closet
+    entity_id: light.stairway
     from: 'off'
     to: 'on'
   action:
     service: input_boolean.turn_on
-    entity_id: input_boolean.light_walkin_closet
+    entity_id: input_boolean.light_stairway
 
-- alias: 'switch dummy walk-in closet light off'
+- alias: 'switch dummy stairway light off'
   trigger:
     platform: state
-    entity_id: light.walkin_closet
+    entity_id: light.stairway
     from: 'on'
     to: 'off'
   action:
     service: input_boolean.turn_off
-    entity_id: input_boolean.light_walkin_closet
+    entity_id: input_boolean.light_stairway
 
 - alias: 'switch dummy wine cellar light on'
   trigger:

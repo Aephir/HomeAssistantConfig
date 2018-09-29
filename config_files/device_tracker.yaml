@@ -40,6 +40,20 @@
       naia_ipad_ping: 192.168.0.35
       emilie_iphone_ping: 192.168.0.38 # I think this is her phone, check to be sure.
 
+#################
+#    Life360    #
+#################
+
+# https://community.home-assistant.io/t/life360-device-tracker-platform/52406
+
+  - platform: life360
+    username: !secret life360_usename
+    password: !secret life360_password
+    interval_seconds: 10
+    filename: life360.conf
+    show_as_state: places, driving, moving
+    max_update_wait:
+      minutes: 30
 
 ##############
 #    NMAP    #

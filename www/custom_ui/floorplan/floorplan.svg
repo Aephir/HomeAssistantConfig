@@ -526,6 +526,28 @@
        fx="43.404572"
        fy="324.55591"
        r="14.967094" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2683"
+       id="radialGradient1983"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1426335,0,0,1.1426336,132.07083,-341.04488)"
+       cx="43.404572"
+       cy="324.55591"
+       fx="43.404572"
+       fy="324.55591"
+       r="14.967094" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2683"
+       id="radialGradient1995"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1426335,0,0,1.1426336,132.07083,-306.84107)"
+       cx="43.404572"
+       cy="324.55591"
+       fx="43.404572"
+       fy="324.55591"
+       r="14.967094" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -534,9 +556,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="754.5548"
-     inkscape:cy="1400.8762"
+     inkscape:zoom="0.35355339"
+     inkscape:cx="1267.1031"
+     inkscape:cy="554.01328"
      inkscape:document-units="mm"
      inkscape:current-layer="layer14"
      showgrid="false"
@@ -2520,7 +2542,7 @@
      transform="translate(0,207.17007)">
     <circle
        style="display:inline;opacity:1;fill:url(#radialGradient6903);fill-opacity:1;fill-rule:nonzero;stroke:#ffff30;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.39215686"
-       id="input_boolean.light_conservatory"
+       id="input_boolean.light_conservatory_couch"
        cx="134.25267"
        cy="225.91095"
        r="17.101902"
@@ -2567,8 +2589,9 @@
        x="55.654266"
        height="59.926842"
        width="13.154673"
-       id="rect5303"
-       style="display:inline;opacity:1;fill:url(#radialGradient5316);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.29191065;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0" />
+       id="input_boolean.light_kitchen_cabinet"
+       style="display:inline;opacity:1;fill:url(#radialGradient5316);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.29191065;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
+       inkscape:label="#rect5303" />
     <circle
        inkscape:label="#circle7769"
        r="17.101902"
@@ -2613,6 +2636,24 @@
        cx="438.76953"
        cy="-104.24712"
        inkscape:label="#circle7769" />
+    <g
+       id="input_boolean.light_dining_table"
+       inkscape:label="#g2003">
+      <circle
+         inkscape:label="#circle7769"
+         r="17.101902"
+         cy="29.803907"
+         cx="181.66661"
+         id="input_boolean.light_dining_table_1"
+         style="display:inline;opacity:1;fill:url(#radialGradient1983);fill-opacity:1;fill-rule:nonzero;stroke:#ffff30;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.39215686" />
+      <circle
+         style="display:inline;opacity:1;fill:url(#radialGradient1995);fill-opacity:1;fill-rule:nonzero;stroke:#ffff30;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.39215686"
+         id="input_boolean.light_dining_table_2"
+         cx="181.66661"
+         cy="64.007713"
+         r="17.101902"
+         inkscape:label="#circle7769" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -2624,11 +2665,11 @@
        r="3.8727353"
        cy="290.16092"
        cx="134.25267"
-       id="light.conservatory"
+       id="light.conservatory_couch"
        style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
        inkscape:label="#circle7767" />
     <g
-       id="media_player.sonos_5"
+       id="media_player.sonos_play_5_1"
        transform="matrix(-0.26458333,0,0,-0.26458333,247.06535,233.87366)"
        style="display:inline;fill:#cac7bd;fill-opacity:1;stroke:#fffffe;stroke-width:1.00199997;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        inkscape:label="#g6857">
@@ -2709,12 +2750,13 @@
     </g>
     <rect
        style="opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.66145831;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
-       id="rect5285"
+       id="light.kitchen_cabinet_lights"
        width="6.7351923"
        height="30.682545"
        x="58.864006"
        y="64.492165"
-       ry="3.3675961" />
+       ry="3.3675961"
+       inkscape:label="#rect5285" />
     <circle
        inkscape:label="#circle7767"
        style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
@@ -2759,6 +2801,30 @@
        id="light.basement_hallway"
        style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
        inkscape:label="#circle7767" />
+    <g
+       id="light.dining_table_lights"
+       inkscape:label="#g1999">
+      <circle
+         inkscape:label="#circle7767"
+         style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
+         id="light.dining_table_1"
+         cx="181.66661"
+         cy="94.053879"
+         r="3.8727353" />
+      <circle
+         r="3.8727353"
+         cy="128.25769"
+         cx="181.66661"
+         id="light.dining_table_2"
+         style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
+         inkscape:label="#circle7767" />
+    </g>
+    <path
+       id="switch.fountain"
+       d="m 39.158327,235.7 c -6.41352,0 -11.64168,5.20696 -11.64168,11.64168 v 0 1.05832 h 4.23336 v -1.05832 a 7.4083332,7.4083332 0 0 1 7.40832,-7.4084 c 3.17504,0 5.842,1.96856 6.90032,4.74136 -0.82544,-0.3384 -1.71448,-0.508 -2.66696,-0.508 -2.94216,0 -5.50336,1.73568 -6.68872,4.23336 l 3.68304,2.11664 c 0.4448,-1.22768 1.62984,-2.11664 3.00568,-2.11664 a 3.175,3.175 0 0 1 3.17496,3.17496 V 254.75 h 4.23336 v -3.17504 A 3.175,3.175 0 0 1 53.974967,248.4 c 1.39704,0 2.5612,0.88896 3.00568,2.11664 L 60.663687,248.4 c -1.18536,-2.49768 -3.72536,-4.23336 -6.68872,-4.23336 -0.95248,0 -1.84144,0.1696 -2.66696,0.508 1.05832,-2.7728 3.72536,-4.74136 6.90032,-4.74136 a 7.4083332,7.4083332 0 0 1 7.40832,7.4084 V 248.4 h 4.23336 v -1.05832 0 A 11.641666,11.641666 0 0 0 58.208327,235.7 c -3.93696,0 -7.40832,1.96848 -9.52496,4.95296 -2.11672,-2.98448 -5.588,-4.95296 -9.52504,-4.95296 m -3.17496,21.16664 V 261.1 h 3.0056 c 1.0584,2.43416 3.02688,4.38144 5.46104,5.43984 0,1.71448 0,3.42896 0,5.14344 h -16.93336 c 0,0 1.73568,2.60352 2.98456,4.46616 0.7832,1.18536 2.09544,1.88384 3.5136,1.88384 h 29.33704 c 1.41816,0 2.73048,-0.6984 3.51368,-1.88384 l 2.98448,-4.46616 h -16.93336 c 0,-1.71448 0,-3.42896 0,-5.14344 2.43416,-1.0584 4.40272,-3.00568 5.46104,-5.43984 h 3.00568 v -4.23336 z"
+       inkscape:connector-curvature="0"
+       style="fill:#0cc0ff;fill-opacity:1;stroke:#fffff9;stroke-width:1.32291663;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:label="#path2016" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -6343,7 +6409,7 @@
          sodipodi:role="line"
          style="stroke-width:0.33072916">Naia</tspan></text>
     <text
-       id="device_tracker.google_maps_110730659630480268471"
+       id="device_tracker.walden_bjrn_yoshimoto"
        y="-69.815445"
        x="126.37598"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.33072916"
@@ -6359,7 +6425,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.33072916"
        x="198.55396"
        y="-69.816177"
-       id="device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46"
+       id="device_tracker.kristinabrody"
        inkscape:label="#text8699"><tspan
          y="-69.816177"
          x="198.55396"
@@ -6382,7 +6448,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.33072916"
        x="126.37598"
        y="-57.909203"
-       id="sensor.aephir_phone_battery_360"
+       id="sensor.walden_phone_battery"
        inkscape:label="#text8707"><tspan
          y="-57.909203"
          x="126.37598"
@@ -6390,7 +6456,7 @@
          sodipodi:role="line"
          style="stroke-width:0.33072916">100 %</tspan></text>
     <text
-       id="sensor.kristina_phone_battery_360"
+       id="sensor.kristina_phone_battery"
        y="-57.909996"
        x="198.55396"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.33072916"
@@ -6423,7 +6489,7 @@
          x="125.79768"
          y="-8.2364693">Emilie</tspan></text>
     <text
-       id="device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24"
+       id="device_tracker.emilie"
        y="3.0082202"
        x="125.79768"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.33072916"
@@ -6439,7 +6505,7 @@
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:8.81944466px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.33072916"
        x="125.79768"
        y="14.914288"
-       id="sensor.emilie_phone_battery_360"
+       id="sensor.emilie_phone_battery"
        inkscape:label="#text8727"><tspan
          sodipodi:role="line"
          id="tspan8725"
@@ -7271,6 +7337,29 @@
          id="tspan6622"
          x="314.85043"
          y="1.3442078">100 %</tspan></text>
+    <path
+       id="sensor.walden_phone_battery_charging_state"
+       d="m 111.14392,-66.802108 h -0.88372 v -1.05832 h -3.175 v 1.05832 h -0.8837 a 0.70379166,0.70379166 0 0 0 -0.7038,0.7038 v 8.11212 c 0,0.39158 0.3175,0.70908 0.7038,0.70908 h 4.93712 c 0.39158,0 0.70908,-0.3175 0.70908,-0.70378 v -8.11742 c 0,-0.3863 -0.3175,-0.7038 -0.70378,-0.7038 m -3.00038,8.46668 v -2.91042 h -1.05834 l 2.11668,-3.96876 v 2.91042 h 1.05832"
+       inkscape:connector-curvature="0"
+       style="fill:#cac700;fill-opacity:1;stroke-width:0.52916664"
+       inkscape:label="#path1962" />
+    <path
+       style="fill:#cac700;fill-opacity:1;stroke-width:0.52916664"
+       inkscape:connector-curvature="0"
+       d="m 184.29883,-66.802108 h -0.88372 v -1.05832 h -3.175 v 1.05832 h -0.8837 a 0.70379166,0.70379166 0 0 0 -0.7038,0.7038 v 8.11212 c 0,0.39158 0.3175,0.70908 0.7038,0.70908 h 4.93712 c 0.39158,0 0.70908,-0.3175 0.70908,-0.70378 v -8.11742 c 0,-0.3863 -0.3175,-0.7038 -0.70378,-0.7038 m -3.00038,8.46668 v -2.91042 h -1.05834 l 2.11668,-3.96876 v 2.91042 h 1.05832"
+       id="sensor.kristina_phone_battery_charging_state"
+       inkscape:label="#path1973" />
+    <path
+       style="fill:#cac700;fill-opacity:1;stroke-width:0.52916664"
+       inkscape:connector-curvature="0"
+       d="M 111.14392,5.6105457 H 110.2602 V 4.5522254 h -3.175 v 1.0583203 h -0.8837 a 0.70379166,0.70379166 0 0 0 -0.7038,0.7037994 v 8.1121179 c 0,0.39158 0.3175,0.70908 0.7038,0.70908 h 4.93712 c 0.39158,0 0.70908,-0.3175 0.70908,-0.70378 V 6.3143451 c 0,-0.3862997 -0.3175,-0.7037994 -0.70378,-0.7037994 m -3.00038,8.4666773 v -2.91042 h -1.05834 l 2.11668,-3.9687582 v 2.9104182 h 1.05832"
+       id="sensor.emilie_phone_battery_charging_state"
+       inkscape:label="#path1975" />
+    <path
+       id="path1977"
+       d="m 184.29883,5.6105457 h -0.88372 V 4.5522254 h -3.175 v 1.0583203 h -0.8837 a 0.70379166,0.70379166 0 0 0 -0.7038,0.7037994 v 8.1121179 c 0,0.39158 0.3175,0.70908 0.7038,0.70908 h 4.93712 c 0.39158,0 0.70908,-0.3175 0.70908,-0.70378 V 6.3143451 c 0,-0.3862997 -0.3175,-0.7037994 -0.70378,-0.7037994 m -3.00038,8.4666773 v -2.91042 h -1.05834 l 2.11668,-3.9687582 v 2.9104182 h 1.05832"
+       inkscape:connector-curvature="0"
+       style="fill:#cac700;fill-opacity:1;stroke-width:0.52916664" />
   </g>
   <g
      inkscape:groupmode="layer"

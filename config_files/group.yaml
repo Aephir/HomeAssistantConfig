@@ -4,6 +4,52 @@
 #                  #
 ####################
 
+################
+#    Lights    #
+################
+
+  main_floor_lights:
+    name: Main Floor Lights
+    entities:
+      - light.conservatory_couch
+      - light.conservatory_reading
+      - light.kitchen_spots
+      - light.kitchen_cabinet_lights
+      - light.dining_table_lights
+      - light.living_room_lightstrip
+      - light.bedroom
+      - light.bathroom
+      - light.stairway
+      - light.baby_room
+      - light.gateway_light_7811dcb8d944
+
+  dining_room_lights:
+    name: Dining Room Lights
+    entities:
+      - light.dining_table_lights
+      - light.living_room_lightstrip
+
+  kitchen_lights:
+    name: Kitchen Lights
+    entities:
+      - light.kitchen_spots
+      - light.kitchen_cabinet_lights
+
+  conservatory_lights:
+    name: Conservatory Lights
+    entities:
+      - light.conservatory_couch
+      - light.conservatory_reading
+
+  leftover:
+    name: Leftover Main Floor Lights
+    entities:
+      - light.bedroom
+      - light.bathroom
+      - light.stairway
+      - light.baby_room
+      - light.gateway_light_7811dcb8d944
+
 ######################
 #    Default View    #
 ######################

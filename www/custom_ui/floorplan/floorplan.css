@@ -290,14 +290,23 @@ svg, svg * {
 
 /* Doorbell */
 
-
 .doorbell-off {
   fill: #C3B7F4 !important;
 }
 
-
 .doorbell-on {
   fill: #F8D2B9 !important;
+}
+
+
+/* Fountain */
+
+.fountain-off {
+  fill: #141414 !important;
+}
+
+.fountain-on {
+  fill: #0CC0FF !important;
 }
 
 

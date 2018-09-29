@@ -207,7 +207,8 @@
 
         - name: aephir_location
           entities:
-            - device_tracker.google_maps_110730659630480268471
+            # - device_tracker.google_maps_110730659630480268471
+            - device_tracker.walden_bjrn_yoshimoto
 #          text_template: '${entity.state ? entity.state.replace("not_home", "away") : "undefined"}'
           text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Walden", "Work").replace("Central_Copenhagen", "City").replace("Irma_Sluseholmen", "Irma") : "undefined"}'
           states:
@@ -236,7 +237,7 @@
 
         - name: kristina_location
           entities:
-            - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+            - device_tracker.kristinabrody
           text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Kristina", "Work").replace("Irma_Sluseholmen", "Irma").replace("Central_Copenhagen", "City") : "undefined"}'
           states:
             - state: 'Home'
@@ -264,7 +265,7 @@
 
         - name: emilie_location
           entities:
-            - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+            - device_tracker.emilie
           text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Central_Copenhagen", "City").replace("Irma_Sluseholmen", "Irma") : "undefined"}'
           states:
             - state: 'Home'
@@ -290,7 +291,7 @@
 
         - name: aephir_360_battery
           entities:
-            - sensor.aephir_phone_battery_360
+            - sensor.walden_phone_battery
           text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
           class_template: '
             var batt = parseFloat(entity.state);
@@ -306,7 +307,7 @@
 
         - name: emilie_360_battery
           entities:
-            - sensor.emilie_phone_battery_360
+            - sensor.emilie_phone_battery
           text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
           class_template: '
             var batt = parseFloat(entity.state);
@@ -322,7 +323,7 @@
 
         - name: kristina_360_battery
           entities:
-            - sensor.kristina_phone_battery_360
+            - sensor.kristina_phone_battery
           text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
           class_template: '
             var batt = parseFloat(entity.state);
@@ -335,6 +336,17 @@
             else
               return "batt-ok";
             '
+
+        - name: Battery charge state
+          entities:
+            - sensor.walden_phone_battery_charging_state
+            - sensor.kristina_phone_battery_charging_state
+            - sensor.emilie_phone_battery_charging_state
+          states:
+            - state: 'True'
+              class: 'light-glow-on'
+            - state: 'False'
+              class: 'light-glow-off'
 
 
 #        - name: Sensors
@@ -371,9 +383,11 @@
             - light.tv_room
             # - light.walkin_closet
             - light.kitchen_spots
+            - light.kitchen_cabinet_lights
             # - light.wine_cellar
-            - light.conservatory
+            - light.conservatory_couch
             - light.stairway
+            - light.dining_table_lights
           states:
             - state: 'on'
               class: 'light-on'
@@ -392,6 +406,13 @@
 #                  - layer-visible # test
 #                  - layer-hidden # test
 #                default_class: layer-hidden # test
+
+        # - name: Gateways # Why does this not change color?? https://community.home-assistant.io/t/share-your-floorplan/21315/282
+        #   entities:
+        #     - light.gateway_light_7811dcb8d944
+        #   rgb_template: '
+        #     return "off-state";
+        #   '
 
         - name: light groups
           entities:
@@ -412,10 +433,12 @@
             - input_boolean.light_tv_room
             # - input_boolean.light_walkin_closet
             - input_boolean.light_wine_cellar
-            - input_boolean.light_conservatory
+            - input_boolean.light_conservatory_couch
             - input_boolean.light_kitchen_spots
             - input_boolean.light_bathroom
             - input_boolean.light_stairway
+            - input_boolean.light_kitchen_cabinet
+            - input_boolean.light_dining_table
           states:
             - state: 'on'
               class: 'light-glow-on'
@@ -449,6 +472,19 @@
 #           action:
 # #            domain: media_player
 #             service: toggle
+
+        - name: Fountain
+          entities:
+             - switch.fountain
+          states:
+            - state: 'on'
+              class: 'fountain-on'
+            - state: 'off'
+              class: 'fountain-off'
+          action:
+            domain: switch
+            service: toggle
+
 
         - name: Espresso
           entities:
@@ -580,7 +616,7 @@
 
         - name: SONOS
           entities:
-             - media_player.sonos_5
+             - media_player.sonos_play_5_1
           states:
             - state: 'playing'
               class: 'sonos-on'

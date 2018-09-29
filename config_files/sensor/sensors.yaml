@@ -100,6 +100,62 @@
 #####################
 #__Battery_Sensors__#
 
+# Phone Batteries
+- platform: template
+  sensors:
+    walden_phone_battery:
+      friendly_name: Waldens Phone Battery
+      value_template: >
+        {%- if states.device_tracker.walden_bjrn_yoshimoto.attributes %}
+          {{ states.device_tracker.walden_bjrn_yoshimoto.attributes.battery|round }}
+        {% else %}
+          {{ states.sensor.waldens_phone_battery.state }}
+        {%- endif %}
+      device_class: battery
+    walden_phone_battery_charging_state:
+      friendly_name: Waldens Phone Battery Charging State
+      value_template: >
+        {%- if states.device_tracker.walden_bjrn_yoshimoto.attributes %}
+          {{ states.device_tracker.walden_bjrn_yoshimoto.attributes.charging }}
+        {% else %}
+          {{ states.sensor.waldens_phone_battery.state }}
+        {%- endif %}
+    kristina_phone_battery:
+      friendly_name: Kristinas Phone Battery
+      value_template: >
+        {%- if states.device_tracker.kristinabrody.attributes %}
+          {{ states.device_tracker.kristinabrody.attributes.battery|round }}
+        {% else %}
+          {{ states.sensor.kristinas_phone_battery.state }}
+        {%- endif %}
+      device_class: battery
+    kristina_phone_battery_charging_state:
+      friendly_name: Kristinas Phone Battery Charging State
+      value_template: >
+        {%- if states.device_tracker.kristinabrody.attributes %}
+          {{ states.device_tracker.kristinabrody.attributes.charging }}
+        {% else %}
+          {{ states.sensor.kristinas_phone_battery.state }}
+        {%- endif %}
+    emilie_phone_battery:
+      friendly_name: Emilies Phone Battery
+      value_template: >
+        {%- if states.device_tracker.emilie.attributes %}
+          {{ states.device_tracker.emilie.attributes.battery|round }}
+        {% else %}
+          {{ states.sensor.emilies_phone_battery.state }}
+        {%- endif %}
+      device_class: battery
+    emilie_phone_battery_charging_state:
+      friendly_name: Emilies Phone Battery Charging State
+      value_template: >
+        {%- if states.device_tracker.emilie.attributes %}
+          {{ states.device_tracker.emilie.attributes.charging }}
+        {% else %}
+          {{ states.sensor.emilies_phone_battery.state }}
+        {%- endif %}
+
+# Sensor Batteries
 - platform: template
   sensors:
     x_door_1_bat: # This arrived with 63%, according to home assistant. Maybe I should see what the % is when it is empty, and calculate, so it goes from 0% to 100%, instead of from ??% to 63%.
