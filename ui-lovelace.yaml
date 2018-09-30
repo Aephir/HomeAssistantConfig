@@ -63,14 +63,6 @@ views:
       - type: entities
         title: Main Floor Lights
         entities:
-          - entity: group.leftover
-            type: custom:folding-group-entity-row
-            config:
-              # secondary_info: entity-id
-              type: custom:slider-entity-row
-            group_config:
-              secondary_info: last-changed
-              # type: custom:toggle-lock-entity-row
           - entity: group.dining_room_lights
             type: custom:folding-group-entity-row
             config:
@@ -163,11 +155,13 @@ views:
             users:
               - Aephir
               - Kristina
-      - type: entities
+      - type: picture-entity
         title: Fountain
-        show_header_toggle: false
-        entities:
-          - entity: switch.fountain
+        # show_header_toggle: false
+        image: /local/images/fountain_1.jpg
+        # entities:
+        entity: switch.fountain
+        tap_action: toggle
 
   - title: Information
     icon: mdi:information-variant
