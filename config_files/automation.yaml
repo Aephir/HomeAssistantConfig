@@ -350,14 +350,13 @@
       data:
           inline_keyboard:
           - 'Set alarm:/set_alarm_away, Turn off everything:/all_off'
-          - 'Set alarm and turn off everything:/set_alarm_all_off'
-          - 'No action:/removekeyboard'
+          - 'Set alarm and turn off everything:/set_alarm_all_off, No action:/removekeyboard'
 
 
 - alias: "Arm the Alarm, Emilie leaves last"
   trigger:
     platform: state
-    entity_id: device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+    entity_id: device_tracker.emilie
     to: 'not_home'
   condition:
     condition: and
@@ -378,7 +377,7 @@
     platform: state
     from: 'Work Kristina'
     to: 'not_home'
-    entity_id: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+    entity_id: device_tracker.kristinabrody
   action:
     service: notify.home_aephir_bot
     data:
@@ -389,7 +388,7 @@
     platform: state
     from: 'home'
     to: 'not_home'
-    entity_id: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+    entity_id: device_tracker.kristinabrody
   action:
     service: notify.home_aephir_bot
     data:
@@ -400,7 +399,7 @@
     platform: state
     from: 'not_home'
     to: 'home'
-    entity_id: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+    entity_id: device_tracker.kristinabrody
   action:
     service: notify.telegram
     data:
@@ -411,7 +410,7 @@
     platform: state
     from: 'home'
     to: 'not_home'
-    entity_id: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+    entity_id: device_tracker.kristinabrody
   action:
     service: notify.ios_kristinas_iphone
     data:
@@ -460,14 +459,14 @@
 #     - platform: state
 #       entity_id:
 #         - device_tracker.kristina_ping
-#         - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+#         - device_tracker.kristinabrody
 #         - device_tracker.kristinas_iphone
 #       to: 'not_home'
 #       for: '00:16:00'
 #     - platform: state
 #       entity_id:
 #         - device_tracker.kristina_ping
-#         - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+#         - device_tracker.kristinabrody
 #         - device_tracker.kristinas_iphone
 #       to: 'home'
 #   action:
@@ -484,13 +483,13 @@
 #     - platform: state
 #       entity_id:
 #         - device_tracker.emilie_iphone_ping
-#         - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+#         - device_tracker.emilie
 #       to: 'not_home'
 #       for: '00:16:00'
 #     - platform: state
 #       entity_id:
 #         - device_tracker.emilie_iphone_ping
-#         - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+#         - device_tracker.emilie
 #       to: 'home'
 #     - platform: state
 #       entity_id:
@@ -565,7 +564,7 @@
 - alias: "kristina_home_360" # Turns on the "kristinahome360" input_boolean if Kristina arrives home
   trigger:
     - platform: state
-      entity_id: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+      entity_id: device_tracker.kristinabrody
       from: 'not_home'
       to: 'home'
 #  condition:
@@ -579,7 +578,7 @@
 - alias: "kristina_not_home_360" # Turns off the "kristinahome360" input_boolean if Kristina leaves home
   trigger:
     - platform: state
-      entity_id: device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
+      entity_id: device_tracker.kristinabrody
       from: 'home'
       to: 'not_home'
 #  condition:
@@ -593,7 +592,7 @@
 - alias: "emilie_home_360" # Turns on the "emiliehome360" input_boolean if Emilie arrives home
   trigger:
     - platform: state
-      entity_id: device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+      entity_id: device_tracker.emilie
       from: 'not_home'
       to: 'home'
 #  condition:
@@ -607,7 +606,7 @@
 - alias: "emilie_not_home_360" # Turns off the "emiliehome360" input_boolean if Emilie leaves home
   trigger:
     - platform: state
-      entity_id: device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
+      entity_id: device_tracker.emilie
       from: 'home'
       to: 'not_home'
 #  condition:
