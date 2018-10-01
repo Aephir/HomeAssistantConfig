@@ -124,6 +124,8 @@ device_tracker.google_maps_110730659630480268471:
   friendly_name: Walden
 device_tracker.walden_bjrn_yoshimoto:
   entity_picture: /local/images/brain.jpg
+device_tracker.kristinabrody:
+  entity_picture: /local/images/kristina_3.jpg
 sensor.aephir_phone_battery_360:
   friendly_name: Walden's Battery
   icon: mdi:battery
