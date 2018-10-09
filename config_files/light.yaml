@@ -16,19 +16,52 @@
 - platform: skybell
 
 ##########################
-#                        #
 #      LIGHT GROUPS      #
-#                        #
 ##########################
 
 - platform: group
   name: All Lights
   entities:
-    - light.entrance_lights
-    - light.kitchen_light
+    - light.main_floor_lights
+    - light.basement_lights
+    - light.top_floor_lights
+    - light.outdoor_lights
+
+#######################
+#__Main_Floor_Lights__#
+
+- platform: group
+  name: Main Floor Lights
+  entities:
+    - light.kitchen_lights
     - light.dining_room_lights
     - light.conservatory_lights
-    - light.basement_lights
+    - light.bedroom_lights
+    - light.baby_room
+    - light.entrance_lights
+
+- platform: group
+  name: kitchen lights
+  entities:
+    - light.kitchen_spots
+    - light.kitchen_cabinet_lights
+
+- platform: group
+  name: Dining Room Lights
+  entities:
+    - light.living_room_lightstrip
+    - light.dining_table_lights
+
+- platform: group
+  name: Conservatory Lights
+  entities:
+    - light.conservatory_couch
+    - light.conservatory_reading
+
+- platform: group
+  name: Bedroom Lights
+  entities:
+    - light.bedroom
 
 - platform: group
   name: Kitchen Spots
@@ -47,44 +80,21 @@
     - light.kitchen_cabinet_light_2
 
 - platform: group
-  name: kitchen lights
-  entities:
-    - light.kitchen_spots
-    - light.kitchen_cabinet_lights
-
-# - platform: group
-#   name: Kitchen Cabinet Lights
-#   entities:
-#     - light.
-
-- platform: group
   name: Dining Table lights
   entities:
     - light.dining_table_1
     - light.dining_table_2
 
 - platform: group
-  name: Dining Room Lights
+  name: Entrance Lights
   entities:
-    - light.living_room_lightstrip
-    - light.dining_table_lights
+    - light.main_floor_entrance_1
+    - light.main_floor_entrance_2
+    - light.stairway
+    - light.stairway_up
 
-# - platform: group
-#   name: Dining Area Lights
-#   entities:
-#     - light.kitchen_lights
-#     - light.dining_room_lights
-
-- platform: group
-  name: Conservatory Lights
-  entities:
-    - light.conservatory_couch
-    - light.conservatory_reading
-
-- platform: group
-  name: Bedroom Lights
-  entities:
-    - light.bedroom
+#####################
+#__Basement_Lights__#
 
 - platform: group
   name: Basement Lights
@@ -95,30 +105,27 @@
     - light.light_wine_cellar
 
 - platform: group
+  name: Basement Entrance Lights
+  entities:
+    - light.basement_entrance
+    - light.basement_hallway
+
+- platform: group
   name: Basement Pathway
   entities:
     - light.basement_entrance
     - light.tv_room
 
-# - platform: group
-#   name: Bedroom Lights
-#   entities:
-#     - light.bedroom_stairway
-#     - light.kristinas_bedroom
-#     - light.waldens_bedroom
-
-- platform: group
-  name: Entrance Lights
-  entities:
-    - light.main_floor_entrance_1
-    - light.main_floor_entrance_2
-    - light.stairway
-    - light.stairway_down
+######################
+#__Top_Floor_Lights__#
 
 - platform: group
   name: Top Floor Lights
   entities:
     - light.top_floor_bathroom
+
+####################
+#__Outdoor_Lights__#
 
 - platform: group
   name: Outdoor Lights
@@ -127,12 +134,3 @@
     - light.west_garden
     - light.outside_shed
     - light.outside_basement_entrance
-
-- platform: group
-  name: Main Floor Lights
-  entities:
-    - light.kitchen_lights
-    - light.dining_room_lights
-    - light.conservatory_lights
-    - light.baby_room
-    - light.bedroom_lights

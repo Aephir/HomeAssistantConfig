@@ -30,3 +30,31 @@ push:
           authenticationRequired: yes
           destructive: no
           behavior: 'default'
+    - name: Set Alarm
+      identifier: 'set_alarm'
+      actions:
+        - identifier: 'SET_ALARM_AWAY'
+          title: 'Set alarm away'
+          # activationMode: 'background'
+          # authenticationRequired: yes
+          # destructive: no
+          # behavior: 'textInput'
+          # textInputButtonTitle: 'Arm Alarm!'
+          # textInputPlaceholder: 'Placeholder'
+        - identifier: 'SET_ALARM_AWAY_ALL_OFF'
+          title: 'Set alarm away and turn off home'
+        - identifier: 'ALL_OFF_NO_ALARM'
+          title: 'Turn off home with no alarm'
+        - identifier: 'GUEST_MODE'
+          title: 'Turn on guest mode'
+    - name: Power
+      identifier: 'power'
+      actions:
+        - identifier: 'POWER_OFF_ALL'
+          title: 'Power off everything'
+          activationMode: 'background'
+          authenticationRequired: no
+          destructive: yes
+          behavior: 'textInput'
+          textInputButtonTitle: 'Sluk Alt!'
+          textInputPlaceholder: 'Placeholder'

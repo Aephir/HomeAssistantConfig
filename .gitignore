@@ -4,6 +4,7 @@ lib
 python_scripts
 tts
 www/images
+www/tileboard
 .*
 *.conf
 !/.gitignore

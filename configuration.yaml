@@ -80,9 +80,9 @@ updater:
 #################
 
 alarm_control_panel: !include config_files/alarm.yaml
-#android_ip_webcam: !include misc/android_ip_webcam.yaml
+# android_ip_webcam: !include misc/android_ip_webcam.yaml
 automation: !include config_files/automation.yaml
-#automation: !include_dir_merge_list config_files/automation/
+# automation: !include_dir_merge_list config_files/automation/
 binary_sensor: !include config_files/binary_sensor.yaml
 camera: !include config_files/camera.yaml
 cast: !include config_files/cast.yaml

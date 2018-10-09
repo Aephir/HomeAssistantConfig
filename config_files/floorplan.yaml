@@ -131,6 +131,8 @@
             - binary_sensor.motion_sensor_158d000200d285
             - binary_sensor.motion_sensor_158d000236a116
             - binary_sensor.motion_sensor_158d00023e3742
+            - binary_sensor.motion_sensor_158d000236a0f3
+            - binary_sensor.motion_sensor_158d000236a0d0
           states:
             - state: 'on'
               class: 'motion-on'
@@ -379,7 +381,7 @@
 
         - name: Lights
           entities:
-            - light.basement_hallway
+            - light.basement_entrance_lights
             - light.tv_room
             # - light.walkin_closet
             - light.kitchen_spots
@@ -388,6 +390,7 @@
             - light.conservatory_couch
             - light.stairway
             - light.dining_table_lights
+            - light.top_floor_bathroom
           states:
             - state: 'on'
               class: 'light-on'
@@ -429,7 +432,7 @@
 
         - name: light glow
           entities:
-            - input_boolean.light_basement_hallway
+            - input_boolean.light_basement_entrance_lights
             - input_boolean.light_tv_room
             # - input_boolean.light_walkin_closet
             - input_boolean.light_wine_cellar
@@ -439,6 +442,7 @@
             - input_boolean.light_stairway
             - input_boolean.light_kitchen_cabinet
             - input_boolean.light_dining_table
+            - input_boolean.light_top_floor_bathroom
           states:
             - state: 'on'
               class: 'light-glow-on'
@@ -532,6 +536,27 @@
         #   action:
         #     domain: switch
         #     service: toggle
+
+        - name: tv
+          entities:
+            - media_player.ue46es8005
+          states:
+            - state: 'on'
+              class: 'tv-on'
+            - state: 'off'
+              class: 'tv-off'
+          action:
+            service: toggle
+
+        - name: tv_glow
+          entities:
+            - input_boolean.tv_ue46es8005
+          states:
+            - state: 'on'
+              class: 'tv-glow-on'
+            - state: 'off'
+              class: 'tv-glow-off'
+
 
         - name: Everything_Off
           entities:

@@ -200,13 +200,24 @@ svg, svg * {
 
 
 .tv-off {
-  fill: #505050 !important;
-  stroke: #505050 !important;
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
 }
 
 .tv-on {
-  fill: #FFFF3C !important;
-  stroke: #FFFF3C !important;
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+
+.tv-glow-off {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+.tv-glow-on {
+  fill-opacity: 1 !important;
+  stroke-opacity: 0 !important;
 }
 
 

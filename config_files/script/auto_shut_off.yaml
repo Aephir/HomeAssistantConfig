@@ -18,6 +18,9 @@
       - service: switch.turn_off
         data:
           entity_id: switch.espresso_machine
+      - service: switch.turn_off
+        data:
+          entity_id: switch.fountain
 
 ################
 #__Night Time__#

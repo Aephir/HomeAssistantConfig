@@ -186,22 +186,17 @@
       transition: 2
 
 
-- name: Living Room Normal Fade
+- name: Dining Room Normal Fade
   entities:
-    light.couch_lamp:
+    light.dining_room_lights:
       state: on
       transition: 120
       brightness: 150
       color_temp: 400
-    light.living_room_lightstrip:
-      state: on
-      transition: 120
-      brightness: 175
-      color_temp: 400
 
-- name: Lounge Normal Fade
+- name: Conservatory Normal Fade
   entities:
-    light.color_temperature_light_1:
+    light.conservatory_lights:
       state: on
       transition: 10
       brightness: 190

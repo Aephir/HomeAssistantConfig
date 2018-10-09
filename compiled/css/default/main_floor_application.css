@@ -202,35 +202,25 @@ input {
 
 .modalDialogCloseButton:hover { background: #444; }
 
-.widget-baseswitch-default-walden-presence {
-	position: relative;
-}
-
-.widget-baseswitch-default-walden-presence .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-walden-presence .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-walden-presence .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-walden-presence .icon {
+.widget-basejavascript-default-basement .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-walden-presence .toggle-area {
+.widget-basejavascript-default-basement .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-basement .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-basement .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -238,36 +228,25 @@ input {
 	width: 100%;
 	height: 100%;
 }
-
-.widget-baseswitch-default-kristina-presence {
-	position: relative;
-}
-
-.widget-baseswitch-default-kristina-presence .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-kristina-presence .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-kristina-presence .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-kristina-presence .icon {
+.widget-basejavascript-default-main-dashboard .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-kristina-presence .toggle-area {
+.widget-basejavascript-default-main-dashboard .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-dashboard .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-dashboard .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -275,36 +254,25 @@ input {
 	width: 100%;
 	height: 100%;
 }
-
-.widget-baseswitch-default-emilie-presence {
-	position: relative;
-}
-
-.widget-baseswitch-default-emilie-presence .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-emilie-presence .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-emilie-presence .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-emilie-presence .icon {
+.widget-basejavascript-default-top-floor .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-emilie-presence .toggle-area {
+.widget-basejavascript-default-top-floor .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -312,7 +280,6 @@ input {
 	width: 100%;
 	height: 100%;
 }
-
 .widget-baseclock-default-clock.date {
 	position: absolute;
 	top: 5px;

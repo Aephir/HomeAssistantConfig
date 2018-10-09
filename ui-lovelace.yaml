@@ -21,6 +21,8 @@ resources:
     type: js
   - url: /local/button-card.js
     type: module
+  - url: /local/surveillance-card.js?v=0 # https://github.com/custom-cards/surveillance-card
+    type: module
 
 views:
   #   # View tab title.
@@ -385,17 +387,23 @@ views:
         entities:
           - media_player.sonos_play_5_1
           - media_player.mpd
+          - media_player.living_room_speaker
       - type: entities
         title: Video Players
         entities:
           - media_player.ue46es8005
           - media_player.kodi
+          - media_player.upstairs_living_room_tv
       - type: media-control
         entity: media_player.ue46es8005
       - type: media-control
         entity: media_player.kodi
       - type: media-control
         entity: media_player.sonos_play_5_1
+      - type: media-control
+        entity: media_player.living_room_speaker
+      - type: media-control
+        entity: media_player.upstairs_living_room_tv
 
   - icon: mdi:leaf
     id: plants
@@ -405,10 +413,10 @@ views:
         entity: plant.lemon
       - type: plant-status
         # title: Plant Sensors
-        entity: plant.tomato
+        entity: plant.fern
       - type: plant-status
         # title: Plant Sensors
-        entity: plant.monstera
+        entity: plant.avocado
       - type: plant-status
         # title: Plant Sensors
         entity: plant.banana
@@ -480,6 +488,17 @@ views:
           include:
             - domain: automation
               state: 'off'
+
+  - title: Surveillance
+    icon: mdi:cctv
+    panel: true
+    cards:
+      - type: custom:surveillance-card
+        thumb_interval: 15
+        update_interval: 2
+        cameras:
+          - entity: camera.front_door
+            motion_entity: binary_sensor.skybell_front_door_motion
 
   - icon: mdi:biohazard
     id: experimental

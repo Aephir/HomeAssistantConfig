@@ -101,8 +101,8 @@ color_temperature_light_1:
 light_kitchen_spots:
   name: dummy kitchen spots
 
-light_basement_hallway:
-  name: dummy basement hallway light
+light_basement_entrance_lights:
+  name: dummy basement entrance lights
 
 light_stairway:
   name: dummy stairway light
@@ -128,6 +128,11 @@ light_kitchen_cabinet:
 light_dining_table:
   name: dummy dining table lights
 
+light_top_floor_bathroom:
+  name: dummy top floor bathroom lights
+
+tv_ue46es8005:
+  name: dummy ue46es8005
 
 #########################
 #    Maunal Override    #
