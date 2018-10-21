@@ -74,7 +74,7 @@ main_dashboard:
     icon_style_inactive: "color: grey; margin-top: 40px"
     dashboard: main_dashboard
 
-kitchen_spots:
+kitchen_lights:
     title: Lys i køkken
     title_style: "color: white; font-weight: bold"
     widget_style: "font-size: 150%"
@@ -108,7 +108,7 @@ basement_lights:
     icon_style_inactive: "color: grey; margin-top: 40px"
 
 main_floor_lights:
-    title: Lys i udestue
+    title: Lys i Stueetage
     title_style: "color: white; font-weight: bold"
     widget_style: "font-size: 150%"
     widget_type: light

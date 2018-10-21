@@ -703,6 +703,19 @@
   monitored_conditions:
     - chime_level
 
+##################
+#__Trash_Pickup__#
+
+- platform: mqtt
+  name: trash_pickup_date
+  state_topic: "trash/pickup"
+  value_template: "{{ value_json.date }}"
+
+- platform: mqtt
+  name: trash_pickup_type
+  state_topic: "trash/pickup"
+  value_template: "{{ value_json.type }}"
+
 ###################
 #__Misc. Sensors__#
 

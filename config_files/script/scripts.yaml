@@ -306,11 +306,15 @@
     alias: Trash Pickup Tomorrow
     sequence:
       - service: notify.home_aephir_bot
-        data:
-          message: "Trash pickup tomorrow. {{ persistent_notification.trash }}"
-      - service: notify.ios_kristinas_iphone
-        data:
-          message: "Husk {{ persistent_notification.trash }} bliver tømt i morgen."
+        data_template:
+          message: >
+            Husk {{ sensor.trash_pickup_type.type }} bliver tømt i morgen.
+      #   data:
+      #     message: "Trash pickup tomorrow. "
+      # - service: notify.ios_kristinas_iphone
+      #   data_template:
+      #     message: >
+      #       Husk {{ sensor.trash_pickup_type.type }} bliver tømt i morgen.
 
 
 ######

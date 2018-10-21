@@ -109,6 +109,7 @@ media_player: !include_dir_merge_list config_files/media_player/
 mqtt: !include config_files/mqtt.yaml
 #mysensors: !include config_files/mysensors.yaml
 notify: !include config_files/notify.yaml
+# packages: !include config_files/packages.yaml
 panel_custom: !include config_files/panel_custom.yaml
 panel_iframe: !include config_files/panel_iframe.yaml
 plant: !include config_files/plant.yaml

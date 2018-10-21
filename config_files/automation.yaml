@@ -5,7 +5,6 @@
 #########################
 
 
-
 # - alias: motion_light_test
 #   trigger:
 #     platform: state
@@ -34,6 +33,15 @@
 #     service: script.turn_on
 #     entity_id: script.say_welcome_home
 
+- alias: "SkyBell Motion Detected"
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.skybell_front_door_motion
+      to: 'on'
+  action:
+    - service: notify.home_aephir_bot
+      data_template:
+        message: "Front Door Motion Detected"
 
 #################
 #    Remotes    #
@@ -51,6 +59,10 @@
     - service: switch.toggle
       data:
         entity_id: switch.fountain
+    - service: shell_command.set_device_state
+      data_template:
+        data: '{"attributes": { "icon": "mdi:remote", "friendly_name": "Bedroom switch", "last_updated": ["2018-10-11","08:47:08"]}  "state":"idle"}'
+        url: 'http://127.0.0.1/api/states/sensor.bedroom_switch'
 
 - alias: test_hue_tap_2
   trigger:
@@ -230,20 +242,98 @@
     - service: light.turn_on
       data:
         entity_id: light.dining_table_lights
-        brightness: 150
+        brightness: 255
         kelvin: 2700
     - service: light.turn_on
       data:
         entity_id: light.kitchen_spots
-        brightness: 150
+        brightness: 255
         kelvin: 2700
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_cabinet_lights
+        brightness: 255
+
+- alias: Dimmer 1 Button 2 Clicked
+  trigger:
+    - platform: state
+      entity_id: sensor.hue_dimmer_1
+      to: '2_click_up' # sometimes it doesn't register very fast clicks. But it does register "click_up".
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_spots
+        brightness: 255
+        kelvin: 2700
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_cabinet_lights
+        brightness: 255
+
+- alias: Dimmer 1 Button 2 Held
+  trigger:
+    - platform: state
+      entity_id: sensor.hue_dimmer_1
+      to: '2_hold'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id: light.living_room_lightstrip
+        brightness: 255
+        kelvin: 2700
+    - service: light.turn_on
+      data:
+        entity_id: light.dining_table_lights
+        brightness: 255
+        kelvin: 2700
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_spots
+        brightness: 255
+        kelvin: 2700
+    - service: light.turn_on
+      data:
+        entity_id: light.kitchen_cabinet_lights
+        brightness: 255
+
+- alias: Dimmer 1 Button 3 Clicked
+  trigger:
+    - platform: state
+      entity_id: sensor.hue_dimmer_1
+      to: '3_click_up' # sometimes it doesn't register very fast clicks. But it does register "click_up".
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_spots
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_cabinet_lights
+
+- alias: Dimmer 1 Button 3 Held
+  trigger:
+    - platform: state
+      entity_id: sensor.hue_dimmer_1
+      to: '3_hold' # sometimes it doesn't register very fast clicks. But it does register "click_up".
+  action:
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_spots
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_cabinet_lights
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_spots
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_cabinet_lights
 
 # Automation triggers when dimmer 1 button 4 is pressed once
 - alias: Dimmer 1 Button 4 Clicked
   trigger:
     - platform: state
       entity_id: sensor.hue_dimmer_1
-      to: '4_click'
+      to: '4_click_up'
   action:
     - service: light.turn_off
       data:
@@ -257,17 +347,20 @@
   trigger:
     - platform: state
       entity_id: sensor.hue_dimmer_1
-      to: '4_hold'
+      to: '4_hold' # sometimes it doesn't register very fast clicks. But it does register "click_up".
   action:
-    - service: light.turn_off
-      data:
-        entity_id: light.living_room_lightstrip
     - service: light.turn_off
       data:
         entity_id: light.kitchen_spots
     - service: light.turn_off
       data:
-        entity_id: light.dining_table_lights
+        entity_id: light.kitchen_cabinet_lights
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_spots
+    - service: light.turn_off
+      data:
+        entity_id: light.kitchen_cabinet_lights
 
 #######################
 #__Xioami_aqara_cube__#
@@ -964,21 +1057,51 @@
         brightness: 255
         kelvin: 2700
 
-- alias: bathroom light timer on night
+- alias: bathroom light timer on night is in bed
   trigger:
     - platform: state
       entity_id: binary_sensor.motion_sensor_158d000200e0c5
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a22f
+      # from: 'off'
       to: 'on'
   condition:
     - condition: time
       after: '22:00:00'
       before: '07:00:00'
+    - condition: state
+      entity_id: light.dining_table_lights
+      state: 'off'
   action:
     - service: light.turn_on
       entity_id: light.bathroom
       data:
         brightness: 10
         rgb_color: [255,0,0]
+
+- alias: bathroom light timer on night if up
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000200e0c5
+      to: 'on'
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a22f
+      # from: 'off'
+      to: 'on'
+  condition:
+    - condition: time
+      after: '22:00:00'
+      before: '07:00:00'
+    - condition: state
+      entity_id: light.dining_table_lights
+      state: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.bathroom
+      data:
+        brightness: 255
+        kelvin: 2700
 
 - alias: bathroom light timer off
   trigger:
@@ -1053,6 +1176,21 @@
         entity_id:
           - light.stairway
 
+- alias: entrance light timer off TV room
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d00023e3742
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.motion_sensor_158d000236a116
+      state: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.tv_room
+
 - alias: TV Room light timer on if TV off day
   trigger:
     - platform: state
@@ -1062,9 +1200,9 @@
     - condition: time
       after: '07:00:00'
       before: '22:00:00'
-    - condition: state
-      entity_id: media_player.ue46es8005
-      state: 'off'
+    # - condition: state
+    #   entity_id: media_player.ue46es8005
+    #   state: 'off'
   action:
     - service: light.turn_on
       entity_id: light.tv_room
@@ -1086,9 +1224,9 @@
     - condition: time
       after: '22:00:00'
       before: '07:00:00'
-    - condition: state
-      entity_id: media_player.ue46es8005
-      state: 'off'
+    # - condition: state
+    #   entity_id: media_player.ue46es8005
+    #   state: 'off'
   action:
     - service: light.turn_on
       entity_id: light.tv_room
@@ -1108,9 +1246,9 @@
       # from: 'off'
       to: 'off'
   condition:
-    - condition: state
-      entity_id: media_player.ue46es8005
-      state: 'off'
+    # - condition: state
+    #   entity_id: media_player.ue46es8005
+    #   state: 'off'
     - condition: state
       entity_id: binary_sensor.motion_sensor_158d000200d203
       state: 'off'
@@ -1804,6 +1942,31 @@
 #         {% else %}
 #         none
 #         {% endif %}
+
+###############
+#    Alarm    #
+###############
+
+- alias: two hours to next alarm
+  trigger:
+    - platform: webhook
+      webhook_id: 2h_to_alarm
+  action:
+    - delay: '01:45:00'
+    - service: switch.turn_on
+      entity_id: switch.switch
+    - delay: '01:00:00'
+    - service: switch.turn_off
+      entity_id: switch.switch
+
+# - alias: two hours to next alarm
+#   trigger:
+#     - platform: webhook
+#       webhook_id: alarm_time
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: value_template
 
 ######################################
 #    Dummy switches for floorplan    #

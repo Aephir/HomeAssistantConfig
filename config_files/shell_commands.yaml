@@ -52,3 +52,10 @@ reboot_hass: bash /home/homeassistant/.homeassistant/shell_scripts/reboot_home_a
 renew_ssl: bash /home/homeassistant/.homeassistant/shell_scripts/update_certificates.sh
 update_hass: bash /home/homeassistant/.homeassistant/shell_scripts/updatehass.sh
 restart_hass: 'curl http://127.0.0.1:8126/container/home-assistant/restart'
+
+#####################
+#__Set_HASS_States__#
+
+set_device_state: "curl -H “Content-Type: application/json” -X POST -d '{{ data }}' {{ url }}"
+set_hue_tap_1_state: curl -X POST -d '{"state":"3_click"}' http://127.0.0.1:8123/api/states/sensor.bedroom_switch -H 'Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI3ZTNkYThmZTFlMDU0ZTc0ODQ3YjlmNGM0NGVlNmZlOCIsImlhdCI6MTUzNzc4NzU5MCwiZXhwIjoxODUzMTQ3NTkwfQ.33agNnKWoa_igYzN7Dz_Xid7eLL7Z6M-LFMBp7nTznM'
+# test: curl -H “Content-Type: application/json” -X POST -d ‘{“attributes”: {“friendly_name”: Bedroom switch”}, “entity_id”: “sensor.bedroom_switch”, “last_updated”: “2017-01-08T20:18:36.337231+00:00”, “state”: “3_click”}’ https://127.0.0.1:8123/api/states/sensor.bedroom_switch -H 'Authorization:Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI3ZTNkYThmZTFlMDU0ZTc0ODQ3YjlmNGM0NGVlNmZlOCIsImlhdCI6MTUzNzc4NzU5MCwiZXhwIjoxODUzMTQ3NTkwfQ.33agNnKWoa_igYzN7Dz_Xid7eLL7Z6M-LFMBp7nTznM'

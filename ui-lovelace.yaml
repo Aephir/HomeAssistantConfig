@@ -329,7 +329,7 @@ views:
           - entity: sensor.disk_use_percent_
       - type: horizontal-stack
         cards:
-          - type: custom:gauge-card
+          - type: gauge
             title: CPU Temperature
             measurement: °C # set yo override default
             entity: sensor.cpu_temperature
@@ -340,7 +340,7 @@ views:
               red: 75
               amber: 50
               green: 0
-          - type: custom:gauge-card
+          - type: gauge
             title: CPU use
             entity: sensor.processor_use
             scale: 20px
@@ -350,7 +350,7 @@ views:
               red: 75
               amber: 50
               green: 0
-          - type: custom:gauge-card
+          - type: gauge
             title: Memory use
             entity: sensor.memory_use_percent
             scale: 20px
@@ -360,7 +360,7 @@ views:
               red: 75
               amber: 50
               green: 0
-          - type: custom:gauge-card
+          - type: gauge
             title: Disk use
             entity: sensor.disk_use_percent_
             scale: 20px
@@ -675,7 +675,7 @@ views:
                 action: volume_down
                 data:
                   entity_id: media_player.sonos_play_5_1
-            - type: "custom:button-card"
+            - type: "custom:button-card" # https://github.com/kuuji/button-card
               color_type: blank-card
             - type: "custom:button-card"
               color_type: blank-card
