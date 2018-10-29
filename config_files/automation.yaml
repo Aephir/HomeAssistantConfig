@@ -223,7 +223,12 @@
         kelvin: 2700
     - service: light.turn_on
       data:
-        entity_id: light.dining_table_lights
+        entity_id: light.dining_table_1
+        brightness: 255
+        kelvin: 2700
+    - service: light.turn_on
+      data:
+        entity_id: light.dining_table_2
         brightness: 255
         kelvin: 2700
 
@@ -652,7 +657,7 @@
 - alias: "aephir_home_360" # Turns on the "aephirhome360" input_boolean if Aephir arrives home
   trigger:
     - platform: state
-      entity_id: device_tracker.google_maps_110730659630480268471
+      entity_id: device_tracker.walden_bjrn_yoshimoto
       from: 'not_home'
       to: 'home'
 #  condition:
@@ -666,7 +671,7 @@
 #- alias: "aephir_home_360"
 #  trigger:
 #    - platform: state
-#      entity_id: device_tracker.google_maps_110730659630480268471
+#      entity_id: device_tracker.walden_bjrn_yoshimoto
 #      from: 'not_home'
 #      to: 'home'
 ##  condition:
@@ -680,7 +685,7 @@
 - alias: "aephir_not_home_360" # Turns off the "aephirhome360" input_boolean if Aephir leaves home
   trigger:
     - platform: state
-      entity_id: device_tracker.google_maps_110730659630480268471
+      entity_id: device_tracker.walden_bjrn_yoshimoto
       from: 'home'
       to: 'not_home'
 #  condition:
@@ -694,7 +699,7 @@
 #- alias: "aephir_not_home_360"
 #  trigger:
 #    - platform: state
-#      entity_id: device_tracker.google_maps_110730659630480268471
+#      entity_id: device_tracker.walden_bjrn_yoshimoto
 #      from: 'home'
 #      to: 'not_home'
 ##  condition:
@@ -711,10 +716,6 @@
       entity_id: device_tracker.kristinabrody
       from: 'not_home'
       to: 'home'
-#  condition:
-#    - condition: state
-#      entity_id: input_boolean.kristinahome360
-#      state: 'off'
   action:
     service: homeassistant.turn_on
     entity_id: input_boolean.kristinahome360
@@ -725,10 +726,6 @@
       entity_id: device_tracker.kristinabrody
       from: 'home'
       to: 'not_home'
-#  condition:
-#    - condition: state
-#      entity_id: input_boolean.kristinahome360
-#      state: 'on'
   action:
     service: homeassistant.turn_off
     entity_id: input_boolean.kristinahome360
@@ -739,10 +736,6 @@
       entity_id: device_tracker.emilie
       from: 'not_home'
       to: 'home'
-#  condition:
-#    - condition: state
-#      entity_id: input_boolean.emiliehome360
-#      state: 'off'
   action:
     service: homeassistant.turn_on
     entity_id: input_boolean.emiliehome360
@@ -753,10 +746,6 @@
       entity_id: device_tracker.emilie
       from: 'home'
       to: 'not_home'
-#  condition:
-#    - condition: state
-#      entity_id: input_boolean.emiliehome360
-#      state: 'on'
   action:
     service: homeassistant.turn_off
     entity_id: input_boolean.emiliehome360
@@ -857,6 +846,35 @@
 #  action:
 #    service: homeassistant.turn_off
 #    entity_id: input_boolean.someonehome360
+
+- alias: Karen iphone guest mode
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.karen_iphone_ping
+      to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: input_boolean.guest_mode
+
+- alias: Karen iphone guest mode off
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.karen_iphone_ping
+      to: 'off'
+      for:
+        minutes: 20
+  action:
+    service: notify.home_aephir_bot
+    data_template:
+      message: "Karen left."
+      data:
+          inline_keyboard:
+          - 'Turn off guest mode:/guest_mode_off, No action:/removekeyboard'
+  # action:
+  #   service: homeassistant.turn_off
+  #   entity_id: input_boolean.guest_mode
 
 - alias: Guest leaves last # Turns of the "someonehome360" input_boolean if guest mode is deactiveatd and no one is home
   trigger:
@@ -1032,6 +1050,13 @@
 
 ######################################
 #__Motion Based Lights and Switches__#
+
+# - alias: motion light python script
+#   trigger:
+#     - platform: state
+#       entity_id: 'binary_sensor.motion_sensor_158d00023e3742, binary_sensor.motion_sensor_158d000200d203, binary_sensor.motion_sensor_158d000236a0f3, binary_sensor.motion_sensor_158d000236a116, binary_sensor.motion_sensor_158d000200d285, binary_sensor.motion_sensor_158d000200e0c5, binary_sensor.motion_sensor_158d000236a22f, binary_sensor.motion_sensor_158d000236a0d0'
+#   action:
+#     - service: python_script.motion_light_2
 
 - alias: bathroom light timer on day
   trigger:
@@ -1370,6 +1395,21 @@
       data:
         entity_id:
           - light.stairway
+
+- alias: Basement Stairway timer basement entrance off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_sensor_158d000236a0f3
+      # from: 'off'
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.motion_sensor_158d000200d203
+      state: 'off'
+  action:
+    - service: light.turn_off
+      data:
+        entity_id:
           - light.basement_entrance_lights
 
 - alias: Basement Stairway timer basement hallway off
@@ -1386,7 +1426,7 @@
     - service: light.turn_off
       data:
         entity_id:
-          - light.basement_entrance_lights
+          - light.tv_room
 
 - alias: upstairs bathroom light timer on day
   trigger:
@@ -1443,6 +1483,10 @@
         entity_id:
           - light.top_floor_bathroom
 
+
+###############
+#  Templates  #
+###############
 
 ### template for multiple and/or conditions
 # - alias: 'Onkyo Receiver Auto Off - Weekdays'
@@ -1642,6 +1686,16 @@
     data_template:
       entity_id: media_player.living_room
       message: "{{ ' '.join(trigger.event.data.args) }}"
+
+- alias: Turn off guest mode
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/guest_mode_off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.guest_mode
 
 ###########################################
 #    Automatic Renewal of Certificates    #
@@ -2182,15 +2236,15 @@
 #
 # See post #5 here https://community.home-assistant.io/t/tasker-long-lived-access-tokens/69253/4
 
-# - alias: 'Doorbell chime test'
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.skybell_front_door_button
-#     to: 'on'
-#   action:
-#     service: notify.home_aephir_bot
-#     data:
-#       message: "on"
+- alias: 'Doorbell chime test'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.skybell_front_door_button
+    to: 'on'
+  action:
+    service: notify.home_aephir_bot
+    data:
+      message: "on"
 #
 # - alias: 'Doorbell chime'
 #   trigger:

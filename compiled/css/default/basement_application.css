@@ -1,0 +1,1131 @@
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #222;
+  font-size: 15px;
+  color: #fff;
+  padding: 0;
+  line-height: 1;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Open Sans', 'Arial'
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+img, object {
+  max-width: 100%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;}
+
+iframe {
+  max-width: 100%;
+}
+  
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+td {
+  vertical-align: middle;
+}
+
+ul, ol {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, p {
+  padding: 0;
+  margin: 0;
+}
+h1 {
+  margin-bottom: 6px;
+  text-align: center;
+  font-size: 100%;
+  font-weight: 200;
+}
+h2 {
+  font-size: 300%;
+  font-weight: 400;
+  color: #fff;
+}
+h3 {
+  font-size: 125%;
+  font-weight: 300;
+  color: #fff;
+}
+
+input {
+  background-color: #444;
+  border: none;
+}
+
+.dashboard_main {
+	margin: 0px auto;
+}
+
+.gridster {
+  margin: 0px auto;
+}
+
+.icon-background {
+  pointer-events: none;
+  width: 100%!important;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.1;
+  font-size: 1375%;
+  text-align: center;
+  margin-top: 82px;
+}
+
+.list-nostyle {
+  list-style: none;
+}
+
+.gridster ul {
+  list-style: none;
+}
+
+.gs-w {
+  width: 100%;
+  display: table;
+  cursor: pointer;
+  z-index: auto !important;
+}
+
+.iframe {
+  position: relative;
+  overflow: hidden;  
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;}
+
+.widget {
+  padding: 0px 0px;
+  text-align: center;
+  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  background-color: #444444;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;}
+
+.title {
+  color: #fff;
+}
+
+.icon-inactive {
+  color: #888;
+}
+
+.icon-active {
+  color: #aaff00;
+}
+
+
+#container {
+  padding-top: 0px;
+}
+
+.modalDialog {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 9999;
+	opacity:0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialogOpen {
+	opacity:0.95;
+	pointer-events: auto;
+}
+
+.modalDialogClose {
+	opacity:0;
+	pointer-events: none;
+}
+
+.modalDialog > div {
+	width: 275px;
+	position: relative;
+	margin: 3% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+}
+
+.modalDialogCloseButton {
+	line-height: 50px;
+	position: absolute;
+	right: -25px;
+	text-align: center;
+	top: -20px;
+	width: 50px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+}
+
+.modalDialogCloseButton:hover { background: #444; }
+
+.widget-basejavascript-default-main-dashboard .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-dashboard .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-dashboard .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-dashboard .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-basejavascript-default-main-floor .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-floor .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-floor .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-floor .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-basejavascript-default-top-floor .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-baseclock-default-clock.date {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+.widget-baseclock-default-clock.time {
+ 	position: absolute;
+	top: 45px;
+	width: 100%;
+}
+.widget-baseswitch-default-switch-switch {
+	position: relative;
+}
+
+.widget-baseswitch-default-switch-switch .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-switch .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-switch .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-switch .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-switch .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-switch-kettle {
+	position: relative;
+}
+
+.widget-baseswitch-default-switch-kettle .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-kettle .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-kettle .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-kettle .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-kettle .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-switch-living-room-media-master {
+	position: relative;
+}
+
+.widget-baseswitch-default-switch-living-room-media-master .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-living-room-media-master .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-living-room-media-master .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-living-room-media-master .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-switch-living-room-media-master .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baselight-default-entrance-lights {
+	position: relative;
+}
+
+.widget-baselight-default-entrance-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-entrance-lights .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-entrance-lights .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-entrance-lights .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-entrance-lights .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baselight-default-kitchen-spots {
+	position: relative;
+}
+
+.widget-baselight-default-kitchen-spots .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-kitchen-spots .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-kitchen-spots .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-kitchen-spots .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-kitchen-spots .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baselight-default-dining-room-lights {
+	position: relative;
+}
+
+.widget-baselight-default-dining-room-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-dining-room-lights .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-dining-room-lights .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-dining-room-lights .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-dining-room-lights .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baseswitch-default-guest-mode {
+	position: relative;
+}
+
+.widget-baseswitch-default-guest-mode .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-guest-mode .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-guest-mode .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-guest-mode .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-guest-mode .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-scene-night-light {
+	position: relative;
+}
+
+.widget-baseswitch-default-scene-night-light .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-scene-night-light .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-scene-night-light .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-scene-night-light .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-scene-night-light .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-scene-all-lights-off {
+	position: relative;
+}
+
+.widget-baseswitch-default-scene-all-lights-off .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-scene-all-lights-off .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-scene-all-lights-off .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-scene-all-lights-off .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-scene-all-lights-off .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baselight-default-basement-lights {
+	position: relative;
+}
+
+.widget-baselight-default-basement-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-basement-lights .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-basement-lights .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-basement-lights .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-basement-lights .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-basement-lights .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-basement-lights .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-basement-lights .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-basement-lights .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-basement-lights .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-basement-lights .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-basement-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-basement-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-basement-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baselight-default-top-floor-lights {
+	position: relative;
+}
+
+.widget-baselight-default-top-floor-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-top-floor-lights .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-top-floor-lights .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-top-floor-lights .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-top-floor-lights .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-top-floor-lights .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-top-floor-lights .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-top-floor-lights .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-top-floor-lights .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-top-floor-lights .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-top-floor-lights .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-top-floor-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-top-floor-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-top-floor-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baselight-default-conservatory-lights {
+	position: relative;
+}
+
+.widget-baselight-default-conservatory-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-conservatory-lights .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-conservatory-lights .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-conservatory-lights .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-conservatory-lights .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-conservatory-lights .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-conservatory-lights .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-conservatory-lights .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-conservatory-lights .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-conservatory-lights .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-conservatory-lights .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-conservatory-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-conservatory-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-conservatory-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .unit {
+	font-size: 225%;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .value {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .valueunit {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything {
+	position: relative;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-basedisplay-default-espresso-power .unit {
+	font-size: 225%;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.widget-basedisplay-default-espresso-power .value {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-espresso-power .valueunit {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-espresso-power .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-espresso-power .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-espresso-power .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-reload .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-reload .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-reload .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-reload .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}

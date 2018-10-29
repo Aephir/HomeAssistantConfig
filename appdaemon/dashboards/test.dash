@@ -11,6 +11,22 @@ global_parameters:
     use_hass_icon: 1
     namespace: default
     devices:
+      light:
+        icon_on: mdi-lightbulb-on
+        icon_off: mdi-lightbulb
+        icon_style_active: "color: yellow"
+        icon_style_inactive: "color: grey"
+
+    clock:
+        widget_type: clock
+        time_format: 24hr
+        date_format_country: "dk"
+        date_format_options:
+          weekday: "short"
+          day: "numeric"
+          month: "numeric"
+        date_style: "color: white; font-size: 200%"
+        time_style: "color: pink"
 
 ##label:
 ##    widget_type: label
@@ -18,4 +34,4 @@ global_parameters:
 
 layout:
     -
-    - light.hue_lightstrip_plus_1(1x1), light.couch_lamp(1x1), light.hue_ambiance_lamp_1(1x1), light.hue_ambiance_lamp_2(1x1), light.bedroom_stairway(1x1), light.kristinas_bedroom(1x1), light.waldens_bedroom(1x1)
+    - light.conservatory_couch, light.dining_table_lights(1x1)

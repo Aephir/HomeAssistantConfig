@@ -44,8 +44,8 @@
 
 - platform: template
   sensors:
-    sensor_espresso:
-      value_template: '{{ states.switch.espresso_machine.attributes.current_power_w | round(0) }}'
+    sensor_fountain:
+      value_template: '{{ states.switch.fountain.attributes.current_power_w | round(0) }}'
       unit_of_measurement: 'W'
 
 - platform: template

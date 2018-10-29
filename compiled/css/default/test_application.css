@@ -202,39 +202,39 @@ input {
 
 .modalDialogCloseButton:hover { background: #444; }
 
-.widget-baselight-default-group-system-information {
+.widget-baselight-default-light-conservatory-couch {
 	position: relative;
 }
 
-.widget-baselight-default-group-system-information .state_text {
+.widget-baselight-default-light-conservatory-couch .state_text {
 	font-size: 85%;
 }
 
-.widget-baselight-default-group-system-information .title {
+.widget-baselight-default-light-conservatory-couch .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-system-information .title2 {
+.widget-baselight-default-light-conservatory-couch .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-system-information .state_text {
+.widget-baselight-default-light-conservatory-couch .state_text {
 	position: absolute;
 	top: 38px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-system-information .icon {
+.widget-baselight-default-light-conservatory-couch .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-system-information .toggle-area {
+.widget-baselight-default-light-conservatory-couch .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -243,21 +243,21 @@ input {
 	height: 75%;
 }
 
-.widget-baselight-default-group-system-information .level {
+.widget-baselight-default-light-conservatory-couch .level {
 	display: inline-block;
 }
 
-.widget-baselight-default-group-system-information .unit {
+.widget-baselight-default-light-conservatory-couch .unit {
 	display: inline-block;
 }
 
-.widget-baselight-default-group-system-information .levelunit {
+.widget-baselight-default-light-conservatory-couch .levelunit {
 	position: absolute;
 	bottom: 5px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-system-information .secondary-icon {
+.widget-baselight-default-light-conservatory-couch .secondary-icon {
 	position: absolute;
 	bottom: 0px;
 	font-size: 20px;
@@ -265,93 +265,56 @@ input {
 	color: white;
 }
 
-.widget-baselight-default-group-system-information .secondary-icon.plus {
+.widget-baselight-default-light-conservatory-couch .secondary-icon.plus {
 	right: 24px;
 }
 
-.widget-baselight-default-group-system-information .secondary-icon.plus i {
+.widget-baselight-default-light-conservatory-couch .secondary-icon.plus i {
 	padding-top: 10px;
 	padding-left: 30px;
 }
 
-.widget-baselight-default-group-system-information .secondary-icon.minus {
+.widget-baselight-default-light-conservatory-couch .secondary-icon.minus {
 	left: 8px;
 }
 
-.widget-baselight-default-group-system-information .secondary-icon.minus i {
+.widget-baselight-default-light-conservatory-couch .secondary-icon.minus i {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baseswitch-default-input-boolean-guest-mode {
+.widget-baselight-default-light-dining-table-lights {
 	position: relative;
 }
 
-.widget-baseswitch-default-input-boolean-guest-mode .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-input-boolean-guest-mode .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-input-boolean-guest-mode .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-input-boolean-guest-mode .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-input-boolean-guest-mode .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.widget-baselight-default-group-all-lights {
-	position: relative;
-}
-
-.widget-baselight-default-group-all-lights .state_text {
+.widget-baselight-default-light-dining-table-lights .state_text {
 	font-size: 85%;
 }
 
-.widget-baselight-default-group-all-lights .title {
+.widget-baselight-default-light-dining-table-lights .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-all-lights .title2 {
+.widget-baselight-default-light-dining-table-lights .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-all-lights .state_text {
+.widget-baselight-default-light-dining-table-lights .state_text {
 	position: absolute;
 	top: 38px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-all-lights .icon {
+.widget-baselight-default-light-dining-table-lights .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-all-lights .toggle-area {
+.widget-baselight-default-light-dining-table-lights .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -360,21 +323,21 @@ input {
 	height: 75%;
 }
 
-.widget-baselight-default-group-all-lights .level {
+.widget-baselight-default-light-dining-table-lights .level {
 	display: inline-block;
 }
 
-.widget-baselight-default-group-all-lights .unit {
+.widget-baselight-default-light-dining-table-lights .unit {
 	display: inline-block;
 }
 
-.widget-baselight-default-group-all-lights .levelunit {
+.widget-baselight-default-light-dining-table-lights .levelunit {
 	position: absolute;
 	bottom: 5px;
 	width: 100%;
 }
 
-.widget-baselight-default-group-all-lights .secondary-icon {
+.widget-baselight-default-light-dining-table-lights .secondary-icon {
 	position: absolute;
 	bottom: 0px;
 	font-size: 20px;
@@ -382,820 +345,20 @@ input {
 	color: white;
 }
 
-.widget-baselight-default-group-all-lights .secondary-icon.plus {
+.widget-baselight-default-light-dining-table-lights .secondary-icon.plus {
 	right: 24px;
 }
 
-.widget-baselight-default-group-all-lights .secondary-icon.plus i {
+.widget-baselight-default-light-dining-table-lights .secondary-icon.plus i {
 	padding-top: 10px;
 	padding-left: 30px;
 }
 
-.widget-baselight-default-group-all-lights .secondary-icon.minus {
+.widget-baselight-default-light-dining-table-lights .secondary-icon.minus {
 	left: 8px;
 }
 
-.widget-baselight-default-group-all-lights .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-group-living-room-lights {
-	position: relative;
-}
-
-.widget-baselight-default-group-living-room-lights .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-group-living-room-lights .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-living-room-lights .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-living-room-lights .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-living-room-lights .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-living-room-lights .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-group-living-room-lights .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-group-living-room-lights .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-group-living-room-lights .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-living-room-lights .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-group-living-room-lights .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-group-living-room-lights .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-group-living-room-lights .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-group-living-room-lights .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-group-stairway-lights {
-	position: relative;
-}
-
-.widget-baselight-default-group-stairway-lights .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-group-stairway-lights .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-stairway-lights .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-stairway-lights .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-stairway-lights .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-stairway-lights .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-group-stairway-lights .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-group-stairway-lights .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-group-stairway-lights .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-stairway-lights .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-group-stairway-lights .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-group-stairway-lights .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-group-stairway-lights .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-group-stairway-lights .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-group-bedroom-lights {
-	position: relative;
-}
-
-.widget-baselight-default-group-bedroom-lights .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-group-bedroom-lights .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-bedroom-lights .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-bedroom-lights .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-bedroom-lights .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-bedroom-lights .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-group-bedroom-lights .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-group-bedroom-lights .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-group-bedroom-lights .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-group-bedroom-lights .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-group-bedroom-lights .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-group-bedroom-lights .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-group-bedroom-lights .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-group-bedroom-lights .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-light-hue-lightstrip-plus-1 {
-	position: relative;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-light-hue-lightstrip-plus-1 .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-light-couch-lamp {
-	position: relative;
-}
-
-.widget-baselight-default-light-couch-lamp .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-light-couch-lamp .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-couch-lamp .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-couch-lamp .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-couch-lamp .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-couch-lamp .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-light-couch-lamp .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-couch-lamp .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-couch-lamp .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-couch-lamp .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-light-couch-lamp .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-light-couch-lamp .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-light-couch-lamp .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-light-couch-lamp .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-light-hue-ambiance-lamp-1 {
-	position: relative;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-1 .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-light-hue-ambiance-lamp-2 {
-	position: relative;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-light-hue-ambiance-lamp-2 .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-light-bedroom-stairway {
-	position: relative;
-}
-
-.widget-baselight-default-light-bedroom-stairway .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-light-bedroom-stairway .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-bedroom-stairway .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-bedroom-stairway .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-bedroom-stairway .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-bedroom-stairway .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-light-bedroom-stairway .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-bedroom-stairway .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-bedroom-stairway .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-bedroom-stairway .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-light-bedroom-stairway .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-light-bedroom-stairway .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-light-bedroom-stairway .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-light-bedroom-stairway .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-light-kristinas-bedroom {
-	position: relative;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-light-kristinas-bedroom .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-light-waldens-bedroom {
-	position: relative;
-}
-
-.widget-baselight-default-light-waldens-bedroom .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-light-waldens-bedroom .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-waldens-bedroom .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-waldens-bedroom .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-waldens-bedroom .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-waldens-bedroom .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-light-waldens-bedroom .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-waldens-bedroom .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-light-waldens-bedroom .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-light-waldens-bedroom .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-light-waldens-bedroom .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-light-waldens-bedroom .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-light-waldens-bedroom .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-light-waldens-bedroom .secondary-icon.minus i {
+.widget-baselight-default-light-dining-table-lights .secondary-icon.minus i {
 	padding-top: 10px;
 	padding-right: 30px;
 }

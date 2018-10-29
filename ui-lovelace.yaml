@@ -17,12 +17,14 @@ resources:
     type: js
   - url: /local/toggle-lock-entity-row.js
     type: js
-  - url: /local/folding-group-entity-row.js
-    type: js
   - url: /local/button-card.js
     type: module
   - url: /local/surveillance-card.js?v=0 # https://github.com/custom-cards/surveillance-card
     type: module
+  - url: /local/card-modder.js # https://github.com/thomasloven/lovelace-card-modder
+    type: module
+  - url: /local/fold-entity-row.js
+    type: js
 
 views:
   #   # View tab title.
@@ -66,30 +68,31 @@ views:
       - type: entities
         title: Main Floor Lights
         entities:
-          - entity: group.dining_room_lights
-            type: custom:folding-group-entity-row
-            config:
-              # secondary_info: entity-id
+
+          - type: custom:fold-entity-row
+            head: light.dining_room_lights
+            items:
+            - entity: light.dining_table_lights
               type: custom:slider-entity-row
-            group_config:
-              secondary_info: last-changed
-              # type: custom:toggle-lock-entity-row
-          - entity: group.conservatory_lights
-            type: custom:folding-group-entity-row
-            config:
-              # secondary_info: entity-id
+            - entity: light.living_room_lightstrip
               type: custom:slider-entity-row
-            group_config:
-              secondary_info: last-changed
-              # type: custom:toggle-lock-entity-row
-          - entity: group.kitchen_lights
-            type: custom:folding-group-entity-row
-            config:
-              # secondary_info: entity-id
+
+          - type: custom:fold-entity-row
+            head: light.conservatory_lights
+            items:
+            - entity: light.conservatory_couch
               type: custom:slider-entity-row
-            group_config:
-              secondary_info: last-changed
-              # type: custom:toggle-lock-entity-row
+            - entity: light.conservatory_reading
+              type: custom:slider-entity-row
+
+          - type: custom:fold-entity-row
+            head: light.kitchen_lights
+            items:
+            - entity: light.kitchen_spots
+              type: custom:slider-entity-row
+            - entity: light.kitchen_cabinet_lights
+              type: custom:slider-entity-row
+
           - entity: light.bedroom
             # type: custom:slider-entity-row
             type: custom:toggle-lock-entity-row
@@ -333,7 +336,7 @@ views:
             title: CPU Temperature
             measurement: °C # set yo override default
             entity: sensor.cpu_temperature
-            scale: 20px
+            # scale: 10px
             min: 0
             max: 100
             severity:
@@ -343,7 +346,7 @@ views:
           - type: gauge
             title: CPU use
             entity: sensor.processor_use
-            scale: 20px
+            # scale: 10px
             min: 0
             max: 100
             severity:
@@ -353,7 +356,7 @@ views:
           - type: gauge
             title: Memory use
             entity: sensor.memory_use_percent
-            scale: 20px
+            # scale: 10px
             min: 0
             max: 100
             severity:
@@ -363,7 +366,7 @@ views:
           - type: gauge
             title: Disk use
             entity: sensor.disk_use_percent_
-            scale: 20px
+            # scale: 10px
             min: 0
             max: 100
             severity:
@@ -375,8 +378,13 @@ views:
         trackers:
           - sensor.custom_card_tracker
           - sensor.custom_component_tracker
-      - type: iframe
-        url: https://embed.windy.com/embed2.html
+      # - type: iframe
+      #   url: https://embed.windy.com/embed2.html
+      - type: sensor
+        entity: sensor.temperature_158d000245b4a2
+        name: Wine cellar temperature
+        height: 150
+        line_color: "#3498db"
 
   - icon: mdi:theater
     title: Media Players

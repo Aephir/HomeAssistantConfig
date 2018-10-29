@@ -14,6 +14,7 @@ appdaemon:
   api_port: 5000
   app_dir: /conf/appdaemon
   api_key: !secret appdaemon_api_key
+  cert_verify: False
   plugins:
     HASS:
       type: hass
@@ -23,3 +24,4 @@ appdaemon:
 hadashboard:
   dashboard_dir: /conf/appdaemon/dashboards
   dash_url: "http://192.168.0.100:5050"
+  always_compile: 1

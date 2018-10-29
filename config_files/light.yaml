@@ -102,7 +102,7 @@
     - light.basement_entrance
     - light.tv_room
     - light.walkin_closet
-    - light.light_wine_cellar
+    - light.wine_cellar
 
 - platform: group
   name: Basement Entrance Lights

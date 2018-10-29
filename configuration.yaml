@@ -19,7 +19,8 @@ homeassistant:
   customize_glob: !include config_files/customize_glob.yaml
   auth_providers:
    - type: homeassistant
-   # - type: legacy_api_password # Uncomment if you want to enable legacy API password support
+   - type: trusted_networks
+   - type: legacy_api_password # Uncomment if you want to enable legacy API password support
 
 ##############
 #    HTTP    #
@@ -28,6 +29,8 @@ homeassistant:
 http:
   # server_port: 8321
   api_password: !secret api_password
+  trusted_networks:
+    - 127.0.0.1
   # ssl_certificate: !secret my_ssl_certificate
   # ssl_key: !secret my_ssl_key
   base_url: !secret secret_base_url
