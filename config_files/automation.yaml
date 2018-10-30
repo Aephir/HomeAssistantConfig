@@ -1811,7 +1811,7 @@
     - service: homeassistant.turn_off
       entity_id: light.entrance_lights
 
-# - alias: kwgt last turned on increase brightness
+# - alias: kwgt last turned on increase brightness tasker
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_brightness_up
@@ -1829,7 +1829,7 @@
 #         {%- endif -%}
 #         brightness: '{{states.($entity_id).attributes.brightness + 10}}'
 #
-# - alias: last turned on decrease brightness
+# - alias: last turned on decrease brightness tasker
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_brightness_down
@@ -1847,6 +1847,22 @@
 #         {%- endif -%}
 #         brightness: '{{states.($entity_id).attributes.brightness - 10}}'
 
+# - alias: last changed light tasker
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_brightness_down
+#   action:
+#     - service:
+#       data_template:
+#       entity_id: >-
+#         {%- if (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.kitchen_lights == 'on') -%}
+#         light.kitchen_lights
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.dining_room_lights == 'on') -%}
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.conservatory_lights == 'on') -%}
+#         light.conservatory_lights
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.bedroom == 'on') -%}
+#         light.bedroom
+#         {%- endif -%}
 
 - alias: kwgt espresso on
   trigger:

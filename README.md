@@ -6,7 +6,7 @@ I drew quite a bit of inspiration from [COOSTAN](https://github.com/CCOSTAN/Home
 ____
 EVERYTHING IS A WORK IN PROGRESS. LOT'S OF STUFF IS COMMENTED OUT WHILE I TRY DIFFERENT THINGS. THAT'S NOT LIKELY TO CHANGE ANY TIME SOON :-)
 
-Some additional scripts, files that contain sensitive information (but where I want to save a "template"), etc. can be found in my [miscellaneous](https://github.com/Aephir/Miscellaneous) repo.
+Some additional scripts, files that contain sensitive information (but where I want to save a "template"), etc. can be found in my [additional files](https://github.com/Aephir/Home_Assistant-Accessory-files) repo.
 
 **Hardware**
 * [Fujitsu Esprimo q520](https://sp.ts.fujitsu.com/dmsp/publications/public/ds-esprimo-q520.pdf) running almost everything described below.
@@ -98,6 +98,7 @@ Frontend using lovelace, so it is currently being rearranged and updated as I be
 
 **Notable Other**
 * I (finally) started using [Tasker](http://tasker.dinglisch.net/) again. The nudge I needed was my doorbell, that has a huge delay if using purely home assistant. I use it with the [RESTask](https://play.google.com/store/apps/details?id=com.freehaha.restask&hl=en) plugin, in able to use the new long-lived access tokens instead of api password.
+* Kustom (KWGT) to make widgets on my phone that can control anything from Home Assistant (and receive info from Home Assistant)
 
 **Planned future software:**
 * Samba in Docker?
