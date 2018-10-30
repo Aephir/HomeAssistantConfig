@@ -1867,7 +1867,7 @@
 - alias: kwgt fountain on
   trigger:
     platform: webhook
-    webhook_id: kwgt_fountain_toggle
+    webhook_id: kwgt_fountain_on
   action:
     - service: homeassistant.toggle
       entity_id: switch.fountain
