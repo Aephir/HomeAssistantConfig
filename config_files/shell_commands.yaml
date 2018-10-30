@@ -16,6 +16,13 @@ ikettle65: /home/homeassistant/.homeassistant/shell_scripts/ikettlecontrol.sh "0
 ikettleoff1: /home/homeassistant/.homeassistant/shell_scripts/ikettleoff1.sh
 ikettleon: /home/homeassistant/.homeassistant/shell_scripts/ikettleon.sh
 
+###############################
+#    Send States To Takser    #
+###############################
+
+# https://community.home-assistant.io/t/send-a-command-to-tasker/17201/6
+# tasker_espresso_state: 'curl -X GET https://autoremotejoaomgcd.appspot.com/sendmessage?key={{ key }}&sender={{ sender }}&message="{espresso machine is}_{{ states.switch.switch.state }}'
+
 ########################
 #    Media Commands    #
 ########################

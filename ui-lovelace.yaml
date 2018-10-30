@@ -179,6 +179,7 @@ views:
           - binary_sensor.door_window_sensor_158d000234dc7b
           - binary_sensor.door_window_sensor_158d00022d0917
           - binary_sensor.door_window_sensor_158d00022b3b66
+          - binary_sensor.door_window_sensor_158d0002286a78
       - type: glance
         title: Motion Sensors
         column_width: calc(100% / 3)
@@ -214,7 +215,7 @@ views:
             text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
       - type: glance
         title: Family
-        column_width: calc(100% / 3)
+        columns: 4
         entities:
           - entity: device_tracker.walden_bjrn_yoshimoto
             name: Walden
@@ -222,12 +223,16 @@ views:
             name: Kristina
           - entity: device_tracker.emilie
             name: Emilie
+          - entity: device_tracker.niels_brodys_ipad_2
+            name: Naia
           - entity: sensor.walden_phone_battery
             name: Walden's Battery
           - entity: sensor.kristina_phone_battery
             name: Kristina's Battery
           - entity: sensor.emilie_phone_battery
             name: Emilie's Battery
+          - entity: sensor.niels_brodys_ipad_2_battery_level
+            name: Naia's Battery
           # - entity: naiahome360
       - type: glance
         title: Sensor Battery Levels

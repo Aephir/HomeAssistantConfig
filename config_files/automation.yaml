@@ -584,15 +584,12 @@
 #     - platform: state
 #       entity_id:
 #         - device_tracker.aephir_ping
-#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
-#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
 #       to: 'not_home'
 #       for: '00:16:00'
 #     - platform: state
 #       entity_id:
-#         - device_tracker.aephir_ping
-#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
-#         - device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530
+#         - device_tracker.walden_bjrn_yoshimoto
+#         - device_tracker.google_maps_110730659630480268471
 #       to: 'home'
 #   action:
 #     - service: python_script.meta_device_tracker.py
@@ -608,13 +605,10 @@
 #     - platform: state
 #       entity_id:
 #         - device_tracker.kristina_ping
-#         - device_tracker.kristinabrody
-#         - device_tracker.kristinas_iphone
 #       to: 'not_home'
 #       for: '00:16:00'
 #     - platform: state
 #       entity_id:
-#         - device_tracker.kristina_ping
 #         - device_tracker.kristinabrody
 #         - device_tracker.kristinas_iphone
 #       to: 'home'
@@ -749,6 +743,26 @@
   action:
     service: homeassistant.turn_off
     entity_id: input_boolean.emiliehome360
+
+- alias: "naia_home_360" # Turns on the "emiliehome360" input_boolean if Emilie arrives home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.niels_brodys_ipad_2
+      from: 'not_home'
+      to: 'home'
+  action:
+    service: homeassistant.turn_on
+    entity_id: input_boolean.naiahome360
+
+- alias: "naia_not_home_360" # Turns off the "emiliehome360" input_boolean if Emilie leaves home
+  trigger:
+    - platform: state
+      entity_id: device_tracker.niels_brodys_ipad_2
+      from: 'home'
+      to: 'not_home'
+  action:
+    service: homeassistant.turn_off
+    entity_id: input_boolean.naiahome360
 
 - alias: Someone Arrives Home Boolean # Turns on the "someonehome360" input_boolean if someone arrives home, or guest mode is activated
   trigger:
@@ -1696,6 +1710,176 @@
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.guest_mode
+
+##########################################
+#    Kustom (KWGT) Widget Automaitons    #
+##########################################
+
+- alias: kwgt kitchen lights on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_kitchen_lights_on
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.kitchen_lights
+
+- alias: kwgt kitchen lights off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_kitchen_lights_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.kitchen_lights
+
+- alias: kwgt dining room lights on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_dining_room_lights_on
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.dining_room_lights
+
+- alias: kwgt dining room off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_dining_room_lights_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.dining_room_lights
+
+- alias: kwgt conservatory lights on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_conservatory_lights_on
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.conservatory_lights
+
+- alias: kwgt conservatory off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_conservatory_lights_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.conservatory_lights
+
+- alias: kwgt bedroom lights on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_bedroom_lights_on
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.bedroom
+
+- alias: kwgt bedroom off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_bedroom_lights_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.bedroom
+
+- alias: kwgt baby room lights on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_baby_room_lights_on
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.baby_room
+
+- alias: kwgt baby room off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_baby_room_lights_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.baby_room
+
+- alias: kwgt entrance lights on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_entrance_lights_on
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.entrance_lights
+
+- alias: kwgt entrance lights off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_entrance_lights_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.entrance_lights
+
+# - alias: kwgt last turned on increase brightness
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_brightness_up
+#   action:
+#     - service:
+#       data_template:
+#       entity_id: >-
+#         {%- if (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.kitchen_lights == 'on') -%}
+#         light.kitchen_lights
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.dining_room_lights == 'on') -%}
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.conservatory_lights == 'on') -%}
+#         light.conservatory_lights
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.bedroom == 'on') -%}
+#         light.bedroom
+#         {%- endif -%}
+#         brightness: '{{states.($entity_id).attributes.brightness + 10}}'
+#
+# - alias: last turned on decrease brightness
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_brightness_down
+#   action:
+#     - service:
+#       data_template:
+#       entity_id: >-
+#         {%- if (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.kitchen_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.kitchen_lights == 'on') -%}
+#         light.kitchen_lights
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.dining_room_lights == 'on') -%}
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.conservatory_lights == 'on') -%}
+#         light.conservatory_lights
+#         {%- elif (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.kitchen_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) > (as_timestamp(now()) - as_timestamp(states.light.dining_room_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.light.conservatory_lights.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.baby_room.last_changed)) and (as_timestamp(now()) - as_timestamp(states.light.bedroom.last_changed)) < (as_timestamp(now()) - as_timestamp(states.entrance_lights.last_changed)) and (states.light.bedroom == 'on') -%}
+#         light.bedroom
+#         {%- endif -%}
+#         brightness: '{{states.($entity_id).attributes.brightness - 10}}'
+
+
+- alias: kwgt espresso on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_espresso_on
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.switch
+
+- alias: kwgt espresso off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_espresso_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.switch
+
+- alias: kwgt fountain on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_fountain_toggle
+  action:
+    - service: homeassistant.toggle
+      entity_id: switch.fountain
+
+- alias: kwgt fountain off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_fountain_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.fountain
+
 
 ###########################################
 #    Automatic Renewal of Certificates    #

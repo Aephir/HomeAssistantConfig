@@ -110,6 +110,8 @@ binary_sensor.aephirhome360:
   entity_picture: /local/images/brain.jpg
 binary_sensor.kristinahome360:
   entity_picture: /local/images/kristina.jpg
+binary_sensor.naiahome360:
+  entity_picture: /local/images/naia.jpg
 switch.living_room_media_master:
   icon: mdi:power
   custom_ui_state_card: state-card-custom-ui
@@ -126,6 +128,9 @@ device_tracker.walden_bjrn_yoshimoto:
   entity_picture: /local/images/brain.jpg
 device_tracker.kristinabrody:
   entity_picture: /local/images/kristina_3.jpg
+device_tracker.niels_brodys_ipad_2:
+  friendly_name: Naia
+  entity_picture: /local/images/naia.jpg
 sensor.aephir_phone_battery_360:
   friendly_name: Walden's Battery
   icon: mdi:battery
@@ -185,6 +190,9 @@ sensor.humidity_158d0002437897:
   friendly_name: Washing Room Humidity
 sensor.pressure_158d0002437897:
   friendly_name: Washing Room Pressure
+binary_sensor.door_window_sensor_158d0002286a78:
+  friendly_name: Bathroom Window
+  device_class: window
 binary_sensor.door_window_sensor_158d000234dc7b:
   friendly_name: Conservatory Door
   device_class: door
