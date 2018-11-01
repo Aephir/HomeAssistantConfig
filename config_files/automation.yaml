@@ -1072,430 +1072,430 @@
 #   action:
 #     - service: python_script.motion_light_2
 
-- alias: bathroom light timer on day
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200e0c5
-      # from: 'off'
-      to: 'on'
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a22f
-      # from: 'off'
-      to: 'on'
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '22:00:00'
-    - condition: numeric_state
-      entity_id: sensor.illumination_158d000236a22f
-      below: '50'
-  action:
-    - service: light.turn_on
-      entity_id: light.bathroom
-      data:
-        brightness: 255
-        kelvin: 2700
-
-- alias: bathroom light timer on night is in bed
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200e0c5
-      to: 'on'
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a22f
-      # from: 'off'
-      to: 'on'
-  condition:
-    - condition: time
-      after: '22:00:00'
-      before: '07:00:00'
-    - condition: state
-      entity_id: light.dining_table_lights
-      state: 'off'
-  action:
-    - service: light.turn_on
-      entity_id: light.bathroom
-      data:
-        brightness: 10
-        rgb_color: [255,0,0]
-
-- alias: bathroom light timer on night if up
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200e0c5
-      to: 'on'
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a22f
-      # from: 'off'
-      to: 'on'
-  condition:
-    - condition: time
-      after: '22:00:00'
-      before: '07:00:00'
-    - condition: state
-      entity_id: light.dining_table_lights
-      state: 'on'
-  action:
-    - service: light.turn_on
-      entity_id: light.bathroom
-      data:
-        brightness: 255
-        kelvin: 2700
-
-- alias: bathroom light timer off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200e0c5
-      # from: 'off'
-      to: 'off'
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a22f
-      # from: 'off'
-      to: 'off'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_sensor_158d000200e0c5
-        state: 'off'
-      - condition: state
-        entity_id: binary_sensor.motion_sensor_158d000236a22f
-        state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.bathroom
-
-- alias: entrance light timer on day
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00023e3742
-      to: 'on'
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '22:00:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.stairway
-      data:
-        brightness: 255
-        kelvin: 2700
-
-- alias: entrance light timer on night
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00023e3742
-      to: 'on'
-  condition:
-    - condition: time
-      after: '22:00:00'
-      before: '07:00:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.stairway
-      data:
-        brightness: 10
-        kelvin: 2200
-
-- alias: entrance light timer off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00023e3742
-      # from: 'off'
-      to: 'off'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0f3
-      state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.stairway
-
-- alias: entrance light timer off TV room
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d00023e3742
-      to: 'off'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.motion_sensor_158d000236a116
-      state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.tv_room
-
-- alias: TV Room light timer on if TV off day
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a116
-      to: 'on'
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '22:00:00'
-    # - condition: state
-    #   entity_id: media_player.ue46es8005
-    #   state: 'off'
-  action:
-    - service: light.turn_on
-      entity_id: light.tv_room
-      data:
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      entity_id: light.basement_entrance_lights
-      data:
-        brightness: 255
-        kelvin: 2700
-
-- alias: TV Room light timer on if TV off night
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a116
-      to: 'on'
-  condition:
-    - condition: time
-      after: '22:00:00'
-      before: '07:00:00'
-    # - condition: state
-    #   entity_id: media_player.ue46es8005
-    #   state: 'off'
-  action:
-    - service: light.turn_on
-      entity_id: light.tv_room
-      data:
-        brightness: 255
-        kelvin: 2200
-    - service: light.turn_on
-      entity_id: light.basement_entrance_lights
-      data:
-        brightness: 255
-        kelvin: 2200
-
-- alias: TV Room light timer off if TV off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a116
-      # from: 'off'
-      to: 'off'
-  condition:
-    # - condition: state
-    #   entity_id: media_player.ue46es8005
-    #   state: 'off'
-    - condition: state
-      entity_id: binary_sensor.motion_sensor_158d000200d203
-      state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.tv_room
-          - light.basement_entrance_lights
-
-- alias: Basement Entrance timer on day
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200d203
-      to: 'on'
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '22:00:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.basement_entrance_lights
-      data:
-        brightness: 255
-        kelvin: 2700
-
-- alias: Basement Entrance timer on night
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200d203
-      to: 'on'
-  condition:
-    - condition: time
-      after: '22:00:00'
-      before: '07:00:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.basement_entrance_lights
-      data:
-        brightness: 255
-        kelvin: 2200
-
-- alias: Basement Entrance timer on off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000200d203
-      # from: 'off'
-      to: 'off'
-  condition:
-    condition: and
-    conditions:
-    - condition: state
-      entity_id: media_player.ue46es8005
-      state: 'off'
-    - condition: state
-      entity_id: binary_sensor.motion_sensor_158d000236a116
-      state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.basement_entrance_lights
-          - light_tv_room
-
-- alias: Basement Stairway timer on day
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0f3
-      to: 'on'
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '22:00:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.stairway
-      data:
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      entity_id: light.basement_entrance_lights
-      data:
-        brightness: 255
-        kelvin: 2700
-
-- alias: Basement Stairway timer on night
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0f3
-      to: 'on'
-  condition:
-    - condition: time
-      after: '22:00:00'
-      before: '07:00:00'
-  action:
-    - service: light.turn_on
-      entity_id: light.stairway
-      data:
-        brightness: 255
-        kelvin: 2200
-    - service: light.turn_on
-      entity_id: light.basement_entrance_lights
-      data:
-        brightness: 255
-        kelvin: 2200
-
-- alias: Basement Stairway timer stair off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0f3
-      # from: 'off'
-      to: 'off'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.motion_sensor_158d00023e3742
-      state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.stairway
-
-- alias: Basement Stairway timer basement entrance off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0f3
-      # from: 'off'
-      to: 'off'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.motion_sensor_158d000200d203
-      state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.basement_entrance_lights
-
-- alias: Basement Stairway timer basement hallway off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0f3
-      # from: 'off'
-      to: 'off'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.motion_sensor_158d000236a116
-      state: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.tv_room
-
-- alias: upstairs bathroom light timer on day
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0d0
-      # from: 'off'
-      to: 'on'
-  condition:
-    condition: and
-    conditions:
-    - condition: time
-      after: '07:00:00'
-      before: '22:00:00'
-    - condition: numeric_state
-      entity_id: sensor.illumination_158d000236a0d0
-      below: '100'
-  action:
-    - service: light.turn_on
-      entity_id: light.top_floor_bathroom
-      data:
-        brightness: 255
-        kelvin: 2700
-
-- alias: upstairs bathroom light timer on night
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0d0
-      to: 'on'
-  condition:
-    condition: and
-    conditions:
-    - condition: time
-      after: '22:00:00'
-      before: '07:00:00'
-    - condition: numeric_state
-      entity_id: sensor.illumination_158d000236a0d0
-      below: '150'
-  action:
-    - service: light.turn_on
-      entity_id: light.top_floor_bathroom
-      data:
-        brightness: 10
-        kelvin: 2200
-
-- alias: upstairs bathroom light timer off
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.motion_sensor_158d000236a0d0
-      # from: 'off'
-      to: 'off'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id:
-          - light.top_floor_bathroom
+# - alias: bathroom light timer on day
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000200e0c5
+#       # from: 'off'
+#       to: 'on'
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a22f
+#       # from: 'off'
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '07:00:00'
+#       before: '22:00:00'
+#     - condition: numeric_state
+#       entity_id: sensor.illumination_158d000236a22f
+#       below: '50'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.bathroom
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#
+# - alias: bathroom light timer on night is in bed
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000200e0c5
+#       to: 'on'
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a22f
+#       # from: 'off'
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '22:00:00'
+#       before: '07:00:00'
+#     - condition: state
+#       entity_id: light.dining_table_lights
+#       state: 'off'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.bathroom
+#       data:
+#         brightness: 10
+#         rgb_color: [255,0,0]
+#
+# - alias: bathroom light timer on night if up
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000200e0c5
+#       to: 'on'
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a22f
+#       # from: 'off'
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '22:00:00'
+#       before: '07:00:00'
+#     - condition: state
+#       entity_id: light.dining_table_lights
+#       state: 'on'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.bathroom
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#
+# - alias: bathroom light timer off
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000200e0c5
+#       # from: 'off'
+#       to: 'off'
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a22f
+#       # from: 'off'
+#       to: 'off'
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: binary_sensor.motion_sensor_158d000200e0c5
+#         state: 'off'
+#       - condition: state
+#         entity_id: binary_sensor.motion_sensor_158d000236a22f
+#         state: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.bathroom
+#
+# - alias: entrance light timer on day
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d00023e3742
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '07:00:00'
+#       before: '22:00:00'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.stairway
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#
+# - alias: entrance light timer on night
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d00023e3742
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '22:00:00'
+#       before: '07:00:00'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.stairway
+#       data:
+#         brightness: 10
+#         kelvin: 2200
+#
+# - alias: entrance light timer off
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d00023e3742
+#       # from: 'off'
+#       to: 'off'
+#   condition:
+#     - condition: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
+#       state: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.stairway
+#
+# - alias: entrance light timer off TV room
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d00023e3742
+#       to: 'off'
+#   condition:
+#     - condition: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a116
+#       state: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.tv_room
+#
+# - alias: TV Room light timer on if TV off day
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a116
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '07:00:00'
+#       before: '22:00:00'
+#     # - condition: state
+#     #   entity_id: media_player.ue46es8005
+#     #   state: 'off'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.tv_room
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       entity_id: light.basement_entrance_lights
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#
+# - alias: TV Room light timer on if TV off night
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a116
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '22:00:00'
+#       before: '07:00:00'
+#     # - condition: state
+#     #   entity_id: media_player.ue46es8005
+#     #   state: 'off'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.tv_room
+#       data:
+#         brightness: 255
+#         kelvin: 2200
+#     - service: light.turn_on
+#       entity_id: light.basement_entrance_lights
+#       data:
+#         brightness: 255
+#         kelvin: 2200
+#
+# - alias: TV Room light timer off if TV off
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a116
+#       # from: 'off'
+#       to: 'off'
+#   condition:
+#     # - condition: state
+#     #   entity_id: media_player.ue46es8005
+#     #   state: 'off'
+#     - condition: state
+#       entity_id: binary_sensor.motion_sensor_158d000200d203
+#       state: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.tv_room
+#           - light.basement_entrance_lights
+#
+# - alias: Basement Entrance timer on day
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000200d203
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '07:00:00'
+#       before: '22:00:00'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.basement_entrance_lights
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#
+# - alias: Basement Entrance timer on night
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000200d203
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '22:00:00'
+#       before: '07:00:00'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.basement_entrance_lights
+#       data:
+#         brightness: 255
+#         kelvin: 2200
+#
+# - alias: Basement Entrance timer on off
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000200d203
+#       # from: 'off'
+#       to: 'off'
+#   condition:
+#     condition: and
+#     conditions:
+#     - condition: state
+#       entity_id: media_player.ue46es8005
+#       state: 'off'
+#     - condition: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a116
+#       state: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.basement_entrance_lights
+#           - light_tv_room
+#
+# - alias: Basement Stairway timer on day
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '07:00:00'
+#       before: '22:00:00'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.stairway
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       entity_id: light.basement_entrance_lights
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#
+# - alias: Basement Stairway timer on night
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
+#       to: 'on'
+#   condition:
+#     - condition: time
+#       after: '22:00:00'
+#       before: '07:00:00'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.stairway
+#       data:
+#         brightness: 255
+#         kelvin: 2200
+#     - service: light.turn_on
+#       entity_id: light.basement_entrance_lights
+#       data:
+#         brightness: 255
+#         kelvin: 2200
+#
+# - alias: Basement Stairway timer stair off
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
+#       # from: 'off'
+#       to: 'off'
+#   condition:
+#     - condition: state
+#       entity_id: binary_sensor.motion_sensor_158d00023e3742
+#       state: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.stairway
+#
+# - alias: Basement Stairway timer basement entrance off
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
+#       # from: 'off'
+#       to: 'off'
+#   condition:
+#     - condition: state
+#       entity_id: binary_sensor.motion_sensor_158d000200d203
+#       state: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.basement_entrance_lights
+#
+# - alias: Basement Stairway timer basement hallway off
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
+#       # from: 'off'
+#       to: 'off'
+#   condition:
+#     - condition: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a116
+#       state: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.tv_room
+#
+# - alias: upstairs bathroom light timer on day
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0d0
+#       # from: 'off'
+#       to: 'on'
+#   condition:
+#     condition: and
+#     conditions:
+#     - condition: time
+#       after: '07:00:00'
+#       before: '22:00:00'
+#     - condition: numeric_state
+#       entity_id: sensor.illumination_158d000236a0d0
+#       below: '100'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.top_floor_bathroom
+#       data:
+#         brightness: 255
+#         kelvin: 2700
+#
+# - alias: upstairs bathroom light timer on night
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0d0
+#       to: 'on'
+#   condition:
+#     condition: and
+#     conditions:
+#     - condition: time
+#       after: '22:00:00'
+#       before: '07:00:00'
+#     - condition: numeric_state
+#       entity_id: sensor.illumination_158d000236a0d0
+#       below: '150'
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.top_floor_bathroom
+#       data:
+#         brightness: 10
+#         kelvin: 2200
+#
+# - alias: upstairs bathroom light timer off
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_sensor_158d000236a0d0
+#       # from: 'off'
+#       to: 'off'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id:
+#           - light.top_floor_bathroom
 
 
 ###############

@@ -36,7 +36,7 @@ switch.espresso_machine:
 media_player.libreelec:
   icon: info
 media_player.ue46es8005:
-  friendly_name: Lving Room TV
+  friendly_name: Living Room TV
 # light.hue_lightstrip_plus_1:
 #   friendly_name: Lighstrip
 # light.hue_ambiance_lamp_1:

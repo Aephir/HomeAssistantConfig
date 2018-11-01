@@ -93,15 +93,30 @@
     - light.stairway
     - light.stairway_up
 
+
+
+
+
 #####################
 #__Basement_Lights__#
 
 - platform: group
   name: Basement Lights
   entities:
-    - light.basement_entrance
-    - light.tv_room
+    - light.tv_room_lights
+    - light.basmenent_entrance
+    - light.basement_hallway
+    - light.wine_cellar_lights
     - light.walkin_closet
+
+- platform: group
+  name: TV Room Lights
+  entities:
+    - light.tv_room
+
+- platform: group
+  name: Wine Cellar Lights
+  entities:
     - light.wine_cellar
 
 - platform: group

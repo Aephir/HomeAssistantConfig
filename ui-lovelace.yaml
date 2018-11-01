@@ -407,6 +407,7 @@ views:
           - media_player.ue46es8005
           - media_player.kodi
           - media_player.upstairs_living_room_tv
+          - media_player.conservatory_tv
       - type: media-control
         entity: media_player.ue46es8005
       - type: media-control

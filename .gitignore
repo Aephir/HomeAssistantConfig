@@ -1,4 +1,5 @@
 appdaemon/apps
+!appdaemon/apps/motion/*
 deps
 lib
 python_scripts

@@ -6,7 +6,7 @@ log:
   errorfile: /logs/error.log
   logfile: /logs/appdaemon.log
   log_generations: 3
-  log_size: 1000000
+  log_size: 10000
 appdaemon:
   logfile: STDOUT
   errorfile: STDERR
@@ -20,7 +20,16 @@ appdaemon:
       type: hass
       ha_url: "http://192.168.0.100:8123"
       ha_key: !secret api_password
+      # token: !secret long_lived_access_token_AppDaemon_1
       namespace: default
+    # MQTT:
+    #   type: mqtt
+    #   client_id: appdaemon
+    #   client_host: 127.0.0.1
+    #   birth_topic: appdaemon/birth
+    #   birth_payload: "AppDaemon MQTT is live"
+    #   will_topic: appdaemon/death
+    #   will_payload: "Appdaemon MQTT unexpectedly disconnected"
 hadashboard:
   dashboard_dir: /conf/appdaemon/dashboards
   dash_url: "http://192.168.0.100:5050"
