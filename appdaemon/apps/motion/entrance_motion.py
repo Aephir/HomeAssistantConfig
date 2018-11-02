@@ -1,4 +1,4 @@
-# Motion sensors to control the entrance lights
+# Motion sensors to control the entrance lights.
 
 import appdaemon.plugins.hass.hassapi as hass
 import datetime

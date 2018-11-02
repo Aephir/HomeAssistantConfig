@@ -95,6 +95,12 @@ kids_home:
 #     Dummy switches      #
 ###########################
 
+light_bedroom:
+  name: dummy bedroom light
+
+light_baby_room:
+  name: dummy baby room light
+
 color_temperature_light_1:
   name: dummy lounge light
 

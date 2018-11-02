@@ -391,6 +391,8 @@
             - light.stairway
             - light.dining_table_lights
             - light.top_floor_bathroom
+            - light.bedroom
+            - light.baby_room
           states:
             - state: 'on'
               class: 'light-on'
@@ -443,6 +445,8 @@
             - input_boolean.light_kitchen_cabinet
             - input_boolean.light_dining_table
             - input_boolean.light_top_floor_bathroom
+            - input_boolean.light_bedroom
+            - input_boolean.light_baby_room
           states:
             - state: 'on'
               class: 'light-glow-on'
@@ -751,18 +755,10 @@
 #              to_state: 'off'
 #              duration: 10
 
-
-#        - name: Cameras
-#          entities:
-# #            - camera.hallway
-# #            - camera.driveway
-#            - camera.front_door
-# #            - camera.backyard
-#              element: camera.driveway.image
-#          # states: ## Have either "states" or "camera_image_template"??
-#          #   - state: 'idle'
-#          #     class: 'camera-idle'
-#          camera_image_template: '${entity.attributes.entity_picture}'
+        - name: Camera Images
+          entities:
+            - camera.front_door
+          camera_image_template: '${entity.attributes.entity_picture}'
 
 #        - name: thermostat_temp
 #          entities:

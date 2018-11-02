@@ -1,4 +1,4 @@
-# Motion sensors to control the main floor bathroom lights
+# Motion sensors to control the main floor bathroom lights.
 
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
