@@ -101,7 +101,7 @@ Frontend using lovelace, so it is currently being rearranged and updated as I be
 * Appdaemon scripts to send stuff to Tasker. I have a bunch of things here, take a look at [this repo](https://github.com/Aephir/Home_Assistant-Accessory-files/tree/master/appdaemon_scripts) for some examples (with redacted info, many of them have my Joaoapps Join key in the url).
 
 ![KWGT widget](https://github.com/Aephir/Images/blob/master/Screen%20Shot%202018-11-02%20at%2012.13.20%20.png)
-The first Kustom (KWGT) widget. Everything happens through Home Assistant. Each light changes on/off color regardless of where it is switched from (HASS sends state changes to Tasker). Espresso and Fountain are just toggle switches, the middle arrow buttons will (hopefully) become brightness up/down on last light turned on. The text i the botton currently just tells me which was the last door that was opened.
+_The first Kustom (KWGT) widget. Everything happens through Home Assistant. Each light changes on/off color regardless of where it is switched from (HASS sends state changes to Tasker). Espresso and Fountain are just toggle switches, the middle arrow buttons will (hopefully) become brightness up/down on last light turned on. The text i the botton currently just tells me which was the last door that was opened._
 
 
 **Notable Other**
