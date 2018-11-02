@@ -762,10 +762,11 @@
             - state: 'idle'
               class: 'camera-idle'
 
-        # - name: Camera Images
-        #   entities:
-        #     - camera.front_door
-        #   camera_image_template: '${entity.attributes.entity_picture}'
+        - name: Camera Images
+          entities:
+            - entity: camera.front_door
+              element: camera.driveway.image
+          camera_image_template: '${entity.attributes.entity_picture}'
 
 #        - name: thermostat_temp
 #          entities:

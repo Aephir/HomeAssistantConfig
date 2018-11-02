@@ -8,19 +8,12 @@ import time
 class HueRemote(hass.Hass):
 
     def initialize(self):
-        # Detect click
+        # Detect click. It detects sequential clicks of same button! (Why/how?)
         self.listen_state(self.button_click,"sensor.bedroom_switch")
 
-        # self.listen_state(self.button_click,"sensor.bedroom_switch", new="1_click")
-        # self.listen_state(self.button_click,"sensor.bedroom_switch", new="2_click")
-        # self.listen_state(self.button_click,"sensor.bedroom_switch", new="3_click")
-        # self.listen_state(self.button_click,"sensor.bedroom_switch", new="4_click")
-
-        # self.listen_state(self.button_click,"sensor.bedroom_switch" = "1_click", "2_click", "3_click", "4_click")
-
     def button_click(self, entity, attribute, old, new, kwargs):
-        # Button will be "1_click", "2_click", etc.
-        button = self.listen_state("sensor.bedroom_switch")
+        # button will be "1_click", "2_click", etc.
+        button = self.get_state("sensor.bedroom_switch")
         if button == "1_click":
             self.toggle("switch.fountain")
         elif button == "2_click":

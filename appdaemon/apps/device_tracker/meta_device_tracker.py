@@ -29,7 +29,7 @@ class MetaTracker(hass.Hass):
         self.listen_state(self.wherearewe,"device_tracker.naia_ipad_ping")
 
 
-    def wherearewe(self, entity_id, state, attribute, kwargs):
+    def wherearewe(self, entity, attribute, old, new, kwargs
 
         # Trackers
         waldenTrackers = ['device_tracker.google_maps_110730659630480268471', 'device_tracker.walden_cd926e1b047646b986d2f0c0c3e7d530', 'device_tracker.aephir_ping']
