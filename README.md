@@ -16,13 +16,15 @@ Some additional scripts, files that contain sensitive information (but where I w
 * [Philips Hue Lights](https://www2.meethue.com/en-us), a mix of various colored and white bulbs, and a single lighstrip running on the old bridge (v1).
 * [IKEA TRÅDFRI](https://www.ikea.com/us/en/catalog/categories/departments/lighting/36812/) bulbs, connected to the hue bridge.
 * [Philips Hue Dimmer Switches](https://www2.meethue.com/en-us/p/hue-dimmer-switch/046677458140), hacked with the help of [this guide](https://www.hackster.io/robin-cole/hijack-a-hue-remote-to-control-anything-with-home-assistant-5239a4) and the corresponding forum thread.
-* [Belkin WeMo Insight Switches](http://www.belkin.com/us/p/P-F7C029/), two insight switches, though these are "legacy" in my setup, future smart switches will be z-wave. One connects my [Rancilio Silvia](https://www.ranciliogroup.com/1-Rancilio-Homeline--Silvia) Espresso machine, so it can turn on and be warmed up by the time I need it (read: get out of bed, or arrive home). The other is a master switch for the office (including the desktop PC).
+* [Belkin WeMo Insight Switches](http://www.belkin.com/us/p/P-F7C029/), two insight switches, though these are "legacy" in my setup, future smart switches will be z-wave. When we bought our house, part of the deal was that we "inherited" a fountain in the garden, so of course I've set this up for control through Home Assistant with one of the old WeMos :-)
 * [Fibaro Wall Plug](https://www.fibaro.com/en/products/wall-plug/) z-wave power outlet switch. Master switch for the media center (TV, Stereo, PS4, etc.). I have had a very good experience with Fibaro, and plan to include more plugs and/or other Fibaro devices.
 * [NeoCoolCam](http://www.szneo.com/en/products/index.php?id=41) to cut power to my desktop PC (it'll find a better use in a few months after we move)
 * [Raspberry Pi 3B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) running [Kodi](https://kodi.tv/) (switch a bit between raspbian + kodi and [LibreELEC](https://libreelec.tv/), connected to TV (CEC commands can be sent to this Pi via SSH to control TV). This has the [HiFiBerry DAC+ Pro](https://www.hifiberry.com/shop/boards/hifiberry-dac-pro/) for high fidelity audio output.
 * [Raspberry Pi 2B](https://www.raspberrypi.org/products/raspberry-pi-2-model-b/) Running [Mopidy](https://www.mopidy.com/). It is set up via MPD, though mostly controlled independently of Home Assistant, though (using primarily the very nice [Iris](https://github.com/jaedb/Iris) interface by jaedb). Connected to proper effect amplifier (NAD c275bee). This has the [Allo BOSS Maser DAC](https://www.modmypi.com/raspberry-pi/audio-dacampdigi/dacs-digital-to-analogue-coverters-1044/allo-boss-raspberry-pi-master-dac/?secumt=I3RhYi1yZXZpZXc=#review-title) for high fidelity audio output.
 * [SONOS Play 5](https://www.sonos.com/en/shop/play5.html) for low fidelity playback and TTS from home assistant.
 * [Google Home Mini](https://store.google.com/?srp=/product/google_home_mini) mostly to use as microphone; I have home assistant set up with google assistant via home assistant cloud.
+* [Chromecasts](https://store.google.com/product/chromecast). Easier/better control of certain TVs
+* [Chromecast Audio](https://store.google.com/product/chromecast_audio). Easier/better control and linking of various speakers and hifi systems.
 * [iKettle](https://smarter.am/support-ikettle-1-0/). Yeah, even I will admit this one is a bit overkill, unless you use a kettle at least daily. Otherwise (1) the water goes stale before you use it or (2) you have to go and fill/change the water, and then you might as well press the button manually while you're there. Still a nice kettle, even without the connectivity, but probably wouldn't buy a connected kettle again.
 * [Smart TV](http://www.samsung.com/dk/support/model/UE46ES8005UXXE) (though integration is not that useful at the moment, the old fashioned remote or smartphone app is used much more).
 * [Xiaomi Gateway](https://xiaomi-mi.com/mi-smart-home/xiaomi-mi-gateway-2/)
@@ -92,20 +94,29 @@ Frontend using lovelace, so it is currently being rearranged and updated as I be
 * Motion sensors everywhere, to control light. At night time (unless certain other lights are on, or the TV is on, etc.), the light in the bathroom will turn on at 10% and be red to avoid waking up too much.
 * Automations for my bedside button. Depending on various factors (time of day, workday or day off, kids at home or not, etc.) it will do various things. Usually, it starts up the espresso machine if I press it in the morning, and does various things with the light and/or turning off various appliances if I press it in the evening/night.
 
+
 **Notable Scripts**
 * Python script to use hue dimmer remotes. I might go to pure automations, since I can't get the python script to use both "click" and "long-press".
 * turn off lights, espresso machine, send shutdown command through SSH to two Raspberry Pis (KODI and Mopidy) before cutting the master power to those 15 seconds later. Used in various automations (such as when no one is home, when we go to bed, etc.)
+* Appdaemon scripts to send stuff to Tasker. I have a bunch of things here, take a look at [this repo](https://github.com/Aephir/Home_Assistant-Accessory-files/tree/master/appdaemon_scripts) for some examples (with redacted info, many of them have my Joaoapps Join key in the url).
+
+![KWGT widget](https://github.com/Aephir/Images/blob/master/Screen%20Shot%202018-11-02%20at%2012.13.20%20.png)
+The first Kustom (KWGT) widget. Everything happens through Home Assistant. Each light changes on/off color regardless of where it is switched from (HASS sends state changes to Tasker). Espresso and Fountain are just toggle switches, the middle arrow buttons will (hopefully) become brightness up/down on last light turned on. The text i the botton currently just tells me which was the last door that was opened.
+
 
 **Notable Other**
 * I (finally) started using [Tasker](http://tasker.dinglisch.net/) again. The nudge I needed was my doorbell, that has a huge delay if using purely home assistant. I use it with the [RESTask](https://play.google.com/store/apps/details?id=com.freehaha.restask&hl=en) plugin, in able to use the new long-lived access tokens instead of api password.
 * Kustom (KWGT) to make widgets on my phone that can control anything from Home Assistant (and receive info from Home Assistant)
+
 
 **Planned future software:**
 * Samba in Docker?
 * Or perhaps [SSHFS](https://wiki.archlinux.org/index.php/SSHFS) mounting for more secure access?
 * Combine all my motion sensors into python scripts; avoid having 20 automations that could be solved by one or two python scripts. Oh, and learn Python while I'm at it :-)
 
-**Planned future hardware (purchased, not yet successfully implemented)**
+
+**Planned future hardware**
+A bunch of this is stuff I have lying around, but haven't figured out how to use yet. Other things are on the wishlist
 * Arduino (several, for a few different purposes).
 * NRF24L01 RF transceiver (several, for a few different purposes).
 * [WyzeCam](https://www.wyzecam.com/) - currently not possible (afaik) to integrate, but I contacted them, and they said they would look into it. So let's see.
@@ -114,6 +125,7 @@ Frontend using lovelace, so it is currently being rearranged and updated as I be
 * [Xiaomi Light Switch](https://xiaomi-mi.com/sockets-and-sensors/xiaomi-aqara-smart-light-control-set/) Not yet implemented, for new home.
 * [Sonoff switch with power consumption measurement](https://www.itead.cc/sonoff-pow.html) for my shed/workshop once I move.
 * [Sonoff Wall Touch Switch](https://www.itead.cc/sonoff-t1.html) for the new house. I have a few different ones I want to test.
+* [Fibaro Radiator Thermostat](https://www.fibaro.com/en/products/the-heat-controller/). They seem like the best ones for integrating with Home Assistant. Not sure if I should get the Z-wave or bluetooth version, though (bluetooth version is advertized as Apple Homekit version, but maybe bluetooth is better? Probably not though, but I need to look into this).
 
 
 **Planned future misc.**
