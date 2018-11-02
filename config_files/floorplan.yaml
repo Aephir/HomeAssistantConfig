@@ -755,10 +755,17 @@
 #              to_state: 'off'
 #              duration: 10
 
-        - name: Camera Images
+        - name: Cameras
           entities:
             - camera.front_door
-          camera_image_template: '${entity.attributes.entity_picture}'
+          states:
+            - state: 'idle'
+              class: 'camera-idle'
+
+        # - name: Camera Images
+        #   entities:
+        #     - camera.front_door
+        #   camera_image_template: '${entity.attributes.entity_picture}'
 
 #        - name: thermostat_temp
 #          entities:
