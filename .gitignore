@@ -1,5 +1,11 @@
-appdaemon/apps
-!appdaemon/apps/motion/*
+*.pyc
+appdaemon/apps/tasker/*.py
+appdaemon/apps/__pycache__/*
+appdaemon/apps/tasker/__pycache__/*
+appdaemon/apps/motion/__pycache__/*
+appdaemon/apps/remotes/__pycache__/*
+appdaemon/apps/alarm/__pycache__/*
+appdaemon/apps/test/__pycache__/*
 deps
 lib
 python_scripts

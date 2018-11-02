@@ -243,19 +243,19 @@
 #####
 # Meta trackers
 
-  updatetracker:
-    alias: 'Update tracker'
-    sequence:
-      - service: python_script.meta_device_tracker
-        data_template:
-          entity_id: '{{entityid}}'
-      - condition: template
-        value_template: '{{fromstate != tostate}}'
-      - service: logbook.log
-        data_template:
-          name: "Tracker updated: "
-          message: >-
-            {{ states[entityid.split('.')[0]][entityid.split('.')[1]].name }} is {{ tostate }} at {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p', true) }}.
+  # updatetracker:
+  #   alias: 'Update tracker'
+  #   sequence:
+  #     - service: python_script.meta_device_tracker
+  #       data_template:
+  #         entity_id: '{{entityid}}'
+  #     - condition: template
+  #       value_template: '{{fromstate != tostate}}'
+  #     - service: logbook.log
+  #       data_template:
+  #         name: "Tracker updated: "
+  #         message: >-
+  #           {{ states[entityid.split('.')[0]][entityid.split('.')[1]].name }} is {{ tostate }} at {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p', true) }}.
 
 ###########3
 # Doorbell

@@ -1,0 +1,99 @@
+########################
+#                      #
+#    AppDaemon Apps    #
+#                      #
+########################
+
+# Inspiration: https://github.com/aneisch/home-assistant-config/blob/master/extras/appdaemon/apps/apps.yaml
+# https://github.com/toddw65/Appdaemon/blob/master/apps/apps.yaml
+
+###############
+#    Alarm    #
+###############
+
+# alarm_triggered:
+#   module: alarm_activated
+#   class: AlarmTriggered
+
+########################
+#    Device Trackers    #
+########################
+
+meta_tracker:
+  module: meta_device_tracker
+  class: MetaTracker
+
+#######################
+#    Motion Lights    #
+#######################
+
+bathroom_motion_light:
+  module: bathroom_motion
+  class: MotionClass
+
+entrance_motion_light:
+  module: entrance_motion
+  class: MotionClass
+
+basement_entrance_hallway_motion_light:
+  module: basement_entrance_hallway_motion
+  class: MotionClass
+
+tv_room_motion_light:
+  module: tv_room_motion
+  class: MotionClass
+
+top_floor_bathroom_motion_light:
+  module: top_floor_bathroom_motion
+  class: MotionClass
+
+#################
+#    Remotes    #
+#################
+
+hue_tap_1:
+  module: hue_tap_1
+  class: HueRemote
+
+################
+#    Tasker    #
+################
+
+espresso_state_tasker:
+  module: espresso_state_tasker
+  class: NotifyTasker
+  entityID: switch.switch
+
+fountain_state_tasker:
+  module: fountain_state_tasker
+  class: NotifyTasker
+  entityID: switch.fountain
+
+kitchen_lights_state_tasker:
+  module: lights_state_tasker
+  class: NotifyTasker
+  entityID: light.kitchen_lights
+
+dining_room_lights_state_tasker:
+  module: lights_state_tasker
+  class: NotifyTasker
+  entityID: light.dining_room_lights
+
+conservatory_lights_state_tasker:
+  module: lights_state_tasker
+  class: NotifyTasker
+  entityID: light.conservatory_lights
+
+bedroom_lights_state_tasker:
+  module: lights_state_tasker
+  class: NotifyTasker
+  entityID: light.bedroom
+
+baby_room_lights_state_tasker:
+  module: lights_state_tasker
+  class: NotifyTasker
+  entityID: light.baby_room
+
+set_latest_notification_tasker:
+  module: latest_notification_tasker
+  class: NotifyTasker

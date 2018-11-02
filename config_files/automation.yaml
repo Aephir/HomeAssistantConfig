@@ -50,50 +50,50 @@
 #############
 #__Hue_Tap__#
 
-- alias: test_hue_tap_1
-  trigger:
-    - platform: state
-      entity_id: sensor.bedroom_switch
-      to: '1_click'
-  action:
-    - service: switch.toggle
-      data:
-        entity_id: switch.fountain
-    - service: shell_command.set_device_state
-      data_template:
-        data: '{"attributes": { "icon": "mdi:remote", "friendly_name": "Bedroom switch", "last_updated": ["2018-10-11","08:47:08"]}  "state":"idle"}'
-        url: 'http://127.0.0.1/api/states/sensor.bedroom_switch'
-
-- alias: test_hue_tap_2
-  trigger:
-    - platform: state
-      entity_id: sensor.bedroom_switch_last_updated
-  condition:
-    condition: state
-    entity_id: sensor.bedroom_switch
-    state: '2_click'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.conservatory_couch
-
-- alias: test_hue_tap_3
-  trigger:
-    - platform: template
-      value_template: '{{ is_state("sensor.bedroom_switch","3_click") and strptime(now(), "%d-%m-%Y %H:%M:%S") !=  strptime(states(sensor.bedroom_switch.last_updated), "%d-%m-%Y %H:%M:%S") }}'
-      # entity_id: sensor.bedroom_switch
-  action:
-    - service: light.turn_off
-      entity_id: light.conservatory_couch
-
-- alias: test_hue_tap_4
-  trigger:
-    - platform: template
-      value_template: '{{ is_state("sensor.bedroom_switch","4_click") and as_timestamp(now()) !=  as_timestamp(states.sensor.bedroom_switch.last_updated) }}'
-      # entity_id: sensor.bedroom_switch
-  action:
-    - service: light.turn_on
-      entity_id: light.conservatory_couch
+# - alias: test_hue_tap_1
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.bedroom_switch
+#       to: '1_click'
+#   action:
+#     - service: switch.toggle
+#       data:
+#         entity_id: switch.fountain
+#     - service: shell_command.set_device_state
+#       data_template:
+#         data: '{"attributes": { "icon": "mdi:remote", "friendly_name": "Bedroom switch", "last_updated": ["2018-10-11","08:47:08"]}  "state":"idle"}'
+#         url: 'http://127.0.0.1/api/states/sensor.bedroom_switch'
+#
+# - alias: test_hue_tap_2
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.bedroom_switch_last_updated
+#   condition:
+#     condition: state
+#     entity_id: sensor.bedroom_switch
+#     state: '2_click'
+#   action:
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.conservatory_couch
+#
+# - alias: test_hue_tap_3
+#   trigger:
+#     - platform: template
+#       value_template: '{{ is_state("sensor.bedroom_switch","3_click") and strptime(now(), "%d-%m-%Y %H:%M:%S") !=  strptime(states(sensor.bedroom_switch.last_updated), "%d-%m-%Y %H:%M:%S") }}'
+#       # entity_id: sensor.bedroom_switch
+#   action:
+#     - service: light.turn_off
+#       entity_id: light.conservatory_couch
+#
+# - alias: test_hue_tap_4
+#   trigger:
+#     - platform: template
+#       value_template: '{{ is_state("sensor.bedroom_switch","4_click") and as_timestamp(now()) !=  as_timestamp(states.sensor.bedroom_switch.last_updated) }}'
+#       # entity_id: sensor.bedroom_switch
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.conservatory_couch
 
 ###########################
 #__Contextual Bed Button__#
