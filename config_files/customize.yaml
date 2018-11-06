@@ -7,6 +7,8 @@
 binary_sensor.floorplan:
   custom_ui_state_card: state-card-floorplan
   config: !include floorplan.yaml
+  # custom_ui_state_card: state-card-floorplan
+  # config: !include floorplan.yaml
 switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
   friendly_name: Z-Wave Switch 1
   custom_ui_state_card: state-card-custom-ui

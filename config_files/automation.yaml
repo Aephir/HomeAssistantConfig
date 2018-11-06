@@ -206,166 +206,166 @@
 #       entity_id: script.night_kids_away
 
 
-#######################
-#__Hue Dimmer Remote__#
-
-# Automation triggers when dimmer 1 button 1 is pressed once
-- alias: Dimmer 1 Button 1 Clicked
-  trigger:
-    - platform: state
-      entity_id: sensor.hue_dimmer_1
-      to: '1_click_up' # sometimes it doesn't register very fast clicks. But it does register "click_up".
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.living_room_lightstrip
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.dining_table_1
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.dining_table_2
-        brightness: 255
-        kelvin: 2700
-
-# Automation triggers when dimmer 1 button 1 is held for about 2+ seconds
-- alias: Dimmer 1 Button 1 Held
-  trigger:
-    - platform: state
-      entity_id: sensor.hue_dimmer_1
-      to: '1_hold'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.living_room_lightstrip
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.dining_table_lights
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.kitchen_spots
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.kitchen_cabinet_lights
-        brightness: 255
-
-- alias: Dimmer 1 Button 2 Clicked
-  trigger:
-    - platform: state
-      entity_id: sensor.hue_dimmer_1
-      to: '2_click_up' # sometimes it doesn't register very fast clicks. But it does register "click_up".
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.kitchen_spots
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.kitchen_cabinet_lights
-        brightness: 255
-
-- alias: Dimmer 1 Button 2 Held
-  trigger:
-    - platform: state
-      entity_id: sensor.hue_dimmer_1
-      to: '2_hold'
-  action:
-    - service: light.turn_on
-      data:
-        entity_id: light.living_room_lightstrip
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.dining_table_lights
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.kitchen_spots
-        brightness: 255
-        kelvin: 2700
-    - service: light.turn_on
-      data:
-        entity_id: light.kitchen_cabinet_lights
-        brightness: 255
-
-- alias: Dimmer 1 Button 3 Clicked
-  trigger:
-    - platform: state
-      entity_id: sensor.hue_dimmer_1
-      to: '3_click_up' # sometimes it doesn't register very fast clicks. But it does register "click_up".
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_spots
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_cabinet_lights
-
-- alias: Dimmer 1 Button 3 Held
-  trigger:
-    - platform: state
-      entity_id: sensor.hue_dimmer_1
-      to: '3_hold' # sometimes it doesn't register very fast clicks. But it does register "click_up".
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_spots
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_cabinet_lights
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_spots
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_cabinet_lights
-
-# Automation triggers when dimmer 1 button 4 is pressed once
-- alias: Dimmer 1 Button 4 Clicked
-  trigger:
-    - platform: state
-      entity_id: sensor.hue_dimmer_1
-      to: '4_click_up'
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.living_room_lightstrip
-    - service: light.turn_off
-      data:
-        entity_id: light.dining_table_lights
-
-# Automation triggers when dimmer 1 button 4 is held for about 2+ seconds
-- alias: Dimmer 1 Button 4 Held
-  trigger:
-    - platform: state
-      entity_id: sensor.hue_dimmer_1
-      to: '4_hold' # sometimes it doesn't register very fast clicks. But it does register "click_up".
-  action:
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_spots
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_cabinet_lights
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_spots
-    - service: light.turn_off
-      data:
-        entity_id: light.kitchen_cabinet_lights
+# #######################
+# #__Hue Dimmer Remote__#
+#
+# # Automation triggers when dimmer 1 button 1 is pressed once
+# - alias: Dimmer 1 Button 1 Clicked
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hue_dimmer_1
+#       to: '1_click_up' # sometimes it doesn't register very fast clicks. But it does register "click_up".
+#   action:
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.living_room_lightstrip
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.dining_table_1
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.dining_table_2
+#         brightness: 255
+#         kelvin: 2700
+#
+# # Automation triggers when dimmer 1 button 1 is held for about 2+ seconds
+# - alias: Dimmer 1 Button 1 Held
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hue_dimmer_1
+#       to: '1_hold'
+#   action:
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.living_room_lightstrip
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.dining_table_lights
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.kitchen_spots
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.kitchen_cabinet_lights
+#         brightness: 255
+#
+# - alias: Dimmer 1 Button 2 Clicked
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hue_dimmer_1
+#       to: '2_click_up' # sometimes it doesn't register very fast clicks. But it does register "click_up".
+#   action:
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.kitchen_spots
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.kitchen_cabinet_lights
+#         brightness: 255
+#
+# - alias: Dimmer 1 Button 2 Held
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hue_dimmer_1
+#       to: '2_hold'
+#   action:
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.living_room_lightstrip
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.dining_table_lights
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.kitchen_spots
+#         brightness: 255
+#         kelvin: 2700
+#     - service: light.turn_on
+#       data:
+#         entity_id: light.kitchen_cabinet_lights
+#         brightness: 255
+#
+# - alias: Dimmer 1 Button 3 Clicked
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hue_dimmer_1
+#       to: '3_click_up' # sometimes it doesn't register very fast clicks. But it does register "click_up".
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_spots
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_cabinet_lights
+#
+# - alias: Dimmer 1 Button 3 Held
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hue_dimmer_1
+#       to: '3_hold' # sometimes it doesn't register very fast clicks. But it does register "click_up".
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_spots
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_cabinet_lights
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_spots
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_cabinet_lights
+#
+# # Automation triggers when dimmer 1 button 4 is pressed once
+# - alias: Dimmer 1 Button 4 Clicked
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hue_dimmer_1
+#       to: '4_click_up'
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.living_room_lightstrip
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.dining_table_lights
+#
+# # Automation triggers when dimmer 1 button 4 is held for about 2+ seconds
+# - alias: Dimmer 1 Button 4 Held
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.hue_dimmer_1
+#       to: '4_hold' # sometimes it doesn't register very fast clicks. But it does register "click_up".
+#   action:
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_spots
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_cabinet_lights
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_spots
+#     - service: light.turn_off
+#       data:
+#         entity_id: light.kitchen_cabinet_lights
 
 #######################
 #__Xioami_aqara_cube__#
@@ -2494,3 +2494,13 @@
 #   action:
 #     - service: script.turn_on
 #       entity_id: script.doorbell_day
+
+# Throgh RESTtask
+
+- alias: 'Doorbell chime'
+  trigger:
+    platform: webhook
+    webhook_id: restask_doorbell
+  action:
+    - service: script.turn_on
+      entity_id: script.doorbell_day

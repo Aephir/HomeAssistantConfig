@@ -313,6 +313,221 @@ input {
 	height: 100%;
 }
 
+.widget-basedisplay-default-text .unit {
+	font-size: 225%;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.widget-basedisplay-default-text .value {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-text .valueunit {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-text .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-text .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basedisplay-default-text .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-doorbell {
+	position: relative;
+}
+
+.widget-baseswitch-default-doorbell .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-doorbell .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-doorbell .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-doorbell .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-doorbell .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-guest-mode {
+	position: relative;
+}
+
+.widget-baseswitch-default-guest-mode .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-guest-mode .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-guest-mode .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-guest-mode .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-guest-mode .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-basejavascript-default-reload .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-reload .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-reload .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-reload .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-basejavascript-default-basement .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-basement .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-basement .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-basement .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-basejavascript-default-main-dashboard .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-dashboard .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-dashboard .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-main-dashboard .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-basejavascript-default-top-floor .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 .widget-baseclock-default-clock.date {
 	position: absolute;
 	top: 5px;
@@ -323,35 +538,35 @@ input {
 	top: 45px;
 	width: 100%;
 }
-.widget-baseswitch-default-walden-battery {
+.widget-baseswitch-default-switch-switch {
 	position: relative;
 }
 
-.widget-baseswitch-default-walden-battery .title {
+.widget-baseswitch-default-switch-switch .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-walden-battery .title2 {
+.widget-baseswitch-default-switch-switch .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-walden-battery .state_text {
+.widget-baseswitch-default-switch-switch .state_text {
 	position: absolute;
 	bottom: -3px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-walden-battery .icon {
+.widget-baseswitch-default-switch-switch .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-walden-battery .toggle-area {
+.widget-baseswitch-default-switch-switch .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -360,35 +575,35 @@ input {
 	height: 100%;
 }
 
-.widget-baseswitch-default-kristina-battery {
+.widget-baseswitch-default-switch-fountain {
 	position: relative;
 }
 
-.widget-baseswitch-default-kristina-battery .title {
+.widget-baseswitch-default-switch-fountain .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-kristina-battery .title2 {
+.widget-baseswitch-default-switch-fountain .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-kristina-battery .state_text {
+.widget-baseswitch-default-switch-fountain .state_text {
 	position: absolute;
 	bottom: -3px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-kristina-battery .icon {
+.widget-baseswitch-default-switch-fountain .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-kristina-battery .toggle-area {
+.widget-baseswitch-default-switch-fountain .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -397,35 +612,35 @@ input {
 	height: 100%;
 }
 
-.widget-baseswitch-default-emilie-battery {
+.widget-baseswitch-default-switch-kettle {
 	position: relative;
 }
 
-.widget-baseswitch-default-emilie-battery .title {
+.widget-baseswitch-default-switch-kettle .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-emilie-battery .title2 {
+.widget-baseswitch-default-switch-kettle .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-emilie-battery .state_text {
+.widget-baseswitch-default-switch-kettle .state_text {
 	position: absolute;
 	bottom: -3px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-emilie-battery .icon {
+.widget-baseswitch-default-switch-kettle .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-emilie-battery .toggle-area {
+.widget-baseswitch-default-switch-kettle .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -434,6 +649,326 @@ input {
 	height: 100%;
 }
 
+.widget-baselight-default-entrance-lights {
+	position: relative;
+}
+
+.widget-baselight-default-entrance-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-entrance-lights .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-entrance-lights .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-entrance-lights .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-entrance-lights .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-entrance-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baselight-default-kitchen-spots {
+	position: relative;
+}
+
+.widget-baselight-default-kitchen-spots .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-kitchen-spots .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-kitchen-spots .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-kitchen-spots .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-kitchen-spots .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-kitchen-spots .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baselight-default-dining-room-lights {
+	position: relative;
+}
+
+.widget-baselight-default-dining-room-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-dining-room-lights .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-dining-room-lights .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-dining-room-lights .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-dining-room-lights .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-dining-room-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baselight-default-outdoor-lights {
+	position: relative;
+}
+
+.widget-baselight-default-outdoor-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-outdoor-lights .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-outdoor-lights .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baselight-default-outdoor-lights .state_text {
+	position: absolute;
+	top: 38px;
+	width: 100%;
+}
+
+.widget-baselight-default-outdoor-lights .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baselight-default-outdoor-lights .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 75%;
+}
+
+.widget-baselight-default-outdoor-lights .level {
+	display: inline-block;
+}
+
+.widget-baselight-default-outdoor-lights .unit {
+	display: inline-block;
+}
+
+.widget-baselight-default-outdoor-lights .levelunit {
+	position: absolute;
+	bottom: 5px;
+	width: 100%;
+}
+
+.widget-baselight-default-outdoor-lights .secondary-icon {
+	position: absolute;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
+}
+
+.widget-baselight-default-outdoor-lights .secondary-icon.plus {
+	right: 24px;
+}
+
+.widget-baselight-default-outdoor-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-outdoor-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-outdoor-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
 .widget-baselight-default-basement-lights {
 	position: relative;
 }
@@ -511,86 +1046,6 @@ input {
 }
 
 .widget-baselight-default-basement-lights .secondary-icon.minus i {
-	padding-top: 10px;
-	padding-right: 30px;
-}
-.widget-baselight-default-main-floor-lights {
-	position: relative;
-}
-
-.widget-baselight-default-main-floor-lights .state_text {
-	font-size: 85%;
-}
-
-.widget-baselight-default-main-floor-lights .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-main-floor-lights .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baselight-default-main-floor-lights .state_text {
-	position: absolute;
-	top: 38px;
-	width: 100%;
-}
-
-.widget-baselight-default-main-floor-lights .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baselight-default-main-floor-lights .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 75%;
-}
-
-.widget-baselight-default-main-floor-lights .level {
-	display: inline-block;
-}
-
-.widget-baselight-default-main-floor-lights .unit {
-	display: inline-block;
-}
-
-.widget-baselight-default-main-floor-lights .levelunit {
-	position: absolute;
-	bottom: 5px;
-	width: 100%;
-}
-
-.widget-baselight-default-main-floor-lights .secondary-icon {
-	position: absolute;
-	bottom: 0px;
-	font-size: 20px;
-	width: 32px;
-	color: white;
-}
-
-.widget-baselight-default-main-floor-lights .secondary-icon.plus {
-	right: 24px;
-}
-
-.widget-baselight-default-main-floor-lights .secondary-icon.plus i {
-	padding-top: 10px;
-	padding-left: 30px;
-}
-
-.widget-baselight-default-main-floor-lights .secondary-icon.minus {
-	left: 8px;
-}
-
-.widget-baselight-default-main-floor-lights .secondary-icon.minus i {
 	padding-top: 10px;
 	padding-right: 30px;
 }
@@ -674,403 +1129,163 @@ input {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baseswitch-default-guest-mode {
+.widget-baselight-default-conservatory-lights {
 	position: relative;
 }
 
-.widget-baseswitch-default-guest-mode .title {
+.widget-baselight-default-conservatory-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-conservatory-lights .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-guest-mode .title2 {
+.widget-baselight-default-conservatory-lights .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-guest-mode .state_text {
+.widget-baselight-default-conservatory-lights .state_text {
 	position: absolute;
-	bottom: -3px;
+	top: 38px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-guest-mode .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-guest-mode .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.widget-baseswitch-default-vacation-mode {
-	position: relative;
-}
-
-.widget-baseswitch-default-vacation-mode .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-vacation-mode .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-vacation-mode .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-vacation-mode .icon {
+.widget-baselight-default-conservatory-lights .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-vacation-mode .toggle-area {
+.widget-baselight-default-conservatory-lights .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 75%;
 }
 
-.widget-baseswitch-default-switch-switch {
-	position: relative;
-}
-
-.widget-baseswitch-default-switch-switch .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-switch-switch .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-switch-switch .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-switch-switch .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-switch-switch .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.widget-baseswitch-default-switch-kettle {
-	position: relative;
-}
-
-.widget-baseswitch-default-switch-kettle .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-switch-kettle .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-switch-kettle .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-switch-kettle .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-switch-kettle .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.widget-baseswitch-default-fountain {
-	position: relative;
-}
-
-.widget-baseswitch-default-fountain .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-fountain .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-fountain .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-fountain .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-fountain .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
-.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .unit {
-	font-size: 225%;
-	font-weight: 400;
+.widget-baselight-default-conservatory-lights .level {
 	display: inline-block;
-	vertical-align: top;
-	margin-left: 5px;
-	margin-top: 5px;
 }
 
-.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .value {
+.widget-baselight-default-conservatory-lights .unit {
 	display: inline-block;
-	vertical-align: middle;
 }
 
-.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .valueunit {
-	width: 100%;
-	vertical-align: middle;
-}
-
-.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .title {
+.widget-baselight-default-conservatory-lights .levelunit {
 	position: absolute;
-	top: 5px;
+	bottom: 5px;
 	width: 100%;
 }
 
-.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .title2 {
+.widget-baselight-default-conservatory-lights .secondary-icon {
 	position: absolute;
-	top: 23px;
-	width: 100%;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
 }
 
-.widget-basedisplay-default-sensor-fibaro-system-fgwpef-wall-plug-gen5-power .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
+.widget-baselight-default-conservatory-lights .secondary-icon.plus {
+	right: 24px;
 }
 
-.widget-baseswitch-default-script-everyone-left-turn-off-everything {
+.widget-baselight-default-conservatory-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
+}
+
+.widget-baselight-default-conservatory-lights .secondary-icon.minus {
+	left: 8px;
+}
+
+.widget-baselight-default-conservatory-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
+}
+.widget-baselight-default-bedroom-lights {
 	position: relative;
 }
 
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .title {
+.widget-baselight-default-bedroom-lights .state_text {
+	font-size: 85%;
+}
+
+.widget-baselight-default-bedroom-lights .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .title2 {
+.widget-baselight-default-bedroom-lights .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .state_text {
+.widget-baselight-default-bedroom-lights .state_text {
 	position: absolute;
-	bottom: -3px;
+	top: 38px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .icon {
+.widget-baselight-default-bedroom-lights .icon {
 	position: absolute;
 	top: 43px;
 	width: 100%;
 }
 
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .toggle-area {
+.widget-baselight-default-bedroom-lights .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: 75%;
 }
 
-.widget-basejavascript-default-basement .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-basement .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-basement .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-basement .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-.widget-basejavascript-default-main-floor .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-main-floor .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-main-floor .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-main-floor .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-.widget-basejavascript-default-top-floor .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-top-floor .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-top-floor .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-top-floor .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-.widget-basedisplay-default-espresso-power .unit {
-	font-size: 225%;
-	font-weight: 400;
+.widget-baselight-default-bedroom-lights .level {
 	display: inline-block;
-	vertical-align: top;
-	margin-left: 5px;
-	margin-top: 5px;
 }
 
-.widget-basedisplay-default-espresso-power .value {
+.widget-baselight-default-bedroom-lights .unit {
 	display: inline-block;
-	vertical-align: middle;
 }
 
-.widget-basedisplay-default-espresso-power .valueunit {
-	width: 100%;
-	vertical-align: middle;
-}
-
-.widget-basedisplay-default-espresso-power .title {
+.widget-baselight-default-bedroom-lights .levelunit {
 	position: absolute;
-	top: 5px;
+	bottom: 5px;
 	width: 100%;
 }
 
-.widget-basedisplay-default-espresso-power .title2 {
+.widget-baselight-default-bedroom-lights .secondary-icon {
 	position: absolute;
-	top: 23px;
-	width: 100%;
+	bottom: 0px;
+	font-size: 20px;
+	width: 32px;
+	color: white;
 }
 
-.widget-basedisplay-default-espresso-power .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
+.widget-baselight-default-bedroom-lights .secondary-icon.plus {
+	right: 24px;
 }
 
-.widget-basejavascript-default-reload .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
+.widget-baselight-default-bedroom-lights .secondary-icon.plus i {
+	padding-top: 10px;
+	padding-left: 30px;
 }
 
-.widget-basejavascript-default-reload .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
+.widget-baselight-default-bedroom-lights .secondary-icon.minus {
+	left: 8px;
 }
 
-.widget-basejavascript-default-reload .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-basejavascript-default-reload .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+.widget-baselight-default-bedroom-lights .secondary-icon.minus i {
+	padding-top: 10px;
+	padding-right: 30px;
 }

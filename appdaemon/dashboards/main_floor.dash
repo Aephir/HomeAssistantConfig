@@ -19,6 +19,8 @@ global_parameters:
 
 reload:
     widget_type: reload
+    title: Reload
+    widget_style: "font-size: 150%"
 
 clock:
     widget_type: clock
@@ -55,6 +57,7 @@ main_dashboard:
     icon: mdi:format-vertical-align-center
     dashboard: main_dashboard
 
+
 kitchen_spots:
     title: Lys i køkken
     title_style: "color: white; font-weight: bold"
@@ -85,6 +88,17 @@ entrance_lights:
     icon_on: mdi-lightbulb-on
     icon_off: mdi-lightbulb
     entity: light.entrance_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+bedroom_lights:
+    title: Lys i soveværelse
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.bedroom
     icon_style_active: "color: yellow; margin-top: 40px"
     icon_style_inactive: "color: grey; margin-top: 40px"
 
@@ -133,14 +147,14 @@ outdoor_lights:
     icon_style_inactive: "color: grey; margin-top: 40px"
 
 guest_mode:
-    title: Gæster i huset
+    title: Gæster
     title_style: "color: white; font-weight: bold"
     widget_style: "font-size: 150%;"
     widget_type: switch
     icon_on: mdi-home-account
     icon_off: mdi-home
-    icon_style_active: "color: green; margin-top: 40px"
-    icon_style_inactive: "color: grey; margin-top: 40px"
+    icon_style_active: "color: green; margin-top: -15px"
+    icon_style_inactive: "color: grey; margin-top: -15px"
     entity: input_boolean.guest_mode
 
 walden_presence:
@@ -171,30 +185,33 @@ emilie_presence:
     entity: device_tracker.emilie
 
 walden_battery:
-    title: Walden battery
+    title: Walden
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.walden_phone_battery
 
 kristina_battery:
-    title: Kristina battery
+    title: Kristina
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.kristina_phone_battery
 
 emilie_battery:
-    title: Emilie battery
+    title: Emilie
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.emilie_phone_battery
 
 espresso_power:
@@ -205,6 +222,19 @@ espresso_power:
     icon_style_inactive: "margin-top: -15px"
     entity: sensor.neo_coolcam_power_plug_12a_power
 
+dorbell:
+    title: Doorbell
+    widget_type: javascript
+    widget_style: "font-size: 100%"
+
+
+fountain:
+    title: Fountain
+    widget_type: switch
+    entity: switch.fountain
+    icon_on: mdi-fountain
+    icon_off: mdi-fountain
+
 test:
     title: Test Picture
     widget_type: light
@@ -213,8 +243,8 @@ test:
     entity: light.waldens_bedroom
 
 layout:
-    - basement, main_dashboard, top_floor, clock(2x1), switch.switch, switch.kettle, switch.living_room_media_master
-    - entrance_lights(2x2), kitchen_spots(2x2), dining_room_lights(2x2), guest_mode(1x2), scene.night_light
-    - scene.all_lights_off
-    - basement_lights(2x2), top_floor_lights(2x2), conservatory_lights(2x2), sensor.fibaro_system_fgwpef_wall_plug_gen5_power, script.everyone_left_turn_off_everything
-    - espresso_power, reload
+    - walden_presence, kristina_presence, emilie_presence, spacer(2x1), doorbell, guest_mode, reload
+    - basement, main_dashboard, top_floor, clock(2x1), switch.switch, switch.fountain, switch.kettle
+    - entrance_lights(2x2), kitchen_spots(2x2), dining_room_lights(2x2), outdoor_lights(2x2)
+    -
+    - basement_lights(2x2), top_floor_lights(2x2), conservatory_lights(2x2), bedroom_lights(2x2)

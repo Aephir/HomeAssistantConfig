@@ -9,14 +9,16 @@ class HueRemote(hass.Hass):
         self.listen_state(self.button_click,self.args["entityID"])
 
     def button_click(self, entity, attribute, old, new, kwargs):
-        # "self" will be "1_click", "2_click", etc.
-        if new == "1_click":
+        # "button" will be "1_click", "2_click", etc.
+        # I can remove the "button =" line, and just use "if new ==", right?
+        button = self.get_state(self.args["entityID"])
+        if button == "1_click":
             self.toggle("switch.fountain")
-        elif new == "2_click":
+        elif button == "2_click":
             self.toggle("light.conservatory_lights")
-        elif new == "3_click":
+        elif button == "3_click":
             self.toggle("light.dining_room_lights")
-        elif new == "4_click":
+        elif button == "4_click":
             if any(self.args["entity_4"]) == "playing":
                 self.call_service("media_player.media_pause",self.args["entity_4"])
             else:

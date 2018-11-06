@@ -693,3 +693,4 @@ views:
               color_type: blank-card
             - type: "custom:button-card"
               color_type: blank-card
+      # - type: FLOORPLAN!!

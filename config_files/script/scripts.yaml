@@ -257,7 +257,17 @@
   #         message: >-
   #           {{ states[entityid.split('.')[0]][entityid.split('.')[1]].name }} is {{ tostate }} at {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p', true) }}.
 
-###########3
+#######
+#  Tasker
+
+  # launch_skybellhd:
+  #   alias: Launch SkyBell HD on android tablet 1
+  #   sequence:
+  #     - service: shell_command
+  #
+  #
+
+###########
 # Doorbell
 
   doorbell_day:

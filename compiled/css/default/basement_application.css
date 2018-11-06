@@ -202,6 +202,153 @@ input {
 
 .modalDialogCloseButton:hover { background: #444; }
 
+.widget-basejavascript-default-basement .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-basement .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-basement .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-basement .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.widget-baseswitch-default-walden-presence {
+	position: relative;
+}
+
+.widget-baseswitch-default-walden-presence .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-walden-presence .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-walden-presence .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-walden-presence .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-walden-presence .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-kristina-presence {
+	position: relative;
+}
+
+.widget-baseswitch-default-kristina-presence .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-kristina-presence .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-kristina-presence .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-kristina-presence .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-kristina-presence .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-emilie-presence {
+	position: relative;
+}
+
+.widget-baseswitch-default-emilie-presence .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-emilie-presence .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-emilie-presence .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-emilie-presence .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-emilie-presence .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseclock-default-clock.date {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+.widget-baseclock-default-clock.time {
+ 	position: absolute;
+	top: 45px;
+	width: 100%;
+}
 .widget-basejavascript-default-main-dashboard .icon {
 	position: absolute;
 	top: 43px;
@@ -228,68 +375,117 @@ input {
 	width: 100%;
 	height: 100%;
 }
-.widget-basejavascript-default-main-floor .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
+.widget-basedisplay-default-walden-battery .unit {
+	font-size: 225%;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5px;
+	margin-top: 5px;
 }
 
-.widget-basejavascript-default-main-floor .title {
+.widget-basedisplay-default-walden-battery .value {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-walden-battery .valueunit {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-walden-battery .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-basejavascript-default-main-floor .title2 {
+.widget-basedisplay-default-walden-battery .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-basejavascript-default-main-floor .toggle-area {
-	z-index: 10;
+.widget-basedisplay-default-walden-battery .state_text {
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-.widget-basejavascript-default-top-floor .icon {
-	position: absolute;
-	top: 43px;
+	bottom: -3px;
 	width: 100%;
 }
 
-.widget-basejavascript-default-top-floor .title {
+.widget-basedisplay-default-kristina-battery .unit {
+	font-size: 225%;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.widget-basedisplay-default-kristina-battery .value {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-kristina-battery .valueunit {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-kristina-battery .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
 
-.widget-basejavascript-default-top-floor .title2 {
+.widget-basedisplay-default-kristina-battery .title2 {
 	position: absolute;
 	top: 23px;
 	width: 100%;
 }
 
-.widget-basejavascript-default-top-floor .toggle-area {
-	z-index: 10;
+.widget-basedisplay-default-kristina-battery .state_text {
 	position: absolute;
-	top: 0;
-	left: 0;
+	bottom: -3px;
 	width: 100%;
-	height: 100%;
 }
-.widget-baseclock-default-clock.date {
+
+.widget-basedisplay-default-emilie-battery .unit {
+	font-size: 225%;
+	font-weight: 400;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 5px;
+	margin-top: 5px;
+}
+
+.widget-basedisplay-default-emilie-battery .value {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-emilie-battery .valueunit {
+	width: 100%;
+	vertical-align: middle;
+}
+
+.widget-basedisplay-default-emilie-battery .title {
 	position: absolute;
 	top: 5px;
 	width: 100%;
 }
-.widget-baseclock-default-clock.time {
- 	position: absolute;
-	top: 45px;
+
+.widget-basedisplay-default-emilie-battery .title2 {
+	position: absolute;
+	top: 23px;
 	width: 100%;
 }
+
+.widget-basedisplay-default-emilie-battery .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
 .widget-baseswitch-default-switch-switch {
 	position: relative;
 }
@@ -319,6 +515,43 @@ input {
 }
 
 .widget-baseswitch-default-switch-switch .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-fountain {
+	position: relative;
+}
+
+.widget-baseswitch-default-fountain .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-fountain .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-fountain .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-fountain .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-fountain .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -401,6 +634,32 @@ input {
 	height: 100%;
 }
 
+.widget-basejavascript-default-top-floor .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-basejavascript-default-top-floor .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
 .widget-baselight-default-entrance-lights {
 	position: relative;
 }
@@ -678,43 +937,6 @@ input {
 	height: 100%;
 }
 
-.widget-baseswitch-default-scene-night-light {
-	position: relative;
-}
-
-.widget-baseswitch-default-scene-night-light .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-scene-night-light .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-scene-night-light .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-scene-night-light .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-scene-night-light .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-}
-
 .widget-baseswitch-default-scene-all-lights-off {
 	position: relative;
 }
@@ -744,6 +966,43 @@ input {
 }
 
 .widget-baseswitch-default-scene-all-lights-off .toggle-area {
+	z-index: 10;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything {
+	position: relative;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .title {
+	position: absolute;
+	top: 5px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .title2 {
+	position: absolute;
+	top: 23px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .state_text {
+	position: absolute;
+	bottom: -3px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .icon {
+	position: absolute;
+	top: 43px;
+	width: 100%;
+}
+
+.widget-baseswitch-default-script-everyone-left-turn-off-everything .toggle-area {
 	z-index: 10;
 	position: absolute;
 	top: 0;
@@ -1027,43 +1286,6 @@ input {
 	position: absolute;
 	bottom: -3px;
 	width: 100%;
-}
-
-.widget-baseswitch-default-script-everyone-left-turn-off-everything {
-	position: relative;
-}
-
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .title {
-	position: absolute;
-	top: 5px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .title2 {
-	position: absolute;
-	top: 23px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .state_text {
-	position: absolute;
-	bottom: -3px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .icon {
-	position: absolute;
-	top: 43px;
-	width: 100%;
-}
-
-.widget-baseswitch-default-script-everyone-left-turn-off-everything .toggle-area {
-	z-index: 10;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
 }
 
 .widget-basedisplay-default-espresso-power .unit {

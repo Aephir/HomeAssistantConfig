@@ -172,30 +172,33 @@ emilie_presence:
     entity: device_tracker.emilie
 
 walden_battery:
-    title: Walden battery
+    title: Walden
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.walden_phone_battery
 
 kristina_battery:
-    title: Kristina battery
+    title: Kristina
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.kristina_phone_battery
 
 emilie_battery:
-    title: Emilie battery
+    title: Emilie
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.emilie_phone_battery
 
 espresso_power:
@@ -206,6 +209,13 @@ espresso_power:
     icon_style_inactive: "margin-top: -15px"
     entity: sensor.neo_coolcam_power_plug_12a_power
 
+fountain:
+    title: Fountain
+    widget_type: switch
+    entity: switch.fountain
+    icon_on: mdi-fountain
+    icon_off: mdi-fountain
+
 test:
     title: Test Picture
     widget_type: light
@@ -214,8 +224,9 @@ test:
     entity: light.waldens_bedroom
 
 layout:
-    - main_dashboard, main_floor, top_floor, clock(2x1), switch.switch, switch.kettle, switch.living_room_media_master
-    - entrance_lights(2x2), kitchen_spots(2x2), dining_room_lights(2x2), guest_mode(1x2), scene.night_light
+    - basement, walden_presence, kristina_presence, emilie_presence, clock(4x1)
+    - main_dashboard, walden_battery, kristina_battery, emilie_battery, switch.switch, fountain, switch.kettle, switch.living_room_media_master
+    - top_floor, entrance_lights(2x2), kitchen_spots(2x2), dining_room_lights(2x2), guest_mode(1x2)
     - scene.all_lights_off
-    - basement_lights(2x2), top_floor_lights(2x2), conservatory_lights(2x2), sensor.fibaro_system_fgwpef_wall_plug_gen5_power, script.everyone_left_turn_off_everything
+    - script.everyone_left_turn_off_everything, basement_lights(2x2), top_floor_lights(2x2), conservatory_lights(2x2), sensor.fibaro_system_fgwpef_wall_plug_gen5_power
     - espresso_power, reload

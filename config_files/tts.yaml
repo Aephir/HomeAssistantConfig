@@ -7,4 +7,6 @@
 #platform: picotts
 - platform: google
   cache: true
-  cache_dir: /mnt/drive2/cache/tts/
+  # cache_dir: /mnt/drive2/cache/tts/
+  base_url: http://192.168.0.100:8123
+  # base_url: !secret secret_base_url

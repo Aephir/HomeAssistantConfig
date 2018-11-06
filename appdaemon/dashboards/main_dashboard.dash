@@ -17,8 +17,17 @@ global_parameters:
         icon_style_active: "color: yellow"
         icon_style_inactive: "color: grey"
 
+alarm:
+    title: Alarm
+    icon: mdi-security-home
+
 reload:
     widget_type: reload
+    title: Reload
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    icon_style_active: "margin-top: -15px"
+    icon_style_inactive: "margin-top: -15px"
 
 clock:
     widget_type: clock
@@ -34,47 +43,29 @@ clock:
 top_floor:
     widget_type: navigate
     title: Top Floor
-    title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
     icon: mdi-format-vertical-align-top
-    icon_style_active: "color: yellow; margin-top: 40px"
-    icon_style_inactive: "color: grey; margin-top: 40px"
     dashboard: top_floor
 
 basement:
     widget_type: navigate
     title: Basement
-    title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
-    icon_on: mdi-format-vertical-align-bottom
-    icon_off: mdi-format-vertical-align-bottom
-    icon_style_active: "color: yellow; margin-top: 40px"
-    icon_style_inactive: "color: grey; margin-top: 40px"
+    icon: mdi-format-vertical-align-bottom
     dashboard: basement
 
 main_floor:
     widget_type: navigate
     title: Main Floor
-    title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
-    icon_on: mdi-format-vertical-align-center
-    icon_off: mdi-format-vertical-align-center
-    icon_style_active: "color: yellow; margin-top: 40px"
-    icon_style_inactive: "color: grey; margin-top: 40px"
+    icon: mdi-format-vertical-align-center
     dashboard: main_floor
 
 main_dashboard:
     widget_type: navigate
     title: Main
-    title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
-    icon_on: mdi-format-vertical-align-center
-    icon_off: mdi-format-vertical-align-center
-    icon_style_active: "color: yellow; margin-top: 40px"
-    icon_style_inactive: "color: grey; margin-top: 40px"
+    icon: mdi-floor-plan
     dashboard: main_dashboard
 
-kitchen_lights:
+
+kitchen_spots:
     title: Lys i køkken
     title_style: "color: white; font-weight: bold"
     widget_style: "font-size: 150%"
@@ -84,6 +75,9 @@ kitchen_lights:
     entity: light.kitchen_spots
     icon_style_active: "color: yellow; margin-top: 40px"
     icon_style_inactive: "color: grey; margin-top: 40px"
+    on_attributes:
+        brightness: 255
+        color_temp: 420
 
 dining_room_lights:
     title: Lys i spisestuen
@@ -95,6 +89,48 @@ dining_room_lights:
     entity: light.dining_room_lights
     icon_style_active: "color: yellow; margin-top: 40px"
     icon_style_inactive: "color: grey; margin-top: 40px"
+    on_attributes:
+        brightness: 255
+        color_temp: 420
+
+entrance_lights:
+    title: Lys i entré
+    title_style: "font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.entrance_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+
+bedroom_lights:
+    title: Lys i soveværelse
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.bedroom
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+    on_attributes:
+        brightness: 255
+        color_temp: 420
+
+conservatory_lights:
+    title: Lys i udestue
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
+    widget_type: light
+    icon_on: mdi-lightbulb-on
+    icon_off: mdi-lightbulb
+    entity: light.conservatory_lights
+    icon_style_active: "color: yellow; margin-top: 40px"
+    icon_style_inactive: "color: grey; margin-top: 40px"
+    on_attributes:
+        brightness: 255
+        color_temp: 420
 
 basement_lights:
     title: Lys i kælder
@@ -104,17 +140,6 @@ basement_lights:
     icon_on: mdi-lightbulb-on
     icon_off: mdi-lightbulb
     entity: light.basement_lights
-    icon_style_active: "color: yellow; margin-top: 40px"
-    icon_style_inactive: "color: grey; margin-top: 40px"
-
-main_floor_lights:
-    title: Lys i Stueetage
-    title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
-    widget_type: light
-    icon_on: mdi-lightbulb-on
-    icon_off: mdi-lightbulb
-    entity: light.main_floor_lights
     icon_style_active: "color: yellow; margin-top: 40px"
     icon_style_inactive: "color: grey; margin-top: 40px"
 
@@ -141,26 +166,15 @@ outdoor_lights:
     icon_style_inactive: "color: grey; margin-top: 40px"
 
 guest_mode:
-    title: Gæster i huset
+    title: Gæster
     title_style: "color: white; font-weight: bold"
     widget_style: "font-size: 150%;"
     widget_type: switch
     icon_on: mdi-home-account
     icon_off: mdi-home
-    icon_style_active: "color: green; margin-top: 40px"
-    icon_style_inactive: "color: grey; margin-top: 40px"
+    icon_style_active: "color: green; margin-top: -15px"
+    icon_style_inactive: "color: grey; margin-top: -15px"
     entity: input_boolean.guest_mode
-
-vacation_mode:
-    title: Ferie
-    title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%;"
-    widget_type: switch
-    icon_on: mdi-beach
-    icon_off: mdi-home
-    icon_style_active: "color: green; margin-top: 40px"
-    icon_style_inactive: "color: grey; margin-top: 40px"
-    entity: input_boolean.vacation_mode
 
 walden_presence:
     title: Walden
@@ -190,30 +204,33 @@ emilie_presence:
     entity: device_tracker.emilie
 
 walden_battery:
-    title: Walden battery
+    title: Walden
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.walden_phone_battery
 
 kristina_battery:
-    title: Kristina battery
+    title: Kristina
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.kristina_phone_battery
 
 emilie_battery:
-    title: Emilie battery
+    title: Emilie
     title_style: "color: white; font-weight: bold"
-    widget_style: "font-size: 150%"
+    widget_style: "font-size: 100%"
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
-    widget_type: device_tracker
+    widget_type: sensor
+    units: "%"
     entity: sensor.emilie_phone_battery
 
 espresso_power:
@@ -224,14 +241,36 @@ espresso_power:
     icon_style_inactive: "margin-top: -15px"
     entity: sensor.neo_coolcam_power_plug_12a_power
 
+# See here: https://community.home-assistant.io/t/start-android-app-from-javascript-widget/54534/8?u=aephir
+# app_netflix:
+#     widget_type: navigate
+#     title: Netflix
+#     url: "intent:#Intent;component=com.netflix.mediaclient/com.netflix.mediaclient.ui.launch.UIWebViewActivity;end"
+doorbell:
+    title: Doorbell
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%;"
+    widget_type: switch
+    icon_on: mdi-bell
+    icon_off: mdi-bell
+    entity: input_boolean.skybell_launch
+    icon_style_active: "color: grey"
+    icon_style_inactive: "color: grey"
+
+text:
+    text: Main Dashboard
+    widget_type: label
+
 fountain:
     title: Fountain
+    title_style: "color: white; font-weight: bold"
+    widget_style: "font-size: 150%"
     widget_type: switch
+    entity: switch.fountain
     icon_on: mdi-fountain
-    icon_off: mdi-fountain
-    icon_style_active: "margin-top: -15px"
-    icon_style_inactive: "margin-top: -15px"
-    entity_id: switch.fountain
+    icon_off: mdi-water
+    icon_style_active: "color: yellow"
+    icon_style_inactive: "color: grey"
 
 test:
     title: Test Picture
@@ -241,8 +280,8 @@ test:
     entity: light.waldens_bedroom
 
 layout:
-    - walden_presence, kristina_presence, emilie_presence, clock(2x1), walden_battery, kristina_battery, emilie_battery
-    - basement_lights(2x2), main_floor_lights(2x2), top_floor_lights(2x2), guest_mode(1x2), vacation_mode(1x2)
+    - walden_presence, kristina_presence, emilie_presence, text(2x1), doorbell, guest_mode, reload
+    - basement, main_dashboard, top_floor, clock(2x1), switch.switch, switch.fountain, switch.kettle
+    - entrance_lights(2x2), kitchen_spots(2x2), dining_room_lights(2x2), outdoor_lights(2x2)
     -
-    - switch.switch(2x1), switch.kettle(2x1), fountain(2x1), sensor.fibaro_system_fgwpef_wall_plug_gen5_power, script.everyone_left_turn_off_everything
-    - basement(2x1), main_floor(2x1), top_floor(2x1), espresso_power, reload
+    - basement_lights(2x2), top_floor_lights(2x2), conservatory_lights(2x2), bedroom_lights(2x2)

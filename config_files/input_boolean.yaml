@@ -140,6 +140,12 @@ light_top_floor_bathroom:
 tv_ue46es8005:
   name: dummy ue46es8005
 
+skybell_launch:
+  name: dummy switch to launch skybell app on android
+
+fullykiosk_launch:
+  name: dummy switch to launch skybell app on android
+
 #########################
 #    Maunal Override    #
 #########################
