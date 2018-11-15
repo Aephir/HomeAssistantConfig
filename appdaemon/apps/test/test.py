@@ -10,7 +10,7 @@ class Test(hass.Hass):
 
     def initialize(self):
         self.listen_event(self.telegram_callback_cb, "input_boolean.guest_mode", new="on", duration=5)
-        self.call_service('telegram_bot/send_message', target = 530708028, message = 'Espresso Machine is on', inline_keyboard = [[("Turn off", "/espresso_off"),  ("Ignore", "/removekeyboard")]])
+        self.call_service('telegram_bot/send_message', target = 000000000, message = 'Espresso Machine is on', inline_keyboard = [[("Turn off", "/espresso_off"),  ("Ignore", "/removekeyboard")]])
 
     def telegram_callback_cb(self, type, payload_event, kwargs):
         callback = payload_event["data"]
