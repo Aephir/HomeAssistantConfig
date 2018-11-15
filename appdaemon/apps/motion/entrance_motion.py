@@ -36,23 +36,26 @@ class MotionClass(hass.Hass):
 
         sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742") # Entrance Motion
         sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Basement Stairway Motion
-        awake = self.areWeAwake("light.living_room._lights")
+        awake = self.areWeAwake("light.living_room_lights")
 
         if sensor_1_state == "on" or sensor_2_state == "on":
             if self.now_is_between('07:00:00', '22:00:00'):
                 if self.getIntegerState("sensor.illumination_158d00023e3742") < 50:
                     self.turn_on("light.stairway",brightness=255,kelvin=2700)
+                    self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
                     # self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
 
             elif self.now_is_between('22:00:00', '07:00:00'):
                 if awake:
                     self.turn_on("light.stairway",brightness=255,kelvin=2200)
+                    self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
                     # self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
                 else:
                     self.turn_on("light.stairway",brightness=10,kelvin=2200)
 
         else:
             self.turn_off("light.stairway")
+            self.turn_off("light.stairway_up")
             # self.turn_off("light.entrance_lights")
 
 # # Get states of motion sensors

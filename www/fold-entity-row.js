@@ -53,7 +53,6 @@ class FoldRow extends Polymer.Element {
     </div>
     <li id="rows" class="closed">
     </li>
-    <div id="bar" class=closed></div>
     `
   }
 
@@ -61,7 +60,6 @@ class FoldRow extends Polymer.Element {
     this._icon = this.closed ? 'mdi:chevron-down' : 'mdi:chevron-up';
     if(this.$) {
       this.$.rows.className = this.closed ? 'closed' : 'open';
-      this.$.bar.className = (this.closed || !this.parentNode.nextSibling)? "closed": "open";
     }
   }
 
@@ -96,42 +94,58 @@ class FoldRow extends Polymer.Element {
     this.dummy.hass = this._hass;
     this.appendChild(this.dummy);
 
+    const nextChild = (root) => {
+      let child = root.firstChild;
+      while(child && child.nodeType != 1) child = child.nextSibling;
+      return child;
+    }
+
     this.dummy.updateComplete.then( () => {
 
       let divs = this.dummy.shadowRoot.querySelector("ha-card").querySelector("#states");
-      let child = divs.firstChild;
-      while(child.nodeType != 1) child = child.nextSibling;
-      child.style.width = '100%';
-      this._addHeader(child, conf.shift());
-      child = divs.firstChild;
-      while(child) {
-        while(child && child.nodeType != 1) child = child.nextSibling;
-        if(!child) break;
+      let child = nextChild(divs)
+      this._addHeader(child, conf.shift())
+      while(child = nextChild(divs)) {
         this._addRow(child, conf.shift());
-        child = divs.firstChild;
       }
-
-      this.removeChild(this.dummy);
 
       this.update();
     });
-
   }
-
-
 
   _addHeader(row, data)
   {
-    this.items.push(row);
     this.$.head.insertBefore(row, this.$.head.firstChild);
+    row.style.width = '100%';
+    if(row.tagName === 'DIV') {
+      row = row.children[0];
+    }
+    this.items.push(row);
     if(row.tagName === 'HUI-SECTION-ROW'){
-      let div = row.shadowRoot.querySelector('.divider');
-      div.style.marginRight = '-53px';
+      if(row.updateComplete) {
+        row.updateComplete.then( () => {
+          row.shadowRoot.querySelector('.divider').style.marginRight = '-53px';
+          if (!this.parentElement.previousElementSibling) {
+            row.shadowRoot.querySelector('.divider').style.visibility = 'hidden';
+            row.shadowRoot.querySelector('.divider').style.marginTop = '0';
+          }
+        });
+      } else {
+        row.shadowRoot.querySelector('.divider').style.marginRight = '-53px';
+        if (!this.parentElement.previousElementSibling) {
+          row.shadowRoot.querySelector('.divider').style.visibility = 'hidden';
+          row.shadowRoot.querySelector('.divider').style.marginTop = '0';
+        }
+      }
     }
   }
   _addRow(row, data)
   {
-    this.items.push(row);
+    if(row.tagName === 'DIV') {
+      this.items.push(row.children[0]);
+    } else {
+      this.items.push(row);
+    }
     let item = document.createElement('ul');
     item.appendChild(row);
     row.classList.add('state-card-dialog');
@@ -160,6 +174,8 @@ class FoldRow extends Polymer.Element {
 
   set hass(hass) {
     this._hass = hass;
+  if(this.dummy)
+  this.dummy.hass = hass;
     if(this.items && this.items.forEach)
       this.items.forEach( (c) => c.hass = hass);
   }

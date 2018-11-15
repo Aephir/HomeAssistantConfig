@@ -137,7 +137,18 @@
 - platform: group
   name: Top Floor Lights
   entities:
+    - light.top_floor_bathroom_lights
+
+- platform: group
+  name: Top Floor Bathroom Lights
+  entities:
     - light.top_floor_bathroom
+
+- platform: group
+  name: Stairway Up
+  entities:
+    - light.top_stairway_1
+    - light.top_stairway_2
 
 ####################
 #__Outdoor_Lights__#

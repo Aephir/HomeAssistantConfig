@@ -93,6 +93,29 @@ views:
             - entity: light.kitchen_cabinet_lights
               type: custom:slider-entity-row
 
+          - type: custom:fold-entity-row
+            head: light.entrance_lights
+            items:
+            - entity: light.stairway
+              type: custom:slider-entity-row
+            - entity: light.stairway_up
+              type: custom:slider-entity-row
+            # - entity: light.main_floor_entrance_1
+            #   type: custom:slider-entity-row
+            # - entity: light.main_floor_entrance_2
+            #   type: custom:slider-entity-row
+
+          # - type: custom:fold-entity-row
+          #   head:
+          #     type: section
+          #     label: Lights
+          #   group_config:
+          #     secondary_info: last-changed
+          #   items:
+          #     - light.dining_table_lights
+          #     - light.living_room_lightstrip
+          #     - light.kitchen_lights
+
           - entity: light.bedroom
             # type: custom:slider-entity-row
             type: custom:toggle-lock-entity-row
@@ -100,8 +123,6 @@ views:
               - Aephir
               - Kristina
           - entity: light.bathroom
-            type: custom:slider-entity-row
-          - entity: light.stairway
             type: custom:slider-entity-row
           - entity: light.baby_room
             name: Baby Room Light
@@ -175,7 +196,7 @@ views:
       - type: glance
         title: Door/Window Sensors
         entities:
-          - binary_sensor.sensor
+          - binary_sensor.neo_coolcam_doorwindow_detector_sensor
           - binary_sensor.door_window_sensor_158d000234dc7b
           - binary_sensor.door_window_sensor_158d00022d0917
           - binary_sensor.door_window_sensor_158d00022b3b66
@@ -624,6 +645,7 @@ views:
           - camera.front_door
           - light.front_door
           - sensor.skybell_front_door_chime_level
+          - device_tracker.google_maps_110730659630480268471
       - type: custom:monster-card
         show_empty: false
         show_header_toggle: false

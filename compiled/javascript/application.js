@@ -938,7 +938,14 @@ function baseclimate(widget_id, url, skin, parameters)
         self.min = state.attributes.min_temp
         self.max = state.attributes.max_temp
         self.level = state.attributes.temperature
-        self.set_field(self, "unit", state.attributes.unit_of_measurement)
+        if ("units" in self.parameters)
+        {
+            self.set_field(self, "unit", self.parameters.unit)
+        }
+        else
+        {
+            self.set_field(self, "unit", state.attributes["unit_of_measurement"])
+        }
         set_view(self, state)
     }
 
@@ -986,6 +993,60 @@ function baseclimate(widget_id, url, skin, parameters)
 	}
 }
 
+function baseentitypicture(widget_id, url, skin, parameters)
+{
+    self = this
+    
+    // Initialization
+    
+    self.parameters = parameters;
+    
+    var callbacks = []
+
+    self.OnStateAvailable = OnStateAvailable;
+    self.OnStateUpdate = OnStateUpdate;
+    
+    var monitored_entities = 
+        [
+            {"entity": parameters.entity, "initial": self.OnStateAvailable, "update": self.OnStateUpdate}
+        ]; 
+    
+    if ("base_url" in parameters && parameters.base_url != "") {
+        self.base_url = parameters.base_url;
+    }else{
+        self.base_url = "";
+    }
+        
+    // Call the parent constructor to get things moving   
+    WidgetBase.call(self, widget_id, url, skin, parameters, monitored_entities, callbacks);
+
+    // Function Definitions
+    
+    function OnStateAvailable(self, state)
+    {        
+        set_view(self, state)
+    }
+    
+    // The OnStateUpdate function will be called when the specific entity
+    // receives a state update - its new values will be available
+    // in self.state[<entity>] and returned in the state parameter
+    
+    function OnStateUpdate(self, state)
+    {
+        set_view(self, state)
+    }
+
+    function set_view(self, state)
+    {
+        if("entity_picture" in state.attributes){
+            self.set_field(self, "img_inernal_src", self.base_url + state.attributes["entity_picture"]);
+            self.set_field(self, "img_internal_style", "");            
+        }else{
+            self.set_field(self, "img_inernal_src", "");
+            self.set_field(self, "img_internal_style", "display: none;");            
+        }
+    }
+}
 function baserss(widget_id, url, skin, parameters)
 {
     // Will be using "self" throughout for the various flavors of "this"
@@ -1060,7 +1121,6 @@ function baserss(widget_id, url, skin, parameters)
     function show_next_story(self)
     {
         var stories = self.entity_state[parameters.entity].feed.entries;
-        console.log(stories[self.story])
         self.set_field(self, "text", stories[self.story].title)
         if ("show_description" in self.parameters && self.parameters.show_description === 1)
         {

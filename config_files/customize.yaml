@@ -198,7 +198,7 @@ binary_sensor.door_window_sensor_158d0002286a78:
 binary_sensor.door_window_sensor_158d000234dc7b:
   friendly_name: Conservatory Door
   device_class: door
-binary_sensor.sensor:
+binary_sensor.neo_coolcam_doorwindow_detector_sensor:
   friendly_name: Shed Door
   device_class: door
 binary_sensor.door_window_sensor_158d00022b3b66:

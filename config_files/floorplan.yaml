@@ -643,9 +643,10 @@
           text_template: '${entity.state ? entity.state : "undefined"}'
           class_template: 'return "static-text-date";'
 
-        - name: SONOS
+        - name: Google Speakers
           entities:
-             - media_player.sonos_play_5_1
+             - media_player.conservatory_speaker
+             - media_player.living_room_speaker
           states:
             - state: 'playing'
               class: 'sonos-on'
@@ -657,7 +658,7 @@
 
         - name: Door Sensors
           entities:
-             - binary_sensor.sensor
+             - binary_sensor.neo_coolcam_doorwindow_detector_sensor
              - binary_sensor.door_window_sensor_158d000234dc7b
              - binary_sensor.door_window_sensor_158d00022b3b66
              - binary_sensor.door_window_sensor_158d00022d0917

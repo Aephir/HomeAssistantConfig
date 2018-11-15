@@ -116,54 +116,54 @@
 #         service_template: "{{ 'script.turn_on' if is_state('sun.sun', 'above_horizon') else 'light.turn_on' }}"
 
 
-- alias: bedside_button_morning_workday
-  trigger:
-    - platform: event
-      event_type: click
-      event_data:
-        entity_id: binary_sensor.switch_158d0001f3ac72
-        click_type: single
-  condition:
-    condition: and
-    conditions:
-      - condition: time
-        after: '05:00:00'
-        before: '09:00:00'
-        weekday:
-          - mon
-          - tue
-          - wed
-          - thu
-          - fri
-      - condition: state
-        entity_id: input_boolean.vacation_mode
-        state: 'off'
-  action:
-    - service: script.turn_on
-      entity_id: script.morning_workday
-
-- alias: bedside_button_morning_no_work
-  trigger:
-    - platform: event
-      event_type: click
-      event_data:
-        entity_id: binary_sensor.switch_158d0001f3ac72
-        click_type: single
-  condition:
-    condition: or
-    conditions:
-      - condition: time
-        after: '05:00:00'
-        before: '11:00:00'
-        weekday:
-          - sat
-          - sun
-      - condition: state
-        entity_id: input_boolean.vacation_mode
-        state: 'on'
-  action:
-    - service: script.turn_on
-      entity_id: script.morning_no_work
+# - alias: bedside_button_morning_workday
+#   trigger:
+#     - platform: event
+#       event_type: click
+#       event_data:
+#         entity_id: binary_sensor.switch_158d0001f3ac72
+#         click_type: single
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: time
+#         after: '05:00:00'
+#         before: '09:00:00'
+#         weekday:
+#           - mon
+#           - tue
+#           - wed
+#           - thu
+#           - fri
+#       - condition: state
+#         entity_id: input_boolean.vacation_mode
+#         state: 'off'
+#   action:
+#     - service: script.turn_on
+#       entity_id: script.morning_workday
+#
+# - alias: bedside_button_morning_no_work
+#   trigger:
+#     - platform: event
+#       event_type: click
+#       event_data:
+#         entity_id: binary_sensor.switch_158d0001f3ac72
+#         click_type: single
+#   condition:
+#     condition: or
+#     conditions:
+#       - condition: time
+#         after: '05:00:00'
+#         before: '11:00:00'
+#         weekday:
+#           - sat
+#           - sun
+#       - condition: state
+#         entity_id: input_boolean.vacation_mode
+#         state: 'on'
+#   action:
+#     - service: script.turn_on
+#       entity_id: script.morning_no_work
 
 # - alias: bedside_button_night_kids
 #   trigger:
@@ -1810,6 +1810,22 @@
   action:
     - service: homeassistant.turn_off
       entity_id: light.entrance_lights
+
+- alias: kwgt wine wine_cellar lights on
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_wine_cellar_lights_on
+  action:
+    - service: homeassistant.turn_on
+      entity_id: light.wine_cellar_lights
+
+- alias: kwgt entrance lights off
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_wine_cellar_lights_off
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.wine_cellar_lights
 
 # - alias: kwgt last turned on increase brightness tasker
 #   trigger:

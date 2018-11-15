@@ -7,6 +7,14 @@
 # Inspiration: https://github.com/aneisch/home-assistant-config/blob/master/extras/appdaemon/apps/apps.yaml
 # https://github.com/toddw65/Appdaemon/blob/master/apps/apps.yaml
 
+##############
+#    Test    #
+##############
+
+test:
+  module: test
+  class: Test
+
 ###############
 #    Alarm    #
 ###############
@@ -14,6 +22,14 @@
 # alarm_triggered:
 #   module: alarm_activated
 #   class: AlarmTriggered
+
+#####################
+#    Applianeces    #
+#####################
+
+espresso_machine_left_on:
+  module: espresso_on_warning
+  class: EspressoStatus
 
 ########################
 #    Device Trackers    #
@@ -63,6 +79,38 @@ top_floor_bathroom_motion_light:
   module: top_floor_bathroom_motion
   class: MotionClass
 
+#######################
+#    Notifications    #
+#######################
+
+notify_phones:
+  module: generic_notifier
+  class: notify
+
+################
+#    Plants    #
+################
+
+notify_upon_plant_problem:
+  module: notify_plant_problem
+  class: PlantProblem
+  plant_1_name: Lemon
+  plant_1_name: Fern
+  plant_1_name: Avocado
+  plant_1_name: Banana
+  min_moisture_1: 15
+  min_moisture_2: 15
+  min_moisture_3: 15
+  min_moisture_4: 15
+  min_conductivity_1: 350
+  min_conductivity_2: 350
+  min_conductivity_3: 350
+  min_conductivity_4: 350
+  min_temperature_1: 6
+  min_temperature_2: 10
+  min_temperature_3: 8
+  min_temperature_4: 5
+
 #################
 #    Remotes    #
 #################
@@ -106,7 +154,10 @@ hue_dimmer_1:
 xiaomi_button_1:
   module: single_tap_button_1
   class: Remote
-  entityID: sensor.bedroom_switch
+  entityID: binary_sensor.switch_158d0001f3ac72
+  entityID1: switch.switch
+  entityID2: light.all_lights
+  entityID3: light.all_adult_lights
 
 ################
 #    Tasker    #

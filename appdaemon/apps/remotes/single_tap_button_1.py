@@ -12,4 +12,4 @@ class Remote(hass.Hass):
         if self.now_is_between("06:00:00", "18:00:00"):
             self.turn_on(self.args("entityID1"))
         else:
-            self.turn_on(self.args("entityID2"))
+            self.turn_off(self.args("entityID2"))
