@@ -6,7 +6,7 @@ log:
   errorfile: /logs/error.log
   logfile: /logs/appdaemon.log
   log_generations: 3
-  log_size: 10000
+  log_size: 50000
 appdaemon:
   logfile: STDOUT
   errorfile: STDERR

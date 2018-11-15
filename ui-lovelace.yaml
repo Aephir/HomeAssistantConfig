@@ -474,6 +474,7 @@ views:
           - input_boolean.naiahome360
           - input_boolean.vacation_mode
           - input_boolean.kids_home
+          - input_boolean.guest_mode
       - type: entities
         title: Docker Containers
         entities:

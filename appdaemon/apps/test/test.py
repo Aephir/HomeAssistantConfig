@@ -9,8 +9,8 @@ class Test(hass.Hass):
 
 
     def initialize(self):
-        self.listen_event(self.telegram_callback_cb, "telegram_callback")
-        self.call_service('telegram_bot/send_message', target = 111111, message = 'Try me', inline_keyboard = [[("Yes", "/yes"),("No", "/no")],  [("Maybe", "/maybe")]])
+        self.listen_event(self.telegram_callback_cb, "input_boolean.guest_mode", new="on", duration=5)
+        self.call_service('telegram_bot/send_message', target = 530708028, message = 'Espresso Machine is on', inline_keyboard = [[("Turn off", "/espresso_off"),  ("Ignore", "/removekeyboard")]])
 
     def telegram_callback_cb(self, type, payload_event, kwargs):
         callback = payload_event["data"]

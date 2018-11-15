@@ -7,18 +7,31 @@ import time
 class EspressoStatus(hass.Hass):
 
     def initialize(self):
-        self.listen_state(self.SendNotification,"switch.switch", new="on", duration=3600)
-        self.listen_state(self.SendNotification_2,"switch.switch", new="on", duration=5400)
-        self.listen_state(self.SendNotification_3,"switch.switch", new="on", duration=7200)
+        # Run SendNotification function if switch.switch has been on for 1 hour.
+        self.listen_state(self.SendNotification,"switch.switch", new="on", duration=5) #3600
 
-    def SendNotification(self, entity, attribute, old, new, test, **kwargs):
+        # Run SendNotification function if switch.switch has been on for 1.5 hours.
+        self.listen_state(self.SendNotification_2,"switch.switch", new="on", duration=12) #5400
+
+        # Run SendNotification function if switch.switch has been on for 2 hours.
+        self.listen_state(self.SendNotification_3,"switch.switch", new="on", duration=20) #7200
+
+
+    # Send a notification to telegram
+    def SendNotification(self, entity, attribute, old, new, kwargs):
+        # if self.get_state("switch.switch") == "on":
         self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1 hour", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
+        self.log("Espresso machine has been on for 1 hour")
 
-    def SendNotification_2(self, entity, attribute, old, new, test, **kwargs):
+    def SendNotification_2(self, entity, attribute, old, new, kwargs):
+        # if self.get_state("switch.switch") == "on":
         self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1.5 hours", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
+        self.log("Espresso machine has been on for 1.5 hours")
 
-    def SendNotification_3(self, entity, attribute, old, new, test, **kwargs):
+    def SendNotification_3(self, entity, attribute, old, new, kwargs):
+        # if self.get_state("switch.switch") == "on":
         self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 2 hours", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
+        self.log("Espresso machine has been on for 2 hours")
 
 
 '''

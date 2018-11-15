@@ -88,7 +88,7 @@ class PlantProblem(hass.Hass):
             self.messageIs(temperature, four)
 
     # Create the message text based on the plant # and the problem.
-    def messageIs(self, type, number **kwargs):
+    def messageIs(self, type, number, **kwargs):
         message_text = ''
         if number == one:
             if type == moisture:
