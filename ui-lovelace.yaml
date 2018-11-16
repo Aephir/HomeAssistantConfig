@@ -192,6 +192,7 @@ views:
 
   - title: Information
     icon: mdi:information-variant
+    id: information
     cards:
       - type: glance
         title: Door/Window Sensors

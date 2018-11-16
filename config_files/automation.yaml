@@ -1639,7 +1639,7 @@
 - alias: turn on espresso machine
   trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/espresso_on'
         # user_id: !secret telegram_chatID_Aephir
@@ -1650,7 +1650,7 @@
 - alias: turn off espresso machine
   trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/espresso_off'
         # user_id: !secret telegram_chatID_Aephir
@@ -1661,7 +1661,7 @@
 - alias: turn off all lights
   trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/lights_off'
         # user_id: !secret telegram_chatID_Aephir
@@ -1672,7 +1672,7 @@
 - alias: turn off everything
   trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/all_off'
         # user_id: !secret telegram_chatID_Aephir
@@ -1683,7 +1683,7 @@
 - alias: Arm alarm in away mode
   trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/set_alarm_away'
         # user_id: !secret telegram_chatID_Aephir
@@ -1696,7 +1696,7 @@
 - alias: Arm alarm in away mode & all off
   trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/set_alarm_all_off'
         # user_id: !secret telegram_chatID_Aephir
@@ -1709,7 +1709,7 @@
 - alias: Speak to the home
   trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
       event_data:
         command: '/say'
         # user_id: !secret telegram_chatID_Aephir
@@ -1722,7 +1722,8 @@
 - alias: Turn off guest mode
   trigger:
     - platform: event
-      event_type: telegram_command
+      event_type: telegram_callback
+      # event_type: telegram_command
       event_data:
         command: '/guest_mode_off'
   action:
