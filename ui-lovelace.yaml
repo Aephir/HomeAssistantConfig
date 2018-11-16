@@ -415,6 +415,7 @@ views:
 
   - icon: mdi:theater
     title: Media Players
+    id: media_players
     cards:
       - type: entities
         title: Audio Players
@@ -529,6 +530,7 @@ views:
 
   - title: Surveillance
     icon: mdi:cctv
+    id: surveillance
     panel: true
     cards:
       - type: custom:surveillance-card
