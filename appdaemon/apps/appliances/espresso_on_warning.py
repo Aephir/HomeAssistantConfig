@@ -21,19 +21,16 @@ class EspressoStatus(hass.Hass):
 
     # Send a notification to telegram
     def SendNotification0(self, entity, attribute, old, new, kwargs):
-        # if self.get_state("switch.switch") == "on":
         self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 45 mins", data={"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"})
         self.log("Espresso machine has been on for 45 mins")
 
     # Send a notification to telegram
     def SendNotification1(self, entity, attribute, old, new, kwargs):
-        # if self.get_state("switch.switch") == "on":
         self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1 hour", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
         self.log("Espresso machine has been on for 1 hour")
 
     # Send a notification to telegram
     def SendNotification2(self, entity, attribute, old, new, kwargs):
-        # if self.get_state("switch.switch") == "on":
         self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1.5 hours. I'm turning it off", data={"inline_keyboard":"Turn back on:/espresso_on, OK:/removekeyboard"})
         self.turn_off("switch.switch")
         self.log("Espresso machine has been on for 1.5 hours. Turning off")
