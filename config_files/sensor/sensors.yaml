@@ -97,6 +97,23 @@
 #     - conductivity
 #     - battery
 
+####################
+#    Appliances    #
+####################
+
+- platform: template
+  sensors:
+    espresso_machine:
+      value_template: '{% if is_state("switch.switch", "on") %}Heating{% else %}Stopped{% endif %}'
+      friendly_name: 'Coffee Machine Status'
+      icon_template: >-
+          {% if is_state('switch.switch', 'on') %}
+            mdi:coffee-to-go
+          {% else %}
+            mdi:coffee
+          {% endif %}
+
+
 #####################
 #__Battery_Sensors__#
 

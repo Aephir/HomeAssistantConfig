@@ -11,9 +11,13 @@
 #    Test    #
 ##############
 
-test:
-  module: test
-  class: Test
+# test:
+#   module: test
+#   class: Test
+
+# test2:
+#   module: test2
+#   class: Test
 
 ###############
 #    Alarm    #
@@ -30,6 +34,19 @@ test:
 espresso_machine_left_on:
   module: espresso_on_warning
   class: EspressoStatus
+
+
+# espresso_machine_left_on_for_1h:
+#   module: espresso_on_1h_warning
+#   class: EspressoStatus
+#
+# espresso_machine_left_on_for_1_5h:
+#   module: espresso_on_1_5h_warning
+#   class: EspressoStatus
+#
+# espresso_machine_left_on_for_2h:
+#   module: espresso_on_2h_warning
+#   class: EspressoStatus
 
 ########################
 #    Device Trackers    #
@@ -91,25 +108,25 @@ notify_phones:
 #    Plants    #
 ################
 
-notify_upon_plant_problem:
-  module: notify_plant_problem
-  class: PlantProblem
-  plant_1_name: Lemon
-  plant_1_name: Fern
-  plant_1_name: Avocado
-  plant_1_name: Banana
-  min_moisture_1: 15
-  min_moisture_2: 15
-  min_moisture_3: 15
-  min_moisture_4: 15
-  min_conductivity_1: 350
-  min_conductivity_2: 350
-  min_conductivity_3: 350
-  min_conductivity_4: 350
-  min_temperature_1: 6
-  min_temperature_2: 10
-  min_temperature_3: 8
-  min_temperature_4: 5
+# notify_upon_plant_problem:
+#   module: notify_plant_problem
+#   class: PlantProblem
+#   plant_1_name: Lemon
+#   plant_1_name: Fern
+#   plant_1_name: Avocado
+#   plant_1_name: Banana
+#   min_moisture_1: 15
+#   min_moisture_2: 15
+#   min_moisture_3: 15
+#   min_moisture_4: 15
+#   min_conductivity_1: 350
+#   min_conductivity_2: 350
+#   min_conductivity_3: 350
+#   min_conductivity_4: 350
+#   min_temperature_1: 6
+#   min_temperature_2: 10
+#   min_temperature_3: 8
+#   min_temperature_4: 5
 
 #################
 #    Remotes    #

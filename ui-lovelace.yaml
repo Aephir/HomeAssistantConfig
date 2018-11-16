@@ -496,6 +496,7 @@ views:
         title: Miscellaneous
         entities:
           - binary_sensor.xiaomi_aqara_cube_1
+          - sensor.espresso_machine
 
       - type: custom:monster-card
         show_empty: false

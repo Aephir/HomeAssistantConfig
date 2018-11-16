@@ -861,6 +861,24 @@
 #    service: homeassistant.turn_off
 #    entity_id: input_boolean.someonehome360
 
+
+- alias: test_telegram_actionable
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.guest_mode
+      to: 'on'
+      for:
+        seconds: 5
+        # minutes: 20
+  action:
+    service: notify.home_aephir_bot
+    data_template:
+      message: "Karen left."
+      data:
+          inline_keyboard:
+          - 'Turn off guest mode:/guest_mode_off, No action:/removekeyboard'
+
 - alias: Karen iphone guest mode
   trigger:
     - platform: state

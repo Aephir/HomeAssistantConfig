@@ -9,13 +9,14 @@ class Test(hass.Hass):
 
 
     def initialize(self):
-        self.listen_state(self.telegram_callback_cb, "input_boolean.guest_mode", new="on", duration=5)
+        # Run SendNotification function if switch.switch has been on for 1 hour.
+        self.listen_state(self.SendNotification,"input_boolean.vacation_mode", new="on", duration=5) #3600
 
-    def telegram_callback_cb(self, entity, attribute, old, new, kwargs):
-        # self.call_service('notify/home_aephir_bot', message = 'Espresso Machine is on', inline_keyboard = [[("Turn off", "/espresso_off"),  ("Ignore", "/removekeyboard")]])
-        self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1 hour", inline_keyboard = [[("Turn off", "/espresso_off"),  ("Ignore", "/removekeyboard")]])
-        self.log("test log")
-        # self.log('Got "{}" from {}'.format(callback, user))
+    # Send a notification to telegram
+    def SendNotification(self, entity, attribute, old, new, kwargs):
+        # if self.get_state("switch.switch") == "on":
+        self.call_service("notify/home_aephir_bot", message="Vacation Mode has been on for 1 hour", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
+        self.log("Test Vacation Mode")
 
 #___________________
 '''
@@ -73,36 +74,33 @@ class Test(hass.Hass):
     #         self.messageIs(temperature, three)
     #     if toInt('sensor.plant_sensor_4_temperature') < self.args["min_temperature_4"]:
     #         self.messageIs(temperature, four)
-    #
-    # # Create the message text based on the plant # and the problem.
-    # def messageIs(self, type, number **kwargs):
-    #     message_text = ''
-    #     if number == one:
-    #         if type == moisture:
-    #             message_text = 'The ' + self.args["plant_1_name"] + ' plant needs water!'
-    #         elif type == conductivity:
-    #             message_text = 'The ' + self.args["plant_1_name"] + ' plant needs fertilizer!'
-    #         elif type == conductivity:
-    #             message_text = 'The ' + self.args["plant_1_name"] + ' plant is cold!'
-    #     elif number == two:
-    #         if type == moisture:
-    #             message_text = 'The ' + self.args["plant_2_name"] + ' needs water!'
-    #         elif type == conductivity:
-    #             message_text = 'The ' + self.args["plant_2_name"] + ' needs fertilizer!'
-    #         elif type == conductivity:
-    #             message_text = 'The ' + self.args["plant_2_name"] + ' is cold!'
-    #     elif number == one:
-    #         if type == moisture:
-    #             message_text = 'The ' + self.args["plant_3_name"] + ' plant needs water!'
-    #         elif type == conductivity:
-    #             message_text = 'The ' + self.args["plant_3_name"] + ' plant needs fertilizer!'
-    #         elif type == conductivity:
-    #             message_text = 'The ' + self.args["plant_3_name"] + ' plant is cold!'
-    #     elif number == one:
-    #         if type == moisture:
-    #             message_text = 'The ' + self.args["plant_4_name"] + ' plant needs water!'
-    #         elif type == conductivity:
-    #             message_text = 'The ' + self.args["plant_4_name"] + ' plant needs fertilizer!'
-    #         elif type == conductivity:
-    #             message_text = 'The ' + self.args["plant_4_name"] + ' plant is cold!'
-    #     sendNotification(message_text)
+
+# import appdaemon.plugins.hass.hassapi as hass
+# import time
+#
+#
+# class EspressoStatus(hass.Hass):
+#
+#     def initialize(self):
+#         # Run SendNotification function if switch.switch has been on for 1 hour.
+#         self.listen_state(self.SendNotification,"switch.switch", new="on") #3600
+#
+#
+#     # Send a notification to telegram
+#     def SendNotification(self, entity, attribute, old, new, kwargs):
+#         time.sleep(3600)
+#         if self.get_state("switch.switch") == "on":
+#             self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1 hour", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
+#             self.log("Espresso machine has been on for 1 hour")
+#             time.sleep(30)
+#             if self.get_state("switch.switch") == "on":
+#                 time.sleep(1800)
+#                 if self.get_state("switch.switch") == "on":
+#                     self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1.5 hours", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
+#                     self.log("Espresso machine has been on for 1.5 hours")
+#                     time.sleep(30)
+#                     if self.get_state("switch.switch") == "on":
+#                         time.sleep(1800)
+#                         if self.get_state("switch.switch") == "on":
+#                             self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1 hour", data={"inline_keyboard":"Turn back on:/espresso_on, No action:/removekeyboard"})
+#                             self.log("Espresso machine has been on for 2 hours")

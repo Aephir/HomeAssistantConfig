@@ -8,31 +8,36 @@ class EspressoStatus(hass.Hass):
 
     def initialize(self):
         # Run SendNotification function if switch.switch has been on for 1 hour.
-        self.listen_state(self.SendNotification,"switch.switch", new="on", duration=5) #3600
+        self.listen_state(self.SendNotification0,"switch.switch", new="on", duration=3600) #3600
 
         # Run SendNotification function if switch.switch has been on for 1.5 hours.
-        self.listen_state(self.SendNotification_2,"switch.switch", new="on", duration=12) #5400
+        self.listen_state(self.SendNotification1,"switch.switch", new="on", duration=5400) #5400
 
         # Run SendNotification function if switch.switch has been on for 2 hours.
-        self.listen_state(self.SendNotification_3,"switch.switch", new="on", duration=20) #7200
+        self.listen_state(self.SendNotification2,"switch.switch", new="on", duration=7200) #7200
 
 
     # Send a notification to telegram
-    def SendNotification(self, entity, attribute, old, new, kwargs):
+    def SendNotification0(self, entity, attribute, old, new, kwargs):
         # if self.get_state("switch.switch") == "on":
-        self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1 hour", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
+        self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1 hour", data={"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"})
         self.log("Espresso machine has been on for 1 hour")
 
-    def SendNotification_2(self, entity, attribute, old, new, kwargs):
+# [[["Turn off", "/espresso_off"], ["I know", "/removekeyboard"]]]
+
+    # Send a notification to telegram
+    def SendNotification1(self, entity, attribute, old, new, kwargs):
         # if self.get_state("switch.switch") == "on":
         self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 1.5 hours", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
         self.log("Espresso machine has been on for 1.5 hours")
 
-    def SendNotification_3(self, entity, attribute, old, new, kwargs):
-        # if self.get_state("switch.switch") == "on":
-        self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 2 hours", data={"inline_keyboard":"Turn off:/espresso_off, No action:/removekeyboard"})
-        self.log("Espresso machine has been on for 2 hours")
 
+    # Send a notification to telegram
+    def SendNotification2(self, entity, attribute, old, new, kwargs):
+        # if self.get_state("switch.switch") == "on":
+        self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for 2 hours. I'm turning it off", data={"inline_keyboard":"Turn back on:/espresso_on, OK:/removekeyboard"})
+        self.turn_off("switch.switch")
+        self.log("Espresso machine has been on for 2 hours. Turning off")
 
 '''
     def initialize(self):
