@@ -539,6 +539,33 @@ views:
         cameras:
           - entity: camera.front_door
             motion_entity: binary_sensor.skybell_front_door_motion
+          - entity: camera.wyze_camera_1
+
+  - title: Surveillance TEST
+    icon: mdi:cctv
+    id: surveillance_test
+    # panel: true
+    cards:
+      - type: picture-glance
+        title: Wyze Cam 1
+        # navigate: /lovelace/experimental # Use this to click the image to navigate to a specific lovalace view. E.g. have camera pointed at kitchen, then navigate to a /lovelace/kitchen view.
+        image:
+        camera_image: camera.wyze_camera_1
+        entities:
+          - camera.wyze_camera_1
+          - binary_sensor.motion_sensor_158d000200d285
+          - light.entrance_lights
+          - binary_sensor.front_door
+      - type: picture-glance
+        title: SkyBell Cam
+        # navigate: /lovelace/experimental # Use this to click the image to navigate to a specific lovalace view. E.g. have camera pointed at kitchen, then navigate to a /lovelace/kitchen view.
+        image:
+        camera_image: camera.front_door
+        entities:
+          - camera.front_door
+          - binary_sensor.motion_sensor_158d000200d285
+          - light.entrance_lights
+          - binary_sensor.front_door
 
   - icon: mdi:biohazard
     id: experimental

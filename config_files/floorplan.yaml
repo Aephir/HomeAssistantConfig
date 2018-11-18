@@ -758,16 +758,19 @@
 
         - name: Cameras
           entities:
-            - camera.front_door
+            # - camera.front_door
+            - camera.wyze_camera_1
           states:
             - state: 'idle'
               class: 'camera-idle'
 
-        - name: Camera Images
-          entities:
-            - entity: camera.front_door
-              element: camera.driveway.image
-          camera_image_template: '${entity.attributes.entity_picture}'
+        # - name: Camera Images
+        #   entities:
+        #     - entity: camera.front_door
+        #       element: camera.front_door.image
+        #     - entity: camera.wyze_camera_1
+        #       element: camera.wyze_camera_1.image
+        #   camera_image_template: '${entity.attributes.entity_picture}'
 
 #        - name: thermostat_temp
 #          entities:

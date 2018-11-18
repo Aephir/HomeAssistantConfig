@@ -4,6 +4,8 @@
 #                        #
 ##########################
 
+# https://hass.aephirshome.duckdns.org/auth/authorize?response_type=code&client_id=https://oauth-redirect.googleusercontent.com/&redirect_uri=https://oauth-redirect.googleusercontent.com/r/for-home-assistant-c2f2b&state=CtwCQU53WnNxOTNrZUpZa1pON2lJYVYwSXdBcEszRWtzb1VCRWh1RlFOazNHLTliWXlwOS1MX0dLbkFNOUZQNzJIc3ZKSWFSM1loMmU1cGVzcmRORy1MVkFzQ3daQjZZNE5BS2kxMXB4MFh2TnBVSm5ranJIdFEtRW1WVGdfZGRKblh2UkJQcmloYTlVd3pfUmR5TnVwSFJoTUI4T1RnYTZyMzZfOGNfX3VLdmd4VDRZa2ZJWEhWQVNCODZTSnVLY3k0QkhMbHZoNnRheThLQ0Y3bUdpbHhkZjVQTVROY3M2S1kwRW1MYnMyTU5DTVpveTh6RFlmVmRaTnhmeTAtOFJDem1laW9rcE4xTW5xSVFCd0FTdWh4V1Q1SHdEa29DRmdmUmc5NWY5QVN3X3AyeEhjUGJVNEE0aXl4TnJmTDJGZGFKekdvZDB4TGFjYjIxM3lTd1BtQ3FZZG5FUERLEhxhc3Npc3RhbnQtaGFuZG9mZjovL2NvbXBsZXRlIkdodHRwczovL29hdXRoLXJlZGlyZWN0Lmdvb2dsZXVzZXJjb250ZW50LmNvbS9yL2Zvci1ob21lLWFzc2lzdGFudC1jMmYyYioRd2FsZGVuYkBnbWFpbC5jb20yHGZvci1ob21lLWFzc2lzdGFudC1jMmYyYl9kZXY
+
 project_id: !secret google_assistant_project_id
 api_key: !secret google_assistant_api_key
 exposed_domains:

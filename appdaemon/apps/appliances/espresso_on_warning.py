@@ -5,7 +5,6 @@
 import appdaemon.plugins.hass.hassapi as hass
 import time
 
-
 class EspressoStatus(hass.Hass):
 
     def initialize(self):

@@ -13,9 +13,11 @@
 #  username: !secret wyze_user
 #  password: !secret wyze_pass
 
+# https://community.home-assistant.io/t/wyze-cam-integration-with-home-assistant-without-flashing/65651
 # Wyze Cam
-#- name: Wyze Camera 1
-#  platform: mjpeg
+- name: Wyze Camera 1
+  platform: mjpeg
+  mjpeg_url: !secret tinycam_wyze_cam_1_url
 #  username: !secret wyze_user
 #  password: !secret wyze_pass
 #  mjpeg_url: !secret wyze_cam_url

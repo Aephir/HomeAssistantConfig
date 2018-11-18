@@ -10,6 +10,6 @@ class Remote(hass.Hass):
 
     def button_click(self, entity, attribute, old, new, kwargs):
         if self.now_is_between("06:00:00", "18:00:00"):
-            self.turn_on(self.args("entityID1"))
+            self.turn_on(self.args["entityID1"])
         else:
-            self.turn_off(self.args("entityID2"))
+            self.turn_off(self.args["entityID2"])

@@ -55,7 +55,7 @@ class PlantProblem(hass.Hass):
             self.listen_state(self.temperature_problem, entity) # conductivity sensors
 
     # Send plant # and type = moisture if any moisture levels are low
-    def moisture_problem(self, entity):
+    def moisture_problem(self, entity, attribute, old, new, kwargs):
         if toInt('sensor.plant_sensor_1_moisture') < self.args["min_moisture_1"]:
             self.messageIs(moisture, one)
         if toInt('sensor.plant_sensor_2_moisture') < self.args["min_moisture_2"]:
@@ -66,7 +66,7 @@ class PlantProblem(hass.Hass):
             self.messageIs(moisture, four)
 
     # Send plant # and type = conductivity if any conductivity levels are low
-    def conductivity_problem(self, entity):
+    def conductivity_problem(self, entity, attribute, old, new, kwargs):
         if toInt('sensor.plant_sensor_1_conductivity') < self.args["min_conductivity_1"]:
             self.messageIs(conductivity, one)
         if toInt('sensor.plant_sensor_2_conductivity') < self.args["min_conductivity_2"]:
@@ -77,7 +77,7 @@ class PlantProblem(hass.Hass):
             self.messageIs(conductivity, four)
 
     # Send plant # and type = temperature if any temperature levels are low
-    def temperature_problem(self, entity):
+    def temperature_problem(self, entity, attribute, old, new, kwargs):
         if toInt('sensor.plant_sensor_1_temperature') < self.args["min_temperature_1"]:
             self.messageIs(temperature, one)
         if toInt('sensor.plant_sensor_2_temperature') < self.args["min_temperature_2"]:
