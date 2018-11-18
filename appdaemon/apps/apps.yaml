@@ -31,10 +31,14 @@
 #    Applianeces    #
 #####################
 
-espresso_machine_left_on:
-  module: espresso_on_warning
-  class: EspressoStatus
-
+# something_left_on:
+#   module: something_left_on_warning
+#   class: ApplianeceStatus
+#   entity: switch.switch
+#   start_after: 5 # 2700
+#   time_between_notifications: 5 # 900
+#   end_after: 40 # 5400
+#   switchoff: True
 
 ########################
 #    Device Trackers    #
