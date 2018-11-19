@@ -163,6 +163,8 @@ binary_sensor.motion_sensor_158d000236a0d0:
   friendly_name: Upstairs Bathroom Motion
 binary_sensor.motion_sensor_158d000236a0f3:
   friendly_name: Basement Stairway Motion
+binary_sensor.motion_sensor_158d0001e0a8e1:
+  friendly_name: Kitchen Motion
 sensor.illumination_158d000200d285:
   friendly_name: Conservatory Motion Illumination
 sensor.illumination_158d000200d203:
@@ -180,6 +182,8 @@ sensor.illumination_158d000236a0d0:
   friendly_name: Upstairs Bathroom Motion Illumination
 sensor.illumination_158d000236a0f3:
   friendly_name: Basement Stairway Motion Illumination
+sensor.illumination_158d0001e0a8e1:
+  friendly_name: Kitchen Motion Illumination
 sensor.humidity_158d00022c66ff:
   friendly_name: Bathroom Humidity
 sensor.pressure_158d00022c66ff:

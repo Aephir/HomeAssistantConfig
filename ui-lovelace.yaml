@@ -214,6 +214,7 @@ views:
           - binary_sensor.motion_sensor_158d000236a22f
           - binary_sensor.motion_sensor_158d000236a0d0
           - binary_sensor.motion_sensor_158d000236a0f3
+          - binary_sensor.motion_sensor_158d0001e0a8e1
       - type: glance
         title: Illumination Levels
         column_width: calc(100% / 3)
@@ -227,6 +228,7 @@ views:
           - sensor.illumination_158d000236a22f
           - sensor.illumination_158d000236a0d0
           - sensor.illumination_158d000236a0f3
+          - sensor.illumination_158d0001e0a8e1
       - type: glance
         title: Alarm Status
         column_width: calc(100% / 2)
@@ -279,6 +281,8 @@ views:
             name: Basement Bathroom 2 Motion
           - entity: sensor.x_motion_7_bat
             name: Basement TV Room Motion
+          - entity: sensor.x_motion_8_bat
+            name: Kitchen Motion
           - entity: sensor.x_temphum_1_bat
             name: Bathroom Temp/Hum
           - entity: sensor.x_temphum_2_bat

@@ -152,3 +152,6 @@ fullykiosk_launch:
 
 door_sensor_status_1:
   name: set door open state
+
+kitchen_lights_motion_override:
+  name: Override Kitchen Motion Sensors
