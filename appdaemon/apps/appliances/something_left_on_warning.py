@@ -22,16 +22,12 @@ class ApplianceStatus(hass.Hass):
 
         # Stop the timer if the "entity" is switched "off".
         if new == "off":
-            # self.timer = None
             self.cancel_timer(self.timer)
 
         else:
 
             # Notes the current time.
             self.starttime = datetime.datetime.now()
-
-            # Set "self.timer" to running "self.SendNotification", but only after "start_after"?
-            # self.run_in(self.SendNotification,self.args["start_after"])
 
             # "self.run_in" returns what "self.SendNotification" returns, a "handler" that can be used to cancel_timer
             self.timer = self.run_in(self.SendNotification,self.args["start_after"])
@@ -48,13 +44,13 @@ class ApplianceStatus(hass.Hass):
 
         # As long as no more than "end_after" seconds has elapsed, continue:
         if timediff.seconds < self.args["end_after"]:
-        # if int(timediff.seconds) < int(self.args["end_after"]):
 
             # Send message, and log it.
             self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for " + str(minutes) + " minutes", data={"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"})
             self.log("Espresso machine has been on for " + str(minutes) + " mins")
 
             # After "time_between_notifications", re-run this same function (so "SendNotification" restarts itself; loops until "end_time" has passed)
+            # Needs 'self.timer =', otherwise the timer cannot be cancelled back in the StartTimer function.
             self.timer = self.run_in(self.SendNotification,self.args["time_between_notifications"])
 
         else:
