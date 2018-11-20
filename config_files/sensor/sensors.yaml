@@ -418,7 +418,7 @@
 - platform: template
   sensors:
     x_motion_8_bat: # This arrived with 51%, according to home assistant. Maybe I should see what the % is when it is empty, and calculate, so it goes from 0% to 100%, instead of from ??% to 63%.
-      friendly_name: TV Room Motion Sensor Battery
+      friendly_name: Kitchen Motion Sensor Battery
       value_template: >
         {% if is_state('binary_sensor.motion_sensor_158d0001e0a8e1', 'unknown') %}
           110
@@ -734,6 +734,17 @@
 #       {{ ('hold' if buttonevent[3]|int is odd else 'click') ~ '_' ~ buttonevent[0] }}
 #     {% endif %}
 
+
+###################
+#__State_Storage__#
+
+- platform: template
+  sensors:
+    xiaomi_cube_1_tap_twice_state: # This arrived with 35%, according to home assistant. Maybe I should see what the % is when it is empty, and calculate, so it goes from 0% to 100%, instead of from ??% to 63%.
+      friendly_name: Xiaomi Cube 1 State
+      value_template: ""
+        # {% if is_state('binary_sensor.smoke_sensor_158d0001bc49bd', 'unknown') %}
+        #   110
 
 #################
 #__SkyBell__#

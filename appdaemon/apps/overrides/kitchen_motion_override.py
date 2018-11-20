@@ -9,7 +9,7 @@ class ManualOverride(hass.Hass):
         self.listen_state(SwitchInputBooleanOff,self.args["entity"], new="4_hold")
 
     def SwitchInputBooleanOn(self, entity, attribute, old, new, kwargs):
-        self.turn_on("input_boolean.kitchen_lights_motion_override")
+        self.turn_on(self.args["entity"])
 
     def SwitchInputBooleanOff(self, entity, attribute, old, new, kwargs):
-        self.turn_off("input_boolean.kitchen_lights_motion_override")
+        self.turn_off(self.args["entity"])

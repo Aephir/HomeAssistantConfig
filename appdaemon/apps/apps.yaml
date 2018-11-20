@@ -35,10 +35,16 @@ something_left_on:
   module: something_left_on_warning
   class: ApplianceStatus
   entity: switch.switch
-  start_after: 2700 # 2700
+  start_after: 2700  # 2700
   time_between_notifications: 900 # 900
   end_after: 5400 # 5400
   switch_off: True
+  text_on_for: "Espresso machine has been on for "
+  text_time_unit: " minutes"
+  text_off: ", i turned it off."
+  text_data_telegram_warning: '"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"'
+  text_data_telegram_auto_off: '"inline_keyboard":"Turn back on:/espresso_on, OK, thanks!:/removekeyboard"'
+  notify_who: "notify/home_aephir_bot"
 
 ########################
 #    Device Trackers    #
@@ -105,10 +111,11 @@ top_floor_bathroom_motion_light:
 #    Manual overrides    #
 ##########################
 
-override_kitchen_motion_lights:
-  module: kitchen_motion_override
-  class: ManualOverride
-  entity: input_boolean.kitchen_lights_motion_override
+# override_kitchen_motion_lights:
+#   module: kitchen_motion_override
+#   class: ManualOverride
+#   switch: sensor.hue_dimmer_1
+#   entity: input_boolean.kitchen_lights_motion_override
 
 ################
 #    Plants    #
@@ -164,6 +171,7 @@ hue_dimmer_1:
   entity_11: light.conservatory_reading
   entity_12: light.basement_lights
   entity_13: light.top_floor_lights
+  entity_14: input_boolean.kitchen_lights_motion_override
 
 # hue_dimmer_2:
 #   module: hue_dimmer_1
@@ -181,6 +189,12 @@ xiaomi_button_1:
   entityID1: switch.switch
   entityID2: light.all_lights
   entityID3: light.all_adult_lights
+
+xiaomi_cube_1:
+  module: xiaomi_aqara_cube
+  class: Remote
+  entityID: binary_sensor.cube_158d00028f7196
+
 
 ################
 #    Tasker    #

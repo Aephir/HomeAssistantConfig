@@ -25,6 +25,8 @@ resources:
     type: module
   - url: /local/fold-entity-row.js
     type: js
+  - url: /local/entity-attributes-card.js?v=2 # https://github.com/ciotlosm/custom-lovelace/tree/master/entity-attributes-card
+    type: js
 
 views:
   #   # View tab title.
@@ -163,11 +165,11 @@ views:
         entities:
           - entity: light.top_floor_bathroom
             type: custom:slider-entity-row
-        # The markdown card will render markdown text.
-      - type: markdown
-        title: Lovelace
-        content: >
-          Welcome to your **Lovelace UI**.
+      #   # The markdown card will render markdown text.
+      # - type: markdown
+      #   title: Lovelace
+      #   content: >
+      #     Welcome to your **Lovelace UI**.
       - type: entities
         title: Kitchen Appliances
         show_header_toggle: false
@@ -268,7 +270,7 @@ views:
           - entity: sensor.x_door_3_bat
             name: Front Door
           - entity: sensor.x_motion_1_bat
-            name: Basement Motion
+            name: Basement Entrance Motion
           - entity: sensor.x_motion_2_bat
             name: Conservatory Motion
           - entity: sensor.x_motion_3_bat
@@ -481,6 +483,7 @@ views:
           - input_boolean.vacation_mode
           - input_boolean.kids_home
           - input_boolean.guest_mode
+          - input_boolean.kitchen_lights_motion_override
       - type: entities
         title: Docker Containers
         entities:
@@ -501,7 +504,12 @@ views:
       - type: entities
         title: Miscellaneous
         entities:
-          - binary_sensor.xiaomi_aqara_cube_1
+          - type: custom:entity-attributes-card
+            entity: binary_sensor.cube_158d00028f7196
+            filter:
+              include:
+                - binary_sensor.cube_158d00028f7196.action_value
+                - binary_sensor.cube_158d00028f7196.last_action
           - sensor.espresso_machine
 
       - type: custom:monster-card
@@ -662,6 +670,11 @@ views:
         entities:
           - camera.front_door
           - sensor.hue_dimmer_1
+          - type: custom:entity-attributes-card
+            entity: binary_sensor.cube_158d00028f7196
+            filter:
+              include:
+                - binary_sensor.cube_158d00028f7196.last_action
       - type: picture-elements # See https://www.home-assistant.io/lovelace/picture-elements/
         elements:
           - type: image
@@ -752,3 +765,14 @@ views:
             - type: "custom:button-card"
               color_type: blank-card
       # - type: FLOORPLAN!!
+
+
+      - type: custom:entity-attributes-card
+        title: Attributes Card
+        heading_name: List
+        heading_state: States
+        filter:
+          include:
+            - key: binary_sensor.cube_158d00028f7196.*
+            - key: binary_sensor.cube_158d00028f7196.last_action
+              name: Application

@@ -16,16 +16,18 @@ class HueRemote(hass.Hass):
             else:
                 self.turn_off(self.args["entity_1"])
         elif new == "2_click_up":
-            if self.get_state(self.args["entity_2"]) == 'off':
+            if self.get_state(self.args["entity_14"]) == 'off':
                 self.turn_on(self.args["entity_2"],brightness=255,kelvin=2700)
+                self.turn_on(self.args["entity_14"])
             else:
                 self.turn_off(self.args["entity_2"])
+                self.turn_off(self.args["entity_14"])
         elif new == "3_click_up":
             if self.get_state(self.args["entity_3"]) == 'off':
                 self.turn_on(self.args["entity_3"],brightness=255,kelvin=2700)
             else:
                 self.turn_off(self.args["entity_3"])
-        elif new == "4_click":
+        elif new == "4_click": # input_boolean.kitchen_lights_motion_override
             if self.get_state(self.args["entity_4"]) == 'off':
                 self.turn_on(self.args["entity_4"],brightness=255,kelvin=2700)
             else:
@@ -45,7 +47,7 @@ class HueRemote(hass.Hass):
                 self.turn_on(self.args["entity_7"],brightness=200,kelvin=2200)
             else:
                 self.turn_off(self.args["entity_11"])
-        elif new == "4_hold":
+        elif new == "4_hold": # input_boolean.kitchen_lights_motion_override
             if self.get_state(self.args["entity_8"]) == 'on':
                 self.turn_off(self.args["entity_8"])
             else:
