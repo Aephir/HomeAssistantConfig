@@ -48,15 +48,19 @@ http:
 auth:
 config:
 conversation:
-custom_updater:
+custom_updater: # https://github.com/custom-components/custom_updater/wiki/Installation
+  track:
+    - cards
+    - components
+    - python_scripts
+  # show_installable: True
   component_urls:
     - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
-    # - https://raw.githubusercontent.com/thomasloven/lovelace-folding-group-entity-row/master/folding-group-entity-row.js
-    # - https://raw.githubusercontent.com/thomasloven/lovelace-toggle-lock-entity-row/master/toggle-lock-entity-row.js
-    # - https://raw.githubusercontent.com/thomasloven/lovelace-slider-entity-row/master/slider-entity-row.js
   card_urls:
     - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
     - https://raw.githubusercontent.com/kuuji/button-card/0.0.2/tracker.json
+  # python_script_urls:
+  #   -
 
 dialogflow:
 #discovery:

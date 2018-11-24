@@ -31,20 +31,24 @@
 #    Applianeces    #
 #####################
 
-something_left_on:
-  module: something_left_on_warning
+# something_left_on:
+#   module: something_left_on_warning
+#   class: ApplianceStatus
+#   entity: switch.switch
+#   start_after: 2700  # 2700
+#   time_between_notifications: 900 # 900
+#   end_after: 5400 # 5400
+#   switch_off: True
+#   # text_on_for: "Espresso machine has been on for "
+#   # text_time_unit: " minutes"
+#   # text_off: ", i turned it off."
+#   # text_data_telegram_warning: '"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"'
+#   # text_data_telegram_auto_off: '"inline_keyboard":"Turn back on:/espresso_on, OK, thanks!:/removekeyboard"'
+#   # notify_who: "notify/home_aephir_bot"
+
+espresso_left_on:
+  module: espresso_on_warning_duration
   class: ApplianceStatus
-  entity: switch.switch
-  start_after: 2700  # 2700
-  time_between_notifications: 900 # 900
-  end_after: 5400 # 5400
-  switch_off: True
-  text_on_for: "Espresso machine has been on for "
-  text_time_unit: " minutes"
-  text_off: ", i turned it off."
-  text_data_telegram_warning: '"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"'
-  text_data_telegram_auto_off: '"inline_keyboard":"Turn back on:/espresso_on, OK, thanks!:/removekeyboard"'
-  notify_who: "notify/home_aephir_bot"
 
 ########################
 #    Device Trackers    #
@@ -105,7 +109,11 @@ top_floor_bathroom_motion_light:
 
 # notify_phones:
 #   module: generic_notifier
-#   class: notify
+#   class: Notify
+
+notify_open_door_windows:
+  module: door_window_left_open
+  class: Notify
 
 ##########################
 #    Manual overrides    #
@@ -190,10 +198,10 @@ xiaomi_button_1:
   entityID2: light.all_lights
   entityID3: light.all_adult_lights
 
-xiaomi_cube_1:
-  module: xiaomi_aqara_cube
-  class: Remote
-  entityID: binary_sensor.cube_158d00028f7196
+# xiaomi_cube_1:
+#   module: xiaomi_aqara_cube
+#   class: Remote
+#   entityID: binary_sensor.cube_158d00028f7196
 
 
 ################

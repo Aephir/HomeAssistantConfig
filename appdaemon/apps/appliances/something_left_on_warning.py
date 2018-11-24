@@ -41,6 +41,7 @@ class ApplianceStatus(hass.Hass):
 
             # After "time_between_notifications", re-run itself.
             self.timer = self.run_in(self.SendNotification,self.args["time_between_notifications"])
+            # self.timer = self.run_in(self.ContinueTimer,self.args["time_between_notifications"])
         else:
 
             # Checks if "switch_off" is "True".

@@ -10,7 +10,7 @@ class Remote(hass.Hass):
 
     def initialize(self):
         # Detect click. It detects sequential clicks of same button! (Why/how?)
-        self.listen_state(self.ButtonState,self.args["entityID"])
+        self.listen_state(self.ButtonState,"binary_sensor.cube_158d00028f7196")
 
         # List of light groups that can be "active". If active, this is what is dimmed upon rotation.
         self.light_list = [
@@ -38,7 +38,7 @@ class Remote(hass.Hass):
 
         # Tap twice to cycle "active lights".
         # Doesn't work if last action was tap_twice. Needs something in between...?
-        if self.get_state(self.args["entityID"], attribute = "last_action") == "tap_twice": # input_boolean.kitchen_lights_motion_override
+        if self.get_state("binary_sensor.cube_158d00028f7196", attribute = "last_action") == "tap_twice": # input_boolean.kitchen_lights_motion_override
             if self.get_state("sensor.xiaomi_cube_1_tap_twice_state") == self.light_list[0]:
                 self.set_state("sensor.xiaomi_cube_1_tap_twice_state", state=self.light_list[1])
                 self.turn_on(self.light_list[1],flash="short")
@@ -50,14 +50,16 @@ class Remote(hass.Hass):
                 self.turn_on(self.light_list[0],flash="short")
 
         # Can rotate be both clockwise and counterclockwise? I.e. both positive and negative integers?
-        elif self.get_state(self.args["entityID"], attribute = "last_action")  == "rotate":
+        elif self.get_state("binary_sensor.cube_158d00028f7196", attribute = "last_action")  == "rotate":
             # raw_value = self.get_state(self.args["entityID"], attribute = "action_value")
             # raw_value = self.get_state("binary_sensor.cube_158d00028f7196", attribute = "last_action")
             raw_value = self.get_state("binary_sensor.cube_158d00028f7196", attribute = "value")
+            action = self.get_state("binary_sensor.cube_158d00028f7196", data = "action_value")
             # dim_amount = {( int(255) * int(self.get_state(self.args["entityID"], attribute = "action_value") ) / int(360) )} # action value. Do I need to say self.get_state("binary_sensor.cube_158d00028f7196").action_value
             # new_brightness = self.get_state("sensor.xiaomi_cube_1_tap_twice_state").brightness + dim_amount
             # self.turn_on(self.get_state("sensor.xiaomi_cube_1_tap_twice_state"),brightness=new_brightness)
             self.log(raw_value)
+            self.log(action)
 
 
 # >
@@ -70,19 +72,19 @@ class Remote(hass.Hass):
 
 
         # Turn active light to 100% brightness, 2200K.
-        elif self.get_state(self.args["entityID"], attribute = "last_action") == "flip90":
+        elif self.get_state("binary_sensor.cube_158d00028f7196", attribute = "last_action") == "flip90":
             # if self.light_list[0]:
             #     self.turn_on("input_boolean.kitchen_lights_motion_override")
             self.turn_on(self.get_state("sensor.xiaomi_cube_1_tap_twice_state"), brightness=255, kelvin=2200)
 
         # Turn active light to 100% brightness, 2700K.
-        elif self.get_state(self.args["entityID"], attribute = "last_action") == "flip180":
+        elif self.get_state("binary_sensor.cube_158d00028f7196", attribute = "last_action") == "flip180":
             # if self.light_list[0]:
             #     self.turn_on("input_boolean.kitchen_lights_motion_override")
             self.turn_on(self.get_state("sensor.xiaomi_cube_1_tap_twice_state"), brightness=255, kelvin=2700)
 
         # Turn off active light.
-        elif self.get_state(self.args["entityID"], attribute = "last_action") == "shake_air":
+        elif self.get_state("binary_sensor.cube_158d00028f7196", attribute = "last_action") == "shake_air":
             # if self.light_list[0]:
             #     self.turn_off("input_boolean.kitchen_lights_motion_override")
             self.turn_off(self.get_state("sensor.xiaomi_cube_1_tap_twice_state"))
