@@ -8,13 +8,13 @@
 #    iKettle Commands    #
 ##########################
 
-ikettle100: bash /home/homeassistant/.homeassistant/shell_scripts/ikettlecontrol.sh "0x80"
-ikettle95: bash /home/homeassistant/.homeassistant/shell_scripts/ikettlecontrol.sh "0x02"
-ikettle80: /home/homeassistant/.homeassistant/shell_scripts/ikettlecontrol.sh "0x4000"
-ikettle65: /home/homeassistant/.homeassistant/shell_scripts/ikettlecontrol.sh "0x200"
-#ikettleoff: /home/homeassistant/.homeassistant/shell_scripts/ikettlecontrol.sh "0x0"
-ikettleoff1: /home/homeassistant/.homeassistant/shell_scripts/ikettleoff1.sh
-ikettleon: /home/homeassistant/.homeassistant/shell_scripts/ikettleon.sh
+ikettle100: bash /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x80"
+ikettle95: bash /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x02"
+ikettle80: /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x4000"
+ikettle65: /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x200"
+#ikettleoff: /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x0"
+ikettleoff1: /home/aephir/docker/homeassistant/shell_scripts/ikettleoff1.sh
+ikettleon: /home/aephir/docker/homeassistant/shell_scripts/ikettleon.sh
 
 ###############################
 #    Send States To Takser    #
@@ -29,35 +29,35 @@ ikettleon: /home/homeassistant/.homeassistant/shell_scripts/ikettleon.sh
 
 ##########
 #__KODI__#
-run_kodi: bash /home/homeassistant/.homeassistant/shell_scripts/start_kodi.sh
-ssh_to_libreelec: bash /home/homeassistant/.homeassistant/shell_scripts/sshtokodi.sh
-kodi_off: bash /home/homeassistant/.homeassistant/shell_scripts/shutdownkodi.sh
-reboot_libreelec: /home/homeassistant/.homeassistant/shell_scripts/rebootkodi.sh
+run_kodi: bash /home/aephir/docker/homeassistant/shell_scripts/start_kodi.sh
+ssh_to_libreelec: bash /home/aephir/docker/homeassistant/shell_scripts/sshtokodi.sh
+kodi_off: bash /home/aephir/docker/homeassistant/shell_scripts/shutdownkodi.sh
+reboot_libreelec: /home/aephir/docker/homeassistant/shell_scripts/rebootkodi.sh
 
 ########
 #__TV__#
-tvon: /home/homeassistant/.homeassistant/shell_scripts/tvon.sh
+tvon: /home/aephir/docker/homeassistant/shell_scripts/tvon.sh
 #tvoff: /home/pi/shell_commands/tvoff.sh
 
 # See TV CEC codes: http://www.cec-o-matic.com/
 
 ############
 #__Mopidy__#
-mopidy_off: /home/homeassistant/.homeassistant/shell_scripts/shutdown_mopidy.sh
-reboot_mopidy: /home/homeassistant/.homeassistant/shell_scripts/reboot_mopidy.sh
-upgrade_mopidy: /home/homeassistant/.homeassistant/shell_scripts/update_mopidy.sh
+mopidy_off: /home/aephir/docker/homeassistant/shell_scripts/shutdown_mopidy.sh
+reboot_mopidy: /home/aephir/docker/homeassistant/shell_scripts/reboot_mopidy.sh
+upgrade_mopidy: /home/aephir/docker/homeassistant/shell_scripts/update_mopidy.sh
 
 ##################
 #__MATRIX Voice__#
-matrix_off: /home/homeassistant/.homeassistant/shell_scripts/shutdown_matrix.sh
+matrix_off: /home/aephir/docker/homeassistant/shell_scripts/shutdown_matrix.sh
 
 #######################
 #    HASS Commands    #
 #######################
 
-reboot_hass: bash /home/homeassistant/.homeassistant/shell_scripts/reboot_home_assistant.sh
-renew_ssl: bash /home/homeassistant/.homeassistant/shell_scripts/update_certificates.sh
-update_hass: bash /home/homeassistant/.homeassistant/shell_scripts/updatehass.sh
+reboot_hass: bash /home/aephir/docker/homeassistant/shell_scripts/reboot_home_assistant.sh
+renew_ssl: bash /home/aephir/docker/homeassistant/shell_scripts/update_certificates.sh
+update_hass: bash /home/aephir/docker/homeassistant/shell_scripts/updatehass.sh
 restart_hass: 'curl http://127.0.0.1:8126/container/home-assistant/restart'
 
 #####################

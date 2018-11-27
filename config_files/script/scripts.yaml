@@ -225,6 +225,23 @@
         data:
           message: 'Walden told me to tell you'
 
+
+#####
+#    Switches
+
+
+
+  shed_power:
+    alias: Shut Down Shed Power
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.mopidy_shut_off
+      - delay: 00:00:20
+      - service: switch.turn_off
+        data:
+          entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+
 ##
 # update
 

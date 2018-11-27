@@ -4,6 +4,13 @@
 #                   #
 #####################
 
+################
+#__Bed_Sensor__#
+
+- platform: mqtt
+  state_topic: 'home/bedroom/bed'
+  name: "Raw Master Bed Weight Measurement"
+
 ####################
 #__System Sensors__#
 

@@ -192,6 +192,15 @@ views:
         entity: switch.fountain
         tap_action: toggle
 
+      - type: entities
+        title: Shed
+        show_header_toggle: false
+        entities:
+          - entity: switch.shed_power
+            type: custom:toggle-lock-entity-row
+            users:
+              - Aephir
+
   - title: Information
     icon: mdi:information-variant
     id: information

@@ -21,17 +21,29 @@
 #    Plugs    #
 ###############
 
+# - platform: template
+#   switches:
+#     living_room_media_master:
+#       value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
+#       turn_on:
+#         service: switch.turn_on
+#         entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+#       turn_off:
+#         service: script.turn_on
+#         entity_id: script.living_room_media_off
+#       friendly_name: Media Center Power
+
 - platform: template
   switches:
-    living_room_media_master:
+    shed_power:
       value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
       turn_on:
         service: switch.turn_on
         entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
       turn_off:
         service: script.turn_on
-        entity_id: script.living_room_media_off
-      friendly_name: Media Center Power
+        entity_id: script.shed_power
+      friendly_name: Shed Power
 
 #- platform: command_line
 #  switches:

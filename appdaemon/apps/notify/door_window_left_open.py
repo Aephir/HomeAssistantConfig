@@ -41,7 +41,7 @@ class Notify(hass.Hass):
         if new == 'off':
             self.open = None
         else:
-            self.run_in(self.SendNoticationDoorWindow, 900)
+            self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
 
     def MessageWeather (self, entity, attribute, old, new, kwargs):
         #
@@ -86,7 +86,7 @@ class Notify(hass.Hass):
             return None
 
 
-    def SendNoticationDoorWindow(self, entity, attribute, old, new, kwargs):
+    def SendNoticationDoorWindow(self, kwargs):
 
         # Variables to get from HASS sensors.
         outdoor_temp = float(self.get_state("sensor.dark_sky_temperature"))
@@ -97,7 +97,7 @@ class Notify(hass.Hass):
         wind_speed = float(self.get_state("sensor.dark_sky_wind_speed"))
         door_window = ''
 
-        # Define a new friendly name for the sensor that triggered.
+        # Define a new friendly name for the sensor that triggered. Can probably be done smarter.
         if entity == "binary_sensor.door_window_sensor_158d0002286a78":
             door_window = "bathroom window"
         elif entity == "binary_sensor.door_window_sensor_158d00022b3b66":
@@ -117,15 +117,18 @@ class Notify(hass.Hass):
         if precip_problem:
             self.call_service("notify/home_aephir_bot", message="It might " + precip_type + ", and the " + door_window + "has been open for 15 minutes. Please close it!")
             # self.call_service("notify/ios_kristinas_iphone", message="It might " precip_type ", and the " + door_window + "has been open for 15 minutes. Please close it!")
+            self.log("It might " + precip_type + ", and the " + door_window + "has been open for 15 minutes. Please close it!")
         elif outdoor_temp < 18.0: # Temperature 18°C. Is this appropriate?
             self.call_service("notify/home_aephir_bot", message="It is cold, and the " + door_window + "has been open for 15 minutes. Please close it!")
             # self.call_service("notify/ios_kristinas_iphone", message="It is cold, and the " + door_window + "has been open for 15 minutes. Please close it!")
+            self.log("It is cold, and the " + door_window + "has been open for 15 minutes. Please close it!")
         elif wind_speed > 14.0: # Wind speed 14 m/s. Is this appropriate?
             self.call_service("notify/home_aephir_bot", message="It is windy, and the " + door_window + "has been open for 15 minutes. Please close it!")
             # self.call_service("notify/ios_kristinas_iphone", message="It is windy, and the " + door_window + "has been open for 15 minutes. Please close it!")
+            self.log("It is windy, and the " + door_window + "has been open for 15 minutes. Please close it!")
 
 
-    def SendNoticationWeather(self, entity, attribute, old, new, type, kwargs):
+    def SendNoticationWeather(self, type):
 
         # Variables to get from HASS sensors.
         precip_type = self.get_state("sensor.dark_sky_precip")
@@ -138,9 +141,12 @@ class Notify(hass.Hass):
             if type == "temperature":
                 self.call_service("notify/home_aephir_bot", message="It is getting cold outside, and the " + door_window_list + " still open.")
                 # self.call_service("notify/ios_kristinas_iphone", message="It is getting cold outside, and the " + door_window_list + " still open.")
+                self.log("It is getting cold outside, and the " + door_window_list + " still open.")
             elif type == "precipitation":
                 self.call_service("notify/home_aephir_bot", message="It might start to" + precip_type + ", and the " + door_window_list + " still open.")
                 # self.call_service("notify/ios_kristinas_iphone", message="It might start to" precip_type ", and the " + door_window_list + " still open.")
+                self.log("It might start to" + precip_type + ", and the " + door_window_list + " still open.")
             elif type == "wind":
                 self.call_service("notify/home_aephir_bot", message="It it getting windy, and the " + door_window_list + " still open.")
                 # self.call_service("notify/ios_kristinas_iphone", message="It it getting windy, and the " + door_window_list + " still open.")
+                self.log("It it getting windy, and the " + door_window_list + " still open.")

@@ -16,7 +16,7 @@ class ApplianceStatus(hass.Hass):
         self.timer = None
 
         # Runs "StartTimer" when "entity" state changes.
-        self.listen_state(self.StartTimer,self.args["entity"])
+        self.listen_state(self.StartTimer,"switch.switch")
 
     def StartTimer(self, entity, attribute, old, new, kwargs):
 
