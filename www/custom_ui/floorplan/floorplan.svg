@@ -610,10 +610,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35355339"
-     inkscape:cx="503.42768"
-     inkscape:cy="1101.2175"
+     inkscape:cx="1677.2249"
+     inkscape:cy="907.39129"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer14"
+     inkscape:current-layer="layer11"
      showgrid="false"
      inkscape:window-width="1440"
      inkscape:window-height="855"
@@ -6857,11 +6857,12 @@
          sodipodi:role="line"
          style="stroke-width:0.20670572">22°C</tspan></text>
     <text
-       id="text8777"
+       id="sensor.fibaro_system_fgwpef_wall_plug_gen5_power"
        y="306.72043"
        x="788.64673"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.45640624"
-       xml:space="preserve"><tspan
+       xml:space="preserve"
+       inkscape:label="#text8777"><tspan
          sodipodi:role="line"
          id="tspan8775"
          x="788.64673"
@@ -7454,7 +7455,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.45640624"
        x="423.70773"
        y="331.30347"
-       id="sensor.fibaro_system_fgwpef_wall_plug_gen5_power"
+       id="sensor.neo_coolcam_power_plug_12a_power"
        inkscape:label="#text1905"><tspan
          y="331.30347"
          x="423.70773"

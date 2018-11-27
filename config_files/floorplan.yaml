@@ -11,9 +11,16 @@
 
       groups:
 
-        - name: media_power
+        # Power consumption
+        - name: shed_power
           entities:
             - sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+          text_template: '${entity.state ? Math.ceil(entity.state) + " W": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: espresso_power
+          entities:
+            - sensor.neo_coolcam_power_plug_12a_power
           text_template: '${entity.state ? Math.ceil(entity.state) + " W": "undefined"}'
           class_template: 'return "static-temp";'
 
@@ -32,6 +39,8 @@
         #     else
         #       return "temp-in-high";
         #     '
+
+        # Temperature and humidity
 
         - name: xiaomi_bathroom_temperature
           entities:
