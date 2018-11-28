@@ -161,6 +161,9 @@ notify_upon_plant_problem:
 #   module: power_off_empty_home
 #   class: Presence
 
+# someone_arrives_home:
+#   module: arrive_home
+#   class: Presence
 
 #################
 #    Remotes    #

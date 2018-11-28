@@ -13,13 +13,13 @@ class Presence(hass.Hass):
         deviceTrackers = [
         "device_tracker.meta_walden",
         "device_tracker.meta_kristina",
-        # "device_tracker.meta_emilie",
+        "device_tracker.meta_emilie",
         # "device_tracker.meta_naia",
         "input_boolean.guest_mode"
         ]
 
         for device in deviceTrackers:
-            self.listen_state(self.emptyHome,device)
+            self.listen_state(self.arriveHome, new = "home")
 
     # Check if anyone is home. Returns True/False.
     def occupancy(self, entity_id):
@@ -38,10 +38,10 @@ class Presence(hass.Hass):
         return anyoneHome
 
 
-    def emptyHome(self, entity, attribute, old, new, kwargs):
+    def arriveHome(self, entity, attribute, old, new, kwargs):
 
         # Lists of entities to turn off.
-        offList = [
+        onList = [
         'light.all_lights',
         'switch.switch',
         'switch.fountain'
