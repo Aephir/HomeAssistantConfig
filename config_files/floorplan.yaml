@@ -387,7 +387,7 @@
         #   action:
         #     service: toggle
 
-
+        # Lights
         - name: Lights
           entities:
             - light.basement_entrance_lights
@@ -402,6 +402,7 @@
             - light.top_floor_bathroom
             - light.bedroom
             - light.baby_room
+            - light.living_room_lightstrip
           states:
             - state: 'on'
               class: 'light-on'
@@ -456,6 +457,7 @@
             - input_boolean.light_top_floor_bathroom
             - input_boolean.light_bedroom
             - input_boolean.light_baby_room
+            - input_boolean.light_living_room_lightstrip
           states:
             - state: 'on'
               class: 'light-glow-on'

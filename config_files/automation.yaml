@@ -2021,6 +2021,27 @@
     - service: input_boolean.turn_off
       entity_id: input_boolean.light_kitchen_spots
 
+- alias: 'switch dummy living room lightstrip on'
+  trigger:
+    - platform: state
+      entity_id: light.living_room_lightstrip
+      from: 'off'
+      to: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.light_living_room_lightstrip
+
+- alias: 'switch dummy living room lightstrip off'
+  trigger:
+    - platform: state
+      entity_id: light.living_room_lightstrip
+      from: 'on'
+      to: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.light_living_room_lightstrip
+
+
 - alias: 'switch dummy kitchen cabinet light on'
   trigger:
     - platform: state

@@ -137,6 +137,9 @@ light_dining_table:
 light_top_floor_bathroom:
   name: dummy top floor bathroom lights
 
+light_living_room_lightstrip:
+  name: dummy living room lightstrip
+
 tv_ue46es8005:
   name: dummy ue46es8005
 
