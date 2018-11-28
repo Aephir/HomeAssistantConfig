@@ -51,15 +51,15 @@ class PlantProblem(hass.Hass):
 
         # Test if any conductivity is an issue
         for entity in self.plant_conductivity_ids:
-            self.listen_state(self.conductivity_problem, entity) # conductivity sensors
+            self.listen_state(self.conductivity_problem) # conductivity sensors
 
         # Test if any moisture is an issue
         for entity in self.plant_moisture_ids:
-            self.listen_state(self.moisture_problem, entity) # conductivity sensors
+            self.listen_state(self.moisture_problem) # conductivity sensors
 
         # Test if any temperature is an issue
         for entity in self.plant_temperature_ids:
-            self.listen_state(self.temperature_problem, entity) # conductivity sensors
+            self.listen_state(self.temperature_problem) # conductivity sensors
 
         # See if we come home
         for entity in self.device_trackers:

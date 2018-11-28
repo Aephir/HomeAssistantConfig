@@ -252,13 +252,13 @@ views:
         title: Family
         columns: 4
         entities:
-          - entity: device_tracker.walden_bjrn_yoshimoto
+          - entity: device_tracker.meta_walden
             name: Walden
-          - entity: device_tracker.kristinabrody
+          - entity: device_tracker.meta_kristina
             name: Kristina
-          - entity: device_tracker.emilie
+          - entity: device_tracker.meta_emilie
             name: Emilie
-          - entity: device_tracker.niels_brodys_ipad_2
+          - entity: device_tracker.meta_naia
             name: Naia
           - entity: sensor.walden_phone_battery
             name: Walden's Battery
@@ -268,7 +268,6 @@ views:
             name: Emilie's Battery
           - entity: sensor.niels_brodys_ipad_2_battery_level
             name: Naia's Battery
-          # - entity: naiahome360
       - type: glance
         title: Sensor Battery Levels
         entities:
@@ -774,28 +773,6 @@ views:
             - type: "custom:button-card"
               color_type: blank-card
       # - type: FLOORPLAN!!
-
-      - type: glance
-        title: Family
-        columns: 4
-        entities:
-          - entity: device_tracker.meta_walden
-            name: Walden
-          - entity: device_tracker.meta_kristina
-            name: Kristina
-          - entity: device_tracker.meta_emilie
-            name: Emilie
-          - entity: device_tracker.meta_naia
-            name: Naia
-          - entity: sensor.walden_phone_battery
-            name: Walden's Battery
-          - entity: sensor.kristina_phone_battery
-            name: Kristina's Battery
-          - entity: sensor.emilie_phone_battery
-            name: Emilie's Battery
-          - entity: sensor.niels_brodys_ipad_2_battery_level
-            name: Naia's Battery
-          # - entity: naiahome360
 
 
       - type: custom:entity-attributes-card

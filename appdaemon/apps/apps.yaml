@@ -11,9 +11,9 @@
 #    Test    #
 ##############
 
-# test:
-#   module: test
-#   class: Test
+test:
+  module: test
+  class: Test
 
 # test2:
 #   module: test2
@@ -73,6 +73,17 @@ meta_tracker:
   naia_ios_tracker: !secret naia_ios_tracker
   naia_l360_tracker: !secret naia_l360_tracker
   naia_ping_tracker: !secret naia_ping_tracker
+
+#####################
+#    Global Apps    #
+#####################
+
+global_sensors:
+  module: all_sensors
+  class: GlobalSensors
+  motionSensors:
+    - "binary_sensor.motion_sensor_158d000200d203"
+    - "binary_sensor.motion_sensor_158d000236a116"
 
 #######################
 #    Motion Lights    #
@@ -164,6 +175,10 @@ notify_upon_plant_problem:
 # someone_arrives_home:
 #   module: arrive_home
 #   class: Presence
+
+# coming_home:
+#   module: someone_on_the_way_home
+#   class: presence
 
 #################
 #    Remotes    #

@@ -130,8 +130,8 @@
     walden_phone_battery:
       friendly_name: Waldens Phone Battery
       value_template: >
-        {%- if states.device_tracker.meta_walden %}
-          {{ states.device_tracker.meta_walden.battery|round }}
+        {%- if states.device_tracker.meta_walden.attributes %}
+          {{ states.device_tracker.meta_walden.attributes.battery|round }}
         {% else %}
           {{ states.sensor.waldens_phone_battery.state }}
         {%- endif %}
