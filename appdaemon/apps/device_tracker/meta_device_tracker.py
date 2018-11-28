@@ -106,6 +106,10 @@ class MetaTracker(hass.Hass):
         newSource = self.get_state(triggeredEntity, attribute = 'source_type')
         newFriendlyName_temp = self.get_state(triggeredEntity, attribute = 'friendly_name')
 
+        # If router and "home", set to home no matter what. Disregard router state "not_home".
+        if newSource == 'router' and newState != 'home':
+            newState = None
+
         # If GPS source, set new coordinates.
         if newSource == 'gps':
             newLatitude = self.get_state(triggeredEntity, attribute = 'latitude')
@@ -123,6 +127,8 @@ class MetaTracker(hass.Hass):
         # Get Battery state
         if self.get_state(triggeredEntity, attribute = 'battery') is not None:
             newBattery = self.get_state(triggeredEntity, attribute = 'battery')
+        elif self.get_state(triggeredEntity, attribute = 'battery_level') is not None:
+            newBattery = self.get_state(triggeredEntity, attribute = 'battery_level')
         elif self.get_state(metatrackerName, attribute = 'battery') is not None:
             newBattery = self.get_state(metatrackerName, attribute = 'battery')
         else:
@@ -131,6 +137,8 @@ class MetaTracker(hass.Hass):
         # Get charging state
         if self.get_state(triggeredEntity, attribute = 'charging') is not None:
             newChargeState = self.get_state(triggeredEntity, attribute = 'charging')
+        elif self.get_state(triggeredEntity, attribute = 'battery_charging') is not None:
+            newChargeState = self.get_state(triggeredEntity, attribute = 'battery_charging')
         elif self.get_state(metatrackerName, attribute = 'charging') is not None:
             newChargeState = self.get_state(metatrackerName, attribute = 'charging')
         else:
@@ -184,11 +192,11 @@ class MetaTracker(hass.Hass):
 
 
         # Create device_tracker.meta entity
-        self.set_state(metatrackerName, attributes = {
+        self.set_state(metatrackerName, state = newStatus, attributes = {
             'friendly_name': newFriendlyName,
             'entity_picture': newEntityPicture,
             'source_type': newSource,
-            'battery': newBattery,
+            'battery': round(float(newBattery)),
             'gps_accuracy': newgpsAccuracy,
             'latitude': newLatitude,
             'longitude': newLongitude,
@@ -200,6 +208,6 @@ class MetaTracker(hass.Hass):
             'driving': newDriveState,
             'wifi_on': newWiFiState,
             'moving': newMoveState,
-            'last_seen': newLastSeenTime
+            'last_seen': str(newLastSeenTime)
 
         })

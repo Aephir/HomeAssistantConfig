@@ -5,14 +5,21 @@ import datetime
 import time
 
 
-class HomeOccupancy(hass.Hass):
+class Presence(hass.Hass):
 
     def initialize(self):
-        self.listen(self.occupancy,"input_boolean.aephirhome360")
-        self.listen(self.occupancy,"input_boolean.kristinahome360")
-        self.listen(self.occupancy,"input_boolean.emiliehome360")
-        self.listen(self.occupancy,"input_boolean.naiahome360")
-        self.listen(self.occupancy,"input_boolean.guest_mode")
+
+        # Device trackers to use
+        deviceTrackers = [
+        "device_tracker.meta_walden",
+        # "device_tracker.meta_emilie",
+        # "device_tracker.meta_naia",
+        "input_boolean.guest_mode"
+        "device_tracker.meta_kristina"
+        ]
+
+        for device in deviceTrackers:
+            self.listen_state(occupancy,device)
 
 
     def whereIs(self, entity_id):
@@ -26,4 +33,4 @@ class HomeOccupancy(hass.Hass):
         guest_mode = ''
 
 
-    def 
+    def

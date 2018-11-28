@@ -55,6 +55,13 @@ class MetaTracker(hass.Hass):
         newFriendlyNam = ''
         newEntityPicture = ''
         metatrackerName = ''
+        charging = ''
+        driving = ''
+        moving = ''
+        raw_speed = ''
+        speed = ''
+        wifi_on = ''
+        last_seen = ''
 
         # Uncomment first time you run this to create meta device trackers in home assistant.
         # self.set_state('device_tracker.meta_walden', state='home')
@@ -84,32 +91,35 @@ class MetaTracker(hass.Hass):
             metatrackerName = None
 
 
-        # Get current & new state
+        # Get current meta tracker state new state from triggering tracker.
         newState = self.get_state(triggeredEntity)
         currentState = self.get_state(metatrackerName)
+
         # Get New data
         newSource = self.get_state(triggeredEntity, attribute = 'source_type')
         newFriendlyName_temp = self.get_state(triggeredEntity, attribute = 'friendly_name')
 
-        # If GPS source, set new coordinates
+        # If router and "home", set to home no matter what. Disregard router state "not_home".
+        if newSource == 'router' and newState == 'home':
+            newState = self.get_state(triggeredEntity)
+        else:
+            newState = None
+
+        # If GPS source, set new coordinates.
         if newSource == 'gps':
             newLatitude = self.get_state(triggeredEntity, attribute = 'latitude')
             newLongitude = self.get_state(triggeredEntity, attribute = 'longitude')
             newgpsAccuracy = self.get_state(triggeredEntity, attribute = 'gps_accuracy')
-
-        # If not, keep last known coordinates
         elif self.get_state(metatrackerName, attribute = 'latitude') is not None:
             newLatitude = self.get_state(metatrackerName, attribute = 'latitude')
             newLongitude = self.get_state(metatrackerName, attribute = 'longitude')
             newgpsAccuracy = self.get_state(metatrackerName, attribute = 'gps_accuracy')
-
-        # Otherwise return null
         else:
             newLatitude = None
             newLongitude = None
             newgpsAccuracy = None
 
-        # Get battery state
+        # Get Battery state
         if self.get_state(triggeredEntity, attribute = 'battery') is not None:
             newBattery = self.get_state(triggeredEntity, attribute = 'battery')
         elif self.get_state(metatrackerName, attribute = 'battery') is not None:
@@ -117,29 +127,63 @@ class MetaTracker(hass.Hass):
         else:
             newBattery = None
 
-        # Get velocity
-        if self.get_state(triggeredEntity, attribute = 'velocity') is not None:
-        # if self.get_state(triggeredEntity, state = newState, attribute = 'velocity') is not None:
-            newVelocity = self.get_state(triggeredEntity, attribute = 'velocity')
-            # newVelocity = newState.get_state(attribute = 'velocity')
-        elif self.get_state(metatrackerName, attribute = 'velocity') is not None:
-        # elif self.get_state(metatrackerName, state = currentState, attribute = 'velocity') is not None:
-            newVelocity = self.get_state(metatrackerName, attribute = 'velocity')
-            # newVelocity = currentState.get_state(attribute = 'velocity')
+        # Get charging state
+        if self.get_state(triggeredEntity, attribute = 'charging') is not None:
+            newChargeState = self.get_state(triggeredEntity, attribute = 'charging')
+        elif self.get_state(metatrackerName, attribute = 'charging') is not None:
+            newChargeState = self.get_state(metatrackerName, attribute = 'charging')
+        else:
+            newChargeState = None
+
+        # Get speed
+        if self.get_state(triggeredEntity, attribute = 'speed') is not None:
+            newVelocity = self.get_state(triggeredEntity, attribute = 'speed')
+        elif self.get_state(metatrackerName, attribute = 'speed') is not None:
+            newVelocity = self.get_state(metatrackerName, attribute = 'speed')
         else:
             newVelocity = None
 
+        # Get driving state
+        if self.get_state(triggeredEntity, attribute = 'driving') is not None:
+            newDriveState = self.get_state(triggeredEntity, attribute = 'driving')
+        elif self.get_state(metatrackerName, attribute = 'driving') is not None:
+            newDriveState = self.get_state(metatrackerName, attribute = 'driving')
+        else:
+            newDriveState = None
+
+        # Get moving state
+        if self.get_state(triggeredEntity, attribute = 'moving') is not None:
+            newMoveState = self.get_state(triggeredEntity, attribute = 'moving')
+        elif self.get_state(metatrackerName, attribute = 'moving') is not None:
+            newMoveState = self.get_state(metatrackerName, attribute = 'moving')
+        else:
+            newMoveState = None
+
+        # Get WiFi state
+        if self.get_state(triggeredEntity, attribute = 'wifi_on') is not None:
+            newWiFiState = self.get_state(triggeredEntity, attribute = 'wifi_on')
+        elif self.get_state(metatrackerName, attribute = 'wifi_on') is not None:
+            newWiFiState = self.get_state(metatrackerName, attribute = 'wifi_on')
+        else:
+            newWiFiState = None
+
+        # Get last seen state
+        if self.get_state(triggeredEntity, attribute = 'last_seen') is not None:
+            newLastSeenTime = self.get_state(triggeredEntity, attribute = 'last_seen')
+        elif self.get_state(metatrackerName, attribute = 'last_seen') is not None:
+            newLastSeenTime = self.get_state(metatrackerName, attribute = 'last_seen')
+        else:
+            newLastSeenTime = None
+
+        # Set new state, if applicable.
         if newState is not None:
-        # if newState.state is not None:
             newStatus = newState
-            # newStatus = newState.state
         else:
             newStatus = currentState
-            # newStatus = currentState.state
+
 
         # Create device_tracker.meta entity
-        self.set_state(metatrackerName, attributes = {
-        # self.set_state(metatrackerName, state = newStatus, attributes = {
+        self.set_state(metatrackerName, state = newStatus, attributes = {
             'friendly_name': newFriendlyName,
             'entity_picture': newEntityPicture,
             'source_type': newSource,
@@ -150,5 +194,11 @@ class MetaTracker(hass.Hass):
             'velocity': newVelocity,
             'update_source': triggeredEntity,
             'custom_ui_state_card': 'state-card-custom-ui',
-            'show_last_changed': 'true'
+            'show_last_changed': 'true',
+            'charging': newChargeState,
+            'driving': newDriveState,
+            'wifi_on': newWiFiState,
+            'moving': newMoveState,
+            'last_seen': str(newLastSeenTime)
+
         })

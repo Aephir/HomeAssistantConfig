@@ -49,6 +49,10 @@
 espresso_left_on:
   module: espresso_on_warning_duration
   class: ApplianceStatus
+  start_after: 2700
+  end_after: 5400
+  time_between_notifications: 900
+  entity: switch.switch
 
 ########################
 #    Device Trackers    #
