@@ -28,6 +28,8 @@ class MetaTracker(hass.Hass):
         self.listen_state(self.whereAreWe,self.args["naia_ios_tracker"])
         self.listen_state(self.whereAreWe,self.args["naia_ping_tracker"])
 
+        self.set_state('device_tracker.meta_walden')
+
 
     def whereAreWe(self, entity, attribute, old, new, kwargs):
 
@@ -37,27 +39,36 @@ class MetaTracker(hass.Hass):
             self.args["aephir_l360_tracker"],
             self.args["aephir_ping_tracker"]
             ]
+
         kristinaTrackers = [
             self.args["kristina_ios_tracker"],
             self.args["kristina_l360_tracker"],
             self.args["kristina_ping_tracker"]
             ]
+
         emilieTrackers = [
             self.args["emilie_l360_tracker"],
             self.args["emilie_ping_tracker"]
             ]
+
         naiaTrackers = [
             self.args["naia_ios_tracker"],
             self.args["naia_ping_tracker"]
             ]
 
-        # Get entity that triggers script
-        triggeredEntity = self.get_entity('entity_id')
+        # Get entity that triggers script. I don't need this, this is "entity" that's passed from "initialize", right?
+        triggeredEntity = entity
 
         # Variables to show in frontend
         newFriendlyNam = ''
         newEntityPicture = ''
         metatrackerName = ''
+
+        # Uncomment first time you run this to create meta device trackers in home assistant.
+        # self.set_state('device_tracker.meta_walden', state='home')
+        # self.set_state('device_tracker.meta_kristina', state='home')
+        # self.set_state('device_tracker.meta_emilie', state='home')
+        # self.set_state('device_tracker.meta_naia', state='home')
 
         # Set variables
         if triggeredEntity in aephirTrackers:
@@ -85,19 +96,28 @@ class MetaTracker(hass.Hass):
         newState = self.get_state(triggeredEntity)
         currentState = self.get_state(metatrackerName)
         # Get New data
-        newSource = self.get_state(triggeredEntity, state = newState, attribute = 'source_type')
-        newFriendlyName_temp = self.get_state(triggeredEntity, state = newState, attribute = 'friendly_name')
+        newSource = self.get_state(triggeredEntity, attribute = 'source_type')
+        newFriendlyName_temp = self.get_state(triggeredEntity, attribute = 'friendly_name')
+        # newSource = self.get_state(triggeredEntity, state = newState, attribute = 'source_type')
+        # newFriendlyName_temp = self.get_state(triggeredEntity, state = newState, attribute = 'friendly_name')
 
         # If GPS source, set new coordinates
         if newSource == 'gps':
-            newLatitude = self.get_state(triggeredEntity, state = newState, attribute = 'latitude')
-            newLongitude = self.get_state(triggeredEntity, state = newState, attribute = 'longitude')
-            newgpsAccuracy = self.get_state(triggeredEntity, state = newState, attribute = 'gps_accuracy')
+            newLatitude = self.get_state(triggeredEntity, attribute = 'latitude')
+            newLongitude = self.get_state(triggeredEntity, attribute = 'longitude')
+            newgpsAccuracy = self.get_state(triggeredEntity, attribute = 'gps_accuracy')
+            # newLatitude = self.get_state(triggeredEntity, state = newState, attribute = 'latitude')
+            # newLongitude = self.get_state(triggeredEntity, state = newState, attribute = 'longitude')
+            # newgpsAccuracy = self.get_state(triggeredEntity, state = newState, attribute = 'gps_accuracy')
         # If not, keep last known coordinates
-        elif currentState.get_state(attribute = 'latitude') is not None:
-            newLatitude = self.get_state(metatrackerName, state = currentState, attribute = 'latitude')
-            newLongitude = self.get_state(metatrackerName, state = currentState, attribute = 'longitude')
-            newgpsAccuracy = self.get_state(metatrackerName, state = currentState, attribute = 'gps_accuracy')
+        elif self.get_state(metatrackerName, attribute = 'latitude') is not None:
+        # elif currentState.get_state(attribute = 'latitude') is not None:
+            newLatitude = self.get_state(metatrackerName, attribute = 'latitude')
+            newLongitude = self.get_state(metatrackerName, attribute = 'longitude')
+            newgpsAccuracy = self.get_state(metatrackerName, attribute = 'gps_accuracy')
+            # newLatitude = self.get_state(metatrackerName, state = currentState, attribute = 'latitude')
+            # newLongitude = self.get_state(metatrackerName, state = currentState, attribute = 'longitude')
+            # newgpsAccuracy = self.get_state(metatrackerName, state = currentState, attribute = 'gps_accuracy')
         # Otherwise return null
         else:
             newLatitude = None
@@ -105,28 +125,40 @@ class MetaTracker(hass.Hass):
             newgpsAccuracy = None
 
         # Get Battery
-        if self.get_state(triggeredEntity, state = newState, attribute = 'battery') is not None:
-            newBattery = newState.get_state(attribute = 'battery')
-        elif self.get_state(metatrackerName, state = currentState, attribute = 'battery') is not None:
-            newBattery = currentState.get_state(attribute = 'battery')
+        if self.get_state(triggeredEntity, attribute = 'battery') is not None:
+        # if self.get_state(triggeredEntity, state = newState, attribute = 'battery') is not None:
+            newBattery = self.get_state(triggeredEntity, attribute = 'battery')
+            # newBattery = newState.get_state(attribute = 'battery')
+        elif self.get_state(metatrackerName, attribute = 'battery') is not None:
+        # elif self.get_state(metatrackerName, state = currentState, attribute = 'battery') is not None:
+            newBattery = self.get_state(metatrackerName, attribute = 'battery')
+            # newBattery = currentState.get_state(attribute = 'battery')
         else:
             newBattery = None
 
         # Get velocity
-        if self.get_state(triggeredEntity, state = newState, attribute = 'velocity') is not None:
-            newVelocity = newState.get_state(attribute = 'velocity')
-        elif self.get_state(metatrackerName, state = currentState, attribute = 'velocity') is not None:
-            newVelocity = currentState.get_state(attribute = 'velocity')
+        if self.get_state(triggeredEntity, attribute = 'velocity') is not None:
+        # if self.get_state(triggeredEntity, state = newState, attribute = 'velocity') is not None:
+            newVelocity = self.get_state(triggeredEntity, attribute = 'velocity')
+            # newVelocity = newState.get_state(attribute = 'velocity')
+        elif self.get_state(metatrackerName, attribute = 'velocity') is not None:
+        # elif self.get_state(metatrackerName, state = currentState, attribute = 'velocity') is not None:
+            newVelocity = self.get_state(metatrackerName, attribute = 'velocity')
+            # newVelocity = currentState.get_state(attribute = 'velocity')
         else:
             newVelocity = None
 
-        if newState.state is not None:
-            newStatus = newState.state
+        if newState is not None:
+        # if newState.state is not None:
+            newStatus = newState
+            # newStatus = newState.state
         else:
-            newStatus = currentState.state
+            newStatus = currentState
+            # newStatus = currentState.state
 
         # Create device_tracker.meta entity
-        self.set_state(metatrackerName, state = newStatus, attributes = {
+        self.set_state(metatrackerName, attributes = {
+        # self.set_state(metatrackerName, state = newStatus, attributes = {
             'friendly_name': newFriendlyName,
             'entity_picture': newEntityPicture,
             'source_type': newSource,

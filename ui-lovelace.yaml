@@ -775,6 +775,28 @@ views:
               color_type: blank-card
       # - type: FLOORPLAN!!
 
+      - type: glance
+        title: Family
+        columns: 4
+        entities:
+          - entity: device_tracker.meta_walden
+            name: Walden
+          - entity: device_tracker.meta_kristina
+            name: Kristina
+          - entity: device_tracker.meta_emilie
+            name: Emilie
+          - entity: device_tracker.meta_naia
+            name: Naia
+          - entity: sensor.walden_phone_battery
+            name: Walden's Battery
+          - entity: sensor.kristina_phone_battery
+            name: Kristina's Battery
+          - entity: sensor.emilie_phone_battery
+            name: Emilie's Battery
+          - entity: sensor.niels_brodys_ipad_2_battery_level
+            name: Naia's Battery
+          # - entity: naiahome360
+
 
       - type: custom:entity-attributes-card
         title: Attributes Card

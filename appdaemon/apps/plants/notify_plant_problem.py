@@ -123,4 +123,5 @@ class PlantProblem(hass.Hass):
     # Send notification
     def sendNotification(self, message, **kwargs):
         for entity in self.device_notify_services:
-            self.call_service(entity, attributes = {"title":"Attention! Your plants are in distress!","message": message})
+            self.call_service(entity, data = {"title":"Attention! Your plants are in distress!","message": message})
+            # self.call_service(entity, attributes = {"title":"Attention! Your plants are in distress!","message": message})

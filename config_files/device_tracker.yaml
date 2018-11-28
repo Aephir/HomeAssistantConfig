@@ -40,6 +40,7 @@
       naia_ipad_ping: 192.168.0.35
       emilie_iphone_ping: 192.168.0.38 # I think this is her phone, check to be sure.
       karen_iphone_ping: 192.168.0.19
+    scan_interval: 30
 
 #################
 #    Life360    #
