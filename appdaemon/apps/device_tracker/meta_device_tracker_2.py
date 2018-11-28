@@ -14,39 +14,46 @@ import appdaemon.plugins.hass.hassapi as hass
 class MetaTracker(hass.Hass):
 
     def initialize(self):
+        # Aephir trackers
+        self.listen_state(self.whereAreWe,self.args["aephir_maps_tracker"])
+        self.listen_state(self.whereAreWe,self.args["aephir_l360_tracker"])
+        self.listen_state(self.whereAreWe,self.args["aephir_ping_tracker"])
+        # Kristina trackers
+        self.listen_state(self.whereAreWe,self.args["kristina_ios_tracker"])
+        self.listen_state(self.whereAreWe,self.args["kristina_l360_tracker"])
+        self.listen_state(self.whereAreWe,self.args["kristina_ping_tracker"])
+        # Emilie trackers
+        self.listen_state(self.whereAreWe,self.args["emilie_l360_tracker"])
+        self.listen_state(self.whereAreWe,self.args["emilie_ping_tracker"])
+        # Naia trackers
+        self.listen_state(self.whereAreWe,self.args["naia_ios_tracker"])
+        self.listen_state(self.whereAreWe,self.args["naia_ping_tracker"])
 
-        # Set lists of trackers for each person.
-        self.aephirTrackers = [
+
+    def whereAreWe(self, entity, attribute, old, new, kwargs):
+
+        # Trackers
+        aephirTrackers = [
             self.args["aephir_maps_tracker"],
             self.args["aephir_l360_tracker"],
             self.args["aephir_ping_tracker"]
             ]
 
-        self.kristinaTrackers = [
+        kristinaTrackers = [
             self.args["kristina_ios_tracker"],
             self.args["kristina_l360_tracker"],
             self.args["kristina_ping_tracker"]
             ]
 
-        self.emilieTrackers = [
+        emilieTrackers = [
             self.args["emilie_l360_tracker"],
             self.args["emilie_ping_tracker"]
             ]
 
-        self.naiaTrackers = [
+        naiaTrackers = [
             self.args["naia_ios_tracker"],
             self.args["naia_ping_tracker"]
             ]
-
-        # Set list of all trackers.
-        self.allTrackers = self.aephirTrackers + self.kristinaTrackers + self.emilieTrackers + self.naiaTrackers
-
-        # Run "whereAreWe" for any change in any tracker.
-        for entity in any[self.allTrackers]:
-            self.listen_state(whereAreWe, entity)
-
-
-    def whereAreWe(self, entity, attribute, old, new, kwargs):
 
         # Get entity that triggers script. I don't need this, this is "entity" that's passed from "initialize", right?
         triggeredEntity = entity
@@ -70,19 +77,19 @@ class MetaTracker(hass.Hass):
         # self.set_state('device_tracker.meta_naia', state='home')
 
         # Set variables
-        if triggeredEntity in self.aephirTrackers:
+        if triggeredEntity in aephirTrackers:
             newFriendlyName = 'Walden Meta Tracker'
             newEntityPicture = '/local/images/brain.jpg'
             metatrackerName = 'device_tracker.meta_walden'
-        elif triggeredEntity in self.kristinaTrackers:
+        elif triggeredEntity in kristinaTrackers:
             newFriendlyName = 'Kristina Meta Tracker'
             newEntityPicture = '/local/images/kristina_3.jpg'
             metatrackerName = 'device_tracker.meta_kristina'
-        elif triggeredEntity in self.emilieTrackers:
+        elif triggeredEntity in emilieTrackers:
             newFriendlyName = 'Emilie Meta Tracker'
             newEntityPicture = '/local/images/emilie.jpg'
             metatrackerName = 'device_tracker.meta_emilie'
-        elif triggeredEntity in self.naiaTrackers:
+        elif triggeredEntity in naiaTrackers:
             newFriendlyName = 'Naia Meta Tracker'
             newEntityPicture = '/local/images/naia_2.jpg'
             metatrackerName = 'device_tracker.meta_naia'
@@ -100,9 +107,7 @@ class MetaTracker(hass.Hass):
         newFriendlyName_temp = self.get_state(triggeredEntity, attribute = 'friendly_name')
 
         # If router and "home", set to home no matter what. Disregard router state "not_home".
-        if newSource == 'router' and newState == 'home':
-            newState = self.get_state(triggeredEntity)
-        else:
+        if newSource == 'router' and newState != 'home':
             newState = None
 
         # If GPS source, set new coordinates.
@@ -122,6 +127,8 @@ class MetaTracker(hass.Hass):
         # Get Battery state
         if self.get_state(triggeredEntity, attribute = 'battery') is not None:
             newBattery = self.get_state(triggeredEntity, attribute = 'battery')
+        elif self.get_state(triggeredEntity, attribute = 'battery_level') is not None:
+            newBattery = self.get_state(triggeredEntity, attribute = 'battery_level')
         elif self.get_state(metatrackerName, attribute = 'battery') is not None:
             newBattery = self.get_state(metatrackerName, attribute = 'battery')
         else:
@@ -130,6 +137,8 @@ class MetaTracker(hass.Hass):
         # Get charging state
         if self.get_state(triggeredEntity, attribute = 'charging') is not None:
             newChargeState = self.get_state(triggeredEntity, attribute = 'charging')
+        elif self.get_state(triggeredEntity, attribute = 'battery_charging') is not None:
+            newChargeState = self.get_state(triggeredEntity, attribute = 'battery_charging')
         elif self.get_state(metatrackerName, attribute = 'charging') is not None:
             newChargeState = self.get_state(metatrackerName, attribute = 'charging')
         else:
@@ -187,7 +196,7 @@ class MetaTracker(hass.Hass):
             'friendly_name': newFriendlyName,
             'entity_picture': newEntityPicture,
             'source_type': newSource,
-            'battery': newBattery,
+            'battery': round(newBattery),
             'gps_accuracy': newgpsAccuracy,
             'latitude': newLatitude,
             'longitude': newLongitude,

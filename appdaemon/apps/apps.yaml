@@ -137,7 +137,7 @@ notify_upon_plant_problem:
   module: notify_plant_problem
   class: PlantProblem
   plant_1_name: Lemon
-  plant_2_name: Fern
+  plant_2_name: kalamansi
   plant_3_name: Avocado
   plant_4_name: Banana
   min_moisture_1: 15

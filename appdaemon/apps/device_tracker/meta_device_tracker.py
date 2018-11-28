@@ -8,26 +8,43 @@
 #     entity_id: '{{trigger.entity_id}}'
 
 
+
 import appdaemon.plugins.hass.hassapi as hass
 
 
 class MetaTracker(hass.Hass):
 
     def initialize(self):
-        # Aephir trackers
-        self.listen_state(self.whereAreWe,self.args["aephir_maps_tracker"])
-        self.listen_state(self.whereAreWe,self.args["aephir_l360_tracker"])
-        self.listen_state(self.whereAreWe,self.args["aephir_ping_tracker"])
-        # Kristina trackers
-        self.listen_state(self.whereAreWe,self.args["kristina_ios_tracker"])
-        self.listen_state(self.whereAreWe,self.args["kristina_l360_tracker"])
-        self.listen_state(self.whereAreWe,self.args["kristina_ping_tracker"])
-        # Emilie trackers
-        self.listen_state(self.whereAreWe,self.args["emilie_l360_tracker"])
-        self.listen_state(self.whereAreWe,self.args["emilie_ping_tracker"])
-        # Naia trackers
-        self.listen_state(self.whereAreWe,self.args["naia_ios_tracker"])
-        self.listen_state(self.whereAreWe,self.args["naia_ping_tracker"])
+
+        # Set lists of trackers for each person.
+        self.aephirTrackers = [
+            self.args["aephir_maps_tracker"],
+            self.args["aephir_l360_tracker"],
+            self.args["aephir_ping_tracker"]
+            ]
+
+        self.kristinaTrackers = [
+            self.args["kristina_ios_tracker"],
+            self.args["kristina_l360_tracker"],
+            self.args["kristina_ping_tracker"]
+            ]
+
+        self.emilieTrackers = [
+            self.args["emilie_l360_tracker"],
+            self.args["emilie_ping_tracker"]
+            ]
+
+        self.naiaTrackers = [
+            self.args["naia_ios_tracker"],
+            self.args["naia_ping_tracker"]
+            ]
+
+        # Set list of all trackers.
+        self.allTrackers = self.aephirTrackers + self.kristinaTrackers + self.emilieTrackers + self.naiaTrackers
+
+        # Run "whereAreWe" for any change in any tracker.
+        for entity in self.allTrackers:
+            self.listen_state(self.whereAreWe, entity)
 
 
     def whereAreWe(self, entity, attribute, old, new, kwargs):

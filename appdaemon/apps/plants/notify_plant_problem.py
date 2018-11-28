@@ -14,6 +14,8 @@ class PlantProblem(hass.Hass):
 
     def initialize(self):
 
+        self.starttime = datetime.datetime.now()
+
         # List of conductivity, moisture, and temperature entity_ids
         self.plant_conductivity_ids = [
             'sensor.plant_sensor_1_conductivity',
@@ -42,6 +44,11 @@ class PlantProblem(hass.Hass):
             'notify/home_aephir_bot'
             ]
 
+        self.device_trackers = [
+            "device_tracker.meta_walden",
+            "device_tracker.meta_kristina"
+            ]
+
         # Test if any conductivity is an issue
         for entity in self.plant_conductivity_ids:
             self.listen_state(self.conductivity_problem, entity) # conductivity sensors
@@ -53,6 +60,11 @@ class PlantProblem(hass.Hass):
         # Test if any temperature is an issue
         for entity in self.plant_temperature_ids:
             self.listen_state(self.temperature_problem, entity) # conductivity sensors
+
+        # See if we come home
+        for entity in self.device_trackers:
+            self.listen_state(self.iAmHome, new = "home")
+
 
     # Send plant # and type = moisture if any moisture levels are low
     def moisture_problem(self, entity, attribute, old, new, kwargs):
@@ -118,10 +130,26 @@ class PlantProblem(hass.Hass):
                 message_text = 'The ' + self.args["plant_4_name"] + ' plant needs fertilizer!'
             elif type == "temperature":
                 message_text = 'The ' + self.args["plant_4_name"] + ' plant is cold!'
-        self.sendNotification(message_text)
+        if self.get_state("device_tracker.meta_walden") == 'home' or self.get_state("device_tracker.meta_kristina") == 'home':
+            self.sendNotification(message_text)
 
     # Send notification
     def sendNotification(self, message, **kwargs):
-        for entity in self.device_notify_services:
-            # self.call_service(entity, attributes = {"title":"Attention! Your plants are in distress!","message": message})
-            self.call_service(entity, message = message, title = "Attention! Your plants are in distress!")
+        timestamp = datetime.datetime.now()
+        time_delta = time_last - datetime.datetime.now()
+        if time_delta > 10800: # 3 hours = 10800 seconds
+            if self.get_state("device_tracker.meta_walden") == 'home':
+                self.call_service("notify/home_aephir_bot", message = message, title = "Attention! Your plants are in distress!")
+            elif self.get_state("device_tracker.meta_kristina") == 'home':
+                self.call_service("notify/ios_kristinas_iphone", message = message, title = "Attention! Your plants are in distress!")
+            time_last = datetime.datetime.now()
+
+    def iAmHome(self, entity, attribute, old, new, kwargs):
+        self.temperature_problem(entity, attribute, old, new)
+        self.moisture_problem(entity, attribute, old, new)
+        self.conductivity_problem(entity, attribute, old, new)
+
+
+
+        # for entity in self.device_notify_services:
+        #     self.call_service(entity, message = message, title = "Attention! Your plants are in distress!")
