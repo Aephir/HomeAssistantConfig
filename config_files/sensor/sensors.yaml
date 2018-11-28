@@ -130,8 +130,8 @@
     walden_phone_battery:
       friendly_name: Waldens Phone Battery
       value_template: >
-        {%- if states.device_tracker.walden_bjrn_yoshimoto.attributes %}
-          {{ states.device_tracker.walden_bjrn_yoshimoto.attributes.battery|round }}
+        {%- if states.device_tracker.meta_walden %}
+          {{ states.device_tracker.meta_walden.battery|round }}
         {% else %}
           {{ states.sensor.waldens_phone_battery.state }}
         {%- endif %}
@@ -139,16 +139,16 @@
     walden_phone_battery_charging_state:
       friendly_name: Waldens Phone Battery Charging State
       value_template: >
-        {%- if states.device_tracker.walden_bjrn_yoshimoto.attributes %}
-          {{ states.device_tracker.walden_bjrn_yoshimoto.attributes.charging }}
+        {%- if states.device_tracker.meta_walden.attributes %}
+          {{ states.device_tracker.meta_walden.attributes.charging }}
         {% else %}
           {{ states.sensor.waldens_phone_battery.state }}
         {%- endif %}
     kristina_phone_battery:
       friendly_name: Kristinas Phone Battery
       value_template: >
-        {%- if states.device_tracker.kristinabrody.attributes %}
-          {{ states.device_tracker.kristinabrody.attributes.battery|round }}
+        {%- if states.device_tracker.meta_kristina.attributes %}
+          {{ states.device_tracker.meta_kristina.attributes.battery|round }}
         {% else %}
           {{ states.sensor.kristinas_phone_battery.state }}
         {%- endif %}
@@ -156,16 +156,16 @@
     kristina_phone_battery_charging_state:
       friendly_name: Kristinas Phone Battery Charging State
       value_template: >
-        {%- if states.device_tracker.kristinabrody.attributes %}
-          {{ states.device_tracker.kristinabrody.attributes.charging }}
+        {%- if states.device_tracker.meta_kristina.attributes %}
+          {{ states.device_tracker.meta_kristina.attributes.charging }}
         {% else %}
           {{ states.sensor.kristinas_phone_battery.state }}
         {%- endif %}
     emilie_phone_battery:
       friendly_name: Emilies Phone Battery
       value_template: >
-        {%- if states.device_tracker.emilie.attributes %}
-          {{ states.device_tracker.emilie.attributes.battery|round }}
+        {%- if states.device_tracker.meta_emilie.attributes %}
+          {{ states.device_tracker.meta_emilie.attributes.battery|round }}
         {% else %}
           {{ states.sensor.emilies_phone_battery.state }}
         {%- endif %}
@@ -173,8 +173,8 @@
     emilie_phone_battery_charging_state:
       friendly_name: Emilies Phone Battery Charging State
       value_template: >
-        {%- if states.device_tracker.emilie.attributes %}
-          {{ states.device_tracker.emilie.attributes.charging }}
+        {%- if states.device_tracker.meta_emilie.attributes %}
+          {{ states.device_tracker.meta_emilie.attributes.charging }}
         {% else %}
           {{ states.sensor.emilies_phone_battery.state }}
         {%- endif %}

@@ -25,7 +25,6 @@
     - precip_probability
     - humidity
     - visibility
-    - nearest_storm_distance
     - temperature
     - apparent_temperature_high
     - apparent_temperature_low

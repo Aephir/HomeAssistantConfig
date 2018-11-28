@@ -465,7 +465,7 @@ views:
         entity: plant.lemon
       - type: plant-status
         # title: Plant Sensors
-        entity: plant.fern
+        entity: plant.kalamansi
       - type: plant-status
         # title: Plant Sensors
         entity: plant.avocado

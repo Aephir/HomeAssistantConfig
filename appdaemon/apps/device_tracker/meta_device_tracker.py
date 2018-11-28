@@ -196,7 +196,7 @@ class MetaTracker(hass.Hass):
             'friendly_name': newFriendlyName,
             'entity_picture': newEntityPicture,
             'source_type': newSource,
-            'battery': round(float(newBattery)),
+            'battery': round(newBattery),
             'gps_accuracy': newgpsAccuracy,
             'latitude': newLatitude,
             'longitude': newLongitude,
