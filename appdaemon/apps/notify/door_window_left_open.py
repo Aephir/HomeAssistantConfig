@@ -26,7 +26,7 @@ class Notify(hass.Hass):
         ]
 
         # Set this to "None" initially.
-        self.open = None
+        self.open = None # Need one for each door/window sensor.
 
         # Run when state changes.
         for entity in self.sensor_ids:
@@ -39,7 +39,7 @@ class Notify(hass.Hass):
     def MessageDoorWindow (self, entity, attribute, old, new, kwargs):
         # Set to "None" if door/window closes. Otherwise, run function.
         if new == 'off':
-            self.open = None
+            self.open = None # Need to do this for each door/window sensor
         else:
             self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
 
@@ -66,6 +66,7 @@ class Notify(hass.Hass):
 
     def ListOfOpen(self):
         count = 0
+        door_window_list = ''
         for entity in self.sensor_ids:
             if self.IsOpen(entity):
                 door_window_list += entity

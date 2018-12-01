@@ -16,6 +16,8 @@ class PlantProblem(hass.Hass):
 
         self.starttime = datetime.datetime.now()
 
+        self.time_last = ''
+
         # List of conductivity, moisture, and temperature entity_ids
         self.plant_conductivity_ids = [
             'sensor.plant_sensor_1_conductivity',
@@ -138,13 +140,16 @@ class PlantProblem(hass.Hass):
     # Send notification only if it has been > 3h since last notification. Only send to me if I'm home. Otherwise send to Kristina is she's home.
     def sendNotification(self, message, **kwargs):
         timestamp = datetime.datetime.now()
-        time_delta = time_last - datetime.datetime.now()
-        if time_delta > 10800: # 3 hours = 10800 seconds
+        if self.time_last == '':
+            time_delta = 3:00:00.000001
+        else:
+            time_delta = self.time_last - datetime.datetime.now()
+        if time_delta > 3:00:00.000000: # 3 hours = 10800 seconds
             if self.get_state("device_tracker.meta_walden") == 'home':
                 self.call_service("notify/home_aephir_bot", message = message, title = "Attention! Your plants are in distress!")
             elif self.get_state("device_tracker.meta_kristina") == 'home':
                 self.call_service("notify/ios_kristinas_iphone", message = message, title = "Attention! Your plants are in distress!")
-            time_last = datetime.datetime.now()
+            self.time_last = datetime.datetime.now()
 
     # If any one of us arrives home, we will run each function, so we can be notified as we arrive.
     def iAmHome(self, entity, attribute, old, new, kwargs):

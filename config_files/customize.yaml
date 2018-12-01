@@ -152,6 +152,8 @@ binary_sensor.motion_sensor_158d000200d285:
 binary_sensor.motion_sensor_158d000200d203:
   friendly_name: Basement Entrance Motion
 binary_sensor.motion_sensor_158d000200e0c5:
+  friendly_name: Top Floor Stairs Motion
+binary_sensor.motion_sensor_158d000210ca6e:
   friendly_name: Bathroom Motion
 binary_sensor.motion_sensor_158d000236a116:
   friendly_name: TV Room Motion
@@ -171,6 +173,8 @@ sensor.illumination_158d000200d203:
   friendly_name: Basement Entrance Motion Illumination
 #  state_card_mode: single-line
 sensor.illumination_158d000200e0c5:
+  friendly_name: Top Floor Stairs Motion Illumination
+sensor.illumination_158d000210ca6e:
   friendly_name: Bathroom Motion Illumination
 sensor.illumination_158d000236a116:
   friendly_name: TV Room Motion Illumination
@@ -198,6 +202,9 @@ sensor.pressure_158d0002437897:
   friendly_name: Washing Room Pressure
 binary_sensor.door_window_sensor_158d0002286a78:
   friendly_name: Bathroom Window
+  device_class: window
+binary_sensor.door_window_sensor_158d000237c924:
+  friendly_name: Bedroom Window 1
   device_class: window
 binary_sensor.door_window_sensor_158d000234dc7b:
   friendly_name: Conservatory Door

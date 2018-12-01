@@ -19,7 +19,7 @@ appdaemon:
     HASS:
       type: hass
       ha_url: "http://192.168.0.100:8123"
-      ha_key: !secret api_password
+      token: !secret long_lived_access_token_AppDaemon_1
       # token: !secret long_lived_access_token_AppDaemon_1
       namespace: default
     # MQTT:

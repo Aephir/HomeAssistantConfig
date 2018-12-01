@@ -46,6 +46,8 @@ class ApplianceStatus(hass.Hass):
             # Converts time to minutes.
             minutes = round(timediff.seconds/60)
 
+            self.log(minutes, timediff) # for troubleshooting
+
             # As long as no more than "end_after" seconds has elapsed, continue:
             if timediff.seconds < self.args["end_after"]:
 

@@ -186,7 +186,7 @@
     - platform: state
       from: 'Work Kristina'
       to: 'not_home'
-      entity_id: device_tracker.kristinabrody
+      entity_id: device_tracker.meta_kristina
   action:
     service: notify.home_aephir_bot
     data:
@@ -197,7 +197,7 @@
     - platform: state
       from: 'home'
       to: 'not_home'
-      entity_id: device_tracker.kristinabrody
+      entity_id: device_tracker.meta_kristina
   action:
     service: notify.home_aephir_bot
     data:
@@ -208,7 +208,7 @@
     - platform: state
       from: 'not_home'
       to: 'home'
-      entity_id: device_tracker.kristinabrody
+      entity_id: device_tracker.meta_kristina
   action:
     service: notify.telegram
     data:
@@ -219,7 +219,7 @@
     - platform: state
       from: 'home'
       to: 'not_home'
-      entity_id: device_tracker.kristinabrody
+      entity_id: device_tracker.meta_kristina
   action:
     service: notify.ios_kristinas_iphone
     data:
@@ -311,7 +311,7 @@
 - alias: "aephir_home_360" # Turns on the "aephirhome360" input_boolean if Aephir arrives home
   trigger:
     - platform: state
-      entity_id: device_tracker.walden_bjrn_yoshimoto
+      entity_id: device_tracker.meta_walden
       from: 'not_home'
       to: 'home'
 #  condition:
@@ -339,7 +339,7 @@
 - alias: "aephir_not_home_360" # Turns off the "aephirhome360" input_boolean if Aephir leaves home
   trigger:
     - platform: state
-      entity_id: device_tracker.walden_bjrn_yoshimoto
+      entity_id: device_tracker.meta_walden
       from: 'home'
       to: 'not_home'
 #  condition:
@@ -367,7 +367,7 @@
 - alias: "kristina_home_360" # Turns on the "kristinahome360" input_boolean if Kristina arrives home
   trigger:
     - platform: state
-      entity_id: device_tracker.kristinabrody
+      entity_id: device_tracker.meta_kristina
       from: 'not_home'
       to: 'home'
   action:
@@ -377,7 +377,7 @@
 - alias: "kristina_not_home_360" # Turns off the "kristinahome360" input_boolean if Kristina leaves home
   trigger:
     - platform: state
-      entity_id: device_tracker.kristinabrody
+      entity_id: device_tracker.meta_kristina
       from: 'home'
       to: 'not_home'
   action:
@@ -387,7 +387,7 @@
 - alias: "emilie_home_360" # Turns on the "emiliehome360" input_boolean if Emilie arrives home
   trigger:
     - platform: state
-      entity_id: device_tracker.emilie
+      entity_id: device_tracker.meta_emilie
       from: 'not_home'
       to: 'home'
   action:
@@ -397,7 +397,7 @@
 - alias: "emilie_not_home_360" # Turns off the "emiliehome360" input_boolean if Emilie leaves home
   trigger:
     - platform: state
-      entity_id: device_tracker.emilie
+      entity_id: device_tracker.meta_emilie
       from: 'home'
       to: 'not_home'
   action:
@@ -522,23 +522,6 @@
 #    entity_id: input_boolean.someonehome360
 
 
-- alias: test_telegram_actionable
-  trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.guest_mode
-      to: 'on'
-      for:
-        seconds: 5
-        # minutes: 20
-  action:
-    service: notify.home_aephir_bot
-    data_template:
-      message: "Karen left."
-      data:
-          inline_keyboard:
-          - 'Turn off guest mode:/guest_mode_off, No action:/removekeyboard'
-
 - alias: Karen iphone guest mode
   trigger:
     - platform: state
@@ -558,10 +541,10 @@
       for:
         minutes: 20
   action:
-    service: notify.home_aephir_bot
-    data_template:
-      message: "Karen left."
-      data:
+    - service: notify.home_aephir_bot
+      data_template:
+        message: "Karen left."
+        data:
           inline_keyboard:
           - 'Turn off guest mode:/guest_mode_off, No action:/removekeyboard'
   # action:
@@ -1490,7 +1473,7 @@
     - service: homeassistant.turn_off
       entity_id: light.entrance_lights
 
-- alias: kwgt wine wine_cellar lights on
+- alias: kwgt wine wine cellar lights on
   trigger:
     platform: webhook
     webhook_id: kwgt_wine_cellar_lights_on
@@ -1498,7 +1481,7 @@
     - service: homeassistant.turn_on
       entity_id: light.wine_cellar_lights
 
-- alias: kwgt entrance lights off
+- alias: kwgt wine wine cellar lights off
   trigger:
     platform: webhook
     webhook_id: kwgt_wine_cellar_lights_off

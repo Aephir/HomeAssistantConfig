@@ -26,8 +26,8 @@
 #    Owntracks    #
 ###################
 
-  - platform: owntracks
-    max_gps_accuracy: 50
+  # - platform: owntracks
+  #   max_gps_accuracy: 50
 
 ##############
 #    Ping    #

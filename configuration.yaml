@@ -29,8 +29,6 @@ homeassistant:
 http:
   # server_port: 8321
   api_password: !secret api_password
-  trusted_networks:
-    - 127.0.0.1
   # ssl_certificate: !secret my_ssl_certificate
   # ssl_key: !secret my_ssl_key
   base_url: !secret secret_base_url
@@ -116,11 +114,13 @@ media_player: !include_dir_merge_list config_files/media_player/
 mqtt: !include config_files/mqtt.yaml
 #mysensors: !include config_files/mysensors.yaml
 notify: !include config_files/notify.yaml
+owntracks: !include config_files/owntracks.yaml
 # packages: !include config_files/packages.yaml
 panel_custom: !include config_files/panel_custom.yaml
 panel_iframe: !include config_files/panel_iframe.yaml
 plant: !include config_files/plant.yaml
 recorder: !include config_files/recorder.yaml
+remote: !include config_files/remote.yaml
 scene: !include_dir_merge_list config_files/scene/
 script: !include_dir_merge_named config_files/script/
 sensor: !include_dir_merge_list config_files/sensor/

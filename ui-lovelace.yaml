@@ -28,6 +28,7 @@ resources:
   - url: /local/entity-attributes-card.js?v=0.1.1
     type: js
 
+
 views:
   #   # View tab title.
   # - title: About us
@@ -149,6 +150,64 @@ views:
       #   title: Dining Room Lights
       #   entities:
       #     - light.living_room_lightstrip
+
+      - type: horizontal-stack
+        cards:
+            - type: "custom:button-card"
+              color_type: blank-card
+            - type: "custom:button-card"
+              # color_type: card
+              color: auto
+              default_color: rgb(58, 106, 183)
+              icon: mdi:power
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_power'
+            - type: "custom:button-card"
+              # color_type: card
+              color: rgb(58, 106, 183)
+              icon: mdi:fan-off
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_decrease'
+            - type: "custom:button-card"
+              # color_type: card
+              color: rgb(58, 106, 183)
+              icon: mdi:fan
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_increase'
+            - type: "custom:button-card"
+              # color_type: card
+              color: auto
+              default_color: rgb(58, 106, 183)
+              icon: mdi:lightbulb-on
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_lights'
+            - type: "custom:button-card"
+              color_type: blank-card
+
       - type: entities
         title: Basement Lights
         entities:
@@ -156,7 +215,8 @@ views:
             type: custom:slider-entity-row
           - entity: light.basement_hallway
             type: custom:slider-entity-row
-          - entity: light.wine_cellar
+          - entity: light.hue_lightstrip_plus_1
+            name: Wine cellar
             type: custom:slider-entity-row
           - entity: light.tv_room
             type: custom:slider-entity-row
@@ -205,49 +265,7 @@ views:
     icon: mdi:information-variant
     id: information
     cards:
-      - type: glance
-        title: Door/Window Sensors
-        entities:
-          - binary_sensor.neo_coolcam_doorwindow_detector_sensor
-          - binary_sensor.door_window_sensor_158d000234dc7b
-          - binary_sensor.door_window_sensor_158d00022d0917
-          - binary_sensor.door_window_sensor_158d00022b3b66
-          - binary_sensor.door_window_sensor_158d0002286a78
-      - type: glance
-        title: Motion Sensors
-        column_width: calc(100% / 3)
-        entities:
-          - binary_sensor.motion_sensor_158d000200d203
-          - binary_sensor.motion_sensor_158d000200d285
-          - binary_sensor.motion_sensor_158d000200e0c5
-          - binary_sensor.motion_sensor_158d000236a116
-          - binary_sensor.motion_sensor_158d00023e3742
-          - binary_sensor.motion_sensor_158d000236a22f
-          - binary_sensor.motion_sensor_158d000236a0d0
-          - binary_sensor.motion_sensor_158d000236a0f3
-          - binary_sensor.motion_sensor_158d0001e0a8e1
-      - type: glance
-        title: Illumination Levels
-        column_width: calc(100% / 3)
-        entities:
-          - sensor.illumination_158d000200d285
-          - sensor.illumination_158d000200d203
-          - sensor.illumination_158d000200e0c5
-          - sensor.illumination_7811dcb8d944
-          - sensor.illumination_158d000236a116
-          - sensor.illumination_158d00023e3742
-          - sensor.illumination_158d000236a22f
-          - sensor.illumination_158d000236a0d0
-          - sensor.illumination_158d000236a0f3
-          - sensor.illumination_158d0001e0a8e1
-      - type: glance
-        title: Alarm Status
-        column_width: calc(100% / 2)
-        entities:
-          - alarm_control_panel.house
-          - entity: binary_sensor.someonehome360
-            name: Occupancy
-            text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
+
       - type: glance
         title: Family
         columns: 4
@@ -268,8 +286,56 @@ views:
             name: Emilie's Battery
           - entity: sensor.niels_brodys_ipad_2_battery_level
             name: Naia's Battery
+
+      - type: glance
+        title: Door/Window Sensors
+        columns: 4
+        entities:
+          - binary_sensor.neo_coolcam_doorwindow_detector_sensor
+          - binary_sensor.door_window_sensor_158d000234dc7b
+          - binary_sensor.door_window_sensor_158d00022d0917
+          - binary_sensor.door_window_sensor_158d00022b3b66
+          - binary_sensor.door_window_sensor_158d0002286a78
+          - binary_sensor.door_window_sensor_158d000237c924
+      - type: glance
+        title: Motion Sensors
+        columns: 3
+        entities:
+          - binary_sensor.motion_sensor_158d000200d203
+          - binary_sensor.motion_sensor_158d000200d285
+          - binary_sensor.motion_sensor_158d000200e0c5
+          - binary_sensor.motion_sensor_158d000236a116
+          - binary_sensor.motion_sensor_158d00023e3742
+          - binary_sensor.motion_sensor_158d000236a22f
+          - binary_sensor.motion_sensor_158d000236a0d0
+          - binary_sensor.motion_sensor_158d000236a0f3
+          - binary_sensor.motion_sensor_158d0001e0a8e1
+      - type: glance
+        title: Illumination Levels
+        columns: 3
+        entities:
+          - sensor.illumination_158d000200d285
+          - sensor.illumination_158d000200d203
+          - sensor.illumination_158d000200e0c5
+          - sensor.illumination_7811dcb8d944
+          - sensor.illumination_158d000236a116
+          - sensor.illumination_158d00023e3742
+          - sensor.illumination_158d000236a22f
+          - sensor.illumination_158d000236a0d0
+          - sensor.illumination_158d000236a0f3
+          - sensor.illumination_158d0001e0a8e1
+      - type: glance
+        title: Alarm Status
+        columns: 2
+        entities:
+          - alarm_control_panel.house
+          - entity: binary_sensor.someonehome360
+            name: Occupancy
+            text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
+
       - type: glance
         title: Sensor Battery Levels
+        columns: 4
         entities:
           - entity: sensor.x_door_1_bat
             name: Conservatory
@@ -282,7 +348,7 @@ views:
           - entity: sensor.x_motion_2_bat
             name: Conservatory Motion
           - entity: sensor.x_motion_3_bat
-            name: Bathroom Motion
+            name: Top Floor Stairway Motion
           - entity: sensor.x_motion_4_bat
             name: Upstais Bathroom Motion
           - entity: sensor.x_motion_5_bat
@@ -293,6 +359,8 @@ views:
             name: Basement TV Room Motion
           - entity: sensor.x_motion_8_bat
             name: Kitchen Motion
+          - entity: sensor.x_motion_9_bat
+            name: Bathroom Motion
           - entity: sensor.x_temphum_1_bat
             name: Bathroom Temp/Hum
           - entity: sensor.x_temphum_2_bat
@@ -301,6 +369,8 @@ views:
             name: Washing Room Temp/Hum
           - entity: sensor.x_temphum_4_bat
             name: Shed Temp/Hum
+          - entity: sensor.x_temphum_5_bat
+            name: Kitchen Temp/Hum
           - entity: sensor.x_smoke_1_bat
             name: Smoke Sensor
       - type: glance
@@ -320,7 +390,7 @@ views:
             name: WeMo 6 Power
       - type: glance
         title: Bathroom
-        column_width: calc(100% / 3)
+        columns: 3
         entities:
           - entity: sensor.temperature_158d00022c66ff
             name: Temperature
@@ -330,8 +400,18 @@ views:
             name: Pressure
             # value_template: '{{ value.sensor.pressure_158d00022c66ff | round(1) }}'
       - type: glance
+        title: Kitchen
+        columns: 3
+        entities:
+          - entity: sensor.temperature_158d00027727eb
+            name: Temperature
+          - entity: sensor.humidity_158d00027727eb
+            name: Humidity
+          - entity: sensor.pressure_158d00027727eb
+            name: Pressure
+      - type: glance
         title: Wine Cellar
-        column_width: calc(100% / 3)
+        columns: 3
         entities:
           - entity: sensor.temperature_158d000245b4a2
             name: Temperature
@@ -341,7 +421,7 @@ views:
             name: Pressure
       - type: glance
         title: Washing Room
-        column_width: calc(100% / 3)
+        columns: 3
         entities:
           - entity: sensor.temperature_158d0002437897
             name: Temperature
@@ -351,7 +431,7 @@ views:
             name: Pressure
       - type: glance
         title: Shed
-        column_width: calc(100% / 3)
+        columns: 3
         entities:
           - entity: sensor.temperature_158d000243778b
             name: Temperature

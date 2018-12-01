@@ -1,0 +1,26 @@
+#################
+#               #
+#    Remotes    #
+#               #
+#################
+
+- platform: xiaomi_miio
+  name: kitchen remote
+  host: 192.168.0.123
+  token: !secret xiaomi_miio_ir_remote_token
+  slot: 1
+  timeout: 30
+  # hidden: True
+  commands:
+    fume_hood_power:
+      command:
+        - raw:tllsNyt1am1WpFBoc0odBoNDtFCs9BoMys4AhUq51Kg0Gg1Kk3eg0GyUuogFEAB4AHgAeAAkwooBL0Kg0GigBkAOVRALMABgCzqIC5VGi0GhVGlUGgz0
+    fume_hood_increase:
+      command:
+        - raw:tllsNyt1am1WplBolBodBoNDslCs9BoN3qIAhUqz1Kg0Gg2ak3eg0GyUuo0Gg0epTOggDEAB4AHgAdMKKAS9CoNBooAZADlUQC0AVUAtQEyotBoVRpVHoNroNBns9A==
+    fume_hood_decrease:
+      command:
+        - raw:tllsNyt1am1WplBolJodBoNDq9Cs9BoN1u4AhUmi1Kg0GgzOk3eg0GyUuo0Gg0epTOggDEAB4AHgAdMKKAS9CoNBooAZADkCKdRAPMAcwHyALMAcqFUaVR6Da6DQZ7PQ
+    fume_hood_lights:
+      command:
+        - raw:tllsNyt1am1WplBolNodBoNDqlCs9BoN2qIAhUmg1Kg0GgzKk3eg0GyUuo0Gg0epTOggDEAB4AHgAdMKKAS9CoNBooAZADlUQCzAHSggFoAOlFoNCqNKo9BtdBoM9no=

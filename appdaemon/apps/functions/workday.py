@@ -7,7 +7,7 @@ import datetime
     def workday(self):
         weekday = ''
         vacation = ''
-        if datetime.date.weekday(today) != 5 and datetime.date.weekday(today) != 6:
+        if datetime.date.weekday(today) < 5:
             weekday = "on"
         else:
             weekday = "off"

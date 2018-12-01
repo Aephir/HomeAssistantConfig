@@ -9,7 +9,7 @@ class MotionClass(hass.Hass):
 
     def initialize(self):
         # Motion detected = lights on; motion stops = lights off.
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000200e0c5") # Bathroom #1 sensor
+        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000210ca6e") # Bathroom #1 sensor
         self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000236a22f") # Bathroom #2 sensor
         # Illumination drops while motion sensor is "on" = light on.
         self.listen_state(self.switchonoff,"sensor.illumination_158d000236a22f")
@@ -34,7 +34,7 @@ class MotionClass(hass.Hass):
     # (if day and light levels are low, or turn on dim/red if night and we are not awake).
     def switchonoff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5")
+        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6e")
         sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000236a22f")
         illumination_2 = self.getIntegerState("sensor.illumination_158d000236a22f")
 
@@ -58,13 +58,3 @@ class MotionClass(hass.Hass):
 
         else:
             self.turn_off("light.bathroom")
-
-# # Get states of motion sensors
-# entrance_motion_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742")
-# basement_entrance_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200d203")
-# basement_stairway_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3")
-# tv_room_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a116")
-# conservatory_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200d285")
-# bathroom_1_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5")
-# bathroom_2_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a22f")
-# bathroom_upstairs_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a0d0")

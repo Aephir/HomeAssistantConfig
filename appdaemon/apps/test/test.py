@@ -11,10 +11,16 @@ class Test(hass.Hass):
         self.listen_state(self.testFunction, "input_boolean.guest_mode")
 
     def testFunction(self, entity, attribute, old, new, kwargs):
-        self.log("test log entry")
-        # entityIds = self.app_config["all_sensors"]["motionSensors"]
-        entityIds = self.global_vars["all_sensors"]["motionSensors"]
-        for entity in entityIds:
-            self.log(entity)
+        self.log("test log entry 1")
+        self.log(self.app_config['global_sensors']['motionSensors'])
+        time_app = self.get_app("time_functions")
+        workday = time_app.workday
+        self.log(workday)
+
+
+
+# someapp = self.get_app("SomeApp")
+# some_apps_args = someapp.args
 
 # self.app_config[all_sensors.py]['motionSensors']
+# self.app_config[you main app]['sensors']

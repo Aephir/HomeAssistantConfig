@@ -1,13 +1,9 @@
 # Meta trackers combine data from multiple device_trackers.
 # I re-wrote this to work in AppDaemon from https://github.com/arsaboo/homeassistant-config/blob/master/python_scripts/meta_device_tracker.py
-
-# Combine multiple device trackers into one entity
-# You can call the script using the following:
-# - service: python_script.meta_device_tracker
-#   data_template:
-#     entity_id: '{{trigger.entity_id}}'
-
-
+# Notable changes:
+# Router based location can only set to "home", not to "not_home", since a dead battery, or switching off wifi would make you "not_home".
+# Added a few things to show [moving, driving, wifi_on, last_seen]
+# Added support for using both life360 and google maps location (they have different names for the same thing, e.g. "battery" vs "battery_level")
 
 import appdaemon.plugins.hass.hassapi as hass
 
@@ -87,7 +83,7 @@ class MetaTracker(hass.Hass):
         wifi_on = ''
         last_seen = ''
 
-        # Uncomment first time you run this to create meta device trackers in home assistant.
+        # # Uncomment first time you run this to create meta device trackers in home assistant.
         # self.set_state('device_tracker.meta_walden', state='home')
         # self.set_state('device_tracker.meta_kristina', state='home')
         # self.set_state('device_tracker.meta_emilie', state='home')
@@ -124,7 +120,7 @@ class MetaTracker(hass.Hass):
         newFriendlyName_temp = self.get_state(triggeredEntity, attribute = 'friendly_name')
 
         # If router and "home", set to home no matter what. Disregard router state "not_home".
-        if newSource == 'router' and newState != 'home':
+        if newSource == 'router' and new != 'home':
             newState = None
 
         # If GPS source, set new coordinates.
