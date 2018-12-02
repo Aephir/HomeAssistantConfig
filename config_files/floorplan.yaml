@@ -136,12 +136,14 @@
 
         - name: motion_sensors
           entities:
-            - binary_sensor.motion_sensor_158d000200d203
-            - binary_sensor.motion_sensor_158d000200d285
-            - binary_sensor.motion_sensor_158d000236a116
-            - binary_sensor.motion_sensor_158d00023e3742
-            - binary_sensor.motion_sensor_158d000236a0f3
-            - binary_sensor.motion_sensor_158d000236a0d0
+            - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
+            - binary_sensor.motion_sensor_158d000200d285 # Conservatory motion
+            - binary_sensor.motion_sensor_158d000236a116 # TV room motion
+            - binary_sensor.motion_sensor_158d00023e3742 # Entrance motion
+            - binary_sensor.motion_sensor_158d000236a0f3 # Basement stairway motion
+            - binary_sensor.motion_sensor_158d000236a0d0 # Upstairs bathroom motion
+            - binary_sensor.motion_sensor_158d000200e0c5 # Top floor stairway motion
+            - binary_sensor.motion_sensor_158d0001e0a8e1 # Kitchen motion
           states:
             - state: 'on'
               class: 'motion-on'
@@ -431,7 +433,7 @@
 
         - name: light groups
           entities:
-             - light.wine_cellar
+             - light.hue_lightstrip_plus_1
              - light.bathroom
           states:
             - state: 'on'
@@ -448,6 +450,7 @@
             - input_boolean.light_tv_room
             # - input_boolean.light_walkin_closet
             - input_boolean.light_wine_cellar
+            # - light.hue_lightstrip_plus_1
             - input_boolean.light_conservatory_couch
             - input_boolean.light_kitchen_spots
             - input_boolean.light_bathroom
@@ -623,6 +626,7 @@
         - name: guest_mode
           entities:
              - input_boolean.guest_mode
+             - input_boolean.vacation_mode
           action:
 #            domain: input_boolean
             service: toggle
@@ -634,13 +638,6 @@
               class: 'generic-button-on'
             - state: 'off'
               class: 'generic-button-off'
-
-        - name: good_night
-          entities:
-             - script.good_night
-          action:
-            domain: script
-            service: scene_night_lights
 
         - name: text_font_time
           entities:
@@ -667,12 +664,14 @@
             domain: media_player
             service: media_play_pause
 
-        - name: Door Sensors
+        - name: Door and Window Sensors
           entities:
-             - binary_sensor.neo_coolcam_doorwindow_detector_sensor
-             - binary_sensor.door_window_sensor_158d000234dc7b
-             - binary_sensor.door_window_sensor_158d00022b3b66
-             - binary_sensor.door_window_sensor_158d00022d0917
+            - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
+            - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory Door
+            - binary_sensor.door_window_sensor_158d00022d0917 # Front Door
+            - binary_sensor.door_window_sensor_158d00022b3b66 # Basement Door
+            - binary_sensor.door_window_sensor_158d0002286a78 # Bathroom Window
+            - binary_sensor.door_window_sensor_158d000237c924 # Bedroom Window
           states:
             - state: 'on'
               class: 'door-open'
@@ -767,13 +766,13 @@
 #              to_state: 'off'
 #              duration: 10
 
-        - name: Cameras
-          entities:
-            # - camera.front_door
-            - camera.wyze_camera_1
-          states:
-            - state: 'idle'
-              class: 'camera-idle'
+        # - name: Cameras
+        #   entities:
+        #     # - camera.front_door
+        #     - camera.wyze_camera_1
+        #   states:
+        #     - state: 'idle'
+        #       class: 'camera-idle'
 
         # - name: Camera Images
         #   entities:

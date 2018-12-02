@@ -79,9 +79,18 @@
 - platform: command_line
   switches:
     kettle:
-       command_on: echo -e "HELLOKETTLE\nset sys output 0x4\nset sys output 0x80\n" | nc  192.168.0.20 2000
-       command_off: echo -e "HELLOKETTLE\nset sys output 0x4\nset sys output 0x0\n" | nc  192.168.0.20 2000
-       friendly_name: iKettle
+      command_on: "bash /home/aephir/docker/homeassistant/shell_scripts/ikettleon.sh"
+      command_off: "bash /home/aephir/docker/homeassistant/shell_scripts/ikettleoff.sh"
+      # command_on: echo -e "HELLOKETTLE\nset sys output 0x4\nset sys output 0x80\n" | nc  192.168.0.20 2000
+      # command_off: echo -e "HELLOKETTLE\nset sys output 0x4\nset sys output 0x0\n" | nc  192.168.0.20 2000
+      # command_state:
+      friendly_name: iKettle
+
+# - platform: mqtt
+#   name: ikettle
+#   command_topic: "kitchen/kettle"
+#   state_on: "on"
+#   state_off: "off"
 
 ################
 #    Docker    #
@@ -90,13 +99,13 @@
 # component for HA Dockermon switch
 # https://github.com/HalfDecent/HA-Custom_components/tree/master/hadockermon
 
-- platform: hadockermon
-  host: 192.168.0.100
-  port: 8126
-  stats: true
-  # exclude:
-  #   - NGINX
-  #   - ha-dockermon
+# - platform: hadockermon
+#   host: 192.168.0.100
+#   port: 8126
+#   stats: true
+#   # exclude:
+#   #   - NGINX
+#   #   - ha-dockermon
 
 
 # - platform: rest

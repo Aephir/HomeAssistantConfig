@@ -55,6 +55,23 @@
       data:
         code: !secret alarm_code
 
+####################
+#    Appliances    #
+####################
+
+#############
+#__iKellte__#
+
+  kettle_on:
+    alias: iKettle On
+    sequence:
+      - service: shell_command.ikettleon
+
+  kettle_off:
+    alias: iKettle On
+    sequence:
+      - service: shell_command.ikettleoff1
+
 ####
 #    General
 

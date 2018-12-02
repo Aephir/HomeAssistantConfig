@@ -10,8 +10,8 @@
 
 ikettle100: bash /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x80"
 ikettle95: bash /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x02"
-ikettle80: /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x4000"
-ikettle65: /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x200"
+ikettle80: bash /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x4000"
+ikettle65: bash /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x200"
 #ikettleoff: /home/aephir/docker/homeassistant/shell_scripts/ikettlecontrol.sh "0x0"
 ikettleoff1: /home/aephir/docker/homeassistant/shell_scripts/ikettleoff1.sh
 ikettleon: /home/aephir/docker/homeassistant/shell_scripts/ikettleon.sh

@@ -70,6 +70,7 @@ views:
       #     - 'on'
       - type: entities
         title: Main Floor Lights
+        id: main_floor_lights
         entities:
 
           - type: custom:fold-entity-row
@@ -151,62 +152,73 @@ views:
       #   entities:
       #     - light.living_room_lightstrip
 
-      - type: horizontal-stack
+      - type: vertical-stack
+        id: fume_hood_controls
         cards:
-            - type: "custom:button-card"
-              color_type: blank-card
-            - type: "custom:button-card"
-              # color_type: card
-              color: auto
-              default_color: rgb(58, 106, 183)
-              icon: mdi:power
-              action: service
-              service:
-                domain: remote
-                action: send_command
-                entity_id: remote.kitchen_remote
-                data:
-                  command:
-                    - 'fume_hood_power'
-            - type: "custom:button-card"
-              # color_type: card
-              color: rgb(58, 106, 183)
-              icon: mdi:fan-off
-              action: service
-              service:
-                domain: remote
-                action: send_command
-                entity_id: remote.kitchen_remote
-                data:
-                  command:
-                    - 'fume_hood_decrease'
-            - type: "custom:button-card"
-              # color_type: card
-              color: rgb(58, 106, 183)
-              icon: mdi:fan
-              action: service
-              service:
-                domain: remote
-                action: send_command
-                entity_id: remote.kitchen_remote
-                data:
-                  command:
-                    - 'fume_hood_increase'
-            - type: "custom:button-card"
-              # color_type: card
-              color: auto
-              default_color: rgb(58, 106, 183)
-              icon: mdi:lightbulb-on
-              action: service
-              service:
-                domain: remote
-                action: send_command
-                entity_id: remote.kitchen_remote
-                data:
-                  command:
-                    - 'fume_hood_lights'
-            - type: "custom:button-card"
-              color_type: blank-card
+          - type: "custom:button-card"
+            color_type: label-card
+            color: rgb(58, 106, 183)
+            name: Fume Hood Controls
+          - type: horizontal-stack
+            cards:
+                # - type: "custom:button-card"
+                #   color_type: blank-card
+                - type: "custom:button-card"
+                  size: 25px
+                  # color_type: card
+                  color: auto
+                  default_color: rgb(58, 106, 183)
+                  icon: mdi:power
+                  action: service
+                  service:
+                    domain: remote
+                    action: send_command
+                    entity_id: remote.kitchen_remote
+                    data:
+                      command:
+                        - 'fume_hood_power'
+                - type: "custom:button-card"
+                  # color_type: card
+                  size: 25px
+                  color: rgb(58, 106, 183)
+                  icon: mdi:fan-off
+                  action: service
+                  service:
+                    domain: remote
+                    action: send_command
+                    entity_id: remote.kitchen_remote
+                    data:
+                      command:
+                        - 'fume_hood_decrease'
+                - type: "custom:button-card"
+                  # color_type: card
+                  size: 25px
+                  color: rgb(58, 106, 183)
+                  icon: mdi:fan
+                  action: service
+                  service:
+                    domain: remote
+                    action: send_command
+                    entity_id: remote.kitchen_remote
+                    data:
+                      command:
+                        - 'fume_hood_increase'
+                - type: "custom:button-card"
+                  # color_type: card
+                  size: 25px
+                  color: auto
+                  default_color: rgb(58, 106, 183)
+                  icon: mdi:lightbulb-on
+                  action: service
+                  service:
+                    domain: remote
+                    action: send_command
+                    entity_id: remote.kitchen_remote
+                    data:
+                      command:
+                        - 'fume_hood_lights'
+                # - type: "custom:button-card"
+                #   color_type: blank-card
 
       - type: entities
         title: Basement Lights
@@ -244,268 +256,27 @@ views:
             users:
               - Aephir
               - Kristina
-      - type: picture-entity
-        title: Fountain
-        # show_header_toggle: false
-        image: /local/images/fountain_1.jpg
-        # entities:
-        entity: switch.fountain
-        tap_action: toggle
+      # - type: picture-entity
+      #   title: Fountain
+      #   # show_header_toggle: false
+      #   image: /local/images/fountain_1.jpg
+      #   # entities:
+      #   entity: switch.fountain
+      #   tap_action: toggle
 
       - type: entities
-        title: Shed
+        title: Outdoor
+        id: outdoor_entities
         show_header_toggle: false
         entities:
           - entity: switch.shed_power
             type: custom:toggle-lock-entity-row
             users:
               - Aephir
+          - entity: switch.fountain
+            icon: mdi:fountain
 
-  - title: Information
-    icon: mdi:information-variant
-    id: information
-    cards:
-
-      - type: glance
-        title: Family
-        columns: 4
-        entities:
-          - entity: device_tracker.meta_walden
-            name: Walden
-          - entity: device_tracker.meta_kristina
-            name: Kristina
-          - entity: device_tracker.meta_emilie
-            name: Emilie
-          - entity: device_tracker.meta_naia
-            name: Naia
-          - entity: sensor.walden_phone_battery
-            name: Walden's Battery
-          - entity: sensor.kristina_phone_battery
-            name: Kristina's Battery
-          - entity: sensor.emilie_phone_battery
-            name: Emilie's Battery
-          - entity: sensor.niels_brodys_ipad_2_battery_level
-            name: Naia's Battery
-
-      - type: glance
-        title: Door/Window Sensors
-        columns: 4
-        entities:
-          - binary_sensor.neo_coolcam_doorwindow_detector_sensor
-          - binary_sensor.door_window_sensor_158d000234dc7b
-          - binary_sensor.door_window_sensor_158d00022d0917
-          - binary_sensor.door_window_sensor_158d00022b3b66
-          - binary_sensor.door_window_sensor_158d0002286a78
-          - binary_sensor.door_window_sensor_158d000237c924
-      - type: glance
-        title: Motion Sensors
-        columns: 3
-        entities:
-          - binary_sensor.motion_sensor_158d000200d203
-          - binary_sensor.motion_sensor_158d000200d285
-          - binary_sensor.motion_sensor_158d000200e0c5
-          - binary_sensor.motion_sensor_158d000236a116
-          - binary_sensor.motion_sensor_158d00023e3742
-          - binary_sensor.motion_sensor_158d000236a22f
-          - binary_sensor.motion_sensor_158d000236a0d0
-          - binary_sensor.motion_sensor_158d000236a0f3
-          - binary_sensor.motion_sensor_158d0001e0a8e1
-      - type: glance
-        title: Illumination Levels
-        columns: 3
-        entities:
-          - sensor.illumination_158d000200d285
-          - sensor.illumination_158d000200d203
-          - sensor.illumination_158d000200e0c5
-          - sensor.illumination_7811dcb8d944
-          - sensor.illumination_158d000236a116
-          - sensor.illumination_158d00023e3742
-          - sensor.illumination_158d000236a22f
-          - sensor.illumination_158d000236a0d0
-          - sensor.illumination_158d000236a0f3
-          - sensor.illumination_158d0001e0a8e1
-      - type: glance
-        title: Alarm Status
-        columns: 2
-        entities:
-          - alarm_control_panel.house
-          - entity: binary_sensor.someonehome360
-            name: Occupancy
-            text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
-
-      - type: glance
-        title: Sensor Battery Levels
-        columns: 4
-        entities:
-          - entity: sensor.x_door_1_bat
-            name: Conservatory
-          - entity: sensor.x_door_2_bat
-            name: Shed
-          - entity: sensor.x_door_3_bat
-            name: Front Door
-          - entity: sensor.x_motion_1_bat
-            name: Basement Entrance Motion
-          - entity: sensor.x_motion_2_bat
-            name: Conservatory Motion
-          - entity: sensor.x_motion_3_bat
-            name: Top Floor Stairway Motion
-          - entity: sensor.x_motion_4_bat
-            name: Upstais Bathroom Motion
-          - entity: sensor.x_motion_5_bat
-            name: Basement Stairway Motion
-          - entity: sensor.x_motion_6_bat
-            name: Basement Bathroom 2 Motion
-          - entity: sensor.x_motion_7_bat
-            name: Basement TV Room Motion
-          - entity: sensor.x_motion_8_bat
-            name: Kitchen Motion
-          - entity: sensor.x_motion_9_bat
-            name: Bathroom Motion
-          - entity: sensor.x_temphum_1_bat
-            name: Bathroom Temp/Hum
-          - entity: sensor.x_temphum_2_bat
-            name: Wine Cellar Temp/Hum
-          - entity: sensor.x_temphum_3_bat
-            name: Washing Room Temp/Hum
-          - entity: sensor.x_temphum_4_bat
-            name: Shed Temp/Hum
-          - entity: sensor.x_temphum_5_bat
-            name: Kitchen Temp/Hum
-          - entity: sensor.x_smoke_1_bat
-            name: Smoke Sensor
-      - type: glance
-        title: Power Consumption
-        entities:
-          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
-            name: Fibaro Power
-          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2
-            name: Fibaro2 Power
-          - entity: sensor.neo_coolcam_power_plug_12a_power
-            name: Espresso Power
-          - entity: sensor.neo_coolcam_power_plug_12a_previous_reading_2
-            name: Neo-previous Power
-          - entity: sensor.sensor_desktop
-            name: WeMo 11 Power
-          - entity: sensor.sensor_espresso
-            name: WeMo 6 Power
-      - type: glance
-        title: Bathroom
-        columns: 3
-        entities:
-          - entity: sensor.temperature_158d00022c66ff
-            name: Temperature
-          - entity: sensor.humidity_158d00022c66ff
-            name: Humidity
-          - entity: sensor.pressure_158d00022c66ff
-            name: Pressure
-            # value_template: '{{ value.sensor.pressure_158d00022c66ff | round(1) }}'
-      - type: glance
-        title: Kitchen
-        columns: 3
-        entities:
-          - entity: sensor.temperature_158d00027727eb
-            name: Temperature
-          - entity: sensor.humidity_158d00027727eb
-            name: Humidity
-          - entity: sensor.pressure_158d00027727eb
-            name: Pressure
-      - type: glance
-        title: Wine Cellar
-        columns: 3
-        entities:
-          - entity: sensor.temperature_158d000245b4a2
-            name: Temperature
-          - entity: sensor.humidity_158d000245b4a2
-            name: Humidity
-          - entity: sensor.pressure_158d000245b4a2
-            name: Pressure
-      - type: glance
-        title: Washing Room
-        columns: 3
-        entities:
-          - entity: sensor.temperature_158d0002437897
-            name: Temperature
-          - entity: sensor.humidity_158d0002437897
-            name: Humidity
-          - entity: sensor.pressure_158d0002437897
-            name: Pressure
-      - type: glance
-        title: Shed
-        columns: 3
-        entities:
-          - entity: sensor.temperature_158d000243778b
-            name: Temperature
-          - entity: sensor.humidity_158d000243778b
-            name: Humidity
-          - entity: sensor.pressure_158d000243778b
-            name: Pressure
-      - type: glance
-        title: Kitchen
-        entities:
-          - entity: binary_sensor.smoke_sensor_158d0001bc49bd
-            name: Smoke Detector
-      - type: glance
-        title: Computer Information
-        entities:
-          - entity: sensor.cpu_temperature
-          - entity: sensor.processor_use
-          - entity: sensor.memory_use_percent
-          - entity: sensor.disk_use_percent_
-      - type: horizontal-stack
-        cards:
-          - type: gauge
-            title: CPU Temperature
-            measurement: °C # set yo override default
-            entity: sensor.cpu_temperature
-            # scale: 10px
-            min: 0
-            max: 100
-            severity:
-              red: 75
-              amber: 50
-              green: 0
-          - type: gauge
-            title: CPU use
-            entity: sensor.processor_use
-            # scale: 10px
-            min: 0
-            max: 100
-            severity:
-              red: 75
-              amber: 50
-              green: 0
-          - type: gauge
-            title: Memory use
-            entity: sensor.memory_use_percent
-            # scale: 10px
-            min: 0
-            max: 100
-            severity:
-              red: 75
-              amber: 50
-              green: 0
-          - type: gauge
-            title: Disk use
-            entity: sensor.disk_use_percent_
-            # scale: 10px
-            min: 0
-            max: 100
-            severity:
-              red: 75
-              amber: 50
-              green: 0
-      - type: custom:tracker-card
-        title: Custom Components and Cards
-        trackers:
-          - sensor.custom_card_tracker
-          - sensor.custom_component_tracker
-      # - type: iframe
-      #   url: https://embed.windy.com/embed2.html
-      - type: sensor
-        entity: sensor.temperature_158d000245b4a2
-        name: Wine cellar temperature
-        height: 150
-        line_color: "#3498db"
+  - !include config_files/lovelace/information.yaml
 
   - icon: mdi:theater
     title: Media Players
@@ -864,3 +635,174 @@ views:
             - key: binary_sensor.cube_158d00028f7196.*
             - key: binary_sensor.cube_158d00028f7196.last_action
               name: Application
+
+  # - !include config_files/lovelace/kitchen.yaml
+
+  - title: Kitchen
+    icon: mdi:silverware-fork-knife
+    # Title of the view. Will be used as the tooltip for tab icon
+    id: kitchen
+    cards:
+      # - type: glance
+      #   entities:
+      #     - updater.updater
+      #   state_filter:
+      #     - 'on'
+      - type: entities
+        title: Lights
+        id: kitchen_dining_room_lights
+        show_header_toggle: True
+        entities:
+
+          - entity: light.living_room_lightstrip
+            type: custom:slider-entity-row
+          - entity: light.dining_table_lights
+            type: custom:slider-entity-row
+          - entity: light.kitchen_spots
+            type: custom:slider-entity-row
+          - entity: light.kitchen_cabinet_lights
+            type: custom:slider-entity-row
+
+      - type: vertical-stack
+        id: fume_hood_controls_2
+        cards:
+          - type: "custom:button-card"
+            color_type: label-card
+            color: rgb(58, 106, 183)
+            name: Fume Hood Controls
+          - type: horizontal-stack
+            cards:
+                # - type: "custom:button-card"
+                #   color_type: blank-card
+                - type: "custom:button-card"
+                  # color_type: card
+                  color: auto
+                  default_color: rgb(58, 106, 183)
+                  icon: mdi:power
+                  action: service
+                  service:
+                    domain: remote
+                    action: send_command
+                    entity_id: remote.kitchen_remote
+                    data:
+                      command:
+                        - 'fume_hood_power'
+                - type: "custom:button-card"
+                  # color_type: card
+                  color: rgb(58, 106, 183)
+                  icon: mdi:fan-off
+                  action: service
+                  service:
+                    domain: remote
+                    action: send_command
+                    entity_id: remote.kitchen_remote
+                    data:
+                      command:
+                        - 'fume_hood_decrease'
+                - type: "custom:button-card"
+                  # color_type: card
+                  color: rgb(58, 106, 183)
+                  icon: mdi:fan
+                  action: service
+                  service:
+                    domain: remote
+                    action: send_command
+                    entity_id: remote.kitchen_remote
+                    data:
+                      command:
+                        - 'fume_hood_increase'
+                - type: "custom:button-card"
+                  # color_type: card
+                  color: auto
+                  default_color: rgb(58, 106, 183)
+                  icon: mdi:lightbulb-on
+                  action: service
+                  service:
+                    domain: remote
+                    action: send_command
+                    entity_id: remote.kitchen_remote
+                    data:
+                      command:
+                        - 'fume_hood_lights'
+                # - type: "custom:button-card"
+                #   color_type: blank-card
+
+      - type: entities
+        title: Appliances
+        show_header_toggle: false
+        entities:
+          - entity: switch.switch
+            type: custom:toggle-lock-entity-row
+            users:
+              - Aephir
+              - Kristina
+
+      # - type: vertical-stack
+      #   id: kettle_controls
+      #   cards:
+      #     - type: "custom:button-card"
+      #       color_type: label-card
+      #       color: rgb(58, 106, 183)
+      #       name: iKettle
+      #     - type: horizontal-stack
+      #       cards:
+      #           - type: "custom:button-card"
+      #             color_type: blank-card
+      #           - type: "custom:button-card"
+      #             # color_type: card
+      #             color: auto
+      #             default_color: rgb(58, 106, 183)
+      #             icon: mdi:power
+      #             action: service
+      #             service:
+      #               domain: shell
+      #               action: send_command
+      #               entity_id: remote.kitchen_remote
+      #               data:
+      #                 command:
+      #                   - 'fume_hood_power'
+      #           - type: "custom:button-card"
+      #             # color_type: card
+      #             color: rgb(58, 106, 183)
+      #             icon: mdi:fan-off
+      #             action: service
+      #             service:
+      #               domain: remote
+      #               action: send_command
+      #               entity_id: remote.kitchen_remote
+      #               data:
+      #                 command:
+      #                   - 'fume_hood_decrease'
+      #           - type: "custom:button-card"
+      #             # color_type: card
+      #             color: rgb(58, 106, 183)
+      #             icon: mdi:fan
+      #             action: service
+      #             service:
+      #               domain: remote
+      #               action: send_command
+      #               entity_id: remote.kitchen_remote
+      #               data:
+      #                 command:
+      #                   - 'fume_hood_increase'
+      #           - type: "custom:button-card"
+      #             # color_type: card
+      #             color: auto
+      #             default_color: rgb(58, 106, 183)
+      #             icon: mdi:lightbulb-on
+      #             action: service
+      #             service:
+      #               domain: remote
+      #               action: send_command
+      #               entity_id: remote.kitchen_remote
+      #               data:
+      #                 command:
+      #                   - 'fume_hood_lights'
+      #           - type: "custom:button-card"
+      #             color_type: blank-card
+
+          - entity: switch.kettle
+            type: custom:toggle-lock-entity-row
+            users:
+              - Aephir
+              - Kristina

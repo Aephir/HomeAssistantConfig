@@ -167,6 +167,8 @@ svg, svg * {
 /* light glow */
 
 .light-glow-on {
+  fill-opacity: 1 !important;
+  stroke-opacity: 1 !important;
 /*  visibility: visible;*/
 }
 

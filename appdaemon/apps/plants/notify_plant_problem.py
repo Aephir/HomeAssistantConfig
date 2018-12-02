@@ -140,11 +140,12 @@ class PlantProblem(hass.Hass):
     # Send notification only if it has been > 3h since last notification. Only send to me if I'm home. Otherwise send to Kristina is she's home.
     def sendNotification(self, message, **kwargs):
         timestamp = datetime.datetime.now()
+        time_delta = datetime.timedelta(hours=0)
         if self.time_last == '':
-            time_delta = 3:00:00.000001
+            time_delta = datetime.timedelta(hours=4)
         else:
             time_delta = self.time_last - datetime.datetime.now()
-        if time_delta > 3:00:00.000000: # 3 hours = 10800 seconds
+        if time_delta > datetime.timedelta(hours=3): # 3 hours = 10800 seconds
             if self.get_state("device_tracker.meta_walden") == 'home':
                 self.call_service("notify/home_aephir_bot", message = message, title = "Attention! Your plants are in distress!")
             elif self.get_state("device_tracker.meta_kristina") == 'home':

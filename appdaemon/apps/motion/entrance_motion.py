@@ -58,7 +58,7 @@ class MotionClass(hass.Hass):
                     # self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
 
             elif self.now_is_between('22:00:00', '07:00:00'):
-                if awake:
+                if self.areWeAwake("light.dining_table_lights") == True or self.areWeAwake("light.conservatory_lights") == True:
                     self.turn_on("light.stairway",brightness=255,kelvin=2200)
                     self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
                     # self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
