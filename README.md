@@ -73,7 +73,7 @@ OBS! Some are not fully configured yet.
 **Notable Home Assistant components**
 * [Floorplan](https://github.com/pkozul/ha-floorplan), a great project by pkozul to visualize your home with interactive gadgets.
 
-![Screenshot Floorplan](https://github.com/Aephir/Images/blob/master/floorplan_20180929.png)
+![Screenshot Floorplan](https://github.com/Aephir/Images/blob/master/floorplan_20181202.png)
 _Floorplan - Circles with temperature/humidity states can be clicked to toggle all lights in that room. Individual bulbs (black or yellow circles when off/on) can be toggled. Info about us in the top left side (location and battery status), toggles/scripts/scenes on the right side. The outer doors have door sensors, if closed they are "invisible", if opened, they show a big fat red quarter-circle so you're not in doubt. Some stuff, such as phone battery level indicators and temperatures, changes color based on values. Alarm system status is shown at the bottom, and the greenhouse (just plants for now, greenhouse will likely not come until next year) is the blue rectangle at the top with plant data. In time, I want the buttons showing "Upstairs", "Ground Floor", and "Top Floor" to toggle "pop-ups" zooming in on that floor for more in depth info and control. If I find this useful for control, that is. I actually like it more because it's cool, I haven't used it since we moved (it was easier to fit a small apartment in a scale that was usable)._
 
 **Frontend**
@@ -98,7 +98,7 @@ Frontend using lovelace, so it is currently being rearranged and updated as I be
 **Notable Scripts**
 * Python script to use hue dimmer remotes. I might go to pure automations, since I can't get the python script to use both "click" and "long-press".
 * turn off lights, espresso machine, send shutdown command through SSH to two Raspberry Pis (KODI and Mopidy) before cutting the master power to those 15 seconds later. Used in various automations (such as when no one is home, when we go to bed, etc.)
-* Appdaemon scripts to send stuff to Tasker. I have a bunch of things here, take a look at [this repo](https://github.com/Aephir/Home_Assistant-Accessory-files/tree/master/appdaemon_scripts) for some examples (with redacted info, many of them have my Joaoapps Join key in the url).
+* Appdaemon scripts to send stuff to Tasker. I have a bunch of things here, take a look at [this repo](https://github.com/Aephir/Home_Assistant-Accessory-files/tree/master/appdaemon_scripts) for some examples (with redacted info, many of them have my Joaoapps Join key in the url). Also, look in this repo for various AppDaemon scripts (the ones without redacted info).
 
 ![KWGT widget](https://github.com/Aephir/Images/blob/master/Screen%20Shot%202018-11-02%20at%2012.13.20%20.png)
 _The first Kustom (KWGT) widget. Everything happens through Home Assistant. Each light changes on/off color regardless of where it is switched from (HASS sends state changes to Tasker). Espresso and Fountain are just toggle switches, the middle arrow buttons will (hopefully) become brightness up/down on last light turned on. The text i the botton currently just tells me which was the last door that was opened._
