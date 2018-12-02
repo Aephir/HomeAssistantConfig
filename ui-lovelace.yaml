@@ -237,6 +237,10 @@ views:
         entities:
           - entity: light.top_floor_bathroom
             type: custom:slider-entity-row
+          - entity: light.top_floor_tv_area
+            type: custom:slider-entity-row
+          - entity: light.top_floor_hallway
+            type: custom:slider-entity-row
       #   # The markdown card will render markdown text.
       # - type: markdown
       #   title: Lovelace

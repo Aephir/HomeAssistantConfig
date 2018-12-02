@@ -138,6 +138,9 @@
   name: Top Floor Lights
   entities:
     - light.top_floor_bathroom_lights
+    - light.top_floor_tv_area
+    - light.top_floor_hallway
+    - light.stairway_up
 
 - platform: group
   name: Top Floor Bathroom Lights
@@ -149,6 +152,20 @@
   entities:
     - light.top_stairway_1
     - light.top_stairway_2
+
+- platform: group
+  name: Top Floor TV Area
+  entities:
+    - light.top_tv_area_1
+    - light.top_tv_area_2
+    - light.top_tv_area_3
+
+- platform: group
+  name: Top Floor Hallway
+  entities:
+    - light.top_hallway_1
+    - light.top_hallway_2
+    - light.top_hallway_3
 
 ####################
 #__Outdoor_Lights__#

@@ -2039,7 +2039,6 @@
 
 - alias: 'switch dummy kitchen cabinet light on'
   initial_state: 'on'
-  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: light.kitchen_cabinet_lights
@@ -2051,7 +2050,6 @@
 
 - alias: 'switch dummy kitchen cabinet light off'
   initial_state: 'on'
-  initial_state: 'on'
   trigger:
     - platform: state
       entity_id: light.kitchen_cabinet_lights
@@ -2062,7 +2060,6 @@
       entity_id: input_boolean.light_kitchen_cabinet
 
 - alias: 'switch dummy dining table lights on'
-  initial_state: 'on'
   initial_state: 'on'
   trigger:
     - platform: state
@@ -2193,6 +2190,50 @@
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.light_bathroom
+
+- alias: 'switch dummy top floor tv area light on'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: light.top_floor_tv_area
+      from: 'off'
+      to: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.light_top_floor_tv_area
+
+- alias: 'switch top floor tv area light off'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: light.top_floor_tv_area
+      from: 'on'
+      to: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.light_top_floor_tv_area
+
+- alias: 'switch dummy top floor tv area light on'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: light.top_floor_hallway
+      from: 'off'
+      to: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.light_top_floor_hallway
+
+- alias: 'switch top floor tv area light off'
+  initial_state: 'on'
+  trigger:
+    - platform: state
+      entity_id: light.top_floor_hallway
+      from: 'on'
+      to: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.light_top_floor_hallway
 
 ##################
 #    Doorbell    #

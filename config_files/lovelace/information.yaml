@@ -38,19 +38,36 @@
           - binary_sensor.door_window_sensor_158d00022b3b66 # Basement Door
           - binary_sensor.door_window_sensor_158d0002286a78 # Bathroom Window
           - binary_sensor.door_window_sensor_158d000237c924 # Bedroom Window
-      - type: glance
-        title: Motion Sensors
-        columns: 3
-        entities:
-          - binary_sensor.motion_sensor_158d000200d203
-          - binary_sensor.motion_sensor_158d000200d285
-          - binary_sensor.motion_sensor_158d000200e0c5
-          - binary_sensor.motion_sensor_158d000236a116
-          - binary_sensor.motion_sensor_158d00023e3742
-          - binary_sensor.motion_sensor_158d000236a22f
-          - binary_sensor.motion_sensor_158d000236a0d0
-          - binary_sensor.motion_sensor_158d000236a0f3
-          - binary_sensor.motion_sensor_158d0001e0a8e1
+
+      - type: vertical-stack
+        cards:
+        - type: glance
+          title: Main Floor Motion Sensors
+          columns: 3
+          entities:
+            # - type: divider
+              # label: Main Floor
+            - "binary_sensor.motion_sensor_158d00023e3742" # Entrance
+            - "binary_sensor.motion_sensor_158d000200d285" # Conservatory
+            - "binary_sensor.motion_sensor_158d0001e0a8e1" # Kitchen
+            - "binary_sensor.motion_sensor_158d000210ca6e" # Bathroom #1
+            - "binary_sensor.motion_sensor_158d000236a22f" # Bathroom #2
+        - type: glance
+          title: Basement Motion Sensors
+          columns: 3
+          entities:
+            - "binary_sensor.motion_sensor_158d000200d203" # Basement entrance
+            - "binary_sensor.motion_sensor_158d000210ca6f" # Basemenet stairway
+            - "binary_sensor.motion_sensor_158d000236a116" # TV room
+        - type: glance
+          title: Top Floor Motion Sensors
+          columns: 3
+          entities:
+            - "binary_sensor.motion_sensor_158d000200e0c5" # Top floor stairs
+            - "binary_sensor.motion_sensor_158d000236a0f3" # Top floor TV room
+            - "binary_sensor.motion_sensor_158d000236a0d0" # Upastairs bathroom
+
+
       - type: glance
         title: Illumination Levels
         columns: 3
@@ -251,8 +268,8 @@
               name: Humidity
             - entity: sensor.pressure_158d000243778b
               name: Pressure
-      - type: glance
-        entities:
-          - updater.updater
-        state_filter:
-          - 'on'
+      # - type: glance
+      #   entities:
+      #     - updater.updater
+      #   state_filter:
+      #     - 'on'

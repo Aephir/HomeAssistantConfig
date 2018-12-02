@@ -9,8 +9,8 @@ class MotionClass(hass.Hass):
 
     def initialize(self):
         # Motion sensors.
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000236a0f3") # Basement Stairway Motion Sensor
-        # self.listen_state(self.switchonoff_basement,"binary_sensor.motion_sensor_158d000236a0f3") # Basement Stairway Motion Sensor
+        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion Sensor
+        # self.listen_state(self.switchonoff_basement,"binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion Sensor
 
     # Assess whether we are awake, based on state of entity. Find better proxy eventually.
     def areWeAwake(self, entity):
@@ -31,7 +31,7 @@ class MotionClass(hass.Hass):
 # Motion sensor lights
     def switchonoff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Basement Stairway Motion
+        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion
         sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000200d203") # Basement Entrance Motion
         sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d000236a116") # TV Room Motion
         awake = self.areWeAwake("light.living_room._lights")
@@ -58,9 +58,9 @@ class MotionClass(hass.Hass):
 # # Get states of motion sensors
 # entrance_motion_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742")
 # basement_entrance_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200d203")
-# basement_stairway_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3")
+# basement_stairway_motion_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f")
 # tv_room_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a116")
 # conservatory_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200d285")
-# bathroom_1_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5")
+# bathroom_1_motion_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f")
 # bathroom_2_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a22f")
 # bathroom_upstairs_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a0d0")

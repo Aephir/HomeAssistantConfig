@@ -144,6 +144,7 @@
             - binary_sensor.motion_sensor_158d000236a0d0 # Upstairs bathroom motion
             - binary_sensor.motion_sensor_158d000200e0c5 # Top floor stairway motion
             - binary_sensor.motion_sensor_158d0001e0a8e1 # Kitchen motion
+            - binary_sensor.motion_sensor_158d000236a0f3 # Top floor TV room
           states:
             - state: 'on'
               class: 'motion-on'
@@ -405,6 +406,8 @@
             - light.bedroom
             - light.baby_room
             - light.living_room_lightstrip
+            - light.top_floor_tv_area
+            - light.top_floor_tv_area
           states:
             - state: 'on'
               class: 'light-on'
@@ -461,6 +464,8 @@
             - input_boolean.light_bedroom
             - input_boolean.light_baby_room
             - input_boolean.light_living_room_lightstrip
+            - input_boolean.light_top_floor_tv_area
+            - input_boolean.light_top_floor_tv_area
           states:
             - state: 'on'
               class: 'light-glow-on'

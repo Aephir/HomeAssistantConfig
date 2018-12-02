@@ -84,14 +84,16 @@ global_sensors:
   motionSensors:
     - "binary_sensor.motion_sensor_158d00023e3742" # Entrance
     - "binary_sensor.motion_sensor_158d000200d203" # Basement entrance
-    - "binary_sensor.motion_sensor_158d000236a0f3" # Basement stairway
+    - "binary_sensor.motion_sensor_158d000236a0f3" # Top floor TV room
     - "binary_sensor.motion_sensor_158d000236a116" # TV room
     - "binary_sensor.motion_sensor_158d000200d285" # Conservatory
-    - "binary_sensor.motion_sensor_158d000200e0c5" # Top floor stairs
+    - "binary_sensor.motion_sensor_158d000200e0c5" # Top floor stairway
     - "binary_sensor.motion_sensor_158d000236a22f" # Bathroom #2
     - "binary_sensor.motion_sensor_158d000236a0d0" # Upastairs bathroom
     - "binary_sensor.motion_sensor_158d0001e0a8e1" # Kitchen
     - "binary_sensor.motion_sensor_158d000210ca6e" # Bathroom #1
+    - "binary_sensor.motion_sensor_158d000210ca6f" # Basemenet stairway
+    # - "" # Dining room
   illuminationSensors:
     - "sensor.illumination_158d00023e3742" # Entrance
     - "sensor.illumination_158d000200d203" # Basement entrance
@@ -103,7 +105,7 @@ global_sensors:
     - "sensor.illumination_158d000236a0d0" # Upastairs bathroom
     - "sensor.illumination_158d0001e0a8e1" # Kitchen
     - "sensor.illumination_158d000210ca6e" # Bathroom #1
-    # - "sensor.illumination_7811dcb8d944" # Gateway illumination - remove
+    # - "sensor.illumination_7811dcb8d944" # Gateway illumination - remove?
   doorWindowSensors:
     - "binary_sensor.door_window_sensor_158d0002286a78" # Bathroom window
     - "binary_sensor.door_window_sensor_158d00022b3b66" # Basement door
@@ -220,6 +222,14 @@ tv_room_motion_light:
 
 top_floor_bathroom_motion_light:
   module: top_floor_bathroom_motion
+  class: MotionClass
+
+top_floor_stairway_motion_light:
+  module: top_floor_stairway_motion
+  class: MotionClass
+
+top_floor_tv_room_light:
+  module: top_floor_tv_room_motion
   class: MotionClass
 
 #######################

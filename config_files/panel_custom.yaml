@@ -14,17 +14,11 @@
     url_path: floorplan
     config: !include floorplan.yaml
 
-#  - name: floorplan
-#    sidebar_title: Floorplan
-#    sidebar_icon: mdi:home
-#    url_path: floorplan
-#    config: !include www/custom_ui/floorplan/floorplan.yaml
-
-#  - name: floorplan_2
-#    sidebar_title: Floorplan_2
-#    sidebar_icon: mdi:home
-#    url_path: floorplan
-#    config: !include www/custom_ui/floorplan/floorplan_2.yaml
+  - name: floorplan2
+    sidebar_title: Floorplan2
+    sidebar_icon: mdi:home
+    url_path: floorplan2
+    config: !include floorplan2.yaml
 
 ###############
 #    Alarm    #

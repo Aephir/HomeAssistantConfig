@@ -140,6 +140,12 @@ light_top_floor_bathroom:
 light_living_room_lightstrip:
   name: dummy living room lightstrip
 
+light_top_floor_tv_area:
+  name: dummy top floor tv area lights
+
+light_top_floor_hallway:
+  name: dummy top floor hallway lights
+
 tv_ue46es8005:
   name: dummy ue46es8005
 
@@ -158,3 +164,4 @@ door_sensor_status_1:
 
 kitchen_lights_motion_override:
   name: Override Kitchen Motion Sensors
+  initial: off
