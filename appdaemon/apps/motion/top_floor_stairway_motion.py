@@ -45,18 +45,20 @@ class MotionClass(hass.Hass):
 
         if sensor_1_state == "on":
             if self.now_is_between('07:00:00', '22:00:00'):
-                if getIntegerState("sensor.illumination_158d000200e0c5") < 50:
-                    self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
+                self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
+                if self.getIntegerState("sensor.illumination_158d000200e0c5") < 75:
+                    self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
             elif self.now_is_between('22:00:00', '07:00:00'):
-                if sensor_4_state == "on":
+                if sensor_4_state == "on": # Meaning someone likel came from TV area, and are going down.
                     self.turn_on("light.stairway_up",brightness=100,kelvin=2700)
                     self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
                 elif awake:
                     self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
                 else:
                     self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
-            self.cancel_timer(self.timer)
-            self.timer = self.run_in(self.lightOff, 300)
+                    self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
+            # self.cancel_timer(self.timer)
+            # self.timer = self.run_in(self.lightOff, 300)
         elif sensor_1_state == "off" and sensor_2_state == "off" and sensor_3_state == "off" and sensor_4_state == "off":
             self.turn_off("light.stairway_up")
             self.turn_off("light.stairway")

@@ -1,5 +1,5 @@
-      name: Floorplan 2
-      page_id: floorplan2
+      # name: Floorplan 2
+      page_id: Floorplan2
       image: /local/custom_ui/floorplan/floorplan2.svg
       stylesheet: /local/custom_ui/floorplan/floorplan.css
 

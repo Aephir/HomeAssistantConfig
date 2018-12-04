@@ -192,16 +192,28 @@ sensor.illumination_158d0001e0a8e1:
   friendly_name: Kitchen Motion Illumination
 sensor.humidity_158d00022c66ff:
   friendly_name: Bathroom Humidity
+sensor.humidity_158d0002437897:
+  friendly_name: Washing Room Humidity
+sensor.humidity_158d00027727eb:
+  friendly_name: Kitchen Humidity
+sensor.humidity_158d00027437fe:
+  friendly_name: Top Floor TV Room Humidity
 sensor.pressure_158d00022c66ff:
   friendly_name: Bathroom Pressure
 sensor.temperature_158d00022c66ff:
   friendly_name: Bathroom Temperature
 sensor.temperature_158d0002437897:
   friendly_name: Washing Room Temperature
-sensor.humidity_158d0002437897:
-  friendly_name: Washing Room Humidity
+sensor.temperature_158d00027727eb:
+  friendly_name: Kitchen Temperature
+sensor.temperature_158d00027437fe:
+  friendly_name: Top Floor TV Room Temperature
 sensor.pressure_158d0002437897:
   friendly_name: Washing Room Pressure
+sensor.pressure_158d00027727eb:
+  friendly_name: Kitchen Pressure
+sensor.pressure_158d00027437fe:
+  friendly_name: Top Floor TV Room Pressure
 binary_sensor.door_window_sensor_158d0002286a78:
   friendly_name: Bathroom Window
   device_class: window
@@ -232,6 +244,8 @@ binary_sensor.door_window_sensor_158d00022d0917:
   #   {% else %}
   #     mdi:door-closed
   #   {% endif %}
+device_tracker.192168055_8c1abfc18107:
+  friendly_name: Aephir Living Google BLE Tracker
 input_boolean.guest_mode:
   device_class: occupancy
 sensor.dht22_humidity:

@@ -13,14 +13,23 @@
 #      phone: /location/phone
 #      mymacbookpro: /
 
-#####################
-#    Google Maps    #
-#####################
+################
+#    Google    #
+################
+
+##########
+#__Maps__#
 
   - platform: google_maps
     username: !secret google_maps_user
     password: !secret google_maps_pass
     max_gps_accuracy: 150
+
+##########
+#__Home__#
+
+  - platform: googlehome
+    host: 192.168.0.55
 
 ###################
 #    Owntracks    #

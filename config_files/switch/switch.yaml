@@ -8,30 +8,30 @@
 #    Media    #
 ###############
 
-- platform: command_line
-  switches:
-    tv_kodi:
-      value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
-      command_on: ssh -i /home/homeassistant/connection/privatekey_libreelec root@192.168.0.155 "echo 'on 0' | cec-client -s"
-      command_off: ssh -i /home/homeassistant/connection/privatekey_libreelec root@192.168.0.155 "echo 'standby 0' | cec-client -s"
-      friendly_name: TV
+# - platform: command_line
+#   switches:
+#     tv_kodi:
+#       value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
+#       command_on: ssh -i /home/homeassistant/connection/privatekey_libreelec root@192.168.0.155 "echo 'on 0' | cec-client -s"
+#       command_off: ssh -i /home/homeassistant/connection/privatekey_libreelec root@192.168.0.155 "echo 'standby 0' | cec-client -s"
+#       friendly_name: TV
 # OBS! For new HASS, remember to try connecting using the homeassistant user through terminal, so you can accept connections
 
 ###############
 #    Plugs    #
 ###############
 
-# - platform: template
-#   switches:
-#     living_room_media_master:
-#       value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
-#       turn_on:
-#         service: switch.turn_on
-#         entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
-#       turn_off:
-#         service: script.turn_on
-#         entity_id: script.living_room_media_off
-#       friendly_name: Media Center Power
+- platform: template
+  switches:
+    living_room_media_master:
+      value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+      turn_off:
+        service: script.turn_on
+        entity_id: script.living_room_media_off
+      friendly_name: Media Center Power
 
 - platform: template
   switches:
@@ -85,6 +85,81 @@
       # command_off: echo -e "HELLOKETTLE\nset sys output 0x4\nset sys output 0x0\n" | nc  192.168.0.20 2000
       # command_state:
       friendly_name: iKettle
+
+# - platform: template # Entire switch component fails if this is uncommented. Maybe... the value template?
+#   switches:
+#     fume_hood_power:
+#       value_template: "{{ is_state('switch.fibaro_system_fgwpef_wall_plug_gen5_switch', 'on') }}"
+#       turn_on:
+#         service:
+#           domain: shell
+#           action: send_command
+#           entity_id: remote.kitchen_remote
+#           data:
+#             command:
+#               - 'fume_hood_power'
+#       turn_off:
+#         service:
+#           domain: shell
+#           action: send_command
+#           entity_id: remote.kitchen_remote
+#           data:
+#             command:
+#               - 'fume_hood_power'
+
+          # cards:
+          #     - type: "custom:button-card"
+          #       # color_type: card
+          #       color: auto
+          #       default_color: rgb(58, 106, 183)
+          #       icon: mdi:power
+          #       action: service
+          #       service:
+          #         domain: shell
+          #         action: send_command
+          #         entity_id: remote.kitchen_remote
+          #         data:
+          #           command:
+          #             - 'fume_hood_power'
+          #     - type: "custom:button-card"
+          #       # color_type: card
+          #       color: rgb(58, 106, 183)
+          #       icon: mdi:fan-off
+          #       action: service
+          #       service:
+          #         domain: remote
+          #         action: send_command
+          #         entity_id: remote.kitchen_remote
+          #         data:
+          #           command:
+          #             - 'fume_hood_decrease'
+          #     - type: "custom:button-card"
+          #       # color_type: card
+          #       color: rgb(58, 106, 183)
+          #       icon: mdi:fan
+          #       action: service
+          #       service:
+          #         domain: remote
+          #         action: send_command
+          #         entity_id: remote.kitchen_remote
+          #         data:
+          #           command:
+          #             - 'fume_hood_increase'
+          #     - type: "custom:button-card"
+          #       # color_type: card
+          #       color: auto
+          #       default_color: rgb(58, 106, 183)
+          #       icon: mdi:lightbulb-on
+          #       action: service
+          #       service:
+          #         domain: remote
+          #         action: send_command
+          #         entity_id: remote.kitchen_remote
+          #         data:
+          #           command:
+          #             - 'fume_hood_lights'
+
+
 
 # - platform: mqtt
 #   name: ikettle

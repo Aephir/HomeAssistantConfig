@@ -70,35 +70,35 @@ class PlantProblem(hass.Hass):
 
     # Send plant # and type = moisture if any moisture levels are low
     def moisture_problem(self, entity, attribute, old, new, kwargs):
-        if toInt(self.get_state('sensor.plant_sensor_1_moisture')) < self.args["min_moisture_1"]:
+        if toInt(self.get_state('sensor.plant_sensor_1_moisture')) < int(self.args["min_moisture_1"]):
             self.messageIs("moisture", "one")
-        if toInt(self.get_state('sensor.plant_sensor_2_moisture')) < self.args["min_moisture_2"]:
+        if toInt(self.get_state('sensor.plant_sensor_2_moisture')) < int(self.args["min_moisture_2"]):
             self.messageIs("moisture", "two")
-        if toInt(self.get_state('sensor.plant_sensor_3_moisture')) < self.args["min_moisture_3"]:
+        if toInt(self.get_state('sensor.plant_sensor_3_moisture')) < int(self.args["min_moisture_3"]):
             self.messageIs("moisture", "three")
-        if toInt(self.get_state('sensor.plant_sensor_4_moisture')) < self.args["min_moisture_4"]:
+        if toInt(self.get_state('sensor.plant_sensor_4_moisture')) < int(self.args["min_moisture_4"]):
             self.messageIs("moisture", "four")
 
     # Send plant # and type = conductivity if any conductivity levels are low
     def conductivity_problem(self, entity, attribute, old, new, kwargs):
-        if toInt(self.get_state('sensor.plant_sensor_1_conductivity')) < self.args["min_conductivity_1"]:
+        if toInt(self.get_state('sensor.plant_sensor_1_conductivity')) < int(self.args["min_conductivity_1"]):
             self.messageIs("conductivity", "one")
-        if toInt(self.get_state('sensor.plant_sensor_2_conductivity')) < self.args["min_conductivity_2"]:
+        if toInt(self.get_state('sensor.plant_sensor_2_conductivity')) < int(self.args["min_conductivity_2"]):
             self.messageIs("conductivity", "two")
-        if toInt(self.get_state('sensor.plant_sensor_3_conductivity')) < self.args["min_conductivity_3"]:
+        if toInt(self.get_state('sensor.plant_sensor_3_conductivity')) < int(self.args["min_conductivity_3"]):
             self.messageIs("conductivity", "three")
-        if toInt(self.get_state('sensor.plant_sensor_4_conductivity')) < self.args["min_conductivity_4"]:
+        if toInt(self.get_state('sensor.plant_sensor_4_conductivity')) < int(self.args["min_conductivity_4"]):
             self.messageIs("conductivity", "four")
 
     # Send plant # and type = temperature if any temperature levels are low
     def temperature_problem(self, entity, attribute, old, new, kwargs):
-        if toInt(self.get_state('sensor.plant_sensor_1_temperature')) < self.args["min_temperature_1"]:
+        if toInt(self.get_state('sensor.plant_sensor_1_temperature')) < int(self.args["min_temperature_1"]):
             self.messageIs("temperature", "one")
-        if toInt(self.get_state('sensor.plant_sensor_2_temperature')) < self.args["min_temperature_2"]:
+        if toInt(self.get_state('sensor.plant_sensor_2_temperature')) < int(self.args["min_temperature_2"]):
             self.messageIs("temperature", "two")
-        if toInt(self.get_state('sensor.plant_sensor_3_temperature')) < self.args["min_temperature_3"]:
+        if toInt(self.get_state('sensor.plant_sensor_3_temperature')) < int(self.args["min_temperature_3"]):
             self.messageIs("temperature", "three")
-        if toInt(self.get_state('sensor.plant_sensor_4_temperature')) < self.args["min_temperature_4"]:
+        if toInt(self.get_state('sensor.plant_sensor_4_temperature')) < int(self.args["min_temperature_4"]):
             self.messageIs("temperature", "four")
 
     # Create the message text based on the plant # and the problem.

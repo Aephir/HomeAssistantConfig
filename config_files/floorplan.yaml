@@ -42,6 +42,52 @@
 
         # Temperature and humidity
 
+        - name: xiaomi_kitchen_temperature
+          entities:
+            - sensor.temperature_158d00027727eb
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#          class_template: 'return "static-temp";'
+          class_template: '
+            var temp = parseFloat(entity.state);
+            if (temp < 15)
+              return "temp-in-very-low";
+            else if (temp < 19)
+              return "temp-in-low";
+            else if (temp < 21)
+              return "temp-in-good";
+            else
+              return "temp-in-high";
+            '
+
+        - name: xiaomi_kitchen_humidity
+          entities:
+            - sensor.humidity_158d00027727eb
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: xiaomi_top_floor_tv_room_temperature
+          entities:
+            - sensor.temperature_158d00027437fe
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#          class_template: 'return "static-temp";'
+          class_template: '
+            var temp = parseFloat(entity.state);
+            if (temp < 15)
+              return "temp-in-very-low";
+            else if (temp < 19)
+              return "temp-in-low";
+            else if (temp < 21)
+              return "temp-in-good";
+            else
+              return "temp-in-high";
+            '
+
+        - name: xiaomi_top_floor_tv_room_humidity
+          entities:
+            - sensor.humidity_158d00027437fe
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
         - name: xiaomi_bathroom_temperature
           entities:
             - sensor.temperature_158d00022c66ff
@@ -407,18 +453,16 @@
             - light.baby_room
             - light.living_room_lightstrip
             - light.top_floor_tv_area
-            - light.top_floor_tv_area
+            - light.top_floor_hallway
           states:
             - state: 'on'
               class: 'light-on'
             - state: 'off'
               class: 'light-off'
-          rgb_template: '
-            return "off-state";
-          '
           action:
 #            domain: class # test
             service: toggle
+
 #            data: # test
 #              elements: # test
 #                  - light_halo_layer # test
@@ -465,7 +509,7 @@
             - input_boolean.light_baby_room
             - input_boolean.light_living_room_lightstrip
             - input_boolean.light_top_floor_tv_area
-            - input_boolean.light_top_floor_tv_area
+            - input_boolean.light_top_floor_hallway
           states:
             - state: 'on'
               class: 'light-glow-on'
@@ -562,7 +606,9 @@
 
         - name: tv
           entities:
-            - media_player.ue46es8005
+            # - media_player.ue46es8005
+            - media_player.conservatory_tv
+            - media_player.upstairs_living_room_tv
           states:
             - state: 'on'
               class: 'tv-on'
@@ -573,7 +619,9 @@
 
         - name: tv_glow
           entities:
-            - input_boolean.tv_ue46es8005
+            # - input_boolean.tv_ue46es8005
+            - input_boolean.conservatory_tv
+            - input_boolean.upstairs_living_room_tv
           states:
             - state: 'on'
               class: 'tv-glow-on'

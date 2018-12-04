@@ -25,6 +25,13 @@
         - entity: light.kitchen_cabinet_lights
           type: custom:slider-entity-row
 
+    - type: entities
+      title: Fume Hood
+      id: fume_hood_control
+      entities:
+        - entity: script.fume_hood_lights
+        - entity: script.fume_hood_power
+
     - type: vertical-stack
       id: fume_hood_controls_2
       cards:
@@ -98,6 +105,11 @@
           users:
             - Aephir
             - Kristina
+        - entity: switch.kettle
+          type: custom:toggle-lock-entity-row
+          users:
+            - Aephir
+            - Kristina
 
     - type: vertical-stack
       id: kettle_controls
@@ -108,8 +120,6 @@
           name: iKettle
         - type: horizontal-stack
           cards:
-              - type: "custom:button-card"
-                color_type: blank-card
               - type: "custom:button-card"
                 # color_type: card
                 color: auto
@@ -160,14 +170,8 @@
                   data:
                     command:
                       - 'fume_hood_lights'
-              - type: "custom:button-card"
-                color_type: blank-card
 
-        - entity: switch.kettle
-          type: custom:toggle-lock-entity-row
-          users:
-            - Aephir
-            - Kristina
+
 
 
     # title: Kitchen

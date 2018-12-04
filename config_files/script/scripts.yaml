@@ -125,6 +125,32 @@
         data:
           entity_id: switch.espresso_machine
 
+###############
+#  IR Remote  #
+###############
+
+  fume_hood_lights:
+    alias: Fume Hood Lights Toggle
+    sequence:
+      - service:
+          domain: shell
+          action: send_command
+          entity_id: remote.kitchen_remote
+          data:
+            command:
+              - 'fume_hood_lights'
+
+  fume_hood_power:
+    alias: Fume Hood Power Toggle
+    sequence:
+      - service:
+          domain: shell
+          action: send_command
+          entity_id: remote.kitchen_remote
+          data:
+            command:
+              - 'fume_hood_power'
+
 ##
 # Light toggles
 

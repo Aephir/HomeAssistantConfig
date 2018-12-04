@@ -55,25 +55,35 @@ class MotionClass(hass.Hass):
         for entity in self.light_entity_ids:
             self.turn_on(entity, **kwargs)
 
+    def cooking(self, **kwargs):
+        if self.get_state("input_boolean.cooking_mode") == 'on' or self.now_is_between("17:00:00", "19:00:00"):
+            return True
+
     def lights_off(self):
         """ iterates through lights and turns them off"""
         for entity in self.light_entity_ids:
             self.turn_off(entity)
 
     def lights_on_time(self, illumination):
-        if self.get_state("input_boolean.kitchen_lights_motion_override") == "off":
-            if self.now_is_between("07:00:00", "21:00:00") and illumination < 50:
+
+        cooking = self.cooking()
+
+        if self.now_is_between("07:00:00", "21:00:00") and illumination < 150:
+            if cooking:
                 self.lights_on(brightness=255, kelvin=2700)
-            elif self.now_is_between("21:00:00", "22:00:00") and illumination < 50:
-                if any([ self.isOn(entity_id) for entity_id in ['light.dining_table_lights', 'light.conservatory_lights']]):
-                    self.lights_on(brightness=255, kelvin=2700)
-                else:
-                    self.lights_on(brightness=10, kelvin=2200)
-            else: # everything between 22 and 7
-                if self.isOn('light.dining_table_lights'):
-                    self.lights_on(brightness=255, kelvin=2200)
-                else:
-                    self.lights_on(brightness=10, kelvin=2200)
+                # self.call_service('remote/send_command', entity_id = 'remote.kitchen_remote', command = 'fume_hood_lights')
+            else:
+                self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
+        elif self.now_is_between("21:00:00", "22:00:00") and illumination < 150:
+            if any([ self.isOn(entity_id) for entity_id in ['light.dining_table_lights', 'light.conservatory_lights']]):
+                self.lights_on(brightness=255, kelvin=2700)
+            else:
+                self.lights_on(brightness=10, kelvin=2200)
+        elif self.now_is_between("22:00:00", "07:00:00"): # everything between 22 and 7
+            if self.isOn('light.dining_table_lights'):
+                self.lights_on(brightness=255, kelvin=2200)
+            else:
+                self.lights_on(brightness=10, kelvin=2200)
 
 
 # To use illumination trigger, make sure illumination state is more than/less than for at least a few minutes??
@@ -93,6 +103,9 @@ class MotionClass(hass.Hass):
     #             self.lights_off()
 
     def motion_trigger(self, entity, attribute, old, new, kwargs):
+
+        cooking = self.cooking()
+
         if self.get_state(self.args["entity_override"]) == "off":
             # this will be triggered by
             if new == 'on': # if we got motion.
@@ -100,5 +113,9 @@ class MotionClass(hass.Hass):
                 illumination = max([ toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
                 # turn on our lights depending on the time of day.
                 self.lights_on_time(illumination)
-            else: # we got no motion.
-                self.lights_off()
+            elif new == 'off': # we got no motion.
+                if cooking:
+                    self.lights_off()
+                    # self.call_service('remote/send_command', entity_id = 'remote.kitchen_remote', command = 'fume_hood_lights')
+                else:
+                    self.lights_off()

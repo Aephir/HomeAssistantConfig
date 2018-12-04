@@ -52,10 +52,10 @@ class MotionClass(hass.Hass):
 
         if sensor_1_state == "on" or sensor_2_state == "on" or sensor_3_state == "on":
             if self.now_is_between('07:00:00', '22:00:00'):
-                if self.getIntegerState("sensor.illumination_158d00023e3742") < 50:
-                    self.turn_on("light.stairway",brightness=255,kelvin=2700)
-                    self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
-                    # self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
+                # if self.getIntegerState("sensor.illumination_158d00023e3742") < 50:
+                self.turn_on("light.stairway",brightness=255,kelvin=2700)
+                self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
+                # self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
 
             elif self.now_is_between('22:00:00', '07:00:00'):
                 if self.areWeAwake("light.dining_table_lights") == True or self.areWeAwake("light.conservatory_lights") == True:
@@ -64,6 +64,7 @@ class MotionClass(hass.Hass):
                     # self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
                 elif new == "on" and entity == "binary_sensor.motion_sensor_158d000236a0f3":
                     self.turn_on("light.stairway_up",brightness=100,kelvin=2700)
+                    # Entrance lights
                 else:
                     self.turn_on("light.stairway",brightness=10,kelvin=2200)
 

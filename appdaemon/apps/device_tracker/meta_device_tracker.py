@@ -16,7 +16,8 @@ class MetaTracker(hass.Hass):
         self.aephirTrackers = [
             self.args["aephir_maps_tracker"],
             self.args["aephir_l360_tracker"],
-            self.args["aephir_ping_tracker"]
+            self.args["aephir_ping_tracker"],
+            self.args["aephir_bluetooth_1_tracker"]
             ]
 
         self.kristinaTrackers = [
@@ -49,7 +50,8 @@ class MetaTracker(hass.Hass):
         aephirTrackers = [
             self.args["aephir_maps_tracker"],
             self.args["aephir_l360_tracker"],
-            self.args["aephir_ping_tracker"]
+            self.args["aephir_ping_tracker"],
+            self.args["aephir_bluetooth_1_tracker"]
             ]
 
         kristinaTrackers = [
@@ -121,6 +123,10 @@ class MetaTracker(hass.Hass):
 
         # If router and "home", set to home no matter what. Disregard router state "not_home".
         if newSource == 'router' and new != 'home':
+            newState = None
+
+        # If router and "home", set to home no matter what. Disregard router state "not_home".
+        if newSource == 'bluetooth' and new != 'home':
             newState = None
 
         # If GPS source, set new coordinates.

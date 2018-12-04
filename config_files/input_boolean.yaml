@@ -62,8 +62,11 @@ kristinahome360boolean:
 # Home Modes #
 
 
-# Guest mode: Wont turn off everything when we leave
+cooking_mode:
+  name: Cooking Mode
+  icon: mdi:pot-mix
 
+# Guest mode: Wont turn off everything when we leave
 guest_mode:
   name: Guest Mode
   icon: mdi:account-alert
@@ -148,6 +151,12 @@ light_top_floor_hallway:
 
 tv_ue46es8005:
   name: dummy ue46es8005
+
+upstairs_living_room_tv:
+  name: dummy upstairs living room tv
+
+conservatory_tv:
+  name: dummy conservatory tv
 
 skybell_launch:
   name: dummy switch to launch skybell app on android

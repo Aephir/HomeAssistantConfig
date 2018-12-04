@@ -64,6 +64,7 @@ meta_tracker:
   aephir_maps_tracker: !secret aephir_maps_tracker
   aephir_l360_tracker: !secret aephir_l360_tracker
   aephir_ping_tracker: !secret aephir_ping_tracker
+  aephir_bluetooth_1_tracker: !secret aephir_bluetooth_1_tracker
   kristina_ios_tracker: !secret kristina_ios_tracker
   kristina_l360_tracker: !secret kristina_l360_tracker
   kristina_ping_tracker: !secret kristina_ping_tracker
@@ -118,18 +119,21 @@ global_sensors:
     - "sensor.humidity_158d000245b4a2" # Wine cellar
     - "sensor.humidity_158d000243778b" # Shed
     - "sensor.humidity_158d00027727eb" # Kitchen
+    - "sensor.humidity_158d00027437fe" # # Top floor tv room
   pressureSensors:
     - "sensor.pressure_158d00022c66ff" # Bathroom
     - "sensor.pressure_158d0002437897" # Washing room
     - "sensor.pressure_158d000245b4a2" # Wine cellar
     - "sensor.pressure_158d000243778b" # Shed
     - "sensor.pressure_158d00027727eb" # Kitchen
+    - "sensor.pressure_158d00027437fe" # # Top floor tv room
   temperatureSensors:
     - "sensor.temperature_158d00022c66ff" # Bathroom
     - "sensor.temperature_158d0002437897" # Washing room
     - "sensor.temperature_158d000245b4a2" # Wine cellar
     - "sensor.temperature_158d000243778b" # Shed
     - "sensor.temperature_158d00027727eb" # Kitchen
+    - "sensor.temperature_158d00027437fe" # # Top floor tv room
   lights:
     ## Lights and light groups to use
     # Main floor lights

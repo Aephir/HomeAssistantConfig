@@ -16,7 +16,7 @@
 
   - name: floorplan2
     sidebar_title: Floorplan2
-    sidebar_icon: mdi:home
+    sidebar_icon: mdi:floor-plan
     url_path: floorplan2
     config: !include floorplan2.yaml
 
