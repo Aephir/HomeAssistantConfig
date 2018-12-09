@@ -272,6 +272,15 @@ notify_open_door_windows:
 #   switch: sensor.hue_dimmer_1
 #   entity: input_boolean.kitchen_lights_motion_override
 
+###################
+#    Occupancy    #
+###################
+
+occupancy:
+  module: home_occupied
+  class: HomeOccupancy
+
+
 ################
 #    Plants    #
 ################
