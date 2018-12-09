@@ -300,6 +300,11 @@
     sequence:
       - service: shell_command.restart_hass
 
+  update_docker:
+    alias: Update docker containers
+    sequence:
+      - service: shell_command.update_docker
+
 #####
 # Meta trackers
 

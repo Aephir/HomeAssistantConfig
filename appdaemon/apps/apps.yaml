@@ -11,9 +11,9 @@
 #    Test    #
 ##############
 
-test:
-  module: test
-  class: Test
+# test:
+#   module: test
+#   class: Test
 
 # test2:
 #   module: test2
@@ -109,6 +109,7 @@ global_sensors:
     # - "sensor.illumination_7811dcb8d944" # Gateway illumination - remove?
   doorWindowSensors:
     - "binary_sensor.door_window_sensor_158d0002286a78" # Bathroom window
+    - "binary_sensor.door_window_sensor_158d000237c924" # Bedroom window
     - "binary_sensor.door_window_sensor_158d00022b3b66" # Basement door
     - "binary_sensor.door_window_sensor_158d00022d0917" # Front door
     - "binary_sensor.door_window_sensor_158d000234dc7b" # Conservatory door
@@ -262,25 +263,25 @@ notify_open_door_windows:
 #    Plants    #
 ################
 
-notify_upon_plant_problem:
-  module: notify_plant_problem
-  class: PlantProblem
-  plant_1_name: Lemon
-  plant_2_name: kalamansi
-  plant_3_name: Avocado
-  plant_4_name: Banana
-  min_moisture_1: 15
-  min_moisture_2: 15
-  min_moisture_3: 15
-  min_moisture_4: 15
-  min_conductivity_1: 350
-  min_conductivity_2: 350
-  min_conductivity_3: 350
-  min_conductivity_4: 350
-  min_temperature_1: 6
-  min_temperature_2: 10
-  min_temperature_3: 8
-  min_temperature_4: 5
+#notify_upon_plant_problem:
+#  module: notify_plant_problem
+#  class: PlantProblem
+#  plant_1_name: Lemon
+#  plant_2_name: kalamansi
+#  plant_3_name: Avocado
+#  plant_4_name: Banana
+#  min_moisture_1: 15
+#  min_moisture_2: 15
+#  min_moisture_3: 15
+#  min_moisture_4: 15
+#  min_conductivity_1: 350
+#  min_conductivity_2: 350
+#  min_conductivity_3: 350
+#  min_conductivity_4: 350
+#  min_temperature_1: 6
+#  min_temperature_2: 10
+#  min_temperature_3: 8
+#  min_temperature_4: 5
 
 ##################
 #    Presence    #
@@ -351,6 +352,14 @@ xiaomi_button_1:
 #   module: xiaomi_aqara_cube
 #   class: Remote
 #   entityID: binary_sensor.cube_158d00028f7196
+
+#################
+#    Sensors    #
+#################
+
+doors_or_windows_open:
+  module: door_window_open
+  class: Sensor
 
 
 ################

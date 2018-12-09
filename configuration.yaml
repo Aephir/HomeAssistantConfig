@@ -98,6 +98,7 @@ frontend: !include config_files/frontend.yaml
 group: !include config_files/group.yaml
 #group: !include_dir_merge_named group/
 history: !include config_files/history.yaml
+homeconnect: include !config_files/home_connect.yaml
 homekit: !include config_files/homekit.yaml
 # http: !include config_files/http.yaml
 hue: !include config_files/hue.yaml

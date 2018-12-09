@@ -11,6 +11,36 @@
   state_topic: 'home/bedroom/bed'
   name: "Raw Master Bed Weight Measurement"
 
+##########################
+#    Door and Windows    #
+##########################
+
+##################
+#__Door_Sensors__#
+
+# - platform: template
+#   sensors:
+#     doors_open:
+#       friendly_name: Any Doors Open
+#       value_template: >-
+#         {% if (is_state('binary_sensor.door_window_sensor_158d00022b3b66'), 'on') or (is_state('binary_sensor.door_window_sensor_158d00022d0917'), 'on') or (is_state('58d00022d0917'), 'on') or (is_state('binary_sensor.door_window_sensor_158d00022d0917'), 'on')  %}
+#           on
+#         {% else %}
+#           off
+#         {% endif %}
+#     windows_open:
+#       friendly_name: Any Windows Open
+#       value_template: >-
+#         {% if (is_state('binary_sensor.door_window_sensor_158d0002286a78'), 'on' %}
+#           on
+#         {% else %}
+#           off
+#         {% endif %}
+
+####################
+#__Window_Sensors__#
+
+
 ####################
 #__System Sensors__#
 

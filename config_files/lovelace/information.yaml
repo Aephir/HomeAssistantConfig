@@ -273,3 +273,13 @@
       #     - updater.updater
       #   state_filter:
       #     - 'on'
+        - type: custom:state-switch
+          entity: user
+          default: default
+          states:
+            Aephir:
+              type: entities
+              title: Docker Image Update
+              entities:
+                - entity: script.update_docker
+                  type: custom:toggle-lock-entity-row

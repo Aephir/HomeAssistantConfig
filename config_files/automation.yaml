@@ -1390,12 +1390,12 @@
   action:
     - service_template: frontend.set_theme
       data_template:
-      name: >
-        {% if states.sun.sun.state == "above_horizon" %}
-          default
-        {% else %}
-          midnight
-        {% endif %}
+        name: >
+          {% if (states.sun.sun.state == "above_horizon") %}
+            default
+          {% else %}
+            midnight
+          {% endif %}
 
 ##########################################
 #    Kustom (KWGT) Widget Automaitons    #
@@ -1597,6 +1597,58 @@
   action:
     - service: homeassistant.turn_off
       entity_id: switch.fountain
+
+- alias: kwgt fume hood power
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_fume_hood_power
+  action:
+    - service:
+      domain: remote
+      action: send_command
+      entity_id: remote.kitchen_remote
+      data:
+        command:
+          - 'fume_hood_power'
+
+- alias: kwgt fume hood lights
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_fume_hood_lights
+  action:
+    - service:
+      domain: remote
+      action: send_command
+      entity_id: remote.kitchen_remote
+      data:
+        command:
+          - 'fume_hood_lights'
+
+- alias: kwgt fume hood increase power
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_fume_hood_increase
+  action:
+    - service:
+      domain: remote
+      action: send_command
+      entity_id: remote.kitchen_remote
+      data:
+        command:
+          - 'fume_hood_increase'
+
+- alias: kwgt fume hood decrease power
+  trigger:
+    platform: webhook
+    webhook_id: kwgt_fume_hood_decrease
+  action:
+    - service:
+      domain: remote
+      action: send_command
+      entity_id: remote.kitchen_remote
+      data:
+        command:
+          - 'fume_hood_decrease'
 
 
 ###########################################

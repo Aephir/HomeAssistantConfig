@@ -59,6 +59,7 @@ reboot_hass: bash /home/aephir/docker/homeassistant/shell_scripts/reboot_home_as
 renew_ssl: bash /home/aephir/docker/homeassistant/shell_scripts/update_certificates.sh
 update_hass: bash /home/aephir/docker/homeassistant/shell_scripts/updatehass.sh
 restart_hass: 'curl http://127.0.0.1:8126/container/home-assistant/restart'
+update_docker: bash /home/aephir/scripts/docker_image_update.sh
 
 #####################
 #__Set_HASS_States__#

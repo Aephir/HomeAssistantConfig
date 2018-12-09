@@ -19,6 +19,7 @@
 - platform: darksky
   api_key: !secret darkskyapi
   monitored_conditions:
+    - icon
     - summary
     - precip_type
     - precip_intensity
@@ -26,8 +27,8 @@
     - humidity
     - visibility
     - temperature
-    - apparent_temperature_high
-    - apparent_temperature_low
+    - apparent_temperature
+    - pressure
     - humidity
     - wind_speed
     - wind_bearing

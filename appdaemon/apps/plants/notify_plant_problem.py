@@ -154,6 +154,6 @@ class PlantProblem(hass.Hass):
 
     # If any one of us arrives home, we will run each function, so we can be notified as we arrive.
     def iAmHome(self, entity, attribute, old, new, kwargs):
-        self.temperature_problem(entity, attribute, old, new)
-        self.moisture_problem(entity, attribute, old, new)
-        self.conductivity_problem(entity, attribute, old, new)
+        self.temperature_problem(entity, attribute, old, new, kwargs)
+        self.moisture_problem(entity, attribute, old, new, kwargs)
+        self.conductivity_problem(entity, attribute, old, new, kwargs)

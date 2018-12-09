@@ -17,6 +17,20 @@
 #       friendly_name: TV
 # OBS! For new HASS, remember to try connecting using the homeassistant user through terminal, so you can accept connections
 
+#######################
+#    MQTT Switches    #
+#######################
+
+- platform: mqtt
+  name: "ue46es8005"
+  state_topic: "homeassistant/switch/hdmi_0/state" # using mqtt_statestream on hassio
+  command_topic: "homeassistant/switch/hdmi_0/state"
+  payload_on: "on"
+  payload_off: "off"
+  state_on: "on"
+  state_off: "off"
+  # retain: false
+
 ###############
 #    Plugs    #
 ###############

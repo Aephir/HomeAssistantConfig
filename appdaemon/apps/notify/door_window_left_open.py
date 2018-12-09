@@ -11,22 +11,42 @@ class Notify(hass.Hass):
 
         # Door and window sensors to monitor.
         self.sensor_ids = [
-        'binary_sensor.door_window_sensor_158d0002286a78', # Bathroom Window
-        'binary_sensor.door_window_sensor_158d00022b3b66', # Basement Door
-        'binary_sensor.door_window_sensor_158d00022d0917', # Front Door
-        'binary_sensor.door_window_sensor_158d000234dc7b', # Conservatory Door
-        'binary_sensor.neo_coolcam_doorwindow_detector_sensor' # Shed Door
-        ]
+            'binary_sensor.door_window_sensor_158d0002286a78', # Bathroom Window
+            'binary_sensor.door_window_sensor_158d00022b3b66', # Basement Door
+            'binary_sensor.door_window_sensor_158d00022d0917', # Front Door
+            'binary_sensor.door_window_sensor_158d000234dc7b', # Conservatory Door
+            'binary_sensor.neo_coolcam_doorwindow_detector_sensor' # Shed Door
+            ]
+
+        self.sensor_1 = 'binary_sensor.door_window_sensor_158d0002286a78', # Bathroom Window
+        self.sensor_2 = 'binary_sensor.door_window_sensor_158d00022b3b66', # Basement Door
+        self.sensor_3 = 'binary_sensor.door_window_sensor_158d00022d0917', # Front Door
+        self.sensor_4 = 'binary_sensor.door_window_sensor_158d000234dc7b', # Conservatory Door
+        self.sensor_5 = 'binary_sensor.neo_coolcam_doorwindow_detector_sensor' # Shed Door
 
         # Temperature, precipitation and wind conditions to monitor.
         self.weather_ids = [
-        'sensor.dark_sky_temperature', # Monitor temperature drops.
-        'sensor.dark_sky_precip', # Monitor procipitation type.
-        'sensor.dark_sky_wind_speed' # Monitor wind speed.
-        ]
+            'sensor.dark_sky_temperature', # Monitor temperature drops.
+            'sensor.dark_sky_precip', # Monitor procipitation type.
+            'sensor.dark_sky_wind_speed' # Monitor wind speed.
+            ]
 
-        # Set this to "None" initially.
-        self.open = None # Need one for each door/window sensor.
+        # Set this to "False" initially.
+        self.open_1 = False # Need one for each door/window sensor.
+        self.open_2 = False
+        self.open_3 = False
+        self.open_4 = False
+        self.open_5 = False
+
+        self.listOfOpen = [
+            'self.open_1',
+            'self.open_2',
+            'self.open_3',
+            'self.open_4',
+            'self.open_5'
+            ]
+
+        self.anyOpen = False
 
         # Run when state changes.
         for entity in self.sensor_ids:
@@ -37,29 +57,32 @@ class Notify(hass.Hass):
 
 
     def MessageDoorWindow (self, entity, attribute, old, new, kwargs):
-        # Set to "None" if door/window closes. Otherwise, run function.
+        # Set to "False" if door/window closes. Otherwise, run function.
         if new == 'off':
-            self.open = None # Need to do this for each door/window sensor
+            if entity == 'binary_sensor.door_window_sensor_158d0002286a78':
+                self.open_1 = False
+            elif entity == 'binary_sensor.door_window_sensor_158d00022b3b66':
+                self.open_2 = False
+            elif entity == 'binary_sensor.door_window_sensor_158d00022d0917':
+                self.open_3 = False
+            elif entity == 'binary_sensor.door_window_sensor_158d000234dc7b':
+                self.open_4 = False
+            elif entity == 'binary_sensor.neo_coolcam_doorwindow_detector_sensor':
+                self.open_5 = False
         else:
             self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
 
     def MessageWeather (self, entity, attribute, old, new, kwargs):
-        #
-        if entity == "sensor.dark_sky_temperature":
-            if float(self.get_state("sensor.dark_sky_temperature")) > 18.0:
-                self.open = None
-            else:
-                self.SendNoticationWeather(type="temperature")
-        elif entity == "sensor.dark_sky_precip":
-            if float(self.get_state("sensor.dark_sky_precip")) == "unknown":
-                self.open = None
-            elif float(self.get_state("sensor.dark_sky_precip_intensity")) > 4.0 and float(self.get_state("sensor.dark_sky_precip_probability")) > 25.0:
-                self.SendNoticationWeather(type="precipitation")
-        elif entity == "sensor.dark_sky_wind_speed":
-            if float(self.get_state("sensor.dark_sky_wind_speed")) < 14.0:
-                self.open = None
-            else:
-                self.SendNoticationWeather(type="wind")
+        if any self.listOfOpen:
+            if entity == "sensor.dark_sky_temperature":
+                if float(self.get_state("sensor.dark_sky_temperature")) < 18.0:
+                    self.SendNoticationWeather(type="temperature")
+            elif entity == "sensor.dark_sky_precip":
+                if float(self.get_state("sensor.dark_sky_precip_intensity")) > 4.0 and float(self.get_state("sensor.dark_sky_precip_probability")) > 25.0:
+                    self.SendNoticationWeather(type="precipitation")
+            elif entity == "sensor.dark_sky_wind_speed":
+                if float(self.get_state("sensor.dark_sky_wind_speed")) > 14.0:
+                    self.SendNoticationWeather(type="wind")
 
     def isOpen(self, entity_id):
         return self.get_state(entity_id) == 'on'
@@ -83,8 +106,9 @@ class Notify(hass.Hass):
             door_window_list += " are"
         if count != 0:
             return door_window_list
+            self.log(door_window_list)
         else:
-            return None
+            return False
 
 
     def SendNoticationDoorWindow(self, kwargs):
@@ -138,7 +162,7 @@ class Notify(hass.Hass):
         door_window_list = self.ListOfOpen()
 
         # Define a new friendly name for the sensor that triggered.
-        if door_window_list != None:
+        if door_window_list != False:
             if type == "temperature":
                 self.call_service("notify/home_aephir_bot", message="It is getting cold outside, and the " + door_window_list + " still open.")
                 # self.call_service("notify/ios_kristinas_iphone", message="It is getting cold outside, and the " + door_window_list + " still open.")

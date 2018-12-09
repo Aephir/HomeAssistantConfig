@@ -302,6 +302,7 @@ views:
           - media_player.kodi
           - media_player.upstairs_living_room_tv
           - media_player.conservatory_tv
+          - switch.ue46es8005
       - type: media-control
         entity: media_player.ue46es8005
       - type: media-control
@@ -664,6 +665,11 @@ views:
             - key: binary_sensor.cube_158d00028f7196.*
             - key: binary_sensor.cube_158d00028f7196.last_action
               name: Application
+
+      - type: entities
+        title: Scripts
+        entities:
+          - entity: script.say_with_love
 
   - !include config_files/lovelace/kitchen.yaml
 
