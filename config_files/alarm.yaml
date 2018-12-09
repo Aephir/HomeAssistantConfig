@@ -57,11 +57,12 @@ armed_away:
   trigger_time: 600
   ##[OPTIONAL however either an immediate or delayed group must exist] Sensors in this group tigger the alarm immediately
   immediate:
-    - binary_sensor.door_window_sensor_158d000234dc7b
-    - binary_sensor.door_window_sensor_158d00022b3b66
+    - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
+    - binary_sensor.door_window_sensor_158d000237c924 # Bedroom window
   ##[OPTIONAL] Sensors in this group start the clock (pending_time) when tripped before the alarm is triggered
   delayed:
     - binary_sensor.door_window_sensor_158d00022d0917
+    - binary_sensor.door_window_sensor_158d00022b3b66 # Basement door
     - binary_sensor.sensor
     - binary_sensor.motion_sensor_158d000200d203
     - binary_sensor.motion_sensor_158d000200d285

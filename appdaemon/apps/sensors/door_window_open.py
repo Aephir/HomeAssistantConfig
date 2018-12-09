@@ -1,4 +1,4 @@
-# Create sensors
+# Create sensor to show which windows and doors are open
 
 import appdaemon.plugins.hass.hassapi as hass
 
@@ -7,21 +7,25 @@ class Sensor(hass.Hass):
 
     def initialize(self):
 
+        # List of door sensors.
         self.doorList = [
             'binary_sensor.door_window_sensor_158d00022b3b66', # Basement door
             'binary_sensor.door_window_sensor_158d00022d0917', # Front door
             'binary_sensor.door_window_sensor_158d000234dc7b'  # Conservatory door
             ]
 
+        # List of shed door sensors.
         self.shedDoor = [
             'binary_sensor.neo_coolcam_doorwindow_detector_sensor'
             ]
 
+        # List of window sensors.
         self.windowList = [
             'binary_sensor.door_window_sensor_158d000237c924', # Bedroom window
             'binary_sensor.door_window_sensor_158d0002286a78'  # Bathroom window
             ]
 
+        # Dictionary relating entity_id to a custom freindly name. Should I change to just use 'friendly_name'?
         self.friendlyName = {
             'binary_sensor.door_window_sensor_158d00022b3b66': 'Basement door',
             'binary_sensor.door_window_sensor_158d00022d0917': 'Front door',
@@ -31,14 +35,23 @@ class Sensor(hass.Hass):
             'binary_sensor.door_window_sensor_158d0002286a78': 'Bathroom window'
             }
 
+        # Makes sure this global variable exists.
         self.anyOpen = None
 
+        # Runs this function upon initialization (e.g. boot, since the sensor will otherwise not be present until a door/window state changes).
+        self.setSensorState(None, None, None, None, None)
+
+        # Runs this function upon state changes.
         for entity in self.windowList:
             self.listen_state(self.setSensorState, entity)
 
+        # Runs this function upon state changes.
         for entity in self.doorList:
             self.listen_state(self.setSensorState, entity)
 
+        # Runs this function upon state changes.
+        for entity in self.windowList:
+            self.listen_state(self.setSensorState, entity)
 
     def isOpen(self, entity, attribute, old, new, kwargs):
 

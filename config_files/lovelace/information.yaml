@@ -26,7 +26,22 @@
           - entity: sensor.niels_brodys_ipad_2_battery_level
             name: Naia's Battery
 
+      - type: entities
+        title: Doors and Windows
 
+        entities:
+          - type: custom:entity-attributes-card
+            entity: sensor.windows_and_doors
+            filter:
+              include:
+                - key: sensor.windows_and_doors.number_of_doors
+                  name: Number of Open Doors
+                - key: sensor.windows_and_doors.number_of_windows
+                  name: Number of Open Windows
+                - key: sensor.windows_and_doors.shed_door
+                  name: Shed Door
+                - key: sensor.windows_and_doors.list_of_open
+                  name: List of Open Doors and Windows
 
       - type: glance
         title: Door/Window Sensors

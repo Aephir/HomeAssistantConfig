@@ -190,11 +190,24 @@ global_sensors:
 
     # More
     # - light.all_lights
-
+  meta_device_trackers:
+    - 'device_tracker.meta_walden'
+    - 'device_tracker.meta_kristina'
+    - 'device_tracker.meta_emilie'
+    - 'device_tracker.meta_naia'
 
 time_functions:
   module: time_functions
   class: GlobalFunctions
+
+####################
+#    Initialize    #
+####################
+
+initialize_sensors:
+  module: initialize_sensors
+  class: Initialize
+  priority: 1
 
 #######################
 #    Motion Lights    #
