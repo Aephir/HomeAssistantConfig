@@ -1,6 +1,7 @@
 # Create sensor to show which windows and doors are open
 
 import appdaemon.plugins.hass.hassapi as hass
+import datetime
 
 
 class Sensor(hass.Hass):
@@ -38,6 +39,10 @@ class Sensor(hass.Hass):
         # Makes sure this global variable exists.
         self.anyOpen = None
 
+        # Store time of last opening
+        self.lastOpenedTime = ''
+        self.lastOpenedEntity = ''
+
         # Runs this function upon initialization (e.g. boot, since the sensor will otherwise not be present until a door/window state changes).
         self.setSensorState(None, None, None, None, None)
 
@@ -52,6 +57,7 @@ class Sensor(hass.Hass):
         # Runs this function upon state changes.
         for entity in self.windowList:
             self.listen_state(self.setSensorState, entity)
+
 
     def isOpen(self, entity, attribute, old, new, kwargs):
 
@@ -68,6 +74,7 @@ class Sensor(hass.Hass):
         return self.anyOpen
 
 
+
     def setSensorState(self, entity, attribute, old, new, kwargs):
 
         sensorName = ''
@@ -77,6 +84,10 @@ class Sensor(hass.Hass):
         shedDoor = ''
         newStatus = ''
         isOpen = self.isOpen(entity, attribute, old, new, kwargs)
+
+        if entity in self.doorList and new == "on":
+            self.lastOpenedTime = datetime.datetime.now().strftime("%H:%M")
+            self.lastOpenedEntity = self.friendly_name(entity)
 
         for entity in self.doorList:
             if self.get_state(entity) == "on":
@@ -103,5 +114,7 @@ class Sensor(hass.Hass):
             'number_of_doors': numberOfDoors,
             'number_of_windows': numberOfWindows,
             'shed_door': shedDoor,
-            'list_of_open': self.anyOpen
+            'list_of_open': self.anyOpen,
+            'last_door_opened': self.lastOpenedEntity,
+            'door_opened_at': self.lastOpenedTime
             })
