@@ -28,7 +28,7 @@
 
       - type: entities
         title: Doors and Windows
-
+        show_header_toggle: false
         entities:
           - type: custom:entity-attributes-card
             entity: sensor.windows_and_doors
@@ -40,6 +40,10 @@
                   name: Number of Open Windows
                 - key: sensor.windows_and_doors.shed_door
                   name: Shed Door
+                - key: sensor.windows_and_doors.last_door_opened
+                  name: Last Opened Door
+                - key: sensor.windows_and_doors.door_opened_at
+                  name: Door Opened at
                 - key: sensor.windows_and_doors.list_of_open
                   name: List of Open Doors and Windows
 
@@ -146,6 +150,8 @@
             name: Kitchen Temp/Hum
           - entity: sensor.x_smoke_1_bat
             name: Smoke Sensor
+          # - entity: zwave.fibaro_system_fgt001_heat_controller.battery_level
+          #   name: Bathroom Radiator
       - type: glance
         title: Power Consumption
         entities:
@@ -177,7 +183,8 @@
       - type: horizontal-stack
         cards:
           - type: gauge
-            title: CPU Temperature
+            name: CPU Temperature
+            # title: CPU Temperature
             measurement: °C # set yo override default
             entity: sensor.cpu_temperature
             # scale: 10px
@@ -188,7 +195,8 @@
               amber: 50
               green: 0
           - type: gauge
-            title: CPU use
+            name: CPU use
+            # title: CPU use
             entity: sensor.processor_use
             # scale: 10px
             min: 0
@@ -198,7 +206,8 @@
               amber: 50
               green: 0
           - type: gauge
-            title: Memory use
+            name: Memory use
+            # title: Memory use
             entity: sensor.memory_use_percent
             # scale: 10px
             min: 0
@@ -208,7 +217,8 @@
               amber: 50
               green: 0
           - type: gauge
-            title: Disk use
+            name: Disk use
+            # title: Disk use
             entity: sensor.disk_use_percent_
             # scale: 10px
             min: 0
@@ -295,6 +305,7 @@
             Aephir:
               type: entities
               title: Docker Image Update
+              show_header_toggle: false
               entities:
                 - entity: script.update_docker
                   type: custom:toggle-lock-entity-row

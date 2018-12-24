@@ -411,3 +411,15 @@
 #   "custom_ui_state_card": "state-card-custom-ui",
 #   "device_class": "door"
 # }
+
+################
+#    Z-Wave    #
+################
+
+  refresh_fibaro_heat_controllers:
+    alias: refresh_zwave
+    sequence:
+    - alias: refresh zwave 7
+      service: zwave.refresh_node
+      data:
+        node_id: 7

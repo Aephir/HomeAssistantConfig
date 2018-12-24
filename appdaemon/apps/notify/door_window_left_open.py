@@ -32,18 +32,18 @@ class Notify(hass.Hass):
             ]
 
         # Set this to "False" initially.
-        self.open_1 = False # Need one for each door/window sensor.
-        self.open_2 = False
-        self.open_3 = False
-        self.open_4 = False
-        self.open_5 = False
+        self.get_state(self.open_1) = False # Need one for each door/window sensor.
+        self.get_state(self.open_2) = False
+        self.get_state(self.open_3) = False
+        self.get_state(self.open_4) = False
+        self.get_state(self.open_5) = False
 
         self.listOfOpen = [
-            'self.open_1',
-            'self.open_2',
-            'self.open_3',
-            'self.open_4',
-            'self.open_5'
+            self.open_1,
+            self.open_2,
+            self.open_3,
+            self.open_4,
+            self.open_5
             ]
 
         self.anyOpen = False

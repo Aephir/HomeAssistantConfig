@@ -1810,7 +1810,7 @@
     - service: notify.pushbullet
       data:
         message: 'Alarm Disabled'
-        target: email/example@gmail.com
+        # target: email/example@gmail.com
     - service: switch.turn_off
       entity_id: switch.siren_switch
     - data:
@@ -1829,11 +1829,11 @@
     - service: notify.home_aephir_bot
       data:
         message: 'ALARM TRIGGERED!!! {{ states[states.alarm_control_panel.house.attributes.changed_by.split(".")[0]][ states.alarm_control_panel.house.attributes.changed_by.split(".")[1]].name }}'
-        target: email/example@gmail.com
+        # target: email/example@gmail.com
     - service: notify.ios_kristinas_iphone
       data:
         message: 'ALARM TRIGGERED!!! {{ states[states.alarm_control_panel.house.attributes.changed_by.split(".")[0]][ states.alarm_control_panel.house.attributes.changed_by.split(".")[1]].name }}'
-        target: email/example@gmail.com
+        # target: email/example@gmail.com
 
 - id: alarm_warning
   alias: '[Alarm] Warning'
@@ -1845,7 +1845,7 @@
     - service: notify.home_aephir_bot
       data:
         message: 'ALARM Warning {{ states[states.alarm_control_panel.house.attributes.changed_by.split(".")[0]][ states.alarm_control_panel.house.attributes.changed_by.split(".")[1]].name }}'
-        target: email/example@gmail.com
+        # target: email/example@gmail.com
     - service: notify.ios_kristinas_iphone
       data:
         message: 'ALARM Warning {{ states[states.alarm_control_panel.house.attributes.changed_by.split(".")[0]][ states.alarm_control_panel.house.attributes.changed_by.split(".")[1]].name }}'
@@ -1853,9 +1853,13 @@
         push:
           badge: 5
           category: 'alarm'
-    - data:
-        message: 'Hello, the house alarm has been tripped. Please deactivate'
-      service: notify.example_phone_tts
+    # - service: notify.home_aephir_bot
+    #   data:
+    #     message: 'Hello, the house alarm has been tripped. Please deactivate'
+    # - service: notify.ios_kristinas_iphone
+    #   data:
+    #     message: 'Hello, the house alarm has been tripped. Please deactivate'
+
 
 # - alias: '[Alarm] Panic Mode'
 #   trigger:
@@ -1975,6 +1979,39 @@
 #     condition: and
 #     conditions:
 #       - condition: value_template
+
+############################
+#    Thermostat updates    #
+############################
+
+# - alias: update_fibaro_heat_controller_bathroom
+#   trigger:
+#     - platform: time
+#       minutes: '/10'
+#       seconds: 00
+#     - event: start
+#       platform: homeassistant
+#     - platform: event
+#       event_type: call_service
+#       event_data:
+#         domain: climate
+#         service: set_temperature
+#     - platform: event
+#       event_type: call_service
+#       event_data:
+#         domain: climate
+#         service: set_operation_mode
+#     - platform: event
+#       event_type: call_service
+#       event_data:
+#         domain: climate
+#         service: turn_on
+#   action:
+#     - service: zwave.refresh_entity
+#       entity_id: zwave.fibaro_system_fgt001_heat_controller # Bathroom radiator
+#     - service: zwave.refresh_node # I think this is the one that works to update temperature.
+#       data:
+#         node_id: 7 # Bathroom radiator
 
 ######################################
 #    Dummy switches for floorplan    #
@@ -2342,10 +2379,10 @@
 
 # Throgh RESTtask
 
-- alias: 'Doorbell chime'
-  trigger:
-    platform: webhook
-    webhook_id: restask_doorbell
-  action:
-    - service: script.turn_on
-      entity_id: script.doorbell_day
+# - alias: 'Doorbell chime'
+#   trigger:
+#     platform: webhook
+#     webhook_id: restask_doorbell
+#   action:
+#     - service: script.turn_on
+#       entity_id: script.doorbell_day

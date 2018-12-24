@@ -60,6 +60,9 @@ custom_updater: # https://github.com/custom-components/custom_updater/wiki/Insta
   # python_script_urls:
   #   -
 
+lovelace:
+  mode: yaml
+
 dialogflow:
 #discovery:
 # ifttt:
@@ -92,6 +95,7 @@ binary_sensor: !include config_files/binary_sensor.yaml
 camera: !include config_files/camera.yaml
 cast: !include config_files/cast.yaml
 cloud: !include config_files/cloud.yaml
+climate: !include config_files/climate.yaml
 device_tracker: !include config_files/device_tracker.yaml
 frontend: !include config_files/frontend.yaml
 #google_assistant: !include config_files/google_assistant.yaml

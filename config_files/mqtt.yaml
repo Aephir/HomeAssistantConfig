@@ -21,6 +21,16 @@ protocol: 3.1
 #certificate: /etc/mosquitto/2017-certificat/client.crt
 #tls_version: auto
 
+## Uncomment below for zigbee2mqtt
+# disovery: true
+# birth_message:
+#   topic: 'hass/status'
+#   payload: 'online'
+# will_message:
+#   topic: 'hass/status'
+#   payload: 'offline'
+
+
 ###############
 #    snips    #
 ###############

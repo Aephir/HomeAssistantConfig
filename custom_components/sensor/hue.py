@@ -16,7 +16,7 @@ from homeassistant.const import (CONF_IP_ADDRESS, CONF_TOKEN)
 from homeassistant.helpers.entity import Entity
 from homeassistant.util import Throttle
 
-__version__ = '0.7'
+__version__ = '0.8'
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -33,24 +33,23 @@ def parse_hue_api_response(response):
     data_dict = {}    # The list of sensors, referenced by their hue_id.
 
     # Loop over all keys (1,2 etc) to identify sensors and get data.
-    for key in response.keys():
-        sensor = response[key]
+    for sensor in response.values():
         modelid = sensor['modelid'][0:3]
         if modelid in ['RWL', 'SML', 'ZGP']:
             _key = modelid + '_' + sensor['uniqueid'][:-5]
-
             if modelid == 'RWL':
                 data_dict[_key] = parse_rwl(sensor)
             elif modelid == 'ZGP':
                 data_dict[_key] = parse_zgp(sensor)
             elif modelid == 'SML':
-                if _key not in data_dict.keys():
+                if _key not in data_dict:
                     data_dict[_key] = parse_sml(sensor)
                 else:
                     data_dict[_key].update(parse_sml(sensor))
 
         elif sensor['modelid'] == 'HA_GEOFENCE':
-            data_dict['Geofence'] = parse_geofence(sensor)
+            _key = 'Geofence_' + sensor['uniqueid']
+            data_dict[_key] = parse_geofence(sensor)
     return data_dict
 
 
@@ -67,7 +66,10 @@ def parse_sml(response):
                     'dark': dark,
                     'daylight': daylight, }
         else:
-            data = {'light_level': 'No light level data'}
+            data = {'light_level': 'No light level data',
+                    'lx': None,
+                    'dark': None,
+                    'daylight': None, }
 
     elif response['type'] == "ZLLTemperature":
         if response['state']['temperature'] is not None:
@@ -271,4 +273,4 @@ class HueSensor(Entity):
             elif self._model == 'Geofence':
                 self._icon = 'mdi:cellphone'
         except:
-            _LOGGER.error("Error updating Hue sensors")
+            _LOGGER.exception("Error updating Hue sensors")

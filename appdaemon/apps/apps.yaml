@@ -262,6 +262,10 @@ notify_open_door_windows:
   module: door_window_left_open
   class: Notify
 
+motion_door_window_notify:
+  module: motion_door_window_notify
+  class: Notify
+
 ##########################
 #    Manual overrides    #
 ##########################
@@ -277,7 +281,7 @@ notify_open_door_windows:
 ###################
 
 occupancy:
-  module: home_occupied
+  module: occupancy
   class: HomeOccupancy
 
 
@@ -374,6 +378,15 @@ xiaomi_button_1:
 #   module: xiaomi_aqara_cube
 #   class: Remote
 #   entityID: binary_sensor.cube_158d00028f7196
+
+####################
+#    Room staus    #
+####################
+
+bathroom_status:
+  module: bathroom
+  class: RoomStatus
+
 
 #################
 #    Sensors    #
