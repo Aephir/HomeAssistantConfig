@@ -94,6 +94,7 @@ global_sensors:
     - "binary_sensor.motion_sensor_158d0001e0a8e1" # Kitchen
     - "binary_sensor.motion_sensor_158d000210ca6e" # Bathroom #1
     - "binary_sensor.motion_sensor_158d000210ca6f" # Basemenet stairway
+    - 'binary_sensor.walk_in_closet_motion_sensor' # Walk-in closet
     # - "" # Dining room
   illuminationSensors:
     - "sensor.illumination_158d00023e3742" # Entrance
@@ -106,6 +107,7 @@ global_sensors:
     - "sensor.illumination_158d000236a0d0" # Upastairs bathroom
     - "sensor.illumination_158d0001e0a8e1" # Kitchen
     - "sensor.illumination_158d000210ca6e" # Bathroom #1
+    - 'sensor.aeotec_zw100_multisensor_6_luminance' # Walk-in closet
     # - "sensor.illumination_7811dcb8d944" # Gateway illumination - remove?
   doorWindowSensors:
     - "binary_sensor.door_window_sensor_158d0002286a78" # Bathroom window
@@ -250,6 +252,12 @@ top_floor_tv_room_light:
   module: top_floor_tv_room_motion
   class: MotionClass
 
+walk_in_closet_lights:
+  module: walk_in_closet_lights
+  class: MotionClass
+  entity_override: 'input_boolean.walk_in_closet_motion_override'
+
+
 #######################
 #    Notifications    #
 #######################
@@ -284,6 +292,9 @@ occupancy:
   module: occupancy
   class: HomeOccupancy
 
+looks_like_were_home:
+  module: looks_like_were_home
+  class: AwayLights
 
 ################
 #    Plants    #

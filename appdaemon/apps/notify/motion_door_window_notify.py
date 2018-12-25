@@ -57,8 +57,10 @@ class Notify(hass.Hass):
         if new == 'on':
             if entity in self.motionSensors:
                 message = str(sensor) + ' sensor was triggered at' + str(datetime.datetime.now().strftime("%H:%M"))
+                # self.call_service('script.play_dummy_alarm')
             elif entity in self.doorWindowSensors:
                 message = str(sensor) + ' was opened at' + str(datetime.datetime.now().strftime("%H:%M"))
+                # self.call_service('script.play_dummy_alarm')
 
         if new == 'off':
             if entity in self.doorWindowSensors:

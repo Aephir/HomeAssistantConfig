@@ -231,3 +231,15 @@
 #  switches:
 #    - switch.wine_fridge
 #    - switch.espresso_machine
+
+########################
+#    Dummy switches    #
+########################
+
+- platform: template
+  switches:
+    play_dummy_alarm:
+      value_template: "{{ True }}"
+      turn_on:
+      turn_off:
+        - service: script.play_dummy_alarm

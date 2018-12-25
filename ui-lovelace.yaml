@@ -87,36 +87,46 @@ views:
             items:
             - entity: light.dining_table_lights
               type: custom:slider-entity-row
+              toggle: true
             - entity: light.living_room_lightstrip
               type: custom:slider-entity-row
+              toggle: true
 
           - type: custom:fold-entity-row
             head: light.conservatory_lights
             items:
             - entity: light.conservatory_couch
               type: custom:slider-entity-row
+              toggle: true
             - entity: light.conservatory_reading
               type: custom:slider-entity-row
+              toggle: true
 
           - type: custom:fold-entity-row
             head: light.kitchen_lights
             items:
             - entity: light.kitchen_spots
               type: custom:slider-entity-row
+              toggle: true
             - entity: light.kitchen_cabinet_lights
               type: custom:slider-entity-row
+              toggle: true
 
           - type: custom:fold-entity-row
             head: light.entrance_lights
             items:
             - entity: light.stairway
               type: custom:slider-entity-row
+              toggle: true
             - entity: light.stairway_up
               type: custom:slider-entity-row
+              toggle: true
             # - entity: light.main_floor_entrance_1
             #   type: custom:slider-entity-row
+              # toggle: true
             # - entity: light.main_floor_entrance_2
             #   type: custom:slider-entity-row
+              # toggle: true
 
           # - type: custom:fold-entity-row
           #   head:
@@ -137,13 +147,16 @@ views:
               - Kristina
           - entity: light.bathroom
             type: custom:slider-entity-row
+            toggle: true
           - entity: light.baby_room
             name: Baby Room Light
             type: custom:slider-entity-row
+            toggle: true
           - entity: light.gateway_light_7811dcb8d944
             # Override the name to use
             name: Gateway Light
             type: custom:slider-entity-row
+            toggle: true
             # show_value: true
           # - type: divider
           #   style:
@@ -234,22 +247,32 @@ views:
         entities:
           - entity: light.basement_entrance
             type: custom:slider-entity-row
+            toggle: true
           - entity: light.basement_hallway
             type: custom:slider-entity-row
+            toggle: true
           - entity: light.hue_lightstrip_plus_1
             name: Wine cellar
             type: custom:slider-entity-row
+            toggle: true
           - entity: light.tv_room
             type: custom:slider-entity-row
+            toggle: true
+          - entity: light.walk_in_closet
+            type: custom:slider-entity-row
+            toggle: true
       - type: entities
         title: Top Floor Lights
         entities:
           - entity: light.top_floor_bathroom
             type: custom:slider-entity-row
+            toggle: true
           - entity: light.top_floor_tv_area
             type: custom:slider-entity-row
+            toggle: true
           - entity: light.top_floor_hallway
             type: custom:slider-entity-row
+            toggle: true
       #   # The markdown card will render markdown text.
       # - type: markdown
       #   title: Lovelace
@@ -328,30 +351,20 @@ views:
       - type: media-control
         entity: media_player.upstairs_living_room_tv
 
-  - icon: mdi:leaf
-    id: plants
-    cards:
-      - type: plant-status
-        # title: Plant Sensors
-        entity: plant.lemon
-      - type: plant-status
-        # title: Plant Sensors
-        entity: plant.kalamansi
-      - type: plant-status
-        # title: Plant Sensors
-        entity: plant.avocado
-      - type: plant-status
-        # title: Plant Sensors
-        entity: plant.banana
-          # - sensor.mi_sensor_1_light_intensity
-          # - sensor.mi_sensor_1_moisture
-          # - sensor.mi_sensor_1_temperature
-          # - sensor.mi_sensor_1_conductivity
-          # - sensor.mi_sensor_1_battery
-
   - icon: mdi:hammer
     id: manual_override
     cards:
+      - type: entities
+        title: Manual overrides
+        entities:
+          - input_boolean.vacation_mode
+          - input_boolean.kids_home
+          - input_boolean.guest_mode
+          - input_boolean.cooking_mode
+          - input_boolean.kitchen_lights_motion_override
+          - input_boolean.top_floor_lights_motion_override
+          - input_boolean.entrance_lights_motion_override
+          - input_boolean.basement_lights_motion_override
       - type: entities
         title: Family Toggle
         entities:
@@ -360,11 +373,6 @@ views:
           - input_boolean.kristinahome360
           - input_boolean.emiliehome360
           - input_boolean.naiahome360
-          - input_boolean.vacation_mode
-          - input_boolean.kids_home
-          - input_boolean.guest_mode
-          - input_boolean.cooking_mode
-          - input_boolean.kitchen_lights_motion_override
       - type: entities
         title: Docker Containers
         entities:
@@ -421,44 +429,66 @@ views:
             - domain: automation
               state: 'off'
 
-  - title: Surveillance
-    icon: mdi:cctv
-    id: surveillance
-    panel: true
-    cards:
-      - type: custom:surveillance-card
-        thumb_interval: 15
-        update_interval: 2
-        cameras:
-          - entity: camera.front_door
-            motion_entity: binary_sensor.skybell_front_door_motion
-          - entity: camera.wyze_camera_1
+  # - title: Surveillance
+  #   icon: mdi:cctv
+  #   id: surveillance
+  #   panel: true
+  #   cards:
+  #     - type: custom:surveillance-card
+  #       thumb_interval: 15
+  #       update_interval: 2
+  #       cameras:
+  #         - entity: camera.front_door
+  #           motion_entity: binary_sensor.skybell_front_door_motion
+  #         - entity: camera.wyze_camera_1
+  #
+  # - title: Surveillance TEST
+  #   icon: mdi:cctv
+  #   id: surveillance_test
+  #   # panel: true
+  #   cards:
+  #     - type: picture-glance
+  #       title: Wyze Cam 1
+  #       # navigate: /lovelace/experimental # Use this to click the image to navigate to a specific lovalace view. E.g. have camera pointed at kitchen, then navigate to a /lovelace/kitchen view.
+  #       image:
+  #       camera_image: camera.wyze_camera_1
+  #       entities:
+  #         - camera.wyze_camera_1
+  #         - binary_sensor.motion_sensor_158d000200d285
+  #         - light.entrance_lights
+  #         - binary_sensor.front_door
+  #     - type: picture-glance
+  #       title: SkyBell Cam
+  #       # navigate: /lovelace/experimental # Use this to click the image to navigate to a specific lovalace view. E.g. have camera pointed at kitchen, then navigate to a /lovelace/kitchen view.
+  #       image:
+  #       camera_image: camera.front_door
+  #       entities:
+  #         - camera.front_door
+  #         - binary_sensor.motion_sensor_158d000200d285
+  #         - light.entrance_lights
+  #         - binary_sensor.front_door
 
-  - title: Surveillance TEST
-    icon: mdi:cctv
-    id: surveillance_test
-    # panel: true
+  - icon: mdi:leaf
+    id: plants
     cards:
-      - type: picture-glance
-        title: Wyze Cam 1
-        # navigate: /lovelace/experimental # Use this to click the image to navigate to a specific lovalace view. E.g. have camera pointed at kitchen, then navigate to a /lovelace/kitchen view.
-        image:
-        camera_image: camera.wyze_camera_1
-        entities:
-          - camera.wyze_camera_1
-          - binary_sensor.motion_sensor_158d000200d285
-          - light.entrance_lights
-          - binary_sensor.front_door
-      - type: picture-glance
-        title: SkyBell Cam
-        # navigate: /lovelace/experimental # Use this to click the image to navigate to a specific lovalace view. E.g. have camera pointed at kitchen, then navigate to a /lovelace/kitchen view.
-        image:
-        camera_image: camera.front_door
-        entities:
-          - camera.front_door
-          - binary_sensor.motion_sensor_158d000200d285
-          - light.entrance_lights
-          - binary_sensor.front_door
+      - type: plant-status
+        # title: Plant Sensors
+        entity: plant.lemon
+      - type: plant-status
+        # title: Plant Sensors
+        entity: plant.kalamansi
+      - type: plant-status
+        # title: Plant Sensors
+        entity: plant.avocado
+      - type: plant-status
+        # title: Plant Sensors
+        entity: plant.banana
+          # - sensor.mi_sensor_1_light_intensity
+          # - sensor.mi_sensor_1_moisture
+          # - sensor.mi_sensor_1_temperature
+          # - sensor.mi_sensor_1_conductivity
+          # - sensor.mi_sensor_1_battery
+
 
   - icon: mdi:biohazard
     id: experimental
@@ -713,6 +743,13 @@ views:
           - sensor.aeotec_zw100_multisensor_6_sourcenodeid
           - sensor.aeotec_zw100_multisensor_6_temperature
           - sensor.aeotec_zw100_multisensor_6_ultraviolet
+
+
+      - type: picture-glance
+        title: Test Script (swtich)
+        image: /local/images/brain.jpg
+        entities:
+          - switch.play_dummy_alarm
 
 
   - !include config_files/lovelace/kitchen.yaml

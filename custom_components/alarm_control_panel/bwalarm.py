@@ -128,7 +128,7 @@ CONF_GUI                           = 'gui'
 CONF_PANEL                         = 'panel'
 CONF_ColorS                        = 'colors'
 CONF_THEMES                        = 'themes'
-CONF_ADMIN_PASSWORD                = '2723'
+CONF_ADMIN_PASSWORD                = 'admin_password'
 CONF_DISABLE_ANIMATIONS            = 'disable_animations'
 
 #//-----------------------ColorS------------------------------------

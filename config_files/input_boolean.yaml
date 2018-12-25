@@ -174,3 +174,19 @@ door_sensor_status_1:
 kitchen_lights_motion_override:
   name: Override Kitchen Motion Sensors
   initial: off
+
+top_floor_lights_motion_override:
+  name: Override Top Floor Motion Sensors
+  initial: off
+
+basement_lights_motion_override:
+  name: Override Basement Motion Sensors
+  initial: off
+
+entrance_lights_motion_override:
+  name: Override Entrance Motion Sensors
+  initial: off
+
+walk_in_closet_motion_override:
+  name: Override Walk-in Closet Motion Sensors
+  initial: off

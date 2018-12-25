@@ -7,6 +7,23 @@
 
 
 ###################
+#    Floorplan    #
+###################
+
+- platform: mqtt
+  state_topic: dummy/floorplan/sensor
+  name: Floorplan
+
+#- platform: mqtt
+#  state_topic: floorplan/floorplan
+#  name: Floorplan
+
+#- platform: mqtt
+#  state_topic: floorplan/floorplan_2
+#  name: Floorplan_2
+
+
+###################
 #    Occupancy    #
 ###################
 
@@ -129,6 +146,16 @@
           false
           {%- endif %}
 
+#################
+#    Sensors    #
+#################
+
+- platform: template
+  sensors:
+    walk_in_closet_motion_sensor:
+      friendly_name: "Walk-in Closet Motion"
+      device_class: motion
+      value_template: "{{ is_state('sensor.aeotec_zw100_multisensor_6_burglar', '8') }}"
 
 #################
 #    SkyBell    #
@@ -138,19 +165,3 @@
   monitored_conditions:
     - button
     - motion
-
-###################
-#    Floorplan    #
-###################
-
-- platform: mqtt
-  state_topic: dummy/floorplan/sensor
-  name: Floorplan
-
-#- platform: mqtt
-#  state_topic: floorplan/floorplan
-#  name: Floorplan
-
-#- platform: mqtt
-#  state_topic: floorplan/floorplan_2
-#  name: Floorplan_2

@@ -254,6 +254,32 @@
         data:
           message: 'Please dismarm it, or leave immediately'
 
+  play_dummy_alarm:
+    sequence:
+      - service: media_player.volume_set
+        data_template:
+          entity_id: media_player.livingroom
+          volume_level: 0.1
+      - delay: 00:00:05
+      - service: tts.google_say
+        entity_id: media_player.living_room
+        data:
+          message: 'Welcome'
+      - delay: 00:00:01
+      - service: tts.google_say
+        entity_id: media_player.living_room
+        data:
+          message: 'The alarm will sound in 30 seconds'
+      - delay: 00:00:02
+      - service: tts.google_say
+        entity_id: media_player.living_room
+        data:
+          message: 'Please dismarm it, or leave immediately'
+      - delay: 00:00:25
+      - event: MODE_CHANGE
+        event_data:
+          mode: siren
+
   say_with_love:
     sequence:
       - service: tts.google_say

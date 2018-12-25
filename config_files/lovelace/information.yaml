@@ -78,6 +78,7 @@
             - "binary_sensor.motion_sensor_158d000200d203" # Basement entrance
             - "binary_sensor.motion_sensor_158d000210ca6f" # Basemenet stairway
             - "binary_sensor.motion_sensor_158d000236a116" # TV room
+            - "binary_sensor.walk_in_closet_motion_sensor" # Walk-in closet
         - type: glance
           title: Top Floor Motion Sensors
           columns: 3
