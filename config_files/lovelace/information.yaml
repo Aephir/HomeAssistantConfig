@@ -68,6 +68,7 @@
               # label: Main Floor
             - "binary_sensor.motion_sensor_158d00023e3742" # Entrance
             - "binary_sensor.motion_sensor_158d000200d285" # Conservatory
+            - "binary_sensor.conservatory_motion_sensor_aeotec" # Conservatory #2 (Aeotec)
             - "binary_sensor.motion_sensor_158d0001e0a8e1" # Kitchen
             - "binary_sensor.motion_sensor_158d000210ca6e" # Bathroom #1
             - "binary_sensor.motion_sensor_158d000236a22f" # Bathroom #2
@@ -164,10 +165,10 @@
             name: Espresso Power
           - entity: sensor.neo_coolcam_power_plug_12a_previous_reading_2
             name: Neo-previous Power
-          - entity: sensor.sensor_desktop
-            name: WeMo 11 Power
-          - entity: sensor.sensor_espresso
-            name: WeMo 6 Power
+          - entity: sensor.sensor_fountain
+            name: Fountain Power
+          # - entity: sensor.sensor_espresso
+          #   name: WeMo 6 Power
 
       - type: glance
         title: Kitchen
@@ -254,6 +255,20 @@
             - entity: sensor.pressure_158d00022c66ff
               name: Pressure
               # value_template: '{{ value.sensor.pressure_158d00022c66ff | round(1) }}'
+
+        - type: glance
+          title: Conservatory
+          columns: 3
+          entities:
+            - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+              name: Temperature
+            - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
+              name: Humidity
+            - entity: sensor.aeotec_zw100_multisensor_6_luminance_2
+              name: Luminescence
+            - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet_2
+              name: UV
+
         - type: glance
           title: Kitchen
           columns: 3
@@ -284,6 +299,20 @@
               name: Humidity
             - entity: sensor.pressure_158d0002437897
               name: Pressure
+
+        - type: glance
+          title: Walk-in Closet
+          columns: 3
+          entities:
+            - entity: sensor.aeotec_zw100_multisensor_6_temperature
+              name: Temperature
+            - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
+              name: Humidity
+            - entity: sensor.aeotec_zw100_multisensor_6_luminance
+              name: Luminescence
+            - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet
+              name: UV
+
         - type: glance
           title: Shed
           columns: 3

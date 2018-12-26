@@ -1,0 +1,83 @@
+##########################################################
+## CUSTOM ALARM COMPONENT ALARM.YAML
+## https://github.com/gazoscalvertos/Hass-Custom-Alarm
+## VERSION:  1.0.2
+## MODIFIED: 18/04/18
+## CHANGE LOG:
+## Add Multi Codes, names, pics
+## optional code to arm alarm
+## Default Interface password: HG28!!&dn
+##########################################################
+
+platform: bwalarm
+name: House
+panel:
+  cameras: []
+states:
+  armed_away:
+    immediate: []
+    delayed: []
+    override: []
+    pending_time: 0
+    warning_time: 0
+    trigger_time: 600
+  armed_home:
+    immediate: []
+    delayed: []
+    override: []
+    pending_time: 0
+    warning_time: 0
+    trigger_time: 600
+  armed_perimeter:
+    immediate: []
+    delayed: []
+    override: []
+    pending_time: 0
+    warning_time: 0
+    trigger_time: 600
+users:
+- id: 75c9d2267cee412080450f487eb5fe30
+  name: Aephir
+  enabled: false
+  code: 75c9d2267cee412080450f487eb5fe30
+  picture: /local/images/ha.png
+- id: 0907129198014cc38e658ba90cd96926
+  name: Kristina
+  enabled: false
+  code: 0907129198014cc38e658ba90cd96926
+  picture: /local/images/ha.png
+- id: 6f37d3ef1a3848bb901d5da5a967e632
+  name: Emilie
+  enabled: false
+  code: 6f37d3ef1a3848bb901d5da5a967e632
+  picture: /local/images/ha.png
+- id: ebf52937fe9143fba85d2d662fe4155c
+  name: Naia
+  enabled: false
+  code: ebf52937fe9143fba85d2d662fe4155c
+  picture: /local/images/ha.png
+- id: bb81cd13a61041f9b5c57000c92508ee
+  name: Tablets_1
+  enabled: false
+  code: bb81cd13a61041f9b5c57000c92508ee
+  picture: /local/images/ha.png
+- id: 6f415abb1d2043aeb8d81ebacbce0d8d
+  name: Tablets_2
+  enabled: false
+  code: 6f415abb1d2043aeb8d81ebacbce0d8d
+  picture: /local/images/ha.png
+- id: 119fda64294549ea9f2ecac093f396f1
+  name: Tablets_3
+  enabled: false
+  code: 119fda64294549ea9f2ecac093f396f1
+  picture: /local/images/ha.png
+- id: 632be764c7384983be7800661ca79636
+  name: Guest_lv_1
+  enabled: false
+  code: 632be764c7384983be7800661ca79636
+  picture: /local/images/ha.png
+- id: 80794751f53549f0aaeae48a4730f412
+  name: Legacy API password user
+  enabled: false
+  code: 80794751f53549f0aaeae48a4730f412
+  picture: /local/images/ha.png

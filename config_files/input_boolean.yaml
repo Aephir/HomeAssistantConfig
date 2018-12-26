@@ -125,6 +125,9 @@ light_walkin_closet:
 light_wine_cellar:
   name: dummy wine cellar light
 
+light_conservatory_lights:
+  name: dummy conservatory lights
+
 light_conservatory_couch:
   name: dummy conservatory couch light
 

@@ -5,3 +5,8 @@
 #################
 
 - platform: zwave
+
+# - platform: generic_thermostat
+#   name: Generic Test
+#   heater: switch.study_heater
+#   target_sensor: sensor.XXX

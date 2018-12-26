@@ -180,6 +180,29 @@
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
+        - name: conservatory_temperature
+          entities:
+            - sensor.aeotec_zw100_multisensor_6_temperature_2
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#          class_template: 'return "static-temp";'
+          class_template: '
+            var temp = parseFloat(entity.state);
+            if (temp < 15)
+              return "temp-in-very-low";
+            else if (temp < 19)
+              return "temp-in-low";
+            else if (temp < 21)
+              return "temp-in-good";
+            else
+              return "temp-in-high";
+            '
+        - name: conservatory_temperature_humidity
+          entities:
+            - sensor.aeotec_zw100_multisensor_6_relative_humidity_2
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
+
         - name: motion_sensors
           entities:
             - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
@@ -482,6 +505,7 @@
           entities:
              - light.hue_lightstrip_plus_1
              - light.bathroom
+             - light.conservatory_lights
           states:
             - state: 'on'
               class: 'light-group-on'
@@ -510,6 +534,7 @@
             - input_boolean.light_living_room_lightstrip
             - input_boolean.light_top_floor_tv_area
             - input_boolean.light_top_floor_hallway
+            - input_boolean.light_conservatory_lights
           states:
             - state: 'on'
               class: 'light-glow-on'

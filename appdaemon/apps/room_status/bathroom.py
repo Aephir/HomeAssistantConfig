@@ -1,9 +1,6 @@
 # Set status of rooms
 
 import appdaemon.plugins.hass.hassapi as hass
-import datetime
-import time
-
 
 class RoomStatus(hass.Hass):
 
@@ -84,7 +81,7 @@ class RoomStatus(hass.Hass):
 
     def isOpen(self, entity):
 
-        return self.get_state(entity) == "on":
+        return self.get_state(entity) == "on"
 
 
     def setSensorState(self, entity, attribute, old, new, kwargs):
@@ -99,9 +96,9 @@ class RoomStatus(hass.Hass):
         pressure = ''
         thermostatTemperature = ''
 
-        if entity 'binary_sensor.door_window_sensor_158d0002286a78' and new == "on":
+        if entity == 'binary_sensor.door_window_sensor_158d0002286a78' and new == "on":
             self.lastOpenedTime = datetime.datetime.now().strftime("%H:%M")
-        elif entity 'binary_sensor.door_window_sensor_158d0002286a78' and new == "off":
+        elif entity == 'binary_sensor.door_window_sensor_158d0002286a78' and new == "off":
             self.lastClosedTime = datetime.datetime.now().strftime("%H:%M")
 
         if self.get_state('binary_sensor.door_window_sensor_158d0002286a78') == 'on':

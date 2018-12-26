@@ -300,13 +300,16 @@
 
 
 
-  shed_power:
+  shed_power_off:
     alias: Shut Down Shed Power
     sequence:
-      - service: script.turn_on
-        data:
-          entity_id: script.mopidy_shut_off
+      - event: MODE_CHANGE
+        event_data:
+          mode: pc_off
       - delay: 00:00:20
+      - event: MODE_CHANGE
+        event_data:
+          mode: idle
       - service: switch.turn_off
         data:
           entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch

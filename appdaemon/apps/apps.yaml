@@ -336,6 +336,14 @@ looks_like_were_home:
 #   module: someone_on_the_way_home
 #   class: presence
 
+###################
+#    Radiators    #
+###################
+
+# bathroom_radiator:
+#   module: bathroom_radiator
+#   class: RadiatorThermostat
+
 #################
 #    Remotes    #
 #################
@@ -451,6 +459,10 @@ set_latest_notification_tasker:
   module: latest_notification_tasker
   class: NotifyTasker
 
+pc_off_tasker:
+  module: pc_off_tasker
+  class: NotifyTasker
+
 launch_skybellhd:
   module: launch_nexus_9_app
   class: NotifyTasker
@@ -462,3 +474,12 @@ launch_fullykiosk:
   class: NotifyTasker
   app: fullykiosk
   entityID: input_boolean.fullykiosk_launch
+
+##################
+#    Telegram    #
+##################
+
+# telegram_bot:
+#   module: telegram_bot
+#   class: TelegramBotEventListener
+#   garage: cover.garage_door
