@@ -60,16 +60,13 @@ class RoomStatus(hass.Hass):
             'climate.fibaro_system_fgt001_heat_controller_heating' # Bathroom climate
             ]
 
-        self.climate1 = [
-            '' # Bathroom climate 2
-            ]
+        # self.climate2 = [
+        #     '' # Bathroom climate 2
+        #     ]
 
 
         for entity in self.sensors:
             self.listen_state(self.setSensorState, entity)
-
-        # self.setSensorState(entity = '', attribute = '', old = '', new = '')
-
 
         # Makes sure this global variable exists.
         self.anyOpen = None
@@ -86,6 +83,7 @@ class RoomStatus(hass.Hass):
 
     def setSensorState(self, entity, attribute, old, new, kwargs):
 
+        self.log("bathroom running")
         newStatus = ''
         WindowOpen = self.isOpen('binary_sensor.door_window_sensor_158d0002286a78')
         thermostatStatus = ''

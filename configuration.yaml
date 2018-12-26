@@ -27,17 +27,14 @@ homeassistant:
 ##############
 
 http:
-  # server_port: 8321
   api_password: !secret api_password
-  # ssl_certificate: !secret my_ssl_certificate
-  # ssl_key: !secret my_ssl_key
   base_url: !secret secret_base_url
   ip_ban_enabled: True
   login_attempts_threshold: 3
   trusted_networks:
     - 127.0.0.1 # Loopback. This is the machine running Home Assistant
     - ::1 # Loopback. This is the machine running Home Assistant (IPV6 addrress)
-    - 192.168.0.0/24 # My home network. Any devices with an IP between 192.168.0.0 and 192.168.0.255 (local devices)
+    # - 192.168.0.0/24 # My home network. Any devices with an IP between 192.168.0.0 and 192.168.0.255 (local devices)
 
 #################
 #    Enables    #
@@ -64,7 +61,6 @@ lovelace:
   mode: yaml
 
 dialogflow:
-#discovery:
 # ifttt:
 #   key: !secret iftttkey
 logbook:
@@ -73,11 +69,7 @@ map:
 # #  db_url: sqlite:////mnt/hassdata/sqlite/home_assistant/home-assistant_v2.db
 #   purge_interval: 2
 #   purge_keep_days: 8
-# tts:
-# #  platform: picotts
-#   platform: google
-# #  cache: true
-# #  cache_dir: /mnt/hassdata/tts/cache
+
 python_script:
 shopping_list:
 sun:
@@ -90,7 +82,6 @@ updater:
 alarm_control_panel: !include alarm.yaml
 # android_ip_webcam: !include misc/android_ip_webcam.yaml
 automation: !include config_files/automation.yaml
-# automation: !include_dir_merge_list config_files/automation/
 binary_sensor: !include config_files/binary_sensor.yaml
 camera: !include config_files/camera.yaml
 cast: !include config_files/cast.yaml
@@ -100,7 +91,6 @@ device_tracker: !include config_files/device_tracker.yaml
 frontend: !include config_files/frontend.yaml
 #google_assistant: !include config_files/google_assistant.yaml
 group: !include config_files/group.yaml
-#group: !include_dir_merge_named group/
 history: !include config_files/history.yaml
 # homeconnect: include !config_files/home_connect.yaml
 homekit: !include config_files/homekit.yaml
@@ -117,7 +107,6 @@ light: !include config_files/light.yaml
 logger: !include config_files/logger.yaml
 media_player: !include_dir_merge_list config_files/media_player/
 mqtt: !include config_files/mqtt.yaml
-#mysensors: !include config_files/mysensors.yaml
 notify: !include config_files/notify.yaml
 owntracks: !include config_files/owntracks.yaml
 # packages: !include config_files/packages.yaml
@@ -133,8 +122,7 @@ shell_command: !include config_files/shell_commands.yaml
 skybell: !include config_files/skybell.yaml
 #snips: !include config_files/snips.yaml
 sonos: !include config_files/sonos.yaml
-switch: !include config_files/switch/switch.yaml
-#switch: !include_dir_merge_list switch/
+switch: !include config_files/switch.yaml
 telegram_bot: !include config_files/telegram_bot.yaml
 tts: !include config_files/tts.yaml
 weblink: !include config_files/weblink.yaml

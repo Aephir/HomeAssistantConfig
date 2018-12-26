@@ -308,8 +308,9 @@
           mode: pc_off
       - delay: 00:00:20
       - event: MODE_CHANGE
-        event_data:
-          mode: idle
+        event_data_template:
+          name: myEvent
+          customData: "{{ idle }}"
       - service: switch.turn_off
         data:
           entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
