@@ -219,43 +219,94 @@ basement_entrance_hallway_motion_light:
   module: basement_entrance_hallway_motion
   class: MotionClass
 
+
+# basement_entrance_hallway_motion_light:
+#   module: basement_hallway_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.basement_lights_motion_control
+
 basement_stairway_motion_light:
   module: basement_stairway_motion
   class: MotionClass
 
+# stairway_down_light:
+#   module: stairway_down_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.basement_lights_motion_control
+
+# stairway_up_light:
+#   module: stairway_up_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
+
+# bathroom_motion_light:
+#   module: bathroom_motion
+#   class: MotionClass
+
 bathroom_motion_light:
-  module: bathroom_motion
+  module: bathroom_lights
   class: MotionClass
+  constrain_input_boolean: input_boolean.kitchen_lights_motion_control
 
 entrance_motion_light:
   module: entrance_motion
   class: MotionClass
 
+# entrance_motion_light:
+#   module: entrance_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.entrance_lights_motion_control
+
+# kitchen_motion_light:
+#   module: kitchen_motion
+#   class: MotionClass
+#   entity_override: input_boolean.kitchen_lights_motion_override
+
 kitchen_motion_light:
-  module: kitchen_motion
+  module: kitchen_lights
   class: MotionClass
-  entity_override: input_boolean.kitchen_lights_motion_override
+  constrain_input_boolean: input_boolean.kitchen_lights_motion_control
 
 tv_room_motion_light:
   module: tv_room_motion
   class: MotionClass
 
+# tv_room_motion_light:
+#   module: tv_room_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.basement_lights_motion_control
+
+# top_floor_bathroom_motion_light:
+#   module: top_floor_bathroom_motion
+#   class: MotionClass
+
 top_floor_bathroom_motion_light:
-  module: top_floor_bathroom_motion
+  module: top_floor_bathroom_lights
   class: MotionClass
+  constrain_input_boolean: input_boolean.top_floor_lights_motion_control
 
 top_floor_stairway_motion_light:
   module: top_floor_stairway_motion
   class: MotionClass
 
+# top_floor_stairway_motion_light:
+#   module: top_floor_hallway_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
+
 top_floor_tv_room_light:
   module: top_floor_tv_room_motion
   class: MotionClass
 
+# top_floor_tv_room_light:
+#   module: top_floor_tv_room_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
+
 walk_in_closet_lights:
   module: walk_in_closet_lights
   class: MotionClass
-  entity_override: 'input_boolean.walk_in_closet_motion_override'
+  entity_override: 'input_boolean.walk_in_closet_motion_control'
 
 
 #######################

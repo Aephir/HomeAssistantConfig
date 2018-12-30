@@ -65,22 +65,23 @@ kristinahome360boolean:
 cooking_mode:
   name: Cooking Mode
   icon: mdi:pot-mix
+  initial: off
 
 # Guest mode: Wont turn off everything when we leave
 guest_mode:
   name: Guest Mode
   icon: mdi:account-alert
-#  initial: off
+  initial: off
 
 school_mode:
   name: School Mode
   icon: mdi:school
-#  initial: on
+  # initial: on
 
 alert_mode:
   name: Alert Mode
   icon: mdi:alert-octagram
-#  initial: off
+  # initial: off
 
 speech_notifications:
   name: Speech Notifications
@@ -89,10 +90,12 @@ speech_notifications:
 
 vacation_mode:
   name: Vacation
-  # icon: mdi:
+  icon: mdi:beach
+  initial: off
 
 kids_home:
   name: Kids Home
+  icon: mdi:human-female-female
 
 ###########################
 #     Dummy switches      #
@@ -174,22 +177,26 @@ fullykiosk_launch:
 door_sensor_status_1:
   name: set door open state
 
-kitchen_lights_motion_override:
-  name: Override Kitchen Motion Sensors
-  initial: off
+kitchen_lights_motion_control:
+  name: Kitchen Motion Sensors Control Lights
+  initial: on
 
-top_floor_lights_motion_override:
-  name: Override Top Floor Motion Sensors
-  initial: off
+top_floor_lights_motion_control:
+  name: Top Floor Motion Sensors Control Lights
+  initial: on
 
-basement_lights_motion_override:
-  name: Override Basement Motion Sensors
-  initial: off
+basement_lights_motion_control:
+  name: Basement Motion Sensors Control Lights
+  initial: on
 
-entrance_lights_motion_override:
-  name: Override Entrance Motion Sensors
-  initial: off
+entrance_lights_motion_control:
+  name: Entrance Motion Sensors Control Lights
+  initial: on
 
-walk_in_closet_motion_override:
-  name: Override Walk-in Closet Motion Sensors
-  initial: off
+walk_in_closet_motion_control:
+  name: Walk-in Closet Motion Sensors Control Lights
+  initial: on
+
+bathroom_lights_motion_control:
+  name: Bathroom Motion Sensors Control Lights
+  initial: on

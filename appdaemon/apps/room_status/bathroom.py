@@ -1,6 +1,7 @@
 # Set status of rooms
 
 import appdaemon.plugins.hass.hassapi as hass
+import datetime
 
 class RoomStatus(hass.Hass):
 
@@ -86,13 +87,13 @@ class RoomStatus(hass.Hass):
         self.log("bathroom running")
         newStatus = ''
         WindowOpen = self.isOpen('binary_sensor.door_window_sensor_158d0002286a78')
-        thermostatStatus = ''
-        radiatorTemp = ''
+        thermostatStatus = self.get_state('climate.fibaro_system_fgt001_heat_controller_heating')
+        radiatorTemp = self.get_state('climate.fibaro_system_fgt001_heat_controller_heating.temperature')
         radiatorOn = ''
-        temperature = ''
-        humidity = ''
-        pressure = ''
-        thermostatTemperature = ''
+        temperature = self.get_state('sensor.temperature_158d00022c66ff')
+        humidity = self.get_state('sensor.humidity_158d00022c66ff')
+        pressure = self.get_state('sensor.pressure_158d00022c66ff')
+        thermostatTemperature = self.get_state('sensor.fibaro_system_fgt001_heat_controller_temperature')
 
         if entity == 'binary_sensor.door_window_sensor_158d0002286a78' and new == "on":
             self.lastOpenedTime = datetime.datetime.now().strftime("%H:%M")
@@ -113,7 +114,7 @@ class RoomStatus(hass.Hass):
             'temperature': temperature,
             'humidity': humidity,
             'pressure': pressure,
-            'thermistatTemperature': thermostatTemperature,
+            'thermostat_temperature': thermostatTemperature,
             'window_opened_at': self.lastOpenedTime,
             'window_closed_at': self.lastClosedTime
             })

@@ -29,7 +29,7 @@ resources:
     type: js
   - url: /local/state-switch.js?v=2b02f2
     type: js
-  - url: /local/card-tools.js?v=445b68
+  - url: /local/card-tools.js?v=0a97d3
     type: js
 
 # Added version ?v=0.0.1 #Added version ?v=0.0.1 for:
@@ -361,11 +361,12 @@ views:
           - input_boolean.kids_home
           - input_boolean.guest_mode
           - input_boolean.cooking_mode
-          - input_boolean.kitchen_lights_motion_override
-          - input_boolean.top_floor_lights_motion_override
-          - input_boolean.entrance_lights_motion_override
-          - input_boolean.basement_lights_motion_override
-          - input_boolean.walk_in_closet_motion_override
+          - input_boolean.kitchen_lights_motion_control
+          - input_boolean.bathroom_lights_motion_control
+          - input_boolean.top_floor_lights_motion_control
+          - input_boolean.entrance_lights_motion_control
+          - input_boolean.basement_lights_motion_control
+          - input_boolean.walk_in_closet_motion_control
       - type: entities
         title: Family Toggle
         entities:
@@ -631,6 +632,13 @@ views:
           - device_tracker.google_maps_110730659630480268471
           - zwave.fibaro_system_fgt001_heat_controller
           - climate.fibaro_system_fgt001_heat_controller_heating
+          - sensor.fibaro_system_fgt001_heat_controller_alarm_level
+          - sensor.fibaro_system_fgt001_heat_controller_alarm_type
+          - sensor.fibaro_system_fgt001_heat_controller_power_management
+          - sensor.fibaro_system_fgt001_heat_controller_sourcenodeid
+          - sensor.fibaro_system_fgt001_heat_controller_system
+          - sensor.fibaro_system_fgt001_heat_controller_temperature
+          - zwave.fibaro_system_fgt001_heat_controller
       - type: custom:monster-card
         show_empty: false
         show_header_toggle: false

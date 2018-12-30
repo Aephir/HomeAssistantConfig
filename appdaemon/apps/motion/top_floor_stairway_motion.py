@@ -45,34 +45,28 @@ class MotionClass(hass.Hass):
 
         if sensor_1_state == "on":
             if self.now_is_between('07:00:00', '22:00:00'):
-                if self.get_state('input_boolean.top_floor_lights_motion_override') == 'off':
-                    self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
-                    if self.getIntegerState("sensor.illumination_158d000200e0c5") < 75:
-                        self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
+                self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
+                if self.getIntegerState("sensor.illumination_158d000200e0c5") < 75:
+                    self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
             elif self.now_is_between('22:00:00', '07:00:00'):
                 if sensor_4_state == "on": # Meaning someone likel came from TV area, and are going down.
                     self.turn_on("light.stairway_up",brightness=100,kelvin=2700)
-                    if self.get_state('input_boolean.top_floor_lights_motion_override') == 'off':
-                        self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
+                    self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
                 elif awake:
-                    if self.get_state('input_boolean.top_floor_lights_motion_override') == 'off':
-                        self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
+                    self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
                 else:
-                    if self.get_state('input_boolean.top_floor_lights_motion_override') == 'off':
-                        self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
+                    self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
             # self.cancel_timer(self.timer)
             # self.timer = self.run_in(self.lightOff, 300)
         elif sensor_1_state == "off" and sensor_2_state == "off" and sensor_3_state == "off" and sensor_4_state == "off":
             self.turn_off("light.stairway_up")
             self.turn_off("light.stairway")
-            if self.get_state('input_boolean.top_floor_lights_motion_override') == 'off':
-                self.turn_off("light.top_floor_hallway")
-                self.turn_off("light.top_floor_tv_area")
+            self.turn_off("light.top_floor_hallway")
+            self.turn_off("light.top_floor_tv_area")
         elif sensor_1_state == "off" and sensor_2_state == "off" and sensor_3_state == "off":
             self.turn_off("light.stairway_up")
             self.turn_off("light.stairway")
-            if self.get_state('input_boolean.top_floor_lights_motion_override') == 'off':
-                self.turn_off("light.top_floor_hallway")
+            self.turn_off("light.top_floor_hallway")
         elif sensor_1_state == "off" and sensor_3_state == "off":
             self.turn_off("light.stairway_up")
 

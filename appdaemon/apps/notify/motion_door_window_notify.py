@@ -64,7 +64,7 @@ class Notify(hass.Hass):
 
         if new == 'off':
             if entity in self.doorWindowSensors:
-                message = ' was closed at' + str(datetime.datetime.now().strftime("%H:%M"))
+                message = str(sensor) + ' was closed at' + str(datetime.datetime.now().strftime("%H:%M"))
 
         self.call_service("notify/home_aephir_bot", message=message)
         self.log('sent')

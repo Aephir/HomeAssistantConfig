@@ -2006,13 +2006,27 @@
   #   - condition: template
   #     value_template: "{{ now().strftime('%d-%m') >= '10-10' or now().strftime('%d-%m') <= '15-04' }}"
   action:
+    - service: zwave.refresh_entity
+      data:
+        entity_id: zwave.fibaro_system_fgt001_heat_controller
+
+    # - service: zwave.refresh_entity
+    #   data:
+    #     - entity_id: sensor.fibaro_system_fgt001_heat_controller_temperature
+    # - service: zwave.refresh_entity
+    #   data:
+    #     - entity_id: zwave.fibaro_system_fgt001_heat_controller
+    # - service: zwave.refresh_entity
+    #   data:
+    #     - entity_id: zwave.fibaro_system_fgt001_heat_controller
+
     # - data:
     #     entity_id: climate.fibaro_system_fgt001_heat_controller_heating
     #   service: zwave.refresh_entity
     # - service: zwave.refresh_node # This apparantly crashes HASS? https://community.home-assistant.io/t/fibaro-heat-controller-fgt001-wont-update-set-temperature/40081/6
     #   data:
     #     node_id: 7 # Bathroom radiator
-    - service: script.refresh_fibaro_heat_controllers
+    # - service: script.refresh_fibaro_heat_controllers
     # - data:
     #     entity_id: climate.fibaro_system_fgt001_heat_controller_heating_2
     #   service: zwave.refresh_entity

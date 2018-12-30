@@ -1,10 +1,12 @@
-#####################
-#                   #
-#       Z-WAVE      #
-#                   #
-#####################
-
 sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2_4:
   ignored: false
   polling_intensity: 0
-
+sensor.fibaro_system_fgt001_heat_controller_temperature:
+  ignored: false
+  polling_intensity: 10
+sensor.fibaro_system_fgt001_heat_controller_system:
+  ignored: false
+  polling_intensity: 10
+climate.fibaro_system_fgt001_heat_controller_heating:
+  ignored: false
+  polling_intensity: 10

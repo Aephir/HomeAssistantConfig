@@ -39,51 +39,27 @@ class MotionClass(hass.Hass):
     def switchOnOff(self, entity, attribute, old, new, kwargs):
 
         sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5") # Top Floor Stairs Motion
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion
-        sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742") # Entrance Motion
-        sensor_4_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Top Floor TV Room Motion
+        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Top Floor TV Room Motion
         awake = self.areWeAwake("light.living_room._lights")
 
         if new == "on" and entity == "binary_sensor.motion_sensor_158d000236a0f3": # If top floor TV room motion is triggered
-            if sensor_1_state == "on": # When top floor stairway is also on (meaning someone likel came up the stairs)
+            if sensor_2_state == "on": # When top floor stairway is also on (meaning someone likel came up the stairs)
                 if self.now_is_between('07:00:00', '20:00:00'):
                     self.turn_on("light.top_floor_tv_area",brightness=255,kelvin=2700)
-                    self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
-                    # self.cancel_timer(self.timer)
-                    # self.timer = self.run_in(self.lightOff, 1800)
                 elif self.now_is_between('20:00:00', '21:30:00'):
                     self.turn_on("light.top_floor_tv_area",brightness=100,kelvin=2700)
-                    self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
                 elif self.now_is_between('21:30:00', '07:00:00'):
                     self.turn_on("light.top_floor_tv_area",brightness=10,kelvin=2700)
-                    self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
             else:
                 if self.now_is_between('07:00:00', '20:00:00'):
                     self.turn_on("light.top_floor_tv_area",brightness=255,kelvin=2700)
-                    self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
                     # self.cancel_timer(self.timer)
                     # self.timer = self.run_in(self.lightOff, 1800)
                 elif self.now_is_between('20:00:00', '21:30:00'):
                     self.turn_on("light.top_floor_tv_area",brightness=100,kelvin=2700)
-                    self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
                 elif self.now_is_between('21:30:00', '07:00:00'):
                     self.turn_on("light.top_floor_tv_area",brightness=10,kelvin=2700)
 
         elif new == "off":
-            if sensor_1_state == "off" and sensor_4_state == "off":
+            if sensor_1_state == "off" and sensor_2_state == "off":
                 self.turn_off("light.top_floor_tv_area")
-                self.turn_off("light.top_floor_hallway")
-            elif sensor_1_state == "off":
-                self.turn_off("light.top_floor_hallway")
-            elif sensor_4_state == "off":
-                self.turn_off("light.top_floor_tv_area")
-
-
-
-    #             self.cancel_timer(self.timer)
-    #             self.timer = self.run_in(self.lightOff, 300)
-    #         elif sensor_1_state == "off" and sensor_3_state == "off":
-    #             self.turn_off("light.stairway_up")
-    #
-    # def lightOff(self, entity, attribute, old, new, kwargs):
-    #     self.turn_off("light.top_floor_hallway")
