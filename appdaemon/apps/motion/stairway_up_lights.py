@@ -19,7 +19,7 @@ class MotionClass(hass.Hass):
             ]
 
         for entity in self.motion_sensors:
-            self.listen_state(self.switchonoff,entity)
+            self.listen_state(self.motionTrigger,entity)
 
         for entity in self.illumination_sensors:
             self.listen_state(self.motionTrigger,entity)

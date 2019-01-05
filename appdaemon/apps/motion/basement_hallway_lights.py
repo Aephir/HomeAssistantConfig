@@ -9,13 +9,19 @@ class MotionClass(hass.Hass):
 
     def initialize(self):
         # Motion sensors.
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000200d203") # Basement Entrance Motion Sensor
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion Sensor
-        # Illumination drops while motion sensor is "on" = light on.
-        self.listen_state(self.switchonoff,"sensor.illumination_158d000200d203")
+
+        self.motion_sensors = [
+            "binary_sensor.motion_sensor_158d000200d203", # Entrance Motion Sensor
+            "binary_sensor.motion_sensor_158d000210ca6f", # Basement Stairway Motion Sensor
+            "binary_sensor.motion_sensor_158d000200d203", # Basmenet Entrance
+            "binary_sensor.motion_sensor_158d000236a116" # TV room
+            ]
+
+        for entity in self.motion_sensors:
+            self.listen_state(self.motionTrigger, entity)
 
     # Assess whether we are awake, based on state of entity. Find better proxy eventually.
-    def areWeAwake(self, entity):
+    def movieNight(self, entity):
         if self.get_state(entity) == "on":
             return True
 
@@ -31,20 +37,21 @@ class MotionClass(hass.Hass):
             return 0
 
 # Motion sensor lights
-    def switchonoff(self, entity, attribute, old, new, kwargs):
+    def motionTrigger(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200d203") # Basement Entrance Motion
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion
-        sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d000236a116") # TV Room Motion
+        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200d203") == 'on' # Basement Entrance Motion
+        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") == 'on' # Basement Stairway Motion
+        sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d000236a116") == 'on' # TV Room Motion
+        sensor_4_state = self.get_state("binary_sensor.motion_sensor_158d000200d203") == 'on' # Basmenet Entrance
 
         ## Update "movie_night" with real entity_id once applicable. ##
         movie_night = False # self.isOn("media_player.tv_room_tv") # Are we using the TV lounge?
 
-        if sensor_1_state == "on":
+        if any([sensor_1_state, sensor_2_state, sensor_3_state, sensor_4_state]):
             if movie_night == False:
                 self.turn_on("light.basement_hallway",brightness=255,kelvin=2700)
             else:
                 self.turn_on("light.basement_hallway",brightness=75,kelvin=2200)
 
-        elif sensor_1_state == "off" and sensor_2_state == "off" and sensor_3_state == "off":
+        elif not all([sensor_1_state, sensor_2_state, sensor_3_state, sensor_4_state]):
             self.turn_off("light.basement_hallway")
