@@ -17,7 +17,15 @@ class Cosmetic(hass.Hass):
         for light in self.lights:
             self.listen_state(toggleDummy,light)
 
-    def toggleDummy:
+    def toggleDummy(self, entity, attribute, old, new, kwargs):
 
-        for self.lights[x]:
-            self.toggle(self.dummyLights[x])
+        dummy_id = 'input_boolean.light_' + entity[5:]
+
+        if new == 'on':
+            self.turn_on(dummy_id)
+
+        elif new == ' off':
+            self.turn_off(dummy_id)
+
+        # for self.lights[x]:
+        #     self.toggle(self.dummyLights[x])

@@ -22,9 +22,11 @@ class RadiatorThermostat(hass.Hass):
             radiatorState = self.get_state('climate.fibaro_system_fgt001_heat_controller_heating') == 'heat'
             self.set_state('sensor.bathroom_heat_when_window_closes', state = radiatorState)
             self.call_service('climate/set_operation_mode', entity_id = "climate.fibaro_system_fgt001_heat_controller_heating", operation_mode = "off")
-            self.call_service('zwave/refresh_node', node_id=7)
+            if self.set_state('climate.fibaro_system_fgt001_heat_controller_heating') == 'heat':
+                self.set_state('sensor.bathroom_heat_when_window_closes', state=True)
+            elif self.set_state('climate.fibaro_system_fgt001_heat_controller_heating') == 'off':
+                self.set_state('sensor.bathroom_heat_when_window_closes', state=False)
 
         elif new == 'off':
             if self.get_state('sensor.bathroom_heat_when_window_closes') == True:
                 self.call_service('climate/set_operation_mode', entity_id = "climate.fibaro_system_fgt001_heat_controller_heating", operation_mode = "heat")
-                self.call_service('zwave/refresh_node', node_id=7)

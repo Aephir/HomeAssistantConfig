@@ -10,81 +10,10 @@
 
 - name: All Lights Off
   entities:
-    light.couch_lamp:
-      state: off
-      transition: 2
-    light.hue_lightstrip_plus_1:
-      state: off
-      transition: 2
-    light.hue_ambiance_lamp_1:
-      state: off
-      transition: 2
-    light.hue_ambiance_lamp_2:
-      state: off
-      transition: 2
-    light.waldens_bedroom:
-      state: off
-      transition: 2
-    light.kristinas_bedroom:
-      state: off
-      transition: 2
-    light.bedroom_stairway:
-      state: off
-      transition: 2
-    light.color_temperature_light_1:
-      state: off
-      transition: 2
-    light.color_temperature_light_1_2:
-      state: off
-      transition: 2
-    light.color_temperature_light_1_3:
-      state: off
-      transition: 2
-    light.kitchen_spot_1:
-      state: off
-      transition: 2
-    light.kitchen_spot_2:
-      state: off
-      transition: 2
-    light.kitchen_spot_3:
-      state: off
-      transition: 2
-    light.kitchen_spot_4:
-      state: off
-      transition: 2
-    light.kitchen_spot_5:
-      state: off
-      transition: 2
-    light.kitchen_spot_6:
+    light.all_lights:
       state: off
       transition: 2
 
-- name: all_but_bedroom_off
-  entities:
-    light.couch_lamp:
-      state: off
-      transition: 2
-    light.hue_lightstrip_plus_1:
-      state: off
-      transition: 2
-    light.hue_ambiance_lamp_1:
-      state: off
-      transition: 2
-    light.hue_ambiance_lamp_2:
-      state: off
-      transition: 2
-    light.bedroom_stairway:
-      state: off
-      transition: 2
-    light.color_temperature_light_1:
-      state: off
-      transition: 2
-    light.color_temperature_light_1_2:
-      state: off
-      transition: 2
-    light.color_temperature_light_1_3:
-      state: off
-      transition: 2
 
 #####################
 #    Living Room    #

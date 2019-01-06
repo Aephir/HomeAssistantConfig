@@ -395,9 +395,9 @@ looks_like_were_home:
 #    Radiators    #
 ###################
 
-# bathroom_radiator:
-#   module: bathroom_radiator
-#   class: RadiatorThermostat
+bathroom_radiator:
+  module: bathroom_radiator
+  class: RadiatorThermostat
 
 #################
 #    Remotes    #
