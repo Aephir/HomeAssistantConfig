@@ -238,6 +238,7 @@
             - binary_sensor.motion_sensor_158d0001e0a8e1 # Kitchen motion
             - binary_sensor.motion_sensor_158d000236a0f3 # Top floor TV room
             - binary_sensor.motion_sensor_158d00023e3742 # Entrance motion
+            - binary_sensor.motion_sensor_158d000210ca6f # Basement stairway
           states:
             - state: 'on'
               class: 'motion-on'
@@ -500,7 +501,6 @@
             - light.top_floor_hallway
             - light.top_floor_tv_area
             - light.tv_room
-            # - light.wine_cellar
           states:
             - state: 'on'
               class: 'light-on'
@@ -547,6 +547,7 @@
             - input_boolean.light_bathroom
             - input_boolean.light_bedroom
             - input_boolean.light_conservatory_couch
+            - input_boolean.light_conservatory_lights
             - input_boolean.light_dining_table
             - input_boolean.light_kitchen_cabinet
             - input_boolean.light_kitchen_spots

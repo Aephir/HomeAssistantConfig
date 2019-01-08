@@ -76,6 +76,14 @@ meta_tracker:
   naia_l360_tracker: !secret naia_l360_tracker
   naia_ping_tracker: !secret naia_ping_tracker
 
+###################
+#    Floorplan    #
+###################
+
+toggle_dummy_lights:
+  module: light_glow
+  class: Cosmetic
+
 #####################
 #    Global Apps    #
 #####################
