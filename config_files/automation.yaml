@@ -4,51 +4,6 @@
 #                       #
 #########################
 
-#####
-#    Test
-
-# - alias: Xiaomi Cube - Brightness [Rotate]
-#   trigger:
-#     platform: event
-#     event_type: cube_action
-#     event_data:
-#       entity_id: binary_sensor.cube_158d00028f7196
-#       action_type: rotate
-#   # condition:
-#   #   condition: state
-#   #   entity_id: input_select.cube_mode
-#   #   state: 'Light'
-#   action:
-#     - service: light.turn_on
-#       data_template:
-#         entity_id: light.conservatory_couch
-#         brightness: >
-#           {%if trigger.event.data.action_value | float > 0 %}
-#           {{ "brightness" | int + 50 }}
-#           {% else %}
-#           {{  "brightness" | int - 50 }}
-#           {% endif %}
-
-
-################
-#    Motion    #
-################
-
-# - alias: "Greetings"
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.motion_sensor_158d0001e62ee2
-#     to: 'on'
-#   condition:
-#     condition: and
-#     conditions:
-#       - condition: template
-#         value_template: '{{(as_timestamp(now()) - as_timestamp(states.input_boolean.kristinahome360.last_changed) < 00:05:00)}}'
-#       - condition: template
-#         value_template: '{{(as_timestamp(now()) - as_timestamp(states.input_boolean.aephirhome360.last_changed) < 00:05:00)}}'
-#   actions:
-#     service: script.turn_on
-#     entity_id: script.say_welcome_home
 
 - alias: "SkyBell Motion Detected"
   trigger:
@@ -233,77 +188,7 @@
 #          entity_id: light.test
 #          my_custom_data: foo_bar
 
-##################
-#__Meta_Tracker__#
 
-# - id: update_aephir_meta_tracker
-#   alias: "Update Aephir Meta Tracker"
-#   initial_state: True
-#   trigger:
-#     # Delayed action for router-based and Owntracks trackers that are not 100% reliable
-#     - platform: state
-#       entity_id:
-#         - device_tracker.aephir_ping
-#       to: 'not_home'
-#       for: '00:16:00'
-#     - platform: state
-#       entity_id:
-#         - device_tracker.walden_bjrn_yoshimoto
-#         - device_tracker.google_maps_110730659630480268471
-#       to: 'home'
-#   action:
-#     - service: python_script.meta_device_tracker.py
-#       data_template:
-#         entity_id: '{{trigger.entity_id}}'
-#         meta_entity: 'aephir'
-#
-# - id: update_kristina_meta_tracker
-#   alias: "Update Kristina Meta Tracker"
-#   initial_state: True
-#   trigger:
-#     # Delayed action for router-based and Owntracks trackers that are not 100% reliable
-#     - platform: state
-#       entity_id:
-#         - device_tracker.kristina_ping
-#       to: 'not_home'
-#       for: '00:16:00'
-#     - platform: state
-#       entity_id:
-#         - device_tracker.kristinabrody
-#         - device_tracker.kristinas_iphone
-#       to: 'home'
-#   action:
-#     - service: python_script.meta_device_tracker.py
-#       data_template:
-#         entity_id: '{{trigger.entity_id}}'
-#         meta_entity: 'kristina'
-#
-# - id: update_emilie_meta_tracker
-#   alias: "Update Emilie Meta Tracker"
-#   initial_state: True
-#   trigger:
-#     # Delayed action for router-based and Owntracks trackers that are not 100% reliable
-#     - platform: state
-#       entity_id:
-#         - device_tracker.emilie_iphone_ping
-#         - device_tracker.emilie
-#       to: 'not_home'
-#       for: '00:16:00'
-#     - platform: state
-#       entity_id:
-#         - device_tracker.emilie_iphone_ping
-#         - device_tracker.emilie
-#       to: 'home'
-#     - platform: state
-#       entity_id:
-#         - device_tracker.kristinas_iphone
-#       to: 'home'
-#       for: '00:00:30'
-#   action:
-#     - service: python_script.meta_device_tracker.py
-#       data_template:
-#         entity_id: '{{trigger.entity_id}}'
-#         meta_entity: 'emilie'
 
 ###################
 #__Input_Boolean__#
@@ -314,27 +199,10 @@
       entity_id: device_tracker.meta_walden
       from: 'not_home'
       to: 'home'
-#  condition:
-#    - condition: state
-#      entity_id: input_boolean.aephirhome360
-#      state: 'off'
   action:
     service: homeassistant.turn_on
     entity_id: input_boolean.aephirhome360
 
-#- alias: "aephir_home_360"
-#  trigger:
-#    - platform: state
-#      entity_id: device_tracker.walden_bjrn_yoshimoto
-#      from: 'not_home'
-#      to: 'home'
-##  condition:
-##    - condition: state
-##      entity_id: input_boolean.aephirhome360
-##      state: 'off'
-#  action:
-#    service: homeassistant.turn_on
-#    entity_id: input_boolean.aephirhome360
 
 - alias: "aephir_not_home_360" # Turns off the "aephirhome360" input_boolean if Aephir leaves home
   trigger:
@@ -342,27 +210,10 @@
       entity_id: device_tracker.meta_walden
       from: 'home'
       to: 'not_home'
-#  condition:
-#    - condition: state
-#      entity_id: input_boolean.aephirhome360
-#      state: 'on'
   action:
     service: homeassistant.turn_off
     entity_id: input_boolean.aephirhome360
 
-#- alias: "aephir_not_home_360"
-#  trigger:
-#    - platform: state
-#      entity_id: device_tracker.walden_bjrn_yoshimoto
-#      from: 'home'
-#      to: 'not_home'
-##  condition:
-##    - condition: state
-##      entity_id: input_boolean.aephirhome360
-##      state: 'on'
-#  action:
-#    service: homeassistant.turn_off
-#    entity_id: input_boolean.aephirhome360
 
 - alias: "kristina_home_360" # Turns on the "kristinahome360" input_boolean if Kristina arrives home
   trigger:
@@ -500,27 +351,6 @@
     service: homeassistant.turn_off
     entity_id: input_boolean.someonehome360
 
-#- alias: Emilie leaves last # Turns of the "someonehome360" input_boolean if Emilie is last to leave
-#  initial_state: 'off'
-#  trigger:
-#    platform: state
-#    entity_id:
-#      - input_boolean.emiliehome360
-#    from: 'on'
-#    to: 'off'
-#  condition:
-#    condition: and
-#    conditions:
-#      - condition: state
-#        entity_id: input_boolean.aephirhome360
-#        state: 'off'
-#      - condition: state
-#        entity_id: input_boolean.kristinahome360
-#        state: 'off'
-#  action:
-#    service: homeassistant.turn_off
-#    entity_id: input_boolean.someonehome360
-
 
 - alias: Karen iphone guest mode
   trigger:
@@ -604,25 +434,6 @@
 ########################################
 #__Location Based Lights and Switches__#
 
-# - alias: "Sunset with someone home" # Fades on living room lights 1h before senset if someone is home
-#   trigger:
-#     - platform: sun
-#       event: sunset
-#       offset: '-01:00:00'
-#   condition:
-#     condition: and
-#     conditions:
-#       - condition: state
-#         entity_id: input_boolean.someonehome360
-#         state: 'on'
-#       - condition: state
-#         entity_id: media_player.ue46es8005
-#         state: 'off'
-#       - condition: ## Motion in conservatory within 30 minutes??
-#   action:
-#     service: scene.turn_on
-#     entity_id: scene.conservatory_normal_fade
-
 - alias: "Someone arrives home" # Turns on welcome lights when first person arrives home within 1h before sunset
   trigger:
     - platform: state
@@ -675,18 +486,6 @@
     service: light.turn_off
     entity_id: group.living_room_lightstrip
 
-# For some reason the TV turns on automatically. Maybe because of CEC command from libreELEC? Look into before reactivating
-# - alias: "Kids Morning Turn On Media" # Turns on media switch if kids are home, so they can wathc TV
-#   trigger:
-#     - platform: time
-#       at: 06:30:00
-#   condition:
-#     condition: state
-#     entity_id: input_boolean.emiliehome360
-#     state: 'on'
-#   action:
-#     service: switch.turn_on
-#     entity_id: switch.living_room_media_master
 
 #############
 #__Life360__#
@@ -719,545 +518,6 @@
 #           state_attr(trigger.event.data.entity_id, 'friendly_name')
 #         }} restored after {{ trigger.event.data.wait }}.
 
-#################
-#     Motion    #
-#################
-
-######################################
-#__Motion Based Lights and Switches__#
-
-# - alias: motion light python script
-#   trigger:
-#     - platform: state
-#       entity_id: 'binary_sensor.motion_sensor_158d00023e3742, binary_sensor.motion_sensor_158d000200d203, binary_sensor.motion_sensor_158d000236a0f3, binary_sensor.motion_sensor_158d000236a116, binary_sensor.motion_sensor_158d000200d285, binary_sensor.motion_sensor_158d000200e0c5, binary_sensor.motion_sensor_158d000236a22f, binary_sensor.motion_sensor_158d000236a0d0'
-#   action:
-#     - service: python_script.motion_light_2
-
-# - alias: bathroom light timer on day
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200e0c5
-#       # from: 'off'
-#       to: 'on'
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a22f
-#       # from: 'off'
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '07:00:00'
-#       before: '22:00:00'
-#     - condition: numeric_state
-#       entity_id: sensor.illumination_158d000236a22f
-#       below: '50'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.bathroom
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#
-# - alias: bathroom light timer on night is in bed
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200e0c5
-#       to: 'on'
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a22f
-#       # from: 'off'
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '22:00:00'
-#       before: '07:00:00'
-#     - condition: state
-#       entity_id: light.dining_table_lights
-#       state: 'off'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.bathroom
-#       data:
-#         brightness: 10
-#         rgb_color: [255,0,0]
-#
-# - alias: bathroom light timer on night if up
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200e0c5
-#       to: 'on'
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a22f
-#       # from: 'off'
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '22:00:00'
-#       before: '07:00:00'
-#     - condition: state
-#       entity_id: light.dining_table_lights
-#       state: 'on'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.bathroom
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#
-# - alias: bathroom light timer off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200e0c5
-#       # from: 'off'
-#       to: 'off'
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a22f
-#       # from: 'off'
-#       to: 'off'
-#   condition:
-#     condition: and
-#     conditions:
-#       - condition: state
-#         entity_id: binary_sensor.motion_sensor_158d000200e0c5
-#         state: 'off'
-#       - condition: state
-#         entity_id: binary_sensor.motion_sensor_158d000236a22f
-#         state: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.bathroom
-#
-# - alias: entrance light timer on day
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d00023e3742
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '07:00:00'
-#       before: '22:00:00'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.stairway
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#
-# - alias: entrance light timer on night
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d00023e3742
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '22:00:00'
-#       before: '07:00:00'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.stairway
-#       data:
-#         brightness: 10
-#         kelvin: 2200
-#
-# - alias: entrance light timer off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d00023e3742
-#       # from: 'off'
-#       to: 'off'
-#   condition:
-#     - condition: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
-#       state: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.stairway
-#
-# - alias: entrance light timer off TV room
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d00023e3742
-#       to: 'off'
-#   condition:
-#     - condition: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a116
-#       state: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.tv_room
-#
-# - alias: TV Room light timer on if TV off day
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a116
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '07:00:00'
-#       before: '22:00:00'
-#     # - condition: state
-#     #   entity_id: media_player.ue46es8005
-#     #   state: 'off'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.tv_room
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#     - service: light.turn_on
-#       entity_id: light.basement_entrance_lights
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#
-# - alias: TV Room light timer on if TV off night
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a116
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '22:00:00'
-#       before: '07:00:00'
-#     # - condition: state
-#     #   entity_id: media_player.ue46es8005
-#     #   state: 'off'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.tv_room
-#       data:
-#         brightness: 255
-#         kelvin: 2200
-#     - service: light.turn_on
-#       entity_id: light.basement_entrance_lights
-#       data:
-#         brightness: 255
-#         kelvin: 2200
-#
-# - alias: TV Room light timer off if TV off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a116
-#       # from: 'off'
-#       to: 'off'
-#   condition:
-#     # - condition: state
-#     #   entity_id: media_player.ue46es8005
-#     #   state: 'off'
-#     - condition: state
-#       entity_id: binary_sensor.motion_sensor_158d000200d203
-#       state: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.tv_room
-#           - light.basement_entrance_lights
-#
-# - alias: Basement Entrance timer on day
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200d203
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '07:00:00'
-#       before: '22:00:00'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.basement_entrance_lights
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#
-# - alias: Basement Entrance timer on night
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200d203
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '22:00:00'
-#       before: '07:00:00'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.basement_entrance_lights
-#       data:
-#         brightness: 255
-#         kelvin: 2200
-#
-# - alias: Basement Entrance timer on off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200d203
-#       # from: 'off'
-#       to: 'off'
-#   condition:
-#     condition: and
-#     conditions:
-#     - condition: state
-#       entity_id: media_player.ue46es8005
-#       state: 'off'
-#     - condition: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a116
-#       state: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.basement_entrance_lights
-#           - light_tv_room
-#
-# - alias: Basement Stairway timer on day
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '07:00:00'
-#       before: '22:00:00'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.stairway
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#     - service: light.turn_on
-#       entity_id: light.basement_entrance_lights
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#
-# - alias: Basement Stairway timer on night
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
-#       to: 'on'
-#   condition:
-#     - condition: time
-#       after: '22:00:00'
-#       before: '07:00:00'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.stairway
-#       data:
-#         brightness: 255
-#         kelvin: 2200
-#     - service: light.turn_on
-#       entity_id: light.basement_entrance_lights
-#       data:
-#         brightness: 255
-#         kelvin: 2200
-#
-# - alias: Basement Stairway timer stair off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
-#       # from: 'off'
-#       to: 'off'
-#   condition:
-#     - condition: state
-#       entity_id: binary_sensor.motion_sensor_158d00023e3742
-#       state: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.stairway
-#
-# - alias: Basement Stairway timer basement entrance off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
-#       # from: 'off'
-#       to: 'off'
-#   condition:
-#     - condition: state
-#       entity_id: binary_sensor.motion_sensor_158d000200d203
-#       state: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.basement_entrance_lights
-#
-# - alias: Basement Stairway timer basement hallway off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0f3
-#       # from: 'off'
-#       to: 'off'
-#   condition:
-#     - condition: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a116
-#       state: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.tv_room
-#
-# - alias: upstairs bathroom light timer on day
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0d0
-#       # from: 'off'
-#       to: 'on'
-#   condition:
-#     condition: and
-#     conditions:
-#     - condition: time
-#       after: '07:00:00'
-#       before: '22:00:00'
-#     - condition: numeric_state
-#       entity_id: sensor.illumination_158d000236a0d0
-#       below: '100'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.top_floor_bathroom
-#       data:
-#         brightness: 255
-#         kelvin: 2700
-#
-# - alias: upstairs bathroom light timer on night
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0d0
-#       to: 'on'
-#   condition:
-#     condition: and
-#     conditions:
-#     - condition: time
-#       after: '22:00:00'
-#       before: '07:00:00'
-#     - condition: numeric_state
-#       entity_id: sensor.illumination_158d000236a0d0
-#       below: '150'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.top_floor_bathroom
-#       data:
-#         brightness: 10
-#         kelvin: 2200
-#
-# - alias: upstairs bathroom light timer off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000236a0d0
-#       # from: 'off'
-#       to: 'off'
-#   action:
-#     - service: light.turn_off
-#       data:
-#         entity_id:
-#           - light.top_floor_bathroom
-
-
-###############
-#  Templates  #
-###############
-
-### template for multiple and/or conditions
-# - alias: 'Onkyo Receiver Auto Off - Weekdays'
-#   hide_entity: True
-#   trigger:
-#     platform: state
-#     entity_id: media_player.onkyo_receiver
-#     state: 'on'
-#   condition:
-#     condition: and
-#     conditions:
-#       - condition: or
-#         condition:
-#           - condition: time
-#             after: '21:00:00'
-#             weekday:
-#               - sun
-#               - mon
-#               - tue
-#               - wed
-#               - thu
-#           - condition: time
-#             before: '08:00:00'
-#             weekday:
-#               - sun
-#               - mon
-#               - tue
-#               - wed
-#               - thu
-#       - condition: state
-#         entity_id: binary_sensor.sensor01_motion
-#         state: 'off'
-#         for:
-#           hours: 2
-#   action:
-#     service: media_player.turn_off
-#     entity_id: media_player.onkyo_receiver
-
-# - alias: test_motion # This works! Use as template$
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.motion_sensor_158d0001e62ee2
-#     to: 'on'
-#   condition:
-#     - condition: state
-#       entity_id: sun.sun
-#       state: 'below_horizon'
-#   action:
-#     - service: light.turn_on
-#       entity_id: light.hue_lightstrip_plus_1
-#       data:
-#         brightness: 10
-#         kelvin: 2700
-#     - delay: '00:02:00'
-#     - service: light.turn_off
-#       entity_id: light.hue_lightstrip_plus_1
-
-
-#################
-#    Weather    #
-#################
-
-########################
-#__Light Notification__#
-
-#- alias: 'will_it_rain'
-#  trigger:
-#    - platform: state
-#      entity_id: sensor.darkskyXXXXXXXXXXXXXXXXXXXXXXXXx
-#  action:
-#      data_template:
-#      topic: "bed/rgb1/rgb/set"
-#      payload: >
-#      {% if is_state("sensor.openw_forecast", "Clear") %} {"color": { 0, 0, 255}}
-#      {%-elif is_state("sensor.openw_forecast", "Clouds") %} {"color": { 0, 255, 0}}
-#      {%-elif is_state("sensor.openw_forecast", "Rain") %} {"color": {255, 0, 0}}
-#      {%-elif is_state("sensor.openw_forecast", "Snow") %} {"color": {"0, 255, 255}}
-#      {% endif %}
-
-#######################
-#    Notifications    #
-#######################
-
-##################
-#__Certificates__#
-
-#- alias: "Notify Certificate Expiry"
-#  trigger:
-#    - platform: state
-#      entity_id: sensor.ssl_certificate_expiry
-#      value_template: '{{ states(state.sensor.ssl_certificate_expiry) < 25 }}'
-#  action:
-#    service: joaoapps_join.android_send_sms
-#    data:
-#      message: {"number":"004524494408", "message":"Your Home Assistant SSL certificates will expire in 25 days. Please run the certbot ASAP!","title":"Home Assistant Certificates","data":{"icon":"https://goo.gl/xeetdy"}}
-
 ######################
 #    Input Select    #
 ######################
@@ -1265,32 +525,51 @@
 #############
 #__iKettle__#
 
-- alias: Set iKettle Tempereature
-  trigger:
-    - platform: state
-      entity_id: input_select.ikettle_select
-  action:
-    service: script.turn_on
-    data:
-      entity_id: script.ikettle_test
-      temp: YOURTEMP
+# - alias: Set iKettle Tempereature
+#   trigger:
+#     - platform: state
+#       entity_id: input_select.ikettle_select
+#   action:
+#     service: script.turn_on
+#     data:
+#       entity_id: script.ikettle_test
+#       temp: YOURTEMP
 
 ##################
 #    Telegram    #
 ##################
 
-- alias: turn on espresso machine
+- id: 'telegram_espresso_on'
+  alias: turn on espresso machine
+  initial_state: True
   trigger:
     - platform: event
       event_type: telegram_callback
       event_data:
         command: '/espresso_on'
+        # data: '/espresso_on'
         # user_id: !secret telegram_chatID_Aephir
   action:
     - service: switch.turn_on
       entity_id: switch.switch
+#
+# - id: 'telegram_espresso_on'
+#   alias: turn on espresso machine
+#   initial_state: True
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/espresso_on'
+#         # data: '/espresso_on'
+#         # user_id: !secret telegram_chatID_Aephir
+#   action:
+#     - service: switch.turn_on
+#       entity_id: switch.switch
 
-- alias: turn off espresso machine
+- id: 'telegram_espresso_off'
+  alias: turn off espresso machine
+  initial_state: True
   trigger:
     - platform: event
       event_type: telegram_callback
@@ -1301,7 +580,8 @@
     - service: switch.turn_off
       entity_id: switch.switch
 
-- alias: turn off all lights
+- id: 'telegram_all_lights_off'
+  alias: turn off all lights
   trigger:
     - platform: event
       event_type: telegram_callback
@@ -1312,7 +592,8 @@
     - service: script.turn_on
       entity_id: script.scene_all_lights_off
 
-- alias: turn off everything
+- id: 'telegram_everything_off'
+  alias: turn off everything
   trigger:
     - platform: event
       event_type: telegram_callback
@@ -1323,7 +604,8 @@
     - service: script.turn_on
       entity_id: script.everyone_left_turn_off_everything
 
-- alias: Arm alarm in away mode
+- id: 'telegram_alarm_away'
+  alias: Arm alarm in away mode
   trigger:
     - platform: event
       event_type: telegram_callback
@@ -1336,7 +618,8 @@
       # data:
       #   code: !secret alarm_code
 
-- alias: Arm alarm in away mode & all off
+- id: 'telegram_alarm_away_and_all_off'
+  alias: Arm alarm in away mode & all off
   trigger:
     - platform: event
       event_type: telegram_callback
@@ -1349,7 +632,8 @@
     - service: script.turn_on
       entity_id: script.everyone_left_turn_off_everything
 
-- alias: Speak to the home
+- id: 'telegram_speak_to_home'
+  alias: Speak to the home
   trigger:
     - platform: event
       event_type: telegram_callback
@@ -1362,7 +646,8 @@
       entity_id: media_player.living_room
       message: "{{ ' '.join(trigger.event.data.args) }}"
 
-- alias: Turn off guest mode
+- id: 'telegram_guest_mode_off'
+  alias: Turn off guest mode
   trigger:
     - platform: event
       event_type: telegram_callback
@@ -1597,71 +882,59 @@
   action:
     - service: homeassistant.turn_off
       entity_id: switch.fountain
-
-- alias: kwgt fume hood power
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_fume_hood_power
-  action:
-    - service:
-      domain: remote
-      action: send_command
-      entity_id: remote.kitchen_remote
-      data:
-        command:
-          - 'fume_hood_power'
-
-- alias: kwgt fume hood lights
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_fume_hood_lights
-  action:
-    - service:
-      domain: remote
-      action: send_command
-      entity_id: remote.kitchen_remote
-      data:
-        command:
-          - 'fume_hood_lights'
-
-- alias: kwgt fume hood increase power
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_fume_hood_increase
-  action:
-    - service:
-      domain: remote
-      action: send_command
-      entity_id: remote.kitchen_remote
-      data:
-        command:
-          - 'fume_hood_increase'
-
-- alias: kwgt fume hood decrease power
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_fume_hood_decrease
-  action:
-    - service:
-      domain: remote
-      action: send_command
-      entity_id: remote.kitchen_remote
-      data:
-        command:
-          - 'fume_hood_decrease'
-
-
-###########################################
-#    Automatic Renewal of Certificates    #
-###########################################
-
-# - alias: 'Auto Renew SSL Cert'
+#
+# - alias: kwgt fume hood power
 #   trigger:
-#     platform: numeric_state
-#     entity_id: sensor.ssl_cert_expiry
-#     below: 14
+#     platform: webhook
+#     webhook_id: kwgt_fume_hood_power
 #   action:
-#     service: shell_command.renew_ssl
+#     - service:
+#       domain: remote
+#       action: send_command
+#       entity_id: remote.kitchen_remote
+#       data:
+#         command:
+#           - 'fume_hood_power'
+#
+# - alias: kwgt fume hood lights
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_fume_hood_lights
+#   action:
+#     - service:
+#       domain: remote
+#       action: send_command
+#       entity_id: remote.kitchen_remote
+#       data:
+#         command:
+#           - 'fume_hood_lights'
+#
+# - alias: kwgt fume hood increase power
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_fume_hood_increase
+#   action:
+#     - service:
+#       domain: remote
+#       action: send_command
+#       entity_id: remote.kitchen_remote
+#       data:
+#         command:
+#           - 'fume_hood_increase'
+#
+# - alias: kwgt fume hood decrease power
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_fume_hood_decrease
+#   action:
+#     - service:
+#       domain: remote
+#       action: send_command
+#       entity_id: remote.kitchen_remote
+#       data:
+#         command:
+#           - 'fume_hood_decrease'
+
 
 #######################
 #    Homekit Start    #
@@ -1674,10 +947,6 @@
   action:
     - delay: 00:02  # Waits 2 minutes
     - service: homekit.start
-
-#############################
-#    Lights Toggle State    #
-#############################
 
 
 #############################
@@ -1732,27 +1001,6 @@
         message: >
           Docker container for {{ trigger.to_state.name }} is not running. Please check the status of this container as some features may stop functioning.
 
-# - alias: Stop Plex Media Server at night
-#   trigger:
-#     - platform: time
-#       at: '00:00:00'
-#     - platform: state
-#       entity_id: remote.living_room
-#       to: 'off'
-#   condition:
-#     condition: and
-#     conditions:
-#       - condition: state
-#         entity_id: switch.plex_container
-#         state: 'on'
-#       - condition: state
-#         entity_id: remote.living_room
-#         state: 'off'
-#       - condition: time
-#         before: '06:00:00'
-#   action:
-#     - service: homeassistant.turn_off
-#       entity_id: switch.plex_container
 
 ###############
 #    Alarm    #
@@ -1890,71 +1138,6 @@
     - service: switch.turn_on
       entity_id: switch.siren_switch
 
-########################
-#    Python Scripts    #
-########################
-
-# - alias: bathroom_lights_on
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200d203
-#       to: 'on'
-#   action:
-#     - service: python_script.bathroom_light_motion_on
-#
-# - alias: bathroom_lights_on
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200d203
-#       to: 'on'
-#   action:
-#     - service: python_script.bathroom_light_motion_on
-#
-# - alias: bathroom_lights_off
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_sensor_158d000200d203
-#       to: 'off'
-#   action:
-#     - service: python_script.bathroom_light_motion_off
-
-# - alias: Hue remote 1 automation
-#   trigger:
-#   - entity_id: sensor.hue_dimmer_1
-#     platform: state
-#   - entity_id: sensor.hue_dimmer_1_updated
-#     platform: state
-#   # - entity_id: sensor.hue_dimmer_1_button
-#   #   platform: state
-#   # condition:
-#   #     platform: template
-#   #     value_template: '{{ trigger.to_state.state <> trigger.from_state.state }}'
-#   #     value_template: '{{ trigger.to_state.state != trigger.from_state.state }}'
-#   action:
-#   - service: python_script.hue_remote_1
-
-#
-# - alias: Hue dimmer 1 automations
-#   trigger:
-#     platform: state
-#     entity_id: sensor.hue_dimmer_1
-#   action:
-#     service: notify.home_aephir_bot
-#     data_template:
-#       title: "Hue notification"
-#       message: >
-#         {% if states.sensor.hue_dimmer_1_status.state == "1_click" %}
-#         'Button 1 pressed'
-#         {% elif states.sensor.hue_dimmer_1_status.state == "2" %}
-#         'Button 2 pressed'
-#         {% elif states.sensor.hue_dimmer_1_status.state == "3" %}
-#         'Button 3 pressed'
-#         {% elif states.sensor.hue_dimmer_1_status.state == "4" %}
-#         'Button 4 pressed'
-#         {% else %}
-#         none
-#         {% endif %}
-
 ###############
 #    Alarm    #
 ###############
@@ -1970,7 +1153,7 @@
     - delay: '01:00:00'
     - service: switch.turn_off
       entity_id: switch.switch
-
+#
 # - alias: two hours to next alarm
 #   trigger:
 #     - platform: webhook
@@ -2010,63 +1193,6 @@
       data:
         entity_id: zwave.fibaro_system_fgt001_heat_controller
 
-    # - service: zwave.refresh_entity
-    #   data:
-    #     - entity_id: sensor.fibaro_system_fgt001_heat_controller_temperature
-    # - service: zwave.refresh_entity
-    #   data:
-    #     - entity_id: zwave.fibaro_system_fgt001_heat_controller
-    # - service: zwave.refresh_entity
-    #   data:
-    #     - entity_id: zwave.fibaro_system_fgt001_heat_controller
-
-    # - data:
-    #     entity_id: climate.fibaro_system_fgt001_heat_controller_heating
-    #   service: zwave.refresh_entity
-    # - service: zwave.refresh_node # This apparantly crashes HASS? https://community.home-assistant.io/t/fibaro-heat-controller-fgt001-wont-update-set-temperature/40081/6
-    #   data:
-    #     node_id: 7 # Bathroom radiator
-    # - service: script.refresh_fibaro_heat_controllers
-    # - data:
-    #     entity_id: climate.fibaro_system_fgt001_heat_controller_heating_2
-    #   service: zwave.refresh_entity
-    # - data:
-    #     message: "Aggiorno Fibaro"
-    #   service: telegram_bot.send_message
-
-
-# - alias: update_fibaro_heat_controller_bathroom
-#   trigger:
-#     - platform: time
-#       minutes: '/5'
-#       seconds: 00
-#     - event: start
-#       platform: homeassistant
-#     - platform: event
-#       event_type: call_service
-#       event_data:
-#         domain: climate
-#         service: set_temperature
-#     - platform: event
-#       event_type: call_service
-#       event_data:
-#         domain: climate
-#         service: set_operation_mode
-#     - platform: event
-#       event_type: call_service
-#       event_data:
-#         domain: climate
-#         service: turn_on
-#   action:
-#     - service: zwave.refresh_entity
-#       data:
-#         entity_id: climate.fibaro_system_fgt001_heat_controller_heating # Bathroom radiator
-#     - service: zwave.refresh_entity
-#       data:
-#         entity_id: sensor.fibaro_system_fgt001_heat_controller_temperature
-#     # - service: zwave.refresh_node # This apparantly crashes HASS? https://community.home-assistant.io/t/fibaro-heat-controller-fgt001-wont-update-set-temperature/40081/6
-#     #   data:
-#     #     node_id: 7 # Bathroom radiator
 
 ######################################
 #    Dummy switches for floorplan    #
@@ -2159,8 +1285,6 @@
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.light_conservatory_lights
-
-
 
 - alias: 'switch dummy basement entrance light on'
   initial_state: True
@@ -2317,27 +1441,49 @@
     - service: homeassistant.turn_off
       entity_id: input_boolean.light_tv_room
 
-- alias: 'switch dummy stairway light on'
+- alias: 'switch dummy stairway up light on'
   initial_state: True
   trigger:
     - platform: state
-      entity_id: light.stairway
+      entity_id: light.stairway_up
       from: 'off'
       to: 'on'
   action:
     - service: homeassistant.turn_on
-      entity_id: input_boolean.light_stairway
+      entity_id: input_boolean.light_stairway_up
 
-- alias: 'switch dummy stairway light off'
+- alias: 'switch dummy stairway up light off'
   initial_state: True
   trigger:
     - platform: state
-      entity_id: light.stairway
+      entity_id: light.stairway_up
       from: 'on'
       to: 'off'
   action:
     - service: homeassistant.turn_off
-      entity_id: input_boolean.light_stairway
+      entity_id: input_boolean.light_stairway_up
+
+- alias: 'switch dummy stairway down light on'
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: light.stairway_down
+      from: 'off'
+      to: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.light_stairway_down
+
+- alias: 'switch dummy stairway down light off'
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: light.stairway_down
+      from: 'on'
+      to: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.light_stairway_down
 
 - alias: 'switch dummy wine cellar light on'
   initial_state: True
@@ -2382,6 +1528,28 @@
   action:
     - service: homeassistant.turn_off
       entity_id: input_boolean.light_bathroom
+
+- alias: 'switch dummy walk-in light on'
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: light.walk_in_closet
+      from: 'off'
+      to: 'on'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: input_boolean.light_walkin_closet
+
+- alias: 'switch dummy walk-in light off'
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: light.walk_in_closet
+      from: 'on'
+      to: 'off'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: input_boolean.light_walkin_closet
 
 - alias: 'switch dummy top floor tv area light on'
   initial_state: True

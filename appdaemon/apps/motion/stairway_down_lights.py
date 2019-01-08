@@ -28,9 +28,9 @@ class MotionClass(hass.Hass):
 
         for entity in self.motion_sensors:
             self.listen_state(self.motionTrigger,entity)
-
-        for entity in self.illumination_sensors:
-            self.listen_state(self.motionTrigger,entity)
+        #
+        # for entity in self.illumination_sensors:
+        #     self.listen_state(self.motionTrigger,entity)
 
 
     def areWeAwake(self, entity):
@@ -53,21 +53,22 @@ class MotionClass(hass.Hass):
 
         awake = self.areWeAwake("light.living_room_lights")
 
-        if new == 'on':
+        if sensor_2_state == "on":
+            self.turn_on("light.stairway_down",brightness=255,kelvin=2700)
 
-            if sensor_2_state == "on":
+        elif sensor_1_state == "on" and sensor_2_state == "off":
+            if self.now_is_between('07:00:00', '22:00:00'):
+
                 self.turn_on("light.stairway_down",brightness=255,kelvin=2700)
 
-            elif sensor_1_state == "on" and sensor_2_state == "off":
-                if self.now_is_between('07:00:00', '22:00:00'):
+            elif self.now_is_between('22:00:00', '07:00:00'):
+                if awake:
+                    self.turn_on("light.stairway_down",brightness=255,kelvin=2200)
+                else:
+                    self.turn_on("light.stairway_down",brightness=10,kelvin=2200)
 
-                    self.turn_on("light.stairway_down",brightness=255,kelvin=2700)
-
-                elif self.now_is_between('22:00:00', '07:00:00'):
-                    if awake:
-                        self.turn_on("light.stairway_down",brightness=255,kelvin=2200)
-                    else:
-                        self.turn_on("light.stairway_down",brightness=10,kelvin=2200)
+        elif sensor_1_state == "on" and sensor_2_state == "on":
+            self.turn_on("light.stairway_down",brightness=255,kelvin=2700)
 
         else:
             self.turn_off("light.stairway_down")

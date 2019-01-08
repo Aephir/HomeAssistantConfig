@@ -1,8 +1,70 @@
-#####################
-#                   #
-#      SCRIPTS      #
-#                   #
-#####################
+# #####################
+# #                   #
+# #      SCRIPTS      #
+# #                   #
+# #####################
+#
+# ###################
+# #    Automatic    #
+# #     Shut Off    #
+# ###################
+#
+################
+#__Leave Home__#
+
+  everyone_left_turn_off_everything:
+    alias: Empty Home, Power Off
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.living_room_media_off
+      - service: light.turn_off
+        data:
+          entity_id: light.all_lights
+      - service: switch.turn_off
+        data:
+          entity_id: switch.espresso_machine
+      - service: switch.turn_off
+        data:
+          entity_id: switch.fountain
+
+################
+#__Night Time__#
+
+  going_to_bed:
+    alias: We're Going to Bed
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.livingroommediaoff
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_off
+      - service: light.turn_on
+        data:
+          entity_id: light.bedroom
+          xy_color: [0.76, 0.45]
+          brightness: 10
+      - service: group.turn_off
+        data:
+          entity_id: group.kitchen_switches
+  going_to_sleep:
+    alias: We’re Going to Sleep
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.livingroommediaoff
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_off
+      - service: light.turn_off
+        data:
+          entity_id: light.bedroom
+      - service: group.turn_off
+        data:
+          entity_id: group.kitchen_switches
+
+
 
 ####################
 #    Contextual    #
@@ -126,30 +188,68 @@
           entity_id: switch.espresso_machine
 
 ###############
+#    IFTTT    #
+###############
+
+  ifttt_test:
+    alias: IFTTT Test
+    sequence:
+      - service: ifttt.trigger
+        data:
+          event: testhass
+
+  ifttt_desktop_computer_off:
+    alias: Shutdown Desktop Computer
+    sequence:
+      - service: ifttt.trigger
+        data:
+          event: desktop_power_off
+
+
+
+###############
 #  IR Remote  #
 ###############
 
   fume_hood_lights:
     alias: Fume Hood Lights Toggle
     sequence:
-      - service:
-          domain: shell
-          action: send_command
-          entity_id: remote.kitchen_remote
-          data:
-            command:
-              - 'fume_hood_lights'
+      - service: remote.send_command
+        entity_id: 'remote.kitchen_remote'
+        data:
+          command:
+            - 'fume_hood_lights'
 
   fume_hood_power:
     alias: Fume Hood Power Toggle
     sequence:
-      - service:
-          domain: shell
-          action: send_command
-          entity_id: remote.kitchen_remote
-          data:
-            command:
-              - 'fume_hood_power'
+      - service: remote.send_command
+        entity_id: 'remote.kitchen_remote'
+        data:
+          command:
+            - 'fume_hood_power'
+
+  # fume_hood_lights:
+  #   alias: Fume Hood Lights Toggle
+  #   sequence:
+  #     - service:
+  #         domain: shell
+  #         action: send_command
+  #         entity_id: remote.kitchen_remote
+  #         data:
+  #           command:
+  #             - 'fume_hood_lights'
+  #
+  # fume_hood_power:
+  #   alias: Fume Hood Power Toggle
+  #   sequence:
+  #     - service:
+  #         domain: shell
+  #         action: send_command
+  #         entity_id: remote.kitchen_remote
+  #         data:
+  #           command:
+  #             - 'fume_hood_power'
 
 ##
 # Light toggles
@@ -222,6 +322,75 @@
             {% endif -%}
             {%- endfor -%}
 
+###############
+#    Media    #
+###############
+
+  living_room_media_off:
+    alias: Shut Down Media Center
+    sequence:
+      - service: script.turn_on
+        data:
+          entity_id: script.mopidy_shut_off
+      - service: script.turn_on
+        data:
+          entity_id: script.kodi_shut_off
+      - service: script.turn_on
+        data:
+          entity_id: script.matrix_shut_off
+      - delay: 00:00:15
+      - service: switch.turn_off
+        data:
+          entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+
+  matrix_shut_off:
+    alias: Shut down MATRIX voice
+    sequence:
+      - service: shell_command.matrix_off
+
+
+  mopidy_shut_off:
+    alias: Shut down Mopidy
+    sequence:
+      - service: shell_command.mopidy_off
+
+  mopidy_reboot:
+    alias: Reboot Mopidy
+    sequence:
+      - service: shell_command.reboot_mopidy
+
+  mopidy_upgrade:
+    alias: Upgrade Mopidy
+    sequence:
+      - service: shell_command.upgrade_mopidy
+
+  kodi_shut_off:
+    alias: Shut down libreELEC
+    sequence:
+      - service: shell_command.kodi_off
+
+  kodi_reboot:
+    alias: Reboot libreELEC
+    sequence:
+      - service: shell_command.reboot_libreelec
+
+  start_kodi:
+    alias: Kodi Media Center
+    sequence:
+      - service: shell_command.run_kodi
+
+#  arrive_area_home:
+#    alias: Start Up Music, Turn Off TV
+#    sequence:
+#      - service: switch.turn_on
+#        data:
+#          entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+#      - delay: 00:00:30
+#      - service: media_player.turn_off
+#        data:
+#          entity_id: media_player.ue46es8005
+
+
 ##
 # Say
 
@@ -293,6 +462,84 @@
         entity_id: media_player.living_room
         data:
           message: 'Walden told me to tell you'
+
+
+################
+#    Scenes    #
+################
+
+############
+#__Lights__#
+
+  scene_welcome_home_lights:
+    alias: Welcome Home Lights
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.welcome_home
+
+  scene_living_room_bright:
+    alias: Bright Living Room
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_bright
+
+  scene_living_room_normal:
+    alias: Normal Living Room
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_normal
+
+  scene_living_room_dim:
+    alias: Dim Living Room
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_dim
+
+  scene_living_room_off:
+    alias: Living Room Lights Off
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.living_room_off
+
+  scene_bedroom_dim:
+    alias: Dim Bedroom
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.bedroom_dim
+
+  scene_sleepy_bedroom:
+    alias: Red Bedroom
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.sleepy_bedroom
+
+  scene_sleepy_living_room:
+    alias: Dim Red Living Room
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.sleepy_living_room
+
+  scene_all_lights_off:
+    alias: Turn off all lights
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.all_lights_off
+
+  scene_night_lights:
+    alias: Keep Night Light on For Kids
+    sequence:
+      - service: scene.turn_on
+        data:
+          entity_id: scene.night_light
 
 
 #####

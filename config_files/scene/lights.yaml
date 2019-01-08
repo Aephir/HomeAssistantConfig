@@ -14,7 +14,6 @@
       state: off
       transition: 2
 
-
 #####################
 #    Living Room    #
 #####################
@@ -113,7 +112,6 @@
     light.color_temperature_light_1_3:
       state: off
       transition: 2
-
 
 - name: Dining Room Normal Fade
   entities:

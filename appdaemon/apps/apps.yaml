@@ -53,6 +53,7 @@ espresso_left_on:
   end_after: 5400
   time_between_notifications: 900
   entity: switch.switch
+  switch_off: True
 
 ########################
 #    Device Trackers    #
@@ -88,6 +89,7 @@ global_sensors:
     - "binary_sensor.motion_sensor_158d000236a0f3" # Top floor TV room
     - "binary_sensor.motion_sensor_158d000236a116" # TV room
     - "binary_sensor.motion_sensor_158d000200d285" # Conservatory
+    - "binary_sensor.conservatory_motion_sensor_aeotec" # Conservatory 2
     - "binary_sensor.motion_sensor_158d000200e0c5" # Top floor stairway
     - "binary_sensor.motion_sensor_158d000236a22f" # Bathroom #2
     - "binary_sensor.motion_sensor_158d000236a0d0" # Upastairs bathroom
@@ -229,6 +231,11 @@ basement_hallway_motion_light:
   class: MotionClass
   constrain_input_boolean: input_boolean.basement_lights_motion_control
 
+conservatory_lights:
+  module: conservatory_lights
+  class: MotionClass
+  constrain_input_boolean: input_boolean.conservatory_lights_motion_control
+
 # basement_stairway_motion_light:
 #   module: basement_stairway_motion
 #   class: MotionClass
@@ -256,10 +263,11 @@ bathroom_motion_light:
 #   module: entrance_motion
 #   class: MotionClass
 
-entrance_motion_light:
-  module: entrance_lights
-  class: MotionClass
-  constrain_input_boolean: input_boolean.entrance_lights_motion_control
+## ONCE I GET PROPORT LIGHTS IN THE REST OF THE ENTRANCE LAMPS
+# entrance_motion_light:
+#   module: entrance_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.entrance_lights_motion_control
 
 # kitchen_motion_light:
 #   module: kitchen_motion

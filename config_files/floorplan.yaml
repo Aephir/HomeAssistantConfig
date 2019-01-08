@@ -203,6 +203,29 @@
           class_template: 'return "static-temp";'
 
 
+        - name: walk_in_temperature
+          entities:
+            - sensor.aeotec_zw100_multisensor_6_temperature
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+#          class_template: 'return "static-temp";'
+          class_template: '
+            var temp = parseFloat(entity.state);
+            if (temp < 15)
+              return "temp-in-very-low";
+            else if (temp < 19)
+              return "temp-in-low";
+            else if (temp < 21)
+              return "temp-in-good";
+            else
+              return "temp-in-high";
+            '
+        - name: walk_in_temperature_humidity
+          entities:
+            - sensor.aeotec_zw100_multisensor_6_relative_humidity
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
+
         - name: motion_sensors
           entities:
             - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
@@ -214,6 +237,7 @@
             - binary_sensor.motion_sensor_158d000200e0c5 # Top floor stairway motion
             - binary_sensor.motion_sensor_158d0001e0a8e1 # Kitchen motion
             - binary_sensor.motion_sensor_158d000236a0f3 # Top floor TV room
+            - binary_sensor.motion_sensor_158d00023e3742 # Entrance motion
           states:
             - state: 'on'
               class: 'motion-on'
@@ -464,12 +488,12 @@
           entities:
             - light.basement_entrance_lights
             - light.tv_room
-            # - light.walkin_closet
             - light.kitchen_spots
             - light.kitchen_cabinet_lights
             # - light.wine_cellar
             - light.conservatory_couch
-            - light.stairway
+            - light.stairway_up
+            - light.stairway_down
             - light.dining_table_lights
             - light.top_floor_bathroom
             - light.bedroom
@@ -506,6 +530,7 @@
              - light.hue_lightstrip_plus_1
              - light.bathroom
              - light.conservatory_lights
+             - light.walk_in_closet
           states:
             - state: 'on'
               class: 'light-group-on'
@@ -525,7 +550,8 @@
             - input_boolean.light_conservatory_couch
             - input_boolean.light_kitchen_spots
             - input_boolean.light_bathroom
-            - input_boolean.light_stairway
+            - input_boolean.light_stairway_down
+            - input_boolean.light_stairway_up
             - input_boolean.light_kitchen_cabinet
             - input_boolean.light_dining_table
             - input_boolean.light_top_floor_bathroom
@@ -534,6 +560,7 @@
             - input_boolean.light_living_room_lightstrip
             - input_boolean.light_top_floor_tv_area
             - input_boolean.light_top_floor_hallway
+            - input_boolean.light_walkin_closet
             # - input_boolean.light_conservatory_lights
           states:
             - state: 'on'
@@ -632,7 +659,8 @@
         - name: tv
           entities:
             # - media_player.ue46es8005
-            - media_player.conservatory_tv
+            - switch.ue46es8005
+            # - media_player.conservatory_tv
             - media_player.upstairs_living_room_tv
           states:
             - state: 'on'

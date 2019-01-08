@@ -366,7 +366,7 @@
        xlink:href="#linearGradient4731"
        id="radialGradient8997"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.8229258,0,0,1.8229258,303.4387,-401.17946)"
+       gradientTransform="matrix(1.8229258,0,0,1.8229258,304.19633,-403.97402)"
        cx="168.83447"
        cy="179.12395"
        fx="168.83447"
@@ -476,7 +476,7 @@
        xlink:href="#linearGradient2683"
        id="radialGradient1918"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.1426335,0,0,1.1426336,-2.4135733,-247.42077)"
+       gradientTransform="matrix(1.1426335,0,0,1.1426336,337.69877,-435.30226)"
        cx="43.404572"
        cy="324.55591"
        fx="43.404572"
@@ -612,6 +612,28 @@
        fx="168.83447"
        fy="179.12395"
        r="21.589569" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2683"
+       id="radialGradient1959"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1426335,0,0,1.1426336,337.6914,-251.68053)"
+       cx="43.404572"
+       cy="324.55591"
+       fx="43.404572"
+       fy="324.55591"
+       r="14.967094" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4731"
+       id="radialGradient1977"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.4583406,0,0,1.4583406,179.21728,-354.16569)"
+       cx="168.83447"
+       cy="179.12395"
+       fx="168.83447"
+       fy="179.12395"
+       r="21.589569" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -620,9 +642,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35355339"
-     inkscape:cx="1176.7015"
-     inkscape:cy="634.25423"
+     inkscape:zoom="0.5"
+     inkscape:cx="1376.5647"
+     inkscape:cy="254.25424"
      inkscape:document-units="mm"
      inkscape:current-layer="layer18"
      showgrid="false"
@@ -639,7 +661,7 @@
      inkscape:snap-intersection-paths="true"
      inkscape:snap-others="false"
      inkscape:snap-bbox-edge-midpoints="false"
-     inkscape:snap-bbox-midpoints="false"
+     inkscape:snap-bbox-midpoints="true"
      inkscape:object-paths="false"
      inkscape:snap-smooth-nodes="true"
      inkscape:snap-midpoints="false"
@@ -2749,15 +2771,15 @@
        inkscape:label="#circle8763"
        transform="translate(0,-64.249969)" />
     <circle
-       transform="translate(0,-64.249969)"
        r="39.356182"
        style="display:inline;opacity:1;fill:url(#radialGradient8995);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        id="circle8865"
        cx="613.05066"
-       cy="-88.624527" />
+       cy="-88.624527"
+       transform="translate(0,-64.249969)" />
     <circle
-       cy="-74.650032"
-       cx="611.21124"
+       cy="-77.44458"
+       cx="611.96881"
        id="input_boolean.light_wine_cellar"
        style="display:inline;opacity:1;fill:url(#radialGradient8997);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        r="39.356182"
@@ -2809,9 +2831,9 @@
        inkscape:label="#circle7769" />
     <circle
        style="display:inline;opacity:1;fill:url(#radialGradient1918);fill-opacity:1;fill-rule:nonzero;stroke:#ffff30;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.39215686"
-       id="input_boolean.light_stairway"
-       cx="47.182186"
-       cy="123.42801"
+       id="input_boolean.light_stairway_down"
+       cx="387.29456"
+       cy="-64.453506"
        r="17.101902"
        inkscape:label="#circle7769" />
     <ellipse
@@ -2890,6 +2912,13 @@
        cx="417.54199"
        cy="25.336199"
        inkscape:label="#circle7769" />
+    <circle
+       inkscape:label="#circle7769"
+       r="17.101902"
+       cy="119.16824"
+       cx="387.28717"
+       id="input_boolean.light_stairway_up"
+       style="display:inline;opacity:1;fill:url(#radialGradient1959);fill-opacity:1;fill-rule:nonzero;stroke:#ffff30;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.39215686" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -3016,9 +3045,9 @@
        inkscape:label="#circle7767" />
     <circle
        r="3.8727353"
-       cy="187.67798"
-       cx="47.182186"
-       id="light.stairway"
+       cy="-0.20352778"
+       cx="387.29456"
+       id="light.stairway_down"
        style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
        inkscape:label="#circle7767" />
     <ellipse
@@ -3183,6 +3212,13 @@
        id="light.top_floor_hallway"
        style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
        inkscape:label="#circle7767" />
+    <circle
+       inkscape:label="#circle7767"
+       style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
+       id="light.stairway_up"
+       cx="387.28717"
+       cy="183.41821"
+       r="3.8727353" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7161,32 +7197,32 @@
        rx="22.489136"
        style="display:inline;opacity:1;fill:#323232;fill-opacity:1;fill-rule:nonzero;stroke:#fffffe;stroke-width:0.51676434;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        id="ellipse8879"
-       cx="611.21124"
-       cy="-10.400004" />
+       cx="611.96881"
+       cy="-13.194612" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.41341144"
-       x="611.06036"
-       y="2.6629815"
+       x="611.81793"
+       y="-0.13162434"
        id="sensor.humidity_158d000245b4a2"
        inkscape:label="#text8883"><tspan
          style="stroke-width:0.41341144"
          id="tspan8881"
          sodipodi:role="line"
-         x="611.06036"
-         y="2.6629815">78%</tspan></text>
+         x="611.81793"
+         y="-0.13162434">78%</tspan></text>
     <text
        id="sensor.temperature_158d000245b4a2"
-       y="-14.699993"
-       x="611.06036"
+       y="-17.494602"
+       x="611.81793"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.41341144"
        xml:space="preserve"
        inkscape:label="#text8887"><tspan
          style="stroke-width:0.41341144"
          sodipodi:role="line"
          id="tspan8885"
-         x="611.06036"
-         y="-14.699993">22°C</tspan></text>
+         x="611.81793"
+         y="-17.494602">22°C</tspan></text>
     <ellipse
        cy="99.429184"
        cx="521.96356"
@@ -7753,6 +7789,52 @@
        style="display:inline;opacity:1;fill:#323232;fill-opacity:0;fill-rule:nonzero;stroke:none;stroke-width:0.51676434;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        rx="22.489136"
        ry="22.489134" />
+    <circle
+       r="31.484945"
+       style="display:inline;opacity:1;fill:url(#radialGradient1977);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
+       id="input_boolean.light_walkin_closet"
+       cx="425.43524"
+       cy="-92.942184"
+       inkscape:label="#circle8889" />
+    <ellipse
+       cy="-92.942139"
+       cx="425.43524"
+       id="ellipse1963"
+       style="display:inline;opacity:1;fill:#323232;fill-opacity:1;fill-rule:nonzero;stroke:#fffffe;stroke-width:0.41341147;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
+       rx="17.991308"
+       ry="17.991306" />
+    <text
+       id="sensor.aeotec_zw100_multisensor_6_relative_humidity"
+       y="-82.491684"
+       x="425.31454"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944466px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.33072916"
+       xml:space="preserve"
+       inkscape:label="#text8895"><tspan
+         y="-82.491684"
+         x="425.31454"
+         sodipodi:role="line"
+         id="tspan1965"
+         style="stroke-width:0.33072916">78%</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.81944466px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.33072916"
+       x="425.31454"
+       y="-96.382126"
+       id="sensor.aeotec_zw100_multisensor_6_temperature"
+       inkscape:label="#text8899"><tspan
+         y="-96.382126"
+         x="425.31454"
+         id="tspan1969"
+         sodipodi:role="line"
+         style="stroke-width:0.33072916">22°C</tspan></text>
+    <ellipse
+       ry="22.489134"
+       rx="22.489136"
+       style="display:inline;opacity:1;fill:#323232;fill-opacity:0;fill-rule:nonzero;stroke:none;stroke-width:0.51676434;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
+       id="ellipse1973"
+       cx="429.93307"
+       cy="-93.471298"
+       inkscape:label="#ellipse1937" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7778,14 +7860,6 @@
        id="script.scene_all_lights_off"
        style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:label="#rect6629" />
-    <circle
-       transform="translate(0,-64.249969)"
-       inkscape:label="#circle8877"
-       r="39.356182"
-       style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
-       id="light.hue_lightstrip_plus_1"
-       cx="611.21124"
-       cy="-10.400065" />
     <rect
        ry="8.5848675"
        y="-188.24905"
@@ -7833,7 +7907,7 @@
        ry="8.5848675" />
     <rect
        style="display:inline;opacity:1;fill:#4b4b4b;fill-opacity:0.01463414;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="media_player.conservatory_tv"
+       id="switch.ue46es8005"
        width="40.450638"
        height="57.643944"
        x="208.98814"
@@ -7847,6 +7921,22 @@
        style="display:inline;opacity:1;fill:#323232;fill-opacity:0.00975611;fill-rule:nonzero;stroke:none;stroke-width:0.413;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        rx="17.991308"
        ry="17.991306"
+       inkscape:label="#ellipse1977" />
+    <ellipse
+       inkscape:label="#ellipse1977"
+       ry="17.991306"
+       rx="17.991308"
+       style="display:inline;opacity:1;fill:#323232;fill-opacity:0.00975611;fill-rule:nonzero;stroke:none;stroke-width:0.41299999;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
+       id="light.walk_in_closet"
+       cx="425.43524"
+       cy="-157.19206" />
+    <ellipse
+       cy="-77.573761"
+       cx="612.09802"
+       id="light.hue_lightstrip_plus_1"
+       style="display:inline;opacity:1;fill:#323232;fill-opacity:0.00975611;fill-rule:nonzero;stroke:none;stroke-width:0.5192157;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
+       rx="22.61833"
+       ry="22.618328"
        inkscape:label="#ellipse1977" />
   </g>
   <g

@@ -13,7 +13,7 @@ class ApplianceStatus(hass.Hass):
 
     def initialize(self):
         """
-        Initialize the timers and set listen_state.
+        Initialize the timers and set listen_state
         """
 
         self.starttime = datetime.datetime.now()
@@ -23,43 +23,46 @@ class ApplianceStatus(hass.Hass):
 
     def StartTimer(self, entity, attribute, old, new, kwargs):
         """
-        Cancel timer if entity is turned off.
+        Cancel timer if entity is turned offself.
         Otherwise note the time, and start the loop (SendNotification)
         """
 
-        if new == 'off':
-            self.cancel_timer(self.timer) # Cancel for any state change of 'switch.switch'. If I call 'SendNotification' from elsewhere, make this is cancele
+        if new == "off":
+            if self.timer != None:
+                self.cancel_timer(self.timer) # Cancels if switch state changes ('on' or 'off'), cancel so we're ready for new timer.
 
-        elif new == 'on' and old == 'off':
+        else:
             if self.timer != None:
                 self.cancel_timer(self.timer)
+
             self.starttime = datetime.datetime.now()
             self.timer = self.run_in(self.SendNotification,self.args["start_after"])
-        # else:
-        #     self.log("the switch was already on i didnt reset the timer") # For troubleshooting
 
 
     def SendNotification(self, kwargs):
         """
-        Notify me about leaving the switch on. Repeat every "time_between_notifications" seconds.
+        Cancel timer if entity is turned offself.
+        Otherwise notify me about leaving the switch on every "time_between_notifications" secondsself.
         After "end_after" seconds, automatically turn off, and notify me.
-        Remember to cancel timer before each recursive callback, as well as after last action ending the loop.
         """
 
         delta = datetime.datetime.now() - self.starttime
         seconds = int(datetime.timedelta.total_seconds(delta))
         minutes = round(seconds/60)
 
-        # self.log("Espresso on for " + str(minutes) + " minutes and " + str(seconds) + " seconds.") # for troubleshooting
+        self.log(str(minutes) + " " + str(seconds)) # for troubleshooting
 
-        if seconds < self.args["end_after"]:
+        if self.get_state('switch.switch') == 'off':
+            if self.timer != None:
+                self.cancel_timer(self.timer)
+
+        elif seconds < self.args["end_after"]:
 
             self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for " + str(minutes) + " minutes", data={"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"})
-            # self.call_service('telegram_bot/send_message', message="Espresso machine has been on for " + str(minutes) + " minutes", inline_keyboard = [[("Turn Off","/espresso_off"), ("I Know","/removekeyboard")]])
             self.log("Espresso machine has been on for " + str(minutes) + " minutes")
-            # if self.timer != None:
-            #     self.cancel_timer(self.timer)
-            self.timer = self.run_in(self.SendNotification,self.args["time_between_notifications"])
+            if self.timer != None:
+                self.cancel_timer(self.timer)
+            self.run_in(self.SendNotification,self.args["time_between_notifications"])
 
         else:
 
@@ -69,8 +72,6 @@ class ApplianceStatus(hass.Hass):
                 self.turn_off('switch.switch')
             else:
                 switchofftext = "."
-            self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for " + str(minutes) + " minutes" + switchofftext, data={"inline_keyboard":"Turn back on:/espresso_on, Thanks!:/removekeyboard"})
-            # self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for " + str(minutes) + " minutes" + switchofftext, inline_keyboard = [[("Turn back on","/espresso_on"), ("OK, thanks!","/removekeyboard")]])
+            self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for " + str(minutes) + " minutes" + switchofftext, data={"inline_keyboard":"Turn back on:/espresso_on, OK, thanks!:/removekeyboard"})
             self.log("Espresso machine has been on for " + str(minutes) + " minutes" + switchoffftext,)
-            # if self.timer != None:
-            #     self.cancel_timer(self.timer)
+            self.cancel_timer(self.timer)

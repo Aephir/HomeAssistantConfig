@@ -116,8 +116,11 @@ light_kitchen_spots:
 light_basement_entrance_lights:
   name: dummy basement entrance lights
 
-light_stairway:
-  name: dummy stairway light
+light_stairway_up:
+  name: dummy stairway up light
+
+light_stairway_down:
+  name: dummy stairway down light
 
 light_tv_room:
   name: dummy TV room light
@@ -176,6 +179,10 @@ fullykiosk_launch:
 
 door_sensor_status_1:
   name: set door open state
+
+conservatory_lights_motion_control:
+  name: Conservatory motion control lights
+  initial: on
 
 kitchen_lights_motion_control:
   name: Kitchen Motion Sensors Control Lights

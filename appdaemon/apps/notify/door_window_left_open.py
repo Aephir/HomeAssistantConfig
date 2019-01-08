@@ -32,11 +32,11 @@ class Notify(hass.Hass):
             ]
 
         # Set this to "False" initially.
-        self.get_state(self.open_1) = False # Need one for each door/window sensor.
-        self.get_state(self.open_2) = False
-        self.get_state(self.open_3) = False
-        self.get_state(self.open_4) = False
-        self.get_state(self.open_5) = False
+        self.open_1 = False # Need one for each door/window sensor.
+        self.open_2 = False
+        self.open_3 = False
+        self.open_4 = False
+        self.open_5 = False
 
         self.listOfOpen = [
             self.open_1,
@@ -48,16 +48,46 @@ class Notify(hass.Hass):
 
         self.anyOpen = False
 
+        self.timer_1 = None
+        self.timer_2 = None
+        self.timer_3 = None
+        self.timer_4 = None
+        self.timer_5 = None
+
+        self.timers = [
+            self.timer_1,
+            self.timer_2,
+            self.timer_3,
+            self.timer_4,
+            self.timer_5
+            ]
+
         # Run when state changes.
         for entity in self.sensor_ids:
             self.listen_state(self.MessageDoorWindow, entity)
+
+        # for entity in self.sensor_ids:
+        #     self.listen_state(self.timerState, entity)
 
         for entity in self.weather_ids:
             self.listen_state(self.MessageWeather, entity)
 
 
+    def cancelTimers(self, timerlist):
+        for entity in timerlist:
+            if entity != None:
+                self.cancel_timer(entity)
+
+
+
     def MessageDoorWindow (self, entity, attribute, old, new, kwargs):
-        # Set to "False" if door/window closes. Otherwise, run function.
+        """
+        Set to "False" if door/window closes. Otherwise, run function.
+        """
+
+        self.cancelTimers(self.timers)
+
+
         if new == 'off':
             if entity == 'binary_sensor.door_window_sensor_158d0002286a78':
                 self.open_1 = False
@@ -70,9 +100,22 @@ class Notify(hass.Hass):
             elif entity == 'binary_sensor.neo_coolcam_doorwindow_detector_sensor':
                 self.open_5 = False
         else:
-            self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
+            if entity == 'binary_sensor.door_window_sensor_158d0002286a78':
+                self.timer_1 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
+            elif entity == 'binary_sensor.door_window_sensor_158d00022b3b66':
+                self.timer_2 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
+            elif entity == 'binary_sensor.door_window_sensor_158d00022d0917':
+                self.timer_3 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
+            elif entity == 'binary_sensor.door_window_sensor_158d000234dc7b':
+                self.timer_4 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
+            elif entity == 'binary_sensor.neo_coolcam_doorwindow_detector_sensor':
+                self.timer_5 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
+
 
     def MessageWeather (self, entity, attribute, old, new, kwargs):
+        """
+
+        """
         if any self.listOfOpen:
             if entity == "sensor.dark_sky_temperature":
                 if float(self.get_state("sensor.dark_sky_temperature")) < 18.0:
@@ -137,6 +180,8 @@ class Notify(hass.Hass):
         # If any type of precipitation is expected, make "True".
         if precip_type != "unknown" and precip_intensity > 4.0 and precip_probability > 25.0:
             precip_problem = True
+
+        self.timer_1 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
 
         # Notify based on which sensor and what potential problem.
         if precip_problem:
