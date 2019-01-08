@@ -243,7 +243,7 @@ views:
           - entity: light.basement_hallway
             type: custom:slider-entity-row
             toggle: true
-          - entity: light.hue_lightstrip_plus_1
+          - entity: light.wine_cellar
             name: Wine cellar
             type: custom:slider-entity-row
             toggle: true
@@ -947,77 +947,265 @@ views:
     # Title of the view. Will be used as the tooltip for tab icon
     title: Quick Control
     id: test
+    panel: true
     cards:
 
       - type: horizontal-stack
-        panel: true
+
         cards:
 
-          - type: entities
-            title: Test
-            id: main_floor_lights
-            entities:
+          - type: vertical-stack
+            cards:
 
-              - type: custom:fold-entity-row
-                head: light.dining_room_lights
-                items:
-                - entity: light.dining_table_lights
-                  type: custom:slider-entity-row
-                  toggle: true
-                - entity: light.living_room_lightstrip
-                  type: custom:slider-entity-row
-                  toggle: true
-          - type: entities
-            title: Aeotec multisensor conservatory
-            entities:
-              - zwave.aeotec_zw100_multisensor_6_2
-              - binary_sensor.aeotec_zw100_multisensor_6_sensor_2
-              - sensor.aeotec_zw100_multisensor_6_alarm_level_2
-              - sensor.aeotec_zw100_multisensor_6_alarm_type_2
-              - sensor.aeotec_zw100_multisensor_6_burglar_2
-              - sensor.aeotec_zw100_multisensor_6_luminance_2
-              - sensor.aeotec_zw100_multisensor_6_relative_humidity_2
-              - sensor.aeotec_zw100_multisensor_6_sourcenodeid_2
-              - sensor.aeotec_zw100_multisensor_6_temperature_2
-              - sensor.aeotec_zw100_multisensor_6_ultraviolet_2
+              - type: entities
+                title: Main Floor Lights
+                id: main_floor_lights
+                panel: true
+                entities:
 
-      - type: entities
-        title: Walkin closet Aeotec sensor
-        entities:
-          - type: custom:entity-attributes-card
-            entity: zwave.aeotec_zw100_multisensor_6
-            filter:
-              include:
-               - key: zwave.aeotec_zw100_multisensor_6.*
+                  - type: custom:fold-entity-row
+                    head: light.dining_room_lights
+                    items:
+                    - entity: light.dining_table_lights
+                      type: custom:slider-entity-row
+                      toggle: true
+                    - entity: light.living_room_lightstrip
+                      type: custom:slider-entity-row
+                      toggle: true
 
-      - type: vertical-stack
-        panel: true
-        cards:
+                  - type: custom:fold-entity-row
+                    head: light.conservatory_lights
+                    items:
+                    - entity: light.conservatory_couch
+                      type: custom:slider-entity-row
+                      toggle: true
+                    - entity: light.conservatory_reading
+                      type: custom:slider-entity-row
+                      toggle: true
 
-          - type: entities
-            title: Test
-            id: main_floor_lights
-            entities:
+                  - type: custom:fold-entity-row
+                    head: light.kitchen_lights
+                    items:
+                    - entity: light.kitchen_spots
+                      type: custom:slider-entity-row
+                      toggle: true
+                    - entity: light.kitchen_cabinet_lights
+                      type: custom:slider-entity-row
+                      toggle: true
 
-              - type: custom:fold-entity-row
-                head: light.dining_room_lights
-                items:
-                - entity: light.dining_table_lights
-                  type: custom:slider-entity-row
-                  toggle: true
-                - entity: light.living_room_lightstrip
-                  type: custom:slider-entity-row
-                  toggle: true
-          - type: entities
-            title: Aeotec multisensor conservatory
-            entities:
-              - zwave.aeotec_zw100_multisensor_6_2
-              - binary_sensor.aeotec_zw100_multisensor_6_sensor_2
-              - sensor.aeotec_zw100_multisensor_6_alarm_level_2
-              - sensor.aeotec_zw100_multisensor_6_alarm_type_2
-              - sensor.aeotec_zw100_multisensor_6_burglar_2
-              - sensor.aeotec_zw100_multisensor_6_luminance_2
-              - sensor.aeotec_zw100_multisensor_6_relative_humidity_2
-              - sensor.aeotec_zw100_multisensor_6_sourcenodeid_2
-              - sensor.aeotec_zw100_multisensor_6_temperature_2
-              - sensor.aeotec_zw100_multisensor_6_ultraviolet_2
+
+
+                    # - entity: light.main_floor_entrance_1
+                    #   type: custom:slider-entity-row
+                      # toggle: true
+                    # - entity: light.main_floor_entrance_2
+                    #   type: custom:slider-entity-row
+                      # toggle: true
+
+                  # - type: custom:fold-entity-row
+                  #   head:
+                  #     type: section
+                  #     label: Lights
+                  #   group_config:
+                  #     secondary_info: last-changed
+                  #   items:
+                  #     - light.dining_table_lights
+                  #     - light.living_room_lightstrip
+                  #     - light.kitchen_lights
+
+                  - entity: light.bedroom
+                    # type: custom:slider-entity-row
+                    type: custom:toggle-lock-entity-row
+                    users:
+                      - Aephir
+                      - Kristina
+                  - entity: light.bathroom
+                    type: custom:slider-entity-row
+                    toggle: true
+                  - entity: light.baby_room
+                    name: Baby Room Light
+                    type: custom:slider-entity-row
+                    toggle: true
+                  - entity: light.gateway_light_7811dcb8d944
+                    # Override the name to use
+                    name: Gateway Light
+                    type: custom:slider-entity-row
+                    toggle: true
+                    # show_value: true
+                  # - type: divider
+                  #   style:
+                  #     height: 1px
+                  #     width: 80%
+                  #     margin-left: auto
+                  #     margin-right: auto
+                  #     background: '#62717b'
+              # - type: entities
+              #   title: Kitchen Lights
+              #   entities:
+              #     - light.kitchen_spots
+              # - type: entities
+              #   title: Dining Room Lights
+              #   entities:
+              #     - light.living_room_lightstrip
+
+              - type: entities
+                title: Outdoor
+                id: outdoor_entities
+                show_header_toggle: false
+                entities:
+                  - entity: switch.shed_master_power
+                    type: custom:toggle-lock-entity-row
+                    users:
+                      - Aephir
+                  - entity: switch.fountain
+                    icon: mdi:fountain
+
+          - type: vertical-stack
+            cards:
+
+              - type: vertical-stack
+                id: fume_hood_controls
+                cards:
+                  - type: "custom:button-card"
+                    color_type: label-card
+                    color: rgb(58, 106, 183)
+                    name: Fume Hood Controls
+                  - type: horizontal-stack
+                    cards:
+                        # - type: "custom:button-card"
+                        #   color_type: blank-card
+                        - type: "custom:button-card"
+                          size: 25px
+                          # color_type: card
+                          color: auto
+                          default_color: rgb(58, 106, 183)
+                          icon: mdi:power
+                          action: service
+                          service:
+                            domain: remote
+                            action: send_command
+                            entity_id: remote.kitchen_remote
+                            data:
+                              command:
+                                - 'fume_hood_power'
+                        - type: "custom:button-card"
+                          # color_type: card
+                          size: 25px
+                          color: rgb(58, 106, 183)
+                          icon: mdi:fan-off
+                          action: service
+                          service:
+                            domain: remote
+                            action: send_command
+                            entity_id: remote.kitchen_remote
+                            data:
+                              command:
+                                - 'fume_hood_decrease'
+                        - type: "custom:button-card"
+                          # color_type: card
+                          size: 25px
+                          color: rgb(58, 106, 183)
+                          icon: mdi:fan
+                          action: service
+                          service:
+                            domain: remote
+                            action: send_command
+                            entity_id: remote.kitchen_remote
+                            data:
+                              command:
+                                - 'fume_hood_increase'
+                        - type: "custom:button-card"
+                          # color_type: card
+                          size: 25px
+                          color: auto
+                          default_color: rgb(58, 106, 183)
+                          icon: mdi:lightbulb-on
+                          action: service
+                          service:
+                            domain: remote
+                            action: send_command
+                            entity_id: remote.kitchen_remote
+                            data:
+                              command:
+                                - 'fume_hood_lights'
+                        # - type: "custom:button-card"
+                        #   color_type: blank-card
+
+                  - type: entities
+                    title: Top Floor Lights
+                    entities:
+                      - entity: light.top_floor_bathroom
+                        type: custom:slider-entity-row
+                        toggle: true
+                      - entity: light.top_floor_tv_area
+                        type: custom:slider-entity-row
+                        toggle: true
+                      - entity: light.top_floor_hallway
+                        type: custom:slider-entity-row
+                        toggle: true
+                      - entity: light.stairway_up
+                        type: custom:slider-entity-row
+                        toggle: true
+
+                  - type: entities
+                    title: TV Control
+                    entities:
+                      - entity: media_player.ue46es8005
+                      - entity: switch.ue46es8005
+
+
+          - type: vertical-stack
+            cards:
+
+              - type: entities
+                title: Basement Lights
+                entities:
+                  - entity: light.basement_entrance
+                    type: custom:slider-entity-row
+                    toggle: true
+                  - entity: light.basement_hallway
+                    type: custom:slider-entity-row
+                    toggle: true
+                  - entity: light.wine_cellar
+                    name: Wine cellar
+                    type: custom:slider-entity-row
+                    toggle: true
+                  - entity: light.tv_room
+                    type: custom:slider-entity-row
+                    toggle: true
+                  - entity: light.walk_in_closet
+                    type: custom:slider-entity-row
+                    toggle: true
+                  - entity: light.stairway_down
+                    type: custom:slider-entity-row
+                    toggle: true
+
+              - type: entities
+                title: Kitchen Appliances
+                show_header_toggle: false
+                entities:
+                  - entity: switch.switch
+                    type: custom:toggle-lock-entity-row
+                    users:
+                      - Aephir
+                      - Kristina
+                  - entity: switch.kettle
+                    type: custom:toggle-lock-entity-row
+                    users:
+                      - Aephir
+                      - Kristina
+
+      #   # The markdown card will render markdown text.
+      # - type: markdown
+      #   title: Lovelace
+      #   content: >
+      #     Welcome to your **Lovelace UI**.
+
+
+      # - type: picture-entity
+      #   title: Fountain
+      #   # show_header_toggle: false
+      #   image: /local/images/fountain_1.jpg
+      #   # entities:
+      #   entity: switch.fountain
+      #   tap_action: toggle

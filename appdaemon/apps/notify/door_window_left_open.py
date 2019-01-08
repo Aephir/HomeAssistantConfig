@@ -62,6 +62,12 @@ class Notify(hass.Hass):
             self.timer_5
             ]
 
+        self.time_1 = None
+        self.time_2 = None
+        self.time_3 = None
+        self.time_4 = None
+        self.time_5 = None
+
         # Run when state changes.
         for entity in self.sensor_ids:
             self.listen_state(self.MessageDoorWindow, entity)

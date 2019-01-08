@@ -486,21 +486,21 @@
         # Lights
         - name: Lights
           entities:
-            - light.basement_entrance_lights
-            - light.tv_room
-            - light.kitchen_spots
-            - light.kitchen_cabinet_lights
-            # - light.wine_cellar
-            - light.conservatory_couch
-            - light.stairway_up
-            - light.stairway_down
-            - light.dining_table_lights
-            - light.top_floor_bathroom
-            - light.bedroom
             - light.baby_room
+            - light.bedroom
+            - light.basement_entrance_lights
+            - light.conservatory_couch
+            - light.dining_table_lights
+            - light.kitchen_cabinet_lights
+            - light.kitchen_spots
             - light.living_room_lightstrip
-            - light.top_floor_tv_area
+            - light.stairway_down
+            - light.stairway_up
+            - light.top_floor_bathroom
             - light.top_floor_hallway
+            - light.top_floor_tv_area
+            - light.tv_room
+            # - light.wine_cellar
           states:
             - state: 'on'
               class: 'light-on'
@@ -527,10 +527,10 @@
 
         - name: light groups
           entities:
-             - light.hue_lightstrip_plus_1
-             - light.bathroom
-             - light.conservatory_lights
-             - light.walk_in_closet
+            - light.bathroom
+            - light.conservatory_lights
+            - light.wine_cellar
+            - light.walk_in_closet
           states:
             - state: 'on'
               class: 'light-group-on'
@@ -542,25 +542,24 @@
 
         - name: light glow
           entities:
+            - input_boolean.light_baby_room
             - input_boolean.light_basement_entrance_lights
-            - input_boolean.light_tv_room
-            # - input_boolean.light_walkin_closet
-            - input_boolean.light_wine_cellar
-            # - light.hue_lightstrip_plus_1
-            - input_boolean.light_conservatory_couch
-            - input_boolean.light_kitchen_spots
             - input_boolean.light_bathroom
+            - input_boolean.light_bedroom
+            - input_boolean.light_conservatory_couch
+            - input_boolean.light_dining_table
+            - input_boolean.light_kitchen_cabinet
+            - input_boolean.light_kitchen_spots
+            - input_boolean.light_living_room_lightstrip
             - input_boolean.light_stairway_down
             - input_boolean.light_stairway_up
-            - input_boolean.light_kitchen_cabinet
-            - input_boolean.light_dining_table
             - input_boolean.light_top_floor_bathroom
-            - input_boolean.light_bedroom
-            - input_boolean.light_baby_room
-            - input_boolean.light_living_room_lightstrip
-            - input_boolean.light_top_floor_tv_area
             - input_boolean.light_top_floor_hallway
+            - input_boolean.light_top_floor_tv_area
+            - input_boolean.light_tv_room
             - input_boolean.light_walkin_closet
+            - input_boolean.light_wine_cellar
+            # - input_boolean.light_walkin_closet
             # - input_boolean.light_conservatory_lights
           states:
             - state: 'on'

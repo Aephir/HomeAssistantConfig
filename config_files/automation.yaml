@@ -539,20 +539,6 @@
 #    Telegram    #
 ##################
 
-- id: 'telegram_espresso_on'
-  alias: turn on espresso machine
-  initial_state: True
-  trigger:
-    - platform: event
-      event_type: telegram_callback
-      event_data:
-        command: '/espresso_on'
-        # data: '/espresso_on'
-        # user_id: !secret telegram_chatID_Aephir
-  action:
-    - service: switch.turn_on
-      entity_id: switch.switch
-#
 # - id: 'telegram_espresso_on'
 #   alias: turn on espresso machine
 #   initial_state: True
@@ -566,13 +552,27 @@
 #   action:
 #     - service: switch.turn_on
 #       entity_id: switch.switch
+#
+- id: 'telegram_espresso_on'
+  alias: turn on espresso machine
+  initial_state: True
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/espresso_on'
+        # data: '/espresso_on'
+        # user_id: !secret telegram_chatID_Aephir
+  action:
+    - service: switch.turn_on
+      entity_id: switch.switch
 
 - id: 'telegram_espresso_off'
   alias: turn off espresso machine
   initial_state: True
   trigger:
     - platform: event
-      event_type: telegram_callback
+      event_type: telegram_command
       event_data:
         command: '/espresso_off'
         # user_id: !secret telegram_chatID_Aephir
@@ -584,7 +584,7 @@
   alias: turn off all lights
   trigger:
     - platform: event
-      event_type: telegram_callback
+      event_type: telegram_command
       event_data:
         command: '/lights_off'
         # user_id: !secret telegram_chatID_Aephir
@@ -596,7 +596,7 @@
   alias: turn off everything
   trigger:
     - platform: event
-      event_type: telegram_callback
+      event_type: telegram_command
       event_data:
         command: '/all_off'
         # user_id: !secret telegram_chatID_Aephir
@@ -608,7 +608,7 @@
   alias: Arm alarm in away mode
   trigger:
     - platform: event
-      event_type: telegram_callback
+      event_type: telegram_command
       event_data:
         command: '/set_alarm_away'
         # user_id: !secret telegram_chatID_Aephir
@@ -622,7 +622,7 @@
   alias: Arm alarm in away mode & all off
   trigger:
     - platform: event
-      event_type: telegram_callback
+      event_type: telegram_command
       event_data:
         command: '/set_alarm_all_off'
         # user_id: !secret telegram_chatID_Aephir
@@ -636,7 +636,7 @@
   alias: Speak to the home
   trigger:
     - platform: event
-      event_type: telegram_callback
+      event_type: telegram_command
       event_data:
         command: '/say'
         # user_id: !secret telegram_chatID_Aephir
@@ -650,7 +650,7 @@
   alias: Turn off guest mode
   trigger:
     - platform: event
-      event_type: telegram_callback
+      event_type: telegram_command
       # event_type: telegram_command
       event_data:
         command: '/guest_mode_off'
@@ -1489,7 +1489,7 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: light.hue_lightstrip_plus_1
+      entity_id: light.wine_cellar
       from: 'off'
       to: 'on'
   action:
@@ -1500,7 +1500,7 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: light.hue_lightstrip_plus_1
+      entity_id: light.wine_cellar
       from: 'on'
       to: 'off'
   action:
