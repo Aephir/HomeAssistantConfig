@@ -596,6 +596,18 @@
 # #            domain: media_player
 #             service: toggle
 
+        - name: Power plugs
+          entities:
+            - switch.shed_master_power
+          states:
+            - state: 'on'
+              class: 'power-plug-on'
+            - state: 'off'
+              class: 'power-plug-off'
+          action:
+            domain: switch
+            service: toggle
+
         - name: Fountain
           entities:
              - switch.fountain

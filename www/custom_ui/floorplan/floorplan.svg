@@ -642,11 +642,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="1966.5647"
-     inkscape:cy="974.25424"
+     inkscape:zoom="1"
+     inkscape:cx="2956.5647"
+     inkscape:cy="254.25424"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer19"
+     inkscape:current-layer="layer11"
      showgrid="false"
      inkscape:window-width="1440"
      inkscape:window-height="855"
@@ -6992,7 +6992,8 @@
        style="fill:#d8bb08;fill-opacity:1;stroke:none;stroke-opacity:1"
        clip-path="url(#clipPath27754)"
        transform="matrix(0.13229166,0,0,0.13229166,748.73394,296.1062)"
-       id="g8789">
+       id="switch.shed_master_power"
+       inkscape:label="#g8789">
       <g
          style="fill:#d8bb08;fill-opacity:1;stroke:none;stroke-opacity:1"
          id="g8783">

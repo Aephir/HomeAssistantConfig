@@ -167,72 +167,97 @@ views:
       #     - light.living_room_lightstrip
 
       - type: vertical-stack
-        id: fume_hood_controls
         cards:
-          - type: "custom:button-card"
-            color_type: label-card
-            color: rgb(58, 106, 183)
-            name: Fume Hood Controls
-          - type: horizontal-stack
+
+          - type: entities
+            title: Top Floor Lights
+            entities:
+              - entity: light.top_floor_bathroom
+                type: custom:slider-entity-row
+                toggle: true
+              - entity: light.top_floor_tv_area
+                type: custom:slider-entity-row
+                toggle: true
+              - entity: light.top_floor_hallway
+                type: custom:slider-entity-row
+                toggle: true
+              - entity: light.stairway_up
+                type: custom:slider-entity-row
+                toggle: true
+
+          - type: vertical-stack
+            id: fume_hood_controls
             cards:
-                # - type: "custom:button-card"
-                #   color_type: blank-card
-                - type: "custom:button-card"
-                  size: 25px
-                  # color_type: card
-                  color: auto
-                  default_color: rgb(58, 106, 183)
-                  icon: mdi:power
-                  action: service
-                  service:
-                    domain: remote
-                    action: send_command
-                    entity_id: remote.kitchen_remote
-                    data:
-                      command:
-                        - 'fume_hood_power'
-                - type: "custom:button-card"
-                  # color_type: card
-                  size: 25px
-                  color: rgb(58, 106, 183)
-                  icon: mdi:fan-off
-                  action: service
-                  service:
-                    domain: remote
-                    action: send_command
-                    entity_id: remote.kitchen_remote
-                    data:
-                      command:
-                        - 'fume_hood_decrease'
-                - type: "custom:button-card"
-                  # color_type: card
-                  size: 25px
-                  color: rgb(58, 106, 183)
-                  icon: mdi:fan
-                  action: service
-                  service:
-                    domain: remote
-                    action: send_command
-                    entity_id: remote.kitchen_remote
-                    data:
-                      command:
-                        - 'fume_hood_increase'
-                - type: "custom:button-card"
-                  # color_type: card
-                  size: 25px
-                  color: auto
-                  default_color: rgb(58, 106, 183)
-                  icon: mdi:lightbulb-on
-                  action: service
-                  service:
-                    domain: remote
-                    action: send_command
-                    entity_id: remote.kitchen_remote
-                    data:
-                      command:
-                        - 'fume_hood_lights'
-                # - type: "custom:button-card"
-                #   color_type: blank-card
+              - type: "custom:button-card"
+                color_type: label-card
+                color: rgb(58, 106, 183)
+                name: Fume Hood Controls
+              - type: horizontal-stack
+                cards:
+                    # - type: "custom:button-card"
+                    #   color_type: blank-card
+                    - type: "custom:button-card"
+                      size: 25px
+                      # color_type: card
+                      color: auto
+                      default_color: rgb(58, 106, 183)
+                      icon: mdi:power
+                      action: service
+                      service:
+                        domain: remote
+                        action: send_command
+                        entity_id: remote.kitchen_remote
+                        data:
+                          command:
+                            - 'fume_hood_power'
+                    - type: "custom:button-card"
+                      # color_type: card
+                      size: 25px
+                      color: rgb(58, 106, 183)
+                      icon: mdi:fan-off
+                      action: service
+                      service:
+                        domain: remote
+                        action: send_command
+                        entity_id: remote.kitchen_remote
+                        data:
+                          command:
+                            - 'fume_hood_decrease'
+                    - type: "custom:button-card"
+                      # color_type: card
+                      size: 25px
+                      color: rgb(58, 106, 183)
+                      icon: mdi:fan
+                      action: service
+                      service:
+                        domain: remote
+                        action: send_command
+                        entity_id: remote.kitchen_remote
+                        data:
+                          command:
+                            - 'fume_hood_increase'
+                    - type: "custom:button-card"
+                      # color_type: card
+                      size: 25px
+                      color: auto
+                      default_color: rgb(58, 106, 183)
+                      icon: mdi:lightbulb-on
+                      action: service
+                      service:
+                        domain: remote
+                        action: send_command
+                        entity_id: remote.kitchen_remote
+                        data:
+                          command:
+                            - 'fume_hood_lights'
+                    # - type: "custom:button-card"
+                    #   color_type: blank-card
+
+          - type: entities
+            title: TV Control
+            entities:
+              - entity: media_player.ue46es8005
+              - entity: switch.ue46es8005
 
       - type: entities
         title: Basement Lights
@@ -256,21 +281,7 @@ views:
           - entity: light.stairway_down
             type: custom:slider-entity-row
             toggle: true
-      - type: entities
-        title: Top Floor Lights
-        entities:
-          - entity: light.top_floor_bathroom
-            type: custom:slider-entity-row
-            toggle: true
-          - entity: light.top_floor_tv_area
-            type: custom:slider-entity-row
-            toggle: true
-          - entity: light.top_floor_hallway
-            type: custom:slider-entity-row
-            toggle: true
-          - entity: light.stairway_up
-            type: custom:slider-entity-row
-            toggle: true
+
       #   # The markdown card will render markdown text.
       # - type: markdown
       #   title: Lovelace

@@ -16,7 +16,7 @@ class AwayLights(hass.Hass):
             'device_tracker.meta_kristina'
             ]
 
-        self.handle = self.run_at_sunset(self.homeAloneLights, 300)
+        self.handle = self.run_at_sunset(self.homeAloneLights, offset=300)
 
         for device in deviceTrackers:
             self.listen_state(self.homeAloneLights, device)

@@ -43,28 +43,41 @@ class Notify(hass.Hass):
 
 
     def houseEmpty(self, entity, attribute, old, new, kwargs):
-        if self.get_state('sensor.home_occupancy') == 'off':
+        if self.get_state('sensor.home_occupancy') == 'on':
             self.sendNotify(entity, attribute, old, new, kwargs)
 
 
     def sendNotify(self, entity, attribute, old, new, kwargs):
 
-        sensor = self.friendly_name(entity)
-        message = ''
+        # sensor = self.friendly_name(entity)
+        # message = ''
+
+        # keyboard = [[(self.args["button_1"], self.args["command_1"]),
+        #              (self.args["button_3"], self.args["command_3"])],
+        #             [(self.args["button_2"], self.args["command_2"])]]
+
 
         self.log('triggered')
 
         if new == 'on':
             if entity in self.motionSensors:
-                message = str(sensor) + ' sensor was triggered at' + str(datetime.datetime.now().strftime("%H:%M"))
+                message = str(self.friendly_name(entity)) + ' was triggered at' + str(datetime.datetime.now().strftime("%H:%M"))
+                # message = str(sensor) + ' sensor was triggered at' + str(datetime.datetime.now().strftime("%H:%M"))
                 # self.call_service('script.play_dummy_alarm')
             elif entity in self.doorWindowSensors:
-                message = str(sensor) + ' was opened at' + str(datetime.datetime.now().strftime("%H:%M"))
+                message = str(self.friendly_name(entity)) + ' was opened at' + str(datetime.datetime.now().strftime("%H:%M"))
+                # message = str(sensor) + ' was opened at' + str(datetime.datetime.now().strftime("%H:%M"))
                 # self.call_service('script.play_dummy_alarm')
 
         if new == 'off':
             if entity in self.doorWindowSensors:
-                message = str(sensor) + ' was closed at' + str(datetime.datetime.now().strftime("%H:%M"))
+                message = str(self.friendly_name(entity)) + ' was closed at' + str(datetime.datetime.now().strftime("%H:%M"))
+                # message = str(sensor) + ' was closed at' + str(datetime.datetime.now().strftime("%H:%M"))
 
-        self.call_service("notify/home_aephir_bot", message=message)
-        self.log('sent')
+        self.call_service(self.args['notify'],
+                            title=self.args["title"],
+                            target=self.args["user_id"],
+                            message=message
+                            # inline_keyboard=keyboard_1)
+        # self.call_service(self.args['notify_who'], message=message)
+        # self.log('sent')

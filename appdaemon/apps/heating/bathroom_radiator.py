@@ -6,8 +6,6 @@ class RadiatorThermostat(hass.Hass):
 
     def initialize(self):
 
-        self.set_state('sensor.bathroom_heat_when_window_closes', state = self.get_state('climate.fibaro_system_fgt001_heat_controller_heating'))
-
         self.windowSensors = [
             'binary_sensor.door_window_sensor_158d0002286a78' # Bathroom window
             ]
@@ -30,3 +28,4 @@ class RadiatorThermostat(hass.Hass):
 
             if self.get_state('sensor.bathroom_heat_when_window_closes') == True:
                 self.call_service('climate/set_operation_mode', entity_id = "climate.fibaro_system_fgt001_heat_controller_heating", operation_mode = radiatorState)
+                self.log(radiatorState)

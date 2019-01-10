@@ -58,16 +58,15 @@ kristinahome360boolean:
 #  initial: on
   icon: mdi:panda
 
-#######################
-# Home Modes #
-
+####################
+#    Home Modes    #
+####################
 
 cooking_mode:
   name: Cooking Mode
   icon: mdi:pot-mix
   initial: off
 
-# Guest mode: Wont turn off everything when we leave
 guest_mode:
   name: Guest Mode
   icon: mdi:account-alert

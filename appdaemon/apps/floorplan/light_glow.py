@@ -52,7 +52,7 @@ class Cosmetic(hass.Hass):
             self.listen_state(self.toggleDummy,entity)
 
         for entity in self.lights:
-            state = self.get_state(light)
+            state = self.get_state(entity)
             dummyID = 'input_boolean.light_' + entity[6:]
             if state == 'on':
                 self.turn_on(dummyID)
@@ -67,10 +67,8 @@ class Cosmetic(hass.Hass):
         """
 
         dummyID = 'input_boolean.light_' + entity[6:]
-        self.log(dummyID)
 
         if new == 'on':
             self.turn_on(dummyID)
-
         elif new == 'off':
             self.turn_off(dummyID)

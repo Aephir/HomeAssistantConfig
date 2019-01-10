@@ -84,20 +84,20 @@ class RoomStatus(hass.Hass):
 
     def setSensorState(self, entity, attribute, old, new, kwargs):
 
-        self.log("bathroom running")
         newStatus = ''
         WindowOpen = self.isOpen('binary_sensor.door_window_sensor_158d0002286a78')
         thermostatStatus = self.get_state('climate.fibaro_system_fgt001_heat_controller_heating')
         radiatorTemp = self.get_state('climate.fibaro_system_fgt001_heat_controller_heating.temperature')
-        radiatorOn = ''
+        radiatorState = ''
         temperature = self.get_state('sensor.temperature_158d00022c66ff')
         humidity = self.get_state('sensor.humidity_158d00022c66ff')
         pressure = self.get_state('sensor.pressure_158d00022c66ff')
         thermostatTemperature = self.get_state('sensor.fibaro_system_fgt001_heat_controller_temperature')
 
-        if entity == 'binary_sensor.door_window_sensor_158d0002286a78' and new == "on":
+        if entity == 'binary_sensor.door_window_sensor_158d0002286a78' and new == 'on' and old == 'off':
             self.lastOpenedTime = datetime.datetime.now().strftime("%H:%M")
-        elif entity == 'binary_sensor.door_window_sensor_158d0002286a78' and new == "off":
+            radiatorState = self.get_state('climate.fibaro_system_fgt001_heat_controller_heating')
+        elif entity == 'binary_sensor.door_window_sensor_158d0002286a78' and new == 'off' and old == 'on':
             self.lastClosedTime = datetime.datetime.now().strftime("%H:%M")
 
         if self.get_state('binary_sensor.door_window_sensor_158d0002286a78') == 'on':
@@ -110,7 +110,7 @@ class RoomStatus(hass.Hass):
             'window_open': WindowOpen,
             'thermostat_status': thermostatStatus,
             'radiator_temperature': radiatorTemp,
-            'turn_radiator_on_when_window_closes': radiatorOn,
+            'radiator_state_when_window_closes': radiatorState,
             'temperature': temperature,
             'humidity': humidity,
             'pressure': pressure,

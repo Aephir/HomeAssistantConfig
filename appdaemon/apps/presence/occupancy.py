@@ -35,6 +35,9 @@ class HomeOccupancy(hass.Hass):
         if self.get_state('device_tracker.meta_kristina') == 'home':
             who_is_home.append('Kristina')
 
+        if self.get_state('device_tracker.meta_emile') == 'home':
+            who_is_home.append('Emilie')
+
         if self.get_state('device_tracker.meta_walden') == 'home' or self.get_state('device_tracker.meta_kristina') == 'home':
             occupied = True
         else:

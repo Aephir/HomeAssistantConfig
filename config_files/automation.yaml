@@ -5,7 +5,31 @@
 #########################
 
 
+##############
+#    Test    #
+##############
+
+- alias: "Test telegram actionable"
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id: light.baby_room
+      to: 'on'
+  action:
+  - service: notify.home_aephir_bot
+    data_template:
+      message: 'whatever'
+      data:
+        inline_keyboard:
+          - 'off:/espresso_off, on:/espresso_on'
+          - 'No reminder:/removekeyboard'
+
+#################
+#    Skybell    #
+#################
+
 - alias: "SkyBell Motion Detected"
+  initial_state: True
   trigger:
     - platform: state
       entity_id: binary_sensor.skybell_front_door_motion
@@ -23,6 +47,7 @@
 #__Alarm_Prompt__#
 
 - alias: "Arm the Alarm, Aephir leaves last"
+  initial_state: True
   trigger:
     - platform: state
       entity_id: input_boolean.aephirhome360
@@ -46,6 +71,7 @@
           - 'Set alarm and turn off everything:/set_alarm_all_off, No action:/removekeyboard'
 
 - alias: "Arm the Alarm, Kristina leaves last"
+  initial_state: True
   trigger:
     - platform: state
       entity_id: input_boolean.kristinahome360
@@ -73,6 +99,7 @@
         #   my_custom_data: foo_bar
 
 - alias: "Arm the Alarm, Emilie leaves last"
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.emilie
@@ -92,6 +119,7 @@
 #__iOS Actions__#
 
 - alias: iOS Alarm armed away
+  initial_state: True
   trigger:
     - platform: event
       event_type: ios.notification_action_fired
@@ -102,6 +130,7 @@
     entity_id: script.alarm_armed_away
 
 - alias: iOS All off
+  initial_state: True
   trigger:
     - platform: event
       event_type: ios.notification_action_fired
@@ -112,6 +141,7 @@
     entity_id: script.everyone_left_turn_off_everything
 
 - alias: iOS Alarm armed away and all off
+  initial_state: True
   trigger:
     - platform: event
       event_type: ios.notification_action_fired
@@ -124,6 +154,7 @@
     entity_id: script.alarm_armed_away
 
 - alias: iOS guest mode
+  initial_state: True
   trigger:
     - platform: event
       event_type: ios.notification_action_fired
@@ -137,6 +168,7 @@
 #__Notfiy__#
 
 - alias: "Kristina Leave Work" # Message through telegram if Kristina leaves work
+  initial_state: True
   trigger:
     - platform: state
       from: 'Work Kristina'
@@ -148,6 +180,7 @@
       message: "Kristina left work"
 
 - alias: "Kristina Leave Home" # Message through telegram if Kristina leaves home - doesn't work...
+  initial_state: True
   trigger:
     - platform: state
       from: 'home'
@@ -159,6 +192,7 @@
       message: "Kristina left home"
 
 - alias: "Kristina Arrives Home" # Message through Join if Kristina leaves work - doesn't work...
+  initial_state: True
   trigger:
     - platform: state
       from: 'not_home'
@@ -170,6 +204,7 @@
       message: "Kristina is home"
 
 - alias: Notify iOS app test
+  initial_state: True
   trigger:
     - platform: state
       from: 'home'
@@ -194,6 +229,7 @@
 #__Input_Boolean__#
 
 - alias: "aephir_home_360" # Turns on the "aephirhome360" input_boolean if Aephir arrives home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.meta_walden
@@ -205,6 +241,7 @@
 
 
 - alias: "aephir_not_home_360" # Turns off the "aephirhome360" input_boolean if Aephir leaves home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.meta_walden
@@ -216,6 +253,7 @@
 
 
 - alias: "kristina_home_360" # Turns on the "kristinahome360" input_boolean if Kristina arrives home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.meta_kristina
@@ -226,6 +264,7 @@
     entity_id: input_boolean.kristinahome360
 
 - alias: "kristina_not_home_360" # Turns off the "kristinahome360" input_boolean if Kristina leaves home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.meta_kristina
@@ -236,6 +275,7 @@
     entity_id: input_boolean.kristinahome360
 
 - alias: "emilie_home_360" # Turns on the "emiliehome360" input_boolean if Emilie arrives home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.meta_emilie
@@ -246,6 +286,7 @@
     entity_id: input_boolean.emiliehome360
 
 - alias: "emilie_not_home_360" # Turns off the "emiliehome360" input_boolean if Emilie leaves home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.meta_emilie
@@ -256,6 +297,7 @@
     entity_id: input_boolean.emiliehome360
 
 - alias: "naia_home_360" # Turns on the "emiliehome360" input_boolean if Emilie arrives home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.niels_brodys_ipad_2
@@ -266,6 +308,7 @@
     entity_id: input_boolean.naiahome360
 
 - alias: "naia_not_home_360" # Turns off the "emiliehome360" input_boolean if Emilie leaves home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: device_tracker.niels_brodys_ipad_2
@@ -276,6 +319,7 @@
     entity_id: input_boolean.naiahome360
 
 - alias: Someone Arrives Home Boolean # Turns on the "someonehome360" input_boolean if someone arrives home, or guest mode is activated
+  initial_state: True
   trigger:
     - platform: state
       entity_id:
@@ -306,6 +350,7 @@
     entity_id: input_boolean.someonehome360
 
 - alias: Aephir leaves last # Turns of the "someonehome360" input_boolean if Aephir is last to leave
+  initial_state: True
   trigger:
     - platform: state
       entity_id:
@@ -329,6 +374,7 @@
     entity_id: input_boolean.someonehome360
 
 - alias: Kristina leaves last # Turns of the "someonehome360" input_boolean if Kristina is last to leave
+  initial_state: True
   trigger:
     - platform: state
       entity_id:
@@ -353,6 +399,7 @@
 
 
 - alias: Karen iphone guest mode
+  initial_state: True
   trigger:
     - platform: state
       entity_id:
@@ -382,6 +429,7 @@
   #   entity_id: input_boolean.guest_mode
 
 - alias: Guest leaves last # Turns of the "someonehome360" input_boolean if guest mode is deactiveatd and no one is home
+  initial_state: True
   trigger:
     - platform: state
       entity_id:
@@ -405,6 +453,7 @@
 #   trigger:
 
 - alias: kids_home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: input_boolean.emiliehome360, input_boolean.naiahome360
@@ -414,6 +463,7 @@
     entity_id: input_boolean.kids_home
 
 - alias: kids_not_home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: input_boolean.emiliehome360, input_boolean.naiahome360
@@ -435,6 +485,7 @@
 #__Location Based Lights and Switches__#
 
 - alias: "Someone arrives home" # Turns on welcome lights when first person arrives home within 1h before sunset
+  initial_state: True
   trigger:
     - platform: state
       entity_id: input_boolean.someonehome360
@@ -449,6 +500,7 @@
     entity_id: scene.welcome_home
 
 - alias: "Everyone left" # Switches of everyting when last person leaves home
+  initial_state: True
   trigger:
     - platform: state
       entity_id: input_boolean.someonehome360
@@ -463,6 +515,7 @@
     entity_id: script.everyone_left_turn_off_everything
 
 - alias: "Sunrise, Night Light Off" # Turns of the night light at sunrise, if left on for the kids
+  initial_state: True
   trigger:
     - platform: sun
       event: sunrise
@@ -493,6 +546,7 @@
 # Kind of annoying, I get notifications about "overdue", then "updated" all the time.
 
 # - alias: Life360 Overdue Update
+#   initial_state: True
 #   trigger:
 #     platform: event
 #     event_type: device_tracker.life360_update_overdue
@@ -506,6 +560,7 @@
 #         }} is overdue.
 #
 # - alias: Life360 Update Restored
+#   initial_state: True
 #   trigger:
 #     platform: event
 #     event_type: device_tracker.life360_update_restored
@@ -526,6 +581,7 @@
 #__iKettle__#
 
 # - alias: Set iKettle Tempereature
+#   initial_state: True
 #   trigger:
 #     - platform: state
 #       entity_id: input_select.ikettle_select
@@ -539,20 +595,26 @@
 #    Telegram    #
 ##################
 
-# - id: 'telegram_espresso_on'
-#   alias: turn on espresso machine
-#   initial_state: True
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/espresso_on'
-#         # data: '/espresso_on'
-#         # user_id: !secret telegram_chatID_Aephir
-#   action:
-#     - service: switch.turn_on
-#       entity_id: switch.switch
-#
+- id: 'telegramremoveinline' # https://community.home-assistant.io/t/telegram-bot-notifications-and-communication/50247
+  alias: 'Telegram callback to remove keyboard'
+  hide_entity: true
+  initial_state: True
+  trigger:
+    platform: event
+    event_type: telegram_callback
+    event_data:
+      data: '/removekeyboard'
+  action:
+  - service: telegram_bot.answer_callback_query
+    data_template:
+      callback_query_id: '{{ trigger.event.data.id }}'
+      message: 'OK'
+  - service: telegram_bot.edit_replymarkup
+    data_template:
+      message_id: '{{ trigger.event.data.message.message_id }}'
+      chat_id: '{{ trigger.event.data.user_id }}'
+      inline_keyboard: []
+
 - id: 'telegram_espresso_on'
   alias: turn on espresso machine
   initial_state: True
@@ -580,8 +642,33 @@
     - service: switch.turn_off
       entity_id: switch.switch
 
+- id: 'telegram_fountain_on'
+  alias: turn on fountain
+  initial_state: True
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/fountain_on'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.fountain
+
+- id: 'telegram_fountain_off'
+  alias: turn off fountain
+  initial_state: True
+  trigger:
+    - platform: event
+      event_type: telegram_command
+      event_data:
+        command: '/fountain_off'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.fountain
+
 - id: 'telegram_all_lights_off'
   alias: turn off all lights
+  initial_state: True
   trigger:
     - platform: event
       event_type: telegram_command
@@ -593,6 +680,7 @@
       entity_id: script.scene_all_lights_off
 
 - id: 'telegram_everything_off'
+  initial_state: True
   alias: turn off everything
   trigger:
     - platform: event
@@ -605,6 +693,7 @@
       entity_id: script.everyone_left_turn_off_everything
 
 - id: 'telegram_alarm_away'
+  initial_state: True
   alias: Arm alarm in away mode
   trigger:
     - platform: event
@@ -619,6 +708,7 @@
       #   code: !secret alarm_code
 
 - id: 'telegram_alarm_away_and_all_off'
+  initial_state: True
   alias: Arm alarm in away mode & all off
   trigger:
     - platform: event
@@ -633,6 +723,7 @@
       entity_id: script.everyone_left_turn_off_everything
 
 - id: 'telegram_speak_to_home'
+  initial_state: True
   alias: Speak to the home
   trigger:
     - platform: event
@@ -647,6 +738,7 @@
       message: "{{ ' '.join(trigger.event.data.args) }}"
 
 - id: 'telegram_guest_mode_off'
+  initial_state: True
   alias: Turn off guest mode
   trigger:
     - platform: event
@@ -663,6 +755,7 @@
 ################
 
 - alias: 'Set HA theme for day and night'
+  initial_state: True
   trigger:
     - platform: homeassistant
       event: start
@@ -687,6 +780,7 @@
 ##########################################
 
 - alias: kwgt kitchen lights on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_kitchen_lights_on
@@ -695,6 +789,7 @@
       entity_id: light.kitchen_lights
 
 - alias: kwgt kitchen lights off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_kitchen_lights_off
@@ -703,6 +798,7 @@
       entity_id: light.kitchen_lights
 
 - alias: kwgt dining room lights on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_dining_room_lights_on
@@ -711,6 +807,7 @@
       entity_id: light.dining_room_lights
 
 - alias: kwgt dining room off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_dining_room_lights_off
@@ -719,6 +816,7 @@
       entity_id: light.dining_room_lights
 
 - alias: kwgt conservatory lights on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_conservatory_lights_on
@@ -727,6 +825,7 @@
       entity_id: light.conservatory_lights
 
 - alias: kwgt conservatory off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_conservatory_lights_off
@@ -735,6 +834,7 @@
       entity_id: light.conservatory_lights
 
 - alias: kwgt bedroom lights on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_bedroom_lights_on
@@ -743,6 +843,7 @@
       entity_id: light.bedroom
 
 - alias: kwgt bedroom off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_bedroom_lights_off
@@ -751,6 +852,7 @@
       entity_id: light.bedroom
 
 - alias: kwgt baby room lights on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_baby_room_lights_on
@@ -759,6 +861,7 @@
       entity_id: light.baby_room
 
 - alias: kwgt baby room off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_baby_room_lights_off
@@ -767,6 +870,7 @@
       entity_id: light.baby_room
 
 - alias: kwgt entrance lights on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_entrance_lights_on
@@ -775,6 +879,7 @@
       entity_id: light.entrance_lights
 
 - alias: kwgt entrance lights off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_entrance_lights_off
@@ -783,6 +888,7 @@
       entity_id: light.entrance_lights
 
 - alias: kwgt wine wine cellar lights on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_wine_cellar_lights_on
@@ -791,6 +897,7 @@
       entity_id: light.wine_cellar_lights
 
 - alias: kwgt wine wine cellar lights off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_wine_cellar_lights_off
@@ -799,6 +906,7 @@
       entity_id: light.wine_cellar_lights
 
 # - alias: kwgt last turned on increase brightness tasker
+#   initial_state: True
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_brightness_up
@@ -817,6 +925,7 @@
 #         brightness: '{{states.($entity_id).attributes.brightness + 10}}'
 #
 # - alias: last turned on decrease brightness tasker
+#   initial_state: True
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_brightness_down
@@ -835,6 +944,7 @@
 #         brightness: '{{states.($entity_id).attributes.brightness - 10}}'
 
 # - alias: last changed light tasker
+#   initial_state: True
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_brightness_down
@@ -852,6 +962,7 @@
 #         {%- endif -%}
 
 - alias: kwgt espresso on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_espresso_on
@@ -860,6 +971,7 @@
       entity_id: switch.switch
 
 - alias: kwgt espresso off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_espresso_off
@@ -868,6 +980,7 @@
       entity_id: switch.switch
 
 - alias: kwgt fountain on
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_fountain_on
@@ -876,6 +989,7 @@
       entity_id: switch.fountain
 
 - alias: kwgt fountain off
+  initial_state: True
   trigger:
     platform: webhook
     webhook_id: kwgt_fountain_off
@@ -884,6 +998,7 @@
       entity_id: switch.fountain
 #
 # - alias: kwgt fume hood power
+#   initial_state: True
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_fume_hood_power
@@ -897,6 +1012,7 @@
 #           - 'fume_hood_power'
 #
 # - alias: kwgt fume hood lights
+#   initial_state: True
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_fume_hood_lights
@@ -910,6 +1026,7 @@
 #           - 'fume_hood_lights'
 #
 # - alias: kwgt fume hood increase power
+#   initial_state: True
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_fume_hood_increase
@@ -923,6 +1040,7 @@
 #           - 'fume_hood_increase'
 #
 # - alias: kwgt fume hood decrease power
+#   initial_state: True
 #   trigger:
 #     platform: webhook
 #     webhook_id: kwgt_fume_hood_decrease
@@ -941,6 +1059,7 @@
 #######################
 
 - alias: 'Start HomeKit'
+  initial_state: True
   trigger:
     - platform: homeassistant
       event: start
@@ -954,6 +1073,7 @@
 #############################
 
 # - alias: sensor_values_to_file
+#   initial_state: True
 #   initial_state: True
 #   trigger:
 #     - platform: time
@@ -1008,6 +1128,7 @@
 # https://github.com/gazoscalvertos/Hass-Custom-Alarm
 
 - id: alarm_armed_away
+  initial_state: True
   alias: '[Alarm] Away Mode Armed'
   trigger:
     - platform: state
@@ -1023,6 +1144,7 @@
       service: notify.example_phone_tts
 
 - id: alarm_armed_home
+  initial_state: True
   alias: '[Alarm] Home Mode Armed'
   trigger:
     - platform: state
@@ -1038,6 +1160,7 @@
       service: notify.example_phone_tts
 
 - id: alarm_arming_away
+  initial_state: True
   alias: '[Alarm] Away Mode Arming'
   trigger:
     - platform: state
@@ -1049,6 +1172,7 @@
       service: notify.example_phone_tts
 
 - id: alarm_disarmed
+  initial_state: True
   alias: '[Alarm] Disarmed'
   trigger:
     - platform: state
@@ -1066,6 +1190,7 @@
       service: notify.example_phone_tts
 
 - id: alarm_triggered
+  initial_state: True
   alias: '[Alarm] Triggered'
   trigger:
     - platform: state
@@ -1084,6 +1209,7 @@
         # target: email/example@gmail.com
 
 - id: alarm_warning
+  initial_state: True
   alias: '[Alarm] Warning'
   trigger:
     - platform: state
@@ -1110,6 +1236,7 @@
 
 
 # - alias: '[Alarm] Panic Mode'
+#   initial_state: True
 #   trigger:
 #     platform: state
 #     entity_id: alarm_control_panel.house
@@ -1129,6 +1256,7 @@
 #__alarm_actions_from_notify__#
 
 - alias: Sound the alarm
+  initial_state: True
   trigger:
     - platform: event
       event_type: ios.notification_action_fired
@@ -1143,6 +1271,7 @@
 ###############
 
 - alias: two hours to next alarm
+  initial_state: True
   trigger:
     - platform: webhook
       webhook_id: 2h_to_alarm
@@ -1155,6 +1284,7 @@
       entity_id: switch.switch
 #
 # - alias: two hours to next alarm
+#   initial_state: True
 #   trigger:
 #     - platform: webhook
 #       webhook_id: alarm_time
@@ -1168,6 +1298,7 @@
 ############################
 
 - id: fibaro_update
+  initial_state: True
   alias: update_fibaro_heat_controller_bathroom
   trigger:
     - platform: time
@@ -1205,6 +1336,7 @@
 # See post #5 here https://community.home-assistant.io/t/tasker-long-lived-access-tokens/69253/4
 
 - alias: 'Doorbell chime test'
+  initial_state: True
   trigger:
     platform: state
     entity_id: binary_sensor.skybell_front_door_button
@@ -1215,6 +1347,7 @@
       message: "on"
 #
 # - alias: 'Doorbell chime'
+#   initial_state: True
 #   trigger:
 #     platform: state
 #     entity_id: binary_sensor.skybell_front_door_button
@@ -1226,6 +1359,7 @@
 # Throgh RESTtask
 
 # - alias: 'Doorbell chime'
+#   initial_state: True
 #   trigger:
 #     platform: webhook
 #     webhook_id: restask_doorbell

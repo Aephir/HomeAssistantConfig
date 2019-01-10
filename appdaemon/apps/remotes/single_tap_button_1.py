@@ -13,6 +13,7 @@ class Remote(hass.Hass):
             self.turn_on(self.args["entityID1"])
         else:
             self.turn_off(self.args["entityID2"])
+            self.turn_off("media_player.ue46es8005")
 
     # def button_click(self, entity, attribute, old, new, kwargs):
     #     if self.get_state("light.baby_room") == "off":

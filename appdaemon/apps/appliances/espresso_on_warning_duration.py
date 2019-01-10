@@ -50,9 +50,19 @@ class ApplianceStatus(hass.Hass):
         seconds = int(datetime.timedelta.total_seconds(delta))
         minutes = round(seconds/60)
 
+        # keyboard = [[("Turn Off", "/espresso_off"),
+        #              ("I know", "/removekeyboard")]]
+        #
+        # message = str(self.friendly_name('switch.switch')) + " has been on for " + str(minutes) + " minutes"
+
         # self.log("Espresso on for " + str(minutes) + " minutes and " + str(seconds) + " seconds.") # for troubleshooting
 
         if seconds < self.args["end_after"]:
+
+            # self.call_service(self.args['notify'],
+            #                     target=self.args["user_id"],
+            #                     message=message,
+            #                     inline_keyboard=keyboard)
 
             self.call_service("notify/home_aephir_bot", message="Espresso machine has been on for " + str(minutes) + " minutes", data={"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"})
             # self.call_service('telegram_bot/send_message', message="Espresso machine has been on for " + str(minutes) + " minutes", inline_keyboard = [[("Turn Off","/espresso_off"), ("I Know","/removekeyboard")]])

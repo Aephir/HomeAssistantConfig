@@ -179,6 +179,20 @@ svg, svg * {
 }
 
 
+/* Power plug */
+
+
+.power-plug-off {
+  fill: #1E1610 !important;
+  stroke-width: 0px !important;
+}
+
+.power-plug-on {
+  fill: #FFFF3C !important;
+  stroke-width: 20px !important;
+}
+
+
 /* Door Sensors */
 
 .entity.door_off:hover, .entity.door_on:hover{
