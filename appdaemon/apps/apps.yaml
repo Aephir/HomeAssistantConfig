@@ -47,15 +47,33 @@
 #   # notify_who: "notify/home_aephir_bot"
 
 espresso_left_on:
-  module: espresso_on_warning_duration
-  class: ApplianceStatus
-  start_after: 2700
-  end_after: 5400
-  time_between_notifications: 900
+  module: something_left_on_warning
+  class: NotifyStatus
   entity: switch.switch
-  switch_off: True
-  user_id: !secret telegram_chatID_Aephir
+  start_after: 2700
+  time_between_notifications: 900
+  end_after: 5400
+  button_1: Turn off
+  button_2: OK
+  button_3: Turn back on
+  command_1: /espresso_off
+  command_2: /removekeyboard
+  command_3: /espresso_on
   notify: telegram_bot/send_message
+  switch_off: True
+  on_open: 'on'
+  title: Espresso machine was left on
+  user_id: !secret telegram_chatID_Aephir
+
+  # module: espresso_on_warning_duration
+  # class: ApplianceStatus
+  # start_after: 2700
+  # end_after: 5400
+  # time_between_notifications: 900
+  # entity: switch.switch
+  # switch_off: True
+  # user_id: !secret telegram_chatID_Aephir
+  # notify: telegram_bot/send_message
 
 test_notifier_something_left_on:
   module: something_left_on_warning
@@ -403,9 +421,9 @@ occupancy:
   module: occupancy
   class: HomeOccupancy
 
-looks_like_were_home:
-  module: looks_like_were_home
-  class: AwayLights
+# looks_like_were_home:
+#   module: looks_like_were_home
+#   class: AwayLights
 
 ################
 #    Plants    #
@@ -454,6 +472,10 @@ looks_like_were_home:
 bathroom_radiator:
   module: bathroom_radiator
   class: RadiatorThermostat
+#
+# update_radiator_states:
+#   module: update_climate
+#   class: RadiatorThermostat
 
 #################
 #    Remotes    #
@@ -530,6 +552,12 @@ doors_or_windows_open:
 ################
 #    Tasker    #
 ################
+
+# espresso_state_tasker:
+#   module: report_entity_state_tasker
+#   class: NotifyTasker
+#   entityID: switch.switch
+#   friendly_name: espresso_machine
 
 espresso_state_tasker:
   module: espresso_state_tasker

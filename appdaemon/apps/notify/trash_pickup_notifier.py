@@ -8,8 +8,9 @@ import appdaemon.plugins.hass.hassapi as hass
 class notify(hass.Hass):
 
     def initialize(self):
+
         # Send this from another app using self.set_state("sensor.notify_message", state="blabla"). "state" = message.
-        self.set_state("sensor.notify_message",state="")
+        self.set_state("sensor.notify_message",state=" ")
         # Send this from another app using self.set_state("sensor.notify_message", state="['notify/home_aephir_bot','notify/ios_kristinas_iphone']"). "state" = notifiers.
         # or state=['notify/home_aephir_bot','notify/ios_kristinas_iphone'] ??
         # e.g.

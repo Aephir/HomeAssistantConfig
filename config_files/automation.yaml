@@ -9,20 +9,6 @@
 #    Test    #
 ##############
 
-- alias: "Test telegram actionable"
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: light.baby_room
-      to: 'on'
-  action:
-  - service: notify.home_aephir_bot
-    data_template:
-      message: 'whatever'
-      data:
-        inline_keyboard:
-          - 'off:/espresso_off, on:/espresso_on'
-          - 'No reminder:/removekeyboard'
 
 #################
 #    Skybell    #
@@ -1297,6 +1283,8 @@
 #    Thermostat updates    #
 ############################
 
+# Doesn't work. It updates when it updates.
+
 - id: fibaro_update
   initial_state: True
   alias: update_fibaro_heat_controller_bathroom
@@ -1309,11 +1297,15 @@
     - platform: event
       event_type: call_service
       event_data:
+        service_data:
+          entity_id: climate.fibaro_system_fgt001_heat_controller_heating
         domain: climate
         service: set_temperature
     - platform: event
       event_type: call_service
       event_data:
+        service_data:
+          entity_id: climate.fibaro_system_fgt001_heat_controller_heating
         domain: climate
         service: set_operation_mode
   # condition:
@@ -1323,6 +1315,8 @@
     - service: zwave.refresh_entity
       data:
         entity_id: zwave.fibaro_system_fgt001_heat_controller
+
+
 
 
 ##################

@@ -1,4 +1,6 @@
+"""
 
+"""
 
 import appdaemon.plugins.hass.hassapi as hass
 import datetime
@@ -7,22 +9,22 @@ class AwayLights(hass.Hass):
 
     def initialize(self):
 
-        vacationMode = [
+        self.vacationMode = [
             'input_boolean.vacation_mode'
             ]
 
-        deviceTrackers = [
+        self.deviceTrackers = [
             'device_tracker.meta_walden',
             'device_tracker.meta_kristina'
             ]
 
         self.handle = self.run_at_sunset(self.homeAloneLights, offset=300)
 
-        for device in deviceTrackers:
-            self.listen_state(self.homeAloneLights, device)
+        # for device in self.deviceTrackers:
+        #     self.listen_state(self.homeAloneLights, device)
 
-        for entity in vacationMode:
-            self.listen_state(self.homeAloneLights, entity)
+        for entity in self.vacationMode:
+            self.listen_state(self.homeAloneLights, entity, new = 'on')
 
 
     def someoneHome(self):
@@ -36,6 +38,11 @@ class AwayLights(hass.Hass):
             return False
 
     def homeAloneLights(self, entity, attribute, old, new, kwargs):
+        """
+        Get time as time of day
+        Use run_in with random_start or random_end
+        """
+
 
         testTime = '2018-12-24 15:29:41.893370'
         cookingTime = '2018-12-24 16:08:41.893370'

@@ -21,6 +21,10 @@ class RadiatorThermostat(hass.Hass):
             self.set_state('sensor.bathroom_heat_when_window_closes', state = radiatorState)
             if self.get_state('climate.fibaro_system_fgt001_heat_controller_heating') != 'off':
                 self.call_service('climate/set_operation_mode', entity_id = "climate.fibaro_system_fgt001_heat_controller_heating", operation_mode = "off")
+                # self.call_service('zwave/refresh_entity', entity_id = "zwave.fibaro_system_fgt001_heat_controller")
+                self.call_service('zwave/refresh_entity', entity_id = "climate.fibaro_system_fgt001_heat_controller_heating")
+                self.call_service('zwave/refresh_entity', entity_id = "sensor.fibaro_system_fgt001_heat_controller_temperature")
+                self.call_service('zwave/refresh_entity', entity_id = "sensor.fibaro_system_fgt001_heat_controller_system")
 
         elif new == 'off' and old == 'on':
 
@@ -28,4 +32,8 @@ class RadiatorThermostat(hass.Hass):
 
             if self.get_state('sensor.bathroom_heat_when_window_closes') == True:
                 self.call_service('climate/set_operation_mode', entity_id = "climate.fibaro_system_fgt001_heat_controller_heating", operation_mode = radiatorState)
+                # self.call_service('zwave/refresh_entity', entity_id = "zwave.fibaro_system_fgt001_heat_controller")
+                self.call_service('zwave/refresh_entity', entity_id = "climate.fibaro_system_fgt001_heat_controller_heating")
+                self.call_service('zwave/refresh_entity', entity_id = "sensor.fibaro_system_fgt001_heat_controller_temperature")
+                self.call_service('zwave/refresh_entity', entity_id = "sensor.fibaro_system_fgt001_heat_controller_system")
                 self.log(radiatorState)
