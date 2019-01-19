@@ -485,20 +485,20 @@
     service: script.turn_on
     entity_id: scene.welcome_home
 
-- alias: "Everyone left" # Switches of everyting when last person leaves home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: input_boolean.someonehome360
-      from: 'on'
-      to: 'off'
-#  condition:
-#    condition: state
-#    entity_id: input_boolean.guest_mode
-#    state: 'off'
-  action:
-    service: script.turn_on
-    entity_id: script.everyone_left_turn_off_everything
+# - alias: "Everyone left" # Switches of everyting when last person leaves home
+#   initial_state: True
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.someonehome360
+#       from: 'on'
+#       to: 'off'
+# #  condition:
+# #    condition: state
+# #    entity_id: input_boolean.guest_mode
+# #    state: 'off'
+#   action:
+#     service: script.turn_on
+#     entity_id: script.everyone_left_turn_off_everything
 
 - alias: "Sunrise, Night Light Off" # Turns of the night light at sunrise, if left on for the kids
   initial_state: True
