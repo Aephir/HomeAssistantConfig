@@ -2853,7 +2853,7 @@
        cy="-104.24712"
        inkscape:label="#circle7769" />
     <g
-       id="input_boolean.light_dining_table"
+       id="input_boolean.light_dining_table_lights"
        inkscape:label="#g2003"
        transform="translate(0,23.94735)">
       <circle
@@ -7793,7 +7793,7 @@
     <circle
        r="31.484945"
        style="display:inline;opacity:1;fill:url(#radialGradient1977);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
-       id="input_boolean.light_walkin_closet"
+       id="input_boolean.light_walk_in_closet"
        cx="425.43524"
        cy="-92.942184"
        inkscape:label="#circle8889" />

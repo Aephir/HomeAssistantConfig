@@ -559,6 +559,19 @@
 #           state_attr(trigger.event.data.entity_id, 'friendly_name')
 #         }} restored after {{ trigger.event.data.wait }}.
 
+###############
+#    IFTTT    #
+###############
+
+- alias: Turn Off Oven
+  trigger:
+    platform: state
+    entity_id: input_boolean.test
+    to: 'on'
+  action:
+    service: ifttt.trigger
+    data: {"event":"turn_off_oven"}
+
 ######################
 #    Input Select    #
 ######################
@@ -576,6 +589,25 @@
 #     data:
 #       entity_id: script.ikettle_test
 #       temp: YOURTEMP
+
+
+######################
+#    Media Player    #
+######################
+
+# - alias: 'A_ ADB start'
+#   trigger:
+#     platform: state
+#     entity_id: device_tracker.tcl55Ddc760
+#     to: 'home'
+#   condition:
+#     - condition: state
+#       entity_id: media_player.tcl55Ddc760
+#       state: 'Unavailable'
+#   action:
+#     - service: shell_command.adb
+#       data_template:
+#         ip_adb: '192.168.0.44'
 
 ##################
 #    Telegram    #

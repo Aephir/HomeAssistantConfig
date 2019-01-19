@@ -69,20 +69,20 @@ class Notify(hass.Hass):
         self.time_5 = None
 
         # Run when state changes.
-        for entity in self.sensor_ids:
-            self.listen_state(self.MessageDoorWindow, entity)
+        for entity_id in self.sensor_ids:
+            self.listen_state(self.MessageDoorWindow, entity_id)
 
-        # for entity in self.sensor_ids:
-        #     self.listen_state(self.timerState, entity)
+        # for entity_id in self.sensor_ids:
+        #     self.listen_state(self.timerState, entity_id)
 
-        for entity in self.weather_ids:
-            self.listen_state(self.MessageWeather, entity)
+        for entity_id in self.weather_ids:
+            self.listen_state(self.MessageWeather, entity_id)
 
 
     def cancelTimers(self, timerlist):
-        for entity in timerlist:
-            if entity != None:
-                self.cancel_timer(entity)
+        for entity_id in timerlist:
+            if entity_id != None:
+                self.cancel_timer(entity_id)
 
 
 
@@ -122,7 +122,7 @@ class Notify(hass.Hass):
         """
 
         """
-        if any self.listOfOpen:
+        if any(self.listOfOpen):
             if entity == "sensor.dark_sky_temperature":
                 if float(self.get_state("sensor.dark_sky_temperature")) < 18.0:
                     self.SendNoticationWeather(type="temperature")
@@ -131,7 +131,7 @@ class Notify(hass.Hass):
                     self.SendNoticationWeather(type="precipitation")
             elif entity == "sensor.dark_sky_wind_speed":
                 if float(self.get_state("sensor.dark_sky_wind_speed")) > 14.0:
-                    self.SendNoticationWeather(type="wind")
+                    self.SendNoticationWeather(entity, type="wind")
 
     def isOpen(self, entity_id):
         return self.get_state(entity_id) == 'on'
@@ -139,9 +139,9 @@ class Notify(hass.Hass):
     def ListOfOpen(self):
         count = 0
         door_window_list = ''
-        for entity in self.sensor_ids:
-            if self.IsOpen(entity):
-                door_window_list += entity
+        for entity_id in self.sensor_ids:
+            if self.IsOpen(entity_id):
+                door_window_list += entity_id
                 count += 1
         door_window_list.replace("binary_sensor.door_window_sensor_158d0002286a78","bathroom window, ")
         door_window_list.replace("binary_sensor.door_window_sensor_158d00022b3b66","basement door, ")
@@ -160,7 +160,7 @@ class Notify(hass.Hass):
             return False
 
 
-    def SendNoticationDoorWindow(self, kwargs):
+    def SendNoticationDoorWindow(self, entity, kwargs):
 
         # Variables to get from HASS sensors.
         outdoor_temp = float(self.get_state("sensor.dark_sky_temperature"))
@@ -204,7 +204,7 @@ class Notify(hass.Hass):
             self.log("It is windy, and the " + door_window + "has been open for 15 minutes. Please close it!")
 
 
-    def SendNoticationWeather(self, type):
+    def SendNoticationWeather(self, entity, type):
 
         # Variables to get from HASS sensors.
         precip_type = self.get_state("sensor.dark_sky_precip")

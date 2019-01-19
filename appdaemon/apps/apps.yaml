@@ -75,25 +75,25 @@ espresso_left_on:
   # user_id: !secret telegram_chatID_Aephir
   # notify: telegram_bot/send_message
 
-test_notifier_something_left_on:
-  module: something_left_on_warning
-  class: NotifyStatus
-  entity: light.baby_room # switch.fountain
-  start_after: 5
-  time_between_notifications: 7
-  end_after: 30
-  button_1: Turn off
-  button_2: OK
-  button_3: Turn back on
-  command_1: /fountain_off
-  command_2: /removekeyboard
-  command_3: /fountain_on
-  # notify: notify/home_aephir_bot
-  notify: telegram_bot/send_message
-  switch_off: True
-  on_open: 'on'
-  title: Fountain was left on
-  user_id: !secret telegram_chatID_Aephir
+# test_notifier_something_left_on:
+#   module: something_left_on_warning
+#   class: NotifyStatus
+#   entity: light.baby_room # switch.fountain
+#   start_after: 5
+#   time_between_notifications: 7
+#   end_after: 30
+#   button_1: Turn off
+#   button_2: OK
+#   button_3: Turn back on
+#   command_1: /fountain_off
+#   command_2: /removekeyboard
+#   command_3: /fountain_on
+#   # notify: notify/home_aephir_bot
+#   notify: telegram_bot/send_message
+#   switch_off: True
+#   on_open: 'on'
+#   title: Fountain was left on
+#   user_id: !secret telegram_chatID_Aephir
 
 ########################
 #    Device Trackers    #
@@ -120,9 +120,9 @@ meta_tracker:
 #    Floorplan    #
 ###################
 
-toggle_dummy_lights:
-  module: light_glow
-  class: Cosmetic
+# toggle_dummy_lights:
+#   module: light_glow
+#   class: Cosmetic
 
 #####################
 #    Global Apps    #
@@ -377,9 +377,9 @@ walk_in_closet_lights:
 #   module: generic_notifier
 #   class: Notify
 
-notify_open_door_windows:
-  module: door_window_left_open
-  class: Notify
+# notify_open_door_windows:
+#   module: door_window_left_open
+#   class: Notify
 
 # motion_door_window_notify:
 #   module: motion_door_window_notify
@@ -554,45 +554,51 @@ doors_or_windows_open:
 ################
 
 # espresso_state_tasker:
-#   module: report_entity_state_tasker
+#   module: espresso_state_tasker
 #   class: NotifyTasker
 #   entityID: switch.switch
-#   friendly_name: espresso_machine
 
 espresso_state_tasker:
-  module: espresso_state_tasker
+  module: report_entity_state_tasker
   class: NotifyTasker
   entityID: switch.switch
+  friendly_name: espresso_machine
 
 fountain_state_tasker:
-  module: fountain_state_tasker
+  module: report_entity_state_tasker
   class: NotifyTasker
   entityID: switch.fountain
+  friendly_name: fountain
 
 kitchen_lights_state_tasker:
-  module: lights_state_tasker
+  module: report_entity_state_tasker
   class: NotifyTasker
   entityID: light.kitchen_lights
+  friendly_name: kitchen_lights
 
 dining_room_lights_state_tasker:
-  module: lights_state_tasker
+  module: report_entity_state_tasker
   class: NotifyTasker
   entityID: light.dining_room_lights
+  friendly_name: dining_room_lights
 
 conservatory_lights_state_tasker:
-  module: lights_state_tasker
+  module: report_entity_state_tasker
   class: NotifyTasker
   entityID: light.conservatory_lights
+  friendly_name: conservatory_lights
 
 bedroom_lights_state_tasker:
-  module: lights_state_tasker
+  module: report_entity_state_tasker
   class: NotifyTasker
   entityID: light.bedroom
+  friendly_name: bedroom_lights
 
 baby_room_lights_state_tasker:
-  module: lights_state_tasker
+  module: report_entity_state_tasker
   class: NotifyTasker
   entityID: light.baby_room
+  friendly_name: baby_room_lights
 
 set_latest_notification_tasker:
   module: latest_notification_tasker

@@ -34,7 +34,7 @@ class Cosmetic(hass.Hass):
             'input_boolean.light_bedroom',
             'input_boolean.light_conservatory_couch',
             'input_boolean.light_conservatory_lights',
-            'input_boolean.light_dining_table',
+            'input_boolean.light_dining_table_lights',
             'input_boolean.light_kitchen_cabinet',
             'input_boolean.light_kitchen_spots',
             'input_boolean.light_living_room_lightstrip',
@@ -44,7 +44,7 @@ class Cosmetic(hass.Hass):
             'input_boolean.light_top_floor_hallway',
             'input_boolean.light_top_floor_tv_area',
             'input_boolean.light_tv_room',
-            'input_boolean.light_walkin_closet',
+            'input_boolean.light_walk_in_closet',
             'input_boolean.light_wine_cellar'
             ]
 

@@ -23,13 +23,13 @@ resources:
     type: module
   - url: /local/card-modder.js # https://github.com/thomasloven/lovelace-card-modder
     type: module
-  - url: /local/fold-entity-row.js?v=f28e6e
+  - url: /local/fold-entity-row.js?v=5ab35c
     type: js
   - url: /local/entity-attributes-card.js?v=0.1.1
     type: js
   - url: /local/state-switch.js?v=2b02f2
     type: js
-  - url: /local/card-tools.js?v=0a97d3
+  - url: /local/card-tools.js?v=6ce5d0
     type: js
 
 # Added version ?v=0.0.1 #Added version ?v=0.0.1 for:
@@ -198,7 +198,7 @@ views:
                     #   color_type: blank-card
                     - type: "custom:button-card"
                       size: 25px
-                      # color_type: card
+                      color_type: card
                       color: auto
                       default_color: rgb(58, 106, 183)
                       icon: mdi:power
@@ -211,7 +211,7 @@ views:
                           command:
                             - 'fume_hood_power'
                     - type: "custom:button-card"
-                      # color_type: card
+                      color_type: card
                       size: 25px
                       color: rgb(58, 106, 183)
                       icon: mdi:fan-off
@@ -224,7 +224,7 @@ views:
                           command:
                             - 'fume_hood_decrease'
                     - type: "custom:button-card"
-                      # color_type: card
+                      color_type: card
                       size: 25px
                       color: rgb(58, 106, 183)
                       icon: mdi:fan
@@ -237,7 +237,7 @@ views:
                           command:
                             - 'fume_hood_increase'
                     - type: "custom:button-card"
-                      # color_type: card
+                      color_type: card
                       size: 25px
                       color: auto
                       default_color: rgb(58, 106, 183)
@@ -648,6 +648,7 @@ views:
           - sensor.fibaro_system_fgt001_heat_controller_system
           - sensor.fibaro_system_fgt001_heat_controller_temperature
           - zwave.fibaro_system_fgt001_heat_controller
+          - binary_sensor.switch_158d0001f3ac72
       - type: custom:monster-card
         show_empty: false
         show_header_toggle: false

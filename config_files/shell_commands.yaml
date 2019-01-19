@@ -36,6 +36,9 @@ reboot_libreelec: /home/aephir/docker/homeassistant/shell_scripts/rebootkodi.sh
 
 ########
 #__TV__#
+
+adb: '/usr/bin/adb connect  {{ ip_adb }}'
+
 tvon: /home/aephir/docker/homeassistant/shell_scripts/tvon.sh
 #tvoff: /home/pi/shell_commands/tvoff.sh
 

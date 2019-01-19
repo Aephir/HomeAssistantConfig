@@ -181,7 +181,7 @@
           - entity: sensor.cpu_temperature
           - entity: sensor.processor_use
           - entity: sensor.memory_use_percent
-          - entity: sensor.disk_use_percent_
+          - entity: sensor.disk_use_percent
       - type: horizontal-stack
         cards:
           - type: gauge
@@ -221,7 +221,7 @@
           - type: gauge
             name: Disk use
             # title: Disk use
-            entity: sensor.disk_use_percent_
+            entity: sensor.disk_use_percent
             # scale: 10px
             min: 0
             max: 100

@@ -4,6 +4,22 @@
 #                          #
 ############################
 
+test:
+  name: Test IB
+
+
+####################
+#    Appliances    #
+####################
+
+oven_state:
+  name: Oven On
+  icon: mdi:stove
+
+oven_running:
+  name: Oven Running
+  icon: mdi:stove
+
 ############################
 #    Presense Detection    #
 ############################
@@ -124,7 +140,7 @@ light_stairway_down:
 light_tv_room:
   name: dummy TV room light
 
-light_walkin_closet:
+light_walk_in_closet:
   name: dummy walk-in closet light
 
 light_wine_cellar:
@@ -139,10 +155,10 @@ light_conservatory_couch:
 light_bathroom:
   name: dummy bathroom light
 
-light_kitchen_cabinet:
+light_kitchen_cabinet_lights:
   name: dummy kitchen cabinet light
 
-light_dining_table:
+light_dining_table_lights:
   name: dummy dining table lights
 
 light_top_floor_bathroom:
