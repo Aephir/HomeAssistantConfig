@@ -1,5 +1,5 @@
 """
-Update radiator thermostat states when doors or windows open or close
+Update radiator thermostat states
 """
 
 import appdaemon.plugins.hass.hassapi as hass
@@ -12,20 +12,17 @@ class RadiatorThermostat(hass.Hass):
             'climate.fibaro_system_fgt001_heat_controller_heating' # Bathroom radiator thermostat
             ]
 
-        # self.doors = [
-        #     ''
-        #     ]
+        self.listen_event(self.updateState, event=call_service, domain=climate, service=set_temperature)
+        self.listen_event(self.updateState, event=call_service, domain=climate, service=set_operation_mode)
+        self.listen_event(self.updateState, event=call_service, domain=climate, service=turn_on)
+        self.listen_event(self.updateState, event=call_service, domain=climate, service=turn_off)
 
-        self.windows = [
-            'binary_sensor.door_window_sensor_158d0002286a78' # Bathroom window
-            ]
+        self.run_every(self.updateState, 1, 60)
 
-        for entity in self.windows:
-            self.listen_state(self.updateState, entity)
-
-        # for entity in self.doors:
-        #     self.listen_state(self.updateState, entity)
 
     def updateState(self, entity, attribute, old, new, kwargs):
 
-        self.call_service('zwave/refresh_entity', entity_id = "zwave.fibaro_system_fgt001_heat_controller")
+        # self.call_service('zwave/refresh_entity', entity_id = 'zwave.fibaro_system_fgt001_heat_controller')
+        self.call_service('zwave/refresh_entity', entity_id = 'sensor.fibaro_system_fgt001_heat_controller_system')
+        self.call_service('zwave/refresh_entity', entity_id = 'sensor.fibaro_system_fgt001_heat_controller_temperature')
+        self.call_service('zwave/refresh_entity', entity_id = 'climate.fibaro_system_fgt001_heat_controller_heating')

@@ -115,6 +115,7 @@ panel_iframe: !include config_files/panel_iframe.yaml
 plant: !include config_files/plant.yaml
 recorder: !include config_files/recorder.yaml
 remote: !include config_files/remote.yaml
+# roku: !include config_files/roku.yaml
 scene: !include_dir_merge_list config_files/scene/
 script: !include_dir_merge_named config_files/script/
 sensor: !include_dir_merge_list config_files/sensor/

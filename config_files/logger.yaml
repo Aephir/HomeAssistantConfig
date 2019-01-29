@@ -18,6 +18,8 @@ default: error
 # default: debug
 logs:
   # homeassistant.components.miflora: error
+  homeassistant.components.binary_sensor.skybell_front_door_button: error
+  homeassistant.components.binary_sensor.skybell_front_door_motion: error
   homeassistant.components.media_player: critical
   homeassistant.components.media_player.ue46es8005: critical
   homeassistant.components.owntracks: fatal

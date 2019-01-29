@@ -4,136 +4,6 @@
 #                   #
 #####################
 
-################
-#__Bed_Sensor__#
-
-- platform: mqtt
-  state_topic: 'home/bedroom/bed'
-  name: "Raw Master Bed Weight Measurement"
-
-##########################
-#    Door and Windows    #
-##########################
-
-##################
-#__Door_Sensors__#
-
-# - platform: template
-#   sensors:
-#     doors_open:
-#       friendly_name: Any Doors Open
-#       value_template: >-
-#         {% if (is_state('binary_sensor.door_window_sensor_158d00022b3b66'), 'on') or (is_state('binary_sensor.door_window_sensor_158d00022d0917'), 'on') or (is_state('58d00022d0917'), 'on') or (is_state('binary_sensor.door_window_sensor_158d00022d0917'), 'on')  %}
-#           on
-#         {% else %}
-#           off
-#         {% endif %}
-#     windows_open:
-#       friendly_name: Any Windows Open
-#       value_template: >-
-#         {% if (is_state('binary_sensor.door_window_sensor_158d0002286a78'), 'on' %}
-#           on
-#         {% else %}
-#           off
-#         {% endif %}
-
-####################
-#__Window_Sensors__#
-
-
-####################
-#__System Sensors__#
-
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /
-    - type: processor_use
-    - type: memory_use_percent
-
-- platform: uptime
-  name: Uptime
-  unit_of_measurement: days
-#  unit_of_measurement: hours
-
-# CPU temperature
-- platform: command_line
-  name: CPU Temperature
-  command: 'cat /sys/class/thermal/thermal_zone3/temp'
-  unit_of_measurement: '°C'
-  value_template: '{{ (value | multiply(0.001)) | round(1) }}'
-
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /home
-    - type: memory_use_percent
-    - type: processor_use
-
-# - platform: command_line
-#   name: SSL cert expiry
-#   unit_of_measurement: days
-#   scan_interval: 86400
-#   command: "ssl-cert-check -b -c /etc/letsencrypt/live/hassbian-three.duckdns.org/cert.pem | awk '{ print $NF }'"
-
-###################
-#__Power Sensors__#
-
-- platform: template
-  sensors:
-    sensor_fountain:
-      value_template: '{{ states.switch.fountain.attributes.current_power_w | round(0) }}'
-      unit_of_measurement: 'W'
-
-- platform: template
-  sensors:
-    sensor_desktop:
-      value_template: '{{ states.switch.desktop.attributes["today_energy_kwh"] }}'
-      unit_of_measurement: 'W'
-
-###################
-#__Plant_Sensors__#
-
-# - platform: miflora
-#   mac: !secret mi_plant_sensor_1
-#   name: plant sensor 1
-#   monitored_conditions:
-#     - temperature
-#     - moisture
-#     - light
-#     - conductivity
-#     - battery
-#
-# - platform: miflora
-#   mac: !secret mi_plant_sensor_2
-#   name: plant sensor 2
-#   monitored_conditions:
-#     - temperature
-#     - moisture
-#     - light
-#     - conductivity
-#     - battery
-#
-# - platform: miflora
-#   mac: !secret mi_plant_sensor_3
-#   name: plant sensor 3
-#   monitored_conditions:
-#     - temperature
-#     - moisture
-#     - light
-#     - conductivity
-#     - battery
-#
-# - platform: miflora
-#   mac: !secret mi_plant_sensor_4
-#   name: plant sensor 4
-#   monitored_conditions:
-#     - temperature
-#     - moisture
-#     - light
-#     - conductivity
-#     - battery
-
 ####################
 #    Appliances    #
 ####################
@@ -151,8 +21,9 @@
           {% endif %}
 
 
-#####################
-#__Battery_Sensors__#
+#########################
+#    Battery_Sensors    #
+#########################
 
 # Phone Batteries
 - platform: template
@@ -628,6 +499,204 @@
         {% endif %}
       unit_of_measurement: '%'
 
+################
+#__Bed_Sensor__#
+
+- platform: mqtt
+  state_topic: 'home/bedroom/bed'
+  name: "Raw Master Bed Weight Measurement"
+
+##########################
+#    Door and Windows    #
+##########################
+
+##################
+#__Door_Sensors__#
+
+# - platform: template
+#   sensors:
+#     doors_open:
+#       friendly_name: Any Doors Open
+#       value_template: >-
+#         {% if (is_state('binary_sensor.door_window_sensor_158d00022b3b66'), 'on') or (is_state('binary_sensor.door_window_sensor_158d00022d0917'), 'on') or (is_state('58d00022d0917'), 'on') or (is_state('binary_sensor.door_window_sensor_158d00022d0917'), 'on')  %}
+#           on
+#         {% else %}
+#           off
+#         {% endif %}
+#     windows_open:
+#       friendly_name: Any Windows Open
+#       value_template: >-
+#         {% if (is_state('binary_sensor.door_window_sensor_158d0002286a78'), 'on' %}
+#           on
+#         {% else %}
+#           off
+#         {% endif %}
+
+####################
+#__Window_Sensors__#
+
+##################
+#    OpenEVSE    #
+##################
+
+# Use OpenEVSE RAPI API to Retrieve the active charging current
+# https://www.home-assistant.io/components/sensor.rest/
+# Example:
+#  curl curl --digest --user 'user:pass' 'http://openevse.local./r?json=1&rapi=$GU'
+#  $OK 40629846 165327^27
+- platform: rest
+  name: "OpenEVSE RAPI $GU"
+  resource: 'http://openevse.local/r?json=1&rapi=$GU'
+  authentication: digest
+  username: !secret openEVSE_user
+  password: !secret openEVSE_pass
+  headers:
+      User-Agent: Home Assistant
+      Content-Type: application/json
+  json_attributes: [ 'cmd', 'ret' ]
+  value_template: '{{ value_json.ret }}'
+
+# Custom Sensors
+- platform: template
+  sensors:
+    openevse_session_energy:
+      friendly_name: "OpenEVSE Session Energy"
+      icon_template: mdi:gauge
+      unit_of_measurement: 'kWh'
+      value_template: >-
+        {%- if states('sensor.openevse_rapi_gu') == 'unknown' -%}
+          0.0
+        {%- else -%}
+          {%- set ret = state_attr('sensor.openevse_rapi_gu', 'ret') -%}
+          {%- set rgx = '(?<=^\$OK )[0-9]+' -%}
+          {%- if ret|regex_search(rgx) -%}
+            {%- set v = ret | regex_findall_index(rgx) -%}
+            {{- (v|float / 3600000)|round(2) -}}
+          {%- else -%}
+            0.0
+          {%- endif -%}
+        {%- endif -%}
+    openevse_state:
+      friendly_name: "OpenEVSE State"
+      icon_template: >-
+        {% set value = states('sensor.openevse_mqtt_state') %}
+        {% if value == "1" %}
+          mdi:power-plug-off
+        {% elif value == "2" %}
+          mdi:car-electric
+        {% elif value == "3" %}
+          mdi:battery-charging
+        {% else %}
+          mdi:battery-unknown
+        {% endif %}
+      value_template: >-
+        {% set value = states('sensor.openevse_mqtt_state') %}
+        {% if value == "1" %}
+          Disconnected
+        {% elif value == "2" %}
+          Idle
+        {% elif value == "3" %}
+          Charging
+        {% else %}
+          Unknown-{{ value }}
+        {% endif %}
+# OpenEVSE MQTT Tracker
+- platform: mqtt
+  name: "OpenEVSE Temp 1"
+  state_topic: "openevse/temp1"
+  unit_of_measurement: '°F'
+  device_class: temperature
+  value_template: >-
+    {%- macro C2F(temperature) -%}
+    {% set tmp = (((temperature *9) /50.0) + 32) %}
+    {{- "%0.2f" % tmp -}}
+    {%- endmacro -%}
+    {{- C2F(value|float)|float -}}
+- platform: mqtt
+  name: "OpenEVSE Charging Current"
+  icon: mdi:current-ac
+  state_topic: "openevse/amp"
+  unit_of_measurement: "A"
+  value_template: >-
+    {{- (value|float / 1000.0) | round(1) -}}
+- platform: mqtt
+  name: "OpenEVSE Pilot Current"
+  icon: mdi:current-ac
+  state_topic: "openevse/pilot"
+  unit_of_measurement: "A"
+  value_template: >-
+    {{- value|int -}}
+- platform: mqtt
+  name: "OpenEVSE Total Energy"
+  icon: mdi:gauge-full
+  state_topic: "openevse/wh"
+  unit_of_measurement: "kWh"
+  value_template: >-
+    {{- value|float / 1000 | round(2) -}}
+- platform: mqtt
+  name: "OpenEVSE MQTT State"
+  state_topic: "openevse/state"
+
+###################
+#__Power Sensors__#
+
+# - platform: template
+#   sensors:
+#     sensor_fountain:
+#       value_template: '{{ states.switch.fountain.attributes.current_power_w | round(0) }}'
+#       unit_of_measurement: 'W'
+
+- platform: template
+  sensors:
+    sensor_desktop:
+      value_template: '{{ states.switch.desktop.attributes["today_energy_kwh"] }}'
+      unit_of_measurement: 'W'
+
+###################
+#__Plant_Sensors__#
+
+# - platform: miflora
+#   mac: !secret mi_plant_sensor_1
+#   name: plant sensor 1
+#   monitored_conditions:
+#     - temperature
+#     - moisture
+#     - light
+#     - conductivity
+#     - battery
+#
+# - platform: miflora
+#   mac: !secret mi_plant_sensor_2
+#   name: plant sensor 2
+#   monitored_conditions:
+#     - temperature
+#     - moisture
+#     - light
+#     - conductivity
+#     - battery
+#
+# - platform: miflora
+#   mac: !secret mi_plant_sensor_3
+#   name: plant sensor 3
+#   monitored_conditions:
+#     - temperature
+#     - moisture
+#     - light
+#     - conductivity
+#     - battery
+#
+# - platform: miflora
+#   mac: !secret mi_plant_sensor_4
+#   name: plant sensor 4
+#   monitored_conditions:
+#     - temperature
+#     - moisture
+#     - light
+#     - conductivity
+#     - battery
+
+
+
 #######################
 #    Plant sensors    #
 #######################
@@ -815,7 +884,6 @@
 #       {{ ('hold' if buttonevent[3]|int is odd else 'click') ~ '_' ~ buttonevent[0] }}
 #     {% endif %}
 
-
 ###################
 #__State_Storage__#
 
@@ -833,6 +901,41 @@
 - platform: skybell
   monitored_conditions:
     - chime_level
+
+####################
+#__System Sensors__#
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /
+    - type: processor_use
+    - type: memory_use_percent
+
+- platform: uptime
+  name: Uptime
+  unit_of_measurement: days
+#  unit_of_measurement: hours
+
+# CPU temperature
+- platform: command_line
+  name: CPU Temperature
+  command: 'cat /sys/class/thermal/thermal_zone3/temp'
+  unit_of_measurement: '°C'
+  value_template: '{{ (value | multiply(0.001)) | round(1) }}'
+
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_use_percent
+    - type: processor_use
+
+# - platform: command_line
+#   name: SSL cert expiry
+#   unit_of_measurement: days
+#   scan_interval: 86400
+#   command: "ssl-cert-check -b -c /etc/letsencrypt/live/hassbian-three.duckdns.org/cert.pem | awk '{ print $NF }'"
 
 ##################
 #__Trash_Pickup__#

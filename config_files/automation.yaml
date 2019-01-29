@@ -53,8 +53,8 @@
       message: "The house is empty."
       data:
           inline_keyboard:
-          - 'Set alarm:/set_alarm_away, Turn off everything:/all_off'
-          - 'Set alarm and turn off everything:/set_alarm_all_off, No action:/removekeyboard'
+            - 'Set alarm:/set_alarm_away, Turn off everything:/all_off'
+            - 'Set alarm and turn off everything:/set_alarm_all_off, No action:/removekeyboard'
 
 - alias: "Arm the Alarm, Kristina leaves last"
   initial_state: True
@@ -152,6 +152,23 @@
 
 #############
 #__Notfiy__#
+
+- alias: "test_actionable_notification" # Message through Join if Kristina leaves work - doesn't work...
+  initial_state: True
+  trigger:
+    - platform: state
+      from: 'off'
+      to: 'on'
+      entity_id: input_boolean.vacation_mode
+  action:
+    service: notify.home_aephir_bot
+    # data:
+    data_template:
+      message: "Test Notification"
+      data:
+        inline_keyboard:
+          - "Espresso on:/espresso_on, Espresso off:/espresso_off"
+          - "Remove keyboard:/removekeyboard"
 
 - alias: "Kristina Leave Work" # Message through telegram if Kristina leaves work
   initial_state: True
@@ -1094,7 +1111,7 @@
 #   initial_state: True
 #   initial_state: True
 #   trigger:
-#     - platform: time
+#     - platform: time_pattern
 #       minutes: '/5'
 #       seconds: 00
 #   action:
@@ -1321,7 +1338,7 @@
   initial_state: True
   alias: update_fibaro_heat_controller_bathroom
   trigger:
-    - platform: time
+    - platform: time_pattern
       minutes: '/5'
       seconds: 00
     - platform: homeassistant
