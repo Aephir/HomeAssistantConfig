@@ -8,19 +8,29 @@ import time
 class Test(hass.Hass):
 
     def initialize(self):
-        self.listen_state(self.testFunction, "input_boolean.guest_mode")
 
-    def testFunction(self, entity, attribute, old, new, kwargs):
-        self.log("test log entry 1")
-        self.log(self.app_config['global_sensors']['motionSensors'])
-        time_app = self.get_app("time_functions")
-        workday = time_app.workday
-        self.log(workday)
+        self.listen_event(self.receive_telegram_callback, 'telegram_callback')
 
+    def receive_telegram_callback(self, event_id, payload_event, *args):
 
+        data_callback   = payload_event['data']
+        callback_id     = payload_event['id']
+        message_id      = payload_event['message_id']
+        chat_id         = payload_event['user_id']
 
-# someapp = self.get_app("SomeApp")
-# some_apps_args = someapp.args
+        self.log(payload_event)
 
-# self.app_config[all_sensors.py]['motionSensors']
-# self.app_config[you main app]['sensors']
+        if payload_event['data'] == '/removekeyboard':
+
+            self.call_service(
+                'telegram_bot/answer_callback_query',
+                message='OK',
+                callback_query_id=callback_id
+                )
+
+            self.call_service(
+                'telegram_bot.edit_replymarkup',
+                message_id=message_id,
+                chat_id=user_id,
+                inline_keyboard=[]
+                )

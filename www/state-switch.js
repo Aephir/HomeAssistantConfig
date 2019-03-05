@@ -1,8 +1,9 @@
 customElements.whenDefined('card-tools').then(() => {
-class StateSwitch extends cardTools.litElement() {
+const cardTools = customElements.get('card-tools');
+class StateSwitch extends cardTools.LitElement {
 
   setConfig(config) {
-    cardTools.checkVersion(0.3);
+    cardTools.checkVersion(0.4);
     this.config = config;
 
     this.cardSize = 1;
@@ -16,19 +17,23 @@ class StateSwitch extends cardTools.litElement() {
     this.idCard = cardTools.createCard({
       type: "markdown",
       title: "Device ID",
-      content: `Your device id is: \`${cardTools.deviceID()}\``,
+      content: `Your device id is: \`${cardTools.deviceID}\``,
     });
+
+    if(config.entity === 'hash') {
+      window.addEventListener("location-changed", () => this.updateCard());
+    }
   }
 
   render() {
-    return cardTools.litHtml()`
+    return cardTools.LitHtml`
     <div id="root">${this.currentCard}</div>
     `;
   }
 
-  set hass(hass) {
+  updateCard() {
+    const hass = this._hass;
     if(!hass) return;
-
     const lastCard = this.currentCard;
     if (this.config.entity === 'user') {
       this.currentCard = this.cards[hass.user.name]
@@ -38,6 +43,9 @@ class StateSwitch extends cardTools.litElement() {
         || ((this.config.default)
           ? this.cards[this.config.default]
           : this.idCard);
+    } else if(this.config.entity == 'hash') {
+        this.currentCard = this.cards[location.hash.substr(1)]
+          || this.cards[this.config.default];
     } else {
       let state = hass.states[this.config.entity];
       this.currentCard = ((state)?this.cards[state.state]:null)
@@ -45,6 +53,13 @@ class StateSwitch extends cardTools.litElement() {
     }
 
     if(this.currentCard != lastCard) this.requestUpdate();
+  }
+
+  set hass(hass) {
+    if(!hass) return;
+    this._hass = hass;
+
+    this.updateCard();
 
     for(var k in this.cards)
       this.cards[k].hass = hass;

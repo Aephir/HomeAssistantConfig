@@ -30,7 +30,7 @@ class MotionClass(hass.Hass):
         except ValueError:
             return 0
 
-# Motion sensor lights
+
     def switchonoff(self, entity, attribute, old, new, kwargs):
 
         sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200d203") # Basement Entrance Motion

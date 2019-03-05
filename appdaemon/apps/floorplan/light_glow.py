@@ -63,7 +63,7 @@ class Cosmetic(hass.Hass):
     def toggleDummy(self, entity, attribute, old, new, kwargs):
 
         """
-        Toggles the dummy input_boolean corresponding tot the light switched.
+        Toggles the dummy input_boolean corresponding to the light switched.
         """
 
         dummyID = 'input_boolean.light_' + entity[6:]

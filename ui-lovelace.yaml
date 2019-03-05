@@ -5,31 +5,31 @@ background: center / cover no-repeat url("/background.png") fixed
 # excluded_entities:
 #   - weblink.router
 resources:
-  - url: /local/monster-card.js?v=0.2.3
+  - url: /customcards/monster-card.js?v=0.2.3
     type: js
-  - url: /local/tracker-card.js?v=0.1.5
-    type: js
-  - url: /local/custom-lovelace/monster-card/monster-card.js?v=0.2.3
-    type: js
-  - url: /local/gauge-card.js?v=0.2.0
-    type: js
-  - url: /local/slider-entity-row.js?v=ba8f50
-    type: js
-  - url: /local/toggle-lock-entity-row.js
-    type: js
-  - url: /local/button-card.js?v=0.0.2
+  - url: /customcards/github/custom-cards/tracker-card.js?track=true
     type: module
-  - url: /local/surveillance-card.js?v=0.0.1
+  # - url: /customcards/custom-lovelace/monster-card/monster-card.js?v=0.2.3
+  #   type: js
+  # - url: /customcards/gauge-card.js?v=0.2.0
+  #   type: js
+  - url: /customcards/slider-entity-row.js?v=ba8f50
+    type: js
+  - url: /customcards/toggle-lock-entity-row.js
+    type: js
+  - url: /customcards/github/custom-cards/button-card.js?track=true
     type: module
-  - url: /local/card-modder.js # https://github.com/thomasloven/lovelace-card-modder
+  - url: /customcards/surveillance-card.js?v=0.0.1
     type: module
-  - url: /local/fold-entity-row.js?v=6d11d3
+  - url: /customcards/card-modder.js # https://github.com/thomasloven/lovelace-card-modder
+    type: module
+  - url: /customcards/fold-entity-row.js?v=6d11d3
     type: js
-  - url: /local/entity-attributes-card.js?v=0.1.1
+  - url: /customcards/entity-attributes-card.js?v=0.1.1
     type: js
-  - url: /local/state-switch.js?v=c7dd70
+  - url: /customcards/state-switch.js?v=c7dd70
     type: js
-  - url: /local/card-tools.js?v=297fcc
+  - url: /customcards/card-tools.js?v=297fcc
     type: js
 
 # Added version ?v=0.0.1 #Added version ?v=0.0.1 for:

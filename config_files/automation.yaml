@@ -630,160 +630,161 @@
 #    Telegram    #
 ##################
 
-- id: 'telegramremoveinline' # https://community.home-assistant.io/t/telegram-bot-notifications-and-communication/50247
-  alias: 'Telegram callback to remove keyboard'
-  hide_entity: true
-  initial_state: True
-  trigger:
-    platform: event
-    event_type: telegram_callback
-    event_data:
-      data: '/removekeyboard'
-  action:
-  - service: telegram_bot.answer_callback_query
-    data_template:
-      callback_query_id: '{{ trigger.event.data.id }}'
-      message: 'OK'
-  - service: telegram_bot.edit_replymarkup
-    data_template:
-      message_id: '{{ trigger.event.data.message.message_id }}'
-      chat_id: '{{ trigger.event.data.user_id }}'
-      inline_keyboard: []
+# - id: 'telegramremoveinline' # https://community.home-assistant.io/t/telegram-bot-notifications-and-communication/50247
+#   alias: 'Telegram callback to remove keyboard'
+#   hide_entity: true
+#   initial_state: True
+#   trigger:
+#     platform: event
+#     event_type: telegram_callback
+#     event_data:
+#       data: '/removekeyboard'
+#   action:
+#   - service: telegram_bot.answer_callback_query
+#     data_template:
+#       callback_query_id: '{{ trigger.event.data.id }}'
+#       message: 'OK'
+#   - service: telegram_bot.edit_replymarkup
+#     data_template:
+#       message_id: '{{ trigger.event.data.message.message_id }}'
+#       chat_id: '{{ trigger.event.data.user_id }}'
+#       inline_keyboard: []
 
-- id: 'telegram_espresso_on'
-  alias: turn on espresso machine
-  initial_state: True
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/espresso_on'
-        # data: '/espresso_on'
-        # user_id: !secret telegram_chatID_Aephir
-  action:
-    - service: switch.turn_on
-      entity_id: switch.switch
-
-- id: 'telegram_espresso_off'
-  alias: turn off espresso machine
-  initial_state: True
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/espresso_off'
-        # user_id: !secret telegram_chatID_Aephir
-  action:
-    - service: switch.turn_off
-      entity_id: switch.switch
-
-- id: 'telegram_fountain_on'
-  alias: turn on fountain
-  initial_state: True
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/fountain_on'
-  action:
-    - service: switch.turn_on
-      entity_id: switch.fountain
-
-- id: 'telegram_fountain_off'
-  alias: turn off fountain
-  initial_state: True
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/fountain_off'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.fountain
-
-- id: 'telegram_all_lights_off'
-  alias: turn off all lights
-  initial_state: True
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/lights_off'
-        # user_id: !secret telegram_chatID_Aephir
-  action:
-    - service: script.turn_on
-      entity_id: script.scene_all_lights_off
-
-- id: 'telegram_everything_off'
-  initial_state: True
-  alias: turn off everything
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/all_off'
-        # user_id: !secret telegram_chatID_Aephir
-  action:
-    - service: script.turn_on
-      entity_id: script.everyone_left_turn_off_everything
-
-- id: 'telegram_alarm_away'
-  initial_state: True
-  alias: Arm alarm in away mode
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/set_alarm_away'
-        # user_id: !secret telegram_chatID_Aephir
-  action:
-    - service: script.turn_on
-      entity_id: script.alarm_armed_away
-      # data:
-      #   code: !secret alarm_code
-
-- id: 'telegram_alarm_away_and_all_off'
-  initial_state: True
-  alias: Arm alarm in away mode & all off
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/set_alarm_all_off'
-        # user_id: !secret telegram_chatID_Aephir
-  action:
-    - service: script.turn_on
-      entity_id: script.alarm_armed_away
-    - service: script.turn_on
-      entity_id: script.everyone_left_turn_off_everything
-
-- id: 'telegram_speak_to_home'
-  initial_state: True
-  alias: Speak to the home
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      event_data:
-        command: '/say'
-        # user_id: !secret telegram_chatID_Aephir
-  action:
-  - service: tts.google_say
-    data_template:
-      entity_id: media_player.living_room
-      message: "{{ ' '.join(trigger.event.data.args) }}"
-
-- id: 'telegram_guest_mode_off'
-  initial_state: True
-  alias: Turn off guest mode
-  trigger:
-    - platform: event
-      event_type: telegram_command
-      # event_type: telegram_command
-      event_data:
-        command: '/guest_mode_off'
-  action:
-    - service: homeassistant.turn_off
-      entity_id: input_boolean.guest_mode
+# - id: 'telegram_espresso_on'
+#   alias: turn on espresso machine
+#   initial_state: True
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/espresso_on'
+#         # data: '/espresso_on'
+#         # user_id: !secret telegram_chatID_Aephir
+#   action:
+#     - service: switch.turn_on
+#       entity_id: switch.switch
+#
+# - id: 'telegram_espresso_off'
+#   alias: turn off espresso machine
+#   initial_state: True
+#   trigger:
+#     - platform: event
+#       # event_type: telegram_command
+#       event_type: telegram_callback
+#       event_data:
+#         command: '/espresso_off'
+#         # user_id: !secret telegram_chatID_Aephir
+#   action:
+#     - service: switch.turn_off
+#       entity_id: switch.switch
+#
+# - id: 'telegram_fountain_on'
+#   alias: turn on fountain
+#   initial_state: True
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/fountain_on'
+#   action:
+#     - service: switch.turn_on
+#       entity_id: switch.fountain
+#
+# - id: 'telegram_fountain_off'
+#   alias: turn off fountain
+#   initial_state: True
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/fountain_off'
+#   action:
+#     - service: switch.turn_off
+#       entity_id: switch.fountain
+#
+# - id: 'telegram_all_lights_off'
+#   alias: turn off all lights
+#   initial_state: True
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/lights_off'
+#         # user_id: !secret telegram_chatID_Aephir
+#   action:
+#     - service: script.turn_on
+#       entity_id: script.scene_all_lights_off
+#
+# - id: 'telegram_everything_off'
+#   initial_state: True
+#   alias: turn off everything
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/all_off'
+#         # user_id: !secret telegram_chatID_Aephir
+#   action:
+#     - service: script.turn_on
+#       entity_id: script.everyone_left_turn_off_everything
+#
+# - id: 'telegram_alarm_away'
+#   initial_state: True
+#   alias: Arm alarm in away mode
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/set_alarm_away'
+#         # user_id: !secret telegram_chatID_Aephir
+#   action:
+#     - service: script.turn_on
+#       entity_id: script.alarm_armed_away
+#       # data:
+#       #   code: !secret alarm_code
+#
+# - id: 'telegram_alarm_away_and_all_off'
+#   initial_state: True
+#   alias: Arm alarm in away mode & all off
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/set_alarm_all_off'
+#         # user_id: !secret telegram_chatID_Aephir
+#   action:
+#     - service: script.turn_on
+#       entity_id: script.alarm_armed_away
+#     - service: script.turn_on
+#       entity_id: script.everyone_left_turn_off_everything
+#
+# - id: 'telegram_speak_to_home'
+#   initial_state: True
+#   alias: Speak to the home
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       event_data:
+#         command: '/say'
+#         # user_id: !secret telegram_chatID_Aephir
+#   action:
+#   - service: tts.google_say
+#     data_template:
+#       entity_id: media_player.living_room
+#       message: "{{ ' '.join(trigger.event.data.args) }}"
+#
+# - id: 'telegram_guest_mode_off'
+#   initial_state: True
+#   alias: Turn off guest mode
+#   trigger:
+#     - platform: event
+#       event_type: telegram_command
+#       # event_type: telegram_command
+#       event_data:
+#         command: '/guest_mode_off'
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: input_boolean.guest_mode
 
 ################
 #    Themes    #

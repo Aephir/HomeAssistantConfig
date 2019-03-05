@@ -643,10 +643,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="2956.5647"
-     inkscape:cy="254.25424"
+     inkscape:cx="91.5647"
+     inkscape:cy="1014.2542"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer11"
+     inkscape:current-layer="layer19"
      showgrid="false"
      inkscape:window-width="1440"
      inkscape:window-height="855"
@@ -2805,7 +2805,7 @@
        x="55.654266"
        height="59.926842"
        width="13.154673"
-       id="input_boolean.light_kitchen_cabinet"
+       id="input_boolean.light_kitchen_cabinet_lights"
        style="display:inline;opacity:1;fill:url(#radialGradient5316);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.29191065;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0"
        inkscape:label="#rect5303" />
     <circle

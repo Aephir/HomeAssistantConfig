@@ -51,11 +51,16 @@ custom_updater: # https://github.com/custom-components/custom_updater/wiki/Insta
   # show_installable: True
   component_urls:
     - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
+    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json # life360
+  python_script_urls:
+    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/python_scripts.json # life360
   card_urls:
     - https://raw.githubusercontent.com/rdehuyss/homeassistant-lovelace-google-calendar-card/master/custom_updater.json
     - https://raw.githubusercontent.com/kuuji/button-card/0.0.2/tracker.json
   # python_script_urls:
   #   -
+
+system_health:
 
 lovelace:
   mode: yaml
@@ -90,6 +95,7 @@ climate: !include config_files/climate.yaml
 device_tracker: !include config_files/device_tracker.yaml
 frontend: !include config_files/frontend.yaml
 #google_assistant: !include config_files/google_assistant.yaml
+googlehome: !include config_files/googlehome.yaml
 group: !include config_files/group.yaml
 history: !include config_files/history.yaml
 # homeconnect: include !config_files/home_connect.yaml

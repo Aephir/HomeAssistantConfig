@@ -60,7 +60,8 @@
   - platform: life360
     username: !secret life360_usename
     password: !secret life360_password
-    interval_seconds: 10
+    # interval_seconds: 10
+    time_as: local
     filename: life360.conf
     show_as_state: places, driving, moving
     max_update_wait:

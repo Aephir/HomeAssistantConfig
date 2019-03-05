@@ -15,10 +15,6 @@
 #   module: test
 #   class: Test
 
-# test2:
-#   module: test2
-#   class: Test
-
 ###############
 #    Alarm    #
 ###############
@@ -50,9 +46,9 @@ espresso_left_on:
   module: something_left_on_warning
   class: NotifyStatus
   entity: switch.switch
-  start_after: 2700
+  start_after: 1800 #2700
   time_between_notifications: 900
-  end_after: 5400
+  end_after: 3600
   button_1: Turn off
   button_2: OK
   button_3: Turn back on
@@ -628,3 +624,7 @@ launch_fullykiosk:
 #   module: telegram_bot
 #   class: TelegramBotEventListener
 #   garage: cover.garage_door
+
+telegram_commands:
+  module: telegram_callback
+  class: TelegramBotEventListener

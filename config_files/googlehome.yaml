@@ -1,0 +1,9 @@
+#####################
+#                   #
+#    Google Home    #
+#                   #
+#####################
+
+devices:
+  # - host: 192.168.0.44 # Android TV, Conservatory
+  - host: 192.168.0.55 # Google Home Mini

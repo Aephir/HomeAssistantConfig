@@ -234,6 +234,7 @@
         trackers:
           - sensor.custom_card_tracker
           - sensor.custom_component_tracker
+          # - sensor.custom_python_script_tracker
       # - type: iframe
       #   url: https://embed.windy.com/embed2.html
       - type: sensor
