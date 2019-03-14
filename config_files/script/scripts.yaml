@@ -121,19 +121,7 @@
 #    Appliances    #
 ####################
 
-###############
-#__Fume_Hood__#
-
-  fume_hood_power:
-    alias: Fume Hood Power
-    sequence:
-      - service:
-          domain: remote
-          action: send_command
-          entity_id: remote.kitchen_remote
-          data:
-            command:
-              - 'fume_hood_power'
+# See under "IR Remote"
 
 #############
 #__iKellte__#

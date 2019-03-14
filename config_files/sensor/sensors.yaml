@@ -856,7 +856,7 @@
 #############
 #__Remotes__#
 
-- platform: hue
+- platform: huesensor
   # ip_address: 192.168.0.10
   # token: !secret hue_bridge_1_username
 
@@ -949,6 +949,30 @@
   name: trash_pickup_type
   state_topic: "trash/pickup"
   value_template: "{{ value_json.type }}"
+
+######################
+#    Travel_Times    #
+######################
+
+##########
+#__GTFS__#
+
+# # https://www.home-assistant.io/components/sensor.gtfs/
+# - platform: gtfs
+#   origin: STOP_ID
+#   destination: STOP_ID
+#   data: DATA_SOURCE
+
+
+#################
+#__Rejsespanen__#
+
+- platform: rejseplanen
+  stop_id: '008600763' # Åmarken OR '000005486' # Arnold Nielsens Boulevard (Hvidovrevej)
+  # route: 'Train A'
+  direction:
+    - Farum
+
 
 ###################
 #__Misc. Sensors__#

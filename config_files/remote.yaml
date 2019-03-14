@@ -5,7 +5,7 @@
 #################
 
 - platform: xiaomi_miio
-  name: kitchen remote
+  name: "kitchen remote"
   host: 192.168.0.123
   token: !secret xiaomi_miio_ir_remote_token
   slot: 1
