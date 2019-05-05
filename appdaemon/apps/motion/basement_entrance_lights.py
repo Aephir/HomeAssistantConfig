@@ -14,6 +14,8 @@ class MotionClass(hass.Hass):
         # Illumination drops while motion sensor is "on" = light on.
         self.listen_state(self.switchonoff,"sensor.illumination_158d000200d203")
 
+        self.listen_state(self.inpuBoolean,"input_boolean.basement_lights_motion_control")
+
     # Assess whether we are awake, based on state of entity. Find better proxy eventually.
     def areWeAwake(self, entity):
         if self.get_state(entity) == "on":
@@ -51,3 +53,8 @@ class MotionClass(hass.Hass):
 
         elif sensor_1_state == "off":
             self.turn_off("light.basement_entrance")
+
+    def inpuBoolean(self, entity, attribute, old, new, kwargs):
+
+        if new == "on":
+            self.switchonoff(entity, attribute, old, new, kwargs)

@@ -146,6 +146,22 @@
           false
           {%- endif %}
 
+##############
+#    Ping    #
+##############
+
+- platform: ping
+  name: Ping Google DNS
+  host: 8.8.8.8
+
+- platform: ping
+  name: Ping Router
+  host: 192.168.0.1
+
+- platform: ping
+  name: Ping HASSio
+  host: 192.168.0.102
+
 #################
 #    Sensors    #
 #################

@@ -1,5 +1,5 @@
 """
-Motion sensors to control the main floor bathroom lights.
+Motion sensors to control the main floor kitchen lights.
 """
 
 import appdaemon.plugins.hass.hassapi as hass
@@ -40,13 +40,13 @@ class MotionClass(hass.Hass):
             ]
 
         for entity in self.motion_entity_ids:
-            self.listen_state(self.motionTrigger, entity) # motion sensors
-            # self.listen_state(self.motionTrigger, entity, new = 'on') # motion sensors
-
-        # for entity in self.motion_entity_ids:
-        #     self.listen_state(self.motionTrigger, entity, new = 'off', duration=240) # motion sensors
+            # self.listen_state(self.motionTrigger, entity) # motion sensors
+            self.listen_state(self.motionTrigger, entity, new = 'on') # motion sensors
+            self.listen_state(self.motionTrigger, entity, new = 'off', duration=240) # motion sensors
         #
         # self.timer = None
+
+        self.listen_state(self.inpuBoolean,"input_boolean.kitchen_lights_motion_control")
 
     def cooking(self, **kwargs):
         """ Check if we are likely to be cooking"""
@@ -113,3 +113,11 @@ class MotionClass(hass.Hass):
         elif new == 'off': # we got no motion.
             # self.timer = self.run_in(self.lightsOff(), 300)
             self.lightsOff()
+
+
+    def inpuBoolean(self, entity, attribute, old, new, kwargs):
+
+        if new == "on":
+            if self.get_state("binary_sensor.motion_sensor_158d0001e0a8e1") == "on":
+                illumination = max([ toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
+                self.lightsOn(illumination)

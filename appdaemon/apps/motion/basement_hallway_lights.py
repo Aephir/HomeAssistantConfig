@@ -20,6 +20,8 @@ class MotionClass(hass.Hass):
         for entity in self.motion_sensors:
             self.listen_state(self.motionTrigger, entity)
 
+        self.listen_state(self.inpuBoolean,"input_boolean.basement_lights_motion_control")
+
     # Assess whether we are awake, based on state of entity. Find better proxy eventually.
     def movieNight(self, entity):
         if self.get_state(entity) == "on":
@@ -36,7 +38,7 @@ class MotionClass(hass.Hass):
         except ValueError:
             return 0
 
-# Motion sensor lights
+    # Motion sensor lights
     def motionTrigger(self, entity, attribute, old, new, kwargs):
 
         sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200d203") == 'on' # Basement Entrance Motion
@@ -55,3 +57,8 @@ class MotionClass(hass.Hass):
 
         elif not all([sensor_1_state, sensor_2_state, sensor_3_state, sensor_4_state]):
             self.turn_off("light.basement_hallway")
+
+    def inpuBoolean(self, entity, attribute, old, new, kwargs):
+
+        if new == "on":
+            self.motionTrigger(entity, attribute, old, new, kwargs)

@@ -222,3 +222,7 @@ walk_in_closet_motion_control:
 bathroom_lights_motion_control:
   name: Bathroom Motion Sensors Control Lights
   initial: on
+
+no_internet_reboot:
+  name: Reboot if internet is out
+  initial: on

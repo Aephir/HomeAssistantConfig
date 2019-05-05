@@ -27,9 +27,9 @@
 
 ##########
 #__Home__#
-
-  - platform: googlehome
-    host: 192.168.0.55
+  # 
+  # - platform: googlehome
+  #   host: 192.168.0.55
 
 ###################
 #    Owntracks    #

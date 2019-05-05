@@ -36,6 +36,8 @@ class MotionClass(hass.Hass):
         for entity in self.illumination_sensors:
             self.listen_state(self.motionTrigger, entity)
 
+        self.listen_state(self.inpuBoolean,"input_boolean.bathroom_lights_motion_control")
+
 
     # Returns True/False based on state of entity (assess whether we are awake). Find better proxy eventually.
     def areWeAwake(self, entity):
@@ -91,3 +93,10 @@ class MotionClass(hass.Hass):
         elif new == 'off': # we got no motion.
             if self.get_state('binary_sensor.motion_sensor_158d000210ca6e') == 'off' and self.get_state('binary_sensor.motion_sensor_158d000236a22f') == 'off':
                 self.lightsOff()
+
+    def inpuBoolean(self, entity, attribute, old, new, kwargs):
+
+        if new == "on":
+            if self.get_state("binary_sensor.motion_sensor_158d0001e0a8e1") == "on":
+                illumination = max([ toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
+                self.lightsOn(illumination)

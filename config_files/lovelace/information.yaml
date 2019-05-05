@@ -122,6 +122,8 @@
             name: Shed
           - entity: sensor.x_door_3_bat
             name: Front Door
+          - entity: sensor.z_door_1_bat
+            name: Basement Door
           - entity: sensor.x_motion_1_bat
             name: Basement Entrance Motion
           - entity: sensor.x_motion_2_bat
@@ -167,8 +169,8 @@
             name: Neo-previous Power
           - entity: sensor.sensor_fountain
             name: Fountain Power
-          # - entity: sensor.sensor_espresso
-          #   name: WeMo 6 Power
+          - entity: sensor.sensor_hassio
+            name: HASS.io Power
 
       - type: glance
         title: Kitchen

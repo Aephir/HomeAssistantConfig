@@ -55,7 +55,7 @@ Avocado:
   min_brightness: 4000
   max_brightness: 76000
 
-Banana:
+Herb Garden:
   sensors:
     battery: sensor.plant_sensor_4_battery
     conductivity: sensor.plant_sensor_4_conductivity

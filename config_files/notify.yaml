@@ -30,8 +30,11 @@
 
 - platform: html5
   name: HTML5 Push notifications
-  gcm_api_key: !secret gcm-sender-key
-  gcm_sender_id: !secret gcm-sender-id
+  vapid_pub_key: !secret html5_firebase_public_key
+  vapid_prv_key: !secret html5_firebase_private_key
+  vapid_email: !secret my_gmail
+  # gcm_api_key: !secret gcm-sender-key
+  # gcm_sender_id: !secret gcm-sender-id
 
 - platform: telegram
   name: home_aephir_bot

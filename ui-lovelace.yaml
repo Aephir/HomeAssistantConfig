@@ -504,7 +504,7 @@ views:
         entity: plant.avocado
       - type: plant-status
         # title: Plant Sensors
-        entity: plant.banana
+        entity: plant.herb_garden
           # - sensor.mi_sensor_1_light_intensity
           # - sensor.mi_sensor_1_moisture
           # - sensor.mi_sensor_1_temperature

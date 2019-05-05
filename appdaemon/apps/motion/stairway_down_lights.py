@@ -32,6 +32,8 @@ class MotionClass(hass.Hass):
         # for entity in self.illumination_sensors:
         #     self.listen_state(self.motionTrigger,entity)
 
+        self.listen_state(self.inpuBoolean,"input_boolean.basement_lights_motion_control")
+
 
     def areWeAwake(self, entity):
         """ Check whether anyone is awake"""
@@ -72,3 +74,8 @@ class MotionClass(hass.Hass):
 
         else:
             self.turn_off("light.stairway_down")
+
+    def inpuBoolean(self, entity, attribute, old, new, kwargs):
+
+        if new == "on":
+            self.motionTrigger(entity, attribute, old, new, kwargs)

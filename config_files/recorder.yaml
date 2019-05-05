@@ -5,5 +5,37 @@
 ##################
 
 #db_url: sqlite:////mnt/hassdata/sqlite/home_assistant/home-assistant_v2.db
+db_url: !secret mysql_url
 purge_interval: 2
 purge_keep_days: 8
+exclude:
+  domains:
+    - automation
+    - weblink
+    - updater
+    - sun
+    - zone
+    - scene
+    - group
+  entities:
+    - binary_sensor.floorplan
+    - sensor.windows_and_doors
+    - sensor.time
+    - sensor.date
+    - sensor.next_departure
+    - sensor.moon
+    - sensor.dark_sky_wind_speed
+    - sensor.dark_sky_wind_bearing
+    - sensor.dark_sky_visibility
+    - sensor.dark_sky_temperature
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_pressure
+    - sensor.dark_sky_precip_probability
+    - sensor.dark_sky_precip_intensity
+    - sensor.dark_sky_precip
+    - sensor.dark_sky_icon
+    - sensor.dark_sky_humidity_2
+    - sensor.dark_sky_humidity
+    - sensor.dark_sky_hourly_summary
+    - sensor.dark_sky_daily_summary
+    - sensor.dark_sky_apparent_temperature

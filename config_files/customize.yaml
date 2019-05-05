@@ -8,7 +8,6 @@ binary_sensor.floorplan:
   custom_ui_state_card: state-card-floorplan
   config: !include floorplan.yaml
   # custom_ui_state_card: state-card-floorplan
-  # config: !include floorplan.yaml
 switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
   friendly_name: Z-Wave Switch 1
   custom_ui_state_card: state-card-custom-ui
@@ -23,7 +22,7 @@ switch.switch:
 switch.fountain:
   icon: mdi:fountain
 switch.espresso_machine:
-  friendly_name: WeMo 6
+  friendly_name: HASS.io RPi
   extra_badge:
     entity_id: sensor.sensor_espresso
   homebridge_visible: true
@@ -39,14 +38,6 @@ media_player.libreelec:
   icon: info
 media_player.ue46es8005:
   friendly_name: Living Room TV
-# light.hue_lightstrip_plus_1:
-#   friendly_name: Lighstrip
-# light.hue_ambiance_lamp_1:
-#   friendly_name: Ambiance1
-# light.hue_ambiance_lamp_2:
-#   friendly_name: Ambiance2
-# light.bedroom_stairway:
-#   friendly_name: Main bedroom
 switch.tv_kodi:
   entity_picture: /local/images/ue46es8005.jpg
 switch.kettle:
@@ -58,8 +49,6 @@ sensor.yr_symbol:
   friendly_name: Weather
 sensor.yr_temperature:
   friendly_name: Temperature
-#script.livingroommediaoff:
-#  icon: mdi:power
 script.living_room_media_off:
   icon: mdi:power
 sensor.yr_windSpeed:

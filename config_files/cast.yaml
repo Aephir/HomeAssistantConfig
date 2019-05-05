@@ -7,7 +7,7 @@
 
 media_player:
 # - host: 192.168.0.44 # Android TV, Conservatory
-# - host: 192.168.0.55 # Google Home Mini
+- host: 192.168.0.55 # Google Home Mini
 - host: 192.168.0.56 # Chromecast, Upstairs Living Room
 # - host: 192.168.0.57 # Chromecast, Conservatory
 - host: 192.168.0.58 # Chromecast Audio, Conservatory

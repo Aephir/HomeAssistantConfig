@@ -1,0 +1,9 @@
+##################
+#                #
+#    YEELIGHT    #
+#                #
+##################
+
+devices:
+  192.168.0.201:
+    name: Living Room Lightstrip

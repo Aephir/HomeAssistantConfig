@@ -2,7 +2,7 @@
 #               #
 #    HOMEKIT    #
 #               #
-#################   
+#################
 
 pincode: !secret homekit_pincode
 auto_start: False
@@ -10,4 +10,12 @@ filter:
   exclude_domains:
     - script
     - sensor
+    - binary_sensor
     - input_boolean
+    - automation
+    - weblink
+    - updater
+    - sun
+    - zone
+    - scene
+    - group
