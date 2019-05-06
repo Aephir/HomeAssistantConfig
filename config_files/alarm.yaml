@@ -1,43 +1,30 @@
 ##########################################################
 ## CUSTOM ALARM COMPONENT ALARM.YAML
 ## https://github.com/gazoscalvertos/Hass-Custom-Alarm
-## VERSION:  1.0.1
-## MODIFIED: 28/03/18
+## VERSION:  1.0.2
+## MODIFIED: 18/04/18
+## CHANGE LOG:
+## Add Multi Codes, names, pics
+## optional code to arm alarm
+## Default Interface password: HG28!!&dn
 ##########################################################
 
 platform: bwalarm
 # platform: alarm_control_panel
 name: House
-
-
-##[CODE RELATED]
-#[REQUIRED] Master Code, should consist of one or more digits ie '6482' ensure your passcode is encapsulated by quotes
-code: !secret alarm_code
-#[OPTIONAL] Panic Code should consist of one or more digits ie '9876' ensure your passcode is encapsulated by quotes, it needs to be different to your standard alarm code. This enables a special panic mode. This can be used under duress to deactivate the alarm which would appear to the unseeing eye as deactivated however a special attribute [panic_mode] listed under the alarm_control_panel.[identifier] will change to ACTIVE. This status could be used in your automations to send a notification to someone else police/spouse/sibling/neighbour that you are under duress. To deactive this mode arm then disarm your alarm in the usual manner.
-panic_code: !secret alarm_panic_code
-
-alarm: automation.alarm_triggered
-warning: automation.alarm_warning
-
-##[PASSCODE RELATED]
-#[OPTIONAL] Disabled if commented out. When a value equal or greater than 0 is set, the system will only allow the set amount of password attempts before timing out
-passcode_attempts: 3
-#[OPTIONAL] Default 30 seconds. When set with the password attempts option the panel will timeout for the amount of seconds set if the password is entered incorrectly as per the password_attempts option. The system will then reset the allowed password attempts
-passcode_attempts_timeout: 30
-
-
 panel:
-  # cameras:
-  # - camera.rear
-  # - camera.front
-  enable_clock: true
-  hide_passcode: true
-  hide_sidebar: true
-  round_buttons: false
-  enable_sensors_panel: true
-  # enable_camera_panel: true
-  # camera_update_interval: '5'
-  shadow_effect: false
+  cameras:
+  - camera.front_door
+  panel_title: ''
+  camera_update_interval: '30'
+  floorplan: binary_sensor.floorplan
+  enable_floorplan_panel: 'True'
+  enable_clock: 'True'
+  hide_passcode: 'True'
+  round_buttons: 'True'
+  enable_sensors_panel: 'True'
+  enable_camera_panel: 'True'
+  enable_custom_panel: 'False'
 states:
   armed_away:
     immediate:
@@ -47,14 +34,14 @@ states:
     delayed:
     - binary_sensor.door_window_sensor_158d00022d0917 # Front door
     - binary_sensor.door_window_sensor_158d00022b3b66 # Basement door
-    # - binary_sensor.sensor # Shed door
+  # - binary_sensor.sensor # Shed door
     - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
     - binary_sensor.motion_sensor_158d000200d285 # Conservatory motion
     - binary_sensor.motion_sensor_158d00023e3742 # Entrance motion
     override: []
-    pending_time: 150
-    warning_time: 20
-    trigger_time: 300
+    pending_time: 150 # 2
+    warning_time: 20 # 2
+    trigger_time: 300 # 5
   armed_home:
     immediate:
     - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
@@ -63,7 +50,7 @@ states:
     - binary_sensor.sensor # Shed door
     delayed:
     - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
-  #   - binary_sensor.first_floor_motion
+#   - binary_sensor.first_floor_motion
     override: []
     pending_time: 150
     warning_time: 150
@@ -77,8 +64,81 @@ states:
 #     - binary_sensor.sensor # Shed door
     override: []
     pending_time: 150
-    warning_time: 20
+    warning_time: '2'
     trigger_time: 600
 users:
-  - Aephir
-  - Kristina
+- id: 75c9d2267cee412080450f487eb5fe30
+  name: Aephir
+  enabled: true
+  code: 75c9d2267cee412080450f487eb5fe30
+  picture: /local/images/brain.jpg
+- id: !secret kristina_id
+  name: Kristina
+  enabled: true
+  code: 0907129198014cc38e658ba90cd96926
+  picture: /local/images/kristina_3.jpg
+- id: !secret emilie_id
+  name: Emilie
+  enabled: true
+  code: 6f37d3ef1a3848bb901d5da5a967e632
+  picture: /local/images/emilie.jpg
+- id: !secret naia_id
+  name: Naia
+  enabled: false
+  code: ebf52937fe9143fba85d2d662fe4155c
+  picture: /local/images/naia_2.jpg
+- id: bb81cd13a61041f9b5c57000c92508ee
+  name: Tablets_1
+  enabled: false
+  code: bb81cd13a61041f9b5c57000c92508ee
+  picture: /local/images/ha.png
+- id: 6f415abb1d2043aeb8d81ebacbce0d8d
+  name: Tablets_2
+  enabled: false
+  code: 6f415abb1d2043aeb8d81ebacbce0d8d
+  picture: /local/images/ha.png
+- id: 119fda64294549ea9f2ecac093f396f1
+  name: Tablets_3
+  enabled: false
+  code: 119fda64294549ea9f2ecac093f396f1
+  picture: /local/images/ha.png
+- id: 632be764c7384983be7800661ca79636
+  name: Guest_lv_1
+  enabled: false
+  code: 632be764c7384983be7800661ca79636
+  picture: /local/images/ha.png
+- id: 80794751f53549f0aaeae48a4730f412
+  name: Legacy API password user
+  enabled: false
+  code: 80794751f53549f0aaeae48a4730f412
+  picture: /local/images/ha.png
+admin_password: !secret alarm_admin_password
+mqtt:
+  enable_mqtt: true
+  qos: 0
+  state_topic: home/alarm
+  override_code: false
+  payload_arm_away: ARM_AWAY
+  payload_arm_home: ARM_HOME
+  payload_arm_night: ARM_NIGHT
+  pending_on_warning: false
+  command_topic: home/alarm/set
+  payload_disarm: DISARM
+code: !secret alarm_code
+enable_perimeter_mode: true
+code_to_arm: false
+themes:
+- name: aaa
+  warning_color: '#995BFF'
+  pending_color: '#FF2943'
+  disarmed_color: '#FF22E6'
+  triggered_color: '#FF0000'
+  armed_home_color: '#C1B1FF'
+  armed_away_color: '#FF8686'
+  armed_perimeter_color: '#DAFF9E'
+  active: false
+  action_button_border_color: '#3ED5FF'
+panic_code: !secret alarm_panic_code
+enable_log: true
+passcode_attempts: '2'
+passcode_attempts_timeout: '10'

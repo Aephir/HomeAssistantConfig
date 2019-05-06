@@ -23,7 +23,7 @@ homeassistant:
       trusted_networks:
         - 127.0.0.1 # Loopback. This is the machine running Home Assistant
         - ::1 # Loopback. This is the machine running Home Assistant (IPV6 addrress)
-        - 172.11.0.2 # NGINX/Let's encrypt docker container
+        # - 172.11.0.2 # NGINX/Let's encrypt docker container
         # - 192.168.0.0/24 # My home network. Any devices with an IP between 192.168.0.0 and 192.168.0.255 (local devices)
    # - type: legacy_api_password # Uncomment if you want to enable legacy API password support
 
@@ -86,7 +86,7 @@ updater:
 #    Include    #
 #################
 
-alarm_control_panel: !include alarm.yaml
+alarm_control_panel: !include config_files/alarm.yaml
 # android_ip_webcam: !include misc/android_ip_webcam.yaml
 automation: !include config_files/automation.yaml
 binary_sensor: !include config_files/binary_sensor.yaml

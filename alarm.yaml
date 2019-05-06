@@ -12,7 +12,18 @@
 platform: bwalarm
 name: House
 panel:
-  cameras: []
+  cameras:
+  - camera.front_door
+  panel_title: ''
+  camera_update_interval: '30'
+  floorplan: binary_sensor.floorplan
+  enable_floorplan_panel: 'True'
+  enable_clock: 'True'
+  hide_passcode: 'True'
+  round_buttons: 'True'
+  enable_sensors_panel: 'True'
+  enable_camera_panel: 'True'
+  enable_custom_panel: 'False'
 states:
   armed_away:
     immediate: []
@@ -81,3 +92,16 @@ users:
   enabled: false
   code: 80794751f53549f0aaeae48a4730f412
   picture: /local/images/ha.png
+mqtt:
+  enable_mqtt: true
+  qos: 0
+  state_topic: home/alarm
+  override_code: false
+  payload_arm_away: ARM_AWAY
+  payload_arm_home: ARM_HOME
+  payload_arm_night: ARM_NIGHT
+  pending_on_warning: false
+  command_topic: home/alarm/set
+  payload_disarm: DISARM
+admin_password: '2723'
+passcode_attempts: '2'

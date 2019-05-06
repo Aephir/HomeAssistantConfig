@@ -219,7 +219,8 @@ a:hover {
 }
 
 .action-button{
-  border: 3px solid var(--action-button-border-color) !important;
+border: 0px solid var(--action-button-border-color) !important;
+/* DS */
 }
 
 .dropdown-content{
@@ -428,7 +429,7 @@ text-align: left;
   #main-content {
     /* padding-bottom: 30px; */
   }
-  div.arm paper-button {
+  div.arm mwc-button {
     width: 36vh;
     height: 36vh;
     margin: 15px;
@@ -480,18 +481,21 @@ text-align: left;
       justify-content: center;
       text-align: center;
    }
-   div.arm paper-button {
+   div.arm mwc-button {
     /*  margin-bottom: 10px;*/
    }
-  div.digits paper-button, div.digits paper-icon-button{
+  div.digits mwc-button, div.digits paper-icon-button{
     color: var(--arm-button-text-color);
     border-radius: var(--button-shape);
     min-width: 11vh;
     height: 11vh;
     padding: 0;
-    border: 2px solid var(--arm-button-border-color);
+    border: 0px solid var(--arm-button-border-color); /* DS */
+/*    border: 2px solid var(--button-background-color);*/
     background-color: var(--button-background-color);
     margin: 8px;
+    justify-content: center;/* DS */
+    align-items: center;/* DS */
     font-weight: 400;
         display: flex;
   }
@@ -547,10 +551,10 @@ text-align: left;
     padding-bottom: 120px; */
   }
   #code-display {
-       margin-top: 20px;
-       margin-bottom: 40px;
+       margin-top: 5px;
+       margin-bottom: 5px;
   }
-  div.arm paper-button {
+  div.arm mwc-button {
     width: 36vh;
     height: 36vh;
 /*    line-height: 110px;*/
@@ -559,7 +563,7 @@ text-align: left;
     font-size: x-large;
 }
   #alarm-status span {
-   font-size: xx-large;
+   font-size: x-large;
 }
   .xs {
     display: none !important;
@@ -592,18 +596,21 @@ text-align: left;
       flex-wrap: wrap;
       text-align: center;
    }
-   div.digits paper-button, div.digits paper-iron-button{
+   div.digits mwc-button, div.digits paper-iron-button{
     border-radius: var(--button-shape);
-    width: 18vh;
-    height: 18vh;
-    border: 2px solid var(--arm-button-border-color);
+    min-width: 14vh;
+    height: 14vh;
+    border: 0px solid var(--arm-button-border-color); /* DS */
+/*    border: 2px solid var(--button-background-color);*/
     background-color: var(--button-background-color);
     display: flex;
-    vertical-align: middle;
-    margin: 10px;
-    padding: 20px;
+/*    vertical-align: middle;*/
+    justify-content: center;/* DS */
+    align-items: center;/* DS */
+    margin: 8px;
+    padding: 5px;
     text-align: center;
-    font-size: xx-large;
+    font-size: large;
   }
 }
 
@@ -631,8 +638,8 @@ text-align: left;
 
 
    #info-panel-selection paper-icon-button {
-    width: 75px;
-    height: 75px;
+    width: 60px;
+    height: 60px;
     margin-left: 15px;
   }
   span, li, .settings-nav-text{
@@ -734,6 +741,8 @@ h1 {
   color: var(--info-panel-buttons-color);
   background: var(--panel-outer-background-color);
   position: relative;
+  bottom: 0;
+  height: auto;
   display: inline;
   flex-wrap: wrap;
   align-items: center;
@@ -775,10 +784,12 @@ div.code {
 }
 #code-display {
     text-align: center;
-    font-size: xx-large;
+    font-size: x-large;
+/*    font-size: xx-large;*/
     letter-spacing: 5px;
     color: var(--panel-text-color);
-    padding-bottom: 10px;
+    padding-bottom: 5px;
+/*    padding-bottom: 10px;*/
     width: 150px;
     border-bottom: solid;
     border-bottom-width: 1.3px;
@@ -792,43 +803,51 @@ div.code iron-label {
    font-size: x-large;
 }
 
-paper-button {
+mwc-button {
    background: #6b8d9c;
    color: #ffffff;
 }
 
 
-div.arm paper-button {
+div.arm mwc-button {
   background-color: var(--button-background-color);
   border-radius: var(--button-shape);
-  border: 3px solid var(--arm-button-border-color);
+  border: 0px solid var(--arm-button-border-color); /* DS */
+/*  border: 3px solid var(--button-background-color); */
   display: flex;
   color: var(--arm-button-text-color);
+  justify-content: center;/* DS */
+  align-items: center;/* DS */
 }
-div.arm paper-button div {
+div.arm mwc-button div {
   border-radius: var(--button-shape);
   width: 100px;
   height: 100px;
-  border: 3px solid var(--arm-button-border-color);
+  border: 0px solid var(--arm-button-border-color); /* DS */
+/*  border: 3px solid var(--button-background-color);*/
   display: flex;
   line-height: 100px;
   margin: 20px;
   padding: 20px;
+  justify-content: center;/* DS */
+  align-items: center;/* DS */
 }
-div.arm paper-button.big {
+div.arm mwc-button.big {
    width: 68%;
 }
-div.arm paper-button.cancel {
-       border: 3px solid var(--cancel-color);
+div.arm mwc-button.cancel {
+       border: 0px solid var(--cancel-color);
+/*       border: 3px solid var(--cancel-color); DS */
 }
-div.arm paper-button.override {
-       border: 3px solid var(--override-color);
+div.arm mwc-button.override {
+       border: 0px solid var(--override-color);
+/*       border: 3px solid var(--override-color); DS */
 }
 
 div.options {
    padding-top: 10px;
 }
-div.options paper-button{
+div.options mwc-button{
    width: 96.5%;
 }
 .tappable {

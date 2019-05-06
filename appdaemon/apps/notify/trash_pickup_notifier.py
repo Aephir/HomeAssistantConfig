@@ -5,26 +5,18 @@
 import appdaemon.plugins.hass.hassapi as hass
 
 
-class notify(hass.Hass):
+class Notify(hass.Hass):
 
     def initialize(self):
 
-        # Send this from another app using self.set_state("sensor.notify_message", state="blabla"). "state" = message.
-        self.set_state("sensor.notify_message",state=" ")
-        # Send this from another app using self.set_state("sensor.notify_message", state="['notify/home_aephir_bot','notify/ios_kristinas_iphone']"). "state" = notifiers.
-        # or state=['notify/home_aephir_bot','notify/ios_kristinas_iphone'] ??
-        # e.g.
-        self.set_state("sensor.notify_ids",state=" ")
-        self.listen_state(self.send_notify,"sensor.notify_message")
-        notifier_ids = self.get_state("sensor.notify_ids")
+        self.listen_state(self.send_notify,'sensor.trash_pickup')
 
 
     def send_notify(self, entity, attribute, old, new, kwargs):
-        for notifier in notifier_ids:
-            self.call_service(notifier,message=new)
-        self.log(new)
-    ... do any action you like when a meassage is send, send messages to several notifiers
-    ... use tts to hear the message, translate the message, anything you can think off
 
+        trashtype   = str(self.get_state('sensor.trash_pickup', attribute='trash_type'))[:-1]
+        trashdate   = str(self.get_state('sensor.trash_pickup', attribute='trash_date'))[:-1]
+        trashday    = str(self.get_state('sensor.trash_pickup', attribute='trash_day'))[:-1]
 
-        self.set_state("sensor.xiaomi_cube_1_tap_twice_state", state=self.light_list[0])
+        self.call_service('notify/home_aephir_bot', message='På ' + trashday + ' d. ' + trashdate + ' bliver der hentet ' + trashtype + '.\n\nHusk at stille affaldet ud!!')
+        self.call_service("notify/ios_kristinas_iphone", message='På ' + trashday + ' d. ' + trashdate + ' bliver der hentet ' + trashtype + '.\n\nHusk at stille affaldet ud!!')

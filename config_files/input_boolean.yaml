@@ -91,17 +91,17 @@ guest_mode:
 school_mode:
   name: School Mode
   icon: mdi:school
-  # initial: on
+  initial: on
 
 alert_mode:
   name: Alert Mode
   icon: mdi:alert-octagram
-  # initial: off
+  initial: off
 
 speech_notifications:
   name: Speech Notifications
   icon: mdi:speaker-wireless
-#  initial: on
+  initial: off
 
 vacation_mode:
   name: Vacation
@@ -111,6 +111,11 @@ vacation_mode:
 kids_home:
   name: Kids Home
   icon: mdi:human-female-female
+  initial: off
+
+silent_mode:
+  name: Silent Mode For Alarm
+  initial: off
 
 ###########################
 #     Dummy switches      #

@@ -1,13 +1,12 @@
 """
   CUSTOM ALARM COMPONENT BWALARM
-  https://github.com/gazoscalvertos/Hass-Custom-Alarm
+  https://github.com/akasma74/Hass-Custom-Alarm
 
-  VERSION:  1.1.4
-  MODIFIED: 10/02/19
-  GazosCalvertos: Yet another take on a custom alarm for Home Assistant
+  VERSION:  1.1.5_ak74
+  MODIFIED: 01/05/19
 
   CHANGE LOG:
-  -Fixed username issue in log
+  - message_received(topic, msg, qos) -> message_received(msg)
 
 """
 
@@ -50,7 +49,7 @@ import homeassistant.helpers.config_validation                       as cv
 
 _LOGGER = logging.getLogger(__name__)
 
-VERSION                            = '1.1.3'
+VERSION                            = '1.1.4_ak74'
 
 DOMAIN                             = 'alarm_control_panel'
 #//--------------------SUPPORTED STATES----------------------------
@@ -430,7 +429,7 @@ class BWAlarm(alarm.AlarmControlPanel):
               _LOGGER.error("[ALARM] Persistence path %s does not exist.", persistence_path)
            else:
               self._persistence_final_path = os.path.join(persistence_path, "alarm.json")
-              if (self.persistence_load()):
+              if (self.persistence_load() and (self._persistence_list["state"] != STATE_ALARM_DISARMED) ):
                   self._state     = self._persistence_list["state"]
                   self._timeoutat = pytz.UTC.localize(datetime.datetime.strptime(self._persistence_list["timeoutat"].split(".")[0].replace("T"," "), '%Y-%m-%d %H:%M:%S')) if self._persistence_list["timeoutat"] != None else None
                   self._returnto  = self._persistence_list["returnto"]
@@ -668,6 +667,7 @@ class BWAlarm(alarm.AlarmControlPanel):
                 return
 
             if new.state != None:
+                _LOGGER.debug("[ALARM] event: entity_id %s, state %s", event.data['entity_id'], new.state)
                 if new.state.lower() in self._supported_statuses_on:
                     eid = event.data['entity_id']
                     if eid in self.immediate:
@@ -685,8 +685,9 @@ class BWAlarm(alarm.AlarmControlPanel):
 
     @property
     def code_format(self):
-        """One or more characters."""
-        return None if self._code is None else '.+'
+#        """One or more characters."""
+#        return None if self._code is None else '.+'
+        return None if ((self._code is None) or (self._state == STATE_ALARM_DISARMED)) else alarm.FORMAT_NUMBER
 
     def alarm_disarm(self, code=None):
         #If the provided code matches the panic alarm then deactivate the alarm but set the state of the panic mode to active.
@@ -929,24 +930,24 @@ class BWAlarm(alarm.AlarmControlPanel):
             )
 
         @callback
-        def message_received(topic, payload, qos):
+        def message_received(msg):
             """Run when new MQTT message has been received."""
             #_LOGGER.warning("[ALARM] MQTT Topic: %s Payload: %s", topic, payload)
-            if payload.split(" ")[0] == self._payload_disarm:
+            if msg.payload.split(" ")[0] == self._payload_disarm:
                 #_LOGGER.warning("Disarming %s", payload)
                 #TODO self._hass.states.get('binary_sensor.siren_sensor') #Use this method to relay open states
                 if (self._override_code):
                     self.alarm_disarm(self._code)
                 else:
-                    self.alarm_disarm(payload.split(" ")[1])
-            elif payload == self._payload_arm_home:
+                    self.alarm_disarm(msg.payload.split(" ")[1])
+            elif msg.payload == self._payload_arm_home:
                 self.alarm_arm_home('')
-            elif payload == self._payload_arm_away:
+            elif msg.payload == self._payload_arm_away:
                 self.alarm_arm_away('')
-            elif payload == self._payload_arm_night:
+            elif msg.payload == self._payload_arm_night:
                 self.alarm_arm_night('')
             else:
-                _LOGGER.warning("[ALARM/MQTT] Received unexpected payload: %s", payload)
+                _LOGGER.warning("[ALARM/MQTT] Received unexpected payload: %s", msg.payload)
                 return
         if (self._config[CONF_MQTT][CONF_ENABLE_MQTT]):
             return self._mqtt.async_subscribe(

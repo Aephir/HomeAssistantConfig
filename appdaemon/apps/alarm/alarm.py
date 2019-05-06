@@ -46,6 +46,9 @@ class AlarmSystem(appapi.AppDaemon):
         self._xiaomi_aqara_disarmed_ringtone_id = self.args.get(
             "xiaomi_aqara_disarmed_ringtone_id", 11)
 
+        # media players for alarm audio
+        self._media_players = self.args.get("media_players", None)
+
         # log current config
         self.log("Got armed_home sensors {}".format(
             self._armed_home_sensors))
