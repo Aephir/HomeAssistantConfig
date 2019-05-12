@@ -1,11 +1,14 @@
-# Generic notifier.
-# Use self.set_state("sensor.notify_message", state="blabla") from any other app
-# See https://community.home-assistant.io/t/a-notify-function-that-does-more-then-just-1-notify/32483
-
 import appdaemon.plugins.hass.hassapi as hass
 
 
 class Notify(hass.Hass):
+    """
+    Notifier to remind us of trash pickup.
+    """
+    # To do:
+        # Have it remind us when we are home/arrive home.
+        # Get a second reminder on the morning of trash pickup.
+        # Make actionable notification.
 
     def initialize(self):
 

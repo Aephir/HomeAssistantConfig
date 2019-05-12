@@ -9,10 +9,6 @@ resources:
     type: js
   - url: /customcards/github/custom-cards/tracker-card.js?track=true
     type: module
-  # - url: /customcards/custom-lovelace/monster-card/monster-card.js?v=0.2.3
-  #   type: js
-  # - url: /customcards/gauge-card.js?v=0.2.0
-  #   type: js
   - url: /customcards/slider-entity-row.js?v=ba8f50
     type: js
   - url: /customcards/toggle-lock-entity-row.js
@@ -31,6 +27,11 @@ resources:
     type: js
   - url: /customcards/card-tools.js?v=297fcc
     type: js
+  # - url: /customcards/github/thomasloven/card-tools.js?track=true
+  #   type: js
+  - url: /customcards/github/thomasloven/layout-card.js?track=true
+    type: js
+
 
 # Added version ?v=0.0.1 #Added version ?v=0.0.1 for:
 # /local/slider-entity-row.js
@@ -450,6 +451,18 @@ views:
           include:
             - domain: automation
               state: 'off'
+
+      - type: custom:state-switch
+        entity: user
+        default: default
+        states:
+          Aephir:
+            type: entities
+            title: Docker Image Update
+            show_header_toggle: false
+            entities:
+              - entity: script.update_docker
+                type: custom:toggle-lock-entity-row
 
   # - title: Surveillance
   #   icon: mdi:cctv

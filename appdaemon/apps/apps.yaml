@@ -374,7 +374,7 @@ bathroom_motion_light:
 #   class: MotionClass
 #   entity_override: input_boolean.kitchen_lights_motion_override
 
-kitchen_motion_light:
+kitchen_motion_light_test_timer:
   module: kitchen_lights
   class: MotionClass
   constrain_input_boolean: input_boolean.kitchen_lights_motion_control

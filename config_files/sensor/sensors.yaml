@@ -931,12 +931,6 @@
   unit_of_measurement: '°C'
   value_template: '{{ (value | multiply(0.001)) | round(1) }}'
 
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /home
-    - type: memory_use_percent
-    - type: processor_use
 
 # - platform: command_line
 #   name: SSL cert expiry

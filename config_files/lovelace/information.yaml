@@ -88,29 +88,17 @@
             - "binary_sensor.motion_sensor_158d000236a0f3" # Top floor TV room
             - "binary_sensor.motion_sensor_158d000236a0d0" # Upastairs bathroom
 
-
-      - type: glance
-        title: Illumination Levels
-        columns: 3
-        entities:
-          - sensor.illumination_158d000200d285
-          - sensor.illumination_158d000200d203
-          - sensor.illumination_158d000200e0c5
-          - sensor.illumination_7811dcb8d944
-          - sensor.illumination_158d000236a116
-          - sensor.illumination_158d00023e3742
-          - sensor.illumination_158d000236a22f
-          - sensor.illumination_158d000236a0d0
-          - sensor.illumination_158d000236a0f3
-          - sensor.illumination_158d0001e0a8e1
       - type: glance
         title: Alarm Status
         columns: 2
         entities:
-          - alarm_control_panel.house
+          - entity: alarm_control_panel.house
+            name: Security system
           - entity: binary_sensor.someonehome360
             name: Occupancy
             text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
+          - entity: binary_sensor.smoke_sensor_158d0001bc49bd
+            name: Smoke detector (kitchen)
 
       - type: glance
         title: Sensor Battery Levels
@@ -156,34 +144,13 @@
             name: Smoke Sensor
           # - entity: zwave.fibaro_system_fgt001_heat_controller.battery_level
           #   name: Bathroom Radiator
-      - type: glance
-        title: Power Consumption
-        entities:
-          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
-            name: Fibaro Power
-          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2
-            name: Fibaro2 Power
-          - entity: sensor.neo_coolcam_power_plug_12a_power
-            name: Espresso Power
-          - entity: sensor.neo_coolcam_power_plug_12a_previous_reading_2
-            name: Neo-previous Power
-          - entity: sensor.sensor_fountain
-            name: Fountain Power
-          - entity: sensor.sensor_hassio
-            name: HASS.io Power
 
-      - type: glance
-        title: Kitchen
-        entities:
-          - entity: binary_sensor.smoke_sensor_158d0001bc49bd
-            name: Smoke Detector
-      - type: glance
-        title: Computer Information
-        entities:
-          - entity: sensor.cpu_temperature
-          - entity: sensor.processor_use
-          - entity: sensor.memory_use_percent
-          - entity: sensor.disk_use_percent
+      # - type: glance
+      #   title: Kitchen
+      #   entities:
+      #     - entity: binary_sensor.smoke_sensor_158d0001bc49bd
+      #       name: Smoke Detector
+
       - type: horizontal-stack
         cards:
           - type: gauge
@@ -239,106 +206,174 @@
           # - sensor.custom_python_script_tracker
       # - type: iframe
       #   url: https://embed.windy.com/embed2.html
-      - type: sensor
-        entity: sensor.temperature_158d000245b4a2
-        name: Wine cellar temperature
-        height: 150
-        line_color: "#3498db"
+      # - type: sensor
+      #   entity: sensor.temperature_158d000245b4a2
+      #   name: Wine cellar temperature
+      #   height: 150
+      #   line_color: "#3498db"
 
-      - type: vertical-stack
-        cards:
-        - type: glance
-          title: Bathroom
-          columns: 3
-          entities:
-            - entity: sensor.temperature_158d00022c66ff
-              name: Temperature
-            - entity: sensor.humidity_158d00022c66ff
-              name: Humidity
-            - entity: sensor.pressure_158d00022c66ff
-              name: Pressure
-              # value_template: '{{ value.sensor.pressure_158d00022c66ff | round(1) }}'
+      # - type: vertical-stack
+      #   cards:
+      #   - type: glance
+      #     title: Bathroom
+      #     columns: 3
+      #     entities:
+      #       - entity: sensor.temperature_158d00022c66ff
+      #         name: Temperature
+      #       - entity: sensor.humidity_158d00022c66ff
+      #         name: Humidity
+      #       - entity: sensor.pressure_158d00022c66ff
+      #         name: Pressure
+      #         # value_template: '{{ value.sensor.pressure_158d00022c66ff | round(1) }}'
+      #
+      #   - type: glance
+      #     title: Conservatory
+      #     columns: 3
+      #     entities:
+      #       - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+      #         name: Temperature
+      #       - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
+      #         name: Humidity
+      #       - entity: sensor.aeotec_zw100_multisensor_6_luminance_2
+      #         name: Luminescence
+      #       - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet_2
+      #         name: UV
+      #
+      #   - type: glance
+      #     title: Kitchen
+      #     columns: 3
+      #     entities:
+      #       - entity: sensor.temperature_158d00027727eb
+      #         name: Temperature
+      #       - entity: sensor.humidity_158d00027727eb
+      #         name: Humidity
+      #       - entity: sensor.pressure_158d00027727eb
+      #         name: Pressure
 
-        - type: glance
-          title: Conservatory
-          columns: 3
-          entities:
-            - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
-              name: Temperature
-            - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
-              name: Humidity
-            - entity: sensor.aeotec_zw100_multisensor_6_luminance_2
-              name: Luminescence
-            - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet_2
-              name: UV
+      - type: history-graph
+        title: 'Temperature graphs'
+        hours_to_show: 72
+        refresh_interval: 60
+        entities:
+          - entity: sensor.temperature_158d000245b4a2
+            name: Wine cellar
+          - entity: sensor.temperature_158d0002437897
+            name: Washing room
+          - entity: sensor.temperature_158d00022c66ff
+            name: Bathroom
+          - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+            name: Kitchen
+          - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+            name: Conservatory
+          - entity: sensor.temperature_158d000243778b
+            name: Shed
 
-        - type: glance
-          title: Kitchen
-          columns: 3
-          entities:
-            - entity: sensor.temperature_158d00027727eb
-              name: Temperature
-            - entity: sensor.humidity_158d00027727eb
-              name: Humidity
-            - entity: sensor.pressure_158d00027727eb
-              name: Pressure
-        - type: glance
-          title: Wine Cellar
-          columns: 3
-          entities:
-            - entity: sensor.temperature_158d000245b4a2
-              name: Temperature
-            - entity: sensor.humidity_158d000245b4a2
-              name: Humidity
-            - entity: sensor.pressure_158d000245b4a2
-              name: Pressure
-        - type: glance
-          title: Washing Room
-          columns: 3
-          entities:
-            - entity: sensor.temperature_158d0002437897
-              name: Temperature
-            - entity: sensor.humidity_158d0002437897
-              name: Humidity
-            - entity: sensor.pressure_158d0002437897
-              name: Pressure
+      - type: history-graph
+        title: 'Humidity graphs'
+        hours_to_show: 72
+        refresh_interval: 60
+        entities:
+          - entity: sensor.humidity_158d000245b4a2
+            name: Wine cellar
+          - entity: sensor.humidity_158d0002437897
+            name: Washing room
+          - entity: sensor.humidity_158d00022c66ff
+            name: Bathroom
+          - entity: sensor.humidity_158d00027727eb
+            name: Kitchen
+          - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
+            name: Conservatory
+          - entity: sensor.humidity_158d000243778b
+            name: Shed
 
-        - type: glance
-          title: Walk-in Closet
-          columns: 3
-          entities:
-            - entity: sensor.aeotec_zw100_multisensor_6_temperature
-              name: Temperature
-            - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
-              name: Humidity
-            - entity: sensor.aeotec_zw100_multisensor_6_luminance
-              name: Luminescence
-            - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet
-              name: UV
+      - type: history-graph
+        title: 'Illumination graphs'
+        hours_to_show: 72
+        refresh_interval: 60
+        entities:
+          - entity: sensor.illumination_158d000200d285
+            name: Conservatory
+          - entity: sensor.illumination_158d000200d203
+            name: Basement Entrance
+          - entity: sensor.illumination_158d000200e0c5
+            name: Top floor stairway
+          - entity: sensor.illumination_158d000236a116
+            name: TV room
+          - entity: sensor.illumination_7811dcb8d944
+            name: Bathroom
+          - entity: sensor.illumination_158d000236a116
+            name: Upstairs bathroom
+          - entity: sensor.illumination_158d000236a0f3
+            name: Top floor TV room
+          - entity: sensor.illumination_158d0001e0a8e1
+            name: Kitchen
+          - entity: sensor.illumination_158d00023e3742
+            name: Entrance
+          - entity: sensor.aeotec_zw100_multisensor_6_luminance
+            name: Walk-in closet
 
-        - type: glance
-          title: Shed
-          columns: 3
-          entities:
-            - entity: sensor.temperature_158d000243778b
-              name: Temperature
-            - entity: sensor.humidity_158d000243778b
-              name: Humidity
-            - entity: sensor.pressure_158d000243778b
-              name: Pressure
-      # - type: glance
-      #   entities:
-      #     - updater.updater
-      #   state_filter:
-      #     - 'on'
-        - type: custom:state-switch
-          entity: user
-          default: default
-          states:
-            Aephir:
-              type: entities
-              title: Docker Image Update
-              show_header_toggle: false
-              entities:
-                - entity: script.update_docker
-                  type: custom:toggle-lock-entity-row
+
+      - type: history-graph
+        title: 'Power consumption graphs'
+        hours_to_show: 72
+        entities:
+          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+            name: Fibaro Power
+          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2
+            name: Fibaro2 Power
+          - entity: sensor.neo_coolcam_power_plug_12a_power
+            name: Espresso Power
+          - entity: sensor.sensor_fountain
+            name: Fountain Power
+          - entity: sensor.sensor_hassio
+            name: HASS.io Power
+
+      #   - type: glance
+      #     title: Wine Cellar
+      #     columns: 3
+      #     entities:
+      #       - entity: sensor.temperature_158d000245b4a2
+      #         name: Temperature
+      #       - entity: sensor.humidity_158d000245b4a2
+      #         name: Humidity
+      #       - entity: sensor.pressure_158d000245b4a2
+      #         name: Pressure
+      #   - type: glance
+      #     title: Washing Room
+      #     columns: 3
+      #     entities:
+      #       - entity: sensor.temperature_158d0002437897
+      #         name: Temperature
+      #       - entity: sensor.humidity_158d0002437897
+      #         name: Humidity
+      #       - entity: sensor.pressure_158d0002437897
+      #         name: Pressure
+      #
+      #   - type: glance
+      #     title: Walk-in Closet
+      #     columns: 3
+      #     entities:
+      #       - entity: sensor.aeotec_zw100_multisensor_6_temperature
+      #         name: Temperature
+      #       - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
+      #         name: Humidity
+      #       - entity: sensor.aeotec_zw100_multisensor_6_luminance
+      #         name: Luminescence
+      #       - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet
+      #         name: UV
+      #
+      #   - type: glance
+      #     title: Shed
+      #     columns: 3
+      #     entities:
+      #       - entity: sensor.temperature_158d000243778b
+      #         name: Temperature
+      #       - entity: sensor.humidity_158d000243778b
+      #         name: Humidity
+      #       - entity: sensor.pressure_158d000243778b
+      #         name: Pressure
+      # # - type: glance
+      # #   entities:
+      # #     - updater.updater
+      # #   state_filter:
+      # #     - 'on'

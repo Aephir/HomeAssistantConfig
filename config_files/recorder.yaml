@@ -4,7 +4,6 @@
 #                #
 ##################
 
-#db_url: sqlite:////mnt/hassdata/sqlite/home_assistant/home-assistant_v2.db
 db_url: !secret mysql_url
 purge_interval: 2
 purge_keep_days: 8
