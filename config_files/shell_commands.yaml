@@ -5,6 +5,14 @@
 ############################
 
 ##########################
+#    Desktop computer    #
+##########################
+
+desktop_shutodown: 'curl -k airytec_shutdown'
+desktop_reboot: 'curl -k airytec_reboot'
+
+
+##########################
 #    iKettle Commands    #
 ##########################
 

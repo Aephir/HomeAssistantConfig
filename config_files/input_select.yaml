@@ -8,17 +8,21 @@
 #    Devices    #
 #################
 
+################
+#__Desktop_PC__#
+
+
 #############
 #__iKettle__#
-  ikettle_select:
-    name: iKettle
-    options:
-      - "0"
-      - "65"
-      - "80"
-      - "95"
-      - "100"
-#    entity_picture: /local/images/ikettle.jpg 
+ikettle_select:
+  name: iKettle
+  options:
+    - "0"
+    - "65"
+    - "80"
+    - "95"
+    - "100"
+ # entity_picture: /local/images/ikettle.jpg
 
 ################
 #    Scenes    #
@@ -26,12 +30,11 @@
 
 ########################
 #__Living Room Scenes__#
-  living_room_scenes:
-    name: Living Room Scenes
-    options:
-      - Living Room off
-      - Living Room dim
-      - Living Room normal
-      - Living Room bright
-    icon: mdi:lightbulb
-
+living_room_scenes:
+  name: Living Room Scenes
+  options:
+    - Living Room off
+    - Living Room dim
+    - Living Room normal
+    - Living Room bright
+  icon: mdi:lightbulb
