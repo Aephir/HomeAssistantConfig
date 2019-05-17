@@ -548,11 +548,11 @@ bathroom_radiator:
 hue_tap_1:
   module: hue_tap_1
   class: HueRemote
-  entityID: sensor.bedroom_switch
+  entityID: sensor.tap_1
   entity_1: switch.fountain
   entity_2: light.conservatory_lights
   entity_3: light.dining_room_lights
-  entity_4: [media_player.living_room_speaker, media_player.conservatory_speaker]
+  entity_4: [media_player.living_room_speaker, media_player.conservatory_speaker] #, media_player.sonos_play_5_1
 
 hue_dimmer_1:
   module: hue_dimmer_1
@@ -610,6 +610,10 @@ bathroom_status:
 
 doors_or_windows_open:
   module: door_window_open
+  class: Sensor
+
+battery_powered_devices_offline:
+  module: device_unreachable
   class: Sensor
 
 ################

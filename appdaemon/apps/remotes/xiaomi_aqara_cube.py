@@ -1,16 +1,21 @@
-# Hue tap button
+"""
+Xiaomi cube remote
+"""
 
 import appdaemon.plugins.hass.hassapi as hass
 
 class Remote(hass.Hass):
 
 # action_type, action_value (rotate)
-# (rotate)	flip90, flip180, move, tap_twice, shake_air, swing, alert, free_fall, rotate (degrees at action_value)
+# last_action:
+        # flip90, flip180, move, tap_twice, shake_air, swing, alert, free_fall, rotate (degrees at action_value)
+# last_action (that I can actually get to work reliably):
+        # rotate, flip90, flip180, move, shake_air, free_fall
+# last_action (that I have seen, but can't reproduce reliably):
+        # alert
 
 
     def initialize(self):
-        # Detect click. It detects sequential clicks of same button! (Why/how?)
-        self.listen_state(self.ButtonState,"binary_sensor.cube_158d00028f7196")
 
         # List of light groups that can be "active". If active, this is what is dimmed upon rotation.
         self.light_list = [
@@ -19,15 +24,8 @@ class Remote(hass.Hass):
             'light.conservatory_lights'
             ]
 
-    # def lights_on(self, **kwargs):
-    #     """ iterates through lights and turns them on"""
-    #     for entity in self.light_entity_ids:
-    #         self.turn_on(entity, **kwargs)
-    #
-    # def lights_off(self):
-    #     """ iterates through lights and turns them off"""
-    #     for entity in self.light_entity_ids:
-    #         self.turn_off(entity)
+        # Detect click. It detects sequential clicks of same button! (Why/how?)
+        self.listen_state(self.ButtonState,"binary_sensor.cube_158d00028f7196")
 
 
     def ButtonState(self, entity, attribute, old, new, kwargs):
