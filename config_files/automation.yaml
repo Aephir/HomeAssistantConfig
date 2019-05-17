@@ -1341,7 +1341,6 @@
   trigger:
     - platform: time_pattern
       minutes: '/10'
-      seconds: 00
     - platform: homeassistant
       event: start
     - platform: event

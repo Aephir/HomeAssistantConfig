@@ -90,7 +90,7 @@
 
       - type: glance
         title: Alarm Status
-        columns: 2
+        columns: 3
         entities:
           - entity: alarm_control_panel.house
             name: Security system
@@ -100,50 +100,65 @@
           - entity: binary_sensor.smoke_sensor_158d0001bc49bd
             name: Smoke detector (kitchen)
 
-      - type: glance
-        title: Sensor Battery Levels
-        columns: 4
-        entities:
-          - entity: sensor.x_door_1_bat
-            name: Conservatory
-          - entity: sensor.x_door_2_bat
-            name: Shed
-          - entity: sensor.x_door_3_bat
-            name: Front Door
-          - entity: sensor.z_door_1_bat
-            name: Basement Door
-          - entity: sensor.x_motion_1_bat
-            name: Basement Entrance Motion
-          - entity: sensor.x_motion_2_bat
-            name: Conservatory Motion
-          - entity: sensor.x_motion_3_bat
-            name: Top Floor Stairway Motion
-          - entity: sensor.x_motion_4_bat
-            name: Upstais Bathroom Motion
-          - entity: sensor.x_motion_5_bat
-            name: Basement Stairway Motion
-          - entity: sensor.x_motion_6_bat
-            name: Basement Bathroom 2 Motion
-          - entity: sensor.x_motion_7_bat
-            name: Basement TV Room Motion
-          - entity: sensor.x_motion_8_bat
-            name: Kitchen Motion
-          - entity: sensor.x_motion_9_bat
-            name: Bathroom Motion
-          - entity: sensor.x_temphum_1_bat
-            name: Bathroom Temp/Hum
-          - entity: sensor.x_temphum_2_bat
-            name: Wine Cellar Temp/Hum
-          - entity: sensor.x_temphum_3_bat
-            name: Washing Room Temp/Hum
-          - entity: sensor.x_temphum_4_bat
-            name: Shed Temp/Hum
-          - entity: sensor.x_temphum_5_bat
-            name: Kitchen Temp/Hum
-          - entity: sensor.x_smoke_1_bat
-            name: Smoke Sensor
-          # - entity: zwave.fibaro_system_fgt001_heat_controller.battery_level
-          #   name: Bathroom Radiator
+      - type: custom:monster-card
+        show_empty: false
+        card:
+          type: glance
+          title: Sensor Battery Levels
+          columns: 4
+          # state_filter:
+          #   - '< 25'
+        filter:
+          include:
+            - entity_id: "*_bat*"
+              state: '< 25'
+            # - attributes:
+            #   battery: '< 50'
+            # - attributes:
+            #   battery_level: '< 50'
+        # entities:
+        #   - entity: sensor.x_door_1_bat
+        #     name: Conservatory
+        #   - entity: sensor.x_door_2_bat
+        #     name: Shed
+        #   - entity: sensor.x_door_3_bat
+        #     name: Front Door
+        #   - entity: sensor.z_door_1_bat
+        #     name: Basement Door
+        #   - entity: sensor.x_motion_1_bat
+        #     name: Basement Entrance Motion
+        #   - entity: sensor.x_motion_2_bat
+        #     name: Conservatory Motion
+        #   - entity: sensor.x_motion_3_bat
+        #     name: Top Floor Stairway Motion
+        #   - entity: sensor.x_motion_4_bat
+        #     name: Upstais Bathroom Motion
+        #   - entity: sensor.x_motion_5_bat
+        #     name: Basement Stairway Motion
+        #   - entity: sensor.x_motion_6_bat
+        #     name: Basement Bathroom 2 Motion
+        #   - entity: sensor.x_motion_7_bat
+        #     name: Basement TV Room Motion
+        #   - entity: sensor.x_motion_8_bat
+        #     name: Kitchen Motion
+        #   - entity: sensor.x_motion_9_bat
+        #     name: Bathroom Motion
+        #   - entity: sensor.x_temphum_1_bat
+        #     name: Bathroom Temp/Hum
+        #   - entity: sensor.x_temphum_2_bat
+        #     name: Wine Cellar Temp/Hum
+        #   - entity: sensor.x_temphum_3_bat
+        #     name: Washing Room Temp/Hum
+        #   - entity: sensor.x_temphum_4_bat
+        #     name: Shed Temp/Hum
+        #   - entity: sensor.x_temphum_5_bat
+        #     name: Kitchen Temp/Hum
+        #   - entity: sensor.x_smoke_1_bat
+        #     name: Smoke Sensor
+        #   # - entity: zwave.fibaro_system_fgt001_heat_controller.battery_level
+        #   #   name: Bathroom Radiator
+        #   - entity: sensor.fibaro_heat_01
+        #     name: Bathroom radiator
 
       # - type: glance
       #   title: Kitchen

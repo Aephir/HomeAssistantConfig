@@ -46,11 +46,11 @@ class MotionClass(hass.Hass):
 
         self.timer = None
 
-        self.listen_state(self.inpuBoolean,"input_boolean.kitchen_lights_motion_control")
+        self.listen_state(self.motionTrigger,"input_boolean.kitchen_lights_motion_control")
 
     def cooking(self, **kwargs):
         """ Check if we are likely to be cooking"""
-        if self.get_state("input_boolean.cooking_mode") == 'on' or self.now_is_between("16:00:00", "19:00:00"):
+        if self.get_state("input_boolean.cooking_mode") == 'on' or self.now_is_between("16:00:00", "19:00:00") or self.now_is_between("06:45:00", "08:00:00"):
             return True
 
     def isOn(self, entity_id):
@@ -67,6 +67,7 @@ class MotionClass(hass.Hass):
         """ Turns the lights on, depending on time and awake state"""
 
         cooking = self.cooking()
+        self.cancel_timer(self.timer)
 
         if self.now_is_between("07:00:00", "21:00:00") and illumination < 150:
             if cooking:
@@ -109,7 +110,7 @@ class MotionClass(hass.Hass):
         if new == 'on': # if we got motion.
             illumination = max([ toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
             self.lightsOn(illumination)
-            self.cancel_timer(self.timer)
+            # self.cancel_timer(self.timer)
         elif new == 'off': # we got no motion.
             self.timer = self.run_in(self.lightsOff(), 150)
             # self.lightsOff()

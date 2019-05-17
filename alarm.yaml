@@ -20,32 +20,57 @@ panel:
   enable_floorplan_panel: 'True'
   enable_clock: 'True'
   hide_passcode: 'True'
-  round_buttons: 'True'
+  round_buttons: false
   enable_sensors_panel: 'True'
   enable_camera_panel: 'True'
   enable_custom_panel: 'False'
+  hide_sensors: true
 states:
   armed_away:
-    immediate: []
-    delayed: []
+    immediate:
+    - binary_sensor.door_window_sensor_158d000234dc7b
+    - binary_sensor.door_window_sensor_158d000237c924
+    - binary_sensor.door_window_sensor_158d0002286a78
+    - binary_sensor.motion_sensor_158d000200e0c5
+    - binary_sensor.motion_sensor_158d000210ca6f
+    - binary_sensor.motion_sensor_158d000236a0d0
+    - binary_sensor.motion_sensor_158d000210ca6e
+    - binary_sensor.motion_sensor_158d000236a22f
+    - binary_sensor.motion_sensor_158d000236a116
+    - binary_sensor.motion_sensor_158d000236a0f3
+    delayed:
+    - binary_sensor.door_window_sensor_158d00022d0917
+    - binary_sensor.door_window_sensor_158d00022b3b66
+    - binary_sensor.motion_sensor_158d000200d203
+    - binary_sensor.motion_sensor_158d000200d285
+    - binary_sensor.motion_sensor_158d00023e3742
     override: []
-    pending_time: 0
-    warning_time: 0
-    trigger_time: 600
+    pending_time: 150
+    warning_time: 20
+    trigger_time: 300
   armed_home:
-    immediate: []
-    delayed: []
+    immediate:
+    - binary_sensor.door_window_sensor_158d000234dc7b
+    - binary_sensor.door_window_sensor_158d00022b3b66
+    - binary_sensor.door_window_sensor_158d00022d0917
+    - binary_sensor.sensor
+    delayed:
+    - binary_sensor.motion_sensor_158d000200d203
     override: []
-    pending_time: 0
-    warning_time: 0
-    trigger_time: 600
+    pending_time: '60'
+    warning_time: '30'
+    trigger_time: 300
   armed_perimeter:
-    immediate: []
-    delayed: []
+    immediate:
+    - binary_sensor.door_window_sensor_158d000234dc7b
+    - binary_sensor.door_window_sensor_158d0002286a78
+    delayed:
+    - binary_sensor.door_window_sensor_158d00022b3b66
+    - binary_sensor.door_window_sensor_158d00022d0917
     override: []
-    pending_time: 0
-    warning_time: 0
-    trigger_time: 600
+    pending_time: 150
+    warning_time: '5'
+    trigger_time: '300'
 users:
 - id: 75c9d2267cee412080450f487eb5fe30
   name: Aephir

@@ -672,6 +672,12 @@ baby_room_lights_state_tasker:
   entityID: light.baby_room
   friendly_name: baby_room_lights
 
+wine_cellar_lights_state_tasker:
+  module: report_entity_state_tasker
+  class: NotifyTasker
+  entityID: light.wine_cellar
+  friendly_name: wine_cellar_lights
+
 set_latest_notification_tasker:
   module: latest_notification_tasker
   class: NotifyTasker

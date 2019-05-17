@@ -67,11 +67,16 @@ views:
   #       image: https://www.home-assistant.io/images/default-social.png
   #       entity: light.conservatory
 
-    # Specify a tab icon if you want the view tab to be an icon.
+
+#######################
+#                     #
+#    MAIN CONTROLS    #
+#                     #
+#######################
+
   - icon: mdi:home-assistant
-    # Title of the view. Will be used as the tooltip for tab icon
-    title: Quick Control
-    id: quick_control
+    title: Main Control
+    id: main_control
     cards:
       # - type: glance
       #   entities:
@@ -260,6 +265,12 @@ views:
               - entity: media_player.ue46es8005
               - entity: switch.ue46es8005
 
+          - type: entities
+            title: TV (Conservatory)
+            entities:
+              - entity: media_player.ue55nu7475xxc
+              - entity: switch.ue55nu7475xxc
+
       - type: entities
         title: Basement Lights
         entities:
@@ -333,7 +344,281 @@ views:
       #     - sensor.openevse_charging_current
       #     - sensor.openevse_session_energy
 
-  - !include config_files/lovelace/information.yaml
+
+#####################
+#                   #
+#    INFORMATION    #
+#                   #
+#####################
+
+  # - !include config_files/lovelace/information.yaml
+
+  - title: Information
+    icon: mdi:information-variant
+    id: information
+    panel: true
+    layout: auto
+    column_num: 3
+    # max_columns: 4
+    # column_width:
+    # max_width:
+    # min_height:
+    ltr: false
+    rebuild: false
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        cards:
+
+          - type: glance
+            title: Family
+            columns: 4
+            entities:
+              - entity: device_tracker.meta_walden
+                name: Walden
+              - entity: device_tracker.meta_kristina
+                name: Kristina
+              - entity: device_tracker.meta_emilie
+                name: Emilie
+              - entity: device_tracker.meta_naia
+                name: Naia
+              - entity: sensor.walden_phone_battery
+                name: Walden's Battery
+              - entity: sensor.kristina_phone_battery
+                name: Kristina's Battery
+              - entity: sensor.emilie_phone_battery
+                name: Emilie's Battery
+              - entity: sensor.niels_brodys_ipad_2_battery_level
+                name: Naia's Battery
+
+          - type: history-graph
+            title: 'Temperature graphs'
+            hours_to_show: 72
+            refresh_interval: 60
+            entities:
+              - entity: sensor.temperature_158d000245b4a2
+                name: Wine cellar
+              - entity: sensor.temperature_158d0002437897
+                name: Washing room
+              - entity: sensor.temperature_158d00022c66ff
+                name: Bathroom
+              - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+                name: Kitchen
+              - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+                name: Conservatory
+              - entity: sensor.temperature_158d000243778b
+                name: Shed
+
+          - type: history-graph
+            title: 'Humidity graphs'
+            hours_to_show: 72
+            refresh_interval: 60
+            entities:
+              - entity: sensor.humidity_158d000245b4a2
+                name: Wine cellar
+              - entity: sensor.humidity_158d0002437897
+                name: Washing room
+              - entity: sensor.humidity_158d00022c66ff
+                name: Bathroom
+              - entity: sensor.humidity_158d00027727eb
+                name: Kitchen
+              - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
+                name: Conservatory
+              - entity: sensor.humidity_158d000243778b
+                name: Shed
+
+          - type: history-graph
+            title: 'Illumination graphs'
+            hours_to_show: 72
+            refresh_interval: 60
+            entities:
+              - entity: sensor.illumination_158d000200d285
+                name: Conservatory
+              - entity: sensor.illumination_158d000200d203
+                name: Basement Entrance
+              - entity: sensor.illumination_158d000200e0c5
+                name: Top floor stairway
+              - entity: sensor.illumination_158d000236a116
+                name: TV room
+              - entity: sensor.illumination_7811dcb8d944
+                name: Bathroom
+              - entity: sensor.illumination_158d000236a116
+                name: Upstairs bathroom
+              - entity: sensor.illumination_158d000236a0f3
+                name: Top floor TV room
+              - entity: sensor.illumination_158d0001e0a8e1
+                name: Kitchen
+              - entity: sensor.illumination_158d00023e3742
+                name: Entrance
+              - entity: sensor.aeotec_zw100_multisensor_6_luminance
+                name: Walk-in closet
+
+
+          - type: history-graph
+            title: 'Power consumption graphs'
+            hours_to_show: 72
+            entities:
+              - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+                name: Fibaro Power
+              - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2
+                name: Fibaro2 Power
+              - entity: sensor.neo_coolcam_power_plug_12a_power
+                name: Espresso Power
+              - entity: sensor.sensor_fountain
+                name: Fountain Power
+              - entity: sensor.sensor_hassio
+                name: HASS.io Power
+
+          - break
+
+          - type: glance
+            title: Alarm Status
+            columns: 3
+            entities:
+              - entity: alarm_control_panel.house
+                name: Security system
+              - entity: binary_sensor.someonehome360
+                name: Occupancy
+                text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
+              - entity: binary_sensor.smoke_sensor_158d0001bc49bd
+                name: Smoke detector (kitchen)
+
+          - type: custom:monster-card
+            show_empty: false
+            card:
+              type: glance
+              title: Sensor Battery Levels
+              columns: 4
+              # state_filter:
+              #   - '< 25'
+            filter:
+              include:
+                - entity_id: "*_bat*"
+                  state: '< 25'
+
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                name: CPU Temperature
+                # title: CPU Temperature
+                measurement: °C # set yo override default
+                entity: sensor.cpu_temperature
+                # scale: 10px
+                min: 0
+                max: 100
+                severity:
+                  red: 75
+                  amber: 50
+                  green: 0
+              - type: gauge
+                name: CPU use
+                # title: CPU use
+                entity: sensor.processor_use
+                # scale: 10px
+                min: 0
+                max: 100
+                severity:
+                  red: 75
+                  amber: 50
+                  green: 0
+              - type: gauge
+                name: Memory use
+                # title: Memory use
+                entity: sensor.memory_use_percent
+                # scale: 10px
+                min: 0
+                max: 100
+                severity:
+                  red: 75
+                  amber: 50
+                  green: 0
+              - type: gauge
+                name: Disk use
+                # title: Disk use
+                entity: sensor.disk_use_percent
+                # scale: 10px
+                min: 0
+                max: 100
+                severity:
+                  red: 75
+                  amber: 50
+                  green: 0
+          - type: custom:tracker-card
+            title: Custom Components and Cards
+            trackers:
+              - sensor.custom_card_tracker
+              - sensor.custom_component_tracker
+
+          - break
+
+          - type: glance
+            title: Door/Window Sensors
+            columns: 4
+            entities:
+              - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
+              - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory Door
+              - binary_sensor.door_window_sensor_158d00022d0917 # Front Door
+              - binary_sensor.door_window_sensor_158d00022b3b66 # Basement Door
+              - binary_sensor.door_window_sensor_158d0002286a78 # Bathroom Window
+              - binary_sensor.door_window_sensor_158d000237c924 # Bedroom Window
+
+          - type: entities
+            title: Doors and Windows
+            show_header_toggle: false
+            entities:
+              - type: custom:entity-attributes-card
+                entity: sensor.windows_and_doors
+                filter:
+                  include:
+                    - key: sensor.windows_and_doors.number_of_doors
+                      name: Number of Open Doors
+                    - key: sensor.windows_and_doors.number_of_windows
+                      name: Number of Open Windows
+                    - key: sensor.windows_and_doors.shed_door
+                      name: Shed Door
+                    - key: sensor.windows_and_doors.last_door_opened
+                      name: Last Opened Door
+                    - key: sensor.windows_and_doors.door_opened_at
+                      name: Door Opened at
+                    - key: sensor.windows_and_doors.list_of_open
+                      name: List of Open Doors and Windows
+
+          - type: vertical-stack
+            cards:
+            - type: glance
+              title: Main Floor Motion Sensors
+              columns: 3
+              entities:
+                # - type: divider
+                  # label: Main Floor
+                - "binary_sensor.motion_sensor_158d00023e3742" # Entrance
+                - "binary_sensor.motion_sensor_158d000200d285" # Conservatory
+                - "binary_sensor.conservatory_motion_sensor_aeotec" # Conservatory #2 (Aeotec)
+                - "binary_sensor.motion_sensor_158d0001e0a8e1" # Kitchen
+                - "binary_sensor.motion_sensor_158d000210ca6e" # Bathroom #1
+                - "binary_sensor.motion_sensor_158d000236a22f" # Bathroom #2
+            - type: glance
+              title: Basement Motion Sensors
+              columns: 3
+              entities:
+                - "binary_sensor.motion_sensor_158d000200d203" # Basement entrance
+                - "binary_sensor.motion_sensor_158d000210ca6f" # Basemenet stairway
+                - "binary_sensor.motion_sensor_158d000236a116" # TV room
+                - "binary_sensor.walk_in_closet_motion_sensor" # Walk-in closet
+            - type: glance
+              title: Top Floor Motion Sensors
+              columns: 3
+              entities:
+                - "binary_sensor.motion_sensor_158d000200e0c5" # Top floor stairs
+                - "binary_sensor.motion_sensor_158d000236a0f3" # Top floor TV room
+                - "binary_sensor.motion_sensor_158d000236a0d0" # Upastairs bathroom
+
+
+#################
+#               #
+#    CLIMATE    #
+#               #
+#################
 
   - icon: mdi:thermometer-lines
     title: Climate
@@ -341,6 +626,13 @@ views:
     cards:
       - type: thermostat
         entity: climate.fibaro_system_fgt001_heat_controller_heating
+
+
+#######################
+#                     #
+#    MEDIA PLAYERS    #
+#                     #
+#######################
 
   - icon: mdi:theater
     title: Media Players
@@ -357,12 +649,15 @@ views:
         title: Video Players
         entities:
           - media_player.ue46es8005
+          - media_player.ue55nu7475xxc
           - media_player.kodi
           - media_player.upstairs_living_room_tv
           - media_player.conservatory_tv
           - switch.ue46es8005
       - type: media-control
         entity: media_player.ue46es8005
+      - type: media-control
+        entity: media_player.ue55nu7475xxc
       - type: media-control
         entity: media_player.kodi
       - type: media-control
@@ -371,6 +666,13 @@ views:
         entity: media_player.living_room_speaker
       - type: media-control
         entity: media_player.upstairs_living_room_tv
+
+
+##########################
+#                        #
+#    MAUNAL OVERRIDES    #
+#                        #
+##########################
 
   - icon: mdi:hammer
     id: manual_override
@@ -464,6 +766,13 @@ views:
               - entity: script.update_docker
                 type: custom:toggle-lock-entity-row
 
+
+######################
+#                    #
+#    SURVEILLANCE    #
+#                    #
+######################
+
   # - title: Surveillance
   #   icon: mdi:cctv
   #   id: surveillance
@@ -503,6 +812,13 @@ views:
   #         - light.entrance_lights
   #         - binary_sensor.front_door
 
+
+################
+#              #
+#    PLANTS    #
+#              #
+################
+
   - icon: mdi:leaf
     id: plants
     cards:
@@ -524,6 +840,12 @@ views:
           # - sensor.mi_sensor_1_conductivity
           # - sensor.mi_sensor_1_battery
 
+
+######################
+#                    #
+#    EXPERIMENTAL    #
+#                    #
+######################
 
   - icon: mdi:biohazard
     id: experimental
@@ -978,6 +1300,13 @@ views:
   #           users:
   #             - Aephir
   #             - Kristina
+
+
+#######################
+#                     #
+#    GUEST CONTROL    #
+#                     #
+#######################
 
   - icon: mdi:flask
     # Title of the view. Will be used as the tooltip for tab icon
