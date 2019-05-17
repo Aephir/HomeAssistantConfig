@@ -615,6 +615,7 @@ doors_or_windows_open:
 battery_powered_devices_offline:
   module: device_unreachable
   class: Sensor
+  notify: !secret my_telegram
 
 ################
 #    System    #

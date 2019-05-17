@@ -80,7 +80,7 @@ class Sensor(hass.Hass):
 
         if list_of_down:
             self.set_state('sensor.unavailable_devices', state = 'on', attributes = {'devices':list_of_down})
-            self.call_service('notify/home_aephir_bot', title = title, message = message)
+            self.call_service(self.args['notify'], title = title, message = message)
             self.log(message)
         else:
             self.set_state('sensor.unavailable_devices', state = 'off', attributes = {'devices':[]})
