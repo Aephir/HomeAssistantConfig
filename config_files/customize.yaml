@@ -209,6 +209,9 @@ binary_sensor.door_window_sensor_158d0002286a78:
 binary_sensor.door_window_sensor_158d000237c924:
   friendly_name: Bedroom Window 1
   device_class: window
+binary_sensor.door_window_sensor_158d00022f16f0:
+  friendly_name: Washing Room Window 1
+  device_class: window
 binary_sensor.door_window_sensor_158d000234dc7b:
   friendly_name: Conservatory Door
   device_class: door

@@ -3,6 +3,7 @@ Motion sensors to control the main floor bathroom lights.
 """
 
 import appdaemon.plugins.hass.hassapi as hass
+from datetime import date
 
 def toInt(inString):
     try:
@@ -67,19 +68,38 @@ class MotionClass(hass.Hass):
         """ Turns the lights on, depending on time and awake state"""
 
         awake = self.areWeAwake('light.dining_room_lights')
+        if date.today().weekday() < 5:
+            weekday = True
+        else:
+            weekday = False
 
-        if self.now_is_between("07:00:00", "21:00:00") and illumination < 50:
-            self.turn_on('light.bathroom', brightness=255, kelvin=2700)
-        elif self.now_is_between("21:00:00", "22:00:00") and illumination < 50:
-            if awake:
+        if weekday:
+            if self.now_is_between("06:45:00", "21:00:00") and illumination < 50:
                 self.turn_on('light.bathroom', brightness=255, kelvin=2700)
-            else:
-                self.turn_on('light.bathroom', brightness=150, kelvin=2200)
-        elif self.now_is_between("22:00:00", "07:00:00"): # everything between 22 and 7
-            if awake:
-                self.turn_on('light.bathroom', brightness=255, kelvin=2200)
-            else:
-                self.turn_on('light.bathroom', brightness=10, rgb_color=[255,0,0])
+            elif self.now_is_between("21:00:00", "22:00:00") and illumination < 50:
+                if awake:
+                    self.turn_on('light.bathroom', brightness=255, kelvin=2700)
+                else:
+                    self.turn_on('light.bathroom', brightness=150, kelvin=2200)
+            elif self.now_is_between("22:00:00", "06:45:00"): # everything between 22 and 7
+                if awake:
+                    self.turn_on('light.bathroom', brightness=255, kelvin=2200)
+                else:
+                    self.turn_on('light.bathroom', brightness=10, rgb_color=[255,0,0])
+
+        else:
+            if self.now_is_between("08:00:00", "22:30:00") and illumination < 50:
+                self.turn_on('light.bathroom', brightness=255, kelvin=2700)
+            elif self.now_is_between("22:30:00", "23:30:00") and illumination < 50:
+                if awake:
+                    self.turn_on('light.bathroom', brightness=255, kelvin=2700)
+                else:
+                    self.turn_on('light.bathroom', brightness=150, kelvin=2200)
+            elif self.now_is_between("23:30:00", "08:00:00"): # everything between 22 and 7
+                if awake:
+                    self.turn_on('light.bathroom', brightness=255, kelvin=2200)
+                else:
+                    self.turn_on('light.bathroom', brightness=10, rgb_color=[255,0,0])
 
 
     def motionTrigger(self, entity, attribute, old, new, kwargs):

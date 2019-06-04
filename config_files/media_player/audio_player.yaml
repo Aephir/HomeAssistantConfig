@@ -10,7 +10,7 @@
 
 - platform: mpd
   host: 192.168.0.145
-  password: !secret mpd1_password  
+  password: !secret mpd1_password
 
 #- platform: spotify
 #  client_id: !secret spotify_client_id

@@ -1,4 +1,4 @@
-title: Home
+itle: Home
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
 # Exclude entities from "Unused entities" view
@@ -259,17 +259,18 @@ views:
                     # - type: "custom:button-card"
                     #   color_type: blank-card
 
+          # - type: entities
+          #   title: TV Control
+          #   entities:
+          #     - entity: media_player.ue46es8005
+          #     - entity: switch.ue46es8005
+
           - type: entities
             title: TV Control
             entities:
-              - entity: media_player.ue46es8005
-              - entity: switch.ue46es8005
-
-          - type: entities
-            title: TV (Conservatory)
-            entities:
               - entity: media_player.ue55nu7475xxc
               - entity: switch.ue55nu7475xxc
+              - entity: switch.tv_room_media_center
 
       - type: entities
         title: Basement Lights
@@ -561,6 +562,7 @@ views:
               - binary_sensor.door_window_sensor_158d00022b3b66 # Basement Door
               - binary_sensor.door_window_sensor_158d0002286a78 # Bathroom Window
               - binary_sensor.door_window_sensor_158d000237c924 # Bedroom Window
+              - binary_sensor.door_window_sensor_158d00022f16f0 # Washing Room Window 1
 
           - type: entities
             title: Doors and Windows
@@ -645,6 +647,8 @@ views:
           - media_player.sonos_play_5_1
           - media_player.mpd
           - media_player.living_room_speaker
+          - media_player.conservatory_speaker
+          # - media_player.
       - type: entities
         title: Video Players
         entities:
@@ -666,6 +670,9 @@ views:
         entity: media_player.living_room_speaker
       - type: media-control
         entity: media_player.upstairs_living_room_tv
+      - type: entities
+        title: Power
+        entity: switch.tv_room_media_center
 
 
 ##########################
@@ -676,6 +683,7 @@ views:
 
   - icon: mdi:hammer
     id: manual_override
+    name: Manual Control and Overrides
     cards:
       - type: entities
         title: Manual overrides
@@ -684,10 +692,11 @@ views:
           - input_boolean.kids_home
           - input_boolean.guest_mode
           - input_boolean.cooking_mode
-          - input_boolean.kitchen_lights_motion_control
-          - input_boolean.bathroom_lights_motion_control
+          # - input_boolean.kitchen_lights_motion_control
+          # - input_boolean.bathroom_lights_motion_control
+          - input_boolean.main_floor_lights_motion_control
           - input_boolean.top_floor_lights_motion_control
-          - input_boolean.entrance_lights_motion_control
+          # - input_boolean.entrance_lights_motion_control
           - input_boolean.basement_lights_motion_control
           - input_boolean.walk_in_closet_motion_control
       - type: entities
@@ -698,6 +707,16 @@ views:
           - input_boolean.kristinahome360
           - input_boolean.emiliehome360
           - input_boolean.naiahome360
+      - type: entities
+        title: Power Switches
+        entities:
+          - switch.hassio
+          - switch.fountain
+          - switch.shed_main_power
+          - switch.shed_master_power
+          - switch.shed_power
+          - switch.switch
+          - switch.tv_room_media_center
       - type: entities
         title: Docker Containers
         entities:

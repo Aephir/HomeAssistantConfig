@@ -41,12 +41,11 @@ class MotionClass(hass.Hass):
 
         for entity in self.motion_entity_ids:
             # self.listen_state(self.motionTrigger, entity) # motion sensors
-            self.listen_state(self.motionTrigger, entity, new = 'on') # motion sensors
-            self.listen_state(self.motionTrigger, entity, new = 'off') # motion sensors
+            self.listen_state(self.motionTrigger, entity) # motion sensors
 
         self.timer = None
 
-        self.listen_state(self.motionTrigger,"input_boolean.kitchen_lights_motion_control")
+        self.listen_state(self.inputBoolean,"input_boolean.kitchen_lights_motion_control")
 
     def cooking(self, **kwargs):
         """ Check if we are likely to be cooking"""
@@ -57,7 +56,7 @@ class MotionClass(hass.Hass):
         """ Check whether an entity_id state is 'on'"""
         return self.get_state(entity_id) == 'on'
 
-    def lightsOff(self):
+    def lightsOff(self, kwargs):
         """ iterates through lights and turns them off"""
         for entity in self.light_entity_ids:
             self.turn_off(entity)
@@ -67,7 +66,7 @@ class MotionClass(hass.Hass):
         """ Turns the lights on, depending on time and awake state"""
 
         cooking = self.cooking()
-        self.cancel_timer(self.timer)
+        # self.cancel_timer(self.timer)
 
         if self.now_is_between("07:00:00", "21:00:00") and illumination < 150:
             if cooking:
@@ -102,21 +101,22 @@ class MotionClass(hass.Hass):
         On motion off: Start timer, turn off lights after 5 minutes.
         """
 
-        #
-        # if self.timer != None:
-        #     self.cancel_timer(self.timer)
+        if self.timer != None:
+            self.cancel_timer(self.timer)
+
+        # self.timer = None
 
         # this will be triggered by
-        if new == 'on': # if we got motion.
-            illumination = max([ toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
+        if self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'on': # if we got motion.
+            illumination = max([toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
+            self.cancel_timer(self.timer)
             self.lightsOn(illumination)
-            # self.cancel_timer(self.timer)
-        elif new == 'off': # we got no motion.
-            self.timer = self.run_in(self.lightsOff(), 150)
+        elif self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'off': # we got no motion.
+            self.timer = self.run_in(self.lightsOff, 150)
             # self.lightsOff()
 
 
-    def inpuBoolean(self, entity, attribute, old, new, kwargs):
+    def inputBoolean(self, entity, attribute, old, new, kwargs):
 
         if new == "on":
             if self.get_state("binary_sensor.motion_sensor_158d0001e0a8e1") == "on":

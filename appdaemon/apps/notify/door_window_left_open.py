@@ -79,14 +79,14 @@ class Notify(hass.Hass):
             self.listen_state(self.MessageWeather, entity_id)
 
 
-    def cancelTimers(self, timerlist):
-        for entity_id in timerlist:
+    def cancelTimers(self):
+        for entity_id in self.timers:
             if entity_id != None:
                 self.cancel_timer(entity_id)
 
 
 
-    def MessageDoorWindow (self, entity, attribute, old, new, kwargs):
+    def MessageDoorWindow(self, entity, attribute, old, new, kwargs):
         """
         Set to "False" if door/window closes. Otherwise, run function.
         """
@@ -118,7 +118,7 @@ class Notify(hass.Hass):
                 self.timer_5 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
 
 
-    def MessageWeather (self, entity, attribute, old, new, kwargs):
+    def MessageWeather(self, entity, attribute, old, new, kwargs):
         """
 
         """

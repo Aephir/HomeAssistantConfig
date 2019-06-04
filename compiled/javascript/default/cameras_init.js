@@ -28,7 +28,7 @@ $(function(){ //DOM Ready
     var widgets = {}
     // Initialize Widgets
     
-        widgets["default-front-door-camera"] = new baseiframe("default-front-door-camera", "", "default", {'widget_type': 'baseiframe', 'fields': {'title': 'Front Door', 'frame_src': '', 'img_src': '', 'frame_style': '""'}, 'icons': [], 'static_css': {'title_style': 'color: #fff;background-color: rgba(0, 0, 0, 0.5);', 'widget_style': 'background-color: #444;'}, 'css': {}, 'static_icons': [], 'refresh': 60, 'entity_picture': 'http://192.168.1.20:8123/api/camera_proxy/camera.front_door?token=waldenb@gmail.com&api_password=2wsxcDcvfr€', 'use_comma': 0, 'precision': 1, 'use_hass_icon': 1, 'namespace': 'default'})
+        widgets["default-front-door-camera"] = new baseiframe("default-front-door-camera", "", "default", {'widget_type': 'baseiframe', 'fields': {'title': 'Front Door', 'frame_src': '', 'img_src': '', 'frame_style': '""'}, 'icons': [], 'static_css': {'title_style': 'color: #fff;background-color: rgba(0, 0, 0, 0.5);', 'widget_style': 'background-color: #444;'}, 'css': {}, 'static_icons': [], 'refresh': 60, 'entity_picture': 'http://192.168.1.20:8123/api/camera_proxy/camera.front_door', 'use_comma': 0, 'precision': 1, 'use_hass_icon': 1, 'namespace': 'default'})
     
 
     // Setup click handler to cancel timeout navigations

@@ -334,7 +334,7 @@ basement_hallway_motion_light:
 conservatory_lights:
   module: conservatory_lights
   class: MotionClass
-  constrain_input_boolean: input_boolean.conservatory_lights_motion_control
+  constrain_input_boolean: input_boolean.main_floor_lights_motion_control
 
 # basement_stairway_motion_light:
 #   module: basement_stairway_motion
@@ -357,7 +357,7 @@ stairway_up_light:
 bathroom_motion_light:
   module: bathroom_lights
   class: MotionClass
-  constrain_input_boolean: input_boolean.bathroom_lights_motion_control
+  constrain_input_boolean: input_boolean.main_floor_lights_motion_control
 
 # entrance_motion_light:
 #   module: entrance_motion
@@ -372,12 +372,17 @@ bathroom_motion_light:
 # kitchen_motion_light:
 #   module: kitchen_motion
 #   class: MotionClass
-#   entity_override: input_boolean.kitchen_lights_motion_override
+#   entity_override: input_boolean.kitchen_lights_motion_control
 
 kitchen_motion_light_test_timer:
   module: kitchen_lights
   class: MotionClass
-  constrain_input_boolean: input_boolean.kitchen_lights_motion_control
+  constrain_input_boolean: input_boolean.main_floor_lights_motion_control
+
+# kitchen_motion_light:
+#   module: kitchen_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.kitchen_lights_motion_control
 
 # tv_room_motion_light:
 #   module: tv_room_motion
@@ -429,6 +434,13 @@ notify_trash_pickup:
   module: trash_pickup_notifier
   class: Notify
 
+leaving_notifications:
+  module: leaving
+  class: OccupancyAutomations
+  tracker_1: device_tracker.meta_walden
+  tracker_2: device_tracker.meta_kristina
+  notify_1: notify/home_aephir_bot
+  notify_2: notify/ios_kristinas_iphone
 
 # notify_phones:
 #   module: generic_notifier
@@ -589,6 +601,7 @@ xiaomi_button_1:
   entityID1: switch.switch
   entityID2: light.all_lights
   entityID3: light.all_adult_lights
+  entityIDList1: ['media_player.conservatory_speaker', 'media_player.ue55nu7475xxc', 'media_player.living_room_speaker']
 
 # xiaomi_cube_1:
 #   module: xiaomi_aqara_cube
@@ -621,7 +634,7 @@ battery_powered_devices_offline:
 #    System    #
 ################
 
-# reboot_when_rounter_unaccessible:
+# reboot_when_router_unaccessible:
 #   module: internet
 #   class: SystemClass
 

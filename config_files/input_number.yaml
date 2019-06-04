@@ -4,6 +4,37 @@
                           #
 ###########################
 
+########################
+#    Motion Control    #
+########################
+
+override_top_floor_motion:
+  name: Top Floor
+  initial: 0
+  min: 0
+  max: 480
+  step: 5
+  unit_of_measurement: 'minutes'
+  icon: mdi:av-timer
+
+override_main_floor_motion:
+  name: Top Floor
+  initial: 0
+  min: 0
+  max: 480
+  step: 5
+  unit_of_measurement: 'minutes'
+  icon: mdi:av-timer
+
+override_basement_motion:
+  name: Top Floor
+  initial: 0
+  min: 0
+  max: 480
+  step: 5
+  unit_of_measurement: 'minutes'
+  icon: mdi:av-timer
+
 ###############
 #    Media    #
 ###############
