@@ -15,8 +15,6 @@ class MotionClass(hass.Hass):
     def initialize(self):
         """ Initializes and listens for state changes in motion sensor"""
 
-        # self.timer = None
-
         # list of lights that are turned on by the motion.
         self.light_entity_ids = [
             'light.kitchen_spots',
@@ -39,11 +37,13 @@ class MotionClass(hass.Hass):
             'sensor.illumination_158d0001e0a8e1'
             ]
 
+        self.timer = None
+
         for entity in self.motion_entity_ids:
             # self.listen_state(self.motionTrigger, entity) # motion sensors
             self.listen_state(self.motionTrigger, entity) # motion sensors
 
-        self.timer = None
+        self.listen_state(self.switchOff,'switch.switch', new = 'off')
 
         self.listen_state(self.inputBoolean,"input_boolean.kitchen_lights_motion_control")
 
@@ -66,34 +66,58 @@ class MotionClass(hass.Hass):
         """ Turns the lights on, depending on time and awake state"""
 
         cooking = self.cooking()
-        # self.cancel_timer(self.timer)
+        dark = int(illumination) < 40
 
-        if self.now_is_between("07:00:00", "21:00:00") and illumination < 150:
-            if cooking:
-                for entity in self.light_entity_ids:
-                    self.turn_on(entity, brightness=255, kelvin=2700)
-                    # self.call_service('remote/send_command', entity_id = 'remote.kitchen_remote', command = 'fume_hood_lights')
-            elif self.get_state('switch.switch') == 'on':
-                self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
-                self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
+        if self.now_is_between("07:00:00", "21:00:00"):
+            if dark:
+                if cooking:
+                    for entity in self.light_entity_ids:
+                        self.turn_on(entity, brightness=255, kelvin=2700)
+                        # self.call_service('remote/send_command', entity_id = 'remote.kitchen_remote', command = 'fume_hood_lights')
+                elif self.get_state('switch.switch') == 'on':
+                    self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
+                    self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
+                else:
+                    self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
             else:
-                self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
-        elif self.now_is_between("21:00:00", "22:00:00") and illumination < 150:
-            if self.get_state('switch.switch') == 'on':
-                self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
-                self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
-            elif any([ self.isOn(entity_id) for entity_id in ['light.dining_table_lights', 'light.conservatory_lights']]):
-                self.turn_on('light.kitchen_spots', brightness=255, kelvin=2700)
+                if cooking:
+                    self.turn_on('light.kitchen_cabinet_lights', brightness=255, kelvin=2700)
+                        # self.call_service('remote/send_command', entity_id = 'remote.kitchen_remote', command = 'fume_hood_lights')
+                elif self.get_state('switch.switch') == 'on':
+                    self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
+        elif self.now_is_between("21:00:00", "22:00:00"):
+            if dark:
+                if self.get_state('switch.switch') == 'on':
+                    self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
+                    self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
+                elif any([ self.isOn(entity_id) for entity_id in ['light.dining_table_lights', 'light.conservatory_lights']]):
+                    self.turn_on('light.kitchen_spots', brightness=255, kelvin=2700)
+                else:
+                    self.turn_on('light.kitchen_spots', brightness=10, kelvin=2200)
             else:
-                self.turn_on('light.kitchen_spots', brightness=10, kelvin=2200)
+                if self.get_state('switch.switch') == 'on':
+                    self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
+                elif any([ self.isOn(entity_id) for entity_id in ['light.dining_table_lights', 'light.conservatory_lights']]):
+                    self.turn_on('light.kitchen_spots', brightness=255, kelvin=2700)
+                else:
+                    self.turn_on('light.kitchen_spots', brightness=10, kelvin=2200)
         elif self.now_is_between("22:00:00", "07:00:00"): # everything between 22 and 7
-            if self.get_state('switch.switch') == 'on':
-                self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
-                self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
-            elif self.isOn('light.dining_table_lights'):
-                self.turn_on('light.kitchen_spots', brightness=255, kelvin=2200)
+            if dark:
+                if self.get_state('switch.switch') == 'on':
+                    self.turn_on('light.kitchen_spots',brightness=255, kelvin=2700)
+                    self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
+                elif self.isOn('light.dining_table_lights'):
+                    self.turn_on('light.kitchen_spots', brightness=255, kelvin=2200)
+                else:
+                    self.turn_on('light.kitchen_spots', brightness=10, kelvin=2200)
             else:
-                self.turn_on('light.kitchen_spots', brightness=10, kelvin=2200)
+                if self.get_state('switch.switch') == 'on':
+                    self.turn_on('light.kitchen_cabinet_light_2', brightness=255, kelvin=2700)
+                elif self.isOn('light.dining_table_lights'):
+                    self.turn_on('light.kitchen_spots', brightness=255, kelvin=2200)
+                else:
+                    self.turn_on('light.kitchen_spots', brightness=10, kelvin=2200)
+
 
     def motionTrigger(self, entity, attribute, old, new, kwargs):
         """
@@ -104,16 +128,21 @@ class MotionClass(hass.Hass):
         if self.timer != None:
             self.cancel_timer(self.timer)
 
-        # self.timer = None
-
-        # this will be triggered by
         if self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'on': # if we got motion.
             illumination = max([toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
             self.cancel_timer(self.timer)
             self.lightsOn(illumination)
         elif self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'off': # we got no motion.
             self.timer = self.run_in(self.lightsOff, 90)
-            # self.lightsOff()
+
+
+    def switchOff(self, entity, attribute, old, new, kwargs):
+        """
+        If the espresso machine is switched off and there's no motion in the kitchen, turn off lights.
+        """
+
+        if self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'off': # we got no motion.
+            self.lightsOff()
 
 
     def inputBoolean(self, entity, attribute, old, new, kwargs):

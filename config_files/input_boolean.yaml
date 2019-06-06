@@ -7,7 +7,6 @@
 test:
   name: Test IB
 
-
 ####################
 #    Appliances    #
 ####################
@@ -28,50 +27,22 @@ aephirhome:
   name: Aephir Home
   icon: mdi:cellphone-android
 
-someonehome360:
-  name: Someone Home 360
+someonehome:
+  name: Someone Home
   icon: mdi:home-map-marker
-
-#someonehome360boolean:
-#  name: Someone Home 360 Boolean
-#  icon: mdi:home-map-marker
-
-aephirhome360:
-  name: Aephir Home (L360)
-  icon: mdi:cellphone-android
-
-kristinahome360:
-  name: Kristina Home (L360)
-#  initial: on
-  icon: mdi:panda
-
-emiliehome360:
-  name: Emilie Home (L360)
-#  initial: on
-  icon: mdi:panda
-
-naiahome360:
-  name: Naia Home (L360)
-  icon: mdi:panda
 
 kristinahome:
   name: Kristina Home
 #  initial: on
   icon: mdi:panda
 
-someonehome:
-  name: Someone Home
+emiliehome:
+  name: Emilie Home
 #  initial: on
-  icon: mdi:home-map-marker
+  icon: mdi:panda
 
-aephirhome360boolean:
-  name: Aephir Home 360 Boolean
-#  initial: on
-  icon: mdi:cellphone-android
-
-kristinahome360boolean:
-  name: Kristina Home 360 Boolean
-#  initial: on
+naiahome:
+  name: Naia Home
   icon: mdi:panda
 
 ####################

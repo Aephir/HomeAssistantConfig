@@ -1,13 +1,21 @@
 # Motion sensors to control the entrance lights.
 
-import appdaemon.plugins.hass.hassapi as hass
 import datetime
 import time
+
+import appdaemon.plugins.hass.hassapi as hass
+
+# from /home/aephir/docker/homeassistant/appdaemon/apps/functions/workday import workday
+# from apps.functions.workday import workday
 
 
 class MotionClass(hass.Hass):
 
     def initialize(self):
+
+        # work = workday()
+        # self.log("Can I call ", str(workday))
+        # self.log("Can I call")
 
         self.motionSensors = [
             "binary_sensor.motion_sensor_158d000200e0c5", # Top floor stairway

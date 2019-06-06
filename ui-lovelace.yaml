@@ -67,6 +67,17 @@ views:
   #       image: https://www.home-assistant.io/images/default-social.png
   #       entity: light.conservatory
 
+##############
+#            #
+#    TEST    #
+#            #
+##############
+  #
+  # - icon: mdi:home-assistant
+  #   title: Test layout
+  #   id: test_layout
+  #   cards:
+
 
 #######################
 #                     #
@@ -117,25 +128,6 @@ views:
             - entity: light.kitchen_cabinet_lights
               type: custom:slider-entity-row
               toggle: true
-
-
-            # - entity: light.main_floor_entrance_1
-            #   type: custom:slider-entity-row
-              # toggle: true
-            # - entity: light.main_floor_entrance_2
-            #   type: custom:slider-entity-row
-              # toggle: true
-
-          # - type: custom:fold-entity-row
-          #   head:
-          #     type: section
-          #     label: Lights
-          #   group_config:
-          #     secondary_info: last-changed
-          #   items:
-          #     - light.dining_table_lights
-          #     - light.living_room_lightstrip
-          #     - light.kitchen_lights
 
           - entity: light.bedroom
             # type: custom:slider-entity-row
@@ -269,8 +261,6 @@ views:
             title: TV Control
             entities:
               - entity: media_player.ue55nu7475xxc
-              - entity: switch.ue55nu7475xxc
-              - entity: switch.tv_room_media_center
 
       - type: entities
         title: Basement Lights

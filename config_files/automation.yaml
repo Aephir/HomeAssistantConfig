@@ -10,20 +10,20 @@
 ##############
 
 
-#################
-#    Skybell    #
-#################
-
-- alias: "SkyBell Motion Detected"
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.skybell_front_door_motion
-      to: 'on'
-  action:
-    - service: notify.home_aephir_bot
-      data_template:
-        message: "Front Door Motion Detected"
+# #################
+# #    Skybell    #
+# #################
+#
+# - alias: "SkyBell Motion Detected"
+#   initial_state: True
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.skybell_front_door_motion
+#       to: 'on'
+#   action:
+#     - service: notify.home_aephir_bot
+#       data_template:
+#         message: "Front Door Motion Detected"
 
 ##################
 #    Location    #
@@ -36,13 +36,13 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: input_boolean.aephirhome360
+      entity_id: input_boolean.aephirhome
       to: 'off'
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.kristinahome360
+        entity_id: input_boolean.kristinahome
         state: 'off'
       - condition: state
         entity_id: input_boolean.guest_mode
@@ -60,13 +60,13 @@
   initial_state: True
   trigger:
     - platform: state
-      entity_id: input_boolean.kristinahome360
+      entity_id: input_boolean.kristinahome
       to: 'off'
   condition:
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.aephirhome360
+        entity_id: input_boolean.aephirhome
         state: 'off'
       - condition: state
         entity_id: input_boolean.guest_mode
@@ -94,10 +94,10 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.aephirhome360
+        entity_id: input_boolean.aephirhome
         state: 'off'
       - condition: state
-        entity_id: input_boolean.kristinahome360
+        entity_id: input_boolean.kristinahome
         state: 'off'
   action:
 
@@ -152,23 +152,6 @@
 
 #############
 #__Notfiy__#
-
-# - alias: "test_actionable_notification"
-#   initial_state: True
-#   trigger:
-#     - platform: state
-#       from: 'off'
-#       to: 'on'
-#       entity_id: input_boolean.vacation_mode
-#   action:
-#     service: notify.home_aephir_bot
-#     # data:
-#     data_template:
-#       message: "Test Notification"
-#       data:
-#         inline_keyboard:
-#           - "Espresso on:/espresso_on, Espresso off:/espresso_off"
-#           - "Remove keyboard:/removekeyboard"
 
 - alias: "Kristina Leave Work" # Message through telegram if Kristina leaves work
   initial_state: True
@@ -231,175 +214,6 @@
 ###################
 #__Input_Boolean__#
 
-- alias: "aephir_home_360" # Turns on the "aephirhome360" input_boolean if Aephir arrives home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: device_tracker.meta_walden
-      from: 'not_home'
-      to: 'home'
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.aephirhome360
-
-
-- alias: "aephir_not_home_360" # Turns off the "aephirhome360" input_boolean if Aephir leaves home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: device_tracker.meta_walden
-      from: 'home'
-      to: 'not_home'
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.aephirhome360
-
-
-- alias: "kristina_home_360" # Turns on the "kristinahome360" input_boolean if Kristina arrives home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: device_tracker.meta_kristina
-      from: 'not_home'
-      to: 'home'
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.kristinahome360
-
-- alias: "kristina_not_home_360" # Turns off the "kristinahome360" input_boolean if Kristina leaves home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: device_tracker.meta_kristina
-      from: 'home'
-      to: 'not_home'
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.kristinahome360
-
-- alias: "emilie_home_360" # Turns on the "emiliehome360" input_boolean if Emilie arrives home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: device_tracker.meta_emilie
-      from: 'not_home'
-      to: 'home'
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.emiliehome360
-
-- alias: "emilie_not_home_360" # Turns off the "emiliehome360" input_boolean if Emilie leaves home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: device_tracker.meta_emilie
-      from: 'home'
-      to: 'not_home'
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.emiliehome360
-
-- alias: "naia_home_360" # Turns on the "emiliehome360" input_boolean if Emilie arrives home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: device_tracker.niels_brodys_ipad_2
-      from: 'not_home'
-      to: 'home'
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.naiahome360
-
-- alias: "naia_not_home_360" # Turns off the "emiliehome360" input_boolean if Emilie leaves home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: device_tracker.niels_brodys_ipad_2
-      from: 'home'
-      to: 'not_home'
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.naiahome360
-
-- alias: Someone Arrives Home Boolean # Turns on the "someonehome360" input_boolean if someone arrives home, or guest mode is activated
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.aephirhome360
-        - input_boolean.kristinahome360
-        - input_boolean.guest_mode
-  #      - input_boolean.emiliehome360
-      from: 'off'
-      to: 'on'
-#  condition:
-#    condition: state
-#    entity_id: input_boolean.someonehome360
-#    state: 'off'
-#  condition:
-#    condition: or
-#    conditions:
-#      - condition: state
-#        entity_id: input_boolean.aephirhome360
-#        state: 'on'
-#      - condition: state
-#        entity_id: input_boolean.kristinahome360
-#        state: 'on'
-#      - condition: state
-#        entity_id: input_boolean.emiliehome360
-#        state: 'on'
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.someonehome360
-
-- alias: Aephir leaves last # Turns of the "someonehome360" input_boolean if Aephir is last to leave
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.aephirhome360
-      from: 'on'
-      to: 'off'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: input_boolean.kristinahome360
-        state: 'off'
-#      - condition: state
-#        entity_id: input_boolean.emiliehome360
-#        state: 'off'
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.someonehome360
-
-- alias: Kristina leaves last # Turns of the "someonehome360" input_boolean if Kristina is last to leave
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.kristinahome360
-      from: 'on'
-      to: 'off'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: input_boolean.aephirhome360
-        state: 'off'
-#      - condition: state
-#        entity_id: input_boolean.emiliehome360
-#        state: 'off'
-      - condition: state
-        entity_id: input_boolean.guest_mode
-        state: 'off'
-  action:
-    service: homeassistant.turn_off
-    entity_id: input_boolean.someonehome360
-
 
 - alias: Karen iphone guest mode
   initial_state: True
@@ -431,7 +245,7 @@
   #   service: homeassistant.turn_off
   #   entity_id: input_boolean.guest_mode
 
-- alias: Guest leaves last # Turns of the "someonehome360" input_boolean if guest mode is deactiveatd and no one is home
+- alias: Guest leaves last # Turns of the "someonehome" input_boolean if guest mode is deactiveatd and no one is home
   initial_state: True
   trigger:
     - platform: state
@@ -443,70 +257,38 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: input_boolean.aephirhome360
-        state: 'off'
+        entity_id: device_tracker.meta_walden
+        state: 'not_home'
       - condition: state
-        entity_id: input_boolean.kristinahome360
-        state: 'off'
+        entity_id: device_tracker.meta_kristina
+        state: 'not_home'
   action:
     service: homeassistant.turn_off
-    entity_id: input_boolean.someonehome360
-
-# - alias: Set Door Sensor Status # Z-wave sensor resets to "on" after HASS restart
-#   trigger:
-
-- alias: kids_home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: input_boolean.emiliehome360, input_boolean.naiahome360
-      to: 'on'
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.kids_home
-
-- alias: kids_not_home
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: input_boolean.emiliehome360, input_boolean.naiahome360
-      to: 'off'
-  condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: input_boolean.emiliehome360
-        state: 'off'
-      - condition: state
-        entity_id: input_boolean.naiahome360
-        state: 'off'
-  action:
-    service: homeassistant.turn_on
-    entity_id: input_boolean.kids_home
+    entity_id: input_boolean.someonehome
 
 ########################################
 #__Location Based Lights and Switches__#
 
-- alias: "Someone arrives home" # Turns on welcome lights when first person arrives home within 1h before sunset
-  initial_state: True
-  trigger:
-    - platform: state
-      entity_id: input_boolean.someonehome360
-      from: 'off'
-      to: 'on'
-  condition:
-    condition: sun
-    after: sunset
-    after_offset: "-01:00:00"
-  action:
-    service: script.turn_on
-    entity_id: scene.welcome_home
+# - alias: "Someone arrives home" # Turns on welcome lights when first person arrives home within 1h before sunset
+#   initial_state: True
+#   trigger:
+#     - platform: state
+#       entity_id: input_boolean.someonehome
+#       from: 'off'
+#       to: 'on'
+#   condition:
+#     condition: sun
+#     after: sunset
+#     after_offset: "-01:00:00"
+#   action:
+#     service: script.turn_on
+#     entity_id: scene.welcome_home
 
 # - alias: "Everyone left" # Switches of everyting when last person leaves home
 #   initial_state: True
 #   trigger:
 #     - platform: state
-#       entity_id: input_boolean.someonehome360
+#       entity_id: input_boolean.someonehome
 #       from: 'on'
 #       to: 'off'
 # #  condition:
@@ -650,141 +432,6 @@
       chat_id: '{{ trigger.event.data.user_id }}'
       inline_keyboard: []
 
-# - id: 'telegram_espresso_on'
-#   alias: turn on espresso machine
-#   initial_state: True
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/espresso_on'
-#         # data: '/espresso_on'
-#         # user_id: !secret telegram_chatID_Aephir
-#   action:
-#     - service: switch.turn_on
-#       entity_id: switch.switch
-#
-# - id: 'telegram_espresso_off'
-#   alias: turn off espresso machine
-#   initial_state: True
-#   trigger:
-#     - platform: event
-#       # event_type: telegram_command
-#       event_type: telegram_callback
-#       event_data:
-#         command: '/espresso_off'
-#         # user_id: !secret telegram_chatID_Aephir
-#   action:
-#     - service: switch.turn_off
-#       entity_id: switch.switch
-#
-# - id: 'telegram_fountain_on'
-#   alias: turn on fountain
-#   initial_state: True
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/fountain_on'
-#   action:
-#     - service: switch.turn_on
-#       entity_id: switch.fountain
-#
-# - id: 'telegram_fountain_off'
-#   alias: turn off fountain
-#   initial_state: True
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/fountain_off'
-#   action:
-#     - service: switch.turn_off
-#       entity_id: switch.fountain
-#
-# - id: 'telegram_all_lights_off'
-#   alias: turn off all lights
-#   initial_state: True
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/lights_off'
-#         # user_id: !secret telegram_chatID_Aephir
-#   action:
-#     - service: script.turn_on
-#       entity_id: script.scene_all_lights_off
-#
-# - id: 'telegram_everything_off'
-#   initial_state: True
-#   alias: turn off everything
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/all_off'
-#         # user_id: !secret telegram_chatID_Aephir
-#   action:
-#     - service: script.turn_on
-#       entity_id: script.everyone_left_turn_off_everything
-#
-# - id: 'telegram_alarm_away'
-#   initial_state: True
-#   alias: Arm alarm in away mode
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/set_alarm_away'
-#         # user_id: !secret telegram_chatID_Aephir
-#   action:
-#     - service: script.turn_on
-#       entity_id: script.alarm_armed_away
-#       # data:
-#       #   code: !secret alarm_code
-#
-# - id: 'telegram_alarm_away_and_all_off'
-#   initial_state: True
-#   alias: Arm alarm in away mode & all off
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/set_alarm_all_off'
-#         # user_id: !secret telegram_chatID_Aephir
-#   action:
-#     - service: script.turn_on
-#       entity_id: script.alarm_armed_away
-#     - service: script.turn_on
-#       entity_id: script.everyone_left_turn_off_everything
-#
-# - id: 'telegram_speak_to_home'
-#   initial_state: True
-#   alias: Speak to the home
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       event_data:
-#         command: '/say'
-#         # user_id: !secret telegram_chatID_Aephir
-#   action:
-#   - service: tts.google_say
-#     data_template:
-#       entity_id: media_player.living_room
-#       message: "{{ ' '.join(trigger.event.data.args) }}"
-#
-# - id: 'telegram_guest_mode_off'
-#   initial_state: True
-#   alias: Turn off guest mode
-#   trigger:
-#     - platform: event
-#       event_type: telegram_command
-#       # event_type: telegram_command
-#       event_data:
-#         command: '/guest_mode_off'
-#   action:
-#     - service: homeassistant.turn_off
-#       entity_id: input_boolean.guest_mode
 
 ################
 #    Themes    #
@@ -1104,22 +751,6 @@
     - service: homekit.start
 
 
-#############################
-#    Export history data    #
-#############################
-
-# - alias: sensor_values_to_file
-#   initial_state: True
-#   initial_state: True
-#   trigger:
-#     - platform: time_pattern
-#       minutes: '/5'
-#       seconds: 00
-#   action:
-#     - service: notify.filenotify
-#       data_template:
-#         message: ", {{ states.sensor.outside_air_intake_temperature.state }},{{ states.sensor.dark_sky_temperature.state }},{{ states.sensor.dark_sky_humidity.state }},{{ states.sensor.dark_sky_cloud_coverage.state }},{{ states.sensor.dark_sky_uv_index.state }},{{ states.sensor.dark_sky_wind_speed.state }},{{now().strftime("%Y%m%d-%H%M%S")}}"
-
 ################
 #    System    #
 ################
@@ -1302,9 +933,9 @@
     - service: switch.turn_on
       entity_id: switch.siren_switch
 
-###############
-#    Alarm    #
-###############
+#####################
+#    Alarm clock    #
+#####################
 
 - alias: two hours to next alarm
   initial_state: True
