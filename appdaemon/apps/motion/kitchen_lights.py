@@ -40,17 +40,19 @@ class MotionClass(hass.Hass):
         self.timer = None
 
         for entity in self.motion_entity_ids:
-            # self.listen_state(self.motionTrigger, entity) # motion sensors
             self.listen_state(self.motionTrigger, entity) # motion sensors
 
-        self.listen_state(self.switchOff,'switch.switch', new = 'off')
+        self.listen_state(self.motionTrigger,'switch.switch')
 
-        self.listen_state(self.inputBoolean,"input_boolean.kitchen_lights_motion_control")
+        self.listen_state(self.inputBoolean,"input_boolean.main_floor_lights_motion_control")
+        self.listen_state(self.motionTrigger,"input_boolean.cooking_mode")
 
     def cooking(self, **kwargs):
         """ Check if we are likely to be cooking"""
         if self.get_state("input_boolean.cooking_mode") == 'on' or self.now_is_between("16:00:00", "19:00:00") or self.now_is_between("06:45:00", "08:00:00"):
             return True
+        else:
+            return False
 
     def isOn(self, entity_id):
         """ Check whether an entity_id state is 'on'"""
@@ -66,7 +68,7 @@ class MotionClass(hass.Hass):
         """ Turns the lights on, depending on time and awake state"""
 
         cooking = self.cooking()
-        dark = int(illumination) < 40
+        dark = int(illumination) < 80 # 40?? 50??
 
         if self.now_is_between("07:00:00", "21:00:00"):
             if dark:
@@ -125,7 +127,7 @@ class MotionClass(hass.Hass):
         On motion off: Start timer, turn off lights after 5 minutes.
         """
 
-        if self.timer != None:
+        if self.timer != None and entity != 'switch.switch':
             self.cancel_timer(self.timer)
 
         if self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'on': # if we got motion.

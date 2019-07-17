@@ -1,0 +1,65 @@
+###########################
+#                         #
+#    Alarm System Apps    #
+#                         #
+###########################
+
+###############
+#    Alarm    #
+###############
+
+# alarm_system:
+#   module: alarm
+#   class: AlarmSystem
+#   device_trackers:
+#     - device_tracker.meta_walden
+#     - device_tracker.meta_kristina
+#     - device_tracker.meta_emilie
+#     - device_tracker.meta_naia
+#   armed_home_sensors:
+#     - binary_sensor.door_window_sensor_158d00022b3b66 # Basement door
+#   armed_away_sensors:
+#     - binary_sensor.door_window_sensor_158d0002286a78 # Bathroom window
+#     - binary_sensor.door_window_sensor_158d00022b3b66 # Basement door
+#     - binary_sensor.door_window_sensor_158d00022d0917 # Front door
+#     - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
+#     - binary_sensor.door_window_sensor_158d000237c924 # Bedroom window
+#     - binary_sensor.conservatory_motion_sensor_aeotec # Conservatory motion #2
+#     - binary_sensor.motion_sensor_158d0001e0a8e1 # Kitchen motion
+#     - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
+#     - binary_sensor.motion_sensor_158d000200d285 # Conservatory motion #1
+#     - binary_sensor.motion_sensor_158d000200e0c5 # Top floor stairway
+#     - binary_sensor.motion_sensor_158d000210ca6e # Bathroom motion #1
+#     - binary_sensor.motion_sensor_158d000236a22f # Bathroom motion #2
+#     - binary_sensor.motion_sensor_158d000210ca6f # Basement stairs motion
+#     - binary_sensor.motion_sensor_158d000236a0d0 # Upstairs bathroom motion
+#     - binary_sensor.motion_sensor_158d000236a0f3 # Top floor TV room motion
+#     - binary_sensor.motion_sensor_158d000236a116 # TV room motion
+#     - binary_sensor.motion_sensor_158d00023e3742 # Entrance motion
+#     - binary_sensor.walk_in_closet_motion_sensor # Walk-in closet motion
+#   alarm_control_buttons: # A physical button?? How should we do this.
+#     -
+#   alarm_lights:
+#     - light.gateway_light_7811dcb8d944
+#     - light.tv_room
+#     - light.bathroom
+#     - light.dining_table_lights
+#   alarm_pin: 3462
+#   vacation_control: input_boolean.vacation_mode
+#   guest_control: input_boolean.guest_mode
+#   silent_control: input_boolean.silent_mode
+#   alarm_volume_control: input_number.xiaomi_alarm_volume # Make combined with several speakers!
+#   info_volume_control: input_number.xiaomi_info_volume # Make combined with several speakers!
+#   xiaomi_aqara_gw_mac: !secret xiaomi_gateway_mac
+#   notify_service: script/send_status_report_bob # Make list of both my telegram, and Kristinas iOS app.
+#   media_players:
+#     - media_player.conservatory_speaker
+#     - media_player.sonos_play_5_1
+#     - media_player.living_room_speaker
+#   # notify: telegram_bot/send_message
+#   notify_title: "Intruder Alert"
+
+
+# alarm_triggered:
+#   module: alarm_activated
+#   class: AlarmTriggered

@@ -1,17 +1,35 @@
 ########
 #    Camera mjpeg
 
-#- platform: mjpeg
-#  mjpeg_url: http://192.168.0.24:8080/
-#  name: 3110
+- platform: mjpeg
+  mjpeg_url: http://192.168.0.46:2971/camera/stream
+  name: WallPanel Camera
+  # stream_source: http://192.168.0.46:2971/camera/stream
 #  username: !secret android_ip_cam_user
 #  password: !secret android_ip_cam_pass
 
-#- platform: generic
-#  still_image_url: http://192.168.0.40:8080/
-#  name: Wyze
-#  username: !secret wyze_user
-#  password: !secret wyze_pass
+# - platform: ffmpeg
+#   # still_image_url: http://192.168.0.51:8080/
+#   name: Wyze2
+#   input: !secret wyze_rtsp_input
+#   # username: !secret wyze_rtsp_user
+#   # password: !secret wyze_rtsp_pass
+
+# 
+# - platform: generic
+#   still_image_url: "null"
+#   name: Wyze2
+#   stream_source: !secret wyze_rtsp_url
+#   username: !secret wyze_rtsp_user
+#   password: !secret wyze_rtsp_pass
+
+
+- platform: ffmpeg
+  input: !secret wyze_rtsp_url
+  # name: Wyze2
+
+# - platform: ffmpeg # Wyze??
+
 
 # # https://community.home-assistant.io/t/wyze-cam-integration-with-home-assistant-without-flashing/65651
 # # Wyze Cam - Only works if I have tinyCam app do a webserver
@@ -23,3 +41,4 @@
 # #  mjpeg_url: !secret wyze_cam_url
 
 - platform: skybell
+

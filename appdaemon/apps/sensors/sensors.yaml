@@ -1,0 +1,19 @@
+#####################
+#                   #
+#    Sensor Apps    #
+#                   #
+#####################
+
+
+#################
+#    Sensors    #
+#################
+
+doors_or_windows_open:
+  module: door_window_open
+  class: Sensor
+
+battery_powered_devices_offline:
+  module: device_unreachable
+  class: Sensor
+  notify: !secret my_telegram

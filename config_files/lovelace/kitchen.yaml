@@ -26,6 +26,17 @@
           type: custom:slider-entity-row
 
     - type: entities
+      title: Oven Controls
+      id: oven_controls
+      entities:
+        - entity: switch.oven
+        - entity: input_select.oven_program
+        - entity: sensor.oven_program_progress
+        - entity: sensor.oven_remaining_program_time
+        - entity: binary_sensor.oven_door
+        # - entity: 
+
+    - type: entities
       title: Fume Hood
       id: fume_hood_control
       entities:

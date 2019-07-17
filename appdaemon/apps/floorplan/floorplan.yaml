@@ -1,0 +1,13 @@
+########################
+#                      #
+#    Floorplan Apps    #
+#                      #
+########################
+
+###################
+#    Floorplan    #
+###################
+
+toggle_dummy_lights:
+  module: light_glow
+  class: Cosmetic

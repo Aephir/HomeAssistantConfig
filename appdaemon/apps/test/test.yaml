@@ -1,0 +1,17 @@
+###################
+#                 #
+#    Test Apps    #
+#                 #
+###################
+
+##############
+#    Test    #
+##############
+
+# test:
+#   module: test
+#   class: Test
+
+# test2:
+#   module: test2
+#   class: Test

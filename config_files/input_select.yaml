@@ -8,6 +8,35 @@
 #    Devices    #
 #################
 
+##########
+#  Oven  #
+
+oven_program:
+  name: Oven Program
+  options:
+    - "600W heating"
+    - "Hot air"
+    - "Pizza"
+    - "Pre-heating"
+    - "Top & bottom heating"
+    - "Power On"
+    - "Power Off"
+
+#############
+#  Spotify  #
+#############
+
+spotify_source:
+  name: 'Source:'
+  options:
+    - "Main floor group"
+    - "Living Room speaker"
+    - "Conservatory speaker"
+    - "All Audio"
+    - "TV room speaker"
+
+
+
 ################
 #__Desktop_PC__#
 

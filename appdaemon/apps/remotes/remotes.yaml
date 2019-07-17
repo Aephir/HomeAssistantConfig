@@ -1,0 +1,60 @@
+#####################
+#                   #
+#    Remote Apps    #
+#                   #
+#####################
+
+#################
+#    Remotes    #
+#################
+
+hue_tap_1:
+  module: hue_tap_1
+  class: HueRemote
+  entityID: sensor.tap_1
+  entity_1: switch.fountain
+  entity_2: light.conservatory_lights
+  entity_3: light.dining_room_lights
+  entity_4: [media_player.living_room_speaker, media_player.conservatory_speaker] #, media_player.sonos_play_5_1
+
+hue_dimmer_1:
+  module: hue_dimmer_1
+  class: HueRemote
+  entityID: sensor.hue_dimmer_1
+  entity_1: light.dining_room_lights
+  entity_2: light.kitchen_lights
+  entity_3: light.conservatory_lights
+  entity_4: light.baby_room
+  entity_5: light.dining_table_lights
+  entity_6: light.kitchen_spots
+  entity_7: light.conservatory_couch
+  entity_8: light.main_floor_lights
+  entity_9: light.living_room_lightstrip
+  entity_10: light.kitchen_cabinet_lights
+  entity_11: light.conservatory_reading
+  entity_12: light.basement_lights
+  entity_13: light.top_floor_lights
+  entity_14: input_boolean.kitchen_lights_motion_override
+
+# hue_dimmer_2:
+#   module: hue_dimmer_1
+#   class: HueRemote
+#   entityID: sensor.hue_dimmer_1
+#   entity_1: light.kitchen_lights
+#   entity_2: light.dining_room_lights
+#   entity_3: light.conservatory_lights
+#   entity_4: light.baby_room
+
+xiaomi_button_1:
+  module: single_tap_button_1
+  class: Remote
+  entityID: binary_sensor.switch_158d0001f3ac72
+  entityID1: switch.switch
+  entityID2: light.all_lights
+  entityID3: light.all_adult_lights
+  entityIDList1: ['media_player.conservatory_speaker', 'media_player.ue55nu7475xxc', 'media_player.living_room_speaker']
+
+# xiaomi_cube_1:
+#   module: xiaomi_aqara_cube
+#   class: Remote
+#   entityID: binary_sensor.cube_158d00028f7196

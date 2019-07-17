@@ -1,0 +1,166 @@
+####################################
+#                                  #
+#    Global AppDaemon Functions    #
+#                                  #
+####################################
+
+
+# Usage:
+#
+# From other app where you want to use one of these functions:
+#
+#     self.GlobalFunctions.testFunction()
+#
+#     Define in app.yaml (or other .yaml file):
+#
+# Alternately, add this one as an app in apps.yaml (or other .yaml file within appdaemon/apps/...)
+#
+# global_function_app:
+#   module: global_functions
+#   class: GlobalFunctions
+#
+# Then you can use from other app by:
+#
+#     x = self.get_app("global_function_app")
+#     y = x.testFunction()
+#
+# of course you need to add a class in the module.
+# then you can call it with
+# fnc = self.get_app("istimebetween")
+# test  = fnc.IsTimeBetween(start, end)
+
+testglobal:
+  module: testglobal
+  class: Test
+
+global_function_app:
+  moduel: global_functions
+  class: GlobalFunctions
+
+#####################
+#    Global Apps    #
+#####################
+
+global_sensors:
+  module: all_sensors
+  class: GlobalSensors
+  motionSensors:
+    - "binary_sensor.motion_sensor_158d00023e3742" # Entrance
+    - "binary_sensor.motion_sensor_158d000200d203" # Basement entrance
+    - "binary_sensor.motion_sensor_158d000236a0f3" # Top floor TV room
+    - "binary_sensor.motion_sensor_158d000236a116" # TV room
+    - "binary_sensor.motion_sensor_158d000200d285" # Conservatory
+    - "binary_sensor.conservatory_motion_sensor_aeotec" # Conservatory 2
+    - "binary_sensor.motion_sensor_158d000200e0c5" # Top floor stairway
+    - "binary_sensor.motion_sensor_158d000236a22f" # Bathroom #2
+    - "binary_sensor.motion_sensor_158d000236a0d0" # Upastairs bathroom
+    - "binary_sensor.motion_sensor_158d0001e0a8e1" # Kitchen
+    - "binary_sensor.motion_sensor_158d000210ca6e" # Bathroom #1
+    - "binary_sensor.motion_sensor_158d000210ca6f" # Basemenet stairway
+    - 'binary_sensor.walk_in_closet_motion_sensor' # Walk-in closet
+    # - "" # Dining room
+  illuminationSensors:
+    - "sensor.illumination_158d00023e3742" # Entrance
+    - "sensor.illumination_158d000200d203" # Basement entrance
+    - "sensor.illumination_158d000236a0f3" # Basement stairway
+    - "sensor.illumination_158d000236a116" # TV room
+    - "sensor.illumination_158d000200d285" # Conservatory
+    - "sensor.illumination_158d000200e0c5" # Top floor stairs
+    - "sensor.illumination_158d000236a22f" # Bathroom #2
+    - "sensor.illumination_158d000236a0d0" # Upastairs bathroom
+    - "sensor.illumination_158d0001e0a8e1" # Kitchen
+    - "sensor.illumination_158d000210ca6e" # Bathroom #1
+    - 'sensor.aeotec_zw100_multisensor_6_luminance' # Walk-in closet
+    # - "sensor.illumination_7811dcb8d944" # Gateway illumination - remove?
+  doorWindowSensors:
+    - "binary_sensor.door_window_sensor_158d0002286a78" # Bathroom window
+    - "binary_sensor.door_window_sensor_158d000237c924" # Bedroom window
+    - "binary_sensor.door_window_sensor_158d00022b3b66" # Basement door
+    - "binary_sensor.door_window_sensor_158d00022d0917" # Front door
+    - "binary_sensor.door_window_sensor_158d000234dc7b" # Conservatory door
+    - "binary_sensor.neo_coolcam_doorwindow_detector_sensor" # Shed sensor
+  humiditySensors:
+    - "sensor.humidity_158d00022c66ff" # Bathroom
+    - "sensor.humidity_158d0002437897" # Washing room
+    - "sensor.humidity_158d000245b4a2" # Wine cellar
+    - "sensor.humidity_158d000243778b" # Shed
+    - "sensor.humidity_158d00027727eb" # Kitchen
+    - "sensor.humidity_158d00027437fe" # # Top floor tv room
+  pressureSensors:
+    - "sensor.pressure_158d00022c66ff" # Bathroom
+    - "sensor.pressure_158d0002437897" # Washing room
+    - "sensor.pressure_158d000245b4a2" # Wine cellar
+    - "sensor.pressure_158d000243778b" # Shed
+    - "sensor.pressure_158d00027727eb" # Kitchen
+    - "sensor.pressure_158d00027437fe" # # Top floor tv room
+  temperatureSensors:
+    - "sensor.temperature_158d00022c66ff" # Bathroom
+    - "sensor.temperature_158d0002437897" # Washing room
+    - "sensor.temperature_158d000245b4a2" # Wine cellar
+    - "sensor.temperature_158d000243778b" # Shed
+    - "sensor.temperature_158d00027727eb" # Kitchen
+    - "sensor.temperature_158d00027437fe" # # Top floor tv room
+  lights:
+    ## Lights and light groups to use
+    # Main floor lights
+    - light.baby_room
+    - light.bathroom
+    - light.bedroom
+    - light.conservatory_couch
+    - light.conservatory_reading
+    - light.stairway
+    - light.kitchen_lights
+    - light.dining_room_lights
+    - light.stairway_up
+
+    # Basement lights
+    - light.basement_entrance
+    - light.basement_hallway
+    - light.tv_room
+    - light.wine_cellar
+
+    # Top floor
+    - light.top_floor_bathroom
+
+    # Outdoor lights
+    - light.outdoor_lights
+
+    ## Not in use
+    # Main floor lights
+    # - light.bedroom_2
+    # - light.dining_table_1
+    # - light.dining_table_2
+    # - light.front_door
+    # - light.gateway_light_7811dcb8d944
+    # - light.kitchen_cabinet_light_1
+    # - light.kitchen_cabinet_light_2
+    # - light.kitchen_spot_1
+    # - light.living_room_lightstrip
+    # - light.conservatory
+    # - light.dining_room
+    # - light.dining_table_lights
+    # - light.entrance # ?????
+    # - light.entrance_lights
+    # - light.kitchen_cabinet_lights
+    # - light.kitchen_spots
+    # - light.main_floor_lights
+
+    # Basement lights
+    # - light.basement_entrance_lights
+    # - light.basement_lights
+    # - light.bedroom_lights
+
+    # Top floor lights
+    # - light.top_floor_bathroom_lights
+
+    # More
+    # - light.all_lights
+  meta_device_trackers:
+    - 'device_tracker.meta_walden'
+    - 'device_tracker.meta_kristina'
+    - 'device_tracker.meta_emilie'
+    - 'device_tracker.meta_naia'
+
+time_functions:
+  module: time_functions
+  class: GlobalFunctions

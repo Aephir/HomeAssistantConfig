@@ -1,0 +1,18 @@
+#######################
+#                     #
+#    Telegram Apps    #
+#                     #
+#######################
+
+##################
+#    Telegram    #
+##################
+
+# telegram_bot:
+#   module: telegram_bot
+#   class: TelegramBotEventListener
+#   garage: cover.garage_door
+
+telegram_commands:
+  module: telegram_callback
+  class: TelegramBotEventListener

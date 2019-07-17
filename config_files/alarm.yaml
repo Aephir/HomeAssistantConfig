@@ -15,6 +15,8 @@ name: House
 panel:
   cameras:
   - camera.front_door
+  - camera.wyze2
+  # - camera.wallpanel_camera
   panel_title: ''
   camera_update_interval: '30'
   floorplan: binary_sensor.floorplan

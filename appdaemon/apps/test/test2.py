@@ -7,16 +7,20 @@ class Test(hass.Hass):
 
 
     def initialize(self):
-        self.timer = None
+
         self.listen_state(self.test,"input_boolean.vacation_mode")
 
     def test(self, entity, attribute, old, new, kwargs):
-        if new == 'on':
-            self.timer = self.run_in(self.testAction, 3)
-            # self.run_in(self.testAction, 3)
-        else:
-            self.cancel_timer(self.timer)
 
-    def testAction(self, kwargs):
+        self.log("test2")
 
-        self.toggle('light.conservatory_couch')
+        test = self.get_app("global_function_app")
+        classtoget = test.global_functions()
+        func = classtoget.AreWeAwake("light.dining_room_lights")
+
+        self.log(test)
+        self.log(classteget)
+        self.log(func)
+
+        if func:
+            self.toggle("light.baby_room")

@@ -143,6 +143,8 @@ def get_devices(hc):
             device = CoffeeMaker(app)
         elif app.type == 'Hood':
             device = Hood(app)
+        elif app.type == 'Hob':
+            device = Hob(app)
         else:
             _LOGGER.warning("Appliance type {} not implemented.".format(app.type))
             continue
@@ -244,6 +246,19 @@ class Dryer(DeviceWithDoor, DeviceWithPrograms, HomeConnectDevice):
         {'name': 'LaundryCare.Dryer.Program.Cotton',},
         {'name': 'LaundryCare.Dryer.Program.Synthetic',},
         {'name': 'LaundryCare.Dryer.Program.Mix',},
+        {'name': 'LaundryCare.Dryer.Program.Blankets',},
+        {'name': 'LaundryCare.Dryer.Program.BusinessShirts',},
+        {'name': 'LaundryCare.Dryer.Program.DownFeathers',},
+        {'name': 'LaundryCare.Dryer.Program.Hygiene',},
+        {'name': 'LaundryCare.Dryer.Program.Jeans',},
+        {'name': 'LaundryCare.Dryer.Program.Outdoor',},
+        {'name': 'LaundryCare.Dryer.Program.SyntheticRefresh',},
+        {'name': 'LaundryCare.Dryer.Program.Towels',},
+        {'name': 'LaundryCare.Dryer.Program.Delicates',},
+        {'name': 'LaundryCare.Dryer.Program.Super40',},
+        {'name': 'LaundryCare.Dryer.Program.Shirts15',},
+        {'name': 'LaundryCare.Dryer.Program.Pillow',},
+        {'name': 'LaundryCare.Dryer.Program.AntiShrink',},
     ]
 
     def __init__(self, appliance):
@@ -304,6 +319,7 @@ class Oven(DeviceWithDoor, DeviceWithPrograms, HomeConnectDevice):
         {'name': 'Cooking.Oven.Program.HeatingMode.HotAir',},
         {'name': 'Cooking.Oven.Program.HeatingMode.TopBottomHeating',},
         {'name': 'Cooking.Oven.Program.HeatingMode.PizzaSetting',},
+        {'name': 'Cooking.Oven.Program.Microwave.600Watt',}
     ]
 
     _power_off_state = 'BSH.Common.EnumType.PowerState.Standby'
@@ -328,6 +344,21 @@ class Washer(DeviceWithDoor, DeviceWithPrograms, HomeConnectDevice):
         {'name': 'LaundryCare.Washer.Program.Mix',},
         {'name': 'LaundryCare.Washer.Program.DelicatesSilk',},
         {'name': 'LaundryCare.Washer.Program.Wool',},
+        {'name': 'LaundryCare.Washer.Program.Sensitive',},
+        {'name': 'LaundryCare.Washer.Program.Auto30',},
+        {'name': 'LaundryCare.Washer.Program.Auto40',},
+        {'name': 'LaundryCare.Washer.Program.Auto60',},
+        {'name': 'LaundryCare.Washer.Program.Chiffon',},
+        {'name': 'LaundryCare.Washer.Program.Curtains',},
+        {'name': 'LaundryCare.Washer.Program.DarkWash',},
+        {'name': 'LaundryCare.Washer.Program.Dessous',},
+        {'name': 'LaundryCare.Washer.Program.Monsoon',},
+        {'name': 'LaundryCare.Washer.Program.Outdoor',},
+        {'name': 'LaundryCare.Washer.Program.PlushToy',},
+        {'name': 'LaundryCare.Washer.Program.ShirtsBlouses',},
+        {'name': 'LaundryCare.Washer.Program.SportFitness',},
+        {'name': 'LaundryCare.Washer.Program.Towels',},
+        {'name': 'LaundryCare.Washer.Program.WaterProof',},
     ]
 
     def __init__(self, appliance):
@@ -392,3 +423,19 @@ class FridgeFreezer(DeviceWithDoor, HomeConnectDevice):
         door_entity = self.get_door_entity()
         return {'binary_sensor': [door_entity],
                 }
+
+
+class Hob(DeviceWithPrograms, HomeConnectDevice):
+
+    _programs = [
+        {'name': 'Cooking.Hob.Program.PowerLevelMode',},
+    ]
+
+    def __init__(self, appliance):
+        super().__init__(appliance)
+
+    def get_entities(self):
+        program_sensors = self.get_program_sensors()
+        program_switches = self.get_program_switches()
+        return {'switch': program_switches,
+                'sensor': program_sensors,}

@@ -408,6 +408,94 @@
 #       data_template:
 #         ip_adb: '192.168.0.44'
 
+######################
+#    Oven Control    #
+######################
+
+- id: 'oven_on'
+  alias: 'Oven Power On'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_select.oven_program
+    to: "Power On"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.oven
+
+- id: 'oven_off'
+  alias: 'Oven Power Off'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_select.oven_program
+    to: "Power Off"
+  action:
+    service: homeassistant.turn_off
+    entity_id: switch.oven
+
+- id: 'oven_600'
+  alias: 'Oven 600W'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_select.oven_program
+    to: "600W heating"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.oven_program_600watt
+
+- id: 'oven_hot_air'
+  alias: 'Oven Hot Air'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_select.oven_program
+    to: "Hot air"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.oven_program_hotair
+
+- id: 'oven_pizza'
+  alias: 'Oven Pizza'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_select.oven_program
+    to: "Pizza"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.oven_program_pizzasetting
+
+- id: 'oven_pre-heat'
+  alias: 'Oven Pre-heating'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_select.oven_program
+    to: "Pre-heating"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.oven_program_preheating
+
+- id: 'oven_top_bottom'
+  alias: 'Oven Top and Bottom heating'
+  hide_entity: true
+  initial_state: true
+  trigger:
+    platform: state
+    entity_id: input_select.oven_program
+    to: "Top & bottom heating"
+  action:
+    service: homeassistant.turn_on
+    entity_id: switch.oven_program_topbottomheating
+
 ##################
 #    Telegram    #
 ##################
@@ -462,131 +550,131 @@
 #    Kustom (KWGT) Widget Automaitons    #
 ##########################################
 
-- alias: kwgt kitchen lights on
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_kitchen_lights_on
-  action:
-    - service: homeassistant.turn_on
-      entity_id: light.kitchen_lights
-
-- alias: kwgt kitchen lights off
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_kitchen_lights_off
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.kitchen_lights
-
-- alias: kwgt dining room lights on
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_dining_room_lights_on
-  action:
-    - service: homeassistant.turn_on
-      entity_id: light.dining_room_lights
-
-- alias: kwgt dining room off
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_dining_room_lights_off
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.dining_room_lights
-
-- alias: kwgt conservatory lights on
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_conservatory_lights_on
-  action:
-    - service: homeassistant.turn_on
-      entity_id: light.conservatory_lights
-
-- alias: kwgt conservatory off
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_conservatory_lights_off
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.conservatory_lights
-
-- alias: kwgt bedroom lights on
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_bedroom_lights_on
-  action:
-    - service: homeassistant.turn_on
-      entity_id: light.bedroom
-
-- alias: kwgt bedroom off
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_bedroom_lights_off
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.bedroom
-
-- alias: kwgt baby room lights on
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_baby_room_lights_on
-  action:
-    - service: homeassistant.turn_on
-      entity_id: light.baby_room
-
-- alias: kwgt baby room off
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_baby_room_lights_off
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.baby_room
-
-- alias: kwgt entrance lights on
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_entrance_lights_on
-  action:
-    - service: homeassistant.turn_on
-      entity_id: light.entrance_lights
-
-- alias: kwgt entrance lights off
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_entrance_lights_off
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.entrance_lights
-
-- alias: kwgt wine wine cellar lights on
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_wine_cellar_lights_on
-  action:
-    - service: homeassistant.turn_on
-      entity_id: light.wine_cellar_lights
-
-- alias: kwgt wine wine cellar lights off
-  initial_state: True
-  trigger:
-    platform: webhook
-    webhook_id: kwgt_wine_cellar_lights_off
-  action:
-    - service: homeassistant.turn_off
-      entity_id: light.wine_cellar_lights
+# - alias: kwgt kitchen lights on
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_kitchen_lights_on
+#   action:
+#     - service: homeassistant.turn_on
+#       entity_id: light.kitchen_lights
+#
+# - alias: kwgt kitchen lights off
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_kitchen_lights_off
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: light.kitchen_lights
+#
+# - alias: kwgt dining room lights on
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_dining_room_lights_on
+#   action:
+#     - service: homeassistant.turn_on
+#       entity_id: light.dining_room_lights
+#
+# - alias: kwgt dining room off
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_dining_room_lights_off
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: light.dining_room_lights
+#
+# - alias: kwgt conservatory lights on
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_conservatory_lights_on
+#   action:
+#     - service: homeassistant.turn_on
+#       entity_id: light.conservatory_lights
+#
+# - alias: kwgt conservatory off
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_conservatory_lights_off
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: light.conservatory_lights
+#
+# - alias: kwgt bedroom lights on
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_bedroom_lights_on
+#   action:
+#     - service: homeassistant.turn_on
+#       entity_id: light.bedroom
+#
+# - alias: kwgt bedroom off
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_bedroom_lights_off
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: light.bedroom
+#
+# - alias: kwgt baby room lights on
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_baby_room_lights_on
+#   action:
+#     - service: homeassistant.turn_on
+#       entity_id: light.baby_room
+#
+# - alias: kwgt baby room off
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_baby_room_lights_off
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: light.baby_room
+#
+# - alias: kwgt entrance lights on
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_entrance_lights_on
+#   action:
+#     - service: homeassistant.turn_on
+#       entity_id: light.entrance_lights
+#
+# - alias: kwgt entrance lights off
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_entrance_lights_off
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: light.entrance_lights
+#
+# - alias: kwgt wine wine cellar lights on
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_wine_cellar_lights_on
+#   action:
+#     - service: homeassistant.turn_on
+#       entity_id: light.wine_cellar_lights
+#
+# - alias: kwgt wine wine cellar lights off
+#   initial_state: True
+#   trigger:
+#     platform: webhook
+#     webhook_id: kwgt_wine_cellar_lights_off
+#   action:
+#     - service: homeassistant.turn_off
+#       entity_id: light.wine_cellar_lights
 
 # - alias: kwgt last turned on increase brightness tasker
 #   initial_state: True

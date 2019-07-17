@@ -4,138 +4,11 @@
 #                         #
 ###########################
 
-binary_sensor.floorplan:
-  custom_ui_state_card: state-card-floorplan
-  config: !include floorplan.yaml
-  # custom_ui_state_card: state-card-floorplan
-switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
-  friendly_name: Z-Wave Switch 1
-  custom_ui_state_card: state-card-custom-ui
-  confirm_controls_show_lock: true
-  extra_badge:
-    attribute: power_consumption
-    unit: W
-#  extra_data_template: ${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : null}
-switch.switch:
-  friendly_name: Espresso Machine
-  entity_picture: /local/images/silvia.jpg
-switch.fountain:
-  icon: mdi:fountain
-switch.espresso_machine:
-  friendly_name: HASS.io RPi
-  extra_badge:
-    entity_id: sensor.sensor_espresso
-  homebridge_visible: true
-  homebridge_name: Espresso Maskine
-#    unit: W
-#  custom_ui_state_card: custom_cover
-#  extra_badge:
-#    entity_id: sensor.power_espresso
-#    attribute: power_consumption
-#    unit: W
-#    blacklist_states: 0
-media_player.libreelec:
-  icon: info
-media_player.ue46es8005:
-  friendly_name: Living Room TV
-switch.tv_kodi:
-  entity_picture: /local/images/ue46es8005.jpg
-switch.kettle:
-  friendly_name: iKettle
-  entity_picture: /local/images/ikettle.jpg
-sensor.fibaro_system_fgwpef_wall_plug_gen5_power:
-  friendly_name: Media Power
-sensor.yr_symbol:
-  friendly_name: Weather
-sensor.yr_temperature:
-  friendly_name: Temperature
-script.living_room_media_off:
-  icon: mdi:power
-sensor.yr_windSpeed:
-  icon: mdi:weather-windy
-sensor.yr_windDirection:
-  icon: mdi:compass
-sensor.yr_precipitation:
-  icon: mdi:weather-pouring
-sensor.yr_cloudiness:
-  icon: mdi:weather-cloudy
-script.scene_living_room_bright:
-  icon: mdi:lightbulb-outline
-script.scene_living_room_normal:
-  icon: mdi:lightbulb-outline
-script.scene_living_room_dim:
-  icon: mdi:lightbulb-outline
-script.scene_bedroom_dim:
-  icon: mdi:lightbulb-outline
-script.scene_living_room_off:
-  icon: mdi:lightbulb
-script.scene_sleepy_bedroom:
-  icon: mdi:lightbulb-outline
-script.scene_sleepy_living_room:
-  icon: mdi:lightbulb-outline
-script.going_to_bed:
-  icon: mdi:hotel
-script.going_to_sleep:
-  icon: mdi:sleep
-script.ifttt_desktop_computer_off:
-  icon: mdi:power
-sensor.dark_sky_humidity:
-  friendly_name: Humidity
-sensor.dark_sky_wind_bearing:
-  friendly_name: Wind Bearing
-sensor.dark_sky_wind_speed:
-  friendly_name: Wind Speed
-sensor.dark_sky_precip_intensity:
-  friendly_name: Precipitation
-sensor.dark_sky_summary:
-  friendly_name: Weather
-sensor.dark_sky_hourly_summary:
-  friendly_name: Weather Today
-sensor.dark_sky_daily_summary:
-  friendly_name: Weather Week
-script.mopidy_shut_off:
-  icon: mdi:music-off
-script.libreelec_shut_off:
-  icon: mdi:filmstrip-off
-binary_sensor.aephirhome360:
-  entity_picture: /local/images/brain.jpg
-binary_sensor.kristinahome360:
-  entity_picture: /local/images/kristina.jpg
-binary_sensor.naiahome360:
-  entity_picture: /local/images/naia.jpg
-switch.living_room_media_master:
-  icon: mdi:power
-  custom_ui_state_card: state-card-custom-ui
-  confirm_controls_show_lock: true
-  extra_badge:
-    entity_id: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
-# Example to make homekit available.
-#switch.example:
-#  homebridge_visible: true
-#  homebridge_name: My awesome switch
-device_tracker.google_maps_110730659630480268471:
-  friendly_name: Walden
-device_tracker.walden_bjrn_yoshimoto:
-  entity_picture: /local/images/brain.jpg
-device_tracker.kristinabrody:
-  entity_picture: /local/images/kristina_3.jpg
-device_tracker.niels_brodys_ipad_2:
-  friendly_name: Naia
-  entity_picture: /local/images/naia.jpg
-sensor.aephir_phone_battery_360:
-  friendly_name: Walden's Battery
-  icon: mdi:battery
-sensor.kristina_phone_battery_360:
-  friendly_name: Kristina's Battery
-  icon: mdi:battery
-sensor.emilie_phone_battery_360:
-  friendly_name: Emilie's Battery
-  icon: mdi:battery
-sensor.illumination_7811dcb8d944:
-  friendly_name: Xiaomi Gateway Illumination
-light.gateway_light_7811dcb8d944:
-#  state_card_mode: single-line
-  friendly_name: Xiaomi Gateway Light
+
+####################
+#  Binary Sensors  #
+####################
+
 binary_sensor.motion_sensor_158d000200d285:
   friendly_name: Conservatory Motion
 binary_sensor.motion_sensor_158d000200d203:
@@ -158,51 +31,6 @@ binary_sensor.motion_sensor_158d000236a0f3:
   friendly_name: Top Floor TV Room Motion
 binary_sensor.motion_sensor_158d0001e0a8e1:
   friendly_name: Kitchen Motion
-sensor.illumination_158d000200d285:
-  friendly_name: Conservatory Motion Illumination
-sensor.illumination_158d000200d203:
-  friendly_name: Basement Entrance Motion Illumination
-#  state_card_mode: single-line
-sensor.illumination_158d000200e0c5:
-  friendly_name: Top Floor Stairs Motion Illumination
-sensor.illumination_158d000210ca6e:
-  friendly_name: Bathroom Motion Illumination
-sensor.illumination_158d000236a116:
-  friendly_name: TV Room Motion Illumination
-sensor.illumination_158d00023e3742:
-  friendly_name: Entrance Motion Illumination
-sensor.illumination_158d000236a22f:
-  friendly_name: Bathroom 2 Motion Illumination
-sensor.illumination_158d000236a0d0:
-  friendly_name: Upstairs Bathroom Motion Illumination
-sensor.illumination_158d000236a0f3:
-  friendly_name: Top Floor TV Room Motion Illumination
-sensor.illumination_158d0001e0a8e1:
-  friendly_name: Kitchen Motion Illumination
-sensor.humidity_158d00022c66ff:
-  friendly_name: Bathroom Humidity
-sensor.humidity_158d0002437897:
-  friendly_name: Washing Room Humidity
-sensor.humidity_158d00027727eb:
-  friendly_name: Kitchen Humidity
-sensor.humidity_158d00027437fe:
-  friendly_name: Top Floor TV Room Humidity
-sensor.pressure_158d00022c66ff:
-  friendly_name: Bathroom Pressure
-sensor.temperature_158d00022c66ff:
-  friendly_name: Bathroom Temperature
-sensor.temperature_158d0002437897:
-  friendly_name: Washing Room Temperature
-sensor.temperature_158d00027727eb:
-  friendly_name: Kitchen Temperature
-sensor.temperature_158d00027437fe:
-  friendly_name: Top Floor TV Room Temperature
-sensor.pressure_158d0002437897:
-  friendly_name: Washing Room Pressure
-sensor.pressure_158d00027727eb:
-  friendly_name: Kitchen Pressure
-sensor.pressure_158d00027437fe:
-  friendly_name: Top Floor TV Room Pressure
 binary_sensor.door_window_sensor_158d0002286a78:
   friendly_name: Bathroom Window
   device_class: window
@@ -236,14 +64,176 @@ binary_sensor.door_window_sensor_158d00022d0917:
   #   {% else %}
   #     mdi:door-closed
   #   {% endif %}
+
+#########################
+#    Device Trackers    #
+#########################
+
+device_tracker.google_maps_110730659630480268471:
+  friendly_name: Walden
+device_tracker.walden_bjrn_yoshimoto:
+  entity_picture: /local/images/brain.jpg
+device_tracker.kristinabrody:
+  entity_picture: /local/images/kristina_3.jpg
+device_tracker.niels_brodys_ipad_2:
+  friendly_name: Naia
+  entity_picture: /local/images/naia.jpg
 device_tracker.192168055_8c1abfc18107:
   friendly_name: Aephir Living Google BLE Tracker
-input_boolean.guest_mode:
-  device_class: occupancy
-sensor.dht22_humidity:
-  device_class: moisture
+
+###################
+#    Floorplan    #
+###################
+
+binary_sensor.floorplan:
+  custom_ui_state_card: state-card-floorplan
+  config: !include floorplan.yaml
+  hidden: true
+  # custom_ui_state_card: state-card-floorplan
+
+##################
+#    Switches    #
+##################
+
+switch.fibaro_system_fgwpef_wall_plug_gen5_switch:
+  friendly_name: Z-Wave Switch 1
+  custom_ui_state_card: state-card-custom-ui
+  confirm_controls_show_lock: true
+  extra_badge:
+    attribute: power_consumption
+    unit: W
+#  extra_data_template: ${attributes.power_consumption !== 0 ? (attributes.power_consumption + 'W') : null}
+switch.switch:
+  friendly_name: Espresso Machine
+  entity_picture: /local/images/silvia.jpg
+switch.fountain:
+  icon: mdi:fountain
+switch.espresso_machine:
+  friendly_name: HASS.io RPi
+  extra_badge:
+    entity_id: sensor.sensor_espresso
+  homebridge_visible: true
+  homebridge_name: Espresso Maskine
+switch.tv_kodi:
+  entity_picture: /local/images/ue46es8005.jpg
+switch.kettle:
+  friendly_name: iKettle
+  entity_picture: /local/images/ikettle.jpg
+switch.living_room_media_master:
+  icon: mdi:power
+  custom_ui_state_card: state-card-custom-ui
+  confirm_controls_show_lock: true
+  extra_badge:
+    entity_id: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+# Example to make homekit available.
+#switch.example:
+#  homebridge_visible: true
+#  homebridge_name: My awesome switch
 switch.grafana:
   icon: mdi:chart-line-variant
+
+#################
+#    Sensors    #
+#################
+
+#####################
+#__Climate_Sensors__#
+
+##################
+# Humidity Sensors
+
+sensor.dht22_humidity:
+  device_class: moisture
+sensor.humidity_158d000243778b:
+  friendly_name: Shed humidity
+sensor.humidity_158d000245b4a2:
+  friendly_name: Wine cellar humidity
+sensor.humidity_158d00022c66ff:
+  friendly_name: Bathroom Humidity
+sensor.humidity_158d0002437897:
+  friendly_name: Washing Room Humidity
+sensor.humidity_158d00027727eb:
+  friendly_name: Kitchen Humidity
+sensor.humidity_158d00027437fe:
+  friendly_name: Top Floor TV Room Humidity
+
+#######################
+# Illuminations Sensors
+
+sensor.aeotec_zw100_multisensor_6_luminance:
+  unit_of_measurement: lx
+sensor.aeotec_zw100_multisensor_6_luminance_2:
+  unit_of_measurement: lx
+#    unit: W
+#  custom_ui_state_card: custom_cover
+#  extra_badge:
+#    entity_id: sensor.power_espresso
+#    attribute: power_consumption
+#    unit: W
+#    blacklist_states: 0
+sensor.illumination_7811dcb8d944:
+  friendly_name: Xiaomi Gateway Illumination
+light.gateway_light_7811dcb8d944:
+#  state_card_mode: single-line
+  friendly_name: Xiaomi Gateway Light
+sensor.illumination_158d000200d285:
+  friendly_name: Conservatory Motion Illumination
+sensor.illumination_158d000200d203:
+  friendly_name: Basement Entrance Motion Illumination
+#  state_card_mode: single-line
+sensor.illumination_158d000200e0c5:
+  friendly_name: Top Floor Stairs Motion Illumination
+sensor.illumination_158d000210ca6e:
+  friendly_name: Bathroom Motion Illumination
+sensor.illumination_158d000236a116:
+  friendly_name: TV Room Motion Illumination
+sensor.illumination_158d00023e3742:
+  friendly_name: Entrance Motion Illumination
+sensor.illumination_158d000236a22f:
+  friendly_name: Bathroom 2 Motion Illumination
+sensor.illumination_158d000236a0d0:
+  friendly_name: Upstairs Bathroom Motion Illumination
+sensor.illumination_158d000236a0f3:
+  friendly_name: Top Floor TV Room Motion Illumination
+sensor.illumination_158d0001e0a8e1:
+  friendly_name: Kitchen Motion Illumination
+
+##################
+# Pressure Sensors
+
+sensor.pressure_158d0002437897:
+  friendly_name: Washing Room Pressure
+sensor.pressure_158d00027727eb:
+  friendly_name: Kitchen Pressure
+sensor.pressure_158d00027437fe:
+  friendly_name: Top Floor TV Room Pressure
+sensor.pressure_158d000243778b:
+  friendly_name: Shed pressure
+sensor.pressure_158d000245b4a2:
+  friendly_name: Wine cellar pressure
+sensor.pressure_158d00022c66ff:
+  friendly_name: Bathroom Pressure
+
+#####################
+# Temperature Sensors
+
+sensor.temperature_158d000243778b:
+  friendly_name: Shed temperature
+sensor.temperature_158d000245b4a2:
+  friendly_name: Wine cellar temperature
+sensor.temperature_158d00022c66ff:
+  friendly_name: Bathroom Temperature
+sensor.temperature_158d0002437897:
+  friendly_name: Washing Room Temperature
+sensor.temperature_158d00027727eb:
+  friendly_name: Kitchen Temperature
+sensor.temperature_158d00027437fe:
+  friendly_name: Top Floor TV Room Temperature
+
+
+###################
+#__Plant_Sensors__#
+
 sensor.mi_sensor_1_state:
   friendly_name: Plant 1 state
   icon: mdi:exclamation
@@ -259,15 +249,89 @@ sensor.mi_sensor_1_light_intensity:
   icon: mdi:white-balance-sunny
 sensor.mi_sensor_1_moisture:
   friendly_name: Plant 1 moisture
-sensor.temperature_158d000243778b:
-  friendly_name: Shed temperature
-sensor.pressure_158d000243778b:
-  friendly_name: Shed pressure
-sensor.humidity_158d000243778b:
-  friendly_name: Shed humidity
-sensor.temperature_158d000245b4a2:
-  friendly_name: Wine cellar temperature
-sensor.pressure_158d000245b4a2:
-  friendly_name: Wine cellar pressure
-sensor.humidity_158d000245b4a2:
-  friendly_name: Wine cellar humidity
+
+###################
+#__Power_Sensors__#
+
+sensor.fibaro_system_fgwpef_wall_plug_gen5_power:
+  friendly_name: Media Power
+
+#############
+#__Weather__#
+
+sensor.yr_symbol:
+  friendly_name: Weather
+sensor.yr_temperature:
+  friendly_name: Temperature
+script.living_room_media_off:
+  icon: mdi:power
+sensor.yr_windSpeed:
+  icon: mdi:weather-windy
+sensor.yr_windDirection:
+  icon: mdi:compass
+sensor.yr_precipitation:
+  icon: mdi:weather-pouring
+sensor.yr_cloudiness:
+  icon: mdi:weather-cloudy
+
+sensor.dark_sky_humidity:
+  friendly_name: Humidity
+sensor.dark_sky_wind_bearing:
+  friendly_name: Wind Bearing
+sensor.dark_sky_wind_speed:
+  friendly_name: Wind Speed
+sensor.dark_sky_precip_intensity:
+  friendly_name: Precipitation
+sensor.dark_sky_summary:
+  friendly_name: Weather
+sensor.dark_sky_hourly_summary:
+  friendly_name: Weather Today
+sensor.dark_sky_daily_summary:
+  friendly_name: Weather Week
+
+#######################
+#    Media Players    #
+#######################
+
+media_player.libreelec:
+  icon: info
+media_player.ue46es8005:
+  friendly_name: Living Room TV
+
+#################
+#    Scripts    #
+#################
+
+script.scene_living_room_bright:
+  icon: mdi:lightbulb-outline
+script.scene_living_room_normal:
+  icon: mdi:lightbulb-outline
+script.scene_living_room_dim:
+  icon: mdi:lightbulb-outline
+script.scene_bedroom_dim:
+  icon: mdi:lightbulb-outline
+script.scene_living_room_off:
+  icon: mdi:lightbulb
+script.scene_sleepy_bedroom:
+  icon: mdi:lightbulb-outline
+script.scene_sleepy_living_room:
+  icon: mdi:lightbulb-outline
+script.going_to_bed:
+  icon: mdi:hotel
+script.going_to_sleep:
+  icon: mdi:sleep
+script.ifttt_desktop_computer_off:
+  icon: mdi:power
+
+script.mopidy_shut_off:
+  icon: mdi:music-off
+script.libreelec_shut_off:
+  icon: mdi:filmstrip-off
+
+
+######################
+#    Input Booleans  #
+
+input_boolean.guest_mode:
+  device_class: occupancy
+

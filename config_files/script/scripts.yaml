@@ -562,7 +562,7 @@
           customData: "{{ idle }}"
       - service: switch.turn_off
         data:
-          entity_id: switch.fibaro_system_fgwpef_wall_plug_gen5_switch
+          entity_id: switch.shed_main_power
 
 ##
 # update
@@ -646,29 +646,11 @@
         entity_id:
           - media_player.sonos_play_5_1
 
-  # doorbell_night:
-  #   alias: Doorbell daytime ring
-  #   sequence:
-  #     - service: media_player.play_media
-  #       data:
-  #
-
-#########
-# Trash Pickup Notification
-
-  trash_pickup_reminder:
-    alias: Trash Pickup Tomorrow
+  doorbell_night:
+    alias: Doorbell daytime ring
     sequence:
-      - service: notify.home_aephir_bot
-        data_template:
-          message: >
-            Husk {{ sensor.trash_pickup_type.type }} bliver tømt i morgen.
-      #   data:
-      #     message: "Trash pickup tomorrow. "
-      # - service: notify.ios_kristinas_iphone
-      #   data_template:
-      #     message: >
-      #       Husk {{ sensor.trash_pickup_type.type }} bliver tømt i morgen.
+      - service: media_player.play_media
+        data:
 
 
 ######

@@ -38,7 +38,7 @@
 - platform: broadlink
   host: 192.168.0.85
   mac: !secret broadlink_sp_mini_switch_1_mac
-  friendly_name: TV Room media center
+  friendly_name: 'TV Room media center'
   type:  sp1
 
 - platform: template

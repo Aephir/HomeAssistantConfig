@@ -1,0 +1,26 @@
+#########################
+#                       #
+#    DEVICE TRACKERS    #
+#                       #
+#########################
+
+######################
+#    Meta Trackers   #
+######################
+
+meta_tracker:
+  module: meta_device_tracker
+  class: MetaTracker
+  aephir_maps_tracker: !secret aephir_maps_tracker
+  aephir_l360_tracker: !secret aephir_l360_tracker
+  aephir_ping_tracker: !secret aephir_ping_tracker
+  aephir_bluetooth_1_tracker: !secret aephir_bluetooth_1_tracker
+  kristina_ios_tracker: !secret kristina_ios_tracker
+  kristina_l360_tracker: !secret kristina_l360_tracker
+  kristina_ping_tracker: !secret kristina_ping_tracker
+  emilie_ios_tracker: !secret emilie_ios_tracker
+  emilie_l360_tracker: !secret emilie_l360_tracker
+  emilie_ping_tracker: !secret emilie_ping_tracker
+  naia_ios_tracker: !secret naia_ios_tracker
+  naia_l360_tracker: !secret naia_l360_tracker
+  naia_ping_tracker: !secret naia_ping_tracker
