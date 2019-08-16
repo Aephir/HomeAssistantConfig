@@ -16,7 +16,7 @@
    viewBox="0 0 876.3 492.92009"
    version="1.1"
    id="svg10300"
-   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
    sodipodi:docname="floorplan.svg">
   <defs
      id="defs10294">
@@ -643,8 +643,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.5"
-     inkscape:cx="424.18447"
-     inkscape:cy="1374.2542"
+     inkscape:cx="658.98877"
+     inkscape:cy="796.75235"
      inkscape:document-units="mm"
      inkscape:current-layer="layer11"
      showgrid="false"
@@ -3442,7 +3442,7 @@
             </g>
             <polygon
                id="polygon7803"
-               points="4.841,50.198 4.841,50.213 4.841,50.206 "
+               points="4.841,50.213 4.841,50.206 4.841,50.198 "
                style="fill:#4b4b4e;fill-opacity:1;stroke:#000000;stroke-width:0.8888889;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98165134" />
             <g
                id="g7829"
@@ -7518,7 +7518,7 @@
     <g
        style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        transform="matrix(0,-0.02852539,0.02852538,0,16.40295,110.70987)"
-       id="camera.front_door_POPUP"
+       id="camera.front_door"
        inkscape:label="#g9103">
       <g
          style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
@@ -7936,6 +7936,74 @@
          id="tspan2319"
          x="52.709026"
          y="-2.6112859">100 %</tspan></text>
+    <g
+       style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       transform="matrix(0,0.02852539,-0.02852538,0,155.32742,58.182361)"
+       id="camera.ffmpeg"
+       inkscape:label="#g9103">
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6145">
+        <g
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="g6143">
+          <path
+             style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             inkscape:connector-curvature="0"
+             d="m 387.118,500.728 c 0,0 55.636,0 55.636,-55.637 V 166.909 c 0,-55.637 -55.636,-55.637 -55.636,-55.637 H 55.636 c 0,0 -55.636,0 -55.636,55.637 v 278.182 c 0,55.637 55.636,55.637 55.636,55.637 z"
+             id="path6139" />
+          <polygon
+             style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             points="612,500.728 612,111.272 475.162,219.958 475.162,393.043 "
+             id="polygon6141" />
+        </g>
+      </g>
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6147" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6149" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6151" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6153" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6155" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6157" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6159" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6161" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6163" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6165" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6167" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6169" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6171" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6173" />
+      <g
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="g6175" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"

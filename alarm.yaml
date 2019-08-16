@@ -130,3 +130,4 @@ mqtt:
   payload_disarm: DISARM
 admin_password: '2723'
 passcode_attempts: '2'
+enable_persistence: true

@@ -25,6 +25,8 @@ homeassistant:
         - ::1 # Loopback. This is the machine running Home Assistant (IPV6 addrress)
         # - 172.11.0.2 # NGINX/Let's encrypt docker container
         # - 192.168.0.0/24 # My home network. Any devices with an IP between 192.168.0.0 and 192.168.0.255 (local devices)
+        # - 192.168.0.X # specific device?*?
+        # - !secret trusted_network_1
    # - type: legacy_api_password # Uncomment if you want to enable legacy API password support
    # whitelist_external_dirs:
    #   - /config/tmp/my_stream.mp4
@@ -82,6 +84,7 @@ lovelace:
 map:
 python_script:
 shopping_list:
+snips:
 stream:
 sun:
 system_health:
@@ -113,7 +116,7 @@ hue: !include config_files/hue.yaml
 input_boolean: !include config_files/input_boolean.yaml
 input_select: !include config_files/input_select.yaml
 input_number: !include config_files/input_number.yaml
-# intent_script: !include config_files/intent_script.yaml
+intent_script: !include config_files/intent_script.yaml
 ios: !include config_files/ios.yaml
 joaoapps_join: !include config_files/joaoapps_join.yaml
 life360: !include config_files/life360.yaml

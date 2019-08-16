@@ -2,7 +2,6 @@
 Adapted from https://gist.github.com/runningman84/b96a331b3486dbd1f5f2d00bc85d99ed
 """
 
-
 import appdaemon.appapi as appapi
 
 #
@@ -10,7 +9,6 @@ import appdaemon.appapi as appapi
 #
 # Args:
 #
-
 
 class AlarmSystem(appapi.AppDaemon):
 

@@ -22,11 +22,11 @@ hue_dimmer_1:
   class: HueRemote
   entityID: sensor.hue_dimmer_1
   entity_1: light.dining_room_lights
-  entity_2: light.kitchen_lights
-  entity_3: light.conservatory_lights
-  entity_4: light.baby_room
-  entity_5: light.dining_table_lights
-  entity_6: light.kitchen_spots
+  entity_2: light.conservatory_lights
+  entity_3: light.kitchen_lights
+  entity_4: switch.switch
+  entity_5: switch.fountain
+  entity_6: media_player.ue55nu7475xxc
   entity_7: light.conservatory_couch
   entity_8: light.main_floor_lights
   entity_9: light.living_room_lightstrip
@@ -35,6 +35,25 @@ hue_dimmer_1:
   entity_12: light.basement_lights
   entity_13: light.top_floor_lights
   entity_14: input_boolean.kitchen_lights_motion_override
+
+# hue_dimmer_3:
+#   module: hue_dimmer_3
+#   class: HueRemote
+#   entityID: sensor.hue_dimmer_1
+#   entity_1: light.dining_room_lights
+#   entity_2: light.kitchen_lights
+#   entity_3: light.conservatory_lights
+#   entity_4: light.baby_room
+#   entity_5: light.dining_table_lights
+#   entity_6: light.kitchen_spots
+#   entity_7: light.conservatory_couch
+#   entity_8: light.main_floor_lights
+#   entity_9: light.living_room_lightstrip
+#   entity_10: light.kitchen_cabinet_lights
+#   entity_11: light.conservatory_reading
+#   entity_12: light.basement_lights
+#   entity_13: light.top_floor_lights
+#   entity_14: input_boolean.kitchen_lights_motion_override
 
 # hue_dimmer_2:
 #   module: hue_dimmer_1

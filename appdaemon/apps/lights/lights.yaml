@@ -1,0 +1,15 @@
+####################
+#                  #
+#    Light Apps    #
+#                  #
+####################
+
+
+#######################
+#    Vacation Mode    #
+#######################
+
+looks_like_were_home:
+  module: looks_like_were_home
+  class: AwayLights
+  constrain_input_boolean: input_boolean.vacation_mode

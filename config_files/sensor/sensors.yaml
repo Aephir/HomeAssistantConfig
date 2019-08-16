@@ -4,6 +4,16 @@
 #                   #
 #####################
 
+# #####################
+# #    Alarm Clock    #
+# #####################
+#
+# - platform: rest
+#   resource: http://IP_ADDRESS/ENDPOINT
+#   method: POST
+#   payload: '{ "device" : "heater" }'
+
+
 ####################
 #    Appliances    #
 ####################
@@ -552,6 +562,29 @@
 - platform: mqtt
   state_topic: 'home/bedroom/bed'
   name: "Raw Master Bed Weight Measurement"
+
+#####################
+#    BLE Sensors    #
+#####################
+
+# - platform: template
+#   sensors:
+#     car_ble:
+#       friendly_name: Car Location
+#       value_template: >
+#         {% if is_state('device_tracker.192_168_0_55_ff_ff_00_08_fd_c4', 'home') %}
+#           Home
+#         {% else %}
+#           Away
+#         {% endif %}
+#       icon_template: mdi:car
+#       # device_class: presence
+#       # icon_template: >
+#       #   {% if is_state('device_tracker.192_168_0_55_ff_ff_00_08_fd_c4', 'home') %}
+#       #     mdi:car
+#       #   {% else %}
+#       #
+#       #   {% endif %}
 
 ################
 #   Devices    #

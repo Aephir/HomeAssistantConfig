@@ -47,7 +47,7 @@ class AwayLights(hass.Hass):
             self.basement_lights
             ]
 
-        self.handle = self.run_at_sunset(self.homeAloneLights, offset=300)
+        self.handle = self.run_daily(self.homeAloneLights, start=datetime.time(15,0,0)) # self.run_at_sunset(self.homeAloneLights, offset=300)
 
         # for device in self.deviceTrackers:
         #     self.listen_state(self.homeAloneLights, device)
@@ -73,13 +73,13 @@ class AwayLights(hass.Hass):
         """
 
 
-        testTime = '2018-12-24 15:29:41.893370'
-        cookingTime = '2018-12-24 16:08:41.893370'
-        diningTime = '2018-12-24 18:10:46.893370'
-        hyggeTime = '2018-12-24 19:31:11.893370'
-        eveningTime = '2018-12-24 20:01:56.893370'
-        bedTime = '2018-12-24 23:34:41.893370'
-        lightsOut = '2018-12-25 01:12:41.893370'
+        testTime = datetime.time(15,29,0) # '2018-12-24 15:29:41.893370'
+        cookingTime = datetime.time(16,10,0)
+        diningTime = datetime.time(18,0,0)
+        hyggeTime = datetime.time(19,33,0)
+        eveningTime = datetime.time(20,1,0) # '2018-12-24 20:01:56.893370'
+        bedTime = datetime.time(23,24,0)
+        lightsOut = datetime.time(0,15,0)
 
         if self.get_state('sun.sun') == 'below_horizon' and self.someoneHome() == False and self.get_state('input_boolean.vacation_mode') == 'on':
 
@@ -90,9 +90,9 @@ class AwayLights(hass.Hass):
             self.handle = self.run_at(self.lightsBedtime, bedTime)
             self.handle = self.run_at(self.lightsOut, lightsOut)
 
-            self.handle = self.run_at(self.lightsTest, testTime)
+            # self.handle = self.run_at(self.lightsTest, testTime)
 
-        self.handle = self.run_in(callback, 120, random_start = -60, **kwargs)
+        # self.handle = self.run_in(callback, 120, random_start = -60, **kwargs)
 
 
     def lightsTest(self, entity, attribute, old, new, kwargs):

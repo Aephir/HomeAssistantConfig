@@ -884,13 +884,13 @@
 #              to_state: 'off'
 #              duration: 10
 
-        # - name: Cameras
-        #   entities:
-        #     # - camera.front_door
-        #     - camera.wyze_camera_1
-        #   states:
-        #     - state: 'idle'
-        #       class: 'camera-idle'
+        - name: Cameras
+          entities:
+            - camera.front_door
+            - camera.ffmpeg
+          states:
+            - state: 'idle'
+              class: 'camera-idle'
 
         # - name: Camera Images
         #   entities:

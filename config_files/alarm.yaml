@@ -15,7 +15,7 @@ name: House
 panel:
   cameras:
   - camera.front_door
-  - camera.wyze2
+  - camera.ffmpeg
   # - camera.wallpanel_camera
   panel_title: ''
   camera_update_interval: '30'

@@ -335,3 +335,11 @@ script.libreelec_shut_off:
 input_boolean.guest_mode:
   device_class: occupancy
 
+
+#########################################
+#    BLE Google Home Device Trackers    #
+
+device_tracker.192_168_0_55_ff_ff_00_08_fd_c4:
+  device_class: presence
+  # icon: mdi:car
+  friendly_name: BLE tracker 1 (Blue)

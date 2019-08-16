@@ -8,6 +8,10 @@
 #    Alarm    #
 ###############
 
+alarm_notifier:
+  module: alarm_notifier
+  class: Alarm
+
 # alarm_system:
 #   module: alarm
 #   class: AlarmSystem
@@ -15,7 +19,7 @@
 #     - device_tracker.meta_walden
 #     - device_tracker.meta_kristina
 #     - device_tracker.meta_emilie
-#     - device_tracker.meta_naia
+#     # - device_tracker.meta_naia
 #   armed_home_sensors:
 #     - binary_sensor.door_window_sensor_158d00022b3b66 # Basement door
 #   armed_away_sensors:
