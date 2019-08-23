@@ -53,6 +53,7 @@ http:
 #    Enables    #
 #################
 
+# api:
 auth:
 breaking_changes:
 config:
@@ -82,6 +83,7 @@ lovelace:
 #   # python_script_urls:
 #   #   -
 map:
+mobile_app:
 python_script:
 shopping_list:
 snips:
@@ -89,6 +91,7 @@ stream:
 sun:
 system_health:
 updater:
+websocket_api:
 
 #################
 #    Include    #

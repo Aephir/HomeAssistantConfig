@@ -81,56 +81,10 @@ espresso_left_on:
 #    Initialize    #
 ####################
 
-initialize_sensors:
-  module: initialize_sensors
-  class: Initialize
-  priority: 1
-
-#######################
-#    Notifications    #
-#######################
-
-notify_trash_pickup:
-  module: trash_pickup_notifier
-  class: Notify
-
-leaving_notifications:
-  module: leaving
-  class: OccupancyAutomations
-  tracker_1: device_tracker.meta_walden
-  tracker_2: device_tracker.meta_kristina
-  notify_1: notify/home_aephir_bot
-  notify_2: notify/ios_kristinas_iphone
-
-# notify_phones:
-#   module: generic_notifier
-#   class: Notify
-
-# notify_open_door_windows:
-#   module: door_window_left_open
-#   class: Notify
-
-# motion_door_window_notify:
-#   module: motion_door_window_notify
-#   class: Notify
-#   notify_who: "notify/home_aephir_bot"
-#   title: 'Something's happening at home'
-#   user_id: !secret telegram_chatID_Aephir
-
-# something_left_on:
-#   module: something_left_on_warning
-#   class: ApplianceStatus
-#   entity: switch.switch
-#   start_after: 2700  # 2700
-#   time_between_notifications: 900 # 900
-#   end_after: 5400 # 5400
-#   switch_off: True
-#   # text_on_for: "Espresso machine has been on for "
-#   # text_time_unit: " minutes"
-#   # text_off: ", i turned it off."
-#   # text_data_telegram_warning: '"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"'
-#   # text_data_telegram_auto_off: '"inline_keyboard":"Turn back on:/espresso_on, OK, thanks!:/removekeyboard"'
-#   # notify_who: "notify/home_aephir_bot"
+# initialize_sensors:
+#   module: initialize_sensors
+#   class: Initialize
+#   priority: 1
 
 ##########################
 #    Manual overrides    #

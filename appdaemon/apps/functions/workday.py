@@ -7,15 +7,9 @@
 # class Workday(hass.Hass):
 
 def workday():
-    weekday = ''
-    vacation = ''
-    if datetime.date.weekday(today) < 5:
-        weekday = "on"
-    else:
-        weekday = "off"
-    if hass.get_state("input_boolean.vacation_mode") == "on":
-        vacation = "on"
-    else:
-        vacation = "off"
-    if weekday == "on" and vacation == "off":
+
+    normal_workday = self.get_state("binary_sensor.workday") == "on"
+    vacation = self.get_state("input_boolean.vacation_mode") == "on"
+
+    if normal_workday and not vacation:
         return True

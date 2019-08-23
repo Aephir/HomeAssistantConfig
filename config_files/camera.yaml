@@ -8,6 +8,10 @@
 #  username: !secret android_ip_cam_user
 #  password: !secret android_ip_cam_pass
 
+# - platform: mjpeg
+#   mjpeg_url: http://192.168.0.212/
+#   name: ESP EYE
+
 # - platform: ffmpeg
 #   # still_image_url: http://192.168.0.51:8080/
 #   name: Wyze2
@@ -15,7 +19,7 @@
 #   # username: !secret wyze_rtsp_user
 #   # password: !secret wyze_rtsp_pass
 
-# 
+#
 # - platform: generic
 #   still_image_url: "null"
 #   name: Wyze2

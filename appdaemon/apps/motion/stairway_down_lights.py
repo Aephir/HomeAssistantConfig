@@ -54,8 +54,13 @@ class MotionClass(hass.Hass):
         sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion
 
         awake = self.areWeAwake("light.living_room_lights")
+        party_mode = self.get_state('input_boolean.party_mode') == 'on'
 
-        if sensor_2_state == "on":
+        if party_mode:
+            self.turn_on("light.stairway_down",brightness=255,kelvin=2700)
+
+
+        elif sensor_2_state == "on":
             self.turn_on("light.stairway_down",brightness=255,kelvin=2700)
 
         elif sensor_1_state == "on" and sensor_2_state == "off":

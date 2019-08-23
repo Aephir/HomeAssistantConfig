@@ -42,8 +42,12 @@ class MotionClass(hass.Hass):
         sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5") # Top Floor Stairs Motion
         sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Top Floor TV Room Motion
         awake = self.areWeAwake("light.living_room._lights")
+        party_mode = self.get_state('input_boolean.party_mode') == 'on'
 
-        if new == "on" and entity == "binary_sensor.motion_sensor_158d000236a0f3": # If top floor TV room motion is triggered
+        if party_mode:
+            self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
+
+        elif new == "on" and entity == "binary_sensor.motion_sensor_158d000236a0f3": # If top floor TV room motion is triggered
             if sensor_1_state == "on": # When top floor stairway is also on (meaning someone likely came up the stairs)
                 if int(self.get_state('sensor.illumination_158d000200e0c5')) < 500:
                     if self.now_is_between('07:00:00', '20:00:00'):

@@ -10,6 +10,7 @@ import appdaemon.plugins.hass.hassapi as hass
 
 class MetaTracker(hass.Hass):
 
+
     def initialize(self):
 
         # Set lists of trackers for each person.
@@ -35,6 +36,24 @@ class MetaTracker(hass.Hass):
             self.args["naia_ios_tracker"],
             self.args["naia_ping_tracker"]
             ]
+
+        self.meta_trackers = [
+            "device_tracker.meta_emilie",
+            "device_tracker.meta_kristina",
+            "device_tracker.meta_naia",
+            "device_tracker.meta_walden"
+            ]
+
+        pic = {
+        "device_tracker.meta_emilie":"/local/images/emilie.jpg",
+        "device_tracker.meta_kristina":"/local/images/kristina_3.jpg",
+        "device_tracker.meta_naia":"/local/images/naia_2.jpg",
+        "device_tracker.meta_walden":"/local/images/brain.jpg"
+        }
+
+        for tracker in self.meta_trackers:
+            if not self.entity_exists(tracker):
+                self.set_state(tracker, state = "Unknown", attributes = {'entity_picture':pic[tracker]})
 
         # Set list of all trackers.
         self.allTrackers = self.aephirTrackers + self.kristinaTrackers + self.emilieTrackers + self.naiaTrackers

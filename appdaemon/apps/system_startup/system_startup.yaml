@@ -1,0 +1,13 @@
+#############################
+#                           #
+#    System Startup Apps    #
+#                           #
+#############################
+
+###############################
+#    Sensor Initialization    #
+###############################
+
+initialize_sensors:
+  module: initialize_sensors
+  class: Initialization

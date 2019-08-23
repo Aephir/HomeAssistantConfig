@@ -123,3 +123,12 @@
   monitored_conditions:
     - button
     - motion
+
+#################
+#    Workday    #
+#################
+
+- platform: workday
+  country: DK
+  workdays: [mon, tue, wed, thu, fri]
+  excludes: [sat, sun, holiday]

@@ -46,8 +46,12 @@ class MotionClass(hass.Hass):
         sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5") # Top Floor Stairs Motion Sensor
 
         awake = self.areWeAwake("light.living_room_lights")
+        party_mode = self.get_state('input_boolean.party_mode') == 'on'
 
-        if entity == "binary_sensor.motion_sensor_158d00023e3742" and new == 'on':
+        if party_mode:
+            self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
+
+        elif entity == "binary_sensor.motion_sensor_158d00023e3742" and new == 'on':
             # if sensor_2_state == 'off':
             if self.now_is_between('07:00:00', '22:00:00'):
                 self.turn_on("light.stairway_up",brightness=255,kelvin=2700)

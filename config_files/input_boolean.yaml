@@ -74,6 +74,11 @@ speech_notifications:
   icon: mdi:speaker-wireless
   initial: off
 
+party_mode:
+  name: Party Mode
+  icon: mdi:glass-cocktail # mdi:party-popper
+  initial: off
+
 vacation_mode:
   name: Vacation
   icon: mdi:beach

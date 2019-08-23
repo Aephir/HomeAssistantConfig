@@ -41,10 +41,11 @@ class MotionClass(hass.Hass):
 
 
     # Returns True/False based on state of entity (assess whether we are awake). Find better proxy eventually.
-    def areWeAwake(self, entity):
+    def areWeAwake(self, entities):
         """ Check whether anyone is awake"""
-        if self.get_state(entity) == "on":
-            return True
+        for entity in entities:
+            if self.get_state(entity) == "on":
+                return True
 
     # Returns value of state as integer. Might need to remove the "float" is you get errors.
     def getIntegerState(self, entity_id):
@@ -67,13 +68,16 @@ class MotionClass(hass.Hass):
     def lightsOn(self, illumination):
         """ Turns the lights on, depending on time and awake state"""
 
-        awake = self.areWeAwake('light.dining_room_lights')
+        awake = self.areWeAwake(['light.dining_room_lights', 'input_boolean.part_mode'])
         if date.today().weekday() < 5:
             weekday = True
         else:
             weekday = False
 
-        if weekday:
+        if self.get_state('input_boolean.party_mode') == 'on':
+            self.turn_on('light.bathroom', brightness=255, kelvin=2700)
+            
+        elif weekday:
             if self.now_is_between("06:45:00", "21:00:00") and illumination < 250: # 50? 100?
                 self.turn_on('light.bathroom', brightness=255, kelvin=2700)
             elif self.now_is_between("21:00:00", "22:00:00") and illumination < 250:

@@ -164,7 +164,7 @@ walden_presence:
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
     widget_type: device_tracker
-    entity: device_tracker.walden_bjrn_yoshimoto
+    entity: device_tracker.meta_walden
 
 kristina_presence:
     title: Kristina
@@ -173,7 +173,7 @@ kristina_presence:
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
     widget_type: device_tracker
-    entity: device_tracker.kristinabrody
+    entity: device_tracker.meta_kristina
 
 emilie_presence:
     title: Emilie
@@ -182,7 +182,7 @@ emilie_presence:
     icon_style_active: "margin-top: -15px"
     icon_style_inactive: "margin-top: -15px"
     widget_type: device_tracker
-    entity: device_tracker.emilie
+    entity: device_tracker.meta_emilie
 
 walden_battery:
     title: Walden

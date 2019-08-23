@@ -677,6 +677,10 @@ views:
         entities:
           - camera.ffmpeg
         # camera_view: live
+      # - type: picture
+      #   image: http://192.168.0.212
+      #   # entity: camera.camera.esp_eye
+      #   # camera_view: live
 
 
 #################
@@ -755,6 +759,7 @@ views:
           - input_boolean.kids_home
           - input_boolean.guest_mode
           - input_boolean.cooking_mode
+          - input_boolean.party_mode
           # - input_boolean.kitchen_lights_motion_control
           # - input_boolean.bathroom_lights_motion_control
           - input_boolean.main_floor_lights_motion_control

@@ -42,8 +42,12 @@ class MotionClass(hass.Hass):
         sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742") # Entrance Motion
         sensor_4_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Top Floor TV Room Motion
         awake = self.areWeAwake("light.living_room._lights")
+        party_mode = self.get_state('input_boolean.party_mode') == 'on'
 
-        if sensor_1_state == "on":
+        if party_mode:
+            self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
+
+        elif sensor_1_state == "on":
             if self.now_is_between('07:00:00', '22:00:00'):
                 self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
                 if self.getIntegerState("sensor.illumination_158d000200e0c5") < 75:

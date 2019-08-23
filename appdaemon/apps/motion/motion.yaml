@@ -9,6 +9,11 @@
 #    Motion Lights    #
 #######################
 
+bathroom_motion_light:
+  module: bathroom_lights
+  class: MotionClass
+  constrain_input_boolean: input_boolean.main_floor_lights_motion_control
+
 basement_entrance_motion_light:
   module: basement_entrance_lights
   class: MotionClass
@@ -19,8 +24,18 @@ basement_hallway_motion_light:
   class: MotionClass
   constrain_input_boolean: input_boolean.basement_lights_motion_control
 
+basement_stairway_motion_light:
+  module: basement_stairway_lights
+  class: MotionClass
+  constrain_input_boolean: input_boolean.basement_lights_motion_control
+
 conservatory_lights:
   module: conservatory_lights
+  class: MotionClass
+  constrain_input_boolean: input_boolean.main_floor_lights_motion_control
+
+kitchen_motion_light:
+  module: kitchen_lights
   class: MotionClass
   constrain_input_boolean: input_boolean.main_floor_lights_motion_control
 
@@ -34,16 +49,6 @@ stairway_up_light:
   class: MotionClass
   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
 
-bathroom_motion_light:
-  module: bathroom_lights
-  class: MotionClass
-  constrain_input_boolean: input_boolean.main_floor_lights_motion_control
-
-kitchen_motion_light:
-  module: kitchen_lights
-  class: MotionClass
-  constrain_input_boolean: input_boolean.main_floor_lights_motion_control
-
 tv_room_motion_light:
   module: tv_room_lights
   class: MotionClass
@@ -54,10 +59,10 @@ top_floor_bathroom_motion_light:
   class: MotionClass
   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
 
-top_floor_stairway_motion_light:
-  module: top_floor_hallway_lights
-  class: MotionClass
-  constrain_input_boolean: input_boolean.top_floor_lights_motion_control
+# top_floor_stairway_motion_light:
+#   module: top_floor_hallway_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
 
 top_floor_tv_room_light:
   module: top_floor_tv_room_lights
