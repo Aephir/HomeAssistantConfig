@@ -100,9 +100,9 @@ espresso_left_on:
 #    Occupancy    #
 ###################
 
-occupancy:
-  module: occupancy
-  class: HomeOccupancy
+# occupancy:
+#   module: occupancy
+#   class: HomeOccupancy
 
 # looks_like_were_home:
 #   module: looks_like_were_home
@@ -193,4 +193,3 @@ bathroom_status:
 # reboot_when_router_unaccessible:
 #   module: internet
 #   class: SystemClass
-

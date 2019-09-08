@@ -38,8 +38,12 @@ class MotionClass(hass.Hass):
         sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000236a0d0")
         illumination_1 = self.getIntegerState("sensor.illumination_158d000236a0d0")
 
+        party_mode = self.get_state('input_boolean.party_mode') == 'on'
+
         if sensor_1_state == "on":
-            if self.now_is_between('07:00:00', '20:30:00'):
+            if party_mode:
+                self.turn_on("light.top_floor_bathroom",brightness=255,kelvin=2700)
+            elif self.now_is_between('07:00:00', '20:30:00'):
                 if illumination_1 < 50:
                     self.turn_on("light.top_floor_bathroom",brightness=255,kelvin=2700)
 

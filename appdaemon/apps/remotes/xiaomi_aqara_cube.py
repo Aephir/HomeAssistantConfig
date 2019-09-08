@@ -3,7 +3,7 @@ Xiaomi cube remote
 """
 
 import appdaemon.plugins.hass.hassapi as hass
-import datetime
+# import datetime
 
 class Remote(hass.Hass):
 
@@ -19,11 +19,11 @@ class Remote(hass.Hass):
     def initialize(self):
 
         # List of light groups that can be "active". If active, this is what is dimmed upon rotation.
-        self.light_list = [
-            'light.kitchen_spots',
-            'light.dining_room_lights',
-            'light.conservatory_lights'
-            ]
+        # self.light_list = [
+        #     'light.kitchen_spots',
+        #     'light.dining_room_lights',
+        #     'light.conservatory_lights'
+        #     ]
 
         # Detect click. It detects sequential clicks of same button! (Why/how?)
         self.listen_state(self.ButtonState,"binary_sensor.cube_158d00028f7196")
@@ -33,21 +33,29 @@ class Remote(hass.Hass):
         # "new" will be "flip90", "flip180", "move", "tap_twice", "shake_air", "swing", "alert", "free_fall", and "rotate".
         # "action_value" will be available if "new" == "rotate". If so, "action_type" will be degrees of rotation.
 
-        raw_value = self.get_state("binary_sensor.cube_158d00028f7196", attribute = "value")
-        action = self.get_state("binary_sensor.cube_158d00028f7196", data = "action_value")
-        self.log(raw_value)
-        self.log(action)
+        top_floor_lights = [
+            'light.top_floor_hallway',
+            'light.top_floor_tv_area'
+            ]
 
-        last_action = self.get_state("binary_sensor.cube_158d00028f7196", attribute = "last_action")
+        for light in top_floor_lights:
+            self.toggle(light)
+        #
+        # raw_value = self.get_state("binary_sensor.cube_158d00028f7196", attribute = "value")
+        # action = self.get_state("binary_sensor.cube_158d00028f7196", data = "action_value")
+        # self.log(raw_value)
+        # self.log(action)
+        #
+        # last_action = self.get_state("binary_sensor.cube_158d00028f7196", attribute = "last_action")
+        #
+        # if last_action == move:
+        # elif last_action == rotate:
+        # # elif last_action == flip90:
+        # #     # Snooze alarm if within 30 minutes after alarm time is set.
+        # # elif last_action == flip180:
+        # #     # Cancel alarm if within 30 minutes after alarm time is set.
+        # elif last_action == shake_air:
+        #     self.goodNight()
 
-        if last_action == move:
-        elif last_action == rotate:
-        # elif last_action == flip90:
-        #     # Snooze alarm if within 30 minutes after alarm time is set.
-        # elif last_action == flip180:
-        #     # Cancel alarm if within 30 minutes after alarm time is set.
-        elif last_action == shake_air:
-            self.goodNight()
 
-
-    def goodNight(self, entity, attribute, old, new, kwargs):
+    # def goodNight(self, entity, attribute, old, new, kwargs):

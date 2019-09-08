@@ -27,6 +27,8 @@ resources:
     type: js
   - url: /community_plugin/compact-custom-header/compact-custom-header.js
     type: module
+  - type: module
+    url: /local/floorplan/floorplan-card.js?v=1.1.14
 
 # resources:
 #   - url: /customcards/monster-card.js?v=0.2.3
@@ -793,7 +795,7 @@ views:
             users:
               - Aephir
               - Kristina
-          - entity: switch.plug_158d00035427fc
+          - entity: switch.top_floor_media
       # - type: entities
       #   title: Docker Containers
       #   entities:
@@ -972,6 +974,25 @@ views:
             type: markdown
             content: >
               ## Unknown user
+      # - cards:
+      #     - config:
+      #         image: /local/floorplan/examples/simple/simple.svg?v=1.1.14
+      #         rules:
+      #           - entities:
+      #               - binary_sensor.main_bedroom
+      #               - binary_sensor.living_area
+      #               - binary_sensor.double_garage
+      #             states:
+      #               - class: 'binary-sensor-off'
+      #                 state: 'off'
+      #               - class: 'binary-sensor-on'
+      #                 state: 'on'
+      #         stylesheet: /local/floorplan/examples/simple/simple.css?v=1.1.14
+      #       title: Simple Floorplan
+      #       type: 'custom:floorplan-card'
+      #   icon: 'mdi:floor-plan'
+      #   id: system
+      #   title: Floorplan
 
       - type: picture-elements
         image: /local/images/floorplan.png

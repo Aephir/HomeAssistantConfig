@@ -74,9 +74,14 @@ class MotionClass(hass.Hass):
         else:
             weekday = False
 
+        workday = self.get_state('binary_sensor.workday_sensor') == 'on'
+
         if self.get_state('input_boolean.party_mode') == 'on':
             self.turn_on('light.bathroom', brightness=255, kelvin=2700)
-            
+
+        elif self.get_state('input_boolean.party_mode') == 'on':
+            self.turn_on('light.bathroom', brightness=255, kelvin=2700)
+
         elif weekday:
             if self.now_is_between("06:45:00", "21:00:00") and illumination < 250: # 50? 100?
                 self.turn_on('light.bathroom', brightness=255, kelvin=2700)

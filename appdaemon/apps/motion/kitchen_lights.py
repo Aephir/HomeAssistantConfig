@@ -69,8 +69,12 @@ class MotionClass(hass.Hass):
 
         cooking = self.cooking()
         dark = int(illumination) < 80 # 40?? 50??
+        party_mode = self.get_state('input_boolean.party_mode') == 'on'
 
-        if self.now_is_between("07:00:00", "21:00:00"):
+        if party_mode:
+            self.turn_on("light.kitchen_lights",brightness=255,kelvin=2700)
+
+        elif self.now_is_between("07:00:00", "21:00:00"):
             if dark:
                 if cooking:
                     for entity in self.light_entity_ids:

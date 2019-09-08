@@ -28,10 +28,12 @@ class HueRemote(hass.Hass):
             else:
                 self.turn_off(self.args["entity_3"])
         elif new == "4_click_up": # Toggle Espresso Machine
-            if self.get_state(self.args["entity_4"]) == 'off':
-                self.turn_on(self.args["entity_4"])
-            else:
-                self.turn_off(self.args["entity_4"])
+            # self.toggle("switch.switch")
+            self.toggle(self.args["entity_4"])
+            # if self.get_state(self.args["entity_4"]) == 'off':
+            #     self.turn_on(self.args["entity_4"])
+            # else:
+            #     self.turn_off(self.args["entity_4"])
         elif new == "1_hold": # Toggle Foutain
             if self.get_state(self.args["entity_5"]) == 'off':
                 self.turn_on(self.args["entity_5"])

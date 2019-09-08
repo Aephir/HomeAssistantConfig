@@ -1,0 +1,15 @@
+#######################
+#    Home Presence    #
+#######################
+
+create_occupancy_sensor:
+  module: last_leaves
+  class: Presence
+
+occupancy:
+  module: home_occupied
+  class: Presence
+
+# occupancy:
+#   module: occupancy
+#   class: Presence

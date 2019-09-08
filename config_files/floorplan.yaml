@@ -316,7 +316,7 @@
         - name: aephir_location
           entities:
             # - device_tracker.google_maps_110730659630480268471
-            - device_tracker.walden_bjrn_yoshimoto
+            - device_tracker.meta_walden
 #          text_template: '${entity.state ? entity.state.replace("not_home", "away") : "undefined"}'
           text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Walden", "Work").replace("Central_Copenhagen", "City").replace("Irma_Sluseholmen", "Irma") : "undefined"}'
           states:
@@ -345,7 +345,7 @@
 
         - name: kristina_location
           entities:
-            - device_tracker.kristinabrody
+            - device_tracker.meta_kristina
           text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Kristina", "Work").replace("Irma_Sluseholmen", "Irma").replace("Central_Copenhagen", "City") : "undefined"}'
           states:
             - state: 'Home'
@@ -373,7 +373,33 @@
 
         - name: emilie_location
           entities:
-            - device_tracker.emilie
+            - device_tracker.meta_emilie
+          text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Central_Copenhagen", "City").replace("Irma_Sluseholmen", "Irma") : "undefined"}'
+          states:
+            - state: 'Home'
+              class: 'presence-zone1'
+            - state: 'Work Walden'
+              class: 'presence-zone2'
+            - state: 'Sigynsgade'
+              class: 'presence-zone3'
+            - state: 'Jelling'
+              class: 'presence-zone4'
+            - state: 'Irma_Sluseholmen'
+              class: 'presence-zone5'
+            - state: 'Central_Copenhagen'
+              class: 'presence-zone6'
+            - state: 'Work Kristina'
+              class: 'presence-zone7'
+            - state: 'Sommerhus'
+              class: 'presence-zone8'
+            - state: 'Skole'
+              class: 'presence-zone9'
+            - state: 'Klubben'
+              class: 'presence-zone10'
+
+        - name: emilie_location
+          entities:
+            - device_tracker.meta_naia
           text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Central_Copenhagen", "City").replace("Irma_Sluseholmen", "Irma") : "undefined"}'
           states:
             - state: 'Home'
@@ -444,6 +470,22 @@
             else
               return "batt-ok";
             '
+
+        # - name: naia_battery
+        #   entities:
+        #     - sensor.naia_phone_battery
+        #   text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+        #   class_template: '
+        #     var batt = parseFloat(entity.state);
+        #     if (batt < 5)
+        #       return "batt-critical";
+        #     else if (batt < 15)
+        #       return "batt-low";
+        #     else if (batt < 60)
+        #       return "batt-medium";
+        #     else
+        #       return "batt-ok";
+        #     '
 
         - name: Battery charge state
           entities:
