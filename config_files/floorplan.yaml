@@ -736,12 +736,12 @@
               class: 'tv-glow-off'
 
 
-        - name: Everything_Off
-          entities:
-            - script.everyone_left_turn_off_everything
-          action:
-            domain: script
-            service: everyone_left_turn_off_everything
+        # - name: Everything_Off
+        #   entities:
+        #     - script.everyone_left_turn_off_everything
+        #   action:
+        #     domain: script
+        #     service: everyone_left_turn_off_everything
 
         - name: All_Lights_Off
           entities:
@@ -787,6 +787,7 @@
           entities:
              - input_boolean.guest_mode
              - input_boolean.vacation_mode
+             - input_boolean.party_mode
           action:
 #            domain: input_boolean
             service: toggle
