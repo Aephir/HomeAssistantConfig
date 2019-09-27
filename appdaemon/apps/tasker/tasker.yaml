@@ -16,48 +16,56 @@
 espresso_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   entityID: switch.switch
   friendly_name: espresso_machine
 
 fountain_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   entityID: switch.fountain
   friendly_name: fountain
 
 kitchen_lights_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   entityID: light.kitchen_lights
   friendly_name: kitchen_lights
 
 dining_room_lights_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   entityID: light.dining_room_lights
   friendly_name: dining_room_lights
 
 conservatory_lights_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   entityID: light.conservatory_lights
   friendly_name: conservatory_lights
 
 bedroom_lights_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   entityID: light.bedroom
   friendly_name: bedroom_lights
 
 baby_room_lights_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   entityID: light.baby_room
   friendly_name: baby_room_lights
 
 wine_cellar_lights_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   entityID: light.wine_cellar
   friendly_name: wine_cellar_lights
 
@@ -68,15 +76,18 @@ set_latest_notification_tasker:
 pc_off_tasker:
   module: pc_off_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
 
 launch_skybellhd:
   module: launch_nexus_9_app
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   APP: skybellhd
   entityID: input_boolean.skybell_launch
 
 launch_fullykiosk:
   module: launch_nexus_9_app
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
   app: fullykiosk
   entityID: input_boolean.fullykiosk_launch
