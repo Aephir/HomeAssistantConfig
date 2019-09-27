@@ -57,20 +57,23 @@ class MotionClass(hass.Hass):
         sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Top Floor Stairs Motion Sensor
         sensor_4_state = self.get_state("binary_sensor.door_window_sensor_158d00022d0917") # Front door sensor
         awake = self.areWeAwake("light.living_room_lights")
+        party_mode      = self.get_state('input_boolean.party_mode') == 'on'
 
         if sensor_1_state == "on" or sensor_2_state == "on" or sensor_3_state == "on":
-            if self.now_is_between('07:00:00', '22:00:00'):
+            if party_mode:
+                self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
+            elif self.now_is_between('07:00:00', '22:00:00'):
                 # if self.getIntegerState("sensor.illumination_158d00023e3742") < 50:
                 self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
 
             elif self.now_is_between('22:00:00', '07:00:00'):
-                if awake or self.areWeAwake("light.conservatory_lights") == True:
+                if awake:
                     self.turn_on("light.entrance_lights",brightness=255,kelvin=2200)
-                elif new == "on" and entity == "binary_sensor.motion_sensor_158d000236a0f3":
-                    self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
-                    # Entrance lights
-                elif new == "on" and entity == "binary_sensor.motion_sensor_158d000210ca6f":
-                    self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
+                # elif new == "on" and entity == "binary_sensor.motion_sensor_158d000236a0f3":
+                #     self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
+                #     # Entrance lights
+                # elif new == "on" and entity == "binary_sensor.motion_sensor_158d000210ca6f":
+                #     self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
 
         else:
             self.turn_off("light.entrance_lights")

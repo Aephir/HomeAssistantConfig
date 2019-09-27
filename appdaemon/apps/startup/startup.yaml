@@ -1,0 +1,13 @@
+#################
+#               #
+#    Startup    #
+#               #
+#################
+
+#####################
+#    Alarm Clock    #
+#####################
+
+set_alarm:
+  module: get_alarm_clock
+  class: Alarm

@@ -67,5 +67,5 @@
 - name: !secret zone11name
   latitude: !secret zone11lat
   longitude: !secret zone11lon
-  radius: 100
+  radius: 1500
   icon: mdi:airport

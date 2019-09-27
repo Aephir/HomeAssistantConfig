@@ -128,6 +128,7 @@ logger: !include config_files/logger.yaml
 media_player: !include_dir_merge_list config_files/media_player/
 mqtt: !include config_files/mqtt.yaml
 notify: !include config_files/notify.yaml
+octoprint: !include config_files/octoprint.yaml
 owntracks: !include config_files/owntracks.yaml
 # packages: !include config_files/packages.yaml
 panel_custom: !include config_files/panel_custom.yaml

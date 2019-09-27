@@ -88,8 +88,21 @@
 - platform: group
   name: Entrance Lights
   entities:
-    - light.main_floor_entrance_1
-    - light.main_floor_entrance_2
+    - light.entrance_lights_1
+    - light.entrance_lights_2
+
+- platform: group
+  name: Entrance Lights 1
+  entities:
+    - light.entrance_1_1
+    - light.entrance_1_2
+
+- platform: group
+  name: Entrance Lights 2
+  entities:
+    - light.entrance_2_1
+    - light.entrance_2_2
+
 
 #####################
 #__Basement_Lights__#

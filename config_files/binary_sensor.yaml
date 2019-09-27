@@ -129,6 +129,14 @@
 #################
 
 - platform: workday
+  name: Workday today
   country: DK
   workdays: [mon, tue, wed, thu, fri]
   excludes: [sat, sun, holiday]
+
+- platform: workday
+  name: Workday tomorrow
+  country: DK
+  workdays: [mon, tue, wed, thu, fri]
+  excludes: [sat, sun, holiday]
+  days_offset: 1

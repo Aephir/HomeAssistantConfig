@@ -134,6 +134,10 @@ views:
             - entity: light.living_room_lightstrip
               type: custom:slider-entity-row
               toggle: true
+            - entity: light.gateway_light_7811dcb8d944
+              name: Gateway Light
+              type: custom:slider-entity-row
+              toggle: true
 
           # - type: custom:fold-entity-row
           #   head: light.conservatory_lights
@@ -159,6 +163,10 @@ views:
             type: custom:slider-entity-row
             toggle: true
 
+          - entity: light.entrance_lights
+            type: custom:slider-entity-row
+            toggle: true
+
           - entity: light.bedroom
             # type: custom:slider-entity-row
             type: custom:toggle-lock-entity-row
@@ -172,11 +180,7 @@ views:
             name: Baby Room Light
             type: custom:slider-entity-row
             toggle: true
-          - entity: light.gateway_light_7811dcb8d944
-            # Override the name to use
-            name: Gateway Light
-            type: custom:slider-entity-row
-            toggle: true
+
             # show_value: true
           # - type: divider
           #   style:
@@ -420,6 +424,27 @@ views:
               # - entity: sensor.car_battery
               #   name: Battery
 
+              # - type: custom:entity-attributes-card
+              #   entity: sensor.windows_and_doors
+              #   filter:
+              #     include:
+              #       - key: binary_sensor.prusa_i3_mk3s_printing
+              #         name: Printing?
+              #       - key: binary_sensor.prusa_i3_mk3s_printing_error
+              #         name: Error?
+              #       - key: sensor.prusa_i3_mk3s_actual_bed_temp
+              #         name: Bed temperature
+              #       - key: sensor.prusa_i3_mk3s_target_bed_temp
+              #         name: Bed target temperature
+              #       - key: sensor.prusa_i3_mk3s_actual_tool0_temp
+              #         name: Extruder temperature
+              #       - key: sensor.prusa_i3_mk3s_target_tool0_temp
+              #         name: Extruder target temperature
+              #       - key: sensor.prusa_i3_mk3s_time_elapsed
+              #         name: Time elapsed
+              #       - key: sensor.prusa_i3_mk3s_time_remaining
+              #         name: Time remaining
+
           - type: history-graph
             title: 'Temperature graphs'
             hours_to_show: 72
@@ -533,7 +558,7 @@ views:
                 # title: CPU Temperature
                 measurement: °C # set yo override default
                 entity: sensor.cpu_temperature
-                # scale: 10px
+                scale: 10px
                 min: 0
                 max: 100
                 severity:
@@ -544,7 +569,7 @@ views:
                 name: CPU use
                 # title: CPU use
                 entity: sensor.processor_use
-                # scale: 10px
+                scale: 10px
                 min: 0
                 max: 100
                 severity:
@@ -555,7 +580,7 @@ views:
                 name: Memory use
                 # title: Memory use
                 entity: sensor.memory_use_percent
-                # scale: 10px
+                scale: 10px
                 min: 0
                 max: 100
                 severity:
@@ -566,7 +591,7 @@ views:
                 name: Disk use
                 # title: Disk use
                 entity: sensor.disk_use_percent
-                # scale: 10px
+                scale: 10px
                 min: 0
                 max: 100
                 severity:
@@ -577,6 +602,20 @@ views:
             entities:
               - sensor.hacs
               - sensor.potential_breaking_changes
+
+          - type: entities
+            title: Prusa i3 MK3S
+            show_header_toggle: false
+            entities:
+              - binary_sensor.prusa_i3_mk3s_printing
+              - binary_sensor.prusa_i3_mk3s_printing_error
+              - sensor.prusa_i3_mk3s_actual_bed_temp
+              - sensor.prusa_i3_mk3s_target_bed_temp
+              - sensor.prusa_i3_mk3s_actual_tool0_temp
+              - sensor.prusa_i3_mk3s_target_tool0_temp
+              - sensor.prusa_i3_mk3s_time_elapsed
+              - sensor.prusa_i3_mk3s_time_remaining
+
 
           # - type: custom:tracker-card
           #   title: Custom Components and Cards

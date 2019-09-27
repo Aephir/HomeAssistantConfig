@@ -1,0 +1,31 @@
+# @Author: Walden Emil Bjørn-Yoshimoto <mfd356>
+# @Date:   19700101-0101
+# @Email:  waldenb@gmail.com
+# @Last modified by:   mfd356
+# @Last modified time: 20190926-1409
+
+
+
+###################
+#                 #
+#    OCTOPRINT    #
+#                 #
+###################
+
+host: !secret octoprint_ip
+api_key: !secret octoprint_api_key
+name: Prusa i3 MK3S
+port: 80 # default... need to use other?
+bed: true # true means heated
+number_of_tools: 2
+sensors:
+  monitored_conditions:
+    - 'Current State'
+    - 'Temperatures'
+    - 'Job Percentage'
+    - 'Time Elapsed'
+    - 'Time Remaining'
+binary_sensors:
+  monitored_conditions:
+    - Printing
+    - Printing Error

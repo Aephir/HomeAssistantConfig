@@ -189,6 +189,18 @@
     data:
       message: "Kristina is home"
 
+- alias: "Kristina at airport" # Message through Join if Kristina leaves work - doesn't work...
+  initial_state: True
+  trigger:
+    - platform: state
+      from: 'away'
+      to: 'Kastrup Airport'
+      entity_id: device_tracker.meta_kristina
+  action:
+    service: notify.home_aephir_bot
+    data:
+      message: "Kristina at the airport"
+
 - alias: Notify iOS app test
   initial_state: True
   trigger:

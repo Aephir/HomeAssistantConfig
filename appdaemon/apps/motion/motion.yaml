@@ -34,6 +34,11 @@ conservatory_lights:
   class: MotionClass
   constrain_input_boolean: input_boolean.main_floor_lights_motion_control
 
+entrance_lights:
+  module: entrance_lights
+  class: MotionClass
+  constrain_input_boolean: input_boolean.main_floor_lights_motion_control
+
 kitchen_motion_light:
   module: kitchen_lights
   class: MotionClass
@@ -59,10 +64,14 @@ top_floor_bathroom_motion_light:
   class: MotionClass
   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
 
-# top_floor_stairway_motion_light:
-#   module: top_floor_hallway_lights
-#   class: MotionClass
-#   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
+top_floor_hallway_lights:
+  module: top_floor_hallway_lights
+  class: MotionClass
+
+top_floor_stairway_motion_light:
+  module: top_floor_stairway_lights
+  class: MotionClass
+  constrain_input_boolean: input_boolean.top_floor_lights_motion_control
 
 top_floor_tv_room_light:
   module: top_floor_tv_room_lights
