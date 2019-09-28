@@ -743,12 +743,12 @@
         #     domain: script
         #     service: everyone_left_turn_off_everything
 
-        - name: All_Lights_Off
-          entities:
-             - script.scene_all_lights_off
-          action:
-            domain: script
-            service: scene_all_lights_off
+        # - name: All_Lights_Off
+        #   entities:
+        #      - script.scene_all_lights_off
+        #   action:
+        #     domain: script
+        #     service: scene_all_lights_off
 
         # - name: Bedtime
         #   entities:
@@ -757,12 +757,12 @@
         #     domain: script
         #     service: all_but_bedroom_off
 
-        - name: movie_night
-          entities:
-             - script.movie_night
-          action:
-            domain: script
-            service: movie_night
+        # - name: movie_night
+        #   entities:
+        #      - script.movie_night
+        #   action:
+        #     domain: script
+        #     service: movie_night
 
 #         - name: night_lights
 #           entities:
@@ -783,11 +783,14 @@
         #     domain: script
         #     service: scene_welcome_home_lights
 
-        - name: guest_mode
+        - name: generic_buttons
           entities:
              - input_boolean.guest_mode
              - input_boolean.vacation_mode
              - input_boolean.party_mode
+             - input_boolean.top_floor_lights_motion_control
+             - input_boolean.main_floor_lights_motion_control
+             - input_boolean.basement_lights_motion_control
           action:
 #            domain: input_boolean
             service: toggle

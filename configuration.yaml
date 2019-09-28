@@ -25,7 +25,7 @@ homeassistant:
         - ::1 # Loopback. This is the machine running Home Assistant (IPV6 addrress)
         # - 172.11.0.2 # NGINX/Let's encrypt docker container
         # - 192.168.0.0/24 # My home network. Any devices with an IP between 192.168.0.0 and 192.168.0.255 (local devices)
-        # - 192.168.0.X # specific device?*?
+        # - 192.168.0.X # specific device?
         # - !secret trusted_network_1
    # - type: legacy_api_password # Uncomment if you want to enable legacy API password support
    # whitelist_external_dirs:

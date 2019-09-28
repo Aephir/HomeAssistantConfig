@@ -78,5 +78,8 @@ class MotionClass(hass.Hass):
         elif new == 'on' and entity == 'binary_sensor.door_window_sensor_158d00022d0917':
             self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
 
+        elif new == 'on' and entity == 'binary_sensor.door_window_sensor_158d00022d0917':
+            pass
+
         else:
             self.turn_off("light.entrance_lights")

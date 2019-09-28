@@ -1,3 +1,11 @@
+# @Author: Walden Emil Bjørn-Yoshimoto <mfd356>
+# @Date:   20190831-1508
+# @Email:  waldenb@gmail.com
+# @Last modified by:   mfd356
+# @Last modified time: 20190928-1409
+
+
+
 #####################
 #                   #
 #      SENSORS      #
@@ -562,6 +570,42 @@
 - platform: mqtt
   state_topic: 'home/bedroom/bed'
   name: "Raw Master Bed Weight Measurement"
+
+- platform: template
+  sensors:
+    num_in_master_bed:
+      friendly_name: "Number of People in Bed"
+      unit_of_measurement: 'people'
+      value_template: >-
+        {% if is_state('binary_sensor.aephir_in_bed', 'on') and is_state('binary_sensor.kristina_in_bed', 'on') %}
+            2
+        {% elif is_state('binary_sensor.aephir_in_bed', 'on') or is_state('binary_sensor.kristina_in_bed', 'on') %}
+            1
+        {% else %}
+            0
+        {% endif %}
+
+#
+        #   Both
+        # {% elif is_state(states('sensor.raw_master_bed_weight_measurement'), float < -2700000)) %}
+        #   Walden
+        # {% elif is_state(states('sensor.raw_master_bed_weight_measurement'), float < -2100000)) %}
+        #   Kristina
+        # {% else %}
+        #   None
+        # {% endif %}
+
+#####
+
+        # {% if is_state('sensor.raw_master_bed_weight_measurement') | float < -3600000 %}
+        #   Both
+        # {% elif is_state('sensor.raw_master_bed_weight_measurement') | float < -2700000 %}
+        #   Walden
+        # {% elif is_state('sensor.raw_master_bed_weight_measurement') | float < -2100000 %}
+        #   Kristina
+        # {% else %}
+        #   None
+        # {% endif %}
 
 #####################
 #    BLE Sensors    #

@@ -1,3 +1,11 @@
+# @Author: Walden Emil Bjørn-Yoshimoto <mfd356>
+# @Date:   20190926-2009
+# @Email:  waldenb@gmail.com
+# @Last modified by:   mfd356
+# @Last modified time: 20190928-1409
+
+
+
 title: Home
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
 background: center / cover no-repeat url("/background.png") fixed
@@ -444,6 +452,17 @@ views:
               #         name: Time elapsed
               #       - key: sensor.prusa_i3_mk3s_time_remaining
               #         name: Time remaining
+
+          - type: glance
+            title: In bed
+            columns: 4
+            entities:
+              - entity: binary_sensor.aephir_in_bed
+              - entity: binary_sensor.kristina_in_bed
+              - entity: sensor.raw_master_bed_weight_measurement
+                name: Raw sensor
+              - entity: sensor.num_in_master_bed
+                name: Number in bed
 
           - type: history-graph
             title: 'Temperature graphs'

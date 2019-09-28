@@ -643,10 +643,10 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35355339"
-     inkscape:cx="2092.6742"
-     inkscape:cy="1051.064"
+     inkscape:cx="2318.9484"
+     inkscape:cy="1277.3382"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer18"
+     inkscape:current-layer="layer11"
      showgrid="false"
      inkscape:window-width="1440"
      inkscape:window-height="855"
@@ -3311,8 +3311,7 @@
      id="layer16"
      inkscape:label="buttons"
      style="display:inline"
-     transform="translate(0,207.17007)"
-     sodipodi:insensitive="true">
+     transform="translate(0,207.17007)">
     <rect
        ry="11.035782"
        y="166.69302"
@@ -3345,14 +3344,21 @@
        x="381.27298"
        y="252.86702"
        ry="4.5063143" />
+    <rect
+       ry="8.5848675"
+       y="-138.80762"
+       x="706.81812"
+       height="38.457684"
+       width="45.47543"
+       id="rect4406"
+       style="display:inline;opacity:1;fill:#323232;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer11"
      inkscape:label="text"
      style="display:inline"
-     transform="translate(0,142.9201)"
-     sodipodi:insensitive="true">
+     transform="translate(0,142.9201)">
     <text
        id="text7073"
        y="250.42667"
@@ -3444,7 +3450,7 @@
             </g>
             <polygon
                id="polygon7803"
-               points="4.841,50.198 4.841,50.213 4.841,50.206 "
+               points="4.841,50.206 4.841,50.198 4.841,50.213 "
                style="fill:#4b4b4e;fill-opacity:1;stroke:#000000;stroke-width:0.8888889;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.98165134" />
             <g
                id="g7829"
@@ -7116,9 +7122,9 @@
     <rect
        style="display:inline;opacity:1;fill:#323232;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect8807"
-       width="151.58476"
+       width="45.47543"
        height="38.457684"
-       x="707.17645"
+       x="760.23114"
        y="-74.55764"
        ry="8.5848675" />
     <rect
@@ -7139,26 +7145,22 @@
        ry="8.5848675" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.0391674px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.45640624"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.0391664px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:middle;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.45640624;"
        x="784.03027"
        y="-100.05245"
        id="text8815"><tspan
-         style="fill:#e6e4e4;fill-opacity:1;stroke-width:0.45640624"
          sodipodi:role="line"
-         id="tspan8813"
-         x="784.03027"
-         y="-100.05245">Movie night</tspan></text>
+         id="tspan4394">Motion control</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:17.0391674px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.45640624"
-       x="784.03015"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.58333333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:middle;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.45640624;"
+       x="729.19568"
        y="-50.611099"
        id="text8823"><tspan
-         style="fill:#e6e4e4;fill-opacity:1;stroke-width:0.45640624"
          sodipodi:role="line"
-         id="tspan8821"
-         x="784.03015"
-         y="-50.611099">All lights off</tspan></text>
+         id="tspan4414"
+         x="729.19568"
+         y="-50.611099">Top</tspan></text>
     <text
        id="text8827"
        y="-1.169807"
@@ -7535,7 +7537,7 @@
              id="path9065" />
           <polygon
              style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-             points="612,500.728 612,111.272 475.162,219.958 475.162,393.043 "
+             points="475.162,219.958 475.162,393.043 612,500.728 612,111.272 "
              id="polygon9067" />
         </g>
       </g>
@@ -7956,7 +7958,7 @@
              id="path6139" />
           <polygon
              style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-             points="475.162,219.958 475.162,393.043 612,500.728 612,111.272 "
+             points="612,500.728 612,111.272 475.162,219.958 475.162,393.043 "
              id="polygon6141" />
         </g>
       </g>
@@ -8006,6 +8008,32 @@
          style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="g6175" />
     </g>
+    <rect
+       ry="8.5848675"
+       y="-74.55764"
+       x="813.64417"
+       height="38.457684"
+       width="45.47543"
+       id="rect4410"
+       style="display:inline;opacity:1;fill:#323232;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text4428"
+       y="-50.611099"
+       x="782.60864"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.58333333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:middle;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.45640624;"
+       xml:space="preserve"><tspan
+         sodipodi:role="line"
+         id="tspan4430"
+         x="782.60864"
+         y="-50.611099">Main</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.58333333px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr;text-anchor:middle;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.45640624;"
+       x="836.75122"
+       y="-50.611099"
+       id="text4434"><tspan
+         sodipodi:role="line"
+         id="tspan4440">Base</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -8025,21 +8053,12 @@
     <rect
        ry="8.5848675"
        y="-138.80772"
-       x="707.17645"
+       x="760.23114"
        height="38.457684"
-       width="151.58476"
-       id="script.scene_all_lights_off"
+       width="45.47543"
+       id="input_boolean.main_floor_lights_motion_control"
        style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:label="#rect6629" />
-    <rect
-       ry="8.5848675"
-       y="-188.24905"
-       x="707.17645"
-       height="38.457684"
-       width="151.58476"
-       id="script.movie_night"
-       style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       inkscape:label="#rect1909" />
     <rect
        style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="input_boolean.party_mode"
@@ -8109,6 +8128,24 @@
        rx="22.61833"
        ry="22.618328"
        inkscape:label="#ellipse1977" />
+    <rect
+       inkscape:label="#rect6629"
+       style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="input_boolean.top_floor_lights_motion_control"
+       width="45.47543"
+       height="38.457684"
+       x="706.81812"
+       y="-138.80762"
+       ry="8.5848675" />
+    <rect
+       inkscape:label="#rect6629"
+       style="display:inline;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="input_boolean.basement_lights_motion_control"
+       width="45.47543"
+       height="38.457684"
+       x="813.64417"
+       y="-138.80772"
+       ry="8.5848675" />
   </g>
   <g
      inkscape:groupmode="layer"

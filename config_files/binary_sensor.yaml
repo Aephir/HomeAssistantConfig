@@ -1,8 +1,32 @@
+# @Author: Walden Emil Bjørn-Yoshimoto <mfd356>
+# @Date:   20190913-2109
+# @Email:  waldenb@gmail.com
+# @Last modified by:   mfd356
+# @Last modified time: 20190928-1409
+
+
+
 ############################
 #                          #
 #      BINARY SENSORS      #
 #                          #
 ############################
+
+####################
+#    Bed sensor    #
+####################
+
+- platform: template
+  sensors:
+    aephir_in_bed:
+      friendly_name: Walden in Bed
+      value_template: >
+        {{ states('sensor.raw_master_bed_weight_measurement')|float <= -2700000 }}
+    kristina_in_bed:
+      value_template: >
+        {{ states('sensor.raw_master_bed_weight_measurement')|float < -2100000
+          and (states('sensor.raw_master_bed_weight_measurement')|float > -2700000
+               or states('sensor.raw_master_bed_weight_measurement')|float <= -4000000)}}
 
 ###################
 #    Floorplan    #
