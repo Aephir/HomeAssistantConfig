@@ -1,3 +1,11 @@
+# @Author: Walden Emil Bjørn-Yoshimoto <mfd356>
+# @Date:   20190928-0909
+# @Email:  waldenb@gmail.com
+# @Last modified by:   mfd356
+# @Last modified time: 20190928-1609
+
+
+
 #      name: Floorplan
       page_id: Floorplan
       image: /local/custom_ui/floorplan/floorplan.svg
@@ -244,6 +252,82 @@
               class: 'motion-on'
             - state: 'off'
               class: 'motion-off'
+
+        - name: bed_sensors
+          entities:
+            - binary_sensor.aephir_in_bed
+            - binary_sensor.kristina_in_bed
+          states:
+            - state: 'on'
+              class: 'bed-on'
+            - state: 'off'
+              class: 'bed-off'
+
+        - name: printer_power
+          entities:
+            - sensor.prusa_i3_mk3s_current_state
+          states:
+            - state: 'on'
+              class: 'printer_power_on'
+            - state: 'printing'
+              class: 'printer_power_on'
+            - state: 'off'
+              class: 'printer_power_off'
+
+        - name: printer_printing
+          entities:
+            - binary_sensor.prusa_i3_mk3s_printing
+          states:
+            - state: 'on'
+              class: 'printer_printing_on'
+            - state: 'off'
+              class: 'printer_printing_off'
+
+        - name: printer_error
+          entities:
+            - binary_sensor.prusa_i3_mk3s_printing_error
+          states:
+            - state: 'on'
+              class: 'printer_error_on'
+            - state: 'off'
+              class: 'printer_error_off'
+
+        - name: printer_bed_temperature
+          entities:
+            - sensor.prusa_i3_mk3s_actual_bed_temp
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: printer_bed_target_temperature
+          entities:
+            - sensor.prusa_i3_mk3s_target_bed_temp
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: printer_nozzle_temperature
+          entities:
+            - sensor.prusa_i3_mk3s_actual_tool0_temp
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: printer_nozzle_target_temperature
+          entities:
+            - sensor.prusa_i3_mk3s_target_tool0_temp
+          text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: printer_percentage_done
+          entities:
+            - sensor.prusa_i3_mk3s_job_percentage
+          text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+          class_template: 'return "static-temp";'
+
+        - name: printer_percentage_done
+          entities:
+            - sensor.prusa_i3_mk3s_time_remaining
+          text_template: '${entity.state ? (Math.ceil(entity.state) / 3600) | round(0) + " h" + ((Math.ceil(entity.state)%3600)/60) | round(0) + # m + (Math.ceil(entity.state)%60) + "s": "undefined"}'
+          class_template: 'return "static-temp";'
+
 
 #         - name: dark_sky_temperature
 #           entities:

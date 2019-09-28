@@ -1,3 +1,13 @@
+/**
+ * @Author: Walden Emil Bjørn-Yoshimoto <mfd356>
+ * @Date:   20190109-0901
+ * @Email:  waldenb@gmail.com
+ * @Last modified by:   mfd356
+ * @Last modified time: 20190928-1509
+ */
+
+
+
 /* SVG shapes */
 
 
@@ -236,6 +246,49 @@ svg, svg * {
   stroke-opacity: 0 !important;
 }
 
+
+/* Bed */
+.bed-on {
+  fill: #FFFA00 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.bed-off {
+  fill: #111111 !important;
+  fill-opacity: 1.00 !important;
+}
+
+
+/* 3D Printer */
+.printer_power_on {
+  fill: #FFFA00
+  fill-opacity: 1.00 !important;
+}
+
+.printer_power_off {
+  fill: #111111 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_printing_on {
+  fill: #054BFC !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_printing_off {
+  fill: #323232 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_error_on {
+  fill: #FC0202 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_error_off {
+  fill: #FC0202 !important;
+  fill-opacity: 0.00 !important;
+}
 
 /* Media */
 

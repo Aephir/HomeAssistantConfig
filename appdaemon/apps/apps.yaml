@@ -7,6 +7,8 @@
 # Inspiration: https://github.com/aneisch/home-assistant-config/blob/master/extras/appdaemon/apps/apps.yaml
 # https://github.com/toddw65/Appdaemon/blob/master/apps/apps.yaml
 
+# Dummy app config only with secrets.
+# self.app_config['name_of_dummy_app']['secret_thing']
 
 #####################
 #    Applianeces    #
