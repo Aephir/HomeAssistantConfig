@@ -12,4 +12,5 @@
 looks_like_were_home:
   module: looks_like_were_home
   class: AwayLights
+  autoremote_url: !secret autoremote_url_start
   constrain_input_boolean: input_boolean.vacation_mode

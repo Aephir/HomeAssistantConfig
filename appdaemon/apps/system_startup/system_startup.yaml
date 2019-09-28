@@ -11,3 +11,4 @@
 initialize_sensors:
   module: initialize_sensors
   class: Initialization
+  autoremote_url: !secret autoremote_url_start

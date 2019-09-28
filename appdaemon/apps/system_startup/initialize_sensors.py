@@ -25,5 +25,5 @@ class Initialization(hass.Hass):
 
         if not self.entity_exists(entity):
             self.set_state(entity, state = 'none')
-            message = 'https://autoremotejoaomgcd.appspot.com/sendmessage?key=APA91bHdG9gIIRophSN4rAlk4Y23LJa9o4KH_Q4I44Fzzf3luTHuOITsn0wOwZg3OhfdiPYsjYgWST8ckLapuJPjcHmY4y9G1cHOW96otuGr4M-irV57GXOHP4dC9QVNGcDOckZk2A45&message=' + entity + '=:=none'
+            message = self.args['autoremote_url'] + entity + '=:=none'
             requests.get(message)
