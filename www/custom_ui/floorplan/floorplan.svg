@@ -701,7 +701,7 @@
      inkscape:cx="2864.2403"
      inkscape:cy="576.1377"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer11"
+     inkscape:current-layer="layer10"
      showgrid="false"
      inkscape:window-width="1683"
      inkscape:window-height="1007"
@@ -2830,7 +2830,7 @@
          id="text2589">from the Noun Project</text>
     </g>
     <g
-       id="layer1-93"
+       id="sensor.prusa_i3_mk3s_current_state"
        inkscape:label="Layer 1"
        transform="matrix(0.4,0,0,0.4,700.91485,222.39971)">
       <rect
@@ -2937,7 +2937,7 @@
          y="100.22417" />
     </g>
     <g
-       id="sensor.prusa_i3_mk3s_current_state"
+       id="binary_sensor.prusa_i3_mk3s_printing"
        inkscape:label="Layer 1"
        transform="matrix(0.4,0,0,0.4,701.65872,222.44203)">
       <path
