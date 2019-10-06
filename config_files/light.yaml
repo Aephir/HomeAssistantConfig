@@ -76,20 +76,14 @@
 - platform: group
   name: Kitchen Cabinet Lights
   entities:
-    - light.kitchen_cabinet_light_1
-    - light.kitchen_cabinet_light_2
+    - light.kitchen_cabinet_1
+    - light.kitchen_cabinet_2
 
 - platform: group
   name: Dining Table lights
   entities:
     - light.dining_table_1
     - light.dining_table_2
-
-- platform: group
-  name: Entrance Lights
-  entities:
-    - light.entrance_lights_1
-    - light.entrance_lights_2
 
 - platform: group
   name: Entrance Lights 1
@@ -102,6 +96,12 @@
   entities:
     - light.entrance_2_1
     - light.entrance_2_2
+
+- platform: group
+  name: Entrance Lights
+  entities:
+    - light.entrance_lights_1
+    - light.entrance_lights_2
 
 
 #####################

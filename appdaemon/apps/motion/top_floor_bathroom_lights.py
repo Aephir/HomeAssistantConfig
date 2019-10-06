@@ -9,9 +9,9 @@ class MotionClass(hass.Hass):
 
     def initialize(self):
         # Motion detected = lights on; motion stops = lights off.
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000236a0d0")
+        self.listen_state(self.switchonoff,"binary_sensor.presence_top_floor_bathroom")
         # Illumination drops while motion sensor is "on" = light on.
-        self.listen_state(self.switchonoff,"sensor.illumination_158d000236a0d0")
+        self.listen_state(self.switchonoff,"sensor.lightlevel_top_floor_bathroom")
 
         self.listen_state(self.inpuBoolean,"input_boolean.top_floor_lights_motion_control")
 
@@ -35,8 +35,8 @@ class MotionClass(hass.Hass):
     # (if day and light levels are low, or turn on dim/red if night and we are not awake).
     def switchonoff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000236a0d0")
-        illumination_1 = self.getIntegerState("sensor.illumination_158d000236a0d0")
+        sensor_1_state = self.get_state("binary_sensor.presence_top_floor_bathroom")
+        illumination_1 = self.getIntegerState("sensor.lightlevel_top_floor_bathroom")
 
         party_mode = self.get_state('input_boolean.party_mode') == 'on'
 
@@ -63,11 +63,11 @@ class MotionClass(hass.Hass):
             self.switchonoff(entity, attribute, old, new, kwargs)
 
 # # Get states of motion sensors
-# entrance_motion_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742")
-# basement_entrance_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200d203")
-# basement_stairway_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3")
-# tv_room_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a116")
-# conservatory_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200d285")
-# bathroom_1_motion_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5")
-# bathroom_2_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a22f")
-# bathroom_upstairs_motion_state = self.get_state("binary_sensor.motion_sensor_158d000236a0d0")
+# entrance_motion_state = self.get_state("binary_sensor.presence_entrance")
+# basement_entrance_motion_state = self.get_state("binary_sensor.presence_basement_entrance")
+# basement_stairway_motion_state = self.get_state("binary_sensor.presence_top_floor_tv_room")
+# tv_room_motion_state = self.get_state("binary_sensor.presence_tv_room")
+# conservatory_motion_state = self.get_state("binary_sensor.presence_conservatory")
+# bathroom_1_motion_state = self.get_state("binary_sensor.presence_top_floor_stairway")
+# bathroom_2_motion_state = self.get_state("binary_sensor.presence_bathroom_2")
+# bathroom_upstairs_motion_state = self.get_state("binary_sensor.presence_top_floor_bathroom")

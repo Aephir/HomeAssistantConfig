@@ -12,9 +12,9 @@ class Test(hass.Hass):
 
     def test(self, entity, attribute, old, new, kwargs):
 
-        self.log("test2")
+        # self.log("test2")
 
-        test = self.get_app("global_function_app")
+        test = self.get_app("global_function_test")
         classtoget = test.global_functions()
         func = classtoget.AreWeAwake("light.dining_room_lights")
 

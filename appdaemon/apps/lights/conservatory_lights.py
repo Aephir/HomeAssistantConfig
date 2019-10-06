@@ -13,7 +13,7 @@ class MotionClass(hass.Hass):
             ]
 
         self.motionSensors = [
-            'binary_sensor.motion_sensor_158d000200d285', # Conservatory
+            'binary_sensor.presence_conservatory', # Conservatory
             'binary_sensor.conservatory_motion_sensor_aeotec' # Conservatory 2
             ]
 

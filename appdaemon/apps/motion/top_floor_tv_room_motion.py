@@ -10,8 +10,8 @@ class MotionClass(hass.Hass):
     def initialize(self):
 
         self.motionSensors = [
-            "binary_sensor.motion_sensor_158d000200e0c5", # Top floor stairway
-            "binary_sensor.motion_sensor_158d000236a0f3"  # Top floor tv room
+            "binary_sensor.presence_top_floor_stairway", # Top floor stairway
+            "binary_sensor.presence_top_floor_tv_room"  # Top floor tv room
             ]
 
         for entity in self.motionSensors:
@@ -38,13 +38,13 @@ class MotionClass(hass.Hass):
 # Motion sensor lights
     def switchOnOff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5") # Top Floor Stairs Motion
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion
-        sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742") # Entrance Motion
-        sensor_4_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Top Floor TV Room Motion
+        sensor_1_state = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion
+        sensor_2_state = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
+        sensor_3_state = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
+        sensor_4_state = self.get_state("binary_sensor.presence_top_floor_tv_room") # Top Floor TV Room Motion
         awake = self.areWeAwake("light.living_room._lights")
 
-        if new == "on" and entity == "binary_sensor.motion_sensor_158d000236a0f3": # If top floor TV room motion is triggered
+        if new == "on" and entity == "binary_sensor.presence_top_floor_tv_room": # If top floor TV room motion is triggered
             if sensor_1_state == "on": # When top floor stairway is also on (meaning someone likel came up the stairs)
                 if self.now_is_between('07:00:00', '20:00:00'):
                     self.turn_on("light.top_floor_tv_area",brightness=255,kelvin=2700)

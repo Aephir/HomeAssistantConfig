@@ -41,15 +41,15 @@ states:
   armed_away:
     immediate:
     - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
-    - binary_sensor.door_window_sensor_158d000237c924 # Bedroom window
-    - binary_sensor.door_window_sensor_158d0002286a78 # Bathroom window
+    - binary_sensor.openclose_bedroom_window_1 # Bedroom window
+    - binary_sensor.openclose_bathroom_window # Bathroom window
     delayed:
-    - binary_sensor.door_window_sensor_158d00022d0917 # Front door
-    - binary_sensor.door_window_sensor_158d00022b3b66 # Basement door
+    - binary_sensor.openclose_front_door # Front door
+    - binary_sensor.openclose_basement_entrance_door # Basement door
     # - binary_sensor.sensor # Shed door
-    - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
-    - binary_sensor.motion_sensor_158d000200d285 # Conservatory motion
-    - binary_sensor.motion_sensor_158d00023e3742 # Entrance motion
+    - binary_sensor.presence_basement_entrance # Basement entrance motion
+    - binary_sensor.presence_basement_entrance # Conservatory motion
+    - binary_sensor.presence_entrance # Entrance motion
     override: []
     pending_time: 150
     warning_time: 20
@@ -57,11 +57,11 @@ states:
   armed_home:
     immediate:
     - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
-    - binary_sensor.door_window_sensor_158d00022b3b66 # Basement door
-    - binary_sensor.door_window_sensor_158d00022d0917 # Front door
+    - binary_sensor.openclose_basement_entrance_door # Basement door
+    - binary_sensor.openclose_front_door # Front door
     - binary_sensor.sensor # Shed door
     delayed:
-    - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
+    - binary_sensor.presence_basement_entrance # Basement entrance motion
   #   - binary_sensor.first_floor_motion
     override: []
     pending_time: 150
@@ -71,8 +71,8 @@ states:
     immediate:
     - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
     delayed:
-    - binary_sensor.door_window_sensor_158d00022b3b66 # Basement door
-    - binary_sensor.door_window_sensor_158d00022d0917 # Front door
+    - binary_sensor.openclose_basement_entrance_door # Basement door
+    - binary_sensor.openclose_front_door # Front door
 #     - binary_sensor.sensor # Shed door
     override: []
     pending_time: 150

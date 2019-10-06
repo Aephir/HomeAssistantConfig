@@ -1,7 +1,7 @@
 import appdaemon.plugins.hass.hassapi as hass
 
 # Call with argument "entity_id", e.g.:
-# getIntegerState("sensor.illumination_158d000236a22f").
+# getIntegerState("sensor.lightlevel_bathroom_2").
 # Returns an integer.
 
 def getIntegerState(entity_id):

@@ -10,8 +10,8 @@ class NotifyTasker(hass.Hass):
     def initialize(self):
 
         self.doors = [
-            'binary_sensor.door_window_sensor_158d00022b3b66', # Basement door
-            'binary_sensor.door_window_sensor_158d00022d0917', # Front door
+            'binary_sensor.openclose_basement_entrance_door', # Basement door
+            'binary_sensor.openclose_front_door', # Front door
             'binary_sensor.door_window_sensor_158d000234dc7b' # Conservatory door
             ]
 
@@ -23,9 +23,9 @@ class NotifyTasker(hass.Hass):
 
         message = self.args['autoremote_url'] + 'latest_notification_is=:='
 
-        if entity == 'binary_sensor.door_window_sensor_158d00022b3b66':
+        if entity == 'binary_sensor.openclose_basement_entrance_door':
             message += 'Basement'
-        elif entity == 'binary_sensor.door_window_sensor_158d00022d0917':
+        elif entity == 'binary_sensor.openclose_front_door':
             message += 'Front'
         elif entity == 'binary_sensor.door_window_sensor_158d000234dc7b':
             message += 'Conservatory'

@@ -261,7 +261,7 @@ svg, svg * {
 
 /* 3D Printer */
 .printer_power_on {
-  fill: #FFFA00
+  fill: #FFFA00 !important;
   fill-opacity: 1.00 !important;
 }
 

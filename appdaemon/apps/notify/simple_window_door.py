@@ -6,15 +6,15 @@ class Notfications(hass.Hass):
     def initialize(self):
 
         self.window_sensors = {
-            'binary_sensor.door_window_sensor_158d0002286a78': 'bathroom window',
-            'binary_sensor.door_window_sensor_158d00022f16f0': 'washin room wondow',
-            'binary_sensor.door_window_sensor_158d000237c924': 'bedroom window'
+            'binary_sensor.openclose_bathroom_window': 'bathroom window',
+            'binary_sensor.openclose_washing_room_window_1': 'washin room wondow',
+            'binary_sensor.openclose_bedroom_window_1': 'bedroom window'
 
             }
 
         self.door_sensors = {
-            'binary_sensor.door_window_sensor_158d00022b3b66': 'basement door',
-            'binary_sensor.door_window_sensor_158d00022d0917': 'fron door',
+            'binary_sensor.openclose_basement_entrance_door': 'basement door',
+            'binary_sensor.openclose_front_door': 'fron door',
             'binary_sensor.door_window_sensor_158d000234dc7b': 'conservatory door'
         }
 

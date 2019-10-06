@@ -18,12 +18,12 @@ class MotionClass(hass.Hass):
         # Motion sensors.
 
         self.motion_sensors = [
-            "binary_sensor.motion_sensor_158d00023e3742", # Entrance Motion Sensor
-            "binary_sensor.motion_sensor_158d000210ca6f" # Basement Stairway Motion Sensor
+            "binary_sensor.presence_entrance", # Entrance Motion Sensor
+            "binary_sensor.presence_basement_stairway" # Basement Stairway Motion Sensor
             ]
 
         self.illumination_sensors = [
-            "sensor.illumination_158d00023e3742" # Entrance Motion Illumination Sensor
+            "sensor.lightlevel_entrance" # Entrance Motion Illumination Sensor
             ]
 
         for entity in self.motion_sensors:
@@ -50,8 +50,8 @@ class MotionClass(hass.Hass):
 
     def motionTrigger(self, entity, attribute, old, new, kwargs):
         """ Turn on/off lights"""
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742") # Entrance Motion
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion
+        sensor_1_state = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
+        sensor_2_state = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
 
         awake = self.areWeAwake("light.living_room_lights")
         party_mode = self.get_state('input_boolean.party_mode') == 'on'

@@ -14,6 +14,7 @@ class Cosmetic(hass.Hass):
             'light.conservatory_couch',
             'light.conservatory_lights',
             'light.dining_table_lights',
+            'light.entrance_lights',
             'light.kitchen_cabinet_lights',
             'light.kitchen_spots',
             'light.living_room_lightstrip',
@@ -24,7 +25,7 @@ class Cosmetic(hass.Hass):
             'light.top_floor_tv_area',
             'light.tv_room',
             'light.walk_in_closet',
-            'light.wine_cellar'
+            'light.lightstrip_1'
             ]
 
         self.dummyLights = [
@@ -35,6 +36,7 @@ class Cosmetic(hass.Hass):
             'input_boolean.light_conservatory_couch',
             'input_boolean.light_conservatory_lights',
             'input_boolean.light_dining_table_lights',
+            'input_boolean.light_entrance_lights',
             'input_boolean.light_kitchen_cabinet',
             'input_boolean.light_kitchen_spots',
             'input_boolean.light_living_room_lightstrip',
@@ -45,7 +47,7 @@ class Cosmetic(hass.Hass):
             'input_boolean.light_top_floor_tv_area',
             'input_boolean.light_tv_room',
             'input_boolean.light_walk_in_closet',
-            'input_boolean.light_wine_cellar'
+            'input_boolean.light.lightstrip_1'
             ]
 
         for entity in self.lights:

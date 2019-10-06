@@ -10,12 +10,12 @@ class MotionClass(hass.Hass):
         # Motion sensors.
 
         self.motion_sensors = [
-            "binary_sensor.motion_sensor_158d00023e3742", # Entrance Motion Sensor
-            "binary_sensor.motion_sensor_158d000200e0c5" # Top Floor Stairs Motion Sensor
+            "binary_sensor.presence_entrance", # Entrance Motion Sensor
+            "binary_sensor.presence_top_floor_stairway" # Top Floor Stairs Motion Sensor
             ]
 
         self.illumination_sensors = [
-            "sensor.illumination_158d000200e0c5" # Top Floor Stairs Motion Illumination Sensor
+            "sensor.lightlevel_top_floor_stairway" # Top Floor Stairs Motion Illumination Sensor
             ]
 
         for entity in self.motion_sensors:
@@ -42,8 +42,8 @@ class MotionClass(hass.Hass):
 
     def motionTrigger(self, entity, attribute, old, new, kwargs):
         """ Turn on/off lights"""
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d00023e3742") # Entrance Motion
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5") # Top Floor Stairs Motion Sensor
+        sensor_1_state = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
+        sensor_2_state = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion Sensor
 
         awake = self.areWeAwake("light.living_room_lights")
         party_mode = self.get_state('input_boolean.party_mode') == 'on'
@@ -54,7 +54,7 @@ class MotionClass(hass.Hass):
         #     else:
         #         self.turn_off("light.stairway_up")
 
-        if entity == "binary_sensor.motion_sensor_158d00023e3742" and new == 'on':
+        if entity == "binary_sensor.presence_entrance" and new == 'on':
             # if sensor_2_state == 'off':
             if party_mode:
                 self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
@@ -67,12 +67,12 @@ class MotionClass(hass.Hass):
                     self.turn_on("light.stairway",brightness=10,kelvin=2200)
 
 
-        elif entity == "binary_sensor.motion_sensor_158d000200e0c5" and new == 'on':
+        elif entity == "binary_sensor.presence_top_floor_stairway" and new == 'on':
             if party_mode:
                 self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
             if sensor_1_state == 'off':
                 if self.now_is_between('07:00:00', '22:00:00'):
-                    if self.getIntegerState("sensor.illumination_158d000200e0c5") < 50:
+                    if self.getIntegerState("sensor.lightlevel_top_floor_stairway") < 50:
                         self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
 
                 elif self.now_is_between('22:00:00', '07:00:00'):

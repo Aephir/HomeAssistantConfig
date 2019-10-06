@@ -6,8 +6,8 @@ class OccupancyAutomations(hass.Hass):
     def initialize(self):
 
         self.door_sensors = [
-            'binary_sensor.door_window_sensor_158d00022b3b66', # Basement door
-            'binary_sensor.door_window_sensor_158d00022d0917', # Front door
+            'binary_sensor.openclose_basement_entrance_door', # Basement door
+            'binary_sensor.openclose_front_door', # Front door
             'binary_sensor.door_window_sensor_158d000234dc7b'
             ]
 
@@ -21,8 +21,8 @@ class OccupancyAutomations(hass.Hass):
         number_open_windows = str(self.get_state('sensor.windows_and_doors', attribute='number_of_windows'))
         list_open           = self.get_state('sensor.windows_and_doors', attribute='list_of_open')
         message             = ''
-        convert             = {'binary_sensor.door_window_sensor_158d00022d0917':'Front door',
-                               'binary_sensor.door_window_sensor_158d00022b3b66':'Basement door'}
+        convert             = {'binary_sensor.openclose_front_door':'Front door',
+                               'binary_sensor.openclose_basement_entrance_door':'Basement door'}
 
         # self.log('This was a triumph')
         # self.log(number_open_doors)

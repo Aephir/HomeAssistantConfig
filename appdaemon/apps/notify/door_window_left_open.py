@@ -11,16 +11,16 @@ class Notify(hass.Hass):
 
         # Door and window sensors to monitor.
         self.sensor_ids = [
-            'binary_sensor.door_window_sensor_158d0002286a78', # Bathroom Window
-            'binary_sensor.door_window_sensor_158d00022b3b66', # Basement Door
-            'binary_sensor.door_window_sensor_158d00022d0917', # Front Door
+            'binary_sensor.openclose_bathroom_window_1', # Bathroom Window
+            'binary_sensor.openclose_basement_entrance_door', # Basement Door
+            'binary_sensor.openclose_front_door', # Front Door
             'binary_sensor.door_window_sensor_158d000234dc7b', # Conservatory Door
             'binary_sensor.neo_coolcam_doorwindow_detector_sensor' # Shed Door
             ]
 
-        self.sensor_1 = 'binary_sensor.door_window_sensor_158d0002286a78', # Bathroom Window
-        self.sensor_2 = 'binary_sensor.door_window_sensor_158d00022b3b66', # Basement Door
-        self.sensor_3 = 'binary_sensor.door_window_sensor_158d00022d0917', # Front Door
+        self.sensor_1 = 'binary_sensor.openclose_bathroom_window_1', # Bathroom Window
+        self.sensor_2 = 'binary_sensor.openclose_basement_entrance_door', # Basement Door
+        self.sensor_3 = 'binary_sensor.openclose_front_door', # Front Door
         self.sensor_4 = 'binary_sensor.door_window_sensor_158d000234dc7b', # Conservatory Door
         self.sensor_5 = 'binary_sensor.neo_coolcam_doorwindow_detector_sensor' # Shed Door
 
@@ -95,22 +95,22 @@ class Notify(hass.Hass):
 
 
         if new == 'off':
-            if entity == 'binary_sensor.door_window_sensor_158d0002286a78':
+            if entity == 'binary_sensor.openclose_bathroom_window':
                 self.open_1 = False
-            elif entity == 'binary_sensor.door_window_sensor_158d00022b3b66':
+            elif entity == 'binary_sensor.openclose_basement_entrance_door':
                 self.open_2 = False
-            elif entity == 'binary_sensor.door_window_sensor_158d00022d0917':
+            elif entity == 'binary_sensor.openclose_front_door':
                 self.open_3 = False
             elif entity == 'binary_sensor.door_window_sensor_158d000234dc7b':
                 self.open_4 = False
             elif entity == 'binary_sensor.neo_coolcam_doorwindow_detector_sensor':
                 self.open_5 = False
         else:
-            if entity == 'binary_sensor.door_window_sensor_158d0002286a78':
+            if entity == 'binary_sensor.openclose_bathroom_window':
                 self.timer_1 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
-            elif entity == 'binary_sensor.door_window_sensor_158d00022b3b66':
+            elif entity == 'binary_sensor.openclose_basement_entrance_door':
                 self.timer_2 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
-            elif entity == 'binary_sensor.door_window_sensor_158d00022d0917':
+            elif entity == 'binary_sensor.openclose_front_door':
                 self.timer_3 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
             elif entity == 'binary_sensor.door_window_sensor_158d000234dc7b':
                 self.timer_4 = self.run_in(self.SendNoticationDoorWindow, 900, entity=entity)
@@ -143,9 +143,9 @@ class Notify(hass.Hass):
             if self.IsOpen(entity_id):
                 door_window_list += entity_id
                 count += 1
-        door_window_list.replace("binary_sensor.door_window_sensor_158d0002286a78","bathroom window, ")
-        door_window_list.replace("binary_sensor.door_window_sensor_158d00022b3b66","basement door, ")
-        door_window_list.replace("binary_sensor.door_window_sensor_158d00022d0917","front door, ")
+        door_window_list.replace("binary_sensor.openclose_bathroom_window","bathroom window, ")
+        door_window_list.replace("binary_sensor.openclose_basement_entrance_door","basement door, ")
+        door_window_list.replace("binary_sensor.openclose_front_door","front door, ")
         door_window_list.replace("binary_sensor.door_window_sensor_158d000234dc7b","conservatory door, ")
         door_window_list.replace("binary_sensor.neo_coolcam_doorwindow_detector_sensor","shed door, ")
         door_window_list = door_window_list[:-2]
@@ -172,11 +172,11 @@ class Notify(hass.Hass):
         door_window = ''
 
         # Define a new friendly name for the sensor that triggered. Can probably be done smarter.
-        if entity == "binary_sensor.door_window_sensor_158d0002286a78":
+        if entity == "binary_sensor.openclose_bathroom_window":
             door_window = "bathroom window"
-        elif entity == "binary_sensor.door_window_sensor_158d00022b3b66":
+        elif entity == "binary_sensor.openclose_basement_entrance_door":
             door_window = "basement door"
-        elif entity == "binary_sensor.door_window_sensor_158d00022d0917":
+        elif entity == "binary_sensor.openclose_front_door":
             door_window = "front door"
         elif entity == "binary_sensor.door_window_sensor_158d000234dc7b":
             door_window = "conservatory door"

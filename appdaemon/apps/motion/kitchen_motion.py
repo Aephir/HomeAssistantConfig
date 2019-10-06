@@ -32,12 +32,12 @@ class MotionClass(hass.Hass):
 
         # list of motion sensors that trigger the automation.
         self.motion_entity_ids = [
-            'binary_sensor.motion_sensor_158d0001e0a8e1'
+            'binary_sensor.presence_kitchen'
             ]
 
         # list of illumination sensors
         self.illumination_sensors = [
-            'sensor.illumination_158d0001e0a8e1'
+            'sensor.lightlevel_kitchen'
             ]
 
         # create the listeners for each motion sensor.

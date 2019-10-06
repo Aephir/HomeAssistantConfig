@@ -7,7 +7,7 @@ class RadiatorThermostat(hass.Hass):
     def initialize(self):
 
         self.windowSensors =    [
-                                'binary_sensor.door_window_sensor_158d0002286a78' # Bathroom window
+                                'binary_sensor.openclose_bathroom_window' # Bathroom window
                                 ]
 
         self.radioators =       [
@@ -49,5 +49,5 @@ class RadiatorThermostat(hass.Hass):
     #
     #     if new == 'on':
     #         self.set_state('sensor.bathroom_heat_should_be', state = 'on')
-    #     elif new == 'off' and self.get_state('binary_sensor.door_window_sensor_158d0002286a78') == 'off':
+    #     elif new == 'off' and self.get_state('binary_sensor.openclose_bathroom_window') == 'off':
     #         self.set_state('sensor.bathroom_heat_should_be', state = 'off')

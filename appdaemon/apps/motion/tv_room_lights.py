@@ -9,7 +9,7 @@ class MotionClass(hass.Hass):
 
     def initialize(self):
         # Motion sensors.
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000236a116") # TV Room Motion Sensor
+        self.listen_state(self.switchonoff,"binary_sensor.presence_tv_room") # TV Room Motion Sensor
 
         # Illumination drops while motion sensor is "on" = light on.
         self.listen_state(self.switchonoff,"sensor.illumination_158d000200d203")
@@ -35,7 +35,7 @@ class MotionClass(hass.Hass):
     # Motion sensor lights
     def switchonoff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000236a116") # TV Room Motion
+        sensor_1_state = self.get_state("binary_sensor.presence_tv_room") # TV Room Motion
 
         # # Add the commented, delete the rest once TV is set up downstairs
         # # ## Update "movie_night" with real entity_id once applicable. ##
@@ -43,7 +43,7 @@ class MotionClass(hass.Hass):
         #
         # if sensor_1_state == "on":
         #     if movie_night == "off":
-        #         if self.getIntegerState("sensor.illumination_158d000236a116") < 15:
+        #         if self.getIntegerState("sensor.lightlevel_tv_room") < 15:
         #             self.turn_on("light.tv_room_lights",brightness=255,kelvin=2700)
         #             self.turn_on("light.basement_hallway",brightness=255,kelvin=2700)
         #

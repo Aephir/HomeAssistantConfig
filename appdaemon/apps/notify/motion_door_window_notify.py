@@ -14,24 +14,24 @@ class Notify(hass.Hass):
         self.doorWindowSensors = self.app_config['global_sensors']['doorWindowSensors']
 
         # self.motionSensors = [
-        #     "binary_sensor.motion_sensor_158d00023e3742", # Entrance
-        #     "binary_sensor.motion_sensor_158d000200d203", # Basement entrance
-        #     "binary_sensor.motion_sensor_158d000236a0f3", # Top floor TV room
-        #     "binary_sensor.motion_sensor_158d000236a116", # TV room
-        #     "binary_sensor.motion_sensor_158d000200d285", # Conservatory
-        #     "binary_sensor.motion_sensor_158d000200e0c5", # Top floor stairway
-        #     "binary_sensor.motion_sensor_158d000236a22f", # Bathroom #2
-        #     "binary_sensor.motion_sensor_158d000236a0d0", # Upastairs bathroom
-        #     "binary_sensor.motion_sensor_158d0001e0a8e1", # Kitchen
-        #     "binary_sensor.motion_sensor_158d000210ca6e", # Bathroom #1
-        #     "binary_sensor.motion_sensor_158d000210ca6f" # Basemenet stairway
+        #     "binary_sensor.presence_entrance", # Entrance
+        #     "binary_sensor.presence_basement_entrance", # Basement entrance
+        #     "binary_sensor.presence_top_floor_tv_room", # Top floor TV room
+        #     "binary_sensor.presence_tv_room", # TV room
+        #     "binary_sensor.presence_conservatory", # Conservatory
+        #     "binary_sensor.presence_top_floor_stairway", # Top floor stairway
+        #     "binary_sensor.presence_bathroom_2", # Bathroom #2
+        #     "binary_sensor.presence_top_floor_bathroom", # Upastairs bathroom
+        #     "binary_sensor.presence_kitchen", # Kitchen
+        #     "binary_sensor.presence_bathroom", # Bathroom #1
+        #     "binary_sensor.presence_basement_stairway" # Basemenet stairway
         #     ]
 
         # self.doorWindowSensors = [
-        #     "binary_sensor.door_window_sensor_158d0002286a78", # Bathroom window
-        #     "binary_sensor.door_window_sensor_158d000237c924", # Bedroom window
-        #     "binary_sensor.door_window_sensor_158d00022b3b66", # Basement door
-        #     "binary_sensor.door_window_sensor_158d00022d0917", # Front door
+        #     "binary_sensor.openclose_bathroom_window", # Bathroom window
+        #     "binary_sensor.openclose_bedroom_window_1", # Bedroom window
+        #     "binary_sensor.openclose_basement_entrance_door", # Basement door
+        #     "binary_sensor.openclose_front_door", # Front door
         #     "binary_sensor.door_window_sensor_158d000234dc7b" # Conservatory door
         #     ]
 

@@ -18,13 +18,13 @@ class MotionClass(hass.Hass):
 
         # list of lights that are turned on by the motion.
         self.motion_sensors = [
-            'binary_sensor.motion_sensor_158d000210ca6e', # Bathroom #1 sensor
-            'binary_sensor.motion_sensor_158d000236a22f' # Bathroom #2 sensor
+            'binary_sensor.presence_bathroom', # Bathroom #1 sensor
+            'binary_sensor.presence_bathroom_2' # Bathroom #2 sensor
             ]
 
         # list of illumination sensors
         self.illumination_sensors = [
-            'sensor.illumination_158d000236a22f'
+            'sensor.lightlevel_bathroom_2'
             ]
 
         self.light_entity_ids = [
@@ -120,12 +120,12 @@ class MotionClass(hass.Hass):
             illumination = max([ toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
             self.lightsOn(illumination)
         elif new == 'off': # we got no motion.
-            if self.get_state('binary_sensor.motion_sensor_158d000210ca6e') == 'off' and self.get_state('binary_sensor.motion_sensor_158d000236a22f') == 'off':
+            if self.get_state('binary_sensor.presence_bathroom') == 'off' and self.get_state('binary_sensor.presence_bathroom_2') == 'off':
                 self.lightsOff()
 
     def inpuBoolean(self, entity, attribute, old, new, kwargs):
 
         if new == "on":
-            if self.get_state("binary_sensor.motion_sensor_158d0001e0a8e1") == "on":
+            if self.get_state("binary_sensor.presence_kitchen") == "on":
                 illumination = max([ toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
                 self.lightsOn(illumination)
