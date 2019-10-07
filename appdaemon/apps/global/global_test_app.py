@@ -1,8 +1,7 @@
 # Notify upon problems with plants
 
 import appdaemon.plugins.hass.hassapi as hass
-# import global_functions_app
-import testfunctions
+import global_functions_app
 
 class Test(hass.Hass):
 
@@ -13,10 +12,6 @@ class Test(hass.Hass):
         self.listen_state(self.test_app, 'input_boolean.vacation_mode')
 
     def test_app(self, entity, attribute, old, new, kwargs):
-
-	self.log('Testing function is running (method 0)... Will it call from different app?')
-	test = testfunctions.test_function()
-	self.log(test)
 
         # self.log('Testing function is running (method 1)... Will it call from different app?')
         # self.global_functions   = self.get_app('global_functions_app')  # Gets the class where the functions are?
