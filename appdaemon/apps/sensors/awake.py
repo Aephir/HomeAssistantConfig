@@ -47,37 +47,25 @@ class Awake(hass.Hass):
 
     def timer_func(self, entity, attribute, old, new, kwargs):
 
-        self.log("Timer func running")
-
         ### Get from "global_functions.py -> workday_when_waking"
 
-
-
         if self.get_state('input_boolean.vacation_mode') == 'off':
-            self.log('One')
             if self.now_is_between("20:30:00", "00:00:00"):
-                self.log('Two')
                 night_time = self.get_state('binary_sensor.workday_tomorrow') == 'on'
             elif self.now_is_between("00:00:00", "08:00:00"):
-                self.log('Three')
                 night_time = self.get_state('binary_sensor.workday_today') == 'on'
             else:
                 night_time = False
         else:
-            self.log('Four')
             night_time = self.now_is_between("20:30:00", "09:00:00")
-
-        self.log("is it night time?")
-        self.log(night_time)
 
         if night_time:
             if entity == 'binary_sensor.aephir_in_bed':
                 self.cancel_timer(self.aephir_timer)
-                self.aephir_timer = self.run_in(self.awake, 5) #900
+                self.aephir_timer = self.run_in(self.awake, 900) #900
             elif entity == 'binary_sensor.kristina_in_bed':
                 self.cancel_timer(self.kristina_timer)
-                self.log('Kristina bed')
-                self.kristina_timer = self.run_in(self.awake, 5) #900
+                self.kristina_timer = self.run_in(self.awake, 900) #900
         else:
             who_is_home = ''
             if self.get_state('device_tracker.meta_walden') == 'home':
@@ -92,8 +80,6 @@ class Awake(hass.Hass):
 
         anyone_awake = 'off'
         who_is_awake = ''
-
-        self.log('self.run_in working') # No, it is not working!!
 
         if self.get_state('device_tracker.meta_walden') == 'home' and self.get_state('binary_sensor.aephir_in_bed') == 'off':
             who_is_awake   += 'Walden, '
