@@ -10,7 +10,17 @@ class MotionClass(hass.Hass):
 
     def initialize(self):
 
-        self.motion_sensors = [
+        self.motion_sensors = [     # All motion sensors to trigger
+            'binary_sensor.presence_top_floor_stairway',    # Top floor stairway
+            'binary_sensor.presence_top_floor_tv_room'      # Top floor tv room
+            ]
+
+        self.on_motion_sensors = [  # Motion sensors that can turn light 'on'
+            'binary_sensor.presence_top_floor_stairway',    # Top floor stairway
+            'binary_sensor.presence_top_floor_tv_room'      # Top floor tv room
+            ]
+
+        self.off_motion_sensors = [ # Motion sensors that can turn light 'off'
             'binary_sensor.presence_top_floor_stairway',    # Top floor stairway
             'binary_sensor.presence_top_floor_tv_room'      # Top floor tv room
             ]
@@ -43,26 +53,28 @@ class MotionClass(hass.Hass):
         On motion off: Start timer, turn off lights after 5 minutes.
         """
 
-        party_mode = self.get_state('input_boolean.party_mode') == 'on'
+        party_mode  = self.get_state('input_boolean.party_mode') == 'on'
 
         if party_mode:
             self.cancel_timer(self.timer)
             self.turn_on(light, brightness=255,kelvin=2700)
-        elif new == 'on' and entity in self.motion_sensors:
+        elif new == 'on' and entity in self.on_motion_sensors:
             illumination = max([self.get_integer_state(entity_id) for entity_id in self.illumination_sensors])
             self.cancel_timer(self.timer)
             if illumination < 500:
                 for light in self.lights:
                     if self.get_state(light) == 'off': # If more, use for i in self.lights:  self.turn_on(i)
                         self.lights_on(light)
-        elif new == 'off' and entity in self.motion_sensors:
-            if all([self.get_state(entity_id) == 'off' for entity_id in self.motion_sensors]):
+        elif new == 'off' and entity in self.off_motion_sensors:
+            if all([self.get_state(entity_id) == 'off' for entity_id in self.off_motion_sensors]):
                 self.timer = self.run_in(self.lights_off, 3)
 
 
     def lights_on(self, light):
 
-        if self.get_state('sensor.awake') == 'on':
+        awake       = self.get_state('sensor_awake') == 'on'
+
+        if awake:
             self.turn_on(light, brightness=255,kelvin=2700)
         else:
             self.turn_on(light, brightness=50,kelvin=2200)
