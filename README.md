@@ -40,7 +40,7 @@ Some additional scripts, files that contain sensitive information (but where I w
 * [Aeotec MultiSensor 6](https://aeotec.com/z-wave-sensor). Using as a sensor (motion, temperature, etc.), but cabled, so also using as z-wave repeaters.
 * [Fibaro Heat Controller](https://www.fibaro.com/en/products/the-heat-controller/), one so far. Having some issues with proper control and updating information in HASS. Ongoing...
 
-**Software:**
+**Software:** 
 * [Ubuntu Server LTE 18.04](https://downloads.raspberrypi.org/raspbian_lite_latest) as the OS.
 * [mlocate](https://wiki.debian.org/sSMTP) for finding stuff.
 * [Samba](https://www.samba.org/samba/what_is_samba.html) for easy modification of config files.
