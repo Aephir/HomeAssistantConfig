@@ -21,12 +21,12 @@
     aephir_in_bed:
       friendly_name: Walden in Bed
       value_template: >
-        {{ states('sensor.raw_master_bed_weight_measurement')|float <= -2700000 }}
+        {{ states('sensor.raw_master_bed_weight_measurement')|float <= -3100000 }}
     kristina_in_bed:
       value_template: >
-        {{ states('sensor.raw_master_bed_weight_measurement')|float < -2100000
-          and (states('sensor.raw_master_bed_weight_measurement')|float > -2700000
-               or states('sensor.raw_master_bed_weight_measurement')|float <= -4000000)}}
+        {{ states('sensor.raw_master_bed_weight_measurement')|float < -2400000
+          and (states('sensor.raw_master_bed_weight_measurement')|float > -3100000
+               or states('sensor.raw_master_bed_weight_measurement')|float <= -3700000)}}
 
 ###################
 #    Floorplan    #

@@ -9,8 +9,8 @@ class MotionClass(hass.Hass):
 
     def initialize(self):
         # Motion sensors.
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000200d203") # Basement Entrance Motion Sensor
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion Sensor
+        self.listen_state(self.switchonoff,"binary_sensor.presence_basement_entrance") # Basement Entrance Motion Sensor
+        self.listen_state(self.switchonoff,"binary_sensor.presence_basement_stairway") # Basement Stairway Motion Sensor
         # Illumination drops while motion sensor is "on" = light on.
         self.listen_state(self.switchonoff,"sensor.illumination_158d000200d203")
 
@@ -35,9 +35,9 @@ class MotionClass(hass.Hass):
 
     def switchonoff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200d203") # Basement Entrance Motion
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") # Basement Stairway Motion
-        sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d000236a116") # TV Room Motion
+        sensor_1_state = self.get_state("binary_sensor.presence_basement_entrance") # Basement Entrance Motion
+        sensor_2_state = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
+        sensor_3_state = self.get_state("binary_sensor.presence_tv_room") # TV Room Motion
         ## Update "movie_night" with real entity_id once applicable. ##
         # movie_night = self.isOn("media_player.tv_room_tv") # Are we using the TV lounge?
         movie_night = False # Change to reflect actual state once movie room is set p

@@ -4,7 +4,7 @@ import appdaemon.plugins.hass.hassapi as hass
 
 # Call with:
 # triggeredEntity()
-# Returns entidi_id, e.g. binary_sensor.motion_sensor_158d000236a0d0
+# Returns entidi_id, e.g. binary_sensor.presence_top_floor_bathroom
 
 # Get Data from Automation Trigger
     def triggeredEntity(self):

@@ -388,7 +388,7 @@
        xlink:href="#linearGradient4731"
        id="radialGradient9001"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(1.8229258,0,0,1.8229258,449.3035,-188.48116)"
+       gradientTransform="matrix(1.1666725,0,0,1.1666725,552.16632,-7.6208485)"
        cx="168.83447"
        cy="179.12395"
        fx="168.83447"
@@ -689,6 +689,17 @@
          id="rect10710-0"
          style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.26458332;stroke-opacity:1" />
     </clipPath>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2683"
+       id="radialGradient11092"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.1426341,0,0,1.1426332,36.338743,-290.48943)"
+       cx="43.404572"
+       cy="324.55591"
+       fx="43.404572"
+       fy="324.55591"
+       r="14.967094" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -698,19 +709,19 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.56280193"
-     inkscape:cx="2864.2403"
-     inkscape:cy="576.1377"
+     inkscape:cx="1133.6138"
+     inkscape:cy="790.245"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer10"
+     inkscape:current-layer="layer20"
      showgrid="false"
-     inkscape:window-width="1683"
-     inkscape:window-height="1007"
+     inkscape:window-width="1680"
+     inkscape:window-height="1006"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:object-nodes="true"
      inkscape:snap-grids="false"
-     inkscape:snap-bbox="false"
+     inkscape:snap-bbox="true"
      inkscape:bbox-nodes="true"
      inkscape:bbox-paths="true"
      inkscape:snap-intersection-paths="true"
@@ -777,7 +788,8 @@
      id="layer22"
      inkscape:label="room_floors"
      style="display:inline"
-     transform="translate(0,207.17007)">
+     transform="translate(0,207.17007)"
+     sodipodi:insensitive="true">
     <path
        inkscape:connector-curvature="0"
        id="path7217"
@@ -2258,7 +2270,7 @@
        sodipodi:cy="26.887531"
        sodipodi:cx="-440.09247"
        sodipodi:type="arc"
-       id="binary_sensor.door_window_sensor_158d00022b3b66"
+       id="binary_sensor.openclose_basement_entrance_door"
        style="display:inline;opacity:1;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.22572957;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        transform="scale(-1)"
        inkscape:label="#path7661" />
@@ -2371,7 +2383,7 @@
        y="416.41223" />
     <path
        style="opacity:1;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.18708862;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="binary_sensor.door_window_sensor_158d00022d0917"
+       id="binary_sensor.openclose_front_door"
        sodipodi:type="arc"
        sodipodi:cx="56.14624"
        sodipodi:cy="29.208794"
@@ -2503,11 +2515,11 @@
        sodipodi:cy="262.97278"
        sodipodi:cx="195.46526"
        sodipodi:type="arc"
-       id="binary_sensor.door_window_sensor_158d000237c924"
+       id="binary_sensor.openclose_bedroom_window_1"
        style="opacity:1;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.11150477;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <path
        style="opacity:1;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0.10953853;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="binary_sensor.door_window_sensor_158d0002286a78"
+       id="binary_sensor.openclose_bathroom_window"
        sodipodi:type="arc"
        sodipodi:cx="-99.480469"
        sodipodi:cy="-160.63268"
@@ -2526,7 +2538,7 @@
      style="display:inline"
      transform="translate(0,207.17007)">
     <path
-       id="binary_sensor.motion_sensor_158d000200d203"
+       id="binary_sensor.presence_basement_entrance"
        d="m 440.62159,-69.755305 a 2.1166666,2.1166666 0 0 0 2.11668,-2.11668 2.1166666,2.1166666 0 0 0 -2.11668,-2.11668 2.1166666,2.1166666 0 0 0 -2.11668,2.11668 2.1166666,2.1166666 0 0 0 2.11668,2.11668 m -3.80999,14.71084 1.05831,-4.65668 2.22253,2.11668 v 6.350002 h 2.11663 v -7.937522 l -2.22245,-2.11664 0.635,-3.17504 c 1.47108,1.68276 3.58774,2.64584 5.82083,2.64584 v -2.11664 c -1.86267,0.032 -3.59835,-0.94192 -4.55085,-2.54 l -1.05832,-1.69336 c -0.3808,-0.635 -1.05836,-1.05832 -1.7992,-1.05832 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50334,2.32832 v 4.97416 h 2.11668 v -3.59832 l 1.905,-0.74084 -1.69332,8.57252 -5.18587,-1.05836 -0.42332,2.11668 7.40833,1.48168 m -9.41917,-11.00668 a 1.0583333,1.0583333 0 0 1 -1.05836,-1.05832 1.0583333,1.0583333 0 0 1 1.05836,-1.05836 h 3.175 v 2.11668 h -3.175 m 1.05835,-4.23332 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.05836 1.0583333,1.0583333 0 0 1 1.05835,-1.05832 h 5.29168 v 2.11668 h -5.29168 m -2.11671,8.46664 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.05832 1.0583333,1.0583333 0 0 1 1.05832,-1.05832 h 4.23336 v 2.11664 z"
        inkscape:connector-curvature="0"
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
@@ -2536,15 +2548,15 @@
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
        inkscape:connector-curvature="0"
        d="m 182.31084,233.48799 a 2.1166666,2.1166666 0 0 0 2.11668,-2.11668 2.1166666,2.1166666 0 0 0 -2.11668,-2.11668 2.1166666,2.1166666 0 0 0 -2.11668,2.11668 2.1166666,2.1166666 0 0 0 2.11668,2.11668 m -3.80999,14.71084 1.05831,-4.65668 2.22253,2.11668 v 6.35 h 2.11663 v -7.93752 l -2.22245,-2.11664 0.635,-3.17504 c 1.47108,1.68276 3.58774,2.64584 5.82083,2.64584 v -2.11664 c -1.86267,0.032 -3.59835,-0.94192 -4.55085,-2.54 l -1.05832,-1.69336 c -0.3808,-0.635 -1.05836,-1.05832 -1.7992,-1.05832 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50334,2.32832 v 4.97416 h 2.11668 v -3.59832 l 1.905,-0.74084 -1.69332,8.57252 -5.18587,-1.05836 -0.42332,2.11668 7.40833,1.48168 m -9.41917,-11.00668 a 1.0583333,1.0583333 0 0 1 -1.05836,-1.05832 1.0583333,1.0583333 0 0 1 1.05836,-1.05836 h 3.175 v 2.11668 h -3.175 m 1.05835,-4.23332 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.05836 1.0583333,1.0583333 0 0 1 1.05835,-1.05832 h 5.29168 v 2.11668 h -5.29168 m -2.11671,8.46664 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.05832 1.0583333,1.0583333 0 0 1 1.05832,-1.05832 h 4.23336 v 2.11664 z"
-       id="binary_sensor.motion_sensor_158d000200d285" />
+       id="binary_sensor.presence_conservatory" />
     <path
        inkscape:label="#path5255"
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
        inkscape:connector-curvature="0"
        d="m 514.81856,-101.80571 a 2.1166666,2.1166666 0 0 0 2.11668,-2.11669 2.1166666,2.1166666 0 0 0 -2.11668,-2.1167 2.1166666,2.1166666 0 0 0 -2.11668,2.1167 2.1166666,2.1166666 0 0 0 2.11668,2.11669 m -3.80999,14.710827 1.05831,-4.65668 2.22253,2.11668 v 6.350002 h 2.11663 v -7.937522 l -2.22245,-2.11664 0.635,-3.175023 c 1.47108,1.682748 3.58774,2.645823 5.82083,2.645823 v -2.116626 c -1.86267,0.032 -3.59835,-0.941914 -4.55085,-2.539994 l -1.05832,-1.693357 c -0.3808,-0.63501 -1.05836,-1.05833 -1.7992,-1.05833 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50334,2.328327 v 4.97414 h 2.11668 v -3.5983 l 1.905,-0.74084 -1.69332,8.5725 -5.18587,-1.05836 -0.42332,2.11668 7.40833,1.48168 m -9.41917,-11.00666 a 1.0583333,1.0583333 0 0 1 -1.05836,-1.05832 1.0583333,1.0583333 0 0 1 1.05836,-1.058357 h 3.175 v 2.116677 h -3.175 m 1.05835,-4.233327 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.05837 1.0583333,1.0583333 0 0 1 1.05835,-1.05833 h 5.29168 v 2.1167 h -5.29168 m -2.11671,8.466627 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.058315 1.0583333,1.0583333 0 0 1 1.05832,-1.058311 h 4.23336 v 2.116626 z"
-       id="binary_sensor.motion_sensor_158d000236a116" />
+       id="binary_sensor.presence_tv_room" />
     <path
-       id="binary_sensor.motion_sensor_158d00023e3742"
+       id="binary_sensor.presence_entrance"
        d="m 55.559677,70.007632 a 2.1166666,2.1166666 0 0 0 2.11668,-2.11668 2.1166666,2.1166666 0 0 0 -2.11668,-2.11668 2.1166666,2.1166666 0 0 0 -2.11668,2.11668 2.1166666,2.1166666 0 0 0 2.11668,2.11668 m -3.80999,14.71084 1.05831,-4.65668 2.22253,2.11668 v 6.35 h 2.11663 v -7.93752 l -2.22245,-2.11664 0.635,-3.17504 c 1.47108,1.68276 3.58774,2.64584 5.82083,2.64584 v -2.11664 c -1.86267,0.032 -3.59835,-0.94192 -4.55085,-2.54 l -1.05832,-1.69336 c -0.3808,-0.635 -1.05836,-1.05832 -1.7992,-1.05832 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50334,2.32832 v 4.97416 h 2.11668 v -3.59832 l 1.905,-0.74084 -1.69332,8.57252 -5.18587,-1.05836 -0.42332,2.11668 7.40833,1.48168 m -9.41917,-11.00668 a 1.0583333,1.0583333 0 0 1 -1.05836,-1.05832 1.0583333,1.0583333 0 0 1 1.05836,-1.05836 h 3.175 v 2.11668 h -3.175 m 1.05835,-4.23332 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.05836 1.0583333,1.0583333 0 0 1 1.05835,-1.05832 h 5.29168 v 2.11668 h -5.29168 m -2.11671,8.46664 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.05832 1.0583333,1.0583333 0 0 1 1.05832,-1.05832 h 4.23336 v 2.11664 z"
        inkscape:connector-curvature="0"
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
@@ -2554,9 +2566,9 @@
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
        inkscape:connector-curvature="0"
        d="m 378.52383,-113.57019 a 2.1166666,2.1166666 0 0 0 2.11668,-2.11668 2.1166666,2.1166666 0 0 0 -2.11668,-2.11668 2.1166666,2.1166666 0 0 0 -2.11668,2.11668 2.1166666,2.1166666 0 0 0 2.11668,2.11668 m -3.80999,14.710831 1.05831,-4.656671 2.22253,2.11668 v 6.34997 h 2.11663 v -7.93749 l -2.22245,-2.11664 0.635,-3.17504 c 1.47108,1.68276 3.58774,2.64584 5.82083,2.64584 v -2.11664 c -1.86267,0.032 -3.59835,-0.94192 -4.55085,-2.54 l -1.05832,-1.69336 c -0.3808,-0.635 -1.05836,-1.05832 -1.7992,-1.05832 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50334,2.32832 v 4.97416 h 2.11668 v -3.59832 l 1.905,-0.74084 -1.69332,8.57252 -5.18587,-1.05836 -0.42332,2.11668 7.40833,1.481671 m -9.41917,-11.006671 a 1.0583333,1.0583333 0 0 1 -1.05836,-1.05832 1.0583333,1.0583333 0 0 1 1.05836,-1.05836 h 3.175 v 2.11668 h -3.175 m 1.05835,-4.23332 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.05836 1.0583333,1.0583333 0 0 1 1.05835,-1.05832 h 5.29168 v 2.11668 h -5.29168 m -2.11671,8.46664 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.05832 1.0583333,1.0583333 0 0 1 1.05832,-1.05832 h 4.23336 v 2.11664 z"
-       id="binary_sensor.motion_sensor_158d000210ca6f" />
+       id="binary_sensor.presence_basement_stairway" />
     <path
-       id="binary_sensor.motion_sensor_158d000236a0d0"
+       id="binary_sensor.presence_top_floor_bathroom"
        d="m 471.03244,101.308 a 2.1166666,2.1166666 0 0 0 2.11668,-2.116664 2.1166666,2.1166666 0 0 0 -2.11668,-2.116658 2.1166666,2.1166666 0 0 0 -2.11668,2.116658 2.1166666,2.1166666 0 0 0 2.11668,2.116664 m -3.80999,14.71082 1.05831,-4.65667 2.22253,2.11668 v 6.34997 h 2.11663 v -7.93749 l -2.22245,-2.11664 0.635,-3.17504 c 1.47108,1.68276 3.58774,2.64584 5.82083,2.64584 v -2.11664 c -1.86267,0.032 -3.59835,-0.94192 -4.55085,-2.54 l -1.05832,-1.69336 c -0.3808,-0.635 -1.05836,-1.05832 -1.7992,-1.05832 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50334,2.32832 v 4.97416 h 2.11668 v -3.59832 l 1.905,-0.74084 -1.69332,8.57252 -5.18587,-1.05836 -0.42332,2.11668 7.40833,1.48167 m -9.41917,-11.00667 a 1.0583333,1.0583333 0 0 1 -1.05836,-1.05832 1.0583333,1.0583333 0 0 1 1.05836,-1.05836 h 3.175 v 2.11668 h -3.175 m 1.05835,-4.23331 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.058347 1.0583333,1.0583333 0 0 1 1.05835,-1.058314 h 5.29168 V 100.779 h -5.29168 m -2.11671,8.46663 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.05832 1.0583333,1.0583333 0 0 1 1.05832,-1.05832 h 4.23336 v 2.11664 z"
        inkscape:connector-curvature="0"
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
@@ -2566,15 +2578,15 @@
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
        inkscape:connector-curvature="0"
        d="m 394.61921,46.671427 a 2.1166666,2.1166666 0 0 0 2.11668,-2.116664 2.1166666,2.1166666 0 0 0 -2.11668,-2.116658 2.1166666,2.1166666 0 0 0 -2.11668,2.116658 2.1166666,2.1166666 0 0 0 2.11668,2.116664 m -3.80999,14.71082 1.05831,-4.65667 2.22253,2.11668 v 6.34997 h 2.11663 v -7.93749 l -2.22245,-2.11664 0.635,-3.17504 c 1.47108,1.68276 3.58774,2.64584 5.82083,2.64584 v -2.11664 c -1.86267,0.032 -3.59835,-0.94192 -4.55085,-2.54 l -1.05832,-1.69336 c -0.3808,-0.635 -1.05836,-1.05832 -1.7992,-1.05832 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50334,2.32832 v 4.97416 h 2.11668 v -3.59832 l 1.905,-0.74084 -1.69332,8.57252 -5.18587,-1.05836 -0.42332,2.11668 7.40833,1.48167 m -9.41917,-11.00667 a 1.0583333,1.0583333 0 0 1 -1.05836,-1.05832 1.0583333,1.0583333 0 0 1 1.05836,-1.05836 h 3.175 v 2.11668 h -3.175 m 1.05835,-4.23331 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.058347 1.0583333,1.0583333 0 0 1 1.05835,-1.058314 h 5.29168 v 2.116661 h -5.29168 m -2.11671,8.46663 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.05832 1.0583333,1.0583333 0 0 1 1.05832,-1.05832 h 4.23336 v 2.11664 z"
-       id="binary_sensor.motion_sensor_158d000200e0c5" />
+       id="binary_sensor.presence_top_floor_stairway" />
     <path
-       id="binary_sensor.motion_sensor_158d0001e0a8e1"
+       id="binary_sensor.presence_kitchen"
        d="m 194.09536,-4.4989387 a 2.1166666,2.1166666 0 0 0 2.11668,-2.116664 2.1166666,2.1166666 0 0 0 -2.11668,-2.1166582 2.1166666,2.1166666 0 0 0 -2.11668,2.1166582 2.1166666,2.1166666 0 0 0 2.11668,2.116664 m -3.81,14.7108197 1.05832,-4.6566697 2.22253,2.11668 v 6.3499707 h 2.11663 V 6.0843713 l -2.22245,-2.11664 0.635,-3.17504012 c 1.47108,1.68276002 3.58774,2.64584012 5.82083,2.64584012 V 1.3218911 c -1.86267,0.032 -3.59835,-0.94191989 -4.55085,-2.5399998 l -1.05832,-1.69336 c -0.3808,-0.635 -1.05836,-1.05832 -1.7992,-1.05832 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50337,2.32832 v 4.97416 h 2.11669 v -3.59832006 l 1.90501,-0.74083997 -1.69333,8.57252003 -5.1859,-1.05836 -0.42332,2.11668 7.40837,1.4816697 m -9.41922,-11.00666973 a 1.0583333,1.0583333 0 0 1 -1.05837,-1.05831997 1.0583333,1.0583333 0 0 1 1.05837,-1.05836 h 3.17501 v 2.11667997 h -3.17501 m 1.05835,-4.23330997 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.058347 1.0583333,1.0583333 0 0 1 1.05835,-1.058314 h 5.29171 v 2.116661 h -5.29171 m -2.11672,8.46663 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.0583201 1.0583333,1.0583333 0 0 1 1.05832,-1.0583201 h 4.23338 v 2.1166402 z"
        inkscape:connector-curvature="0"
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
        inkscape:label="#path5255" />
     <path
-       id="binary_sensor.motion_sensor_158d000236a0f3"
+       id="binary_sensor.presence_top_floor_tv_room"
        d="m 513.68179,101.52283 a 2.1166666,2.1166666 0 0 0 2.11668,-2.116669 2.1166666,2.1166666 0 0 0 -2.11668,-2.116658 2.1166666,2.1166666 0 0 0 -2.11668,2.116658 2.1166666,2.1166666 0 0 0 2.11668,2.116669 m -3.80999,14.71082 1.05831,-4.65667 2.22253,2.11668 v 6.34997 h 2.11663 v -7.93749 l -2.22245,-2.11664 0.635,-3.17504 c 1.47108,1.68276 3.58774,2.64584 5.82083,2.64584 v -2.11664 c -1.86267,0.032 -3.59835,-0.94192 -4.55085,-2.54 l -1.05832,-1.69336 c -0.3808,-0.635 -1.05836,-1.05832 -1.7992,-1.05832 -0.3176,0 -0.52917,0.106 -0.84664,0.106 l -5.50334,2.32832 v 4.97416 h 2.11668 v -3.59832 l 1.905,-0.74084 -1.69332,8.57252 -5.18587,-1.05836 -0.42332,2.11668 7.40833,1.48167 m -9.41917,-11.00667 a 1.0583333,1.0583333 0 0 1 -1.05836,-1.05832 1.0583333,1.0583333 0 0 1 1.05836,-1.05836 h 3.175 v 2.11668 h -3.175 m 1.05835,-4.23331 a 1.0583333,1.0583333 0 0 1 -1.05835,-1.058352 1.0583333,1.0583333 0 0 1 1.05835,-1.058314 h 5.29168 v 2.116666 h -5.29168 m -2.11671,8.46663 a 1.0583333,1.0583333 0 0 1 -1.05832,-1.05832 1.0583333,1.0583333 0 0 1 1.05832,-1.05832 h 4.23336 v 2.11664 z"
        inkscape:connector-curvature="0"
        style="display:inline;fill:#ffff32;fill-opacity:1;stroke-width:1.05833328"
@@ -2832,7 +2844,7 @@
     <g
        id="sensor.prusa_i3_mk3s_current_state"
        inkscape:label="Layer 1"
-       transform="matrix(0.4,0,0,0.4,700.91485,222.39971)">
+       transform="matrix(0.4,0,0,0.4,774.90889,167.465)">
       <rect
          rx="2.7403274"
          ry="2.5513394"
@@ -2939,7 +2951,7 @@
     <g
        id="binary_sensor.prusa_i3_mk3s_printing"
        inkscape:label="Layer 1"
-       transform="matrix(0.4,0,0,0.4,701.65872,222.44203)">
+       transform="matrix(0.4,0,0,0.4,775.65276,167.50732)">
       <path
          transform="matrix(0.9801,0,0,0.9801,73.978127,-36.705584)"
          clip-path="url(#clipPath10708-8)"
@@ -2951,7 +2963,7 @@
     <g
        id="binary_sensor.prusa_i3_mk3s_printing_error"
        inkscape:label="#g11035"
-       transform="translate(-156.30585,5.58467)">
+       transform="translate(-82.311821,-49.350039)">
       <g
          id="g11013"
          inkscape:label="Layer 1"
@@ -3074,70 +3086,74 @@
     </g>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333301999999954px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-       x="768.76343"
-       y="257.38672"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="762.30664"
+       y="256.51559"
        id="sensor.prusa_i3_mk3s_actual_tool0_temp"
        inkscape:label="#text11039"><tspan
          sodipodi:role="line"
          id="tspan11037"
-         x="768.76343"
-         y="257.38672"
-         style="stroke-width:0.26458332;fill:#e6e4e4;fill-opacity:1;">90°C</tspan></text>
+         x="762.30664"
+         y="256.51559"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke-width:0.26458332">90°C</tspan></text>
     <text
        id="sensor.prusa_i3_mk3s_target_tool0_temp"
-       y="257.38672"
-       x="805.60748"
-       style="font-style:normal;font-weight:normal;font-size:10.58333301999999954px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
+       y="256.51559"
+       x="803.38171"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:label="#text11043"><tspan
-         style="stroke-width:0.26458332;fill:#e6e4e4;fill-opacity:1;"
-         y="257.38672"
-         x="805.60748"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke-width:0.26458332"
+         y="256.51559"
+         x="803.38171"
          id="tspan11041"
          sodipodi:role="line">90°C</tspan></text>
     <text
        id="sensor.prusa_i3_mk3s_actual_bed_temp"
-       y="268.66956"
-       x="768.76343"
-       style="font-style:normal;font-weight:normal;font-size:10.58333301999999954px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
+       y="267.79843"
+       x="762.30664"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:label="#text11047"><tspan
-         style="stroke-width:0.26458332;fill:#e6e4e4;fill-opacity:1;"
-         y="268.66956"
-         x="768.76343"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke-width:0.26458332"
+         y="267.79843"
+         x="762.30664"
          id="tspan11045"
          sodipodi:role="line">90°C</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333301999999954px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332;"
-       x="805.60748"
-       y="268.66956"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="803.38171"
+       y="267.79843"
        id="sensor.prusa_i3_mk3s_target_bed_temp"
        inkscape:label="#text11051"><tspan
          sodipodi:role="line"
          id="tspan11049"
-         x="805.60748"
-         y="268.66956"
-         style="stroke-width:0.26458332;fill:#e6e4e4;fill-opacity:1;">90°C</tspan></text>
+         x="803.38171"
+         y="267.79843"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke-width:0.26458332">90°C</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333333000000032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'sans-serif, Normal';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
-       x="768.76343"
-       y="280.42252"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="762.30664"
+       y="279.55139"
        id="sensor.prusa_i3_mk3s_job_percentage"
        inkscape:label="#text11055"><tspan
          sodipodi:role="line"
-         id="tspan11061">45 %</tspan></text>
+         id="tspan11061"
+         x="762.30664"
+         y="279.55139">45 %</tspan></text>
     <text
-       id="sensor.prusa_i3_mk3s_time_remaining"
-       y="280.42252"
-       x="805.60748"
-       style="font-style:normal;font-weight:normal;font-size:10.58333333000000032px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332;-inkscape-font-specification:'sans-serif, Normal';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
+       id="NA"
+       y="279.55139"
+       x="776.58502"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#e6e4e4;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
-       inkscape:label="#text11059"><tspan
+       inkscape:label="sensor.prusa_i3_mk3s_time_remaining"><tspan
          sodipodi:role="line"
-         id="tspan11063">32h34m12s</tspan></text>
+         id="tspan11065"
+         x="776.58502"
+         y="279.55139">Complete</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -3165,7 +3181,7 @@
        transform="rotate(-90)" />
     <path
        inkscape:connector-curvature="0"
-       id="input_boolean.conservatory_tv"
+       id="media_player.ue55nu7475xxc"
        d="m 208.98815,301.67789 32.99644,-9.60732 v -38.4293 l -32.99644,-9.60732 v 57.64394"
        style="display:inline;fill:url(#linearGradient1913);fill-opacity:1;stroke:none;stroke-width:0.25778726;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        inkscape:label="#path1911" />
@@ -3191,7 +3207,7 @@
        inkscape:label="#path1911"
        style="display:inline;fill:url(#linearGradient1954);fill-opacity:1;stroke:none;stroke-width:0.25778726;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 535.08504,197.68135 32.99644,-9.60732 v -38.4293 l -32.99644,-9.60732 v 57.64394"
-       id="input_boolean.upstairs_living_room_tv"
+       id="media_player.upstairs_living_room_tv"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -3225,7 +3241,7 @@
     <circle
        cy="-77.44458"
        cx="611.96881"
-       id="input_boolean.light_wine_cellar"
+       id="input_boolean.light.lightstrip_1"
        style="display:inline;opacity:1;fill:url(#radialGradient8997);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        r="39.356182"
        inkscape:label="#circle8877" />
@@ -3237,12 +3253,6 @@
        cx="521.96356"
        cy="99.429123"
        inkscape:label="#circle8889" />
-    <circle
-       cy="138.04822"
-       cx="757.07587"
-       id="circle8901"
-       style="display:inline;opacity:1;fill:url(#radialGradient9001);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
-       r="39.356182" />
     <rect
        ry="6.5773363"
        y="-14.37992"
@@ -3363,6 +3373,14 @@
        cx="387.28717"
        id="input_boolean.light_stairway_up"
        style="display:inline;opacity:1;fill:url(#radialGradient1959);fill-opacity:1;fill-rule:nonzero;stroke:#ffff30;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.39215686" />
+    <ellipse
+       inkscape:label="#circle7769"
+       cy="80.359261"
+       cx="85.934631"
+       id="input_boolean.light_entrance_lights"
+       style="display:inline;opacity:1;fill:url(#radialGradient11092);fill-opacity:1;fill-rule:nonzero;stroke:#ffff30;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.39215686"
+       rx="17.101912"
+       ry="17.101896" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -3743,6 +3761,14 @@
          id="g2001"
          style="fill:#cac7bd;fill-opacity:1;stroke:#fffffe;stroke-width:1.00199997;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994" />
     </g>
+    <ellipse
+       inkscape:label="#circle7767"
+       style="display:inline;opacity:1;fill:#ffff30;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:26.45833397;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.00392157"
+       id="light.entrance_lights"
+       cx="85.934631"
+       cy="144.60924"
+       rx="3.87274"
+       ry="3.8727322" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -7484,7 +7510,7 @@
        rx="11.244568"
        ry="11.244567" />
     <text
-       id="sensor.humidity_158d00022c66ff"
+       id="sensor.humidity_bathroom"
        y="192.04663"
        x="96.516037"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.51215267px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.20670572"
@@ -7500,7 +7526,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:5.51215267px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.20670572"
        x="96.459503"
        y="184.71884"
-       id="sensor.temperature_158d00022c66ff"
+       id="sensor.temperature_bathroom"
        inkscape:label="#text8773"><tspan
          y="184.71884"
          x="96.459503"
@@ -7697,7 +7723,7 @@
        rx="22.489136"
        ry="22.489134" />
     <text
-       id="sensor.humidity_158d0002437897"
+       id="sensor.humidity_washing_room"
        y="-75.561478"
        x="612.89978"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.41341144"
@@ -7713,7 +7739,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.41341144"
        x="612.89978"
        y="-92.924454"
-       id="sensor.temperature_158d0002437897"
+       id="sensor.temperature_washing_room"
        inkscape:label="#text8875"><tspan
          y="-92.924454"
          x="612.89978"
@@ -7732,7 +7758,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.41341144"
        x="611.81793"
        y="-0.13162434"
-       id="sensor.humidity_158d000245b4a2"
+       id="sensor.humidity_wine_cellar"
        inkscape:label="#text8883"><tspan
          style="stroke-width:0.41341144"
          id="tspan8881"
@@ -7740,7 +7766,7 @@
          x="611.81793"
          y="-0.13162434">78%</tspan></text>
     <text
-       id="sensor.temperature_158d000245b4a2"
+       id="sensor.temperature_wine_cellar"
        y="-17.494602"
        x="611.81793"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.41341144"
@@ -7759,7 +7785,7 @@
        rx="22.489136"
        ry="22.489134" />
     <text
-       id="sensor.humidity_158d00027437fe"
+       id="sensor.humidity_top_floor_tv_room"
        y="112.49216"
        x="521.81268"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.41341144"
@@ -7775,44 +7801,50 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.41341144"
        x="521.81268"
        y="95.129196"
-       id="sensor.temperature_158d00027437fe"
+       id="sensor.temperature_top_floor_tv_room"
        inkscape:label="#text8899"><tspan
          y="95.129196"
          x="521.81268"
          id="tspan8897"
          sodipodi:role="line"
          style="stroke-width:0.41341144">22°C</tspan></text>
+    <circle
+       cy="201.35796"
+       cx="749.14062"
+       id="circle8901"
+       style="display:inline;opacity:1;fill:url(#radialGradient9001);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
+       r="25.187956" />
     <ellipse
-       ry="22.489134"
-       rx="22.489136"
-       style="display:inline;opacity:1;fill:#323232;fill-opacity:1;fill-rule:nonzero;stroke:#fffffe;stroke-width:0.51676434;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
+       ry="14.393045"
+       rx="14.393047"
+       style="display:inline;opacity:1;fill:#323232;fill-opacity:1;fill-rule:nonzero;stroke:#fffffe;stroke-width:0.33072919;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        id="ellipse8903"
-       cx="757.07587"
-       cy="202.29825" />
+       cx="749.14062"
+       cy="201.358" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.41341144"
-       x="756.92499"
-       y="215.36124"
-       id="sensor.humidity_158d000243778b"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="749.04407"
+       y="209.71831"
+       id="sensor.humidity_washing_room"
        inkscape:label="#text8907"><tspan
-         style="stroke-width:0.41341144"
+         style="stroke-width:0.26458332"
          id="tspan8905"
          sodipodi:role="line"
-         x="756.92499"
-         y="215.36124">78%</tspan></text>
+         x="749.04407"
+         y="209.71831">78%</tspan></text>
     <text
-       id="sensor.temperature_158d000243778b"
-       y="197.99826"
-       x="756.92499"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:11.02430534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.41341144"
+       id="sensor.temperature_washing_room"
+       y="198.606"
+       x="749.04407"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:7.05555534px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"
        inkscape:label="#text8911"><tspan
-         style="stroke-width:0.41341144"
+         style="stroke-width:0.26458332"
          sodipodi:role="line"
          id="tspan8909"
-         x="756.92499"
-         y="197.99826">22°C</tspan></text>
+         x="749.04407"
+         y="198.606">22°C</tspan></text>
     <g
        id="switch.switch"
        transform="matrix(0.25964152,0,0,0.25964152,55.170973,106.50104)"
@@ -8245,7 +8277,7 @@
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.26822853px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#37c7ff;fill-opacity:1;stroke:none;stroke-width:0.31005859"
        x="137.63579"
        y="104.7546"
-       id="sensor.humidity_158d00027727eb"><tspan
+       id="sensor.humidity_kitchen"><tspan
          style="stroke-width:0.31005859"
          id="tspan1947"
          sodipodi:role="line"
@@ -8253,7 +8285,7 @@
          y="104.7546">78%</tspan></text>
     <text
        inkscape:label="#text8899"
-       id="sensor.temperature_158d00027727eb"
+       id="sensor.temperature_kitchen"
        y="91.732376"
        x="137.63579"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.26822853px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#cac700;fill-opacity:1;stroke:none;stroke-width:0.31005859"
@@ -8480,6 +8512,74 @@
        id="text4434"><tspan
          sodipodi:role="line"
          id="tspan4440">Base</tspan></text>
+    <g
+       inkscape:label="#g9103"
+       id="g2636"
+       transform="matrix(0,0.02852539,-0.02852538,0,808.53606,165.58784)"
+       style="display:inline;fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+      <g
+         id="g2604"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+        <g
+           id="g2602"
+           style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">
+          <path
+             id="path2598"
+             d="m 387.118,500.728 c 0,0 55.636,0 55.636,-55.637 V 166.909 c 0,-55.637 -55.636,-55.637 -55.636,-55.637 H 55.636 c 0,0 -55.636,0 -55.636,55.637 v 278.182 c 0,55.637 55.636,55.637 55.636,55.637 z"
+             inkscape:connector-curvature="0"
+             style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          <polygon
+             id="polygon2600"
+             points="475.162,393.043 612,500.728 612,111.272 475.162,219.958 "
+             style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        </g>
+      </g>
+      <g
+         id="g2606"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2608"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2610"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2612"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2614"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2616"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2618"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2620"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2622"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2624"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2626"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2628"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2630"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2632"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <g
+         id="g2634"
+         style="fill:#e6e6e6;fill-opacity:1;stroke:#000000;stroke-width:2.31884098;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -8530,7 +8630,7 @@
        x="535.08502"
        height="57.643944"
        width="40.450638"
-       id="media_player.upstairs_living_room_tv"
+       id="NAmedia_player.upstairs_living_room_tv"
        style="display:inline;opacity:1;fill:#4b4b4b;fill-opacity:0.01463414;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
     <rect
        inkscape:label="#rect6833"
@@ -8543,10 +8643,10 @@
        ry="8.5848675" />
     <rect
        style="display:inline;opacity:1;fill:#4b4b4b;fill-opacity:0.01463414;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       id="switch.ue46es8005"
+       id="NAmedia_player.ue55nu7475xxc"
        width="40.450638"
        height="57.643944"
-       x="208.98814"
+       x="205.76723"
        y="179.78398"
        ry="12.867797"
        inkscape:label="#rect1931" />
@@ -8569,7 +8669,7 @@
     <ellipse
        cy="-77.573761"
        cx="612.09802"
-       id="light.wine_cellar"
+       id="light.lightstrip_1"
        style="display:inline;opacity:1;fill:#323232;fill-opacity:0.00975611;fill-rule:nonzero;stroke:none;stroke-width:0.5192157;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        rx="22.61833"
        ry="22.618328"

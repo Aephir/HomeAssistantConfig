@@ -29,21 +29,21 @@ states:
   armed_away:
     immediate:
     - binary_sensor.door_window_sensor_158d000234dc7b
-    - binary_sensor.door_window_sensor_158d000237c924
-    - binary_sensor.door_window_sensor_158d0002286a78
-    - binary_sensor.motion_sensor_158d000200e0c5
-    - binary_sensor.motion_sensor_158d000210ca6f
-    - binary_sensor.motion_sensor_158d000236a0d0
-    - binary_sensor.motion_sensor_158d000210ca6e
-    - binary_sensor.motion_sensor_158d000236a22f
-    - binary_sensor.motion_sensor_158d000236a116
-    - binary_sensor.motion_sensor_158d000236a0f3
+    - binary_sensor.openclose_bedroom_window_1
+    - binary_sensor.openclose_bathroom_window
+    - binary_sensor.presence_top_floor_stairway
+    - binary_sensor.presence_basement_stairway
+    - binary_sensor.presence_top_floor_bathroom
+    - binary_sensor.presence_bathroom
+    - binary_sensor.presence_bathroom_2
+    - binary_sensor.presence_tv_room
+    - binary_sensor.presence_top_floor_tv_room
     delayed:
-    - binary_sensor.door_window_sensor_158d00022d0917
-    - binary_sensor.door_window_sensor_158d00022b3b66
-    - binary_sensor.motion_sensor_158d000200d203
-    - binary_sensor.motion_sensor_158d000200d285
-    - binary_sensor.motion_sensor_158d00023e3742
+    - binary_sensor.openclose_front_door
+    - binary_sensor.openclose_basement_entrance_door
+    - binary_sensor.presence_basement_entrance
+    - binary_sensor.presence_conservatory
+    - binary_sensor.presence_entrance
     override: []
     pending_time: 150
     warning_time: 20
@@ -51,11 +51,11 @@ states:
   armed_home:
     immediate:
     - binary_sensor.door_window_sensor_158d000234dc7b
-    - binary_sensor.door_window_sensor_158d00022b3b66
-    - binary_sensor.door_window_sensor_158d00022d0917
+    - binary_sensor.openclose_basement_entrance_door
+    - binary_sensor.openclose_front_door
     - binary_sensor.sensor
     delayed:
-    - binary_sensor.motion_sensor_158d000200d203
+    - binary_sensor.presence_basement_entrance
     override: []
     pending_time: '60'
     warning_time: '30'
@@ -63,10 +63,10 @@ states:
   armed_perimeter:
     immediate:
     - binary_sensor.door_window_sensor_158d000234dc7b
-    - binary_sensor.door_window_sensor_158d0002286a78
+    - binary_sensor.openclose_bathroom_window
     delayed:
-    - binary_sensor.door_window_sensor_158d00022b3b66
-    - binary_sensor.door_window_sensor_158d00022d0917
+    - binary_sensor.openclose_basement_entrance_door
+    - binary_sensor.openclose_front_door
     override: []
     pending_time: 150
     warning_time: '5'

@@ -29,12 +29,12 @@ class MotionClass(hass.Hass):
 
         # list of motion sensors that trigger the automation.
         self.motion_entity_ids = [
-            'binary_sensor.motion_sensor_158d0001e0a8e1'
+            'binary_sensor.presence_kitchen'
             ]
 
         # list of illumination sensors
         self.illumination_sensors = [
-            'sensor.illumination_158d0001e0a8e1'
+            'sensor.lightlevel_kitchen'
             ]
 
         self.timer = None
@@ -134,11 +134,11 @@ class MotionClass(hass.Hass):
         if self.timer != None and entity != 'switch.switch':
             self.cancel_timer(self.timer)
 
-        if self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'on': # if we got motion.
+        if self.get_state('binary_sensor.presence_kitchen') == 'on': # if we got motion.
             illumination = max([toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
             self.cancel_timer(self.timer)
             self.lightsOn(illumination)
-        elif self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'off': # we got no motion.
+        elif self.get_state('binary_sensor.presence_kitchen') == 'off': # we got no motion.
             self.timer = self.run_in(self.lightsOff, 90)
 
 
@@ -147,13 +147,13 @@ class MotionClass(hass.Hass):
         If the espresso machine is switched off and there's no motion in the kitchen, turn off lights.
         """
 
-        if self.get_state('binary_sensor.motion_sensor_158d0001e0a8e1') == 'off': # we got no motion.
+        if self.get_state('binary_sensor.presence_kitchen') == 'off': # we got no motion.
             self.lightsOff()
 
 
     def inputBoolean(self, entity, attribute, old, new, kwargs):
 
         if new == "on":
-            if self.get_state("binary_sensor.motion_sensor_158d0001e0a8e1") == "on":
+            if self.get_state("binary_sensor.presence_kitchen") == "on":
                 illumination = max([ toInt(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
                 self.lightsOn(illumination)

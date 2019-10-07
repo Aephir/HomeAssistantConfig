@@ -8,8 +8,8 @@ class MotionClass(hass.Hass):
     def initialize(self):
 
         self.motionSensors = [
-            "binary_sensor.motion_sensor_158d000200e0c5", # Top floor stairway
-            "binary_sensor.motion_sensor_158d000236a0f3"  # Top floor tv room
+            "binary_sensor.presence_top_floor_stairway", # Top floor stairway
+            "binary_sensor.presence_top_floor_tv_room"  # Top floor tv room
             ]
 
         for entity in self.motionSensors:
@@ -39,16 +39,16 @@ class MotionClass(hass.Hass):
     # Motion sensor lights
     def switchOnOff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200e0c5") # Top Floor Stairs Motion
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000236a0f3") # Top Floor TV Room Motion
+        sensor_1_state = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion
+        sensor_2_state = self.get_state("binary_sensor.presence_top_floor_tv_room") # Top Floor TV Room Motion
         awake = self.areWeAwake("light.living_room._lights")
         party_mode = self.get_state('input_boolean.party_mode') == 'on'
 
-        if new == "on" and entity == "binary_sensor.motion_sensor_158d000236a0f3": # If top floor TV room motion is triggered
+        if new == "on" and entity == "binary_sensor.presence_top_floor_tv_room": # If top floor TV room motion is triggered
             if party_mode:
                 self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
             elif sensor_1_state == "on": # When top floor stairway is also on (meaning someone likely came up the stairs)
-                if int(self.get_state('sensor.illumination_158d000200e0c5')) < 500:
+                if int(self.get_state('sensor.lightlevel_top_floor_stairway')) < 500:
                     if self.now_is_between('07:00:00', '20:00:00'):
                         self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
                     elif self.now_is_between('20:00:00', '21:30:00'):
@@ -56,17 +56,17 @@ class MotionClass(hass.Hass):
                     elif self.now_is_between('21:30:00', '07:00:00'):
                         self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
             else:
-                if self.get_state('sensor.illumination_158d000200e0c5') < 500:
+                if self.get_state('sensor.lightlevel_top_floor_stairway') < 500:
                     if self.now_is_between('07:00:00', '20:00:00'):
                         self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
                     elif self.now_is_between('20:00:00', '21:30:00'):
                         self.turn_on("light.top_floor_hallway",brightness=100,kelvin=2700)
                     elif self.now_is_between('21:30:00', '07:00:00'):
                         self.turn_on("light.top_floor_tv_area",brightness=10,kelvin=2700)
-        elif new == "on" and entity == "binary_sensor.motion_sensor_158d000200e0c5":
+        elif new == "on" and entity == "binary_sensor.presence_top_floor_stairway":
             if party_mode:
                 self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
-            elif self.get_state('sensor.illumination_158d000200e0c5') < 500:
+            elif self.get_state('sensor.lightlevel_top_floor_stairway') < 500:
                 if self.now_is_between('07:00:00', '20:00:00'):
                     self.turn_on("light.top_floor_hallway",brightness=255,kelvin=2700)
                 elif self.now_is_between('20:00:00', '21:30:00'):

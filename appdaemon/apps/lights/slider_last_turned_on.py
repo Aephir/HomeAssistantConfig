@@ -16,7 +16,7 @@ class LightSlider(hass.Hass):
             'light.conservatory_lights',
             'light.bedroom',
             'light.baby_room',
-            'light.wine_cellar'
+            'light.lightstrip_1'
             ]
 
         self.input = [

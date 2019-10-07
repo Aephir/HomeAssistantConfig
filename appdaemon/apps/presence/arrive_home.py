@@ -13,8 +13,8 @@ class HeatingAutomations(hass.Hass):
             ]
 
         self.motionSensors = [
-            "sensor.illumination_158d00023e3742",
-            "binary_sensor.motion_sensor_158d000200d285"
+            "sensor.lightlevel_entrance",
+            "binary_sensor.presence_basement_entrance"
             ]
 
         self.arrived_home = None
@@ -22,8 +22,8 @@ class HeatingAutomations(hass.Hass):
         for entity in self.deviceTrackers:
             self.listen_state(self.arrivedHome, entity, new="home")
 
-        self.listen_state(self.motionDining, "sensor.illumination_158d00023e3742", new="on")
-        self.listen_state(self.motionConservatory, "binary_sensor.motion_sensor_158d000200d285", new="on")
+        self.listen_state(self.motionDining, "sensor.lightlevel_entrance", new="on")
+        self.listen_state(self.motionConservatory, "binary_sensor.presence_basement_entrance", new="on")
 
 
     def arrivedHome(self, entity, attribute, old, new, kwargs):

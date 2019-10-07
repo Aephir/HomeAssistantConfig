@@ -1,0 +1,6 @@
+#############
+#    ZHA    #
+#############
+
+usb_path: /dev/ttyACM0
+database_path: /home/aephir/docker/homeassistant/zigbee.db

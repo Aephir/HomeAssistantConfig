@@ -10,7 +10,9 @@
 
 hue_tap_1:
   module: hue_tap_1
-  class: HueRemote
+  class: Remote
+  event: deconz_event
+  id: tap_1
   entityID: sensor.tap_1
   entity_1: switch.fountain
   entity_2: light.conservatory_lights
@@ -19,8 +21,9 @@ hue_tap_1:
 
 hue_dimmer_1:
   module: hue_dimmer_1
-  class: HueRemote
-  entityID: sensor.hue_dimmer_1
+  class: Remote
+  event: deconz_event
+  id: dimmer_switch_1
   entity_1: light.dining_room_lights
   entity_2: light.conservatory_lights
   entity_3: light.kitchen_lights
@@ -67,13 +70,14 @@ hue_dimmer_1:
 xiaomi_button_1:
   module: single_tap_button_1
   class: Remote
-  entityID: binary_sensor.switch_158d0001f3ac72
+  event: deconz_event
+  id: button_1
   entityID1: switch.switch
   entityID2: light.all_lights
   entityID3: light.all_adult_lights
   entityIDList1: ['media_player.conservatory_speaker', 'media_player.ue55nu7475xxc', 'media_player.living_room_speaker']
 
 # xiaomi_cube_1:
-#   module: xiaomi_aqara_cube
+#   module: mi_magic_cube_1
 #   class: Remote
-#   entityID: binary_sensor.cube_158d00028f7196
+#   id: mi_magic_cube_1

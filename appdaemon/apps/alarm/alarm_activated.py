@@ -18,7 +18,7 @@ class AlarmTriggered(hass.Hass):
 
     # Which door was opened to trigger the alarm? Return the friendly_name
     def whichSensor(self):
-        sensors = ['binary_sensor.motion_sensor_158d000200d203', 'binary_sensor.motion_sensor_158d000200d285', 'binary_sensor.motion_sensor_158d00023e3742']
+        sensors = ['binary_sensor.presence_basement_entrance', 'binary_sensor.presence_conservatory', 'binary_sensor.presence_entrance']
         for s in sensors:
             if self.get_state(s) == "on":
                 return self.friendly_name(s)
@@ -26,7 +26,7 @@ class AlarmTriggered(hass.Hass):
     # Flash the lights for 20 seconds if home, 180 seconds if not home.
     def alarm_light(self):
         lightsNoColor = ["light.kitchen_lights", "light.conservatory_lights", "light_stairway", "light.dining_table_2", "light.basement_entrance", "light.basement_hallway", "light_top_floor_bathroom"]
-        lightsColor = ["light.bathroom", "light.dining_table_1", "light.tv_room", "light.wine_cellar", "light.living_room_lightstrip"]
+        lightsColor = ["light.bathroom", "light.dining_table_1", "light.tv_room", "light.lightstrip_1", "light.living_room_lightstrip"]
         t_end_home = time.time() + 20
         t_end_away = time.time() + 180
 

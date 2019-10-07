@@ -10,8 +10,8 @@ class Sensor(hass.Hass):
 
         # List of door sensors.
         self.doorList = [
-            'binary_sensor.door_window_sensor_158d00022b3b66', # Basement door
-            'binary_sensor.door_window_sensor_158d00022d0917', # Front door
+            'binary_sensor.openclose_basement_entrance_door', # Basement door
+            'binary_sensor.openclose_front_door', # Front door
             'binary_sensor.door_window_sensor_158d000234dc7b'  # Conservatory door
             ]
 
@@ -22,20 +22,20 @@ class Sensor(hass.Hass):
 
         # List of window sensors.
         self.windowList = [
-            'binary_sensor.door_window_sensor_158d000237c924', # Bedroom window
-            'binary_sensor.door_window_sensor_158d0002286a78', # Bathroom window
-            'binary_sensor.door_window_sensor_158d00022f16f0'  # Washing room window 1
+            'binary_sensor.openclose_bedroom_window_1', # Bedroom window
+            'binary_sensor.openclose_bathroom_window', # Bathroom window
+            'binary_sensor.openclose_washing_room_window_1'  # Washing room window 1
             ]
 
         # Dictionary relating entity_id to a custom freindly name. Should I change to just use 'friendly_name'?
         self.friendlyName = {
-            'binary_sensor.door_window_sensor_158d00022b3b66': 'Basement door',
-            'binary_sensor.door_window_sensor_158d00022d0917': 'Front door',
+            'binary_sensor.openclose_basement_entrance_door': 'Basement door',
+            'binary_sensor.openclose_front_door': 'Front door',
             'binary_sensor.door_window_sensor_158d000234dc7b': 'Conservatory door',
             'binary_sensor.neo_coolcam_doorwindow_detector_sensor': 'Shed door',
-            'binary_sensor.door_window_sensor_158d000237c924': 'Bedroom window',
-            'binary_sensor.door_window_sensor_158d0002286a78': 'Bathroom window',
-            'binary_sensor.door_window_sensor_158d00022f16f0': 'Washing room window 1'
+            'binary_sensor.openclose_bedroom_window_1': 'Bedroom window',
+            'binary_sensor.openclose_bathroom_window': 'Bathroom window',
+            'binary_sensor.openclose_washing_room_window_1': 'Washing room window 1'
             }
 
         # Makes sure this global variable exists.

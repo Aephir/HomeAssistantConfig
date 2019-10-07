@@ -14,7 +14,7 @@ exclude:
     - automation
 include:
   entities:
-    - sensor.pressure_158d00022c66ff
+    - sensor.pressure_bathroom
   domains:
     - light
 tags:

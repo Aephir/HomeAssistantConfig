@@ -9,6 +9,10 @@
 #    Sensors    #
 #################
 
+awake:
+  module: awake
+  class: Awake
+
 doors_or_windows_open:
   module: door_window_open
   class: Sensor

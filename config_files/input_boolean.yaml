@@ -103,6 +103,9 @@ light_bedroom:
 light_baby_room:
   name: dummy baby room light
 
+light_entrance_lights:
+  name: dummy entrance lights
+
 color_temperature_light_1:
   name: dummy lounge light
 
@@ -124,7 +127,7 @@ light_tv_room:
 light_walk_in_closet:
   name: dummy walk-in closet light
 
-light_wine_cellar:
+light_lightstrip_1:
   name: dummy wine cellar light
 
 light_conservatory_lights:
@@ -153,6 +156,9 @@ light_top_floor_tv_area:
 
 light_top_floor_hallway:
   name: dummy top floor hallway lights
+
+tv_ue55nu7475xxc:
+  name: dummy ue55nu7475xxc
 
 tv_ue46es8005:
   name: dummy ue46es8005

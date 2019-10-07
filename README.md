@@ -12,6 +12,7 @@ Some additional scripts, files that contain sensitive information (but where I w
 * [Fujitsu Esprimo q520](https://sp.ts.fujitsu.com/dmsp/publications/public/ds-esprimo-q520.pdf) running almost everything described below.
 * [Raspberry Pi 3B](https://www.raspberrypi.org/products/raspberry-pi-3-model-b/) running hass.io to connect to plant sensors (no bluetooth on Esprimo, plus I want this to be close to the greenhouse once that is set up. I'm not sure the main PC would even be within bluetooth range).
 * [Aeotec Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick) z-wave USB controller.
+* [ConBee II USB stick](https://www.phoscon.de/en/conbee2) ZigBee USB controller.
 * ~~[DHT22](https://www.adafruit.com/product/385) for indoor temperature and moisture sensor.~~
 * [Philips Hue Lights](https://www2.meethue.com/en-us), a mix of various colored and white bulbs, and a single lighstrip running on the old bridge (v1).
 * [IKEA TRÅDFRI](https://www.ikea.com/us/en/catalog/categories/departments/lighting/36812/) bulbs, connected to the hue bridge.
@@ -43,6 +44,7 @@ Some additional scripts, files that contain sensitive information (but where I w
 * [Ubuntu Server LTE 18.04](https://downloads.raspberrypi.org/raspbian_lite_latest) as the OS.
 * [mlocate](https://wiki.debian.org/sSMTP) for finding stuff.
 * [Samba](https://www.samba.org/samba/what_is_samba.html) for easy modification of config files.
+* [SSHFS](https://en.wikipedia.org/wiki/SSHFS), Iv'e started to use this instead of Samba. You can mount drives via SSHFS, and it is seemingly somewhat more secure than Samba. I access from MacOS, so I'm using [Fuse and SSHFS for mac](https://osxfuse.github.io/).
 * [Docker](https://www.docker.com/) for as much as possible.
 * [Docker Compose](https://docs.docker.com/compose/) for a single file containing (almost) all info for all my docker containers
 * [Unattended upgrades](https://help.ubuntu.com/community/AutomaticSecurityUpdates) to keep up to date with security updates.
@@ -56,6 +58,7 @@ OBS! Some are not fully configured yet.
 * [NGINX](https://www.nginx.com/) [docker container](https://hub.docker.com/r/linuxserver/letsencrypt/) is included in the "Let's Encrypt" image. Used to securely expose only the services I choose (e.g.  Home Assistant) via SSL to the big bad web. Everything else is run locally, and not accessible from the outside.
 * [Home Assistant](https://www.home-assistant.io/) [docker container](https://hub.docker.com/r/homeassistant/home-assistant/) for all my home control and automation needs.
 * [Mosquitto](https://mosquitto.org/2013/01/mosquitto-debian-repository/) [docker container](https://hub.docker.com/_/eclipse-mosquitto/) for for reporting of plant sensor states from a hass.io on a RPi3B, and future applications.
+* [deCONZ](https://www.dresden-elektronik.de/funktechnik/products/software/pc/deconz/) [docker container](https://hub.docker.com/r/marthoc/deconz) for controlling all ZigBee devices.
 * [MariaDB](https://mariadb.org/) [docker container](https://hub.docker.com/_/mariadb/)
 * [Syncthing](https://syncthing.net/) [docker container](https://hub.docker.com/r/linuxserver/syncthing/)
 * [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) [docker container](https://hub.docker.com/r/acockburn/appdaemon/)

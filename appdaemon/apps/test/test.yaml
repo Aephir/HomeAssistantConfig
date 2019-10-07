@@ -8,10 +8,10 @@
 #    Test    #
 ##############
 
-test:
-  module: test
-  class: Test
-  test_secret: !secret test
+# test:
+#   module: test
+#   class: Test
+#   # test_secret: !secret test
 
 # test2:
 #   module: test2

@@ -677,7 +677,7 @@
 #     webhook_id: kwgt_wine_cellar_lights_on
 #   action:
 #     - service: homeassistant.turn_on
-#       entity_id: light.wine_cellar_lights
+#       entity_id: light.lightstrip_1_lights
 #
 # - alias: kwgt wine wine cellar lights off
 #   initial_state: True
@@ -686,7 +686,7 @@
 #     webhook_id: kwgt_wine_cellar_lights_off
 #   action:
 #     - service: homeassistant.turn_off
-#       entity_id: light.wine_cellar_lights
+#       entity_id: light.lightstrip_1_lights
 
 # - alias: kwgt last turned on increase brightness tasker
 #   initial_state: True

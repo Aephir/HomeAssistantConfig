@@ -9,10 +9,10 @@ class MotionClass(hass.Hass):
 
     def initialize(self):
         # Motion detected = lights on; motion stops = lights off.
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000210ca6e") # Bathroom #1 sensor
-        self.listen_state(self.switchonoff,"binary_sensor.motion_sensor_158d000236a22f") # Bathroom #2 sensor
+        self.listen_state(self.switchonoff,"binary_sensor.presence_bathroom") # Bathroom #1 sensor
+        self.listen_state(self.switchonoff,"binary_sensor.presence_bathroom_2") # Bathroom #2 sensor
         # Illumination drops while motion sensor is "on" = light on.
-        self.listen_state(self.switchonoff,"sensor.illumination_158d000236a22f")
+        self.listen_state(self.switchonoff,"sensor.lightlevel_bathroom_2")
 
     # Returns True/False based on state of entity (assess whether we are awake). Find better proxy eventually.
     def areWeAwake(self, entity):
@@ -34,9 +34,9 @@ class MotionClass(hass.Hass):
     # (if day and light levels are low, or turn on dim/red if night and we are not awake).
     def switchonoff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6e")
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000236a22f")
-        illumination_2 = self.getIntegerState("sensor.illumination_158d000236a22f")
+        sensor_1_state = self.get_state("binary_sensor.presence_bathroom")
+        sensor_2_state = self.get_state("binary_sensor.presence_bathroom_2")
+        illumination_2 = self.getIntegerState("sensor.lightlevel_bathroom_2")
 
         if sensor_1_state == "on" or sensor_2_state == "on":
             if self.now_is_between("07:00:00", "21:00:00"):

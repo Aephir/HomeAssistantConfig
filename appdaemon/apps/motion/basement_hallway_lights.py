@@ -9,10 +9,10 @@ class MotionClass(hass.Hass):
         # Motion sensors.
 
         self.motion_sensors = [
-            # "binary_sensor.motion_sensor_158d00023e3742", # Entrance Motion Sensor
-            "binary_sensor.motion_sensor_158d000210ca6f", # Basement Stairway Motion Sensor
-            "binary_sensor.motion_sensor_158d000200d203", # Basmenet Entrance
-            "binary_sensor.motion_sensor_158d000236a116" # TV room
+            # "binary_sensor.presence_entrance", # Entrance Motion Sensor
+            "binary_sensor.presence_basement_stairway", # Basement Stairway Motion Sensor
+            "binary_sensor.presence_basement_entrance", # Basmenet Entrance
+            "binary_sensor.presence_tv_room" # TV room
             ]
 
         for entity in self.motion_sensors:
@@ -33,9 +33,9 @@ class MotionClass(hass.Hass):
     # Motion sensor lights
     def motionTrigger(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.motion_sensor_158d000200d203") == 'on' # Basmenet Entrance
-        sensor_2_state = self.get_state("binary_sensor.motion_sensor_158d000210ca6f") == 'on' # Basement Stairway Motion
-        sensor_3_state = self.get_state("binary_sensor.motion_sensor_158d000236a116") == 'on' # TV Room Motion
+        sensor_1_state = self.get_state("binary_sensor.presence_basement_entrance") == 'on' # Basmenet Entrance
+        sensor_2_state = self.get_state("binary_sensor.presence_basement_stairway") == 'on' # Basement Stairway Motion
+        sensor_3_state = self.get_state("binary_sensor.presence_tv_room") == 'on' # TV Room Motion
 
         ## Update "movie_night" with real entity_id once applicable. ##
         movie_night = False # self.isOn("media_player.tv_room_tv") # Are we using the TV lounge?

@@ -1,10 +1,3 @@
-# @Author: Walden Emil Bjørn-Yoshimoto <mfd356>
-# @Date:   20190926-2009
-# @Email:  waldenb@gmail.com
-# @Last modified by:   mfd356
-# @Last modified time: 20190928-1409
-
-
 
 title: Home
 # Optional background for all views. Check https://developer.mozilla.org/en-US/docs/Web/CSS/background for more examples.
@@ -463,23 +456,25 @@ views:
                 name: Raw sensor
               - entity: sensor.num_in_master_bed
                 name: Number in bed
+              - entity: sensor.awake
+                name: Who is awake
 
           - type: history-graph
             title: 'Temperature graphs'
             hours_to_show: 72
             refresh_interval: 60
             entities:
-              - entity: sensor.temperature_158d000245b4a2
+              - entity: sensor.temperature_wine_cellar
                 name: Wine cellar
-              - entity: sensor.temperature_158d0002437897
+              - entity: sensor.temperature_washing_room
                 name: Washing room
-              - entity: sensor.temperature_158d00022c66ff
+              - entity: sensor.temperature_bathroom
                 name: Bathroom
-              - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+              - entity: sensor.temperature_kitchen
                 name: Kitchen
               - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
                 name: Conservatory
-              - entity: sensor.temperature_158d000243778b
+              - entity: sensor.temperature_shed
                 name: Shed
 
           - type: history-graph
@@ -487,17 +482,17 @@ views:
             hours_to_show: 72
             refresh_interval: 60
             entities:
-              - entity: sensor.humidity_158d000245b4a2
+              - entity: sensor.humidity_wine_cellar
                 name: Wine cellar
-              - entity: sensor.humidity_158d0002437897
+              - entity: sensor.humidity_washing_room
                 name: Washing room
-              - entity: sensor.humidity_158d00022c66ff
+              - entity: sensor.humidity_bathroom
                 name: Bathroom
-              - entity: sensor.humidity_158d00027727eb
+              - entity: sensor.humidity_kitchen
                 name: Kitchen
               - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
                 name: Conservatory
-              - entity: sensor.humidity_158d000243778b
+              - entity: sensor.humidity_shed
                 name: Shed
 
           - type: history-graph
@@ -505,27 +500,27 @@ views:
             hours_to_show: 72
             refresh_interval: 60
             entities:
-              - entity: sensor.illumination_158d000200d285
+              - entity: sensor.lightlevel_conservatory
                 name: Conservatory
-              - entity: sensor.illumination_158d000200d203
+              - entity: sensor.lightlevel_basement_entrance
                 name: Basement Entrance
-              - entity: sensor.illumination_158d000200e0c5
+              - entity: sensor.lightlevel_top_floor_stairway
                 name: Top floor stairway
-              - entity: sensor.illumination_158d000236a116
+              - entity: sensor.lightlevel_tv_room
                 name: TV room
-              - entity: sensor.illumination_158d000236a22f
+              - entity: sensor.lightlevel_bathroom_2
                 name: Bathroom
-              - entity: sensor.illumination_158d000236a0d0
+              - entity: sensor.lightlevel_top_floor_bathroom
                 name: Upstairs bathroom
-              - entity: sensor.illumination_158d000236a0f3
+              - entity: sensor.lightlevel_top_floor_tv_room
                 name: Top floor TV room
-              - entity: sensor.illumination_158d0001e0a8e1
+              - entity: sensor.lightlevel_kitchen
                 name: Kitchen
-              - entity: sensor.illumination_158d00023e3742
+              - entity: binary_sensor.lightlevel_entrance
                 name: Entrance
-              - entity: sensor.aeotec_zw100_multisensor_6_luminance
-                # unit_of_measurement: lx
-                name: Walk-in closet
+              # - entity: sensor.aeotec_zw100_multisensor_6_luminance
+              #   # unit_of_measurement: lux
+              #   name: Walk-in closet
 
 
           - type: history-graph
@@ -542,6 +537,10 @@ views:
                 name: Fountain Power
               - entity: sensor.sensor_hassio
                 name: HASS.io Power
+              - entity: sensor.consumption_top_floor_media
+                name: Top Floor Media Consumption
+              - entity: sensor.power_top_floor_media
+                name: Top Floor Media Power
 
           - break
 
@@ -650,12 +649,12 @@ views:
             columns: 4
             entities:
               - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
-              - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory Door
-              - binary_sensor.door_window_sensor_158d00022d0917 # Front Door
-              - binary_sensor.door_window_sensor_158d00022b3b66 # Basement Door
-              - binary_sensor.door_window_sensor_158d0002286a78 # Bathroom Window
-              - binary_sensor.door_window_sensor_158d000237c924 # Bedroom Window
-              - binary_sensor.door_window_sensor_158d00022f16f0 # Washing Room Window 1
+              - binary_sensor.openclose_conservatory_door # Conservatory Door
+              - binary_sensor.openclose_front_door # Front Door
+              - binary_sensor.openclose_basement_entrance_door # Basement Door
+              - binary_sensor.openclose_bathroom_window # Bathroom Window
+              - binary_sensor.openclose_bedroom_window_1 # Bedroom Window
+              - binary_sensor.openclose_washing_room_window_1 # Washing Room Window 1
 
           - type: entities
             title: Doors and Windows
@@ -686,27 +685,27 @@ views:
               entities:
                 # - type: divider
                   # label: Main Floor
-                - "binary_sensor.motion_sensor_158d00023e3742" # Entrance
-                - "binary_sensor.motion_sensor_158d000200d285" # Conservatory
+                - "binary_sensor.presence_entrance" # Entrance
+                - "binary_sensor.presence_conservatory" # Conservatory
                 - "binary_sensor.conservatory_motion_sensor_aeotec" # Conservatory #2 (Aeotec)
-                - "binary_sensor.motion_sensor_158d0001e0a8e1" # Kitchen
-                - "binary_sensor.motion_sensor_158d000210ca6e" # Bathroom #1
-                - "binary_sensor.motion_sensor_158d000236a22f" # Bathroom #2
+                - "binary_sensor.presence_kitchen" # Kitchen
+                - "binary_sensor.presence_bathroom" # Bathroom #1
+                - "binary_sensor.presence_bathroom_2" # Bathroom #2
             - type: glance
               title: Basement Motion Sensors
               columns: 3
               entities:
-                - "binary_sensor.motion_sensor_158d000200d203" # Basement entrance
-                - "binary_sensor.motion_sensor_158d000210ca6f" # Basemenet stairway
-                - "binary_sensor.motion_sensor_158d000236a116" # TV room
+                - "binary_sensor.presence_basement_entrance" # Basement entrance
+                - "binary_sensor.presence_basement_stairway" # Basemenet stairway
+                - "binary_sensor.presence_tv_room" # TV room
                 - "binary_sensor.walk_in_closet_motion_sensor" # Walk-in closet
             - type: glance
               title: Top Floor Motion Sensors
               columns: 3
               entities:
-                - "binary_sensor.motion_sensor_158d000200e0c5" # Top floor stairs
-                - "binary_sensor.motion_sensor_158d000236a0f3" # Top floor TV room
-                - "binary_sensor.motion_sensor_158d000236a0d0" # Upastairs bathroom
+                - "binary_sensor.presence_top_floor_stairway" # Top floor stairs
+                - "binary_sensor.presence_top_floor_tv_room" # Top floor TV room
+                - "binary_sensor.presence_top_floor_bathroom" # Upastairs bathroom
 
 
 #################
@@ -959,7 +958,7 @@ views:
   #       camera_image: camera.wyze_camera_1
   #       entities:
   #         - camera.wyze_camera_1
-  #         - binary_sensor.motion_sensor_158d000200d285
+  #         - binary_sensor.presence_basement_entrance
   #         - light.entrance_lights
   #         - binary_sensor.front_door
   #     - type: picture-glance
@@ -969,7 +968,7 @@ views:
   #       camera_image: camera.front_door
   #       entities:
   #         - camera.front_door
-  #         - binary_sensor.motion_sensor_158d000200d285
+  #         - binary_sensor.presence_basement_entrance
   #         - light.entrance_lights
   #         - binary_sensor.front_door
 
@@ -1068,7 +1067,7 @@ views:
               top: 28%
               left: 70%
           # - type: state-label
-          #   entity: sensor.temperature_158d00022c66ff
+          #   entity: sensor.temperature_bathroom
           #   style:
           #     top: 82%
           #     left: 79%
@@ -1548,4 +1547,3 @@ views:
       #   image: /local/images/fountain_1.jpg
       #   # entities:
       #   entity: switch.fountain
-      #   tap_action: toggle

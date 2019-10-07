@@ -52,7 +52,7 @@
 
         - name: xiaomi_kitchen_temperature
           entities:
-            - sensor.temperature_158d00027727eb
+            - sensor.temperature_kitchen
           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
 #          class_template: 'return "static-temp";'
           class_template: '
@@ -69,13 +69,13 @@
 
         - name: xiaomi_kitchen_humidity
           entities:
-            - sensor.humidity_158d00027727eb
+            - sensor.humidity_kitchen
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
         - name: xiaomi_top_floor_tv_room_temperature
           entities:
-            - sensor.temperature_158d00027437fe
+            - sensor.temperature_top_floor_tv_room
           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
 #          class_template: 'return "static-temp";'
           class_template: '
@@ -92,13 +92,13 @@
 
         - name: xiaomi_top_floor_tv_room_humidity
           entities:
-            - sensor.humidity_158d00027437fe
+            - sensor.humidity_top_floor_tv_room
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
         - name: xiaomi_bathroom_temperature
           entities:
-            - sensor.temperature_158d00022c66ff
+            - sensor.temperature_bathroom
           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
 #          class_template: 'return "static-temp";'
           class_template: '
@@ -115,13 +115,13 @@
 
         - name: xiaomi_bathroom_humidity
           entities:
-            - sensor.humidity_158d00022c66ff
+            - sensor.humidity_bathroom
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
         - name: xiaomi_shed_temperature
           entities:
-            - sensor.temperature_158d000243778b
+            - sensor.temperature_washing_room
           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
 #          class_template: 'return "static-temp";'
           class_template: '
@@ -138,13 +138,13 @@
 
         - name: xiaomi_shed_humidity
           entities:
-            - sensor.humidity_158d000243778b
+            - sensor.humidity_washing_room
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
         - name: xiaomi_wine_cellar_temperature
           entities:
-            - sensor.temperature_158d000245b4a2
+            - sensor.temperature_wine_cellar
           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
 #          class_template: 'return "static-temp";'
           class_template: '
@@ -161,13 +161,13 @@
 
         - name: xiaomi_wine_cellar_humidity
           entities:
-            - sensor.humidity_158d000245b4a2
+            - sensor.humidity_wine_cellar
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
         - name: xiaomi_washing_room_temperature
           entities:
-            - sensor.temperature_158d0002437897
+            - sensor.temperature_washing_room
           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
 #          class_template: 'return "static-temp";'
           class_template: '
@@ -184,7 +184,7 @@
 
         - name: xiaomi_washing_room_humidity
           entities:
-            - sensor.humidity_158d0002437897
+            - sensor.humidity_washing_room
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
@@ -236,17 +236,17 @@
 
         - name: motion_sensors
           entities:
-            - binary_sensor.motion_sensor_158d000200d203 # Basement entrance motion
-            - binary_sensor.motion_sensor_158d000200d285 # Conservatory motion
-            - binary_sensor.motion_sensor_158d000236a116 # TV room motion
-            - binary_sensor.motion_sensor_158d00023e3742 # Entrance motion
-            - binary_sensor.motion_sensor_158d000236a0f3 # Basement stairway motion
-            - binary_sensor.motion_sensor_158d000236a0d0 # Upstairs bathroom motion
-            - binary_sensor.motion_sensor_158d000200e0c5 # Top floor stairway motion
-            - binary_sensor.motion_sensor_158d0001e0a8e1 # Kitchen motion
-            - binary_sensor.motion_sensor_158d000236a0f3 # Top floor TV room
-            - binary_sensor.motion_sensor_158d00023e3742 # Entrance motion
-            - binary_sensor.motion_sensor_158d000210ca6f # Basement stairway
+            - binary_sensor.presence_basement_entrance # Basement entrance motion
+            - binary_sensor.presence_conservatory # Conservatory motion
+            - binary_sensor.presence_tv_room # TV room motion
+            - binary_sensor.presence_entrance # Entrance motion
+            - binary_sensor.presence_top_floor_tv_room # Basement stairway motion
+            - binary_sensor.presence_top_floor_bathroom # Upstairs bathroom motion
+            - binary_sensor.presence_top_floor_stairway # Top floor stairway motion
+            - binary_sensor.presence_kitchen # Kitchen motion
+            - binary_sensor.presence_top_floor_tv_room # Top floor TV room
+            - binary_sensor.presence_entrance # Entrance motion
+            - binary_sensor.presence_basement_stairway # Basement stairway
           states:
             - state: 'on'
               class: 'motion-on'
@@ -269,7 +269,7 @@
           states:
             - state: 'on'
               class: 'printer_power_on'
-            - state: 'printing'
+            - state: 'Printing'
               class: 'printer_power_on'
             - state: 'off'
               class: 'printer_power_off'
@@ -322,11 +322,13 @@
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
-        - name: printer_percentage_done
-          entities:
-            - sensor.prusa_i3_mk3s_time_remaining
-          text_template: '${entity.state ? (Math.ceil(entity.state) / 3600) | round(0) + " h" + ((Math.ceil(entity.state)%3600)/60) | round(0) + # m + (Math.ceil(entity.state)%60) + "s": "undefined"}'
-          class_template: 'return "static-temp";'
+        # - name: printer_percentage_done
+        #   entities:
+        #     - sensor.prusa_i3_mk3s_time_remaining
+        #   # text_template: '${entity.state ? Math.ceil(entity.state) + " sec": "undefined"}'
+        #   text_template: '${entity.state ? (Math.ceil(entity.state) / 60) + " min": "undefined"}'
+        #   # text_template: '${entity.state ? (Math.ceil(entity.state) / 3600) | round(0) + " h" + ((Math.ceil(entity.state)%3600)/60) | round(0) + # m + (Math.ceil(entity.state)%60) + "s": "undefined"}'
+        #   class_template: 'return "static-temp";'
 
 
 #         - name: dark_sky_temperature
@@ -618,6 +620,7 @@
             - light.basement_entrance_lights
             - light.conservatory_couch
             - light.dining_table_lights
+            - light.entrance_lights
             - light.kitchen_cabinet_lights
             - light.kitchen_spots
             - light.living_room_lightstrip
@@ -655,7 +658,7 @@
           entities:
             - light.bathroom
             - light.conservatory_lights
-            - light.wine_cellar
+            - light.lightstrip_1
             - light.walk_in_closet
           states:
             - state: 'on'
@@ -675,6 +678,7 @@
             - input_boolean.light_conservatory_couch
             - input_boolean.light_conservatory_lights
             - input_boolean.light_dining_table_lights
+            - input_boolean.light_entrance_lights
             - input_boolean.light_kitchen_cabinet_lights
             - input_boolean.light_kitchen_spots
             - input_boolean.light_living_room_lightstrip
@@ -685,7 +689,7 @@
             - input_boolean.light_top_floor_tv_area
             - input_boolean.light_tv_room
             - input_boolean.light_walk_in_closet
-            - input_boolean.light_wine_cellar
+            - input_boolean.light.lightstrip_1
             # - input_boolean.light_walkin_closet
             # - input_boolean.light_conservatory_lights
           states:
@@ -794,25 +798,29 @@
         #     domain: switch
         #     service: toggle
 
-        - name: tv
-          entities:
-            # - media_player.ue46es8005
-            - switch.ue46es8005
-            # - media_player.conservatory_tv
-            - media_player.upstairs_living_room_tv
-          states:
-            - state: 'on'
-              class: 'tv-on'
-            - state: 'off'
-              class: 'tv-off'
-          action:
-            service: toggle
+        # - name: tv
+        #   entities:
+        #     # - media_player.ue46es8005
+        #     # - media_player.ue55nu7475xxc
+        #     # - media_player.conservatory_tv
+        #     - media_player.upstairs_living_room_tv
+        #   states:
+        #     - state: 'on'
+        #       class: 'tv-on'
+        #     - state: 'Playing'
+        #       class: 'tv-on'
+        #     - state: 'off'
+        #       class: 'tv-off'
+        #   action:
+        #     service: toggle
 
         - name: tv_glow
           entities:
             # - input_boolean.tv_ue46es8005
-            - input_boolean.conservatory_tv
-            - input_boolean.upstairs_living_room_tv
+            # - input_boolean.conservatory_tv
+            # - input_boolean.upstairs_living_room_tv
+            - media_player.ue55nu7475xxc
+            - media_player.upstairs_living_room_tv
           states:
             - state: 'on'
               class: 'tv-glow-on'
@@ -916,10 +924,10 @@
           entities:
             - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
             - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory Door
-            - binary_sensor.door_window_sensor_158d00022d0917 # Front Door
-            - binary_sensor.door_window_sensor_158d00022b3b66 # Basement Door
-            - binary_sensor.door_window_sensor_158d0002286a78 # Bathroom Window
-            - binary_sensor.door_window_sensor_158d000237c924 # Bedroom Window
+            - binary_sensor.openclose_front_door # Front Door
+            - binary_sensor.openclose_basement_entrance_door # Basement Door
+            - binary_sensor.openclose_bathroom_window # Bathroom Window
+            - binary_sensor.openclose_bedroom_window_1 # Bedroom Window
           states:
             - state: 'on'
               class: 'door-open'

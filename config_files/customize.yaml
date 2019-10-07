@@ -9,35 +9,35 @@
 #  Binary Sensors  #
 ####################
 
-binary_sensor.motion_sensor_158d000200d285:
+binary_sensor.presence_conservatory:
   friendly_name: Conservatory Motion
-binary_sensor.motion_sensor_158d000200d203:
+binary_sensor.presence_basement_entrance:
   friendly_name: Basement Entrance Motion
-binary_sensor.motion_sensor_158d000200e0c5:
+binary_sensor.presence_top_floor_stairway:
   friendly_name: Top Floor Stairway Motion
-binary_sensor.motion_sensor_158d000210ca6f:
+binary_sensor.presence_basement_stairway:
   friendly_name: Basement Stairs Motion
-binary_sensor.motion_sensor_158d000210ca6e:
+binary_sensor.presence_bathroom:
   friendly_name: Bathroom Motion
-binary_sensor.motion_sensor_158d000236a116:
+binary_sensor.presence_tv_room:
   friendly_name: TV Room Motion
-binary_sensor.motion_sensor_158d000236a22f:
+binary_sensor.presence_bathroom_2:
   friendly_name: Bathroom Motion 2
-binary_sensor.motion_sensor_158d00023e3742:
+binary_sensor.presence_entrance:
   friendly_name: Entrance Motion
-binary_sensor.motion_sensor_158d000236a0d0:
+binary_sensor.presence_top_floor_bathroom:
   friendly_name: Upstairs Bathroom Motion
-binary_sensor.motion_sensor_158d000236a0f3:
+binary_sensor.presence_top_floor_tv_room:
   friendly_name: Top Floor TV Room Motion
-binary_sensor.motion_sensor_158d0001e0a8e1:
+binary_sensor.presence_kitchen:
   friendly_name: Kitchen Motion
-binary_sensor.door_window_sensor_158d0002286a78:
+binary_sensor.openclose_bathroom_window:
   friendly_name: Bathroom Window
   device_class: window
-binary_sensor.door_window_sensor_158d000237c924:
+binary_sensor.openclose_bedroom_window_1:
   friendly_name: Bedroom Window 1
   device_class: window
-binary_sensor.door_window_sensor_158d00022f16f0:
+binary_sensor.openclose_washing_room_window_1:
   friendly_name: Washing Room Window 1
   device_class: window
 binary_sensor.door_window_sensor_158d000234dc7b:
@@ -46,10 +46,10 @@ binary_sensor.door_window_sensor_158d000234dc7b:
 binary_sensor.neo_coolcam_doorwindow_detector_sensor:
   friendly_name: Shed Door
   device_class: door
-binary_sensor.door_window_sensor_158d00022b3b66:
+binary_sensor.openclose_basement_entrance_door:
   friendly_name: Basement Door
   device_class: door
-binary_sensor.door_window_sensor_158d00022d0917:
+binary_sensor.openclose_front_door:
   friendly_name: Front Door
   device_class: door # see here for all classes (https://github.com/home-assistant/home-assistant-polymer/blob/27d343b4888a0678d8cb828b05a3ac47e29424f1/src/util/hass-util.html#L216); home assistant docs are outdated
   # value_template: >-
@@ -144,17 +144,17 @@ switch.grafana:
 
 sensor.dht22_humidity:
   device_class: moisture
-sensor.humidity_158d000243778b:
+sensor.humidity_washing_room:
   friendly_name: Shed humidity
-sensor.humidity_158d000245b4a2:
+sensor.humidity_wine_cellar:
   friendly_name: Wine cellar humidity
-sensor.humidity_158d00022c66ff:
+sensor.humidity_bathroom:
   friendly_name: Bathroom Humidity
-sensor.humidity_158d0002437897:
+sensor.humidity_washing_room:
   friendly_name: Washing Room Humidity
-sensor.humidity_158d00027727eb:
+sensor.humidity_kitchen:
   friendly_name: Kitchen Humidity
-sensor.humidity_158d00027437fe:
+sensor.humidity_top_floor_tv_room:
   friendly_name: Top Floor TV Room Humidity
 
 #######################
@@ -176,58 +176,58 @@ sensor.illumination_7811dcb8d944:
 light.gateway_light_7811dcb8d944:
 #  state_card_mode: single-line
   friendly_name: Xiaomi Gateway Light
-sensor.illumination_158d000200d285:
+sensor.lightlevel_conservatory:
   friendly_name: Conservatory Motion Illumination
-sensor.illumination_158d000200d203:
+sensor.lightlevel_basement_entrance:
   friendly_name: Basement Entrance Motion Illumination
 #  state_card_mode: single-line
-sensor.illumination_158d000200e0c5:
+sensor.lightlevel_top_floor_stairway:
   friendly_name: Top Floor Stairs Motion Illumination
 sensor.illumination_158d000210ca6e:
   friendly_name: Bathroom Motion Illumination
-sensor.illumination_158d000236a116:
+sensor.lightlevel_tv_room:
   friendly_name: TV Room Motion Illumination
-sensor.illumination_158d00023e3742:
+sensor.lightlevel_entrance:
   friendly_name: Entrance Motion Illumination
-sensor.illumination_158d000236a22f:
+sensor.lightlevel_bathroom_2:
   friendly_name: Bathroom 2 Motion Illumination
-sensor.illumination_158d000236a0d0:
+sensor.lightlevel_top_floor_bathroom:
   friendly_name: Upstairs Bathroom Motion Illumination
-sensor.illumination_158d000236a0f3:
+sensor.lightlevel_top_floor_tv_room:
   friendly_name: Top Floor TV Room Motion Illumination
-sensor.illumination_158d0001e0a8e1:
+sensor.lightlevel_kitchen:
   friendly_name: Kitchen Motion Illumination
 
 ##################
 # Pressure Sensors
 
-sensor.pressure_158d0002437897:
+sensor.pressure_wine_cellar:
   friendly_name: Washing Room Pressure
-sensor.pressure_158d00027727eb:
+sensor.pressure_kitchen:
   friendly_name: Kitchen Pressure
-sensor.pressure_158d00027437fe:
+sensor.pressure_top_floor_tv_room:
   friendly_name: Top Floor TV Room Pressure
-sensor.pressure_158d000243778b:
+sensor.pressure_washing_room:
   friendly_name: Shed pressure
 sensor.pressure_158d000245b4a2:
   friendly_name: Wine cellar pressure
-sensor.pressure_158d00022c66ff:
+sensor.pressure_bathroom:
   friendly_name: Bathroom Pressure
 
 #####################
 # Temperature Sensors
 
-sensor.temperature_158d000243778b:
+sensor.temperature_washing_room:
   friendly_name: Shed temperature
-sensor.temperature_158d000245b4a2:
+sensor.temperature_wine_cellar:
   friendly_name: Wine cellar temperature
-sensor.temperature_158d00022c66ff:
+sensor.temperature_bathroom:
   friendly_name: Bathroom Temperature
-sensor.temperature_158d0002437897:
+sensor.temperature_washing_room:
   friendly_name: Washing Room Temperature
-sensor.temperature_158d00027727eb:
+sensor.temperature_kitchen:
   friendly_name: Kitchen Temperature
-sensor.temperature_158d00027437fe:
+sensor.temperature_top_floor_tv_room:
   friendly_name: Top Floor TV Room Temperature
 
 
