@@ -1,3 +1,5 @@
-def test_function(self):
+class TEST:
 
-    return 'I can call the function from Global Functions!'
+    def test_function():
+
+        return 'I can call the function from Global Functions!'
