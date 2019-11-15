@@ -62,7 +62,7 @@ class MotionClass(hass.Hass):
         elif sensor_1_state == "on" and sensor_2_state == "off":
             if party_mode:
                 self.turn_on("light.stairway_down",brightness=255,kelvin=2700)
-                
+
             elif self.now_is_between('07:00:00', '22:00:00'):
 
                 self.turn_on("light.stairway_down",brightness=255,kelvin=2700)

@@ -689,7 +689,7 @@
             - input_boolean.light_top_floor_tv_area
             - input_boolean.light_tv_room
             - input_boolean.light_walk_in_closet
-            - input_boolean.light.lightstrip_1
+            - input_boolean.light_lightstrip_1
             # - input_boolean.light_walkin_closet
             # - input_boolean.light_conservatory_lights
           states:
@@ -803,7 +803,7 @@
         #     # - media_player.ue46es8005
         #     # - media_player.ue55nu7475xxc
         #     # - media_player.conservatory_tv
-        #     - media_player.upstairs_living_room_tv
+        #     - media_player.ue46es8005
         #   states:
         #     - state: 'on'
         #       class: 'tv-on'
@@ -820,7 +820,7 @@
             # - input_boolean.conservatory_tv
             # - input_boolean.upstairs_living_room_tv
             - media_player.ue55nu7475xxc
-            - media_player.upstairs_living_room_tv
+            - media_player.ue46es8005
           states:
             - state: 'on'
               class: 'tv-glow-on'
@@ -923,7 +923,7 @@
         - name: Door and Window Sensors
           entities:
             - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
-            - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory Door
+            - binary_sensor.openclose_conservatory_door # Conservatory Door
             - binary_sensor.openclose_front_door # Front Door
             - binary_sensor.openclose_basement_entrance_door # Basement Door
             - binary_sensor.openclose_bathroom_window # Bathroom Window

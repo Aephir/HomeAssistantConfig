@@ -40,7 +40,7 @@ binary_sensor.openclose_bedroom_window_1:
 binary_sensor.openclose_washing_room_window_1:
   friendly_name: Washing Room Window 1
   device_class: window
-binary_sensor.door_window_sensor_158d000234dc7b:
+binary_sensor.openclose_conservatory_door:
   friendly_name: Conservatory Door
   device_class: door
 binary_sensor.neo_coolcam_doorwindow_detector_sensor:
@@ -144,7 +144,7 @@ switch.grafana:
 
 sensor.dht22_humidity:
   device_class: moisture
-sensor.humidity_washing_room:
+sensor.humidity_shed:
   friendly_name: Shed humidity
 sensor.humidity_wine_cellar:
   friendly_name: Wine cellar humidity
@@ -217,7 +217,7 @@ sensor.pressure_bathroom:
 #####################
 # Temperature Sensors
 
-sensor.temperature_washing_room:
+sensor.temperature_shed:
   friendly_name: Shed temperature
 sensor.temperature_wine_cellar:
   friendly_name: Wine cellar temperature

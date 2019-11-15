@@ -2395,7 +2395,7 @@
        transform="rotate(45)"
        inkscape:label="#path7651" />
     <g
-       id="binary_sensor.door_window_sensor_158d000234dc7b"
+       id="binary_sensor.openclose_conservatory_door"
        inkscape:label="#g6814"
        transform="translate(0,5.4804688e-6)">
       <path
@@ -3207,7 +3207,7 @@
        inkscape:label="#path1911"
        style="display:inline;fill:url(#linearGradient1954);fill-opacity:1;stroke:none;stroke-width:0.25778726;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="m 535.08504,197.68135 32.99644,-9.60732 v -38.4293 l -32.99644,-9.60732 v 57.64394"
-       id="media_player.upstairs_living_room_tv"
+       id="media_player.ue46es8005"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -3241,7 +3241,7 @@
     <circle
        cy="-77.44458"
        cx="611.96881"
-       id="input_boolean.light.lightstrip_1"
+       id="input_boolean.light_lightstrip_1"
        style="display:inline;opacity:1;fill:url(#radialGradient8997);fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:0;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.46788994"
        r="39.356182"
        inkscape:label="#circle8877" />

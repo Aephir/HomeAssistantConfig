@@ -29,6 +29,10 @@
 # fnc = self.get_app("istimebetween")
 # test  = fnc.IsTimeBetween(start, end)
 
+something:
+  module: time_functions
+  class: GlobalFunctions
+
 # testglobal:
 #   module: testglobal
 #   class: Test

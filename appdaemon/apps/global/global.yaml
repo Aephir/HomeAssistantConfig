@@ -4,9 +4,9 @@
 #                        #
 ##########################
 
-global_functions_app:
-  module: global_functions
-  class: Global
+# global_functions_app:
+#   module: global_functions
+#   class: Global
 
 global_functions_app_test:
   module: global_functions_test

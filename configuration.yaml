@@ -59,6 +59,7 @@ breaking_changes:
 config:
 conversation:
 dialogflow:
+ffmpeg:
 hacs:
   token: !secret hacs_github_token
 # ifttt:

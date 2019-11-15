@@ -27,6 +27,9 @@
 #   username: !secret wyze_rtsp_user
 #   password: !secret wyze_rtsp_pass
 
+- platform: ffmpeg
+  input: !secret octopi_stream_url
+  name: OctoPrint
 
 - platform: ffmpeg
   input: !secret wyze_rtsp_url
@@ -45,4 +48,3 @@
 # #  mjpeg_url: !secret wyze_cam_url
 
 - platform: skybell
-

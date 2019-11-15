@@ -11,7 +11,7 @@ appdaemon:
   logfile: STDOUT
   errorfile: STDERR
   threads: 10
-  api_port: 5000
+  # api_port: 5000
   app_dir: /conf/appdaemon
   api_key: !secret appdaemon_api_key
   cert_verify: False
@@ -30,7 +30,80 @@ appdaemon:
     #   birth_payload: "AppDaemon MQTT is live"
     #   will_topic: appdaemon/death
     #   will_payload: "Appdaemon MQTT unexpectedly disconnected"
+    #   namespace: mqtt
 hadashboard:
   dashboard_dir: /conf/appdaemon/dashboards
   dash_url: "http://192.168.0.100:5050"
   always_compile: 1
+
+
+
+
+# #### New Appdaemon 4 test config:
+#
+# secrets: /conf/secrets.yaml
+# logs:
+#   main_log:
+#     filename: /logs/appdaemon.log
+#     log_size: 50000
+#   access_log:
+#     filename: /logs/access.log
+#     log_size: 50000
+#   error_log:
+#     filename: /logs/error.log
+#     log_size: 50000
+#     filter_threshold: 2
+#   diag_log:
+#     filename: /logs/diag.log
+#     log_generations: 5
+#     log_size: 50000
+#     format: "{asctime} {levelname:<8} {appname:<10}: {message}"
+# http:
+#     url: http://192.168.0.100:5050
+#     # password: !secret appdaemone_password
+#     dash_ssl_certificate: /etc/letsencrypt/live/somehost/fullchain.pem
+#     dash_ssl_key: /etc/letsencrypt/live/somehost/privkey.pem
+# api:
+# admin:
+#   title: Appdaemon Admin
+#   stats_update: realtime #batch
+# appdaemon:
+#   latitude: !secret latitude
+#   longitude: !secret longitude
+#   elevation: !secret elevation
+#   timezone: !secret timezone
+#   logfile: STDOUT
+#   errorfile: STDERR
+#   threads: 10
+#   # api_port: 5000
+#   app_dir: /conf/appdaemon
+#   api_key: !secret appdaemon_api_key
+#   cert_verify: False
+#   plugins:
+#     HASS:
+#       type: hass
+#       ha_url: "http://192.168.0.100:8123"
+#       token: !secret long_lived_access_token_AppDaemon_1
+#       # api_port: ????
+#       app_init_delay: 15 # how long to wait before initializing apps. This could allow device trackers (home occupancy), z-wave network, etc. to start.
+#       # token: !secret long_lived_access_token_AppDaemon_1
+#       namespace: default
+#       # plugin_startup_conditions: # Is this the correct level of indentation??
+#       #   event: {event_type: zwave.network_ready}
+#     MQTT:
+#       client_user: !secret hass_moquitto_user
+#       client_password: !secret hass_moquitto_pass
+#       type: mqtt
+#       client_id: "appdaemon"
+#       client_host: 127.0.0.1
+#       # client_topics: "#" # Can set to "NONE", this allows specifying within an app.
+#       birth_topic: appdaemon/birth
+#       birth_payload: "AppDaemon MQTT is live"
+#       will_topic: appdaemon/death
+#       will_payload: "Appdaemon MQTT unexpectedly disconnected"
+#       shutdown_payload: "Appdaemon MQTT has shut down"
+#       namespace: mqtt
+# hadashboard:
+#   dashboard_dir: /conf/appdaemon/dashboards
+#   dash_url: "http://192.168.0.100:5050"
+#   always_compile: 1

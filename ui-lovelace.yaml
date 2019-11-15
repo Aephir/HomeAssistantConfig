@@ -306,7 +306,7 @@ views:
           - entity: light.basement_hallway
             type: custom:slider-entity-row
             toggle: true
-          - entity: light.wine_cellar
+          - entity:  light.lightstrip_1
             name: Wine cellar
             type: custom:slider-entity-row
             toggle: true
@@ -537,8 +537,8 @@ views:
                 name: Fountain Power
               - entity: sensor.sensor_hassio
                 name: HASS.io Power
-              - entity: sensor.consumption_top_floor_media
-                name: Top Floor Media Consumption
+              # - entity: sensor.consumption_top_floor_media
+              #   name: Top Floor Media Consumption
               - entity: sensor.power_top_floor_media
                 name: Top Floor Media Power
 
@@ -621,8 +621,9 @@ views:
               - sensor.hacs
               - sensor.potential_breaking_changes
 
-          - type: entities
+          - type: entities # mdi:printer-3d
             title: Prusa i3 MK3S
+            icon: mdi:printer-3d
             show_header_toggle: false
             entities:
               - binary_sensor.prusa_i3_mk3s_printing
@@ -633,6 +634,7 @@ views:
               - sensor.prusa_i3_mk3s_target_tool0_temp
               - sensor.prusa_i3_mk3s_time_elapsed
               - sensor.prusa_i3_mk3s_time_remaining
+              - switch.prusa_lights
 
 
           # - type: custom:tracker-card
@@ -740,6 +742,9 @@ views:
       #   image: http://192.168.0.212
       #   # entity: camera.camera.esp_eye
       #   # camera_view: live
+      - type: picture-entity
+        entity: camera.ocotprint
+        camera_view: live
 
 
 #################
