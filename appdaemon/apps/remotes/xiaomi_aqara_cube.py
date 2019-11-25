@@ -26,10 +26,10 @@ class Remote(hass.Hass):
         #     ]
 
         # Detect click. It detects sequential clicks of same button! (Why/how?)
-        self.listen_state(self.ButtonState,"binary_sensor.cube_158d00028f7196")
+        self.listen_state(self.button_state,"binary_sensor.cube_158d00028f7196")
 
 
-    def ButtonState(self, entity, attribute, old, new, kwargs):
+    def button_state(self, entity, attribute, old, new, kwargs):
         # "new" will be "flip90", "flip180", "move", "tap_twice", "shake_air", "swing", "alert", "free_fall", and "rotate".
         # "action_value" will be available if "new" == "rotate". If so, "action_type" will be degrees of rotation.
 

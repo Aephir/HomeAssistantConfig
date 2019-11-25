@@ -37,7 +37,7 @@
     - light.dining_room_lights
     - light.conservatory_lights
     - light.bedroom_lights
-    - light.baby_room
+    - light.baby_room_lights
     - light.entrance_lights
 
 - platform: group
@@ -62,6 +62,17 @@
   name: Bedroom Lights
   entities:
     - light.bedroom
+
+- platform: group
+  name: Babyroom Lights
+  entities:
+    - light.baby_room
+    - light.changing_table
+
+# - platform: group
+#   name: Changing Table
+#   entities:
+#     - light.changing_table_1
 
 - platform: group
   name: Kitchen Spots

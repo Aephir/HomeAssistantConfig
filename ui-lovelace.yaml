@@ -177,8 +177,8 @@ views:
           - entity: light.bathroom
             type: custom:slider-entity-row
             toggle: true
-          - entity: light.baby_room
-            name: Baby Room Light
+          - entity: light.babyroom_lights
+            name: Baby Room Lights
             type: custom:slider-entity-row
             toggle: true
 
@@ -358,6 +358,10 @@ views:
               - Aephir
           - entity: switch.fountain
             icon: mdi:fountain
+          - entity: switch.rabbit_light
+            icon: mdi:rabbit
+          - entity: switch.prusa_lights
+            icon: mdi:printer-3d
 
       # - title: Garage
       #   id: garage
@@ -1031,7 +1035,7 @@ views:
             title: Kristinas stuff
             entities:
               - light.bedroom
-              - light.baby_room
+              - light.baby_room_lights
           default:
             type: markdown
             content: >
@@ -1366,7 +1370,7 @@ views:
                   - entity: light.bathroom
                     type: custom:slider-entity-row
                     toggle: true
-                  - entity: light.baby_room
+                  - entity: light.baby_room_lights
                     name: Baby Room Light
                     type: custom:slider-entity-row
                     toggle: true

@@ -71,7 +71,7 @@ class MotionClass(hass.Hass):
                 if awake:
                     self.turn_on("light.stairway_down",brightness=255,kelvin=2200)
                 else:
-                    self.turn_on("light.stairway_down",brightness=10,kelvin=2200)
+                    self.turn_on("light.stairway_down",brightness=5,kelvin=2200)
 
         elif sensor_1_state == "on" and sensor_2_state == "on":
             self.turn_on("light.stairway_down",brightness=255,kelvin=2700)
