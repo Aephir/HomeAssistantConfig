@@ -31,80 +31,7 @@ resources:
   - type: module
     url: /local/floorplan/floorplan-card.js?v=1.1.14
 
-# resources:
-#   - url: /customcards/monster-card.js?v=0.2.3
-#     type: js
-#   - url: /customcards/github/custom-cards/tracker-card.js?track=true
-#     type: module
-#   - url: /customcards/slider-entity-row.js?v=ba8f50
-#     type: js
-#   - url: /customcards/toggle-lock-entity-row.js
-#     type: js
-#   - url: /customcards/github/custom-cards/button-card.js?track=true
-#     type: module
-#   - url: /customcards/surveillance-card.js?v=0.0.1
-#     type: module
-#   - url: /customcards/card-modder.js # https://github.com/thomasloven/card-modder
-#     type: module
-#   - url: /customcards/fold-entity-row.js?v=6d11d3
-#     type: js
-#   - url: /customcards/entity-attributes-card.js?v=0.1.1
-#     type: js
-#   - url: /customcards/state-switch.js?v=c7dd70
-#     type: js
-#   - url: /customcards/card-tools.js?v=297fcc
-#     type: js
-#   # - url: /customcards/github/thomasloven/card-tools.js?track=true
-#   #   type: js
-#   - url: /customcards/github/thomasloven/layout-card.js?track=true
-#     type: js
-
-
-# Added version ?v=0.0.1 #Added version ?v=0.0.1 for:
-# /local/slider-entity-row.js
-# /local/button-card.js
-# /local/fold-entity-row.js
-# /local/state-switch.js
-
 views:
-  #   # View tab title.
-  # - title: About us
-  #   # Optional unique id for direct access /lovelace/${id}
-  #   id: about_us
-  #   # Optional background (overwrites the global background).
-  #   # background: radial-gradient(crimson, skyblue)
-  #   # Each view can have a different theme applied. Theme should be defined in the frontend.
-  #   theme: done1
-  #   # The cards to show on this view.
-  #   cards:
-  #       # The filter card will filter entities for their state
-  #     - type: entity-filter
-  #       entities:
-  #         - device_tracker.google_maps_110730659630480268471
-  #         - device_tracker.kristinabrody_612a3f1e8eae425e9cc514e48649cc46
-  #         - device_tracker.emilie_aa172623f9cd406b9007dc08461d2c24
-  #       state_filter:
-  #         - 'home'
-  #       card:
-  #         type: glance
-  #         title: People that are home
-  #
-  #       # The picture entity card will represent an entity with a picture
-  #     - type: picture-entity
-  #       image: https://www.home-assistant.io/images/default-social.png
-  #       entity: light.conservatory
-
-##############
-#            #
-#    TEST    #
-#            #
-##############
-  #
-  # - icon: mdi:home-assistant
-  #   title: Test layout
-  #   id: test_layout
-  #   cards:
-
 
 #######################
 #                     #
@@ -129,16 +56,16 @@ views:
           - type: custom:fold-entity-row
             head: light.dining_room_lights
             items:
-            - entity: light.dining_table_lights
-              type: custom:slider-entity-row
-              toggle: true
-            - entity: light.living_room_lightstrip
-              type: custom:slider-entity-row
-              toggle: true
-            - entity: light.gateway_light_7811dcb8d944
-              name: Gateway Light
-              type: custom:slider-entity-row
-              toggle: true
+              - entity: light.dining_table_lights
+                type: custom:slider-entity-row
+                toggle: true
+              - entity: light.living_room_lightstrip
+                type: custom:slider-entity-row
+                toggle: true
+            # - entity: light.gateway_light_7811dcb8d944
+            #   name: Gateway Light
+            #   type: custom:slider-entity-row
+            #   toggle: true
 
           # - type: custom:fold-entity-row
           #   head: light.conservatory_lights
@@ -168,6 +95,10 @@ views:
             type: custom:slider-entity-row
             toggle: true
 
+          # - entity: light.changing_table_1
+          #   type: custom:slider-entity-row
+          #   toggle: true
+
           - entity: light.bedroom
             # type: custom:slider-entity-row
             type: custom:toggle-lock-entity-row
@@ -177,14 +108,17 @@ views:
           - entity: light.bathroom
             type: custom:slider-entity-row
             toggle: true
-          - entity: light.babyroom_lights
-            name: Baby Room Lights
-            type: custom:slider-entity-row
-            toggle: true
-          - entity: light.changing_table
-            name: Changing Table Lights
-            type: custom:slider-entity-row
-            toggle: true
+          - type: custom:fold-entity-row
+            head: light.baby_room_lights
+            items:
+              - entity: light.baby_room
+                name: Main Baby Room
+                type: custom:slider-entity-row
+                toggle: true
+              - entity: light.changing_table_1
+                name: Changing Table Lights
+                type: custom:slider-entity-row
+                toggle: true
 
             # show_value: true
           # - type: divider

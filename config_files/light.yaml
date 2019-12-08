@@ -64,15 +64,15 @@
     - light.bedroom
 
 - platform: group
-  name: Babyroom Lights
+  name: Baby Room Lights
   entities:
     - light.baby_room
     - light.changing_table
 
-# - platform: group
-#   name: Changing Table
-#   entities:
-#     - light.changing_table_1
+- platform: group
+  name: Changing Table
+  entities:
+    - light.changing_table_1
 
 - platform: group
   name: Kitchen Spots
