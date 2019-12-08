@@ -181,6 +181,10 @@ views:
             name: Baby Room Lights
             type: custom:slider-entity-row
             toggle: true
+          - entity: light.changing_table
+            name: Changing Table Lights
+            type: custom:slider-entity-row
+            toggle: true
 
             # show_value: true
           # - type: divider
@@ -835,6 +839,7 @@ views:
           # - input_boolean.entrance_lights_motion_control
           - input_boolean.basement_lights_motion_control
           - input_boolean.walk_in_closet_motion_control
+          - input_boolean.creative_lights_motion_control
       - type: entities
         title: Family Toggle
         entities:

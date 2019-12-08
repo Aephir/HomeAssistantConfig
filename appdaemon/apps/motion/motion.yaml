@@ -67,6 +67,8 @@ top_floor_bathroom_motion_light:
 top_floor_hallway_lights:
   module: top_floor_hallway_lights
   class: MotionClass
+  constrain_input_boolean: input_boolean.top_floor_lights_motion_control
+  # constrain_input_boolean: input_boolean.creative_lights_motion_control
 
 top_floor_stairway_motion_light:
   module: top_floor_stairway_lights

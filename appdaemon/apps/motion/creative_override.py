@@ -1,0 +1,2 @@
+# If something (button press?), turn on creative lights for XX minutes, and disable motion control of them for this time.
+# Have them blink 1 minute before they turn off, so the button can be pressed again.

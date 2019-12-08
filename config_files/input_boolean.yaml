@@ -157,6 +157,9 @@ light_top_floor_tv_area:
 light_top_floor_hallway:
   name: dummy top floor hallway lights
 
+light_rabbit_lights:
+  name: dummy rabbit lights
+
 tv_ue55nu7475xxc:
   name: dummy ue55nu7475xxc
 
@@ -193,6 +196,9 @@ kitchen_lights_motion_control:
 top_floor_lights_motion_control:
   name: Top Floor Motion Sensors Control Lights
   initial: on
+
+creative_lights_motion_control:
+  name: Naias Workspace Motion Sensors Control Lights
 
 basement_lights_motion_control:
   name: Basement Motion Sensors Control Lights

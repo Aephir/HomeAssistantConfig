@@ -630,6 +630,7 @@
             - light.top_floor_hallway
             - light.top_floor_tv_area
             - light.tv_room
+            - switch.rabbit_light
           states:
             - state: 'on'
               class: 'light-on'
@@ -690,6 +691,7 @@
             - input_boolean.light_tv_room
             - input_boolean.light_walk_in_closet
             - input_boolean.light_lightstrip_1
+            - input_boolean.light_rabbit_lights
             # - input_boolean.light_walkin_closet
             # - input_boolean.light_conservatory_lights
           states:

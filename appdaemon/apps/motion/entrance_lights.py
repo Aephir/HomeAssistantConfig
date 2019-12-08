@@ -28,7 +28,7 @@ class MotionClass(hass.Hass):
             self.listen_state(self.switchonoff,entity)
 
         for entity in self.doorSensors:
-            self.listen_state(self.switchonoff,entity, new='on')
+            self.listen_state(self.dooropenclose,entity, new='on')
 
         for entity in self.illuminationSensors:
             self.listen_state(self.switchonoff,entity)
@@ -83,3 +83,7 @@ class MotionClass(hass.Hass):
 
         else:
             self.turn_off("light.entrance_lights")
+
+    def dooropenclose(self, entity, attribute, old, new, kwargs):
+        if self.get_state('light.entrance_lights') == 'off':
+            self.switchonoff()

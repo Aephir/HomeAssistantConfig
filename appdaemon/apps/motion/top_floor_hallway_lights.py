@@ -42,6 +42,7 @@ class MotionClass(hass.Hass):
 
         party_mode = self.get_state('input_boolean.party_mode') == 'on'
 
+        # if self.get_state('input_boolean.creative_lights_motion_control') == 'on':
         if party_mode:
             self.cancel_timer(self.timer)
             self.turn_on(light, brightness=255,kelvin=2700)
