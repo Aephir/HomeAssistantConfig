@@ -62,7 +62,9 @@ class MotionClass(hass.Hass):
         if sensor_1_state == "on" or sensor_2_state == "on" or sensor_3_state == "on":
             if party_mode:
                 self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
-            elif self.now_is_between('07:00:00', '22:00:00'):
+            elif self.now_is_between('07:00:00', '09:00:00'):
+                self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
+            elif self.now_is_between('09:00:00', '22:00:00'):
                 # if self.getIntegerState("sensor.lightlevel_entrance") < 50:
                 self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
 

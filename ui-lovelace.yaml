@@ -10,8 +10,8 @@ resources:
     type: module
   - url: /community_plugin/lovelace-layout-card/layout-card.js
     type: js
-  - url: /community_plugin/monster-card/monster-card.js
-    type: js
+  # - url: /community_plugin/monster-card/monster-card.js # Deprecated
+  #   type: js
   - url: /community_plugin/entity-attributes-card/entity-attributes-card.js
     type: js
   - url: /community_plugin/lovelace-slider-entity-row/slider-entity-row.js
@@ -30,6 +30,8 @@ resources:
     type: module
   - type: module
     url: /local/floorplan/floorplan-card.js?v=1.1.14
+  - url: /community_plugin/lovelace-auto-entities/auto-entities.js
+    type: module
 
 views:
 
@@ -498,7 +500,7 @@ views:
               - entity: binary_sensor.smoke_sensor_158d0001bc49bd
                 name: Smoke detector (kitchen)
 
-          - type: custom:monster-card
+          - type: custom:auto-entities
             show_empty: false
             card:
               type: glance
@@ -834,7 +836,7 @@ views:
                 - binary_sensor.cube_158d00028f7196.last_action
           - sensor.espresso_machine
 
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         show_header_toggle: false
         card:
@@ -843,7 +845,7 @@ views:
         filter:
           include:
             - domain: script
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
@@ -852,7 +854,7 @@ views:
           include:
             - domain: automation
               state: 'on'
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
@@ -1038,7 +1040,7 @@ views:
       #   title: nodeRED
       #   entities:
       #     - panel_iframe.nodered
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
@@ -1047,7 +1049,7 @@ views:
           include:
             - domain: light
               state: 'on'
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         card:
           type: entities
@@ -1097,7 +1099,7 @@ views:
           - sensor.fibaro_system_fgt001_heat_controller_temperature
           - zwave.fibaro_system_fgt001_heat_controller
           - binary_sensor.switch_158d0001f3ac72
-      - type: custom:monster-card
+      - type: custom:auto-entities
         show_empty: false
         show_header_toggle: false
         card:
