@@ -56,7 +56,7 @@
   name: Conservatory Lights
   entities:
     - light.conservatory_couch
-    - light.conservatory_reading
+    - light.conservatory_floor_1
 
 - platform: group
   name: Bedroom Lights

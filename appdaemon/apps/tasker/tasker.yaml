@@ -59,7 +59,7 @@ baby_room_lights_state_tasker:
   module: report_entity_state_tasker
   class: NotifyTasker
   autoremote_url: !secret autoremote_url_start
-  entityID: light.baby_room
+  entityID: light.baby_room_ligts
   friendly_name: baby_room_lights
 
 wine_cellar_lights_state_tasker:

@@ -32,6 +32,9 @@ resources:
     url: /local/floorplan/floorplan-card.js?v=1.1.14
   - url: /community_plugin/lovelace-auto-entities/auto-entities.js
     type: module
+  - url: /community_plugin/custom-header/custom-header.js
+    type: module
+
 
 views:
 
@@ -69,15 +72,15 @@ views:
             #   type: custom:slider-entity-row
             #   toggle: true
 
-          # - type: custom:fold-entity-row
-          #   head: light.conservatory_lights
-          #   items:
-          #   - entity: light.conservatory_couch
-          #     type: custom:slider-entity-row
-          #     toggle: true
-          #   - entity: light.conservatory_reading
-          #     type: custom:slider-entity-row
-          #     toggle: true
+          - type: custom:fold-entity-row
+            head: light.conservatory_lights
+            items:
+            - entity: light.conservatory_couch
+              type: custom:slider-entity-row
+              toggle: true
+            - entity: light.conservatory_floor_1
+              type: custom:slider-entity-row
+              toggle: true
 
           - type: custom:fold-entity-row
             head: light.kitchen_lights
@@ -88,10 +91,10 @@ views:
             - entity: light.kitchen_cabinet_lights
               type: custom:slider-entity-row
               toggle: true
-
-          - entity: light.conservatory_couch
-            type: custom:slider-entity-row
-            toggle: true
+          #
+          # - entity: light.conservatory_couch
+          #   type: custom:slider-entity-row
+          #   toggle: true
 
           - entity: light.entrance_lights
             type: custom:slider-entity-row
@@ -1268,7 +1271,7 @@ views:
                     - entity: light.conservatory_couch
                       type: custom:slider-entity-row
                       toggle: true
-                    - entity: light.conservatory_reading
+                    - entity: light.conservatory_floor_1
                       type: custom:slider-entity-row
                       toggle: true
 
