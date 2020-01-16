@@ -49,8 +49,14 @@ class Remote(hass.Hass):
                 if self.now_is_between("06:00:00", "11:00:00"):
                     self.turn_on(self.args["entityID1"])
                 elif self.now_is_between("18:00:00", "05:00:00"):
-                    self.turn_off(self.args["entityID2"])
-                    self.turn_off("media_player.ue46es8005")
+                    # for i in self.args['self.entityIDlist2']:
+                    #     self.turn_off(i)
+                    self.turn_off('light.main_floor_lights')
+                    self.turn_off('light.basement_lights')
+                    self.turn_off('switch.rabbit_light')
+                    self.turn_on('light.conservatory_floor_1')
+                    # self.turn_off(self.args["entityID2"])
+                    # self.turn_off("media_player.ue46es8005")
             # elif data['event'] == 1003:
             #     Something
 

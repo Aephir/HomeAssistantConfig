@@ -8,10 +8,10 @@
 #    Remotes    #
 #################
 
-change_light_state:
-  module: change_light
-  class: Rhasspy
-  event: rhasspy_ChangeLightState
+# change_light_state:
+#   module: change_light
+#   class: Rhasspy
+#   event: rhasspy_ChangeLightState
   
 # test:
 #   module: test_rhasspy

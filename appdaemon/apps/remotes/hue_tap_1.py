@@ -28,15 +28,16 @@ class Remote(hass.Hass):
 
         if data['id'] == self.args['id']: # Tap 1
             if data['event'] == 34:     # Button 1
-                self.toggle("switch.fountain")
-            elif data['event'] == 16:   # Button 2
-                self.toggle("light.conservatory_lights")
-            elif data['event'] == 17:   # Button 3
-                self.toggle("light.dining_room_lights")
-            elif data['event'] == 18:   # Button 4
-                if any(self.args["entity_4"] == "playing"):
-                    for entity in self.args["entity_4"]:
-                        self.call_service("media_player.media_pause",entity)
-                elif any(self.args["entity_4"] == "paused"):
-                    for entity in self.args["entity_4"]:
-                        self.call_service("media_player.media_play",entity)
+                self.toggle("light.living_room_lightstrip")
+            #     self.toggle("switch.fountain")
+            # elif data['event'] == 16:   # Button 2
+            #     self.toggle("light.conservatory_lights")
+            # elif data['event'] == 17:   # Button 3
+            #     self.toggle("light.dining_room_lights")
+            # elif data['event'] == 18:   # Button 4
+            #     if any(self.args["entity_4"] == "playing"):
+            #         for entity in self.args["entity_4"]:
+            #             self.call_service("media_player.media_pause",entity)
+            #     elif any(self.args["entity_4"] == "paused"):
+            #         for entity in self.args["entity_4"]:
+            #             self.call_service("media_player.media_play",entity)

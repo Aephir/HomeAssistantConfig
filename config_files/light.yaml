@@ -4,9 +4,9 @@
 #                  #
 ####################
 
-- platform: hue
-  host: 192.168.0.10
-  allow_unreachable: true
+# - platform: hue
+#   host: 192.168.0.10
+#   allow_unreachable: true
 
 - platform: yeelight
   devices:

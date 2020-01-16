@@ -38,6 +38,17 @@ hue_dimmer_1:
   entity_13: light.top_floor_lights
   entity_14: input_boolean.kitchen_lights_motion_override
 
+hue_dimmer_2:
+  module: hue_dimmer_2
+  class: Remote
+  event: deconz_event
+  id: dimmer_switch_2
+  entity_1: light.changing_table
+  entity_2: light.baby_room
+  entity_3: light.baby_room_lights
+  entity_4: switch.rabbit_light
+
+
 # hue_dimmer_3:
 #   module: hue_dimmer_3
 #   class: HueRemote
@@ -75,7 +86,8 @@ xiaomi_button_1:
   entityID1: switch.switch
   entityID2: light.all_lights
   entityID3: light.all_adult_lights
-  entityIDList1: ['media_player.conservatory_speaker', 'media_player.ue55nu7475xxc', 'media_player.living_room_speaker']
+  entityIDlist1: ['media_player.conservatory_speaker', 'media_player.ue55nu7475xxc', 'media_player.living_room_speaker']
+  entityIDlist2: ['light.main_floor_lights', 'light.basement_lights', 'switch.rabbit_light']
 
 # xiaomi_cube_1:
 #   module: mi_magic_cube_1

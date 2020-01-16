@@ -64,7 +64,7 @@ class MotionClass(hass.Hass):
             self.turn_off(entity)
         self.cancel_timer(self.timer)
 
-    def lightsOn(self, illumination):
+    def lights_on(self, illumination):
         """ Turns the lights on, depending on time and awake state"""
 
         cooking = self.cooking()
@@ -137,7 +137,7 @@ class MotionClass(hass.Hass):
         if self.get_state('binary_sensor.presence_kitchen') == 'on': # if we got motion.
             illumination = max([get_integer(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
             self.cancel_timer(self.timer)
-            self.lightsOn(illumination)
+            self.lights_on(illumination)
         elif self.get_state('binary_sensor.presence_kitchen') == 'off': # we got no motion.
             self.cancel_timer(self.timer)
             self.timer = self.run_in(self.lights_off, 90)
@@ -158,4 +158,4 @@ class MotionClass(hass.Hass):
         if new == "on":
             if self.get_state("binary_sensor.presence_kitchen") == "on":
                 illumination = max([ get_integer(self.get_state(entity_id)) for entity_id in self.illumination_sensors ])
-                self.lightsOn(illumination)
+                self.lights_on(illumination)
