@@ -10,28 +10,28 @@ class MotionClass(hass.Hass):
     def initialize(self):
         # Motion sensors.
 
-        self.motionSensors = [
+        self.motion_sensors = [
             "binary_sensor.presence_entrance", # Entrance Motion Sensor
             "binary_sensor.presence_top_floor_stairway", # Top Floor Stairs Motion Sensor
             "binary_sensor.presence_basement_stairway" # Basement Stairway Motion Sensor
             ]
 
-        self.doorSensors = [
+        self.door_sensors = [
             "binary_sensor.openclose_front_door" # Front door
             ]
 
-        self.illuminationSensors = [
+        self.illumination_sensors = [
             "sensor.lightlevel_entrance" # Entrance Motion Illumination Sensor
             ]
 
-        for entity in self.motionSensors:
-            self.listen_state(self.switchonoff,entity)
+        for entity in self.motion_sensors:
+            self.listen_state(self.switch_on, entity, new='on')
 
-        for entity in self.doorSensors:
-            self.listen_state(self.dooropenclose,entity, new='on')
+        for entity in self.motion_sensors:
+            self.listen_state(self.switch_off, entity, new='off')
 
-        for entity in self.illuminationSensors:
-            self.listen_state(self.switchonoff,entity)
+        for entity in self.door_sensors:
+            self.listen_state(self.dooropenclose, entity, new='on')
 
     # Assess whether we are awake, based on state of entity. Find better proxy eventually.
     def areWeAwake(self, entity):
@@ -49,12 +49,15 @@ class MotionClass(hass.Hass):
         except ValueError:
             return 0
 
-# Motion sensor lights
-    def switchonoff(self, entity, attribute, old, new, kwargs):
+
+    # If motion on or door open:
+    def switch_on(self, entity, attribute, old, new, kwargs):
+
+        self.log('test_on')
 
         sensor_1_state = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
         sensor_2_state = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
-        sensor_3_state = self.get_state("binary_sensor.presence_top_floor_tv_room") # Top Floor Stairs Motion Sensor
+        sensor_3_state = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion Sensor
         sensor_4_state = self.get_state("binary_sensor.openclose_front_door") # Front door sensor
         awake = self.areWeAwake("light.living_room_lights")
         party_mode      = self.get_state('input_boolean.party_mode') == 'on'
@@ -71,21 +74,28 @@ class MotionClass(hass.Hass):
             elif self.now_is_between('22:00:00', '07:00:00'):
                 if awake:
                     self.turn_on("light.entrance_lights",brightness=255,kelvin=2200)
-                # elif new == "on" and entity == "binary_sensor.presence_top_floor_tv_room":
-                #     self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
-                #     # Entrance lights
-                # elif new == "on" and entity == "binary_sensor.presence_basement_stairway":
-                #     self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
 
         elif new == 'on' and entity == 'binary_sensor.openclose_front_door':
             self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
 
-        elif new == 'on' and entity == 'binary_sensor.openclose_front_door':
-            pass
 
-        else:
+    # If motion off, and door closed
+    def switch_off(self, entity, attribute, old, new, kwargs):
+
+        self.log('test_off')
+
+        sensor_1_state = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
+        sensor_2_state = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
+        sensor_3_state = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion Sensor
+        sensor_4_state = self.get_state("binary_sensor.openclose_front_door") # Front door sensor
+
+        sensor_state    = [sensor_1_state=='off', sensor_2_state=='off', sensor_3_state=='off', sensor_4_state=='off']
+
+        if all(sensor_state):
             self.turn_off("light.entrance_lights")
 
+
+    # Door open/close
     def dooropenclose(self, entity, attribute, old, new, kwargs):
         if self.get_state('light.entrance_lights') == 'off':
             self.switchonoff()

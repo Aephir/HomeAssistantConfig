@@ -25,7 +25,7 @@ class Remote(hass.Hass):
         if data['id'] == self.args['id']: # Dimmer Switch 1
             if data['event'] == 1002: # Button 1 up
                 if self.get_state(self.args["entity_1"]) == 'off':
-                    self.turn_on(self.args["entity_1"],brightness=255,kelvin=2700)
+                    self.turn_on(self.args["entity_1"],brightness=100,kelvin=2700)
                 else:
                     self.turn_off(self.args["entity_1"])
             elif data['event'] == 2002: # Button 2 up

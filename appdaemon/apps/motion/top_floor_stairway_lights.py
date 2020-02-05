@@ -61,7 +61,7 @@ class MotionClass(hass.Hass):
             # self.timer = self.run_in(self.lightOff, 300)
         elif sensor_1_state == "off" and sensor_2_state == "off" and sensor_3_state == "off" and sensor_4_state == "off":
             self.turn_off("light.stairway_up")
-            self.turn_off("light.stairway")
+            self.turn_off("light.stairway_down")
             self.turn_off("light.top_floor_hallway")
             self.turn_off("light.top_floor_tv_area")
         elif sensor_1_state == "off" and sensor_2_state == "off" and sensor_3_state == "off":
