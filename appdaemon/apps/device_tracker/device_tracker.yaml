@@ -15,6 +15,7 @@ meta_tracker:
   aephir_l360_tracker: !secret aephir_l360_tracker
   aephir_ping_tracker: !secret aephir_ping_tracker
   aephir_bluetooth_1_tracker: !secret aephir_bluetooth_1_tracker
+  # aephir_adroid_tracker: !secret aephir_android_app_tracker_1
   kristina_ios_tracker: !secret kristina_ios_tracker
   kristina_l360_tracker: !secret kristina_l360_tracker
   kristina_ping_tracker: !secret kristina_ping_tracker

@@ -14,25 +14,25 @@ class MetaTracker(hass.Hass):
     def initialize(self):
 
         # Set lists of trackers for each person.
-        self.aephir_trackers = [
+        self.aephirTrackers = [
             self.args["aephir_maps_tracker"],
             self.args["aephir_l360_tracker"],
             self.args["aephir_ping_tracker"],
-            # self.args["aephir_bluetooth_1_tracker"]
+            self.args["aephir_bluetooth_1_tracker"]
             ]
 
-        self.kristina_trackers = [
+        self.kristinaTrackers = [
             self.args["kristina_ios_tracker"],
             self.args["kristina_l360_tracker"],
             self.args["kristina_ping_tracker"]
             ]
 
-        self.emilie_trackers = [
+        self.emilieTrackers = [
             self.args["emilie_l360_tracker"],
             self.args["emilie_ping_tracker"]
             ]
 
-        self.naia_trackers = [
+        self.naiaTrackers = [
             self.args["naia_ios_tracker"],
             self.args["naia_ping_tracker"]
             ]
@@ -56,35 +56,35 @@ class MetaTracker(hass.Hass):
                 self.set_state(tracker, state = "Unknown", attributes = {'entity_picture':pic[tracker]})
 
         # Set list of all trackers.
-        self.all_trackers = self.aephir_trackers + self.kristina_trackers + self.emilie_trackers + self.naia_trackers
+        self.allTrackers = self.aephirTrackers + self.kristinaTrackers + self.emilieTrackers + self.naiaTrackers
 
-        # Run "where_are_we" for any change in any tracker.
-        for entity in self.all_trackers:
-            self.listen_state(self.where_are_we, entity)
+        # Run "whereAreWe" for any change in any tracker.
+        for entity in self.allTrackers:
+            self.listen_state(self.whereAreWe, entity)
 
 
-    def where_are_we(self, entity, attribute, old, new, kwargs):
+    def whereAreWe(self, entity, attribute, old, new, kwargs):
 
         # Trackers
-        aephir_trackers = [
+        aephirTrackers = [
             self.args["aephir_maps_tracker"],
             self.args["aephir_l360_tracker"],
             self.args["aephir_ping_tracker"],
-            # self.args["aephir_bluetooth_1_tracker"]
+            self.args["aephir_bluetooth_1_tracker"]
             ]
 
-        kristina_trackers = [
+        kristinaTrackers = [
             self.args["kristina_ios_tracker"],
             self.args["kristina_l360_tracker"],
             self.args["kristina_ping_tracker"]
             ]
 
-        emilie_trackers = [
+        emilieTrackers = [
             self.args["emilie_l360_tracker"],
             self.args["emilie_ping_tracker"]
             ]
 
-        naia_trackers = [
+        naiaTrackers = [
             self.args["naia_ios_tracker"],
             self.args["naia_ping_tracker"]
             ]
@@ -92,17 +92,17 @@ class MetaTracker(hass.Hass):
         # Get entity that triggers script. I don't need this, this is "entity" that's passed from "initialize", right?
         triggeredEntity = entity
 
-        # # Variables to show in frontend
-        # newFriendlyNam = ''
-        # newEntityPicture = ''
-        # metatrackerName = ''
-        # charging = ''
-        # driving = ''
-        # moving = ''
-        # raw_speed = ''
-        # speed = ''
-        # wifi_on = ''
-        # last_seen = ''
+        # Variables to show in frontend
+        newFriendlyNam = ''
+        newEntityPicture = ''
+        metatrackerName = ''
+        charging = ''
+        driving = ''
+        moving = ''
+        raw_speed = ''
+        speed = ''
+        wifi_on = ''
+        last_seen = ''
 
         # # Uncomment first time you run this to create meta device trackers in home assistant.
         # self.set_state('device_tracker.meta_walden', state='home')
@@ -111,19 +111,19 @@ class MetaTracker(hass.Hass):
         # self.set_state('device_tracker.meta_naia', state='home')
 
         # Set variables
-        if triggeredEntity in aephir_trackers:
+        if triggeredEntity in aephirTrackers:
             newFriendlyName = 'Walden Meta Tracker'
             newEntityPicture = '/local/images/brain.jpg'
             metatrackerName = 'device_tracker.meta_walden'
-        elif triggeredEntity in kristina_trackers:
+        elif triggeredEntity in kristinaTrackers:
             newFriendlyName = 'Kristina Meta Tracker'
             newEntityPicture = '/local/images/kristina_3.jpg'
             metatrackerName = 'device_tracker.meta_kristina'
-        elif triggeredEntity in emilie_trackers:
+        elif triggeredEntity in emilieTrackers:
             newFriendlyName = 'Emilie Meta Tracker'
             newEntityPicture = '/local/images/emilie.jpg'
             metatrackerName = 'device_tracker.meta_emilie'
-        elif triggeredEntity in naia_trackers:
+        elif triggeredEntity in naiaTrackers:
             newFriendlyName = 'Naia Meta Tracker'
             newEntityPicture = '/local/images/naia_2.jpg'
             metatrackerName = 'device_tracker.meta_naia'
@@ -240,7 +240,7 @@ class MetaTracker(hass.Hass):
             'longitude': newLongitude,
             'velocity': newVelocity,
             'update_source': triggeredEntity,
-            # 'custom_ui_state_card': 'state-card-custom-ui',
+            'custom_ui_state_card': 'state-card-custom-ui',
             'show_last_changed': 'true',
             'charging': newChargeState,
             'driving': newDriveState,

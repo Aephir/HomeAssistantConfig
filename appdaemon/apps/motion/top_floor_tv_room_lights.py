@@ -27,7 +27,7 @@ class MotionClass(hass.Hass):
 
         self.timer = None
 
-        self.listen_state(self.inpuBoolean,"input_boolean.top_floor_lights_motion_control")
+        self.listen_state(self.inputBoolean,"input_boolean.top_floor_lights_motion_control")
 
     # Assess whether we are awake, based on state of entity. Find better proxy eventually.
     def areWeAwake(self, entity):
@@ -79,7 +79,7 @@ class MotionClass(hass.Hass):
             if sensor_1_state == "off" and sensor_2_state == "off":
                 self.turn_off("light.top_floor_tv_area")
 
-    def inpuBoolean(self, entity, attribute, old, new, kwargs):
+    def inputBoolean(self, entity, attribute, old, new, kwargs):
 
         if new == "on":
-            self.motionTrigger(entity, attribute, old, new, kwargs)
+            self.switchOnOff(entity, attribute, old, new, kwargs)
