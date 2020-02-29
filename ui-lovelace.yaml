@@ -605,26 +605,23 @@ views:
               - binary_sensor.openclose_bedroom_window_1 # Bedroom Window
               - binary_sensor.openclose_washing_room_window_1 # Washing Room Window 1
 
-          - type: entities
+          - type: custom:entity-attributes-card
             title: Doors and Windows
-            show_header_toggle: false
-            entities:
-              - type: custom:entity-attributes-card
-                entity: sensor.windows_and_doors
-                filter:
-                  include:
-                    - key: sensor.windows_and_doors.number_of_doors
-                      name: Number of Open Doors
-                    - key: sensor.windows_and_doors.number_of_windows
-                      name: Number of Open Windows
-                    - key: sensor.windows_and_doors.shed_door
-                      name: Shed Door
-                    - key: sensor.windows_and_doors.last_door_opened
-                      name: Last Opened Door
-                    - key: sensor.windows_and_doors.door_opened_at
-                      name: Door Opened at
-                    - key: sensor.windows_and_doors.list_of_open
-                      name: List of Open Doors and Windows
+            entity: sensor.windows_and_doors
+            filter:
+              include:
+                - key: sensor.windows_and_doors.number_of_doors
+                  name: Number of Open Doors
+                - key: sensor.windows_and_doors.number_of_windows
+                  name: Number of Open Windows
+                - key: sensor.windows_and_doors.shed_door
+                  name: Shed Door
+                - key: sensor.windows_and_doors.last_door_opened
+                  name: Last Opened Door
+                - key: sensor.windows_and_doors.door_opened_at
+                  name: Door Opened at
+                - key: sensor.windows_and_doors.list_of_open
+                  name: List of Open Doors and Windows
 
           - type: vertical-stack
             cards:
@@ -828,16 +825,6 @@ views:
       #     # - entity: switch.nodered
       #     # - switch.docker_homepanel_1
       #     # - switch.docker_homepanelapi_1
-      - type: entities
-        title: Miscellaneous
-        entities:
-          - type: custom:entity-attributes-card
-            entity: binary_sensor.cube_158d00028f7196
-            filter:
-              include:
-                - binary_sensor.cube_158d00028f7196.action_value
-                - binary_sensor.cube_158d00028f7196.last_action
-          - sensor.espresso_machine
 
       - type: custom:auto-entities
         show_empty: false
@@ -1188,14 +1175,15 @@ views:
               - type: entity-button
                 entity: script.update_docker
 
-      - type: entities
+      - type: custom:entity-attributes-card
         title: Walkin closet Aeotec sensor
-        entities:
-          - type: custom:entity-attributes-card
-            entity: zwave.aeotec_zw100_multisensor_6
-            filter:
-              include:
-               - key: zwave.aeotec_zw100_multisensor_6.*
+        heading_name: List
+        heading_state: States
+        entity: zwave.aeotec_zw100_multisensor_6
+        filter:
+          include:
+           - key: zwave.aeotec_zw100_multisensor_6.*
+             name: Aeotec sensor
 
 
       - type: entities

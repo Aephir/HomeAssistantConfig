@@ -1,0 +1,13 @@
+####################
+#                  #
+#    SAMSUNG TV    #
+#                  #
+####################
+
+  - host: 192.168.0.47
+    port: 8001
+    name: Samsung UE55NU7475XXC
+    turn_on_action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: "FC:03:9F:E0:C7:F6"
