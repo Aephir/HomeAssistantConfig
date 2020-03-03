@@ -88,8 +88,6 @@ class MotionClass(hass.Hass):
     # If motion off, and door closed
     def switch_off(self, entity, attribute, old, new, kwargs):
 
-        self.log('test_off')
-
         sensor_1_state = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
         sensor_2_state = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
         sensor_3_state = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion Sensor

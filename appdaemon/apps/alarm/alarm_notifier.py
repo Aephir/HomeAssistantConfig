@@ -1,4 +1,4 @@
-import appdaemon.plugins.hass.hassapi as has
+import appdaemon.plugins.hass.hassapi as hass
 from datetime import datetime
 
 class Alarm(hass.Hass):

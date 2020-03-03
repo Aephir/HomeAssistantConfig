@@ -123,7 +123,7 @@ plant: !include config_files/plant.yaml
 recorder: !include config_files/recorder.yaml
 remote: !include config_files/remote.yaml
 # roku: !include config_files/roku.yaml
-samsungtv: !include config_files/samsungtv.yaml
+# samsungtv: !include config_files/samsungtv.yaml
 scene: !include_dir_merge_list config_files/scene/
 script: !include config_files/script.yaml
 # script: !include_dir_merge_named config_files/script/

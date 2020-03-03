@@ -64,7 +64,7 @@ class MotionClass(hass.Hass):
                 if awake:
                     self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
                 else:
-                    self.turn_on("light.stairway",brightness=10,kelvin=2200)
+                    self.turn_on("light.stairway_up",brightness=10,kelvin=2200)
 
 
         elif entity == "binary_sensor.presence_top_floor_stairway" and new == 'on':
@@ -79,7 +79,7 @@ class MotionClass(hass.Hass):
                     if awake:
                         self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
                     else:
-                        self.turn_on("light.stairway",brightness=50,kelvin=2200)
+                        self.turn_on("light.stairway_up",brightness=50,kelvin=2200)
 
         elif sensor_1_state == 'on' and sensor_2_state == 'on': # in the off chance that one motion sensor triggers, and the next is turned on before the check is performed.
             self.turn_on("light.stairway_up",brightness=255,kelvin=2700)

@@ -49,6 +49,8 @@ class Awake(hass.Hass):
 
         ### Get from "global_functions.py -> workday_when_waking"
 
+        who_is_awake = ''
+
         if self.get_state('input_boolean.vacation_mode') == 'off':
             if self.now_is_between("20:30:00", "00:00:00"):
                 night_time = self.get_state('binary_sensor.workday_tomorrow') == 'on'

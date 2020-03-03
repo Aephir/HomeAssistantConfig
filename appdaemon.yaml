@@ -57,7 +57,7 @@ logs:
     filename: /logs/diag.log
     log_generations: 5
     log_size: 50000
-    format: "{asctime} {levelname:<8} {appname:<10}: {message}"
+    # format: "{asctime} {levelname:<8} {appname:<10}: {message}"
 http:
     url: http://192.168.0.100:5050
     # password: !secret appdaemone_password
