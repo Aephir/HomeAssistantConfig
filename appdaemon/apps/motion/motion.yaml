@@ -84,3 +84,8 @@ walk_in_closet_lights:
   module: walk_in_closet_lights
   class: MotionClass
   entity_override: input_boolean.basement_lights_motion_control
+  
+wine_cellar_light:
+  module: wine_cellar_lights
+  class: MotionClass
+  entity_override: input_boolean.basement_lights_motion_control

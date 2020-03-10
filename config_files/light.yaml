@@ -136,7 +136,7 @@
 - platform: group
   name: Wine Cellar Lights
   entities:
-    - light.wine_cellar
+    - light.lightstrip_1
 
 - platform: group
   name: Basement Entrance Lights
@@ -185,6 +185,15 @@
     - light.top_hallway_1
     - light.top_hallway_2
     - light.top_hallway_3
+
+#####################
+#__Stairway_Lights__#
+
+- platform: group
+  name: Stairway Lights
+  entities:
+    - light.stairway_up
+    - light.stairway_down
 
 ####################
 #__Outdoor_Lights__#

@@ -30,13 +30,13 @@ panel:
 states:
   armed_away:
     immediate:
-    - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
+    - binary_sensor.openclose_conservatory_door # Conservatory door
     - binary_sensor.openclose_bedroom_window_1 # Bedroom window
     - binary_sensor.openclose_bathroom_window # Bathroom window
     delayed:
     - binary_sensor.openclose_front_door # Front door
     - binary_sensor.openclose_basement_entrance_door # Basement door
-  # - binary_sensor.sensor # Shed door
+  # - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
     - binary_sensor.presence_basement_entrance # Basement entrance motion
     - binary_sensor.presence_conservatory # Conservatory motion
     - binary_sensor.presence_entrance # Entrance motion
@@ -46,30 +46,30 @@ states:
     trigger_time: 300 # 5
   armed_home:
     immediate:
-    - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
+    - binary_sensor.openclose_conservatory_door # Conservatory door
     - binary_sensor.openclose_basement_entrance_door # Basement door
     - binary_sensor.openclose_front_door # Front door
-    - binary_sensor.sensor # Shed door
+    - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
     delayed:
     - binary_sensor.presence_basement_entrance # Basement entrance motion
-#   - binary_sensor.first_floor_motion
+#   - binary_sensor.presence_top_floor_stairway
     override: []
     pending_time: 150
     warning_time: 150
     trigger_time: 300
   armed_perimeter:
     immediate:
-    - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory door
+    - binary_sensor.openclose_conservatory_door # Conservatory door
     delayed:
     - binary_sensor.openclose_basement_entrance_door # Basement door
     - binary_sensor.openclose_front_door # Front door
-#     - binary_sensor.sensor # Shed door
+#     - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
     override: []
     pending_time: 150
     warning_time: '2'
     trigger_time: 600
 users:
-- id: 75c9d2267cee412080450f487eb5fe30
+- id: !secret aephir_id
   name: Aephir
   enabled: true
   code: 75c9d2267cee412080450f487eb5fe30
