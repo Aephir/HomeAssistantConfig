@@ -1,0 +1,9 @@
+#######################
+#                     #
+#    LG SMARTTHINQ    #
+#                     #
+#######################
+
+token: !secret lg_smartthinq_refresh_token
+region: DK
+language: en-DK

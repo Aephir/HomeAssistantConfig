@@ -39,7 +39,7 @@
   host: 192.168.0.85
   mac: !secret broadlink_sp_mini_switch_1_mac
   friendly_name: 'ZigBee and Yeelight power'
-  type:  sp2
+  type: sp2
 
 - platform: template
   switches:

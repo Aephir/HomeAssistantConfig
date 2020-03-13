@@ -4,7 +4,7 @@
 #               #
 #################
 
-- platform: zwave
+# - platform: zwave
 
 
 # - platform: generic_thermostat

@@ -36,6 +36,7 @@
 - platform: samsungtv_tizen # Uses HACS - https://github.com/jaruba/ha-samsungtv-tizen
   host: 192.168.0.47
   port: 8002
+  name: ue55nu7475xxc
   mac: !secret samsung_UE55NU7475XXC
 
 #- platform: braviatv

@@ -69,3 +69,9 @@
   longitude: !secret zone11lon
   radius: 1500
   icon: mdi:airport
+
+- name: !secret zone14name
+  latitude: !secret zone14lat
+  longitude: !secret zone14lon
+  radius: 300
+  icon: mdi:flower-tulip

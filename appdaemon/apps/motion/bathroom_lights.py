@@ -56,6 +56,12 @@ class MotionClass(hass.Hass):
         for entity in self.light_entity_ids:
             self.turn_off(entity)
 
+    # Returns True/False based on state of entity (assess whether we are awake). Find better proxy eventually.
+    def areWeAwake(self, entities):
+        """ Check whether anyone is awake"""
+        for entity in entities:
+            if self.get_state(entity) == "on":
+                return True
 
     def lightsOn(self, illumination):
         """ Turns the lights on, depending on time and awake state"""

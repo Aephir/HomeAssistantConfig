@@ -131,6 +131,7 @@ script: !include config_files/script.yaml
 sensor: !include_dir_merge_list config_files/sensor/
 shell_command: !include config_files/shell_commands.yaml
 skybell: !include config_files/skybell.yaml
+# smartthinq: !include config_files/smartthinq.yaml
 #snips: !include config_files/snips.yaml
 sonos: !include config_files/sonos.yaml
 switch: !include config_files/switch.yaml
