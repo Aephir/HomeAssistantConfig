@@ -72,6 +72,7 @@ wine_cellar_lights_state_tasker:
 set_latest_notification_tasker:
   module: latest_notification_tasker
   class: NotifyTasker
+  autoremote_url: !secret autoremote_url_start
 
 pc_off_tasker:
   module: pc_off_tasker

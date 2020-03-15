@@ -50,7 +50,6 @@
 #__All Weather__#
   weather_darksky:
     name: Weather
-    view: no
     entities:
       - sensor.dark_sky_summary
       - sensor.dark_sky_precip_type

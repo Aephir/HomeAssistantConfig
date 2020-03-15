@@ -63,8 +63,8 @@ class MotionClass(hass.Hass):
             elif self.now_is_between('22:00:00', '07:00:00'):
                 if awake:
                     self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
-                else:
-                    self.turn_on("light.stairway_up",brightness=10,kelvin=2200)
+                # else:
+                #     self.turn_on("light.stairway_up",brightness=10,kelvin=2200)
 
 
         elif entity == "binary_sensor.presence_top_floor_stairway" and new == 'on':

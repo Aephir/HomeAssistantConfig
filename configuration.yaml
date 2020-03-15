@@ -98,7 +98,7 @@ frontend: !include config_files/frontend.yaml
 group: !include config_files/group.yaml
 history: !include config_files/history.yaml
 homeconnect: !include config_files/homeconnect.yaml
-homekit: !include config_files/homekit.yaml
+# homekit: !include config_files/homekit.yaml
 # http: !include config_files/http.yaml
 # hue: !include config_files/hue.yaml # Moved to deCONZ with ConBee II
 # influxdb: !include config_files/influxdb.yaml
@@ -126,8 +126,6 @@ remote: !include config_files/remote.yaml
 # samsungtv: !include config_files/samsungtv.yaml
 scene: !include_dir_merge_list config_files/scene/
 script: !include config_files/script.yaml
-# script: !include_dir_merge_named config_files/script/
-# script: !include_dir_merge_list config_files/script/
 sensor: !include_dir_merge_list config_files/sensor/
 shell_command: !include config_files/shell_commands.yaml
 skybell: !include config_files/skybell.yaml
@@ -137,7 +135,6 @@ sonos: !include config_files/sonos.yaml
 switch: !include config_files/switch.yaml
 telegram_bot: !include config_files/telegram_bot.yaml
 tts: !include config_files/tts.yaml
-weblink: !include config_files/weblink.yaml
 wemo: !include config_files/wemo.yaml
 yeelight: !include config_files/yeelight.yaml
 # zha: !include config_files/zha.yaml

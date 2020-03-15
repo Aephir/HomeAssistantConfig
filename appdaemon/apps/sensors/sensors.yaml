@@ -21,3 +21,7 @@ battery_powered_devices_offline:
   module: device_unreachable
   class: Sensor
   notify: !secret my_telegram
+
+convert_3d_print_time:
+  module: octoprint_time
+  class: Octoprint

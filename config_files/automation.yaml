@@ -426,7 +426,6 @@
 
 - id: 'oven_on'
   alias: 'Oven Power On'
-  hide_entity: true
   initial_state: true
   trigger:
     platform: state
@@ -438,7 +437,6 @@
 
 - id: 'oven_off'
   alias: 'Oven Power Off'
-  hide_entity: true
   initial_state: true
   trigger:
     platform: state
@@ -450,7 +448,6 @@
 
 - id: 'oven_600'
   alias: 'Oven 600W'
-  hide_entity: true
   initial_state: true
   trigger:
     platform: state
@@ -462,7 +459,6 @@
 
 - id: 'oven_hot_air'
   alias: 'Oven Hot Air'
-  hide_entity: true
   initial_state: true
   trigger:
     platform: state
@@ -474,7 +470,6 @@
 
 - id: 'oven_pizza'
   alias: 'Oven Pizza'
-  hide_entity: true
   initial_state: true
   trigger:
     platform: state
@@ -486,7 +481,6 @@
 
 - id: 'oven_pre-heat'
   alias: 'Oven Pre-heating'
-  hide_entity: true
   initial_state: true
   trigger:
     platform: state
@@ -498,7 +492,6 @@
 
 - id: 'oven_top_bottom'
   alias: 'Oven Top and Bottom heating'
-  hide_entity: true
   initial_state: true
   trigger:
     platform: state
@@ -514,7 +507,6 @@
 
 - id: 'telegramremoveinline' # https://community.home-assistant.io/t/telegram-bot-notifications-and-communication/50247
   alias: 'Telegram callback to remove keyboard'
-  hide_entity: true
   initial_state: True
   trigger:
     platform: event

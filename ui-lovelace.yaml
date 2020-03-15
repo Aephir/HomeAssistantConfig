@@ -70,6 +70,10 @@ views:
         cards:
           - type: entities
             title: Main Lights
+            show_header_toggle: true
+            # header:
+            #   image: '/local/images/lights.jpg'
+            #   type: picture
             entities:
               - entity: light.dining_room_lights
                 type: custom:slider-entity-row
@@ -409,15 +413,6 @@ views:
                 - entity: light.baby_room
                   type: custom:slider-entity-row
                   toggle: true
-              - type: custom:fold-entity-row
-                head: light.kitchen_lights
-                items:
-                - entity: light.kitchen_spots
-                  type: custom:slider-entity-row
-                  toggle: true
-                - entity: light.kitchen_cabinet_lights
-                  type: custom:slider-entity-row
-                  toggle: true
               - entity: light.entrance
                 type: custom:slider-entity-row
                 toggle: true
@@ -632,18 +627,24 @@ views:
             title: Prusa i3 MK3S
             entities:
               - entity: switch.prusa_lights
+                name: Lights
               - entity: binary_sensor.prusa_i3_mk3s_printing
+                name: Printer status
               - entity: binary_sensor.prusa_i3_mk3s_printing_error
               - entity: sensor.prusa_i3_mk3s_current_state
               - entity: sensor.prusa_i3_mk3s_job_percentage
+                name: Print progress
               - entity: sensor.prusa_i3_mk3s_actual_bed_temp
               - entity: sensor.prusa_i3_mk3s_actual_tool0_temp
-              - entity: sensor.prusa_i3_mk3s_actual_tool1_temp
+                name: Hotend actual temperature
+              # - entity: sensor.prusa_i3_mk3s_actual_tool1_temp
               - entity: sensor.prusa_i3_mk3s_target_bed_temp
               - entity: sensor.prusa_i3_mk3s_target_tool0_temp
-              - entity: sensor.prusa_i3_mk3s_target_tool1_temp
-              - entity: sensor.prusa_i3_mk3s_time_elapsed
-              - entity: sensor.prusa_i3_mk3s_time_remaining
+                name: Hotend target temperature
+              # - entity: sensor.prusa_i3_mk3s_target_tool1_temp
+              - entity: sensor.prusa_i3_mk3s_time_elapsed_format
+              - entity: sensor.prusa_i3_mk3s_time_remaining_format
+              # - entity: sensor.prusa_status
 
           - break
 
@@ -657,3 +658,98 @@ views:
             entities:
               - entity: switch.oven
               - entity: input_select.oven_program
+
+          - type: entities
+            title: Weblinks
+            show_header_toggle: false
+            entities:
+              - type: weblink
+                name: Router
+                url: http://192.168.0.1
+                icon: mdi:access-point
+              # - type: weblink
+              #   name: Mopidy
+              #   url: http://192.168.0.145:6680
+              #   icon: mdi:music
+              # - type: weblink
+              #   name: Mopidy Iris
+              #   url: http://192.168.0.145:6680/iris
+              #   icon: mdi:music-note-eighth
+              # - type: weblink
+              #   name: Mopidy Party
+              #   url: http://192.168.0.145:6680/party
+              - type: weblink
+                name: portainer
+                url: http://192.168.0.100:9000/
+                icon: mdi:docker
+              - type: weblink
+                name: InfluxDB
+                url: http://192.168.0.100:8086/
+                icon: mdi:database
+              - type: weblink
+                name: Grafana
+                url: http://192.168.0.100:3001/
+                icon: mdi:chart-line
+              - type: weblink
+                name: HA-Dashboard
+                url: http://192.168.0.100:5050/
+                icon: mdi:view-dashboard
+              - type: weblink
+                name: deCONZ
+                url: http://192.168.0.100:8100/
+                icon: mdi:zigbee
+              - type: weblink
+                name: Home Panel
+                url: http://192.168.0.100:8234/
+                icon: mdi:view-dashboard-variant
+              - type: weblink
+                name: The Spaghetti Detective
+                url: http://192.168.0.100:3334/
+                icon: mdi:pasta
+
+
+
+##############
+#            #
+#    KIDS    #
+#            #
+##############
+
+  - icon: fas:child
+    title: Kids
+    id: kid_control
+    panel: true
+    layout: auto
+    column_num: 3
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        cards:
+          - type: entities
+            title: Top Floor Lights
+            toggle: false
+            entities:
+              - entity: input_boolean.top_floor_lights_motion_control
+                name: Bevægelsesstyret Lys
+                icon: mdi:motion-sensor
+              - entity: light.top_floor_tv_area
+                name: TV Lys
+              - entity: light.top_floor_hallway
+                name: Krea Lys
+              - entity: light.top_floor_bathroom
+                name: Badeværelses Lys
+          - type: entities
+            title: TV og Playstation
+            toggle: false
+            entities:
+              - entity: switch.top_floor_media
+                name: Strøm til TV & Playstation
+          - break
+          - type: entities
+            title: Lys Nedenunder
+            toggle: false
+            entities:
+              - entity: light.conservatory_lights
+                name: Udestue Lys
+              - entity: light.dining_room_lights
+                name: SPisestue Lys
