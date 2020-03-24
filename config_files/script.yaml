@@ -324,6 +324,15 @@
             {% endif -%}
             {%- endfor -%}
 
+  rabbit_light_5_min:
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: switch.rabbit_light
+      - delay: 00:05:00
+      - service: homeassistant.turn_off
+        entity_id: switch.rabbit_light
+
+
 ###############
 #    Media    #
 ###############
