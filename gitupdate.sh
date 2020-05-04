@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cd /home/aephir/docker/homeassistant
+cd /mnt/data/docker/homeassistant
 
 git add .
 git status

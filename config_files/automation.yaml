@@ -909,6 +909,14 @@
         message: >
           Docker container for {{ trigger.to_state.name }} is not running. Please check the status of this container as some features may stop functioning.
 
+- alias: 'Set theme at startup'
+  trigger:
+   - platform: homeassistant
+     event: start
+  action:
+    service: frontend.set_theme
+    data:
+      name: Google Dark Theme
 
 ###############
 #    Alarm    #

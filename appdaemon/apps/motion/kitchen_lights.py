@@ -148,9 +148,14 @@ class MotionClass(hass.Hass):
         If the espresso machine is switched off and there's no motion in the kitchen, turn off lights.
         """
 
-        if self.get_state('binary_sensor.presence_kitchen') == 'off': # we got no motion.
-            self.cancel_timer(self.timer)
-            self.timer = self.run_in(self.lights_off, 30)
+        if new == 'off':
+            if self.get_state('binary_sensor.presence_kitchen') == 'off': # we got no motion.
+                self.cancel_timer(self.timer)
+                self.timer = self.run_in(self.lights_off, 30)
+        elif new == 'on':
+            if self.get_state('light.kitchen_spots') == 'on':
+                if self.get_state('light.kitchen_cabinet_2') == 'off':
+                    self.turn_on('light.kitchen_cabinet_2')
 
 
     def input_boolean(self, entity, attribute, old, new, kwargs):

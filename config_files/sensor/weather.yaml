@@ -16,26 +16,26 @@
 
 - platform: moon
 
-- platform: darksky
-  api_key: !secret darkskyapi
-  monitored_conditions:
-    - icon
-    - summary
-    - precip_type
-    - precip_intensity
-    - precip_probability
-    - humidity
-    - visibility
-    - temperature
-    - apparent_temperature
-    - pressure
-    - humidity
-    - wind_speed
-    - wind_bearing
-    - hourly_summary
-    - daily_summary
-    - temperature_low
-    - temperature_high
-    - precip_intensity_max
-  units: si
-  scan_interval: 01:00:00
+# - platform: darksky # Fuck Apple!
+#   api_key: !secret darkskyapi
+#   monitored_conditions:
+#     - icon
+#     - summary
+#     - precip_type
+#     - precip_intensity
+#     - precip_probability
+#     - humidity
+#     - visibility
+#     - temperature
+#     - apparent_temperature
+#     - pressure
+#     - humidity
+#     - wind_speed
+#     - wind_bearing
+#     - hourly_summary
+#     - daily_summary
+#     - temperature_low
+#     - temperature_high
+#     - precip_intensity_max
+#   units: si
+#   scan_interval: 01:00:00

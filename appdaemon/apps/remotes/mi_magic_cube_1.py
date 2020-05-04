@@ -42,10 +42,10 @@ class Remote(hass.Hass):
 
         if data['id'] == self.args['id']: # Tap 1
             if data['event'] in ninety: # 90° turn
-                self.toggle("switch.fountain")
-            elif data['event'] in one_eighty: # 180° turn
-                something
-            elif data['event'][1:] == '000' # Slide
-                something
-            elif data['event'] == '7007': # Shake in air
-                something
+                self.toggle("switch.switch")
+            # elif data['event'] in one_eighty: # 180° turn
+            #     something
+            # elif data['event'][1:] == '000' # Slide
+            #     something
+            # elif data['event'] == '7007': # Shake in air
+            #     something

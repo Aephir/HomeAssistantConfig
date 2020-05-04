@@ -37,8 +37,6 @@ resources:
     type: js
   - url: /hacsfiles/lovelace-state-switch/state-switch.js
     type: js
-  - url: /hacsfiles/lovelace-toggle-lock-entity-row/toggle-lock-entity-row.js
-    type: js
   - url: /hacsfiles/lovelace-card-tools/card-tools.js
     type: js
   # - url: /hacsfiles/compact-custom-header/compact-custom-header.js
@@ -51,7 +49,8 @@ resources:
     type: module
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
-
+  - url: /local/restriction-card.js
+    type: module
 
 views:
 
@@ -103,12 +102,13 @@ views:
                 type: custom:slider-entity-row
                 toggle: true
                 name: Wine Cellar
-          - type: entities
-            title: Media
-            entities:
-              - media_player.samsung_tv_remote
+          - type: media-control
+            title: TV
+            entity: media_player.ue55nu7475xxc
+            users:
+              - Aephir
+              - Kristina
 #             # type: custom:slider-entity-row
-#             type: custom:toggle-lock-entity-row
 #             users:
 #               - Aephir
 #               - Kristina
@@ -121,23 +121,23 @@ views:
               - entity: switch.fountain
               - entity: switch.rabbit_light
               - entity: switch.shed_main_power
-                type: custom:toggle-lock-entity-row
-                users:
-                  - Aephir
+                # type: custom:restriction-card
+                # users:
+                #   - Aephir
           - type: entities
             title: Kitchen
             show_header_toggle: false
             entities:
               - entity: switch.switch
-                type: custom:toggle-lock-entity-row
-                users:
-                  - Aephir
-                  - Kristina
+                # type: custom:restriction-card
+                # users:
+                #   - Aephir
+                #   - Kristina
               - entity: switch.kettle
-                type: custom:toggle-lock-entity-row
-                users:
-                  - Aephir
-                  - Kristina
+                # type: custom:restriction-card
+                # users:
+                #   - Aephir
+                #   - Kristina
 
           - type: vertical-stack
             id: fume_hood_controls
@@ -297,23 +297,43 @@ views:
 
           - break
 
-          - type: custom:entity-attributes-card
+          # - type: custom:entity-attributes-card
+          #   title: Doors and Windows
+          #   entity: sensor.windows_and_doors
+          #   filter:
+          #     include:
+          #       - key: sensor.windows_and_doors.number_of_doors
+          #         name: Number of Open Doors
+          #       - key: sensor.windows_and_doors.number_of_windows
+          #         name: Number of Open Windows
+          #       - key: sensor.windows_and_doors.shed_door
+          #         name: Shed Door
+          #       - key: sensor.windows_and_doors.last_door_opened
+          #         name: Last Opened Door
+          #       - key: sensor.windows_and_doors.door_opened_at
+          #         name: Door Opened at
+          #       - key: sensor.windows_and_doors.list_of_open
+          #         name: List of Open Doors and Windows
+
+          - type: glance
             title: Doors and Windows
-            entity: sensor.windows_and_doors
-            filter:
-              include:
-                - key: sensor.windows_and_doors.number_of_doors
-                  name: Number of Open Doors
-                - key: sensor.windows_and_doors.number_of_windows
-                  name: Number of Open Windows
-                - key: sensor.windows_and_doors.shed_door
-                  name: Shed Door
-                - key: sensor.windows_and_doors.last_door_opened
-                  name: Last Opened Door
-                - key: sensor.windows_and_doors.door_opened_at
-                  name: Door Opened at
-                - key: sensor.windows_and_doors.list_of_open
-                  name: List of Open Doors and Windows
+            columns: 4
+            entities:
+              - entity: binary_sensor.openclose_front_door
+                name: Front Door
+              - entity: binary_sensor.openclose_basement_entrance_door
+                name: Basement Door
+              - entity: binary_sensor.openclose_conservatory_door
+                name: Conservatory
+              - entity: binary_sensor.neo_coolcam_doorwindow_detector_sensor
+                name: Shed Door
+              - entity: binary_sensor.openclose_bathroom_window
+                name: Bathroom
+              - entity: binary_sensor.openclose_bedroom_window_1
+                name: Bedroom 1
+              - entity: binary_sensor.openclose_washing_room_window_1
+                name: Washing Room 1
+
           - type: glance
             title: Plant Status
             columns: 4
@@ -338,8 +358,13 @@ views:
               - camera.ffmpeg
             camera_view: live
           - type: picture-entity
-            entity: camera.ocotprint
+            entity: camera.octoprint
             camera_view: live
+          - type: picture-glance
+            camera_image: camera.octoprint
+            title: OctoPrint
+            entities:
+              - camera.octoprint
 
 #########################
 #                       #
@@ -416,7 +441,7 @@ views:
                 - entity: light.baby_room
                   type: custom:slider-entity-row
                   toggle: true
-              - entity: light.entrance
+              - entity: light.entrance_lights
                 type: custom:slider-entity-row
                 toggle: true
               - entity: light.bathroom
@@ -436,6 +461,7 @@ views:
               - entity: light.top_floor_bathroom
                 type: custom:slider-entity-row
                 toggle: true
+              - entity: light.stairway_up
 
           - break
 
@@ -458,6 +484,7 @@ views:
               - entity: light.lightstrip_1
                 type: custom:slider-entity-row
                 toggle: true
+              - entity: light.stairway_down
 
           - type: entities
             title: Power Switches
@@ -465,33 +492,33 @@ views:
             entities:
               - entity: switch.switch
                 icon: mdi:coffee-maker
-                type: custom:toggle-lock-entity-row
-                users:
-                  - Aephir
-                  - Kristina
+                # type: custom:restriction-card
+                # users:
+                #   - Aephir
+                #   - Kristina
               - entity: switch.fountain
-                type: custom:toggle-lock-entity-row
-                users:
-                  - Aephir
-                  - Kristina
+                # type: custom:restriction-card
+                # users:
+                #   - Aephir
+                #   - Kristina
               - entity: switch.top_floor_media
                 icon: mdi:youtube-tv
               - entity: switch.kettle
                 icon: mdi:kettle-steam
-                type: custom:toggle-lock-entity-row
-                users:
-                  - Aephir
-                  - Kristina
+                # type: custom:restriction-card
+                # users:
+                #   - Aephir
+                #   - Kristina
               - entity: switch.hassio
                 icon: mdi:home-assistant
-                type: custom:toggle-lock-entity-row
-                users:
-                  - Aephir
+                # type: custom:restriction-card
+                # users:
+                #   - Aephir
               - entity: switch.shed_main_power
                 icon: mdi:hammer-wrench
-                type: custom:toggle-lock-entity-row
-                users:
-                  - Aephir
+                # type: custom:restriction-card
+                # users:
+                #   - Aephir
               - entity: switch.neo_coolcam_2
                 # icon: mdi:youtube-tv
               - entity: switch.zigbee_and_yeelight_power
@@ -526,7 +553,7 @@ views:
         cards:
           - type: custom:mini-graph-card
             name: 'Temperature graphs'
-            hours_to_show: 72
+            hours_to_show: 48
             update_interval: 60
             cache: true
             hour24: true
@@ -536,21 +563,28 @@ views:
             upper_bound_secondary: 1
             unit: °C
             group: false
-            height: 150
+            height: 180
+            decimals: 1
             icon: mdi:thermometer-lines
             entities:
               - entity: sensor.temperature_wine_cellar
                 name: Wine cellar
+                color: purple #'#a32e2d'
               - entity: sensor.temperature_washing_room
                 name: Washing room
+                color: blue #'#1c2b50'
               - entity: sensor.temperature_bathroom
                 name: Bathroom
+                color: green #'#254a6c'
               - entity: sensor.temperature_kitchen
                 name: Kitchen
+                color: yellow #'#99c0cc'
               - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
                 name: Conservatory
+                color: orange #'#dae0e8'
               - entity: sensor.temperature_shed
                 name: Shed
+                color: red #'#e2dae8'
               - color: gray
                 entity: sun.sun
                 name: Night
@@ -566,14 +600,33 @@ views:
               #   show_legend: false
               #   # y_axis: secondary
             show:
-              labels_secondary: true
-              state: false
-              # fill: false
+              labels_secondary: false
+              labels: true
+              state: true
+              fill: false
+            # state_map:
+            #   - value: 'above_horizon'
+            #     label: day
+            #   - value: 'below_horizon'
+            #     label: night
 
-          - type: history-graph
-            title: 'Humidity graphs'
-            hours_to_show: 72
-            refresh_interval: 60
+          - type: custom:mini-graph-card
+            name: 'Humidity graphs'
+            hours_to_show: 48
+            update_interval: 60
+            cache: true
+            hour24: true
+            lower_bound: 0
+            upper_bound: 100
+            lower_bound_secondary: 0
+            upper_bound_secondary: 1
+            unit: '%'
+            group: false
+            height: 180
+            smoothing: true
+            points_per_hour: 1
+            decimals: 0
+            icon: mdi:water-percent
             entities:
               - entity: sensor.humidity_wine_cellar
                 name: Wine cellar
@@ -587,41 +640,91 @@ views:
                 name: Conservatory
               - entity: sensor.humidity_shed
                 name: Shed
+            show:
+              labels_secondary: false
+              labels: true
+              state: true
+              fill: false
 
           - break
 
-          - type: history-graph
-            title: 'Illumination graphs'
-            hours_to_show: 72
-            refresh_interval: 60
+          - type: custom:mini-graph-card
+            name: 'COVID-19 Denmark'
+            hours_to_show: 240
+            update_interval: 600
+            cache: true
+            hour24: true
+            lower_bound: 0
+            # upper_bound: 100
+            # lower_bound_secondary: 0
+            # upper_bound_secondary: 1200
+            unit: People
+            group: false
+            height: 210
+            smoothing: false
+            decimals: 0
+            points_per_hour: 0.5
+            icon: mdi:biohazard
             entities:
-              - entity: sensor.lightlevel_conservatory
-                name: Conservatory
-              - entity: sensor.lightlevel_basement_entrance
-                name: Basement Entrance
-              - entity: sensor.lightlevel_top_floor_stairway
-                name: Top floor stairway
-              - entity: sensor.lightlevel_tv_room
-                name: TV room
-              - entity: sensor.lightlevel_bathroom_2
-                name: Bathroom
-              - entity: sensor.lightlevel_top_floor_bathroom
-                name: Upstairs bathroom
-              - entity: sensor.lightlevel_top_floor_tv_room
-                name: Top floor TV room
-              - entity: sensor.lightlevel_kitchen
-                name: Kitchen
-              - entity: binary_sensor.lightlevel_entrance
-                name: Entrance
-              # - entity: sensor.aeotec_zw100_multisensor_6_luminance
-              #   # unit_of_measurement: lux
-              #   name: Walk-in closet
+              - entity: sensor.denmark_coronavirus_deaths
+                name: Deaths
+              - entity: sensor.denmark_coronavirus_confirmed
+                name: Confirmed
+              - entity: sensor.denmark_coronavirus_current
+                name: Current
+              - entity: sensor.denmark_coronavirus_recovered
+                name: Recovered
+            show:
+              fill: false
+
+          - type: custom:mini-graph-card
+            name: 'COVID-19 World'
+            hours_to_show: 240
+            update_interval: 600
+            cache: true
+            hour24: true
+            lower_bound: 0
+            # upper_bound: 100
+            # lower_bound_secondary: 0
+            # upper_bound_secondary: 1200
+            unit: People
+            group: false
+            height: 210
+            smoothing: false
+            decimals: 0
+            points_per_hour: 0.5
+            icon: mdi:biohazard
+            entities:
+              - entity: sensor.worldwide_coronavirus_deaths
+                name: Deaths
+              - entity: sensor.worldwide_coronavirus_confirmed
+                name: Confirmed
+              - entity: sensor.worldwide_coronavirus_current
+                name: Current
+              - entity: sensor.worldwide_coronavirus_recovered
+                name: Recovered
+            show:
+              fill: false
 
           - break
 
-          - type: history-graph
-            title: 'Power consumption graphs'
-            hours_to_show: 72
+          - type: custom:mini-graph-card
+            name: 'Power Consumption'
+            hours_to_show: 24
+            update_interval: 60
+            cache: true
+            hour24: true
+            lower_bound: 0
+            upper_bound: 1250
+            # lower_bound_secondary: 0
+            # upper_bound_secondary: 1300
+            points_per_hour: 120
+            unit: W
+            group: false
+            height: 180
+            smoothing: false
+            decimals: 0
+            icon: mdi:power-plug
             entities:
               - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
                 name: Fibaro Power
@@ -637,6 +740,81 @@ views:
               #   name: Top Floor Media Consumption
               - entity: sensor.power_top_floor_media
                 name: Top Floor Media Power
+            show:
+              fill: false
+              # labels_secondary: false
+              labels: true
+
+          - type: custom:mini-graph-card
+            name: 'Illumination'
+            hours_to_show: 48
+            update_interval: 60
+            cache: true
+            hour24: true
+            lower_bound: 0
+            # upper_bound: 350
+            # lower_bound_secondary: 0
+            # upper_bound_secondary: 1200
+            points_per_hour: 0.5
+            unit: lux
+            # group: false
+            height: 150
+            smoothing: true
+            decimals: 0
+            icon: mdi:white-balance-sunny
+            entities:
+              - entity: sensor.lightlevel_conservatory
+                name: Conservatory
+              - entity: sensor.lightlevel_basement_entrance
+                name: Basement Entrance
+              - entity: sensor.lightlevel_top_floor_stairway
+                name: Top floor stairway
+              - entity: sensor.lightlevel_tv_room
+                name: TV room
+              - entity: sensor.lightlevel_bathroom
+                name: Bathroom
+              - entity: sensor.lightlevel_top_floor_bathroom
+                name: Upstairs bathroom
+              - entity: sensor.lightlevel_top_floor_tv_room
+                name: Top floor TV room
+              - entity: sensor.lightlevel_kitchen
+                name: Kitchen
+              - entity: sensor.lightlevel_entrance
+                name: Entrance
+              - entity: sensor.aeotec_zw100_multisensor_6_luminance
+              #   # unit_of_measurement: lux
+              #   name: Walk-in closet
+            show:
+              fill: false
+
+          # - type: history-graph
+          #   title: 'Illumination graphs'
+          #   hours_to_show: 72
+          #   # icon: mdi:white-balance-sunny
+          #   refresh_interval: 60
+          #   entities:
+          #     - entity: sensor.lightlevel_conservatory
+          #       name: Conservatory
+          #     - entity: sensor.lightlevel_basement_entrance
+          #       name: Basement Entrance
+          #     - entity: sensor.lightlevel_top_floor_stairway
+          #       name: Top floor stairway
+          #     - entity: sensor.lightlevel_tv_room
+          #       name: TV room
+          #     - entity: sensor.lightlevel_bathroom_2
+          #       name: Bathroom
+          #     - entity: sensor.lightlevel_top_floor_bathroom
+          #       name: Upstairs bathroom
+          #     - entity: sensor.lightlevel_top_floor_tv_room
+          #       name: Top floor TV room
+          #     - entity: sensor.lightlevel_kitchen
+          #       name: Kitchen
+          #     - entity: binary_sensor.lightlevel_entrance
+          #       name: Entrance
+          #     # - entity: sensor.aeotec_zw100_multisensor_6_luminance
+          #     #   # unit_of_measurement: lux
+          #     #   name: Walk-in closet
+
 
 ##############
 #            #

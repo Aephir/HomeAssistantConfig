@@ -27,9 +27,15 @@
 #   username: !secret wyze_rtsp_user
 #   password: !secret wyze_rtsp_pass
 
+# - platform: mjpeg
+#   mjpeg_url: !secret octoprint_stream_url
+#   still_image_url: !secret octoprint_still_url
+#   name: OctoPrint
+
 - platform: ffmpeg
-  input: !secret octopi_stream_url
+  input: !secret octoprint_stream_url
   name: OctoPrint
+
 
 - platform: ffmpeg
   input: !secret wyze_rtsp_url

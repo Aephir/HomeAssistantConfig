@@ -10,4 +10,4 @@
     turn_on_action:
       - service: wake_on_lan.send_magic_packet
         data:
-          mac: !secret samsung_UE55NU7475XXC
+          mac: !secret ue55nu7475xxc_mac

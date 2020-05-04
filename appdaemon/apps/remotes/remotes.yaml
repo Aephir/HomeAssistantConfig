@@ -89,7 +89,7 @@ xiaomi_button_1:
   entityIDlist1: ['media_player.conservatory_speaker', 'media_player.ue55nu7475xxc', 'media_player.living_room_speaker']
   entityIDlist2: ['light.main_floor_lights', 'light.basement_lights', 'switch.rabbit_light']
 
-# xiaomi_cube_1:
-#   module: mi_magic_cube_1
-#   class: Remote
-#   id: mi_magic_cube
+xiaomi_cube_1:
+  module: mi_magic_cube_1
+  class: Remote
+  id: mi_magic_cube

@@ -12,12 +12,12 @@ class Octoprint(hass.Hass):
         'sensor.prusa_i3_mk3s_time_elapsed',
         'sensor.prusa_i3_mk3s_time_remaining'
         ]
-
+        
         for entity in time_sensors:
             self.listen_state(self.convert_time, entity)
 
     def convert_time(self, entity, attribute, old, new, kwargs):
 
         new_entity  = 'sensor.prusa_i3_mk3s_time_' + entity.split('_')[-1] + '_format'
-        new_time    = time.strftime('%H:%M:%S', time.gmtime(new))
+        new_time    = time.strftime('%H:%M:%S', time.gmtime(int(new)))
         self.set_state(new_entity, state = new_time)

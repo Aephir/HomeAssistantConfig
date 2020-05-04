@@ -61,8 +61,8 @@ logs:
 http:
     url: http://192.168.0.100:5050
     # password: !secret appdaemone_password
-    dash_ssl_certificate: /etc/letsencrypt/live/somehost/fullchain.pem
-    dash_ssl_key: /etc/letsencrypt/live/somehost/privkey.pem
+    # dash_ssl_certificate: /etc/letsencrypt/live/somehost/fullchain.pem
+    # dash_ssl_key: /etc/letsencrypt/live/somehost/privkey.pem
 api:
 admin:
   title: Appdaemon Admin
