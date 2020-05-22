@@ -42,7 +42,7 @@ class MotionClass(hass.Hass):
         for entity in self.motion_entity_ids:
             self.listen_state(self.motion_trigger, entity) # motion sensors
 
-        self.listen_state(self.switch_off,'switch.switch')
+        self.listen_state(self.switch_toggle,'switch.switch')
 
         self.listen_state(self.input_boolean,"input_boolean.main_floor_lights_motion_control")
         self.listen_state(self.motion_trigger,"input_boolean.cooking_mode")
@@ -143,15 +143,14 @@ class MotionClass(hass.Hass):
             self.timer = self.run_in(self.lights_off, 90)
 
 
-    def switch_off(self, entity, attribute, old, new, kwargs):
+    def switch_toggle(self, entity, attribute, old, new, kwargs):
         """
         If the espresso machine is switched off and there's no motion in the kitchen, turn off lights.
         """
 
         if new == 'off':
-            if self.get_state('binary_sensor.presence_kitchen') == 'off': # we got no motion.
-                self.cancel_timer(self.timer)
-                self.timer = self.run_in(self.lights_off, 30)
+            if self.get_state('light.kitchen_cabinet_1') == 'off': # cabinet light 1 is off.
+                self.turn_off('light.kitchen_cabinet_2')
         elif new == 'on':
             if self.get_state('light.kitchen_spots') == 'on':
                 if self.get_state('light.kitchen_cabinet_2') == 'off':

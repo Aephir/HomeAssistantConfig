@@ -34,7 +34,7 @@
         - entity: sensor.oven_program_progress
         - entity: sensor.oven_remaining_program_time
         - entity: binary_sensor.oven_door
-        # - entity: 
+        # - entity:
 
     - type: entities
       title: Fume Hood

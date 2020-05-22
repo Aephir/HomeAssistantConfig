@@ -20,6 +20,11 @@ custom_header:
       user: tablets_1
       config:
         kiosk_mode: true
+swipe_nav:
+  animate: flip
+  prevent_default: true
+  swipe_amount: 30
+  wrap: true
 
 
 resources:
@@ -544,6 +549,7 @@ views:
   - icon: fas:chart-line
     title: Graphs
     id: graphs
+    icon: mdi:chart-line
     panel: true
     layout: auto
     column_num: 3
@@ -826,6 +832,7 @@ views:
     title: Tech
     id: tech_control
     panel: true
+    icon: mdi:cogs
     layout: auto
     column_num: 3
     cards:
@@ -928,6 +935,7 @@ views:
     title: Kids
     id: kid_control
     panel: true
+    icon: mdi:human-male-girl
     layout: auto
     column_num: 3
     cards:
