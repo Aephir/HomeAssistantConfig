@@ -12,14 +12,16 @@ custom_header:
   # show_tabs: '0, 1, 2, 3, 4, 5'
   exceptions:
     - conditions:
-      user: emilie, naia
+        user: emilie, naia
       config:
         disable_sidebar: true
         hide_config: true
         hide_raw: true
+        show_tabs: 'Kids'
+        menu_hide: true
         # tab:
     - conditions:
-      user: tablets_1
+        user: tablets_1
       config:
         kiosk_mode: true
 

@@ -40,7 +40,7 @@ img, object {
 iframe {
   max-width: 100%;
 }
-  
+
 table {
   border-collapse: collapse;
   border-spacing: 0;
@@ -120,7 +120,7 @@ input {
 
 .iframe {
   position: relative;
-  overflow: hidden;  
+  overflow: hidden;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;}
@@ -202,10 +202,6 @@ input {
 
 .modalDialogCloseButton:hover { background: #444; }
 
-.widget-baseswitch-default-walden-presence {
-	position: relative;
-}
-
 .widget-baseswitch-default-walden-presence .title {
 	position: absolute;
 	top: 5px;
@@ -239,10 +235,6 @@ input {
 	height: 100%;
 }
 
-.widget-baseswitch-default-kristina-presence {
-	position: relative;
-}
-
 .widget-baseswitch-default-kristina-presence .title {
 	position: absolute;
 	top: 5px;
@@ -274,10 +266,6 @@ input {
 	left: 0;
 	width: 100%;
 	height: 100%;
-}
-
-.widget-baseswitch-default-emilie-presence {
-	position: relative;
 }
 
 .widget-baseswitch-default-emilie-presence .title {
@@ -350,10 +338,6 @@ input {
 	width: 100%;
 }
 
-.widget-baseswitch-default-doorbell {
-	position: relative;
-}
-
 .widget-baseswitch-default-doorbell .title {
 	position: absolute;
 	top: 5px;
@@ -385,10 +369,6 @@ input {
 	left: 0;
 	width: 100%;
 	height: 100%;
-}
-
-.widget-baseswitch-default-guest-mode {
-	position: relative;
 }
 
 .widget-baseswitch-default-guest-mode .title {
@@ -538,10 +518,6 @@ input {
 	top: 45px;
 	width: 100%;
 }
-.widget-baseswitch-default-switch-switch {
-	position: relative;
-}
-
 .widget-baseswitch-default-switch-switch .title {
 	position: absolute;
 	top: 5px;
@@ -573,10 +549,6 @@ input {
 	left: 0;
 	width: 100%;
 	height: 100%;
-}
-
-.widget-baseswitch-default-switch-fountain {
-	position: relative;
 }
 
 .widget-baseswitch-default-switch-fountain .title {
@@ -612,10 +584,6 @@ input {
 	height: 100%;
 }
 
-.widget-baseswitch-default-switch-kettle {
-	position: relative;
-}
-
 .widget-baseswitch-default-switch-kettle .title {
 	position: absolute;
 	top: 5px;
@@ -647,10 +615,6 @@ input {
 	left: 0;
 	width: 100%;
 	height: 100%;
-}
-
-.widget-baselight-default-entrance-lights {
-	position: relative;
 }
 
 .widget-baselight-default-entrance-lights .state_text {
@@ -729,10 +693,6 @@ input {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baselight-default-kitchen-spots {
-	position: relative;
-}
-
 .widget-baselight-default-kitchen-spots .state_text {
 	font-size: 85%;
 }
@@ -809,10 +769,6 @@ input {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baselight-default-dining-room-lights {
-	position: relative;
-}
-
 .widget-baselight-default-dining-room-lights .state_text {
 	font-size: 85%;
 }
@@ -889,10 +845,6 @@ input {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baselight-default-outdoor-lights {
-	position: relative;
-}
-
 .widget-baselight-default-outdoor-lights .state_text {
 	font-size: 85%;
 }
@@ -969,10 +921,6 @@ input {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baselight-default-basement-lights {
-	position: relative;
-}
-
 .widget-baselight-default-basement-lights .state_text {
 	font-size: 85%;
 }
@@ -1049,10 +997,6 @@ input {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baselight-default-top-floor-lights {
-	position: relative;
-}
-
 .widget-baselight-default-top-floor-lights .state_text {
 	font-size: 85%;
 }
@@ -1129,10 +1073,6 @@ input {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baselight-default-conservatory-lights {
-	position: relative;
-}
-
 .widget-baselight-default-conservatory-lights .state_text {
 	font-size: 85%;
 }
@@ -1209,10 +1149,6 @@ input {
 	padding-top: 10px;
 	padding-right: 30px;
 }
-.widget-baselight-default-bedroom-lights {
-	position: relative;
-}
-
 .widget-baselight-default-bedroom-lights .state_text {
 	font-size: 85%;
 }

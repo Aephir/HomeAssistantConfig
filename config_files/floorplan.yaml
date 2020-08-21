@@ -240,7 +240,7 @@
             - binary_sensor.presence_conservatory # Conservatory motion
             - binary_sensor.presence_tv_room # TV room motion
             - binary_sensor.presence_entrance # Entrance motion
-            - binary_sensor.presence_top_floor_tv_room # Basement stairway motion
+            - binary_sensor.presence_basement_stairway # Basement stairway motion
             - binary_sensor.presence_top_floor_bathroom # Upstairs bathroom motion
             - binary_sensor.presence_top_floor_stairway # Top floor stairway motion
             - binary_sensor.presence_kitchen # Kitchen motion

@@ -163,6 +163,8 @@ $(function(){ //DOM Ready
     }
 
     // Start listening for HA Events
+
+    
     if (location.protocol == 'https:')
     {
         wsprot = "wss:"
@@ -172,6 +174,8 @@ $(function(){ //DOM Ready
         wsprot = "ws:"
     }
     var stream_url = wsprot + '//' + location.host + '/stream'
-    ha_status(stream_url, "Simple Control", widgets);
+    
+
+    ha_status(stream_url, "Simple Control", widgets, "ws");
 
 });

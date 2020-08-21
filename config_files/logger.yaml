@@ -34,3 +34,4 @@ logs:
   # hacs: debug
   # queueman: debug
   # AIOGitHubAPI: debug
+  custom_components.reolink_dev.camera: critical

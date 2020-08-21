@@ -118,6 +118,36 @@ users:
   enabled: false
   code: 89c29464e8a246ec881f04001036a110
   picture: ha.png
+- id: 43d19c5723de4171beb6c159aeecb300
+  name: emilie
+  enabled: false
+  code: 43d19c5723de4171beb6c159aeecb300
+  picture: ha.png
+- id: bcf5ebb20fdc40babb5051c4d8ed777a
+  name: naia
+  enabled: false
+  code: bcf5ebb20fdc40babb5051c4d8ed777a
+  picture: ha.png
+- id: 696b816e5364405786d685be808a5fe2
+  name: tablets_1
+  enabled: false
+  code: 696b816e5364405786d685be808a5fe2
+  picture: ha.png
+- id: ec204bb59e204501baddc306358294bf
+  name: tablets_2
+  enabled: false
+  code: ec204bb59e204501baddc306358294bf
+  picture: ha.png
+- id: 7be1f1927ff24fb481e305eeb2be09ad
+  name: tablets_3
+  enabled: false
+  code: 7be1f1927ff24fb481e305eeb2be09ad
+  picture: ha.png
+- id: 1754797f39b44269a02e7ab034d2d06a
+  name: guest_lv_1
+  enabled: false
+  code: 1754797f39b44269a02e7ab034d2d06a
+  picture: ha.png
 admin_password: !secret alarm_admin_password
 enable_persistence: true
 enable_log: true
