@@ -11,8 +11,10 @@ class Test(hass.Hass):
         self.listen_state(self.test_app, 'input_boolean.vacation_mode')
 
     def test_app(self, entity, attribute, old, new, kwargs):
-        
-        
+
+        self.toggle('light.dining_table_lights')
+
+
 
         # self.log('Testing function is running (method 1)... Will it call from different app?')
         # self.global_functions   = self.get_app('global_functions_app')  # Gets the class where the functions are?
@@ -45,8 +47,8 @@ class Test(hass.Hass):
         # get_class = get_app.Global()            # Get class
         # get_func = get_class.test_function()               # Get function
         # self.log(get_func)
-        
-        
+
+
         self.log('Testing function is running (method 7)... Will it call from different app?')
         x = self.GlobalFunctions.testFunction()
         self.log(x)

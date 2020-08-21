@@ -49,6 +49,7 @@
       naia_ipad_ping: 192.168.0.35
       emilie_iphone_ping: 192.168.0.30
       karen_iphone_ping: 192.168.0.19
+      naia_iphone_ping: 192.168.0.14
     scan_interval: 30
 
 #################

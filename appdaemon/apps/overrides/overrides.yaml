@@ -1,0 +1,15 @@
+#######################
+#                     #
+#    Override Apps    #
+#                     #
+#######################
+
+##################################
+#    Motion Controlled Lights    #
+##################################
+
+top_floor_motion_lights_timer:
+  module: top_floor_motion_override
+  class: ManualOverride
+  input: input_number.override_top_floor_motion
+  boolean: top_floor_lights_motion_control

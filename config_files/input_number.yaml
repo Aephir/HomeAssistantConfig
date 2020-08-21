@@ -9,29 +9,29 @@
 ########################
 
 override_top_floor_motion:
-  name: Top Floor
-  initial: 0
-  min: 0
-  max: 480
-  step: 5
+  name: Top Floor Motion Sensor
+  initial: 15
+  min: 15
+  max: 600
+  step: 15
   unit_of_measurement: 'minutes'
   icon: mdi:av-timer
 
 override_main_floor_motion:
-  name: Top Floor
-  initial: 0
-  min: 0
+  name: Main Floor
+  initial: 15
+  min: 15
   max: 480
-  step: 5
+  step: 15
   unit_of_measurement: 'minutes'
   icon: mdi:av-timer
 
 override_basement_motion:
-  name: Top Floor
-  initial: 0
-  min: 0
+  name: Basement
+  initial: 15
+  min: 15
   max: 480
-  step: 5
+  step: 15
   unit_of_measurement: 'minutes'
   icon: mdi:av-timer
 

@@ -19,4 +19,7 @@ lights_off_at_sunrise:
   module: off_at_sunrise
   class: Sunrise
   non_presence_lights: ['light.conservatory_lights','light.dining_room_lights','light.lightstrip_1','switch.rabbit_light']
-  
+
+chicken_lights:
+  module: chicken_lights
+  class: Lights

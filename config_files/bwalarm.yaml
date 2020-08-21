@@ -1,0 +1,139 @@
+platform: bwalarm
+# name: House
+# panel:
+#   panel_title: Home
+#   camera_update_interval: '30'
+#   floorplan: binary_sensor.floorplan
+#   enable_floorplan_panel: 'True'
+#   hide_sidebar: 'True'
+#   round_buttons: 'False'
+#   enable_sensors_panel: enable
+#   enable_fahrenheit: '0'
+#   hide_sensors: true
+#   hide_passcode: 'False'
+#   enable_clock: 'True'
+#   cameras:
+#   - camera.front_door
+#   - camera.ffmpeg
+#   # - camera.wallpanel_camera
+# states:
+#   armed_away:
+#     immediate:
+#     - binary_sensor.openclose_conservatory_door # Conservatory door
+#     - binary_sensor.openclose_bedroom_window_1 # Bedroom window
+#     - binary_sensor.openclose_bathroom_window # Bathroom window
+#     delayed:
+#     - binary_sensor.openclose_front_door # Front door
+#     - binary_sensor.openclose_basement_entrance_door # Basement door
+#   # - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
+#     - binary_sensor.presence_basement_entrance # Basement entrance motion
+#     - binary_sensor.presence_conservatory # Conservatory motion
+#     - binary_sensor.presence_entrance # Entrance motion
+#     override: []
+#     pending_time: 150 # 2
+#     warning_time: 20 # 2
+#     trigger_time: 300 # 5
+#   armed_home:
+#     immediate:
+#     - binary_sensor.openclose_conservatory_door # Conservatory door
+#     - binary_sensor.openclose_basement_entrance_door # Basement door
+#     - binary_sensor.openclose_front_door # Front door
+#     - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
+#     delayed:
+#     - binary_sensor.presence_basement_entrance # Basement entrance motion
+# #   - binary_sensor.presence_top_floor_stairway
+#     override: []
+#     pending_time: 150
+#     warning_time: 150
+#     trigger_time: 300
+#   armed_night:
+#     immediate:
+#     - binary_sensor.openclose_conservatory_door # Conservatory door
+#     delayed:
+#     - binary_sensor.openclose_basement_entrance_door # Basement door
+#     - binary_sensor.openclose_front_door # Front door
+# #     - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
+#     override: []
+#     pending_time: 150
+#     warning_time: '2'
+#     trigger_time: 600
+# users:
+# - id: !secret aephir_id
+#   name: Aephir
+#   enabled: true
+#   code: 75c9d2267cee412080450f487eb5fe30
+#   picture: /local/images/brain.jpg
+# - id: !secret kristina_id
+#   name: Kristina
+#   enabled: true
+#   code: 0907129198014cc38e658ba90cd96926
+#   picture: /local/images/kristina_3.jpg
+# - id: !secret emilie_id
+#   name: Emilie
+#   enabled: true
+#   code: 6f37d3ef1a3848bb901d5da5a967e632
+#   picture: /local/images/emilie.jpg
+# - id: !secret naia_id
+#   name: Naia
+#   enabled: false
+#   code: ebf52937fe9143fba85d2d662fe4155c
+#   picture: /local/images/naia_2.jpg
+# - id: bb81cd13a61041f9b5c57000c92508ee
+#   name: Tablets_1
+#   enabled: false
+#   code: bb81cd13a61041f9b5c57000c92508ee
+#   picture: /local/images/ha.png
+# - id: 6f415abb1d2043aeb8d81ebacbce0d8d
+#   name: Tablets_2
+#   enabled: false
+#   code: 6f415abb1d2043aeb8d81ebacbce0d8d
+#   picture: /local/images/ha.png
+# - id: 119fda64294549ea9f2ecac093f396f1
+#   name: Tablets_3
+#   enabled: false
+#   code: 119fda64294549ea9f2ecac093f396f1
+#   picture: /local/images/ha.png
+# - id: 632be764c7384983be7800661ca79636
+#   name: Guest_lv_1
+#   enabled: false
+#   code: 632be764c7384983be7800661ca79636
+#   picture: /local/images/ha.png
+# - id: 80794751f53549f0aaeae48a4730f412
+#   name: Legacy API password user
+#   enabled: false
+#   code: 80794751f53549f0aaeae48a4730f412
+#   picture: /local/images/ha.png
+# admin_password: !secret alarm_admin_password
+# enable_persistence: true
+# enable_log: true
+# code: !secret alarm_code
+# panic_code: !secret panic_code
+# passcode_attempts: '5'
+# passcode_attempts_timeout: '300'
+# # custom_supported_statuses_on:
+# # - !secret contact_opened
+# # - !secret contact_tampered
+# themes:
+# - name: aaa
+#   warning_color: '#995BFF'
+#   pending_color: '#FF2943'
+#   disarmed_color: '#FF22E6'
+#   triggered_color: '#FF0000'
+#   armed_home_color: '#C1B1FF'
+#   armed_away_color: '#FF8686'
+#   armed_perimeter_color: '#DAFF9E'
+#   active: false
+#   action_button_border_color: '#3ED5FF'
+# mqtt:
+#   enable_mqtt: true
+#   payload_arm_away: ARM_AWAY
+#   override_code: false
+#   state_topic: home/alarm
+#   payload_disarm: DISARM
+#   command_topic: home/alarm/set
+#   qos: '0'
+#   pending_on_warning: false
+#   payload_arm_home: ARM_HOME
+#   payload_arm_night: ARM_NIGHT
+# code_to_arm: false
+# enable_night_mode: false

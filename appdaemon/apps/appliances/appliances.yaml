@@ -1,0 +1,11 @@
+####################
+#    Appliances    #
+####################
+
+washer_finished:
+  module: washer
+  class: ApplianceStatus
+
+fridge_status:
+  module: refrigerator
+  class: ApplianceStatus

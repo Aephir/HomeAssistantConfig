@@ -185,7 +185,7 @@
       to: 'home'
       entity_id: device_tracker.meta_kristina
   action:
-    service: notify.telegram
+    service: notify.home_aephir_bot
     data:
       message: "Kristina is home"
 

@@ -1,7 +1,7 @@
 
 title: Home
 # Optional background for all views. Check https://developer.mozillfaa.org/en-US/docs/Web/CSS/background for more examples.
-background: center / cover no-repeat url("/local/images/banner_bg_2.jpg") #fixed
+# background: center / cover no-repeat url('/local/images/banner_bg_2.jpg') #fixed
 # lovelace-background: 'center / cover no-repeat url("/local/images/banner_bg_2.jpg") fixed'
 # Exclude entities from "Unused entities" view
 # excluded_entities:
@@ -9,17 +9,20 @@ background: center / cover no-repeat url("/local/images/banner_bg_2.jpg") #fixed
 
 custom_header:
   compact_mode: true
+  # show_tabs: '0, 1, 2, 3, 4, 5'
   exceptions:
     - conditions:
       user: emilie, naia
       config:
         disable_sidebar: true
         hide_config: true
+        hide_raw: true
         # tab:
     - conditions:
       user: tablets_1
       config:
         kiosk_mode: true
+
 swipe_nav:
   animate: flip
   prevent_default: true
@@ -35,9 +38,9 @@ resources:
   - url: /hacsfiles/entity-attributes-card/entity-attributes-card.js
     type: js
   - url: /hacsfiles/lovelace-slider-entity-row/slider-entity-row.js
-    type: js
-  - url: /hacsfiles/surveillance-card/surveillance-card.js
     type: module
+  # - url: /hacsfiles/surveillance-card/surveillance-card.js
+  #   type: module
   - url: /hacsfiles/lovelace-fold-entity-row/fold-entity-row.js
     type: js
   - url: /hacsfiles/lovelace-state-switch/state-switch.js
@@ -54,8 +57,10 @@ resources:
     type: module
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
-  - url: /local/restriction-card.js
+  - url: /hacsfiles/restriction-card/restriction-card.js
     type: module
+  - url: /hacsfiles/lovelace-hui-element/hui-element.js
+    Type: module
 
 views:
 
@@ -129,20 +134,31 @@ views:
                 # type: custom:restriction-card
                 # users:
                 #   - Aephir
+          # - type: custom:restriction-card
+          #   card:
+          #     entity: sensor.neo_coolcam_power_plug_12a_power
+          #   restrictions:
+          #     block: true
+                # exemptions:
+                #   - user: aephir
+                #   - user: kristina
+            row: true
           - type: entities
             title: Kitchen
             show_header_toggle: false
             entities:
               - entity: switch.switch
-                # type: custom:restriction-card
-                # users:
-                #   - Aephir
-                #   - Kristina
               - entity: switch.kettle
-                # type: custom:restriction-card
-                # users:
-                #   - Aephir
-                #   - Kristina
+              # - type: custom:restriction-card
+              #   users:
+              #     - Aephir
+              #     - Kristina
+              #   entity: switch.kettle
+              # - type: custom:restriction-card
+              #   users:
+              #     - Aephir
+              #     - Kristina
+              #   entity: switch.switch
 
           - type: vertical-stack
             id: fume_hood_controls
@@ -343,7 +359,7 @@ views:
             title: Plant Status
             columns: 4
             entities:
-              - entity: plant.avocado
+              - entity: plant.squash
               - entity: plant.herb_garden
               - entity: plant.kalamansi
               - entity: plant.lemon
@@ -370,6 +386,15 @@ views:
             title: OctoPrint
             entities:
               - camera.octoprint
+          - type: picture-glance
+            title: Chicken Coop
+            camera_image: camera.chicken_coop
+            entities:
+              - switch.camera_chicken_coop_ir_lights
+              - switch.camera_chicken_coop_email
+              - switch.camera_chicken_coop_ftp
+              - switch.camera_chicken_coop_motion_detection
+              - binary_sensor.motion_chicken_coop
 
 #########################
 #                       #
@@ -526,7 +551,9 @@ views:
                 #   - Aephir
               - entity: switch.neo_coolcam_2
                 # icon: mdi:youtube-tv
+              - entity: switch.shed_master_power
               - entity: switch.zigbee_and_yeelight_power
+              - entity: switch.shed_power
 
 # Sensors:
 # sensor.shenzhen_neo_electronics_co_ltd_power_plug_12a_power
@@ -650,66 +677,6 @@ views:
               labels_secondary: false
               labels: true
               state: true
-              fill: false
-
-          - break
-
-          - type: custom:mini-graph-card
-            name: 'COVID-19 Denmark'
-            hours_to_show: 240
-            update_interval: 600
-            cache: true
-            hour24: true
-            lower_bound: 0
-            # upper_bound: 100
-            # lower_bound_secondary: 0
-            # upper_bound_secondary: 1200
-            unit: People
-            group: false
-            height: 210
-            smoothing: false
-            decimals: 0
-            points_per_hour: 0.5
-            icon: mdi:biohazard
-            entities:
-              - entity: sensor.denmark_coronavirus_deaths
-                name: Deaths
-              - entity: sensor.denmark_coronavirus_confirmed
-                name: Confirmed
-              - entity: sensor.denmark_coronavirus_current
-                name: Current
-              - entity: sensor.denmark_coronavirus_recovered
-                name: Recovered
-            show:
-              fill: false
-
-          - type: custom:mini-graph-card
-            name: 'COVID-19 World'
-            hours_to_show: 240
-            update_interval: 600
-            cache: true
-            hour24: true
-            lower_bound: 0
-            # upper_bound: 100
-            # lower_bound_secondary: 0
-            # upper_bound_secondary: 1200
-            unit: People
-            group: false
-            height: 210
-            smoothing: false
-            decimals: 0
-            points_per_hour: 0.5
-            icon: mdi:biohazard
-            entities:
-              - entity: sensor.worldwide_coronavirus_deaths
-                name: Deaths
-              - entity: sensor.worldwide_coronavirus_confirmed
-                name: Confirmed
-              - entity: sensor.worldwide_coronavirus_current
-                name: Current
-              - entity: sensor.worldwide_coronavirus_recovered
-                name: Recovered
-            show:
               fill: false
 
           - break
@@ -942,19 +909,34 @@ views:
       - type: custom:layout-card
         layout: vertical
         cards:
-          - type: button
-            name: Bevægelsesstyret Lys
-            toggle: false
-            entity: input_boolean.top_floor_lights_motion_control
-            icon: mdi:motion-sensor
+          # - type: button
+          #   name: Bevægelsesstyret Lys
+          #   toggle: false
+          #   entity: input_boolean.top_floor_lights_motion_control
+          #   icon: mdi:motion-sensor
+
+          # - type: button
+          #   title: Bevægelsesstyret lys 30 min
+          #   name: Manuel lys i 30 min
+          #   icon: mdi:motion-sensor
+          #   toggle: false
+          #   tap_action:
+          #     action: call-service
+          #     service: script.turn_on
+          #     service_data:
+          #       entity_id: script.turn_off_lights
+          #   entity: script.top_floor_motion_off_30
+
           - type: button
             name: TV Lys
             toggle: false
             entity: light.top_floor_tv_area
           - type: button
             name: Krea Lys
-            entities: Bevægelsesstyret Lys
             entity: light.top_floor_hallway
+          - type: button
+            name: Badeværelse Lys
+            entity: light.top_floor_bathroom
               # - entity: input_boolean.top_floor_lights_motion_control
               #   name: Bevægelsesstyret Lys
               #   icon: mdi:motion-sensor
@@ -965,26 +947,33 @@ views:
               # - entity: light.top_floor_bathroom
               #   name: Badeværelses Lys
           - break
+
           - type: button
-            title: TV og Playstation
-            name: Strøm til TV & Playstation
-            icon: mdi:playstation
-            entity: switch.top_floor_media
+            name: Bevægelsesstyret Lys
+            toggle: false
+            entity: input_number.override_top_floor_motion
+            icon: mdi:motion-sensor
+
+          - type: button
+            name: Trappe Lys
+            entity: light.stairway_up
             # # toggle: false
             # entities:
             #   - entity: switch.top_floor_media
             #     name: Strøm til TV & Playstation
-          - type: button
-            title: Kanin Lys
-            name: Lys i 5 minutter
-            icon: mdi:rabbit
-            tap_action:
-              action: call-service
-              service: script.turn_on
-              service_data:
-                entity_id: script.turn_off_lights
-            entity: script.rabbit_light_5_min
+          # - type: button
+          #   title: Kanin Lys
+          #   name: Lys i 5 minutter
+          #   icon: mdi:rabbit
+          #   tap_action:
+          #     action: call-service
+          #     service: script.turn_on
+          #     service_data:
+          #       entity_id: script.turn_off_lights
+          #   entity: script.rabbit_light_5_min
+
           - break
+
           - type: button
             name: Spisestue Lys
             entity: light.dining_room_lights
@@ -992,6 +981,11 @@ views:
             name: Udestue Lys
             entity: light.conservatory_lights
 
+          - type: button
+            title: TV og Playstation
+            name: Strøm til TV & Playstation
+            icon: mdi:playstation
+            entity: switch.top_floor_media
           # - type: entities
           #   title: Lys Nedenunder
           #   toggle: false

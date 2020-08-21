@@ -38,3 +38,29 @@
   name: "Emilie Phone Battery 360"
   unit_of_measurement: "%"
   value_template: "{{ (value_json.batt | float) | round(0) }}"
+
+- platform: template
+  sensors:
+    samsung_ue55nu7475xxc_dummy:
+      value_template: >-
+          '{% if is_state("media_player.ue55nu7475xxc", "unavailable") %}off{% elif is_state("media_player.ue55nu7475xxc", "off")%}off{% else %}on{% endif %}'
+      friendly_name: 'Conservatory TV'
+      # icon_template: >-
+      #   {% if is_state('media_player.ue55nu7475xxc','on') %}
+      #     mdi:television
+      #   {% else %}
+      #     mdi:television
+      #   {% endif %}
+
+- platform: template
+  sensors:
+    samsung_ue46es8005_dummy:
+      value_template: >-
+          '{% if is_state("media_player.upstairs_living_room_tv", "unavailable") %}off{% elif is_state("media_player.upstairs_living_room_tv", "off")%}off{% else %}on{% endif %}'
+      friendly_name: 'Upstairs TV'
+      # icon_template: >-
+      #   {% if is_state('media_player.ue55nu7475xxc','on') %}
+      #     mdi:television
+      #   {% else %}
+      #     mdi:television
+      #   {% endif %}

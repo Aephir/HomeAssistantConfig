@@ -38,7 +38,7 @@ Kalamansi:
   min_brightness: 4000
   max_brightness: 65000
 
-Avocado:
+Squash:
   sensors:
     battery: sensor.plant_sensor_3_battery
     conductivity: sensor.plant_sensor_3_conductivity

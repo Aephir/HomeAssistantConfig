@@ -1090,12 +1090,12 @@
   unit_of_measurement: days
 #  unit_of_measurement: hours
 
-# CPU temperature
-- platform: command_line
-  name: CPU Temperature
-  command: 'cat /sys/class/thermal/thermal_zone3/temp'
-  unit_of_measurement: '°C'
-  value_template: '{{ (value | multiply(0.001)) | round(1) }}'
+# # CPU temperature
+# - platform: command_line
+#   name: CPU Temperature
+#   command: 'cat /sys/class/thermal/thermal_zone3/temp'
+#   unit_of_measurement: '°C'
+#   value_template: '{{ (value | multiply(0.001)) | round(1) }}'
 
 
 # - platform: command_line

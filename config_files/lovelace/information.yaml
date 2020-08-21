@@ -1,394 +1,394 @@
 # Information View
 
-    title: Information
-    icon: mdi:information-variant
-    id: information
-    cards:
+title: Information
+icon: mdi:information-variant
+id: information
+cards:
 
-      - type: glance
-        title: Family
-        columns: 4
-        entities:
-          - entity: device_tracker.meta_walden
-            name: Walden
-          - entity: device_tracker.meta_kristina
-            name: Kristina
-          - entity: device_tracker.meta_emilie
-            name: Emilie
-          - entity: device_tracker.meta_naia
-            name: Naia
-          - entity: sensor.walden_phone_battery
-            name: Walden's Battery
-          - entity: sensor.kristina_phone_battery
-            name: Kristina's Battery
-          - entity: sensor.emilie_phone_battery
-            name: Emilie's Battery
-          - entity: sensor.niels_brodys_ipad_2_battery_level
-            name: Naia's Battery
+  - type: glance
+    title: Family
+    columns: 4
+    entities:
+      - entity: device_tracker.meta_walden
+        name: Walden
+      - entity: device_tracker.meta_kristina
+        name: Kristina
+      - entity: device_tracker.meta_emilie
+        name: Emilie
+      - entity: device_tracker.meta_naia
+        name: Naia
+      - entity: sensor.walden_phone_battery
+        name: Walden's Battery
+      - entity: sensor.kristina_phone_battery
+        name: Kristina's Battery
+      - entity: sensor.emilie_phone_battery
+        name: Emilie's Battery
+      - entity: sensor.niels_brodys_ipad_2_battery_level
+        name: Naia's Battery
 
-      - type: entities
-        title: Doors and Windows
-        show_header_toggle: false
-        entities:
-          - type: custom:entity-attributes-card
-            entity: sensor.windows_and_doors
-            filter:
-              include:
-                - key: sensor.windows_and_doors.number_of_doors
-                  name: Number of Open Doors
-                - key: sensor.windows_and_doors.number_of_windows
-                  name: Number of Open Windows
-                - key: sensor.windows_and_doors.shed_door
-                  name: Shed Door
-                - key: sensor.windows_and_doors.last_door_opened
-                  name: Last Opened Door
-                - key: sensor.windows_and_doors.door_opened_at
-                  name: Door Opened at
-                - key: sensor.windows_and_doors.list_of_open
-                  name: List of Open Doors and Windows
-
-      - type: glance
-        title: Door/Window Sensors
-        columns: 4
-        entities:
-          - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
-          - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory Door
-          - binary_sensor.openclose_front_door # Front Door
-          - binary_sensor.openclose_basement_entrance_door # Basement Door
-          - binary_sensor.openclose_bathroom_window # Bathroom Window
-          - binary_sensor.openclose_bedroom_window_1 # Bedroom Window
-
-      - type: vertical-stack
-        cards:
-        - type: glance
-          title: Main Floor Motion Sensors
-          columns: 3
-          entities:
-            # - type: divider
-              # label: Main Floor
-            - "binary_sensor.presence_entrance" # Entrance
-            - "binary_sensor.presence_conservatory" # Conservatory
-            - "binary_sensor.conservatory_motion_sensor_aeotec" # Conservatory #2 (Aeotec)
-            - "binary_sensor.presence_kitchen" # Kitchen
-            - "binary_sensor.presence_bathroom" # Bathroom #1
-            - "binary_sensor.presence_bathroom_2" # Bathroom #2
-        - type: glance
-          title: Basement Motion Sensors
-          columns: 3
-          entities:
-            - "binary_sensor.presence_basement_entrance" # Basement entrance
-            - "binary_sensor.presence_basement_stairway" # Basemenet stairway
-            - "binary_sensor.presence_tv_room" # TV room
-            - "binary_sensor.walk_in_closet_motion_sensor" # Walk-in closet
-        - type: glance
-          title: Top Floor Motion Sensors
-          columns: 3
-          entities:
-            - "binary_sensor.presence_top_floor_stairway" # Top floor stairs
-            - "binary_sensor.presence_top_floor_tv_room" # Top floor TV room
-            - "binary_sensor.presence_top_floor_bathroom" # Upastairs bathroom
-
-      - type: glance
-        title: Alarm Status
-        columns: 3
-        entities:
-          - entity: alarm_control_panel.house
-            name: Security system
-          - entity: binary_sensor.someonehome360
-            name: Occupancy
-            text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
-          - entity: binary_sensor.smoke_sensor_158d0001bc49bd
-            name: Smoke detector (kitchen)
-
-      - type: custom:monster-card
-        show_empty: false
-        card:
-          type: glance
-          title: Sensor Battery Levels
-          columns: 4
-          # state_filter:
-          #   - '< 25'
+  - type: entities
+    title: Doors and Windows
+    show_header_toggle: false
+    entities:
+      - type: custom:entity-attributes-card
+        entity: sensor.windows_and_doors
         filter:
           include:
-            - entity_id: "*_bat*"
-              state: '< 25'
-            # - attributes:
-            #   battery: '< 50'
-            # - attributes:
-            #   battery_level: '< 50'
-        # entities:
-        #   - entity: sensor.x_door_1_bat
-        #     name: Conservatory
-        #   - entity: sensor.x_door_2_bat
-        #     name: Shed
-        #   - entity: sensor.x_door_3_bat
-        #     name: Front Door
-        #   - entity: sensor.z_door_1_bat
-        #     name: Basement Door
-        #   - entity: sensor.x_motion_1_bat
-        #     name: Basement Entrance Motion
-        #   - entity: sensor.x_motion_2_bat
-        #     name: Conservatory Motion
-        #   - entity: sensor.x_motion_3_bat
-        #     name: Top Floor Stairway Motion
-        #   - entity: sensor.x_motion_4_bat
-        #     name: Upstais Bathroom Motion
-        #   - entity: sensor.x_motion_5_bat
-        #     name: Basement Stairway Motion
-        #   - entity: sensor.x_motion_6_bat
-        #     name: Basement Bathroom 2 Motion
-        #   - entity: sensor.x_motion_7_bat
-        #     name: Basement TV Room Motion
-        #   - entity: sensor.x_motion_8_bat
-        #     name: Kitchen Motion
-        #   - entity: sensor.x_motion_9_bat
-        #     name: Bathroom Motion
-        #   - entity: sensor.x_temphum_1_bat
-        #     name: Bathroom Temp/Hum
-        #   - entity: sensor.x_temphum_2_bat
-        #     name: Wine Cellar Temp/Hum
-        #   - entity: sensor.x_temphum_3_bat
-        #     name: Washing Room Temp/Hum
-        #   - entity: sensor.x_temphum_4_bat
-        #     name: Shed Temp/Hum
-        #   - entity: sensor.x_temphum_5_bat
-        #     name: Kitchen Temp/Hum
-        #   - entity: sensor.x_smoke_1_bat
-        #     name: Smoke Sensor
-        #   # - entity: zwave.fibaro_system_fgt001_heat_controller.battery_level
-        #   #   name: Bathroom Radiator
-        #   - entity: sensor.fibaro_heat_01
-        #     name: Bathroom radiator
+            - key: sensor.windows_and_doors.number_of_doors
+              name: Number of Open Doors
+            - key: sensor.windows_and_doors.number_of_windows
+              name: Number of Open Windows
+            - key: sensor.windows_and_doors.shed_door
+              name: Shed Door
+            - key: sensor.windows_and_doors.last_door_opened
+              name: Last Opened Door
+            - key: sensor.windows_and_doors.door_opened_at
+              name: Door Opened at
+            - key: sensor.windows_and_doors.list_of_open
+              name: List of Open Doors and Windows
 
-      # - type: glance
-      #   title: Kitchen
-      #   entities:
-      #     - entity: binary_sensor.smoke_sensor_158d0001bc49bd
-      #       name: Smoke Detector
+  - type: glance
+    title: Door/Window Sensors
+    columns: 4
+    entities:
+      - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
+      - binary_sensor.door_window_sensor_158d000234dc7b # Conservatory Door
+      - binary_sensor.openclose_front_door # Front Door
+      - binary_sensor.openclose_basement_entrance_door # Basement Door
+      - binary_sensor.openclose_bathroom_window # Bathroom Window
+      - binary_sensor.openclose_bedroom_window_1 # Bedroom Window
 
-      - type: horizontal-stack
-        cards:
-          - type: gauge
-            name: CPU Temperature
-            # title: CPU Temperature
-            measurement: °C # set yo override default
-            entity: sensor.cpu_temperature
-            # scale: 10px
-            min: 0
-            max: 100
-            severity:
-              red: 75
-              amber: 50
-              green: 0
-          - type: gauge
-            name: CPU use
-            # title: CPU use
-            entity: sensor.processor_use
-            # scale: 10px
-            min: 0
-            max: 100
-            severity:
-              red: 75
-              amber: 50
-              green: 0
-          - type: gauge
-            name: Memory use
-            # title: Memory use
-            entity: sensor.memory_use_percent
-            # scale: 10px
-            min: 0
-            max: 100
-            severity:
-              red: 75
-              amber: 50
-              green: 0
-          - type: gauge
-            name: Disk use
-            # title: Disk use
-            entity: sensor.disk_use_percent
-            # scale: 10px
-            min: 0
-            max: 100
-            severity:
-              red: 75
-              amber: 50
-              green: 0
-      - type: custom:tracker-card
-        title: Custom Components and Cards
-        trackers:
-          - sensor.custom_card_tracker
-          - sensor.custom_component_tracker
-          # - sensor.custom_python_script_tracker
-      # - type: iframe
-      #   url: https://embed.windy.com/embed2.html
-      # - type: sensor
-      #   entity: sensor.temperature_wine_cellar
-      #   name: Wine cellar temperature
-      #   height: 150
-      #   line_color: "#3498db"
+  - type: vertical-stack
+    cards:
+    - type: glance
+      title: Main Floor Motion Sensors
+      columns: 3
+      entities:
+        # - type: divider
+          # label: Main Floor
+        - "binary_sensor.presence_entrance" # Entrance
+        - "binary_sensor.presence_conservatory" # Conservatory
+        - "binary_sensor.conservatory_motion_sensor_aeotec" # Conservatory #2 (Aeotec)
+        - "binary_sensor.presence_kitchen" # Kitchen
+        - "binary_sensor.presence_bathroom" # Bathroom #1
+        - "binary_sensor.presence_bathroom_2" # Bathroom #2
+    - type: glance
+      title: Basement Motion Sensors
+      columns: 3
+      entities:
+        - "binary_sensor.presence_basement_entrance" # Basement entrance
+        - "binary_sensor.presence_basement_stairway" # Basemenet stairway
+        - "binary_sensor.presence_tv_room" # TV room
+        - "binary_sensor.walk_in_closet_motion_sensor" # Walk-in closet
+    - type: glance
+      title: Top Floor Motion Sensors
+      columns: 3
+      entities:
+        - "binary_sensor.presence_top_floor_stairway" # Top floor stairs
+        - "binary_sensor.presence_top_floor_tv_room" # Top floor TV room
+        - "binary_sensor.presence_top_floor_bathroom" # Upastairs bathroom
 
-      # - type: vertical-stack
-      #   cards:
-      #   - type: glance
-      #     title: Bathroom
-      #     columns: 3
-      #     entities:
-      #       - entity: sensor.temperature_bathroom
-      #         name: Temperature
-      #       - entity: sensor.humidity_bathroom
-      #         name: Humidity
-      #       - entity: sensor.pressure_bathroom
-      #         name: Pressure
-      #         # value_template: '{{ value.sensor.pressure_bathroom | round(1) }}'
-      #
-      #   - type: glance
-      #     title: Conservatory
-      #     columns: 3
-      #     entities:
-      #       - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
-      #         name: Temperature
-      #       - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
-      #         name: Humidity
-      #       - entity: sensor.aeotec_zw100_multisensor_6_luminance_2
-      #         name: Luminescence
-      #       - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet_2
-      #         name: UV
-      #
-      #   - type: glance
-      #     title: Kitchen
-      #     columns: 3
-      #     entities:
-      #       - entity: sensor.temperature_kitchen
-      #         name: Temperature
-      #       - entity: sensor.humidity_kitchen
-      #         name: Humidity
-      #       - entity: sensor.pressure_kitchen
-      #         name: Pressure
+  - type: glance
+    title: Alarm Status
+    columns: 3
+    entities:
+      - entity: alarm_control_panel.house
+        name: Security system
+      - entity: binary_sensor.someonehome360
+        name: Occupancy
+        text_template: '${entity.state ? entity.state.replace("On", "Occupied").replace("Off", "Unoccupied")} : "undefined"}'
+      - entity: binary_sensor.smoke_sensor_158d0001bc49bd
+        name: Smoke detector (kitchen)
 
-      - type: history-graph
-        title: 'Temperature graphs'
-        hours_to_show: 72
-        refresh_interval: 60
-        entities:
-          - entity: sensor.temperature_wine_cellar
-            name: Wine cellar
-          - entity: sensor.temperature_washing_room
-            name: Washing room
-          - entity: sensor.temperature_bathroom
-            name: Bathroom
-          - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
-            name: Kitchen
-          - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
-            name: Conservatory
-          - entity: sensor.temperature_washing_room
-            name: Shed
+  - type: custom:monster-card
+    show_empty: false
+    card:
+      type: glance
+      title: Sensor Battery Levels
+      columns: 4
+      # state_filter:
+      #   - '< 25'
+    filter:
+      include:
+        - entity_id: "*_bat*"
+          state: '< 25'
+        # - attributes:
+        #   battery: '< 50'
+        # - attributes:
+        #   battery_level: '< 50'
+    # entities:
+    #   - entity: sensor.x_door_1_bat
+    #     name: Conservatory
+    #   - entity: sensor.x_door_2_bat
+    #     name: Shed
+    #   - entity: sensor.x_door_3_bat
+    #     name: Front Door
+    #   - entity: sensor.z_door_1_bat
+    #     name: Basement Door
+    #   - entity: sensor.x_motion_1_bat
+    #     name: Basement Entrance Motion
+    #   - entity: sensor.x_motion_2_bat
+    #     name: Conservatory Motion
+    #   - entity: sensor.x_motion_3_bat
+    #     name: Top Floor Stairway Motion
+    #   - entity: sensor.x_motion_4_bat
+    #     name: Upstais Bathroom Motion
+    #   - entity: sensor.x_motion_5_bat
+    #     name: Basement Stairway Motion
+    #   - entity: sensor.x_motion_6_bat
+    #     name: Basement Bathroom 2 Motion
+    #   - entity: sensor.x_motion_7_bat
+    #     name: Basement TV Room Motion
+    #   - entity: sensor.x_motion_8_bat
+    #     name: Kitchen Motion
+    #   - entity: sensor.x_motion_9_bat
+    #     name: Bathroom Motion
+    #   - entity: sensor.x_temphum_1_bat
+    #     name: Bathroom Temp/Hum
+    #   - entity: sensor.x_temphum_2_bat
+    #     name: Wine Cellar Temp/Hum
+    #   - entity: sensor.x_temphum_3_bat
+    #     name: Washing Room Temp/Hum
+    #   - entity: sensor.x_temphum_4_bat
+    #     name: Shed Temp/Hum
+    #   - entity: sensor.x_temphum_5_bat
+    #     name: Kitchen Temp/Hum
+    #   - entity: sensor.x_smoke_1_bat
+    #     name: Smoke Sensor
+    #   # - entity: zwave.fibaro_system_fgt001_heat_controller.battery_level
+    #   #   name: Bathroom Radiator
+    #   - entity: sensor.fibaro_heat_01
+    #     name: Bathroom radiator
 
-      - type: history-graph
-        title: 'Humidity graphs'
-        hours_to_show: 72
-        refresh_interval: 60
-        entities:
-          - entity: sensor.humidity_wine_cellar
-            name: Wine cellar
-          - entity: sensor.humidity_washing_room
-            name: Washing room
-          - entity: sensor.humidity_bathroom
-            name: Bathroom
-          - entity: sensor.humidity_kitchen
-            name: Kitchen
-          - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
-            name: Conservatory
-          - entity: sensor.humidity_washing_room
-            name: Shed
+  # - type: glance
+  #   title: Kitchen
+  #   entities:
+  #     - entity: binary_sensor.smoke_sensor_158d0001bc49bd
+  #       name: Smoke Detector
 
-      - type: history-graph
-        title: 'Illumination graphs'
-        hours_to_show: 72
-        refresh_interval: 60
-        entities:
-          - entity: sensor.lightlevel_conservatory
-            name: Conservatory
-          - entity: sensor.illumination_158d000200d203
-            name: Basement Entrance
-          - entity: sensor.lightlevel_top_floor_stairway
-            name: Top floor stairway
-          - entity: sensor.lightlevel_tv_room
-            name: TV room
-          - entity: sensor.illumination_7811dcb8d944
-            name: Bathroom
-          - entity: sensor.lightlevel_tv_room
-            name: Upstairs bathroom
-          - entity: sensor.lightlevel_top_floor_tv_room
-            name: Top floor TV room
-          - entity: sensor.lightlevel_kitchen
-            name: Kitchen
-          - entity: sensor.lightlevel_entrance
-            name: Entrance
-          - entity: sensor.aeotec_zw100_multisensor_6_luminance
-            name: Walk-in closet
+  - type: horizontal-stack
+    cards:
+      - type: gauge
+        name: CPU Temperature
+        # title: CPU Temperature
+        measurement: °C # set yo override default
+        entity: sensor.cpu_temperature
+        # scale: 10px
+        min: 0
+        max: 100
+        severity:
+          red: 75
+          amber: 50
+          green: 0
+      - type: gauge
+        name: CPU use
+        # title: CPU use
+        entity: sensor.processor_use
+        # scale: 10px
+        min: 0
+        max: 100
+        severity:
+          red: 75
+          amber: 50
+          green: 0
+      - type: gauge
+        name: Memory use
+        # title: Memory use
+        entity: sensor.memory_use_percent
+        # scale: 10px
+        min: 0
+        max: 100
+        severity:
+          red: 75
+          amber: 50
+          green: 0
+      - type: gauge
+        name: Disk use
+        # title: Disk use
+        entity: sensor.disk_use_percent
+        # scale: 10px
+        min: 0
+        max: 100
+        severity:
+          red: 75
+          amber: 50
+          green: 0
+  - type: custom:tracker-card
+    title: Custom Components and Cards
+    trackers:
+      - sensor.custom_card_tracker
+      - sensor.custom_component_tracker
+      # - sensor.custom_python_script_tracker
+  # - type: iframe
+  #   url: https://embed.windy.com/embed2.html
+  # - type: sensor
+  #   entity: sensor.temperature_wine_cellar
+  #   name: Wine cellar temperature
+  #   height: 150
+  #   line_color: "#3498db"
+
+  # - type: vertical-stack
+  #   cards:
+  #   - type: glance
+  #     title: Bathroom
+  #     columns: 3
+  #     entities:
+  #       - entity: sensor.temperature_bathroom
+  #         name: Temperature
+  #       - entity: sensor.humidity_bathroom
+  #         name: Humidity
+  #       - entity: sensor.pressure_bathroom
+  #         name: Pressure
+  #         # value_template: '{{ value.sensor.pressure_bathroom | round(1) }}'
+  #
+  #   - type: glance
+  #     title: Conservatory
+  #     columns: 3
+  #     entities:
+  #       - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+  #         name: Temperature
+  #       - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
+  #         name: Humidity
+  #       - entity: sensor.aeotec_zw100_multisensor_6_luminance_2
+  #         name: Luminescence
+  #       - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet_2
+  #         name: UV
+  #
+  #   - type: glance
+  #     title: Kitchen
+  #     columns: 3
+  #     entities:
+  #       - entity: sensor.temperature_kitchen
+  #         name: Temperature
+  #       - entity: sensor.humidity_kitchen
+  #         name: Humidity
+  #       - entity: sensor.pressure_kitchen
+  #         name: Pressure
+
+  - type: history-graph
+    title: 'Temperature graphs'
+    hours_to_show: 72
+    refresh_interval: 60
+    entities:
+      - entity: sensor.temperature_wine_cellar
+        name: Wine cellar
+      - entity: sensor.temperature_washing_room
+        name: Washing room
+      - entity: sensor.temperature_bathroom
+        name: Bathroom
+      - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+        name: Kitchen
+      - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+        name: Conservatory
+      - entity: sensor.temperature_washing_room
+        name: Shed
+
+  - type: history-graph
+    title: 'Humidity graphs'
+    hours_to_show: 72
+    refresh_interval: 60
+    entities:
+      - entity: sensor.humidity_wine_cellar
+        name: Wine cellar
+      - entity: sensor.humidity_washing_room
+        name: Washing room
+      - entity: sensor.humidity_bathroom
+        name: Bathroom
+      - entity: sensor.humidity_kitchen
+        name: Kitchen
+      - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
+        name: Conservatory
+      - entity: sensor.humidity_washing_room
+        name: Shed
+
+  - type: history-graph
+    title: 'Illumination graphs'
+    hours_to_show: 72
+    refresh_interval: 60
+    entities:
+      - entity: sensor.lightlevel_conservatory
+        name: Conservatory
+      - entity: sensor.illumination_158d000200d203
+        name: Basement Entrance
+      - entity: sensor.lightlevel_top_floor_stairway
+        name: Top floor stairway
+      - entity: sensor.lightlevel_tv_room
+        name: TV room
+      - entity: sensor.illumination_7811dcb8d944
+        name: Bathroom
+      - entity: sensor.lightlevel_tv_room
+        name: Upstairs bathroom
+      - entity: sensor.lightlevel_top_floor_tv_room
+        name: Top floor TV room
+      - entity: sensor.lightlevel_kitchen
+        name: Kitchen
+      - entity: sensor.lightlevel_entrance
+        name: Entrance
+      - entity: sensor.aeotec_zw100_multisensor_6_luminance
+        name: Walk-in closet
 
 
-      - type: history-graph
-        title: 'Power consumption graphs'
-        hours_to_show: 72
-        entities:
-          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
-            name: Fibaro Power
-          - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2
-            name: Fibaro2 Power
-          - entity: sensor.neo_coolcam_power_plug_12a_power
-            name: Espresso Power
-          - entity: sensor.sensor_fountain
-            name: Fountain Power
-          - entity: sensor.sensor_hassio
-            name: HASS.io Power
+  - type: history-graph
+    title: 'Power consumption graphs'
+    hours_to_show: 72
+    entities:
+      - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power
+        name: Fibaro Power
+      - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power_2
+        name: Fibaro2 Power
+      - entity: sensor.neo_coolcam_power_plug_12a_power
+        name: Espresso Power
+      - entity: sensor.sensor_fountain
+        name: Fountain Power
+      - entity: sensor.sensor_hassio
+        name: HASS.io Power
 
-      #   - type: glance
-      #     title: Wine Cellar
-      #     columns: 3
-      #     entities:
-      #       - entity: sensor.temperature_wine_cellar
-      #         name: Temperature
-      #       - entity: sensor.humidity_wine_cellar
-      #         name: Humidity
-      #       - entity: sensor.pressure_158d000245b4a2
-      #         name: Pressure
-      #   - type: glance
-      #     title: Washing Room
-      #     columns: 3
-      #     entities:
-      #       - entity: sensor.temperature_washing_room
-      #         name: Temperature
-      #       - entity: sensor.humidity_washing_room
-      #         name: Humidity
-      #       - entity: sensor.pressure_wine_cellar
-      #         name: Pressure
-      #
-      #   - type: glance
-      #     title: Walk-in Closet
-      #     columns: 3
-      #     entities:
-      #       - entity: sensor.aeotec_zw100_multisensor_6_temperature
-      #         name: Temperature
-      #       - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
-      #         name: Humidity
-      #       - entity: sensor.aeotec_zw100_multisensor_6_luminance
-      #         name: Luminescence
-      #       - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet
-      #         name: UV
-      #
-      #   - type: glance
-      #     title: Shed
-      #     columns: 3
-      #     entities:
-      #       - entity: sensor.temperature_washing_room
-      #         name: Temperature
-      #       - entity: sensor.humidity_washing_room
-      #         name: Humidity
-      #       - entity: sensor.pressure_washing_room
-      #         name: Pressure
-      # # - type: glance
-      # #   entities:
-      # #     - updater.updater
-      # #   state_filter:
-      # #     - 'on'
+  #   - type: glance
+  #     title: Wine Cellar
+  #     columns: 3
+  #     entities:
+  #       - entity: sensor.temperature_wine_cellar
+  #         name: Temperature
+  #       - entity: sensor.humidity_wine_cellar
+  #         name: Humidity
+  #       - entity: sensor.pressure_158d000245b4a2
+  #         name: Pressure
+  #   - type: glance
+  #     title: Washing Room
+  #     columns: 3
+  #     entities:
+  #       - entity: sensor.temperature_washing_room
+  #         name: Temperature
+  #       - entity: sensor.humidity_washing_room
+  #         name: Humidity
+  #       - entity: sensor.pressure_wine_cellar
+  #         name: Pressure
+  #
+  #   - type: glance
+  #     title: Walk-in Closet
+  #     columns: 3
+  #     entities:
+  #       - entity: sensor.aeotec_zw100_multisensor_6_temperature
+  #         name: Temperature
+  #       - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
+  #         name: Humidity
+  #       - entity: sensor.aeotec_zw100_multisensor_6_luminance
+  #         name: Luminescence
+  #       - entity: sensor.aeotec_zw100_multisensor_6_ultraviolet
+  #         name: UV
+  #
+  #   - type: glance
+  #     title: Shed
+  #     columns: 3
+  #     entities:
+  #       - entity: sensor.temperature_washing_room
+  #         name: Temperature
+  #       - entity: sensor.humidity_washing_room
+  #         name: Humidity
+  #       - entity: sensor.pressure_washing_room
+  #         name: Pressure
+  # # - type: glance
+  # #   entities:
+  # #     - updater.updater
+  # #   state_filter:
+  # #     - 'on'

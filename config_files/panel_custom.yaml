@@ -14,18 +14,18 @@
     url_path: floorplan
     config: !include floorplan.yaml
 
-  - name: floorplan2
-    sidebar_title: Floorplan2
-    sidebar_icon: mdi:floor-plan
-    url_path: floorplan2
-    config: !include floorplan2.yaml
+  # - name: floorplan2
+  #   sidebar_title: Floorplan2
+  #   sidebar_icon: mdi:floor-plan
+  #   url_path: floorplan2
+  #   config: !include floorplan2.yaml
 
 ###############
 #    Alarm    #
 ###############
 
-  - name: alarm
-    sidebar_title: Alarm
-    sidebar_icon: mdi:shield-home
-    config:
-      alarmid: alarm_control_panel.house ## USE THE SAME ID AS USED IN YOUR ALARM.YAML
+  # - name: alarm
+  #   sidebar_title: Alarm
+  #   sidebar_icon: mdi:shield-home
+  #   config:
+  #     alarmid: alarm_control_panel.house ## USE THE SAME ID AS USED IN YOUR ALARM.YAML

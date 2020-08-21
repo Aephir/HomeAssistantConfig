@@ -1,351 +1,351 @@
 # Kitchen View
 
-  title: Kitchen
-  icon: mdi:silverware-fork-knife
-  # Title of the view. Will be used as the tooltip for tab icon
-  id: kitchen
-  cards:
-    # - type: glance
-    #   entities:
-    #     - updater.updater
-    #   state_filter:
-    #     - 'on'
-    - type: entities
-      title: Lights
-      id: kitchen_dining_room_lights
-      show_header_toggle: True
-      entities:
+title: Kitchen
+icon: mdi:silverware-fork-knife
+# Title of the view. Will be used as the tooltip for tab icon
+id: kitchen
+cards:
+  # - type: glance
+  #   entities:
+  #     - updater.updater
+  #   state_filter:
+  #     - 'on'
+  - type: entities
+    title: Lights
+    id: kitchen_dining_room_lights
+    show_header_toggle: True
+    entities:
 
-        - entity: light.living_room_lightstrip
-          type: custom:slider-entity-row
-        - entity: light.dining_table_lights
-          type: custom:slider-entity-row
-        - entity: light.kitchen_spots
-          type: custom:slider-entity-row
-        - entity: light.kitchen_cabinet_lights
-          type: custom:slider-entity-row
+      - entity: light.living_room_lightstrip
+        type: custom:slider-entity-row
+      - entity: light.dining_table_lights
+        type: custom:slider-entity-row
+      - entity: light.kitchen_spots
+        type: custom:slider-entity-row
+      - entity: light.kitchen_cabinet_lights
+        type: custom:slider-entity-row
 
-    - type: entities
-      title: Oven Controls
-      id: oven_controls
-      entities:
-        - entity: switch.oven
-        - entity: input_select.oven_program
-        - entity: sensor.oven_program_progress
-        - entity: sensor.oven_remaining_program_time
-        - entity: binary_sensor.oven_door
-        # - entity:
+  - type: entities
+    title: Oven Controls
+    id: oven_controls
+    entities:
+      - entity: switch.oven
+      - entity: input_select.oven_program
+      - entity: sensor.oven_program_progress
+      - entity: sensor.oven_remaining_program_time
+      - entity: binary_sensor.oven_door
+      # - entity:
 
-    - type: entities
-      title: Fume Hood
-      id: fume_hood_control
-      entities:
-        - entity: script.fume_hood_lights
-        - entity: script.fume_hood_power
+  - type: entities
+    title: Fume Hood
+    id: fume_hood_control
+    entities:
+      - entity: script.fume_hood_lights
+      - entity: script.fume_hood_power
 
-    - type: vertical-stack
-      id: fume_hood_controls_2
-      cards:
-        - type: "custom:button-card"
-          color_type: label-card
-          color: rgb(58, 106, 183)
-          name: Fume Hood Controls
-        - type: horizontal-stack
-          cards:
-              # - type: "custom:button-card"
-              #   color_type: blank-card
-              - type: "custom:button-card"
-                # color_type: card
-                color: auto
-                default_color: rgb(58, 106, 183)
-                icon: mdi:power
-                action: service
-                service:
-                  domain: remote
-                  action: send_command
-                  entity_id: remote.kitchen_remote
-                  data:
-                    command:
-                      - 'fume_hood_power'
-              - type: "custom:button-card"
-                # color_type: card
-                color: rgb(58, 106, 183)
-                icon: mdi:fan-off
-                action: service
-                service:
-                  domain: remote
-                  action: send_command
-                  entity_id: remote.kitchen_remote
-                  data:
-                    command:
-                      - 'fume_hood_decrease'
-              - type: "custom:button-card"
-                # color_type: card
-                color: rgb(58, 106, 183)
-                icon: mdi:fan
-                action: service
-                service:
-                  domain: remote
-                  action: send_command
-                  entity_id: remote.kitchen_remote
-                  data:
-                    command:
-                      - 'fume_hood_increase'
-              - type: "custom:button-card"
-                # color_type: card
-                color: auto
-                default_color: rgb(58, 106, 183)
-                icon: mdi:lightbulb-on
-                action: service
-                service:
-                  domain: remote
-                  action: send_command
-                  entity_id: remote.kitchen_remote
-                  data:
-                    command:
-                      - 'fume_hood_lights'
-              # - type: "custom:button-card"
-              #   color_type: blank-card
+  - type: vertical-stack
+    id: fume_hood_controls_2
+    cards:
+      - type: "custom:button-card"
+        color_type: label-card
+        color: rgb(58, 106, 183)
+        name: Fume Hood Controls
+      - type: horizontal-stack
+        cards:
+            # - type: "custom:button-card"
+            #   color_type: blank-card
+            - type: "custom:button-card"
+              # color_type: card
+              color: auto
+              default_color: rgb(58, 106, 183)
+              icon: mdi:power
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_power'
+            - type: "custom:button-card"
+              # color_type: card
+              color: rgb(58, 106, 183)
+              icon: mdi:fan-off
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_decrease'
+            - type: "custom:button-card"
+              # color_type: card
+              color: rgb(58, 106, 183)
+              icon: mdi:fan
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_increase'
+            - type: "custom:button-card"
+              # color_type: card
+              color: auto
+              default_color: rgb(58, 106, 183)
+              icon: mdi:lightbulb-on
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_lights'
+            # - type: "custom:button-card"
+            #   color_type: blank-card
 
-    - type: entities
-      title: Appliances
-      show_header_toggle: false
-      entities:
-        - entity: switch.switch
-          type: custom:toggle-lock-entity-row
-          users:
-            - Aephir
-            - Kristina
-        - entity: switch.kettle
-          type: custom:toggle-lock-entity-row
-          users:
-            - Aephir
-            - Kristina
+  - type: entities
+    title: Appliances
+    show_header_toggle: false
+    entities:
+      - entity: switch.switch
+        type: custom:toggle-lock-entity-row
+        users:
+          - Aephir
+          - Kristina
+      - entity: switch.kettle
+        type: custom:toggle-lock-entity-row
+        users:
+          - Aephir
+          - Kristina
 
-    - type: vertical-stack
-      id: kettle_controls
-      cards:
-        - type: "custom:button-card"
-          color_type: label-card
-          color: rgb(58, 106, 183)
-          name: iKettle
-        - type: horizontal-stack
-          cards:
-              - type: "custom:button-card"
-                # color_type: card
-                color: auto
-                default_color: rgb(58, 106, 183)
-                icon: mdi:power
-                action: service
-                service:
-                  domain: shell
-                  action: send_command
-                  entity_id: remote.kitchen_remote
-                  data:
-                    command:
-                      - 'fume_hood_power'
-              - type: "custom:button-card"
-                # color_type: card
-                color: rgb(58, 106, 183)
-                icon: mdi:fan-off
-                action: service
-                service:
-                  domain: remote
-                  action: send_command
-                  entity_id: remote.kitchen_remote
-                  data:
-                    command:
-                      - 'fume_hood_decrease'
-              - type: "custom:button-card"
-                # color_type: card
-                color: rgb(58, 106, 183)
-                icon: mdi:fan
-                action: service
-                service:
-                  domain: remote
-                  action: send_command
-                  entity_id: remote.kitchen_remote
-                  data:
-                    command:
-                      - 'fume_hood_increase'
-              - type: "custom:button-card"
-                # color_type: card
-                color: auto
-                default_color: rgb(58, 106, 183)
-                icon: mdi:lightbulb-on
-                action: service
-                service:
-                  domain: remote
-                  action: send_command
-                  entity_id: remote.kitchen_remote
-                  data:
-                    command:
-                      - 'fume_hood_lights'
-
-
+  - type: vertical-stack
+    id: kettle_controls
+    cards:
+      - type: "custom:button-card"
+        color_type: label-card
+        color: rgb(58, 106, 183)
+        name: iKettle
+      - type: horizontal-stack
+        cards:
+            - type: "custom:button-card"
+              # color_type: card
+              color: auto
+              default_color: rgb(58, 106, 183)
+              icon: mdi:power
+              action: service
+              service:
+                domain: shell
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_power'
+            - type: "custom:button-card"
+              # color_type: card
+              color: rgb(58, 106, 183)
+              icon: mdi:fan-off
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_decrease'
+            - type: "custom:button-card"
+              # color_type: card
+              color: rgb(58, 106, 183)
+              icon: mdi:fan
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_increase'
+            - type: "custom:button-card"
+              # color_type: card
+              color: auto
+              default_color: rgb(58, 106, 183)
+              icon: mdi:lightbulb-on
+              action: service
+              service:
+                domain: remote
+                action: send_command
+                entity_id: remote.kitchen_remote
+                data:
+                  command:
+                    - 'fume_hood_lights'
 
 
-    # title: Kitchen
-    # icon: mdi:silverware-fork-knife
-    # # Title of the view. Will be used as the tooltip for tab icon
-    # id: kitchen
-    # cards:
-    #
-    #   - type: entities
-    #     title: Lights
-    #     id: kitchen_dining_room_lights
-    #     show_header_toggle: True
-    #     entities:
-    #
-    #       - entity: light.living_room_lightstrip
-    #         type: custom:slider-entity-row
-    #       - entity: light.dining_table_lights
-    #         type: custom:slider-entity-row
-    #       - entity: light.kitchen_spots
-    #         type: custom:slider-entity-row
-    #       - entity: light.kitchen_cabinet_lights
-    #         type: custom:slider-entity-row
-    #
-    #   - type: vertical-stack
-    #     id: fume_hood_controls_2
-    #     cards:
-    #       - type: "custom:button-card"
-    #         color_type: label-card
-    #         color: rgb(58, 106, 183)
-    #         name: Fume Hood Controls
-    #       - type: horizontal-stack
-    #         cards:
-    #             # - type: "custom:button-card"
-    #             #   color_type: blank-card
-    #             - type: "custom:button-card"
-    #               # color_type: card
-    #               color: auto
-    #               default_color: rgb(58, 106, 183)
-    #               icon: mdi:power
-    #               action: service
-    #               service:
-    #                 domain: remote
-    #                 action: send_command
-    #                 entity_id: remote.kitchen_remote
-    #                 data:
-    #                   command:
-    #                     - 'fume_hood_power'
-    #             - type: "custom:button-card"
-    #               # color_type: card
-    #               color: rgb(58, 106, 183)
-    #               icon: mdi:fan-off
-    #               action: service
-    #               service:
-    #                 domain: remote
-    #                 action: send_command
-    #                 entity_id: remote.kitchen_remote
-    #                 data:
-    #                   command:
-    #                     - 'fume_hood_decrease'
-    #             - type: "custom:button-card"
-    #               # color_type: card
-    #               color: rgb(58, 106, 183)
-    #               icon: mdi:fan
-    #               action: service
-    #               service:
-    #                 domain: remote
-    #                 action: send_command
-    #                 entity_id: remote.kitchen_remote
-    #                 data:
-    #                   command:
-    #                     - 'fume_hood_increase'
-    #             - type: "custom:button-card"
-    #               # color_type: card
-    #               color: auto
-    #               default_color: rgb(58, 106, 183)
-    #               icon: mdi:lightbulb-on
-    #               action: service
-    #               service:
-    #                 domain: remote
-    #                 action: send_command
-    #                 entity_id: remote.kitchen_remote
-    #                 data:
-    #                   command:
-    #                     - 'fume_hood_lights'
-    #             # - type: "custom:button-card"
-    #             #   color_type: blank-card
-    #
-    #   - type: entities
-    #     title: Appliances
-    #     show_header_toggle: false
-    #     entities:
-    #       - entity: switch.switch
-    #         type: custom:toggle-lock-entity-row
-    #         users:
-    #           - Aephir
-    #           - Kristina
-    #
-    #   - type: vertical-stack
-    #     id: kettle_controls
-    #     cards:
-    #       - type: "custom:button-card"
-    #         color_type: label-card
-    #         color: rgb(58, 106, 183)
-    #         name: iKettle
-    #       - type: horizontal-stack
-    #         cards:
-    #             - type: "custom:button-card"
-    #               color_type: blank-card
-    #             - type: "custom:button-card"
-    #               # color_type: card
-    #               color: auto
-    #               default_color: rgb(58, 106, 183)
-    #               icon: mdi:power
-    #               action: service
-    #               service:
-    #                 domain: shell
-    #                 action: send_command
-    #                 entity_id: remote.kitchen_remote
-    #                 data:
-    #                   command:
-    #                     - 'fume_hood_power'
-    #             - type: "custom:button-card"
-    #               # color_type: card
-    #               color: rgb(58, 106, 183)
-    #               icon: mdi:fan-off
-    #               action: service
-    #               service:
-    #                 domain: remote
-    #                 action: send_command
-    #                 entity_id: remote.kitchen_remote
-    #                 data:
-    #                   command:
-    #                     - 'fume_hood_decrease'
-    #             - type: "custom:button-card"
-    #               # color_type: card
-    #               color: rgb(58, 106, 183)
-    #               icon: mdi:fan
-    #               action: service
-    #               service:
-    #                 domain: remote
-    #                 action: send_command
-    #                 entity_id: remote.kitchen_remote
-    #                 data:
-    #                   command:
-    #                     - 'fume_hood_increase'
-    #             - type: "custom:button-card"
-    #               # color_type: card
-    #               color: auto
-    #               default_color: rgb(58, 106, 183)
-    #               icon: mdi:lightbulb-on
-    #               action: service
-    #               service:
-    #                 domain: remote
-    #                 action: send_command
-    #                 entity_id: remote.kitchen_remote
-    #                 data:
-    #                   command:
-    #                     - 'fume_hood_lights'
-    #             - type: "custom:button-card"
-    #               color_type: blank-card
-    #
-    #       - entity: switch.kettle
-    #         type: custom:toggle-lock-entity-row
-    #         users:
-    #           - Aephir
-    #           - Kristina
+
+
+  # title: Kitchen
+  # icon: mdi:silverware-fork-knife
+  # # Title of the view. Will be used as the tooltip for tab icon
+  # id: kitchen
+  # cards:
+  #
+  #   - type: entities
+  #     title: Lights
+  #     id: kitchen_dining_room_lights
+  #     show_header_toggle: True
+  #     entities:
+  #
+  #       - entity: light.living_room_lightstrip
+  #         type: custom:slider-entity-row
+  #       - entity: light.dining_table_lights
+  #         type: custom:slider-entity-row
+  #       - entity: light.kitchen_spots
+  #         type: custom:slider-entity-row
+  #       - entity: light.kitchen_cabinet_lights
+  #         type: custom:slider-entity-row
+  #
+  #   - type: vertical-stack
+  #     id: fume_hood_controls_2
+  #     cards:
+  #       - type: "custom:button-card"
+  #         color_type: label-card
+  #         color: rgb(58, 106, 183)
+  #         name: Fume Hood Controls
+  #       - type: horizontal-stack
+  #         cards:
+  #             # - type: "custom:button-card"
+  #             #   color_type: blank-card
+  #             - type: "custom:button-card"
+  #               # color_type: card
+  #               color: auto
+  #               default_color: rgb(58, 106, 183)
+  #               icon: mdi:power
+  #               action: service
+  #               service:
+  #                 domain: remote
+  #                 action: send_command
+  #                 entity_id: remote.kitchen_remote
+  #                 data:
+  #                   command:
+  #                     - 'fume_hood_power'
+  #             - type: "custom:button-card"
+  #               # color_type: card
+  #               color: rgb(58, 106, 183)
+  #               icon: mdi:fan-off
+  #               action: service
+  #               service:
+  #                 domain: remote
+  #                 action: send_command
+  #                 entity_id: remote.kitchen_remote
+  #                 data:
+  #                   command:
+  #                     - 'fume_hood_decrease'
+  #             - type: "custom:button-card"
+  #               # color_type: card
+  #               color: rgb(58, 106, 183)
+  #               icon: mdi:fan
+  #               action: service
+  #               service:
+  #                 domain: remote
+  #                 action: send_command
+  #                 entity_id: remote.kitchen_remote
+  #                 data:
+  #                   command:
+  #                     - 'fume_hood_increase'
+  #             - type: "custom:button-card"
+  #               # color_type: card
+  #               color: auto
+  #               default_color: rgb(58, 106, 183)
+  #               icon: mdi:lightbulb-on
+  #               action: service
+  #               service:
+  #                 domain: remote
+  #                 action: send_command
+  #                 entity_id: remote.kitchen_remote
+  #                 data:
+  #                   command:
+  #                     - 'fume_hood_lights'
+  #             # - type: "custom:button-card"
+  #             #   color_type: blank-card
+  #
+  #   - type: entities
+  #     title: Appliances
+  #     show_header_toggle: false
+  #     entities:
+  #       - entity: switch.switch
+  #         type: custom:toggle-lock-entity-row
+  #         users:
+  #           - Aephir
+  #           - Kristina
+  #
+  #   - type: vertical-stack
+  #     id: kettle_controls
+  #     cards:
+  #       - type: "custom:button-card"
+  #         color_type: label-card
+  #         color: rgb(58, 106, 183)
+  #         name: iKettle
+  #       - type: horizontal-stack
+  #         cards:
+  #             - type: "custom:button-card"
+  #               color_type: blank-card
+  #             - type: "custom:button-card"
+  #               # color_type: card
+  #               color: auto
+  #               default_color: rgb(58, 106, 183)
+  #               icon: mdi:power
+  #               action: service
+  #               service:
+  #                 domain: shell
+  #                 action: send_command
+  #                 entity_id: remote.kitchen_remote
+  #                 data:
+  #                   command:
+  #                     - 'fume_hood_power'
+  #             - type: "custom:button-card"
+  #               # color_type: card
+  #               color: rgb(58, 106, 183)
+  #               icon: mdi:fan-off
+  #               action: service
+  #               service:
+  #                 domain: remote
+  #                 action: send_command
+  #                 entity_id: remote.kitchen_remote
+  #                 data:
+  #                   command:
+  #                     - 'fume_hood_decrease'
+  #             - type: "custom:button-card"
+  #               # color_type: card
+  #               color: rgb(58, 106, 183)
+  #               icon: mdi:fan
+  #               action: service
+  #               service:
+  #                 domain: remote
+  #                 action: send_command
+  #                 entity_id: remote.kitchen_remote
+  #                 data:
+  #                   command:
+  #                     - 'fume_hood_increase'
+  #             - type: "custom:button-card"
+  #               # color_type: card
+  #               color: auto
+  #               default_color: rgb(58, 106, 183)
+  #               icon: mdi:lightbulb-on
+  #               action: service
+  #               service:
+  #                 domain: remote
+  #                 action: send_command
+  #                 entity_id: remote.kitchen_remote
+  #                 data:
+  #                   command:
+  #                     - 'fume_hood_lights'
+  #             - type: "custom:button-card"
+  #               color_type: blank-card
+  #
+  #       - entity: switch.kettle
+  #         type: custom:toggle-lock-entity-row
+  #         users:
+  #           - Aephir
+  #           - Kristina

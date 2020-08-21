@@ -5,10 +5,11 @@
   "dependencies": [],
   "config_flow": true,
   "codeowners": [
-    "@SebRut"
+    "@SebRut",
+    "@isabellaalstrom"
   ],
   "requirements": [
-    "pygrocy==0.12.1",
+    "pygrocy==0.17.0",
     "iso8601==0.1.12",
     "integrationhelper"
   ]

@@ -4,6 +4,24 @@
 #                          #
 ############################
 
+################
+#    Motion    #
+################
+
+override_top_floor_motion:
+  name: Top Floor Motion Sensor
+  options:
+    - 5
+    - 15
+    - 30
+    - 60
+    - 120
+    - 180
+    - 360
+    - 480
+    - 600
+  icon: mdi:av-timer
+
 #################
 #    Devices    #
 #################

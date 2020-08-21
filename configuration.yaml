@@ -15,6 +15,8 @@ homeassistant:
   elevation: !secret elevation
   unit_system: metric
   time_zone: !secret timezone
+  external_url: !secret secret_base_url
+  internal_url: !secret internal_url
   customize: !include config_files/customize.yaml
   customize_glob: !include config_files/customize_glob.yaml
   auth_providers:
@@ -37,9 +39,9 @@ homeassistant:
 
 http:
   # api_password: !secret api_password
-  base_url: !secret secret_base_url
-  ip_ban_enabled: False
-  # login_attempts_threshold: 3
+  #base_url: !secret secret_base_url
+  ip_ban_enabled: true # false
+  login_attempts_threshold: 3
   use_x_forwarded_for: true
   trusted_proxies:
     - 172.11.0.2 # NGINX/Let's encrypt docker container
@@ -62,10 +64,11 @@ dialogflow:
 ffmpeg:
 hacs:
   token: !secret hacs_github_token
+  appdaemon: true
 # ifttt:
 #   key: !secret iftttkey
 logbook:
-lovelace:
+lovelace: #!include config_files/lovelace.yaml
   mode: yaml
 map:
 mobile_app:
@@ -83,7 +86,8 @@ websocket_api:
 #    Include    #
 #################
 
-alarm_control_panel: !include config_files/alarm.yaml
+alarm_control_panel: !include resources/bwalarm/bwalarm.yaml
+# alarm_control_panel: !include config_files/bwalarm.yaml
 # android_ip_webcam: !include misc/android_ip_webcam.yaml
 automation: !include config_files/automation.yaml
 binary_sensor: !include config_files/binary_sensor.yaml
@@ -97,7 +101,7 @@ frontend: !include config_files/frontend.yaml
 # googlehome: !include config_files/googlehome.yaml
 group: !include config_files/group.yaml
 history: !include config_files/history.yaml
-homeconnect: !include config_files/homeconnect.yaml
+home_connect: !include config_files/home_connect.yaml
 # homekit: !include config_files/homekit.yaml
 # http: !include config_files/http.yaml
 # hue: !include config_files/hue.yaml # Moved to deCONZ with ConBee II
@@ -121,7 +125,7 @@ panel_custom: !include config_files/panel_custom.yaml
 panel_iframe: !include config_files/panel_iframe.yaml
 plant: !include config_files/plant.yaml
 recorder: !include config_files/recorder.yaml
-remote: !include config_files/remote.yaml
+# remote: !include config_files/remote.yaml
 # roku: !include config_files/roku.yaml
 # samsungtv: !include config_files/samsungtv.yaml
 scene: !include_dir_merge_list config_files/scene/
@@ -140,4 +144,4 @@ yeelight: !include config_files/yeelight.yaml
 # zha: !include config_files/zha.yaml
 zone: !include config_files/zone.yaml
 zwave: !include config_files/zwave.yaml
-xiaomi_aqara: !include config_files/xiaomi_aqara.yaml
+# xiaomi_aqara: !include config_files/xiaomi_aqara.yaml

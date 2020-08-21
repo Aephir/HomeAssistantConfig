@@ -81,9 +81,9 @@ class MotionClass(hass.Hass):
             self.turn_on('light.bathroom', brightness=255, kelvin=2700)
 
         elif weekday:
-            if self.now_is_between("06:45:00", "21:00:00") and illumination < 250: # 50? 100?
+            if self.now_is_between("06:45:00", "21:00:00") and illumination < 450: # 50? 100?
                 self.turn_on('light.bathroom', brightness=255, kelvin=2700)
-            elif self.now_is_between("21:00:00", "22:00:00") and illumination < 250:
+            elif self.now_is_between("21:00:00", "22:00:00") and illumination < 450:
                 if awake:
                     self.turn_on('light.bathroom', brightness=255, kelvin=2700)
                 else:
@@ -95,9 +95,9 @@ class MotionClass(hass.Hass):
                     self.turn_on('light.bathroom', brightness=10, rgb_color=[255,0,0])
 
         else:
-            if self.now_is_between("08:00:00", "22:30:00") and illumination < 250:
+            if self.now_is_between("08:00:00", "22:30:00") and illumination < 450:
                 self.turn_on('light.bathroom', brightness=255, kelvin=2700)
-            elif self.now_is_between("22:30:00", "23:30:00") and illumination < 250:
+            elif self.now_is_between("22:30:00", "23:30:00") and illumination < 450:
                 if awake:
                     self.turn_on('light.bathroom', brightness=255, kelvin=2700)
                 else:

@@ -25,3 +25,40 @@ battery_powered_devices_offline:
 convert_3d_print_time:
   module: octoprint_time
   class: Octoprint
+
+battery_out_in_device:
+  module: battery_powered_unavailable
+  class: Availability
+  devices: [
+    'binary_sensor.openclose_basement_entrance_door',
+    'binary_sensor.openclose_bathroom_window',
+    'binary_sensor.openclose_bedroom_window_1',
+    'binary_sensor.openclose_conservatory_door',
+    'binary_sensor.openclose_front_door',
+    'binary_sensor.openclose_washing_room_window_1',
+    'binary_sensor.presence_54',
+    'binary_sensor.presence_basement_entrance',
+    'binary_sensor.presence_basement_stairway',
+    'binary_sensor.presence_bathroom',
+    'binary_sensor.presence_conservatory',
+    'binary_sensor.presence_entrance',
+    'binary_sensor.presence_kitchen',
+    'binary_sensor.presence_top_floor_bathroom',
+    'binary_sensor.presence_top_floor_stairway',
+    'binary_sensor.presence_top_floor_tv_room',
+    'binary_sensor.presence_tv_room',
+    'binary_sensor.presence_wine_cellar',
+    'sensor.temperature_158d000243778b',
+    'sensor.temperature_158d000245b4a2',
+    'sensor.temperature_57',
+    'sensor.temperature_bathroom',
+    'sensor.temperature_kitchen',
+    'sensor.temperature_shed',
+    'sensor.temperature_top_floor_tv_room',
+    'sensor.temperature_washing_room',
+    'sensor.temperature_wine_cellar',
+    'sensor.plant_sensor_1_temperature',
+    'sensor.plant_sensor_2_temperature',
+    'sensor.plant_sensor_3_temperature',
+    'sensor.plant_sensor_4_temperature'
+    ]

@@ -30,3 +30,7 @@ logs:
 #  mysensors: debug
   homeassistant.components.sensor: critical
 #  homeassistant.components.homekit: debug
+  # custom_components.hacs: debug
+  # hacs: debug
+  # queueman: debug
+  # AIOGitHubAPI: debug

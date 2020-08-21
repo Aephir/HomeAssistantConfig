@@ -193,21 +193,19 @@
 #    IFTTT    #
 ###############
 
-  ifttt_test:
-    alias: IFTTT Test
-    sequence:
-      - service: ifttt.trigger
-        data:
-          event: testhass
-
-  ifttt_desktop_computer_off:
-    alias: Shutdown Desktop Computer
-    sequence:
-      - service: ifttt.trigger
-        data:
-          event: desktop_power_off
-
-
+  # ifttt_test:
+  #   alias: IFTTT Test
+  #   sequence:
+  #     - service: ifttt.trigger
+  #       data:
+  #         event: testhass
+  #
+  # ifttt_desktop_computer_off:
+  #   alias: Shutdown Desktop Computer
+  #   sequence:
+  #     - service: ifttt.trigger
+  #       data:
+  #         event: desktop_power_off
 
 ###############
 #  IR Remote  #
@@ -332,6 +330,13 @@
       - service: homeassistant.turn_off
         entity_id: switch.rabbit_light
 
+  top_floor_motion_off_30:
+    sequence:
+      - service: homeassistant.turn_off
+        entity_id: input_boolean.top_floor_lights_motion_control
+      - delay: 00:30:00
+      - service: homeassistant.turn_on
+        entity_id: input_boolean.top_floor_lights_motion_control
 
 ###############
 #    Media    #
