@@ -10,3 +10,4 @@ devices:
     track_devices: false # true
     # device_types:
     #   - 2
+  - host: 192.168.0.61 # Google NEST mini, dining room

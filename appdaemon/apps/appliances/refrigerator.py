@@ -24,7 +24,7 @@ class ApplianceStatus(hass.Hass):
             self.message = 'Kølseskabets dør har været åben i 90 sekunder!'
             self.timer = self.run_in(self.notify, 90)
 
-    def notify(self):
+    def notify(self, kwargs):
 
         self.cancel_timer(self.timer)
         self.call_service('notify/home_aephir_bot', message=self.message)

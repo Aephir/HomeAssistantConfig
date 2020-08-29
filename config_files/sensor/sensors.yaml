@@ -21,6 +21,26 @@
 #   method: POST
 #   payload: '{ "device" : "heater" }'
 
+##########
+#
+#    Tasmota ESP8266#1
+#
+########
+
+- platform: mqtt
+  name: shed_tasmota_dht11_temp # http://192.168.0.210/
+  state_topic: 'tele/shed_tasmota_1/SENSOR'
+  unit_of_measurement: '°C'
+  value_template: '{{ value_json.DHT11.Temperature}}' # {"Time":"2020-08-26T20:26:22","Switch1":"ON","Switch2":"ON","DHT11":{"Temperature":28.0,"Humidity":32.0,"DewPoint":9.7},"TempUnit":"C”}
+  device_class: temperature
+
+- platform: mqtt
+  name: shed_tasmota_dht11_hum # http://192.168.0.210/
+  state_topic: 'tele/shed_tasmota_1/SENSOR'
+  unit_of_measurement: '%'
+  value_template: '{{ value_json.DHT11.Humidity}}' # {"Time":"2020-08-26T20:26:22","Switch1":"ON","Switch2":"ON","DHT11":{"Temperature":28.0,"Humidity":32.0,"DewPoint":9.7},"TempUnit":"C”}
+  device_class: humidity
+
 
 ####################
 #    Appliances    #

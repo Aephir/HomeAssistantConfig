@@ -1,7 +1,7 @@
 
 title: Home
 # Optional background for all views. Check https://developer.mozillfaa.org/en-US/docs/Web/CSS/background for more examples.
-# background: center / cover no-repeat url('/local/images/banner_bg_2.jpg') #fixed
+background: center / cover no-repeat url("/local/images/banner_bg_2.jpg") #fixed
 # lovelace-background: 'center / cover no-repeat url("/local/images/banner_bg_2.jpg") fixed'
 # Exclude entities from "Unused entities" view
 # excluded_entities:
@@ -9,22 +9,17 @@ title: Home
 
 custom_header:
   compact_mode: true
-  # show_tabs: '0, 1, 2, 3, 4, 5'
   exceptions:
     - conditions:
-        user: emilie, naia
+      user: emilie, naia
       config:
         disable_sidebar: true
         hide_config: true
-        hide_raw: true
-        show_tabs: 'Kids'
-        menu_hide: true
         # tab:
     - conditions:
-        user: tablets_1
+      user: tablets_1
       config:
         kiosk_mode: true
-
 swipe_nav:
   animate: flip
   prevent_default: true
@@ -388,15 +383,6 @@ views:
             title: OctoPrint
             entities:
               - camera.octoprint
-          - type: picture-glance
-            title: Chicken Coop
-            camera_image: camera.chicken_coop
-            entities:
-              - switch.camera_chicken_coop_ir_lights
-              - switch.camera_chicken_coop_email
-              - switch.camera_chicken_coop_ftp
-              - switch.camera_chicken_coop_motion_detection
-              - binary_sensor.motion_chicken_coop
 
 #########################
 #                       #
@@ -553,9 +539,7 @@ views:
                 #   - Aephir
               - entity: switch.neo_coolcam_2
                 # icon: mdi:youtube-tv
-              - entity: switch.shed_master_power
               - entity: switch.zigbee_and_yeelight_power
-              - entity: switch.shed_power
 
 # Sensors:
 # sensor.shenzhen_neo_electronics_co_ltd_power_plug_12a_power
@@ -808,28 +792,34 @@ views:
       - type: custom:layout-card
         layout: vertical
         cards:
-          - type: entities
-            title: Prusa i3 MK3S
-            entities:
-              - entity: switch.prusa_lights
-                name: Lights
-              - entity: binary_sensor.prusa_i3_mk3s_printing
-                name: Printer status
-              - entity: binary_sensor.prusa_i3_mk3s_printing_error
+          - type: conditional
+            conditions:
               - entity: sensor.prusa_i3_mk3s_current_state
-              - entity: sensor.prusa_i3_mk3s_job_percentage
-                name: Print progress
-              - entity: sensor.prusa_i3_mk3s_actual_bed_temp
-              - entity: sensor.prusa_i3_mk3s_actual_tool0_temp
-                name: Hotend actual temperature
-              # - entity: sensor.prusa_i3_mk3s_actual_tool1_temp
-              - entity: sensor.prusa_i3_mk3s_target_bed_temp
-              - entity: sensor.prusa_i3_mk3s_target_tool0_temp
-                name: Hotend target temperature
-              # - entity: sensor.prusa_i3_mk3s_target_tool1_temp
-              - entity: sensor.prusa_i3_mk3s_time_elapsed_format
-              - entity: sensor.prusa_i3_mk3s_time_remaining_format
-              # - entity: sensor.prusa_status
+                state_not: 'unknown'
+
+            card:
+              type: entities
+              title: Prusa i3 MK3S
+              entities:
+                - entity: switch.prusa_lights
+                  name: Lights
+                - entity: binary_sensor.prusa_i3_mk3s_printing
+                  name: Printer status
+                - entity: binary_sensor.prusa_i3_mk3s_printing_error
+                - entity: sensor.prusa_i3_mk3s_current_state
+                - entity: sensor.prusa_i3_mk3s_job_percentage
+                  name: Print progress
+                - entity: sensor.prusa_i3_mk3s_actual_bed_temp
+                - entity: sensor.prusa_i3_mk3s_actual_tool0_temp
+                  name: Hotend actual temperature
+                # - entity: sensor.prusa_i3_mk3s_actual_tool1_temp
+                - entity: sensor.prusa_i3_mk3s_target_bed_temp
+                - entity: sensor.prusa_i3_mk3s_target_tool0_temp
+                  name: Hotend target temperature
+                # - entity: sensor.prusa_i3_mk3s_target_tool1_temp
+                - entity: sensor.prusa_i3_mk3s_time_elapsed_format
+                - entity: sensor.prusa_i3_mk3s_time_remaining_format
+                # - entity: sensor.prusa_status
 
           - break
 
@@ -911,34 +901,19 @@ views:
       - type: custom:layout-card
         layout: vertical
         cards:
-          # - type: button
-          #   name: Bevægelsesstyret Lys
-          #   toggle: false
-          #   entity: input_boolean.top_floor_lights_motion_control
-          #   icon: mdi:motion-sensor
-
-          # - type: button
-          #   title: Bevægelsesstyret lys 30 min
-          #   name: Manuel lys i 30 min
-          #   icon: mdi:motion-sensor
-          #   toggle: false
-          #   tap_action:
-          #     action: call-service
-          #     service: script.turn_on
-          #     service_data:
-          #       entity_id: script.turn_off_lights
-          #   entity: script.top_floor_motion_off_30
-
+          - type: button
+            name: Bevægelsesstyret Lys
+            toggle: false
+            entity: input_boolean.top_floor_lights_motion_control
+            icon: mdi:motion-sensor
           - type: button
             name: TV Lys
             toggle: false
             entity: light.top_floor_tv_area
           - type: button
             name: Krea Lys
+            entities: Bevægelsesstyret Lys
             entity: light.top_floor_hallway
-          - type: button
-            name: Badeværelse Lys
-            entity: light.top_floor_bathroom
               # - entity: input_boolean.top_floor_lights_motion_control
               #   name: Bevægelsesstyret Lys
               #   icon: mdi:motion-sensor
@@ -949,33 +924,26 @@ views:
               # - entity: light.top_floor_bathroom
               #   name: Badeværelses Lys
           - break
-
           - type: button
-            name: Bevægelsesstyret Lys
-            toggle: false
-            entity: input_number.override_top_floor_motion
-            icon: mdi:motion-sensor
-
-          - type: button
-            name: Trappe Lys
-            entity: light.stairway_up
+            title: TV og Playstation
+            name: Strøm til TV & Playstation
+            icon: mdi:playstation
+            entity: switch.top_floor_media
             # # toggle: false
             # entities:
             #   - entity: switch.top_floor_media
             #     name: Strøm til TV & Playstation
-          # - type: button
-          #   title: Kanin Lys
-          #   name: Lys i 5 minutter
-          #   icon: mdi:rabbit
-          #   tap_action:
-          #     action: call-service
-          #     service: script.turn_on
-          #     service_data:
-          #       entity_id: script.turn_off_lights
-          #   entity: script.rabbit_light_5_min
-
+          - type: button
+            title: Kanin Lys
+            name: Lys i 5 minutter
+            icon: mdi:rabbit
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.turn_off_lights
+            entity: script.rabbit_light_5_min
           - break
-
           - type: button
             name: Spisestue Lys
             entity: light.dining_room_lights
@@ -983,11 +951,6 @@ views:
             name: Udestue Lys
             entity: light.conservatory_lights
 
-          - type: button
-            title: TV og Playstation
-            name: Strøm til TV & Playstation
-            icon: mdi:playstation
-            entity: switch.top_floor_media
           # - type: entities
           #   title: Lys Nedenunder
           #   toggle: false

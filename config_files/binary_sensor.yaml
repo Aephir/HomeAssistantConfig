@@ -28,6 +28,29 @@
           and (states('sensor.raw_master_bed_weight_measurement')|float > -3100000
                or states('sensor.raw_master_bed_weight_measurement')|float <= -3700000)}}
 
+
+##########
+#
+#    Tasmota ESP8266#1
+#
+########
+
+
+- platform: mqtt
+  name: shed_tasmota_motion # http://192.168.0.210/
+  state_topic: 'shed/shed_tasmota_1/pir_shed'
+  device_class: motion
+  payload_on: 'on'
+  payload_off: 'off'
+
+- platform: mqtt
+  name: shed_tasmota_door # http://192.168.0.210/
+  state_topic: 'shed/shed_tasmota_1/door_shed'
+  device_class: door
+  payload_on: 'on'
+  payload_off: 'off'
+
+
 ###################
 #    Floorplan    #
 ###################

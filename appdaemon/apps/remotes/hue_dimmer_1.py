@@ -33,8 +33,8 @@ class Remote(hass.Hass):
                     self.turn_on(self.args["entity_2"],brightness=255,kelvin=2700)
                 else:
                     self.turn_off(self.args["entity_2"])
-            elif data['event'] == 3002: # Button 3 up
-                self.toggle(self.args["entity_3"])
+            # elif data['event'] == 3002: # Button 3 up
+            #     self.toggle(self.args["entity_3"])
             elif data['event'] == 4002: # Button 4 up
                 # if self.get_state(self.args["entity_4"]) == 'on':
                 #     self.turn_off(self.args["entity_4"])

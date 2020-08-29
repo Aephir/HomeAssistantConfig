@@ -121,7 +121,7 @@
 
         - name: xiaomi_shed_temperature
           entities:
-            - sensor.temperature_shed
+            - sensor.shed_tasmota_dht11_temp
           text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
 #          class_template: 'return "static-temp";'
           class_template: '
@@ -138,7 +138,7 @@
 
         - name: xiaomi_shed_humidity
           entities:
-            - sensor.humidity_shed
+            - sensor.shed_tasmota_dht11_hum
           text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
           class_template: 'return "static-temp";'
 
@@ -247,6 +247,7 @@
             - binary_sensor.presence_top_floor_tv_room # Top floor TV room
             - binary_sensor.presence_entrance # Entrance motion
             - binary_sensor.presence_basement_stairway # Basement stairway
+            - binary_sensor.shed_tasmota_motion # Shed NodeMCU tasmota
           states:
             - state: 'on'
               class: 'motion-on'
@@ -924,7 +925,7 @@
 
         - name: Door and Window Sensors
           entities:
-            - binary_sensor.neo_coolcam_doorwindow_detector_sensor # Shed door
+            - binary_sensor.shed_tasmota_door # Shed door
             - binary_sensor.openclose_conservatory_door # Conservatory Door
             - binary_sensor.openclose_front_door # Front Door
             - binary_sensor.openclose_basement_entrance_door # Basement Door

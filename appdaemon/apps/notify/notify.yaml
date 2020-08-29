@@ -43,3 +43,13 @@ leaving_notifications:
 #   # text_data_telegram_warning: '"inline_keyboard":"Turn Off:/espresso_off, I Know:/removekeyboard"'
 #   # text_data_telegram_auto_off: '"inline_keyboard":"Turn back on:/espresso_on, OK, thanks!:/removekeyboard"'
 #   # notify_who: "notify/home_aephir_bot"
+
+#############
+#    TTS    #
+#############
+
+dontkillthebaby:
+  module: dontkillbaby
+  class: TextToSpeak
+  # constrain_start_time: "07:00:00"
+  # constrain_end_time: "21:00:00"

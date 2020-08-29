@@ -11,7 +11,7 @@
 ################
 #__Plain MQTT__#
 
-broker: 127.0.0.1
+broker: 192.168.0.100 # 127.0.0.1
 port: 1883
 #port: 8883
 # client_id: homeassistant_mqtt
