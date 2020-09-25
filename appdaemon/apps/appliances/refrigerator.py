@@ -21,8 +21,11 @@ class ApplianceStatus(hass.Hass):
             self.message = 'Kølseskabet er slukket!'
             self.notify()
         elif entity == 'binary_sensor.refrigerator_door_open':
-            self.message = 'Kølseskabets dør har været åben i 90 sekunder!'
-            self.timer = self.run_in(self.notify, 90)
+            if new == 'on':
+                self.message = 'Kølseskabets dør har været åben i 60 sekunder!'
+                self.timer = self.run_in(self.notify, 60)
+            elif new == 'off':
+                self.cancel_timer(self.timer)
 
     def notify(self, kwargs):
 

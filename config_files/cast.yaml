@@ -12,3 +12,4 @@ media_player:
 # - host: 192.168.0.57 # Chromecast, Conservatory
 - host: 192.168.0.58 # Chromecast Audio, Conservatory
 - host: 192.168.0.59 # Chromecast Audio, TV Room
+- host: 192.168.0.61 # Google Nest Mini
