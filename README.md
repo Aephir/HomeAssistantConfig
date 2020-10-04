@@ -139,3 +139,4 @@ A bunch of this is stuff I have lying around, but haven't figured out how to use
 
 **Planned future misc.**
 * Integrate various  additional stuff with Tasker. Have Tasker send info to home assistant, then have home assistant do the work.
+# HomeAssistantConfig
