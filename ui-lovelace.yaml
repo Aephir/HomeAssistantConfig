@@ -969,7 +969,7 @@ views:
 
   - icon: fas:universal-access
     title: phone_control_adult
-    id: kid_control
+    id: phone_control_adult
     panel: true
     icon: mdi:human-male-girl
     layout: auto
