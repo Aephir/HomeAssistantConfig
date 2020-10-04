@@ -960,3 +960,22 @@ views:
           #     - entity: light.dining_room_lights
           #       name: Spisestue Lys
           #
+
+####################
+#                  #
+#    ESSENTIALS    #
+#                  #
+####################
+
+  - icon: fas:universal-access
+    title: Kids
+    id: kid_control
+    panel: true
+    icon: mdi:human-male-girl
+    layout: auto
+    column_num: 3
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        cards:
+          - type: button
