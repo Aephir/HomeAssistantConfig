@@ -59,6 +59,7 @@ resources:
   - url: /hacsfiles/lovelace-hui-element/hui-element.js
     Type: module
 
+
 views:
 
 #######################
@@ -1019,3 +1020,33 @@ views:
                   - input_boolean.cooking_mode
                   - input_boolean.guest_mode
                   - input_boolean.vacation_mode
+
+###################
+#                 #
+#    FLOORPLAN    #
+#                 #
+###################
+
+
+  - icon: mdi:floor-plan
+    title: floorplan
+    id: floorplan
+    cards:
+      - config:
+          image: /local/custom_ui/floorplan/floorplan.svg
+          rules:
+            - entities:
+                - binary_sensor.main_bedroom
+                - binary_sensor.living_area
+                - binary_sensor.double_garage
+              states:
+                - class: 'binary-sensor-off'
+                  state: 'off'
+                - class: 'binary-sensor-on'
+                  state: 'on'
+          stylesheet: /local/custom_ui/floorplan/floorplan.css
+        title: Simple Floorplan
+        type: 'custom:floorplan-card'
+    icon: 'mdi:floor-plan'
+    id: system
+    title: Floorplan
