@@ -62,7 +62,7 @@ class MotionClass(hass.Hass):
         #
         # elif sensor_1_state == "off":
         #     self.turn_off("light.tv_room_lights")
-        if self.get_state('media_player.ue55nu7475xxc') not in self.off_states:
+        if self.get_state('media_player.ue55nu7475xxc') in self.off_states:
             if new == "on":
                 self.turn_on("light.tv_room_lights",brightness=255,kelvin=2700)
             elif new == "off":

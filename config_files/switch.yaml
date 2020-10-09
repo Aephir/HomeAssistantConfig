@@ -109,11 +109,11 @@
 #    Plugs    #
 ###############
 
-- platform: broadlink
-  host: 192.168.0.85
-  mac: !secret broadlink_sp_mini_switch_1_mac
-  friendly_name: 'Shed Switch 1'
-  type: sp2
+# - platform: broadlink
+#   host: 192.168.0.85
+#   mac: !secret broadlink_sp_mini_switch_1_mac
+#   friendly_name: 'Shed Switch 1'
+#   type: sp2
 
 - platform: template
   switches:

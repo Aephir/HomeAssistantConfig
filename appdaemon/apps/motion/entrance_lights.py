@@ -109,7 +109,7 @@ class MotionClass(hass.Hass):
 
         if new == 'on':
             if self.get_state('light.entrance_lights') == 'off':
-                self.switch_on()
+                self.switch_on(entity, attribute, old, new, kwargs)
         else:
             if all([sensor_1_state=='off', sensor_2_state=='off', sensor_3_state=='off', sensor_4_state=='off']):
-                self.switch_off()
+                self.switch_off(entity, attribute, old, new, kwargs)

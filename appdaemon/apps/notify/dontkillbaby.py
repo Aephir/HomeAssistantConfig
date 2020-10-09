@@ -11,6 +11,9 @@ class TextToSpeak(hass.Hass):
             'binary_sensor.baby_safety_dining_room'
             ]
 
+        if 'event' in self.args:
+            self.listen_event(self.button_click, self.args['event'])
+
         self.timer_downstairs = None
 
         for sensor in self.sensors:
@@ -23,8 +26,14 @@ class TextToSpeak(hass.Hass):
 
             if new == 'on' and entity == 'binary_sensor.baby_safety_dining_room':
                 self.timer_downstairs = self.run_in(self.speak, 8)
-                # self.speak()
             elif new == 'off' and entity == 'binary_sensor.baby_safety_dining_room':
+                self.timer_downstairs = self.cancel_timer(self.timer_downstairs)
+
+
+    def button_click(self, event_name, data, kwargs):
+
+        if data['id'] == self.args['id']: # Dimmer Switch 1
+            if data['event'] == 3002: # Button 3 up
                 self.timer_downstairs = self.cancel_timer(self.timer_downstairs)
 
     def speak(self, kwargs):
@@ -32,8 +41,12 @@ class TextToSpeak(hass.Hass):
         # # Get current state of lights. Get both state and attributes
         # dining_room = self.get_state('light.dining_room_lights')
 
+        volume = self.get_state('media_player.dining_room_speaker', attribute='volume_level')
+
         # Speak the notification
+        self.call_service('media_player/volume_set', entity_id='media_player.dining_room_speaker', volume_level=0.8)
         self.call_service('tts/google_translate_say', message="Hey motherfucker. Close the security fence", entity_id='media_player.dining_room_speaker') # media_player.living_room_speaker
+        # self.call_service('media_player/volume_set', entity_id='media_player.dining_room_speaker', volume_level=volume)
 
         # Flash lights
 

@@ -378,11 +378,14 @@ views:
           - type: picture-entity
             entity: camera.octoprint
             camera_view: live
-          - type: picture-glance
-            camera_image: camera.octoprint
-            title: OctoPrint
-            entities:
-              - camera.octoprint
+          - type: picture-entity
+            entity: camera.chicken_coop
+            camera_view: live
+          # - type: picture-glance
+          #   camera_image: camera.octoprint
+          #   title: OctoPrint
+          #   entities:
+          #     - camera.octoprint
 
 #########################
 #                       #
@@ -961,21 +964,58 @@ views:
           #       name: Spisestue Lys
           #
 
-####################
-#                  #
-#    ESSENTIALS    #
-#                  #
-####################
+################
+#              #
+#    MOBILE    #
+#              #
+################
 
-  - icon: fas:universal-access
+  - icon: mdi:cellphone-iphone
     title: phone_control_adult
     id: phone_control_adult
     panel: true
-    icon: mdi:human-male-girl
     layout: auto
     column_num: 3
+    cards:
+      # - type: horizontal-stack
+      #   layout: vertical
+      #   cards:
+      #     - type: button
     cards:
       - type: custom:layout-card
         layout: vertical
         cards:
-          - type: button
+
+          - type: vertical-stack
+            cards:
+              - type: horizontal-stack
+                cards:
+                    # - type: "custom:button-card"
+                    #   color_type: blank-card
+                    - type: button
+                      icon: mdi:coffee
+                      entity: switch.switch
+                    - type: button
+                      icon: mdi:fountain
+                      entity: switch.fountain
+              - type: entities
+                title: Lights
+                entities:
+                  - light.dining_room_lights
+                  - light.conservatory_couch
+                  - light.conservatory_floor_1
+                  - light.baby_room_lights
+                  - light.kitchen_lights
+              - type: entities
+                title: Motion
+                entities:
+                  - input_boolean.basement_lights_motion_control
+                  - input_boolean.main_floor_lights_motion_control
+                  - input_boolean.top_floor_lights_motion_control
+              - type: entities
+                title: House Modes
+                entities:
+                  - input_boolean.party_mode
+                  - input_boolean.cooking_mode
+                  - input_boolean.guest_mode
+                  - input_boolean.vacation_mode

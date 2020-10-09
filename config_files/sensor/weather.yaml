@@ -2,18 +2,6 @@
 #    Weather    #
 #################
 
-- platform: yr
-  monitored_conditions:
-    - symbol
-    - temperature
-    - humidity
-    - fog
-    - pressure
-    - precipitation
-    - windSpeed
-    - windDirection
-    - cloudiness
-
 - platform: moon
 
 # - platform: darksky # Fuck Apple!

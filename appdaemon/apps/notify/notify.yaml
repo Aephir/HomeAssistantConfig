@@ -51,5 +51,7 @@ leaving_notifications:
 dontkillthebaby:
   module: dontkillbaby
   class: TextToSpeak
+  event: deconz_event
+  id: dimmer_switch_1
   # constrain_start_time: "07:00:00"
   # constrain_end_time: "21:00:00"
