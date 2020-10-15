@@ -1,21 +1,16 @@
 # Motion sensors to control the entrance lights.
 
 import appdaemon.plugins.hass.hassapi as hass
-import datetime
-import time
 
 class MotionClass(hass.Hass):
 
     def initialize(self):
         # Motion sensors.
 
-        self.motion_sensors = [
+        self.all_sensors = [
             "binary_sensor.presence_entrance", # Entrance Motion Sensor
             "binary_sensor.presence_top_floor_stairway", # Top Floor Stairs Motion Sensor
-            "binary_sensor.presence_basement_stairway" # Basement Stairway Motion Sensor
-            ]
-
-        self.door_sensors = [
+            "binary_sensor.presence_basement_stairway", # Basement Stairway Motion Sensor
             "binary_sensor.openclose_front_door" # Front door
             ]
 
@@ -23,14 +18,11 @@ class MotionClass(hass.Hass):
             "sensor.lightlevel_entrance" # Entrance Motion Illumination Sensor
             ]
 
-        for entity in self.motion_sensors:
+        for entity in self.all_sensors:
             self.listen_state(self.switch_on, entity, new='on')
 
-        for entity in self.motion_sensors:
+        for entity in self.all_sensors:
             self.listen_state(self.switch_off, entity, new='off')
-
-        for entity in self.door_sensors:
-            self.listen_state(self.dooropenclose, entity, new='on')
 
     # Assess whether we are awake, based on state of entity. Find better proxy eventually.
     def are_we_awake(self, entity):
@@ -72,7 +64,7 @@ class MotionClass(hass.Hass):
                 if workday_tomorrow:
                     self.turn_on("light.entrance_lights",brightness=75,kelvin=2200)
                 else:
-                    self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
+                    self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
 
             elif self.now_is_between('23:00:00', '07:00:00'):
                 if awake:
@@ -80,6 +72,7 @@ class MotionClass(hass.Hass):
                         self.turn_on("light.entrance_lights",brightness=75,kelvin=2200)
                     else:
                         self.turn_on("light.entrance_lights",brightness=255,kelvin=2200)
+
 
         elif new == 'on' and entity == 'binary_sensor.openclose_front_door':
             self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
@@ -93,23 +86,7 @@ class MotionClass(hass.Hass):
         sensor_3_state = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion Sensor
         sensor_4_state = self.get_state("binary_sensor.openclose_front_door") # Front door sensor
 
-        sensor_state    = [sensor_1_state=='off', sensor_2_state=='off', sensor_3_state=='off', sensor_4_state=='off']
+        sensor_state   = [sensor_1_state=='off', sensor_2_state=='off', sensor_3_state=='off', sensor_4_state=='off']
 
-        if all(sensor_state):
+        if all([sensor_1_state == "off", sensor_2_state == "off", sensor_3_state == "off"]):
             self.turn_off("light.entrance_lights")
-
-
-    # Door open/close
-    def dooropenclose(self, entity, attribute, old, new, kwargs):
-
-        sensor_1_state  = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
-        sensor_2_state  = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
-        sensor_3_state  = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion Sensor
-        sensor_4_state  = self.get_state("binary_sensor.openclose_front_door") # Front door sensor
-
-        if new == 'on':
-            if self.get_state('light.entrance_lights') == 'off':
-                self.switch_on(entity, attribute, old, new, kwargs)
-        else:
-            if all([sensor_1_state=='off', sensor_2_state=='off', sensor_3_state=='off', sensor_4_state=='off']):
-                self.switch_off(entity, attribute, old, new, kwargs)

@@ -35,5 +35,5 @@ logs:
   # queueman: debug
   # AIOGitHubAPI: debug
   custom_components.reolink_dev.camera: critical
-  pydeconz: debug
-  homeassistant.components.deconz: debug
+  # pydeconz: debug
+  # homeassistant.components.deconz: debug
