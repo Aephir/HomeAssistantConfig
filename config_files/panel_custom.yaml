@@ -14,6 +14,20 @@
     url_path: floorplan
     config: !include floorplan.yaml
 
+  - name: zwave-graph-panel
+    url_path: zwave-graph
+    sidebar_title: Z-Wave Graph
+    sidebar_icon: mdi:z-wave
+    module_url: /local/zwavegraph3.js
+    config:
+      # ranker - pick one: network-simplex, tight-tree, longest-path
+      ranker: network-simplex
+      # edge_visibility - pick one: relevant, all
+      edge_visibility: relevant
+      # grouping - pick one: z-wave, ungrouped
+      grouping: z-wave
+
+
   # - name: floorplan2
   #   sidebar_title: Floorplan2
   #   sidebar_icon: mdi:floor-plan

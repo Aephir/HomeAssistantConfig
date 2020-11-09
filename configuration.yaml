@@ -92,7 +92,7 @@ alarm_control_panel: !include resources/bwalarm/bwalarm.yaml
 automation: !include config_files/automation.yaml
 binary_sensor: !include config_files/binary_sensor.yaml
 camera: !include config_files/camera.yaml
-cast: !include config_files/cast.yaml
+# cast: !include config_files/cast.yaml
 # cloud: !include config_files/cloud.yaml
 climate: !include config_files/climate.yaml
 device_tracker: !include config_files/device_tracker.yaml
@@ -122,7 +122,7 @@ octoprint: !include config_files/octoprint.yaml
 owntracks: !include config_files/owntracks.yaml
 # packages: !include config_files/packages.yaml
 panel_custom: !include config_files/panel_custom.yaml
-panel_iframe: !include config_files/panel_iframe.yaml
+# panel_iframe: !include config_files/panel_iframe.yaml
 plant: !include config_files/plant.yaml
 recorder: !include config_files/recorder.yaml
 # remote: !include config_files/remote.yaml
@@ -140,7 +140,7 @@ switch: !include config_files/switch.yaml
 telegram_bot: !include config_files/telegram_bot.yaml
 tts: !include config_files/tts.yaml
 wemo: !include config_files/wemo.yaml
-yeelight: !include config_files/yeelight.yaml
+# yeelight: !include config_files/yeelight.yaml
 # zha: !include config_files/zha.yaml
 zone: !include config_files/zone.yaml
 zwave: !include config_files/zwave.yaml

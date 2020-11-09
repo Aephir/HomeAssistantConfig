@@ -9,15 +9,15 @@
 # another way to so it, is if you want to avoid loading into another variable, or avoid writing more code, all you can so is in the other apps, call self.app_config[you main app]['sensors']
 # The others will always get the latest update
 # Ensure in the main app config, they are put in there as a list or something
-
-import appdaemon.plugins.hass.hassapi as hass
-
-class GlobalFunctions(hass.Hass):
-
-    def initialize(self):
-        self.listen_state(self.test,'input_boolean.vacation_mode')
-
-    def test(self, entity, attribute, old, new, kwargs):
-        self.log("new test from root dir")
-        new = self.GlobalFunctions.testFunction()
-        self.log(str(new))
+#
+# import appdaemon.plugins.hass.hassapi as hass
+#
+# class GlobalFunctions(hass.Hass):
+#
+#     def initialize(self):
+#         self.listen_state(self.test,'input_boolean.vacation_mode')
+#
+#     def test(self, entity, attribute, old, new, kwargs):
+#         self.log("new test from root dir")
+#         new = self.GlobalFunctions.testFunction()
+#         self.log(str(new))

@@ -8,14 +8,14 @@
 #   module: global_functions
 #   class: Global
 
-global_functions_app_test:
-  module: global_functions_test
-  class: Global
+# global_functions_app_test:
+#   module: global_functions_test
+#   class: Global
+#
+# istimebetween:
+#   module: IsTimeBetween
+#   class: IsTimeBetween
 
-istimebetween:
-  module: IsTimeBetween
-  class: IsTimeBetween
-
-test_get_other_app:
-  module: global_test_app
-  class: Test
+# test_get_other_app:
+#   module: global_test_app
+#   class: Test

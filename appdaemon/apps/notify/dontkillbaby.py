@@ -36,7 +36,10 @@ class TextToSpeak(hass.Hass):
 
         if data['id'] == self.args['id']: # Dimmer Switch 1
             if data['event'] == 3002: # Button 3 up
-                self.timer_downstairs = self.cancel_timer(self.timer_downstairs)
+                if self.get_state('binary_sensor.baby_safety_dining_room') == 'on':
+                    self.cancel_timer(self.timer_downstairs)
+                # elif self.get_state('binary_sensor.baby_safety_dining_room') == 'off':
+                #     self.run_in(self.cancel_timer(self.timer_downstairs), 8)
 
     def speak(self, kwargs):
 

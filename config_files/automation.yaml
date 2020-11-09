@@ -875,18 +875,18 @@
 #           - 'fume_hood_decrease'
 
 
-#######################
-#    Homekit Start    #
-#######################
-
-- alias: 'Start HomeKit'
-  initial_state: True
-  trigger:
-    - platform: homeassistant
-      event: start
-  action:
-    - delay: 00:02  # Waits 2 minutes
-    - service: homekit.start
+# #######################
+# #    Homekit Start    #
+# #######################
+#
+# - alias: 'Start HomeKit'
+#   initial_state: True
+#   trigger:
+#     - platform: homeassistant
+#       event: start
+#   action:
+#     - delay: 00:02  # Waits 2 minutes
+#     - service: homekit.start
 
 
 ################

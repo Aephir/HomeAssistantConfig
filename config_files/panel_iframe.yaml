@@ -5,7 +5,7 @@
 #############
 #__nodeRED__#
 
-nodered:
- title: 'Node-Red'
- icon: 'mdi:shuffle-variant'
- url: 'http://192.168.0.100:1880/'
+# nodered:
+#  title: 'Node-Red'
+#  icon: 'mdi:shuffle-variant'
+#  url: 'http://192.168.0.100:1880/'

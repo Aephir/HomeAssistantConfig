@@ -114,9 +114,9 @@ espresso_left_on:
 #    Notifications    #
 #######################
 
-simple_win_door:
-  module: simple_window_door
-  class: Notfications
+# simple_win_door:
+#   module: simple_window_door
+#   class: Notfications
 
 
 ################
@@ -170,9 +170,9 @@ simple_win_door:
 #    Radiators    #
 ###################
 
-bathroom_radiator:
-  module: bathroom_radiator
-  class: RadiatorThermostat
+# bathroom_radiator:
+#   module: bathroom_radiator
+#   class: RadiatorThermostat
 #
 # update_radiator_states:
 #   module: update_climate
@@ -183,9 +183,9 @@ bathroom_radiator:
 #    Room staus    #
 ####################
 
-bathroom_status:
-  module: bathroom
-  class: RoomStatus
+# bathroom_status:
+#   module: bathroom
+#   class: RoomStatus
 
 
 ################

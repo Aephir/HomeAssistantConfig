@@ -24,8 +24,8 @@
   host: 192.168.0.155
 
 - platform: joaoapps_join
-  device_id: !secret joaoapps_s7e_device_id
-  name: S7Edge
+  device_id: !secret joaoapps_p30pro_device_id
+  name: P30Pro
   api_key: !secret join_api_key
 
 - platform: html5

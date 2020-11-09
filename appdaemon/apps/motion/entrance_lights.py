@@ -45,7 +45,7 @@ class MotionClass(hass.Hass):
     def switch_on(self, entity, attribute, old, new, kwargs):
 
         workday         = self.get_state('binary_sensor.workday_today')
-        workday_tomorrow  = self.get_state('binary_sensor.workday_tomorrow')
+        workday_tomorrow= self.get_state('binary_sensor.workday_tomorrow')
         sensor_1_state  = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
         sensor_2_state  = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
         sensor_3_state  = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion Sensor

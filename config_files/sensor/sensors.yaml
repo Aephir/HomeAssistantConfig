@@ -122,6 +122,23 @@
         {% else %}
           {{ states.sensor.emilies_phone_battery.state }}
         {%- endif %}
+    naia_phone_battery:
+      friendly_name: Naias Phone Battery
+      value_template: >
+        {%- if states.device_tracker.meta_naia.attributes %}
+          {{ states.device_tracker.meta_naia.attributes.battery|round }}
+        {% else %}
+          {{ states.sensor.naias_phone_battery.state }}
+        {%- endif %}
+      device_class: battery
+    naia_phone_battery_charging_state:
+      friendly_name: Naias Phone Battery Charging State
+      value_template: >
+        {%- if states.device_tracker.meta_naia.attributes %}
+          {{ states.device_tracker.meta_naia.attributes.charging }}
+        {% else %}
+          {{ states.sensor.naias_phone_battery.state }}
+        {%- endif %}
 
 # # Sensor Batteries
 # - platform: template
@@ -1167,10 +1184,10 @@
 # - platform: api_streams
 - platform: websocket_api
 
-- platform: cert_expiry
-  host: hass.aephirshome.duckdns.org
-#  host: home-assistant.io
-#  port: 443
+# - platform: cert_expiry
+#   host: !secret secret_base_url
+# #  host: home-assistant.io
+# #  port: 443
 
 - platform: time_date
   display_options:

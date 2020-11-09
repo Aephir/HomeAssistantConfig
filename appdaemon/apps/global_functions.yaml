@@ -29,9 +29,9 @@
 # fnc = self.get_app("istimebetween")
 # test  = fnc.IsTimeBetween(start, end)
 
-something:
-  module: time_functions
-  class: GlobalFunctions
+# something:
+#   module: time_functions
+#   class: GlobalFunctions
 
 # testglobal:
 #   module: testglobal
@@ -165,6 +165,6 @@ global_sensors:
     - 'device_tracker.meta_emilie'
     - 'device_tracker.meta_naia'
 
-time_functions:
-  module: time_functions
-  class: GlobalFunctions
+# time_functions:
+#   module: time_functions
+#   class: GlobalFunctions

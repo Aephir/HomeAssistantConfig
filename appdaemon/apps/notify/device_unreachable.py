@@ -72,7 +72,7 @@ class Sensor(hass.Hass):
         sensor          = self.battery_levels[self.battery_powered_devices.index(entity)]
         last_battery    = self.get_state(sensor)
         title           = 'Battery powered devices offline!!'
-        message         = 'Device "' + friendly_name + '" just went offline.\nCheck battery and connection.\n\nLast reported battery state was: ' + last_battery
+        message         = 'Device "' + str(friendly_name) + '" just went offline.\nCheck battery and connection.\n\nLast reported battery state was: ' + str(last_battery)
 
         for i in self.battery_powered_devices:
             if self.get_state(i) == 'unknown' or self.get_state(i) == 'unavailable':

@@ -14,6 +14,14 @@ leaving_notifications:
   notify_1: notify/home_aephir_bot
   notify_2: notify/ios_kristinas_iphone
 
+# kristina_leave_work:
+#   module: kristina_leaving_work
+#   class: Notify
+
+# speak_on_mobile:
+#   module: speak_on_mobile
+#   class: Notify
+
 # notify_phones:
 #   module: generic_notifier
 #   class: Notify

@@ -5,12 +5,6 @@
 #                                                                        #
 ##########################################################################
 
-custom_header:
-  exceptions:
-    - conditions:
-        query_string: kiosk
-      config:
-        kiosk_mode: true
 
 preload_cards:
   [map, iframe, markdown]

@@ -11,6 +11,10 @@
 #   - /local/hass-fontawesome-brands.html
 #   # - /local/custom_ui/state-card-floorplan.html
 themes: !include_dir_merge_named /config/themes/
+# default:
+#   header-height: 44px
+
+
   # teal:
   #   # Main Stuff #
   #   primary-color: "#1DE9B6" # Primary (most of the UI)

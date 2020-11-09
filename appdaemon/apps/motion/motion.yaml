@@ -70,10 +70,10 @@ top_floor_hallway_lights:
   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
   # constrain_input_boolean: input_boolean.creative_lights_motion_control
 
-top_floor_stairway_motion_light:
-  module: top_floor_stairway_lights
-  class: MotionClass
-  constrain_input_boolean: input_boolean.top_floor_lights_motion_control
+# top_floor_stairway_motion_light:
+#   module: top_floor_stairway_lights
+#   class: MotionClass
+#   constrain_input_boolean: input_boolean.top_floor_lights_motion_control
 
 top_floor_tv_room_light:
   module: top_floor_tv_room_lights
@@ -84,7 +84,7 @@ walk_in_closet_lights:
   module: walk_in_closet_lights
   class: MotionClass
   entity_override: input_boolean.basement_lights_motion_control
-  
+
 wine_cellar_light:
   module: wine_cellar_lights
   class: MotionClass

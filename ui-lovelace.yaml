@@ -6,25 +6,25 @@ background: center / cover no-repeat url("/local/images/banner_bg_2.jpg") #fixed
 # Exclude entities from "Unused entities" view
 # excluded_entities:
 #   - weblink.router
-
-custom_header:
-  compact_mode: true
-  exceptions:
-    - conditions:
-      user: emilie, naia
-      config:
-        disable_sidebar: true
-        hide_config: true
-        # tab:
-    - conditions:
-      user: tablets_1
-      config:
-        kiosk_mode: true
-swipe_nav:
-  animate: flip
-  prevent_default: true
-  swipe_amount: 30
-  wrap: true
+#
+# custom_header:
+#   compact_mode: true
+#   exceptions:
+#     - conditions:
+#       user: emilie, naia
+#       config:
+#         disable_sidebar: true
+#         hide_config: true
+#         # tab:
+#     - conditions:
+#       user: tablets_1
+#       config:
+#         kiosk_mode: true
+# swipe_nav:
+#   animate: flip
+#   prevent_default: true
+#   swipe_amount: 30
+#   wrap: true
 
 
 resources:
@@ -44,13 +44,9 @@ resources:
     type: js
   - url: /hacsfiles/lovelace-card-tools/card-tools.js
     type: js
-  # - url: /hacsfiles/compact-custom-header/compact-custom-header.js
-  #   type: module
   - type: module
     url: /local/floorplan/floorplan-card.js?v=1.1.14
   - url: /hacsfiles/lovelace-auto-entities/auto-entities.js
-    type: module
-  - url: /hacsfiles/custom-header/custom-header.js
     type: module
   - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
     type: module
@@ -58,6 +54,8 @@ resources:
     type: module
   - url: /hacsfiles/lovelace-hui-element/hui-element.js
     Type: module
+  - url: /hacsfiles/kiosk-mode/kiosk-mode.js
+    type: module
 
 
 views:
@@ -74,6 +72,13 @@ views:
     panel: true
     layout: auto
     column_num: 3
+    visible:
+      - user: 2e71d5584ba746d68b11def173907a59 # Walden
+      - user: 89c29464e8a246ec881f04001036a110 # Kristina
+      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
+      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
+      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
+      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -265,6 +270,13 @@ views:
     # min_height:
     ltr: false
     rebuild: false
+    visible:
+      - user: 2e71d5584ba746d68b11def173907a59 # Walden
+      - user: 89c29464e8a246ec881f04001036a110 # Kristina
+      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
+      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
+      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
+      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -289,7 +301,7 @@ views:
                 name: Battery
               - entity: sensor.emilie_phone_battery
                 name: Battery
-              - entity: sensor.niels_brodys_ipad_2_battery_level
+              - entity: sensor.naia_phone_battery
                 name: Battery
               - entity: binary_sensor.aephir_in_bed
                 icon: fas:bed
@@ -379,14 +391,11 @@ views:
           - type: picture-entity
             entity: camera.octoprint
             camera_view: live
-          - type: picture-entity
-            entity: camera.chicken_coop
-            camera_view: live
-          # - type: picture-glance
-          #   camera_image: camera.octoprint
-          #   title: OctoPrint
-          #   entities:
-          #     - camera.octoprint
+          - type: picture-glance
+            camera_image: camera.octoprint
+            title: OctoPrint
+            entities:
+              - camera.octoprint
 
 #########################
 #                       #
@@ -400,6 +409,13 @@ views:
     panel: true
     layout: auto
     column_num: 3
+    visible:
+      - user: 2e71d5584ba746d68b11def173907a59 # Walden
+      - user: 89c29464e8a246ec881f04001036a110 # Kristina
+      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
+      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
+      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
+      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -570,6 +586,13 @@ views:
     panel: true
     layout: auto
     column_num: 3
+    visible:
+      - user: 2e71d5584ba746d68b11def173907a59 # Walden
+      - user: 89c29464e8a246ec881f04001036a110 # Kristina
+      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
+      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
+      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
+      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -792,38 +815,39 @@ views:
     icon: mdi:cogs
     layout: auto
     column_num: 3
+    visible:
+      - user: 2e71d5584ba746d68b11def173907a59 # Walden
+      - user: 89c29464e8a246ec881f04001036a110 # Kristina
+      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
+      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
+      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
+      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
         cards:
-          - type: conditional
-            conditions:
+          - type: entities
+            title: Prusa i3 MK3S
+            entities:
+              - entity: switch.prusa_lights
+                name: Lights
+              - entity: binary_sensor.prusa_i3_mk3s_printing
+                name: Printer status
+              - entity: binary_sensor.prusa_i3_mk3s_printing_error
               - entity: sensor.prusa_i3_mk3s_current_state
-                state_not: 'unknown'
-
-            card:
-              type: entities
-              title: Prusa i3 MK3S
-              entities:
-                - entity: switch.prusa_lights
-                  name: Lights
-                - entity: binary_sensor.prusa_i3_mk3s_printing
-                  name: Printer status
-                - entity: binary_sensor.prusa_i3_mk3s_printing_error
-                - entity: sensor.prusa_i3_mk3s_current_state
-                - entity: sensor.prusa_i3_mk3s_job_percentage
-                  name: Print progress
-                - entity: sensor.prusa_i3_mk3s_actual_bed_temp
-                - entity: sensor.prusa_i3_mk3s_actual_tool0_temp
-                  name: Hotend actual temperature
-                # - entity: sensor.prusa_i3_mk3s_actual_tool1_temp
-                - entity: sensor.prusa_i3_mk3s_target_bed_temp
-                - entity: sensor.prusa_i3_mk3s_target_tool0_temp
-                  name: Hotend target temperature
-                # - entity: sensor.prusa_i3_mk3s_target_tool1_temp
-                - entity: sensor.prusa_i3_mk3s_time_elapsed_format
-                - entity: sensor.prusa_i3_mk3s_time_remaining_format
-                # - entity: sensor.prusa_status
+              - entity: sensor.prusa_i3_mk3s_job_percentage
+                name: Print progress
+              - entity: sensor.prusa_i3_mk3s_actual_bed_temp
+              - entity: sensor.prusa_i3_mk3s_actual_tool0_temp
+                name: Hotend actual temperature
+              # - entity: sensor.prusa_i3_mk3s_actual_tool1_temp
+              - entity: sensor.prusa_i3_mk3s_target_bed_temp
+              - entity: sensor.prusa_i3_mk3s_target_tool0_temp
+                name: Hotend target temperature
+              # - entity: sensor.prusa_i3_mk3s_target_tool1_temp
+              - entity: sensor.prusa_i3_mk3s_time_elapsed_format
+              - entity: sensor.prusa_i3_mk3s_time_remaining_format
+              # - entity: sensor.prusa_status
 
           - break
 
@@ -898,9 +922,15 @@ views:
     title: Kids
     id: kid_control
     panel: true
-    icon: mdi:human-male-girl
     layout: auto
     column_num: 3
+    visible:
+      - user: 2e71d5584ba746d68b11def173907a59 # Walden
+      - user: 89c29464e8a246ec881f04001036a110 # Kristina
+      - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
+      - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
+      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
+      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -964,89 +994,3 @@ views:
           #     - entity: light.dining_room_lights
           #       name: Spisestue Lys
           #
-
-################
-#              #
-#    MOBILE    #
-#              #
-################
-
-  - icon: mdi:cellphone-iphone
-    title: phone_control_adult
-    id: phone_control_adult
-    panel: true
-    layout: auto
-    column_num: 3
-    cards:
-      # - type: horizontal-stack
-      #   layout: vertical
-      #   cards:
-      #     - type: button
-    cards:
-      - type: custom:layout-card
-        layout: vertical
-        cards:
-
-          - type: vertical-stack
-            cards:
-              - type: horizontal-stack
-                cards:
-                    # - type: "custom:button-card"
-                    #   color_type: blank-card
-                    - type: button
-                      icon: mdi:coffee
-                      entity: switch.switch
-                    - type: button
-                      icon: mdi:fountain
-                      entity: switch.fountain
-              - type: entities
-                title: Lights
-                entities:
-                  - light.dining_room_lights
-                  - light.conservatory_couch
-                  - light.conservatory_floor_1
-                  - light.baby_room_lights
-                  - light.kitchen_lights
-              - type: entities
-                title: Motion
-                entities:
-                  - input_boolean.basement_lights_motion_control
-                  - input_boolean.main_floor_lights_motion_control
-                  - input_boolean.top_floor_lights_motion_control
-              - type: entities
-                title: House Modes
-                entities:
-                  - input_boolean.party_mode
-                  - input_boolean.cooking_mode
-                  - input_boolean.guest_mode
-                  - input_boolean.vacation_mode
-
-###################
-#                 #
-#    FLOORPLAN    #
-#                 #
-###################
-
-
-  - icon: mdi:floor-plan
-    title: floorplan
-    id: floorplan
-    cards:
-      - config:
-          image: /local/custom_ui/floorplan/floorplan.svg
-          rules:
-            - entities:
-                - binary_sensor.main_bedroom
-                - binary_sensor.living_area
-                - binary_sensor.double_garage
-              states:
-                - class: 'binary-sensor-off'
-                  state: 'off'
-                - class: 'binary-sensor-on'
-                  state: 'on'
-          stylesheet: /local/custom_ui/floorplan/floorplan.css
-        title: Simple Floorplan
-        type: 'custom:floorplan-card'
-    icon: 'mdi:floor-plan'
-    id: system
-    title: Floorplan

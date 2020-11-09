@@ -33,7 +33,8 @@ class MetaTracker(hass.Hass):
 
         self.naia_trackers = [
             self.args["naia_ios_tracker"],
-            self.args["naia_ping_tracker"]
+            self.args["naia_ping_tracker"],
+            self.args["naia_l360_tracker"]
             ]
 
         self.meta_trackers = [
@@ -63,7 +64,7 @@ class MetaTracker(hass.Hass):
 
     def where_are_we(self, entity, attribute, old, new, kwargs):
 
-        self.log("Tracker: ", entity)
+        self.log("Tracker: ", str(entity))
 
         # Trackers
         aephir_trackers = [
@@ -86,7 +87,8 @@ class MetaTracker(hass.Hass):
 
         naia_trackers = [
             self.args["naia_ios_tracker"],
-            self.args["naia_ping_tracker"]
+            self.args["naia_ping_tracker"],
+            self.args["naia_l360_tracker"]
             ]
 
         # Get entity that triggers script. I don't need this, this is "entity" that's passed from "initialize", right?

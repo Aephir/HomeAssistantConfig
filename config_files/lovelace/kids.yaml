@@ -6,20 +6,6 @@ background: center / cover no-repeat url("/local/images/banner_bg_2.jpg") #fixed
 # excluded_entities:
 #   - weblink.router
 
-custom_header:
-  compact_mode: true
-  exceptions:
-    - conditions:
-      user: emilie, naia
-      config:
-        disable_sidebar: true
-        hide_config: true
-        # tab:
-    - conditions:
-      user: tablets_1
-      config:
-        kiosk_mode: true
-
 views:
 
   - icon: fas:child

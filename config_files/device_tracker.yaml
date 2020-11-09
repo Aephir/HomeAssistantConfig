@@ -45,11 +45,10 @@
   - platform: ping
     hosts:
       aephir_ping: 192.168.0.11
-      kristina_ping: 192.168.0.18
-      naia_ipad_ping: 192.168.0.35
+      kristina_ping: 192.168.0.13
       emilie_iphone_ping: 192.168.0.30
       karen_iphone_ping: 192.168.0.19
-      naia_iphone_ping: 192.168.0.14
+      naia_iphone_ping: 192.168.0.18
     scan_interval: 30
 
 #################
