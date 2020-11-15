@@ -6,25 +6,25 @@ background: center / cover no-repeat url("/local/images/banner_bg_2.jpg") #fixed
 # Exclude entities from "Unused entities" view
 # excluded_entities:
 #   - weblink.router
-#
-# custom_header:
-#   compact_mode: true
-#   exceptions:
-#     - conditions:
-#       user: emilie, naia
-#       config:
-#         disable_sidebar: true
-#         hide_config: true
-#         # tab:
-#     - conditions:
-#       user: tablets_1
-#       config:
-#         kiosk_mode: true
-# swipe_nav:
-#   animate: flip
-#   prevent_default: true
-#   swipe_amount: 30
-#   wrap: true
+
+custom_header:
+  compact_mode: true
+  exceptions:
+    - conditions:
+      user: emilie, naia
+      config:
+        disable_sidebar: true
+        hide_config: true
+        # tab:
+    - conditions:
+      user: tablets_1
+      config:
+        kiosk_mode: true
+swipe_nav:
+  animate: flip
+  prevent_default: true
+  swipe_amount: 30
+  wrap: true
 
 
 resources:
@@ -54,9 +54,18 @@ resources:
     type: module
   - url: /hacsfiles/lovelace-hui-element/hui-element.js
     Type: module
-  - url: /hacsfiles/kiosk-mode/kiosk-mode.js
-    type: module
 
+
+kiosk_mode:
+  user_settings:
+    - users:
+        - "emilie"
+        - "naia"
+        - "tablets_1"
+      kiosk: true
+    # - users:
+    #     - "the wife"
+    #   kiosk: true
 
 views:
 
@@ -72,13 +81,6 @@ views:
     panel: true
     layout: auto
     column_num: 3
-    visible:
-      - user: 2e71d5584ba746d68b11def173907a59 # Walden
-      - user: 89c29464e8a246ec881f04001036a110 # Kristina
-      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
-      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
-      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
-      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -270,13 +272,6 @@ views:
     # min_height:
     ltr: false
     rebuild: false
-    visible:
-      - user: 2e71d5584ba746d68b11def173907a59 # Walden
-      - user: 89c29464e8a246ec881f04001036a110 # Kristina
-      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
-      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
-      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
-      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -301,7 +296,7 @@ views:
                 name: Battery
               - entity: sensor.emilie_phone_battery
                 name: Battery
-              - entity: sensor.naia_phone_battery
+              - entity: sensor.niels_brodys_ipad_2_battery_level
                 name: Battery
               - entity: binary_sensor.aephir_in_bed
                 icon: fas:bed
@@ -409,13 +404,6 @@ views:
     panel: true
     layout: auto
     column_num: 3
-    visible:
-      - user: 2e71d5584ba746d68b11def173907a59 # Walden
-      - user: 89c29464e8a246ec881f04001036a110 # Kristina
-      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
-      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
-      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
-      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -586,13 +574,6 @@ views:
     panel: true
     layout: auto
     column_num: 3
-    visible:
-      - user: 2e71d5584ba746d68b11def173907a59 # Walden
-      - user: 89c29464e8a246ec881f04001036a110 # Kristina
-      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
-      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
-      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
-      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -815,13 +796,6 @@ views:
     icon: mdi:cogs
     layout: auto
     column_num: 3
-    visible:
-      - user: 2e71d5584ba746d68b11def173907a59 # Walden
-      - user: 89c29464e8a246ec881f04001036a110 # Kristina
-      # - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
-      # - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
-      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
-      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -918,19 +892,12 @@ views:
 #            #
 ##############
 
-  - icon: fas:child
+  - icon: mdi:human-male-girl
     title: Kids
     id: kid_control
     panel: true
     layout: auto
     column_num: 3
-    visible:
-      - user: 2e71d5584ba746d68b11def173907a59 # Walden
-      - user: 89c29464e8a246ec881f04001036a110 # Kristina
-      - user: 43d19c5723de4171beb6c159aeecb300 # Emilie
-      - user: bcf5ebb20fdc40babb5051c4d8ed777a # Naia
-      # - user: 1754797f39b44269a02e7ab034d2d06a # guest_lv_1
-      # - user: 696b816e5364405786d685be808a5fe2 # tablets_1
     cards:
       - type: custom:layout-card
         layout: vertical
@@ -994,3 +961,767 @@ views:
           #     - entity: light.dining_room_lights
           #       name: Spisestue Lys
           #
+
+
+
+###################
+#                 #
+#    FLOORPLAN    #
+#                 #
+###################
+
+  - cards:
+      - config:
+          image: /local/floorplan/examples/simple/simple.svg?v=1.1.14
+          log_level: error
+          rules:
+            - action:
+                service: homeassistant.toggle
+              element: light.kitchen_spots
+              entity: light.kitchen_spots
+              image_template: '/local/floorplan/examples/simple/light_${entity.state}.svg'
+              more_info: false
+            - action:
+                service: homeassistant.toggle
+              class_template: 'background-${entity.state}'
+              element: light.kitchen_spots.background
+              entity: light.kitchen_spots
+            - action:
+                service: homeassistant.toggle
+              element: light.kitchen_spots.text
+              entity: light.kitchen_spots
+              text_template: '${entity.state}'
+            - action:
+                service: homeassistant.toggle
+              entity: switch.switch
+              more_info: false
+            - entity: switch.switch
+              more_info: false
+              propagate: false
+              states:
+                - class: 'spinning'
+                  state: 'on'
+            - action:
+                service: homeassistant.toggle
+              class_template: 'background-${entity.state}'
+              element: switch.switch.background
+              entity: switch.switch
+            - action:
+                service: homeassistant.toggle
+              element: switch.switch.text
+              entity: switch.switch
+              text_template: '${entity.state}'
+            - entity: camera.new_york_broadway
+              image_refresh_interval: 5
+              image_template: '${entity.attributes.entity_picture}'
+            - entities:
+                - binary_sensor.party_mode
+                - binary_sensor.cooking_mode
+                - binary_sensor.vacation_mode
+              state_transitions:
+                - duration: 5
+                  from_state: 'on'
+                  to_state: 'off'
+              states:
+                - class: 'binary-sensor-off'
+                  state: 'off'
+                - class: 'binary-sensor-on'
+                  state: 'on'
+          stylesheet: /local/floorplan/examples/simple/simple.css?v=1.1.14
+        title: Simple Floorplan
+        type: 'custom:floorplan-card'
+    icon: 'mdi:floor-plan'
+    id: system
+    title: Floorplan
+
+  # - icon: mdi:floor-plan
+  #   title: Floorplan
+  #   id: floorplan
+  #   panel: true
+  #   cards:
+  #     - config:
+  #         image: /local/floorplan/default/floorplan.svg
+  #         # image: /local/floorplan/examples/simple/simple.svg
+  #         rules:
+  #
+  #           # Power consumption
+  #           - entity: sensor.fibaro_system_fgwpef_wall_plug_gen5_power # Shed power consumption
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " W": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - entity: sensor.neo_coolcam_power_plug_12a_power # Espresso power consumption
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " W": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #
+  #           # Temperature
+  #           - entity: sensor.temperature_kitchen
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: '
+  #               var temp = parseFloat(entity.state);
+  #               if (temp < 15)
+  #                 return "temp-in-very-low";
+  #               else if (temp < 19)
+  #                 return "temp-in-low";
+  #               else if (temp < 21)
+  #                 return "temp-in-good";
+  #               else
+  #                 return "temp-in-high";
+  #               '
+  #           - entity: sensor.temperature_top_floor_tv_room
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: '
+  #               var temp = parseFloat(entity.state);
+  #               if (temp < 15)
+  #                 return "temp-in-very-low";
+  #               else if (temp < 19)
+  #                 return "temp-in-low";
+  #               else if (temp < 21)
+  #                 return "temp-in-good";
+  #               else
+  #                 return "temp-in-high";
+  #               '
+  #           - entity: sensor.temperature_bathroom
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: '
+  #               var temp = parseFloat(entity.state);
+  #               if (temp < 15)
+  #                 return "temp-in-very-low";
+  #               else if (temp < 19)
+  #                 return "temp-in-low";
+  #               else if (temp < 21)
+  #                 return "temp-in-good";
+  #               else
+  #                 return "temp-in-high";
+  #               '
+  #           - entity: sensor.temperature_wine_cellar
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: '
+  #               var temp = parseFloat(entity.state);
+  #               if (temp < 15)
+  #                 return "temp-in-very-low";
+  #               else if (temp < 19)
+  #                 return "temp-in-low";
+  #               else if (temp < 21)
+  #                 return "temp-in-good";
+  #               else
+  #                 return "temp-in-high";
+  #               '
+  #           - entity: sensor.shed_tasmota_dht11_temp
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: '
+  #               var temp = parseFloat(entity.state);
+  #               if (temp < 15)
+  #                 return "temp-in-very-low";
+  #               else if (temp < 19)
+  #                 return "temp-in-low";
+  #               else if (temp < 21)
+  #                 return "temp-in-good";
+  #               else
+  #                 return "temp-in-high";
+  #               '
+  #           - entity: sensor.temperature_washing_room
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: '
+  #               var temp = parseFloat(entity.state);
+  #               if (temp < 15)
+  #                 return "temp-in-very-low";
+  #               else if (temp < 19)
+  #                 return "temp-in-low";
+  #               else if (temp < 21)
+  #                 return "temp-in-good";
+  #               else
+  #                 return "temp-in-high";
+  #               '
+  #           - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: '
+  #               var temp = parseFloat(entity.state);
+  #               if (temp < 15)
+  #                 return "temp-in-very-low";
+  #               else if (temp < 19)
+  #                 return "temp-in-low";
+  #               else if (temp < 21)
+  #                 return "temp-in-good";
+  #               else
+  #                 return "temp-in-high";
+  #               '
+  #           - entity: sensor.aeotec_zw100_multisensor_6_temperature
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: '
+  #               var temp = parseFloat(entity.state);
+  #               if (temp < 15)
+  #                 return "temp-in-very-low";
+  #               else if (temp < 19)
+  #                 return "temp-in-low";
+  #               else if (temp < 21)
+  #                 return "temp-in-good";
+  #               else
+  #                 return "temp-in-high";
+  #               '
+  #           # - entity: sensor.top_floor_bathroom_temperature
+  #           #   text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #           #   class_template: '
+  #           #     var temp = parseFloat(entity.state);
+  #           #     if (temp < 15)
+  #           #       return "temp-in-very-low";
+  #           #     else if (temp < 19)
+  #           #       return "temp-in-low";
+  #           #     else if (temp < 21)
+  #           #       return "temp-in-good";
+  #           #     else
+  #           #       return "temp-in-high";
+  #           #     '
+  #
+  #           # Humidity
+  #           - entity: sensor.humidity_kitchen
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - entity: sensor.humidity_top_floor_tv_room
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - entity: sensor.humidity_bathroom
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - entity: sensor.humidity_wine_cellar
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - entity: sensor.shed_tasmota_dht11_hum
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - entity: sensor.humidity_washing_room
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #
+  #           # Motion Sensors
+  #           - entities:
+  #               - binary_sensor.presence_basement_entrance # Basement entrance motion
+  #               - binary_sensor.presence_conservatory # Conservatory motion
+  #               - binary_sensor.presence_tv_room # TV room motion
+  #               - binary_sensor.presence_entrance # Entrance motion
+  #               - binary_sensor.presence_basement_stairway # Basement stairway motion
+  #               - binary_sensor.presence_top_floor_bathroom # Upstairs bathroom motion
+  #               - binary_sensor.presence_top_floor_stairway # Top floor stairway motion
+  #               - binary_sensor.presence_kitchen # Kitchen motion
+  #               - binary_sensor.presence_top_floor_tv_room # Top floor TV room
+  #               - binary_sensor.presence_entrance # Entrance motion
+  #               - binary_sensor.presence_basement_stairway # Basement stairway
+  #               - binary_sensor.shed_tasmota_motion # Shed NodeMCU tasmota
+  #             states:
+  #               - state: 'on'
+  #                 class: 'motion-on'
+  #               - state: 'off'
+  #                 class: 'motion-off'
+  #
+  #           # Door/Window Sensors
+  #           - name: Door and Window Sensors
+  #             entities:
+  #               - binary_sensor.shed_tasmota_door # Shed door
+  #               - binary_sensor.openclose_conservatory_door # Conservatory Door
+  #               - binary_sensor.openclose_front_door # Front Door
+  #               - binary_sensor.openclose_basement_entrance_door # Basement Door
+  #               - binary_sensor.openclose_bathroom_window # Bathroom Window
+  #               - binary_sensor.openclose_bedroom_window_1 # Bedroom Window
+  #             states:
+  #               - state: 'on'
+  #                 class: 'door-open'
+  #               - state: 'off'
+  #                 class: 'door-closed'
+  #
+  #           # Bed Sensors
+  #           - entities:
+  #               - binary_sensor.aephir_in_bed
+  #               - binary_sensor.kristina_in_bed
+  #             states:
+  #               - state: 'on'
+  #                 class: 'bed-on'
+  #               - state: 'off'
+  #                 class: 'bed-off'
+  #
+  #           # 3D Printer Sensors
+  #           - name: printer_power
+  #             entities:
+  #               - sensor.prusa_i3_mk3s_current_state
+  #             states:
+  #               - state: 'on'
+  #                 class: 'printer_power_on'
+  #               - state: 'Printing'
+  #                 class: 'printer_power_on'
+  #               - state: 'off'
+  #                 class: 'printer_power_off'
+  #           - name: printer_printing
+  #             entities:
+  #               - binary_sensor.prusa_i3_mk3s_printing
+  #             states:
+  #               - state: 'on'
+  #                 class: 'printer_printing_on'
+  #               - state: 'off'
+  #                 class: 'printer_printing_off'
+  #           - name: printer_error
+  #             entities:
+  #               - binary_sensor.prusa_i3_mk3s_printing_error
+  #             states:
+  #               - state: 'on'
+  #                 class: 'printer_error_on'
+  #               - state: 'off'
+  #                 class: 'printer_error_off'
+  #           - name: printer_bed_temperature
+  #             entities:
+  #               - sensor.prusa_i3_mk3s_actual_bed_temp
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - name: printer_bed_target_temperature
+  #             entities:
+  #               - sensor.prusa_i3_mk3s_target_bed_temp
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - name: printer_nozzle_temperature
+  #             entities:
+  #               - sensor.prusa_i3_mk3s_actual_tool0_temp
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - name: printer_nozzle_target_temperature
+  #             entities:
+  #               - sensor.prusa_i3_mk3s_target_tool0_temp
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #           - name: printer_percentage_done
+  #             entities:
+  #               - sensor.prusa_i3_mk3s_job_percentage
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #             class_template: 'return "static-temp";'
+  #
+  #           # Phone Location and States
+  #           - name: aephir_location
+  #             entities:
+  #               - device_tracker.meta_walden
+  #             text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Walden", "Work").replace("Work Kristina", "Work").replace("Central_Copenhagen", "City").replace("Super Brugsen Hvidovrevej", "Super Brugsen").replace("Netto Hvidovrevej", "Netto").replace("Fakta Rosenhøj", "Fakta").replace("Kvickly Hvidovrevej", "Kvickly") : "undefined"}'
+  #             states:
+  #               - state: 'Home'
+  #                 class: 'presence-zone1'
+  #               - state: 'Work Walden'
+  #                 class: 'presence-zone2'
+  #               - state: 'Sigynsgade'
+  #                 class: 'presence-zone3'
+  #               - state: 'Jelling'
+  #                 class: 'presence-zone4'
+  #               - state: 'Irma_Sluseholmen'
+  #                 class: 'presence-zone5'
+  #               - state: 'Central_Copenhagen'
+  #                 class: 'presence-zone6'
+  #               - state: 'Work Kristina'
+  #                 class: 'presence-zone7'
+  #               - state: 'Sommerhus'
+  #                 class: 'presence-zone8'
+  #               - state: 'Skole'
+  #                 class: 'presence-zone9'
+  #               - state: 'Klubben'
+  #                 class: 'presence-zone10'
+  #               - state: 'not_home'
+  #                 class: 'presence-away'
+  #           - name: kristina_location
+  #             entities:
+  #               - device_tracker.meta_kristina
+  #             text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Walden", "Work").replace("Work Kristina", "Work").replace("Central_Copenhagen", "City").replace("Super Brugsen Hvidovrevej", "Super Brugsen").replace("Netto Hvidovrevej", "Netto").replace("Fakta Rosenhøj", "Fakta").replace("Kvickly Hvidovrevej", "Kvickly") : "undefined"}'
+  #             states:
+  #               - state: 'Home'
+  #                 class: 'presence-zone1'
+  #               - state: 'Work Walden'
+  #                 class: 'presence-zone2'
+  #               - state: 'Sigynsgade'
+  #                 class: 'presence-zone3'
+  #               - state: 'Jelling'
+  #                 class: 'presence-zone4'
+  #               - state: 'Irma_Sluseholmen'
+  #                 class: 'presence-zone5'
+  #               - state: 'Central_Copenhagen'
+  #                 class: 'presence-zone6'
+  #               - state: 'Work Kristina'
+  #                 class: 'presence-zone7'
+  #               - state: 'Sommerhus'
+  #                 class: 'presence-zone8'
+  #               - state: 'Skole'
+  #                 class: 'presence-zone9'
+  #               - state: 'Klubben'
+  #                 class: 'presence-zone10'
+  #               - state: 'away'
+  #                 class: 'presence-away'
+  #           - name: emilie_location
+  #             entities:
+  #               - device_tracker.meta_emilie
+  #             text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Walden", "Work").replace("Work Kristina", "Work").replace("Central_Copenhagen", "City").replace("Super Brugsen Hvidovrevej", "Super Brugsen").replace("Netto Hvidovrevej", "Netto").replace("Fakta Rosenhøj", "Fakta").replace("Kvickly Hvidovrevej", "Kvickly") : "undefined"}'
+  #             states:
+  #               - state: 'Home'
+  #                 class: 'presence-zone1'
+  #               - state: 'Work Walden'
+  #                 class: 'presence-zone2'
+  #               - state: 'Sigynsgade'
+  #                 class: 'presence-zone3'
+  #               - state: 'Jelling'
+  #                 class: 'presence-zone4'
+  #               - state: 'Irma_Sluseholmen'
+  #                 class: 'presence-zone5'
+  #               - state: 'Central_Copenhagen'
+  #                 class: 'presence-zone6'
+  #               - state: 'Work Kristina'
+  #                 class: 'presence-zone7'
+  #               - state: 'Sommerhus'
+  #                 class: 'presence-zone8'
+  #               - state: 'Skole'
+  #                 class: 'presence-zone9'
+  #               - state: 'Klubben'
+  #                 class: 'presence-zone10'
+  #               - state: 'away'
+  #                 class: 'presence-away'
+  #           - name: naia_location
+  #             entities:
+  #               - device_tracker.meta_naia
+  #             text_template: '${entity.state ? entity.state.replace("not_home", "Away").replace("home", "Home").replace("Work Walden", "Work").replace("Work Kristina", "Work").replace("Central_Copenhagen", "City").replace("Super Brugsen Hvidovrevej", "Super Brugsen").replace("Netto Hvidovrevej", "Netto").replace("Fakta Rosenhøj", "Fakta").replace("Kvickly Hvidovrevej", "Kvickly") : "undefined"}'
+  #             states:
+  #               - state: 'Home'
+  #                 class: 'presence-zone1'
+  #               - state: 'Work Walden'
+  #                 class: 'presence-zone2'
+  #               - state: 'Sigynsgade'
+  #                 class: 'presence-zone3'
+  #               - state: 'Jelling'
+  #                 class: 'presence-zone4'
+  #               - state: 'Irma_Sluseholmen'
+  #                 class: 'presence-zone5'
+  #               - state: 'Central_Copenhagen'
+  #                 class: 'presence-zone6'
+  #               - state: 'Work Kristina'
+  #                 class: 'presence-zone7'
+  #               - state: 'Sommerhus'
+  #                 class: 'presence-zone8'
+  #               - state: 'Skole'
+  #                 class: 'presence-zone9'
+  #               - state: 'Klubben'
+  #                 class: 'presence-zone10'
+  #               - state: 'away'
+  #                 class: 'presence-away'
+  #           - name: aephir_phone_battery
+  #             entities:
+  #               - sensor.walden_phone_battery
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+  #             class_template: '
+  #               var batt = parseFloat(entity.state);
+  #               if (batt < 5)
+  #                 return "batt-critical";
+  #               else if (batt < 15)
+  #                 return "batt-low";
+  #               else if (batt < 60)
+  #                 return "batt-medium";
+  #               else
+  #                 return "batt-ok";
+  #               '
+  #           - name: emilie_phone_battery
+  #             entities:
+  #               - sensor.emilie_phone_battery
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+  #             class_template: '
+  #               var batt = parseFloat(entity.state);
+  #               if (batt < 5)
+  #                 return "batt-critical";
+  #               else if (batt < 15)
+  #                 return "batt-low";
+  #               else if (batt < 60)
+  #                 return "batt-medium";
+  #               else
+  #                 return "batt-ok";
+  #               '
+  #           - name: kristina_phone_battery
+  #             entities:
+  #               - sensor.kristina_phone_battery
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+  #             class_template: '
+  #               var batt = parseFloat(entity.state);
+  #               if (batt < 5)
+  #                 return "batt-critical";
+  #               else if (batt < 15)
+  #                 return "batt-low";
+  #               else if (batt < 60)
+  #                 return "batt-medium";
+  #               else
+  #                 return "batt-ok";
+  #               '
+  #           - name: naia_phone_battery
+  #             entities:
+  #               - sensor.naia_phone_battery
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + "%": "undefined"}'
+  #             class_template: '
+  #               var batt = parseFloat(entity.state);
+  #               if (batt < 5)
+  #                 return "batt-critical";
+  #               else if (batt < 15)
+  #                 return "batt-low";
+  #               else if (batt < 60)
+  #                 return "batt-medium";
+  #               else
+  #                 return "batt-ok";
+  #               '
+  #           - name: Battery charge state
+  #             entities:
+  #               - sensor.walden_phone_battery_charging_state
+  #               - sensor.kristina_phone_battery_charging_state
+  #               - sensor.emilie_phone_battery_charging_state
+  #               - sensor.naia_phone_battery_charging_state
+  #             states:
+  #               - state: 'True'
+  #                 class: 'light-glow-on'
+  #               - state: 'False'
+  #                 class: 'light-glow-off'
+  #
+  #           # Lights
+  #           - name: Lights
+  #             entities:
+  #               - light.baby_room
+  #               - light.bedroom
+  #               - light.basement_entrance_lights
+  #               - light.conservatory_couch
+  #               - light.dining_table_lights
+  #               - light.entrance_lights
+  #               - light.kitchen_cabinet_lights
+  #               - light.kitchen_spots
+  #               - light.living_room_lightstrip
+  #               - light.stairway_down
+  #               - light.stairway_up
+  #               - light.top_floor_bathroom
+  #               - light.top_floor_hallway
+  #               - light.top_floor_tv_area
+  #               - light.tv_room
+  #               - switch.rabbit_light
+  #             states:
+  #               - state: 'on'
+  #                 class: 'light-on'
+  #               - state: 'off'
+  #                 class: 'light-off'
+  #             action:
+  #               service: homeassistant.toggle
+  #           - name: light groups
+  #             entities:
+  #               - light.bathroom
+  #               - light.conservatory_lights
+  #               - light.lightstrip_1
+  #               - light.walk_in_closet
+  #             states:
+  #               - state: 'on'
+  #                 class: 'light-group-on'
+  #               - state: 'off'
+  #                 class: 'light-group-off'
+  #             action:
+  #               service: homeassistant.toggle
+  #           - name: light glow
+  #             entities:
+  #               - input_boolean.light_baby_room
+  #               - input_boolean.light_basement_entrance_lights
+  #               - input_boolean.light_bathroom
+  #               - input_boolean.light_bedroom
+  #               - input_boolean.light_conservatory_couch
+  #               - input_boolean.light_conservatory_lights
+  #               - input_boolean.light_dining_table_lights
+  #               - input_boolean.light_entrance_lights
+  #               - input_boolean.light_kitchen_cabinet_lights
+  #               - input_boolean.light_kitchen_spots
+  #               - input_boolean.light_living_room_lightstrip
+  #               - input_boolean.light_stairway_down
+  #               - input_boolean.light_stairway_up
+  #               - input_boolean.light_top_floor_bathroom
+  #               - input_boolean.light_top_floor_hallway
+  #               - input_boolean.light_top_floor_tv_area
+  #               - input_boolean.light_tv_room
+  #               - input_boolean.light_walk_in_closet
+  #               - input_boolean.light_lightstrip_1
+  #               - input_boolean.light_rabbit_lights
+  #               # - input_boolean.light_walkin_closet
+  #               # - input_boolean.light_conservatory_lights
+  #             states:
+  #               - state: 'on'
+  #                 class: 'light-glow-on'
+  #               - state: 'off'
+  #             class: 'light-glow-off'
+  #
+  #           # Switches
+  #           - name: Power plugs
+  #             entities:
+  #               - switch.shed_master_power
+  #             states:
+  #               - state: 'on'
+  #                 class: 'power-plug-on'
+  #               - state: 'off'
+  #                 class: 'power-plug-off'
+  #             action:
+  #               service: homeassistant.toggle
+  #           - name: Fountain
+  #             entities:
+  #                - switch.fountain
+  #             states:
+  #               - state: 'on'
+  #                 class: 'fountain-on'
+  #               - state: 'off'
+  #                 class: 'fountain-off'
+  #             action:
+  #               service: homeassistant.toggle
+  #           - name: Espresso
+  #             entities:
+  #                - switch.switch
+  #             states:
+  #               - state: 'on'
+  #                 class: 'espresso-on'
+  #               - state: 'off'
+  #                 class: 'espresso-off'
+  #             action:
+  #               service: homeassistant.toggle
+  #           - name: Desktop
+  #             entities:
+  #                - switch.switch
+  #             states:
+  #               - state: 'on'
+  #                 class: 'desktop-on'
+  #               - state: 'off'
+  #                 class: 'desktop-off'
+  #             action:
+  #               service: homeassistant.toggle
+  #           - name: iKettle
+  #             entities:
+  #                - switch.kettle
+  #             states:
+  #               - state: 'on'
+  #                 class: 'ikettle-on'
+  #               - state: 'off'
+  #                 class: 'ikettle-off'
+  #             action:
+  #               service: homeassistant.toggle
+  #
+  #           # TV Glow
+  #           - name: tv_glow
+  #             entities:
+  #               # - input_boolean.tv_ue46es8005
+  #               # - input_boolean.conservatory_tv
+  #               # - input_boolean.upstairs_living_room_tv
+  #               - sensor.samsung_ue46es8005_dummy
+  #               - sensor.samsung_ue55nu7475xxc_dummy
+  #             states:
+  #               - state: 'on'
+  #                 class: 'tv-glow-on'
+  #               - state: 'off'
+  #                 class: 'tv-glow-off'
+  #
+  #           # Buttons
+  #           - name: generic_buttons
+  #             entities:
+  #                - input_boolean.guest_mode
+  #                - input_boolean.vacation_mode
+  #                - input_boolean.party_mode
+  #                - input_boolean.top_floor_lights_motion_control
+  #                - input_boolean.main_floor_lights_motion_control
+  #                - input_boolean.basement_lights_motion_control
+  #             action:
+  #               service: homeassistant.toggle
+  #             states:
+  #               - state: 'on'
+  #                 class: 'generic-button-on'
+  #               - state: 'off'
+  #                 class: 'generic-button-off'
+  #
+  #           # Text
+  #           - name: text_font_time
+  #             entities:
+  #                - sensor.time
+  #             text_template: '${entity.state ? entity.state : "undefined"}'
+  #             class_template: 'return "static-text-time";'
+  #           - name: text_font_date
+  #             entities:
+  #                - sensor.date
+  #             text_template: '${entity.state ? entity.state : "undefined"}'
+  #             class_template: 'return "static-text-date";'
+  #
+  #           # Speakers
+  #           - name: Google Speakers
+  #             entities:
+  #                - media_player.conservatory_speaker
+  #                - media_player.living_room_speaker
+  #             states:
+  #               - state: 'playing'
+  #                 class: 'sonos-on'
+  #               - state: 'paused'
+  #                 class: 'sonos-pause'
+  #             action:
+  #               domain: media_player
+  #               service: media_play_pause
+  #
+  #           # Plants
+  #           - name: plant_moisture
+  #             entities:
+  #                - sensor.plant_sensor_1_moisture
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #           - name: plant_temperature
+  #             entities:
+  #                - sensor.plant_sensor_1_temperature
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " °C": "undefined"}'
+  #           - name: plant_conductivity
+  #             entities:
+  #                - sensor.plant_sensor_1_conductivity
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " µS": "undefined"}'
+  #           - name: plant_light
+  #             entities:
+  #                - sensor.plant_sensor_1_light_intensity
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " lx": "undefined"}'
+  #             # class_template: '
+  #             #   var batt = parseFloat(entity.state);
+  #             #   if (batt < 5)
+  #             #     return "batt-critical";
+  #             #   else if (batt < 15)
+  #             #     return "batt-low";
+  #             #   else if (batt < 60)
+  #             #     return "batt-medium";
+  #             #   else
+  #             #     return "batt-ok";
+  #             #   '
+  #           - name: plant_battery
+  #             entities:
+  #                - sensor.plant_sensor_1_battery
+  #             text_template: '${entity.state ? Math.ceil(entity.state) + " %": "undefined"}'
+  #           - name: plant_state
+  #             entities:
+  #               - plant.lemon
+  #             states:
+  #               - state: 'ok'
+  #                 class: 'plant-state-ok'
+  #               - state: 'problem'
+  #                 class: 'plant-state-problem'
+  #
+  #           # Alarm Panel
+  #           - name: alarm_panel
+  #             entities:
+  #                - alarm_control_panel.house
+  #             text_template: '${entity.state ? entity.state.replace("unarmed", "Unarmed").replace("armed_away", "Armed Away").replace("armed_home", "Armed Home").replace("armed_perimeter", "Perimeter Mode").replace("triggered", "TRIGGERED!").replace("pending", "Arming") : "undefined"}'
+  #             states:
+  #               - state: 'armed_away'
+  #                 class: 'alarm-armed-away'
+  #               - state: 'armed_home'
+  #                 class: 'alarm-armed-home'
+  #               - state: 'armed_perimeter'
+  #                 class: 'alarm-armed-perimeter'
+  #               - state: 'triggered'
+  #                 class: 'alarm-triggered'
+  #
+  #           # Cameras
+  #           - name: Cameras
+  #             entities:
+  #               - camera.front_door
+  #               - camera.ffmpeg
+  #             states:
+  #               - state: 'idle'
+  #                 class: 'camera-idle'
+  #
+  #         stylesheet: /local/floorplan/default/floorplan.css
+  #       title: Floorplan
+  #       type: 'custom:floorplan-card'
+  #   icon: 'mdi:floor-plan'
+  #   id: system
+  #   title: Floorplan

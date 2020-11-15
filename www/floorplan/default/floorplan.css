@@ -1,0 +1,631 @@
+/**
+ * @Author: Walden Emil Bjørn-Yoshimoto <mfd356>
+ * @Date:   20190109-0901
+ * @Email:  waldenb@gmail.com
+ * @Last modified by:   mfd356
+ * @Last modified time: 20190928-1509
+ */
+
+
+
+#floorplan  {
+  padding: 10px;
+}
+
+svg tspan {
+  fill: var(--primary-text-color);
+}
+
+/* Animation */
+
+.spinning {
+  animation-name: spin;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform-origin: 50% 50%;
+  transform-box: fill-box;
+}
+
+/* SVG shapes */
+
+svg, svg * {
+  vector-effect: non-scaling-stroke !important;
+  pointer-events: all !important;
+}
+
+
+/* Hover over */
+
+.entity:hover {
+  stroke: #03A9F4 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+
+/* Binary sensors */
+
+.binary-sensor-on {
+  fill: #F9D27C !important;
+}
+
+.binary-sensor-off {
+  fill: #7CB1F9 !important;
+  transition: fill 5s ease;
+}
+
+
+/* Bootstrap succsss */
+
+.success-text {
+  fill: #3c763d !important;
+}
+
+
+.success-background, .success-text-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+  stroke: #d6e9c6 !important;
+  stroke-width: 1px !important;
+}
+
+
+/* Bootstrap info */
+
+.info-text {
+  fill: #31708f !important;
+}
+
+
+.info-background, .info-text-background {
+  fill: #d9edf7 !important;
+  fill-opacity: 1 !important;
+  stroke: #bce8f1 !important;
+  stroke-width: 1px !important;
+}
+
+
+/* Bootstrap warning */
+
+.warning-text {
+  fill: #8a6d3b !important;
+}
+
+
+.warning-background, .warning-text-background  {
+  fill: #fcf8e3 !important;
+  fill-opacity: 1 !important;
+  stroke: #faebcc !important;
+  stroke-width: 1px !important;
+}
+
+
+/* Bootstrap danger */
+
+.danger-text {
+  fill: #a94442 !important;
+}
+
+
+.danger-background, .danger-text-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+  stroke: #ebccd1 !important;
+  stroke-width: 1px !important;
+}
+
+
+/* Last motion entity */
+
+.last-motion {
+  stroke: #808080 !important;
+  stroke-width: 1px !important;
+  stroke-opacity: 1 !important;
+}
+
+
+/* Motion */
+
+.motion-on {
+  fill: #FFFF00 !important;
+}
+
+.motion-off {
+  fill: #3C3C32 !important;
+}
+
+
+/* Alarm Panel */
+
+.alarm-disarmed {
+  fill: #03A9F4 !important;
+}
+
+.alarm-armed-away {
+  fill: #000000 !important;
+}
+
+.alarm-armed-perimeter {
+  fill: #000000 !important;
+}
+
+.alarm-armed-home {
+  fill: #000000 !important;
+}
+
+.alarm-triggered {
+  fill: #FF0000 !important;
+}
+
+
+/* Camera */
+
+.camera-idle {
+/*  fill: #B9CEF7 !important; */
+  fill: #6FAECE !important;
+}
+
+
+/* Light */
+
+.light-off {
+  fill: #1E1610 !important;
+  stroke-width: 0px !important;
+}
+
+.light-on {
+  fill: #FFFF3C !important;
+  stroke-width: 20px !important;
+}
+
+.light-group-off {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+.light-group-on {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+.light-small-off {
+  fill: #1E1610 !important;
+  stroke-width: 0px !important;
+}
+
+.light-small-on {
+  fill: #FFFF3C !important;
+  stroke-width: 15px !important;
+}
+
+
+/* light glow */
+
+.light-glow-on {
+  fill-opacity: 1 !important;
+  stroke-opacity: 1 !important;
+/*  visibility: visible;*/
+}
+
+.light-glow-off {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+/*  visibility: hidden;*/
+}
+
+
+/* Power plug */
+
+.power-plug-off {
+  fill: #1E1610 !important;
+  stroke-width: 0px !important;
+}
+
+.power-plug-on {
+  fill: #FFFF3C !important;
+  stroke-width: 20px !important;
+}
+
+
+/* Door Sensors */
+
+.entity.door_off:hover, .entity.door_on:hover{
+  stroke-opacity: 0 !important;
+  stroke-width: 0px !important;
+  pointer-events: none !important;
+}
+
+.door-open {
+  fill-opacity: 1 !important;
+  stroke-opacity: 1 !important;
+}
+
+.door-closed {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+
+/* TV */
+
+.tv-off {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+.tv-on {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+
+.tv-glow-off {
+  fill-opacity: 0 !important;
+  stroke-opacity: 0 !important;
+}
+
+.tv-glow-on {
+  fill-opacity: 1 !important;
+  stroke-opacity: 0 !important;
+}
+
+
+/* Bed */
+
+.bed-on {
+  fill: #FFFA00 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.bed-off {
+  fill: #111111 !important;
+  fill-opacity: 1.00 !important;
+}
+
+
+/* 3D Printer */
+.printer_power_on {
+  fill: #FFFA00 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_power_off {
+  fill: #111111 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_printing_on {
+  fill: #054BFC !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_printing_off {
+  fill: #323232 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_error_on {
+  fill: #FC0202 !important;
+  fill-opacity: 1.00 !important;
+}
+
+.printer_error_off {
+  fill: #FC0202 !important;
+  fill-opacity: 0.00 !important;
+}
+
+/* Media */
+
+.media-off {
+  fill: #EBE9EF !important;
+}
+
+
+.media-on {
+  fill: #0FE90F !important;
+}
+
+
+/* Espresso */
+
+.espresso-off {
+  fill: #707462 !important;
+}
+
+
+.espresso-on {
+  fill: #FFFF3C !important;
+}
+
+
+/* Desktop */
+
+.desktop-off {
+  fill: #707462 !important;
+}
+
+
+.desktop-on {
+  fill: #FFFF3C !important;
+}
+
+
+/* iKettle */
+
+.ikettle-off {
+  fill: #707462 !important;
+}
+
+
+.ikettle-on {
+  fill: #FFFF3C !important;
+}
+
+
+/* Living Room Media Power */
+
+.media-off {
+  fill: #707462 !important;
+}
+
+
+.media-on {
+  fill: #FFFF3C !important;
+}
+
+
+/* Guest Mode */
+
+.guestmode-off {
+  fill: #686868 !important;
+}
+
+
+.guestmode-on {
+  fill: #3239ff !important;
+}
+
+
+/* Doorbell */
+
+.doorbell-off {
+  fill: #C3B7F4 !important;
+}
+
+.doorbell-on {
+  fill: #F8D2B9 !important;
+}
+
+
+/* Fountain */
+
+.fountain-off {
+  fill: #141414 !important;
+}
+
+.fountain-on {
+  fill: #0CC0FF !important;
+}
+
+
+/* Temperature sensor */
+
+/*
+.temp-very-low-background {
+  fill: #d9edf7 !important;
+  fill-opacity: 1 !important;
+}
+
+
+.temp-below-average-background {
+  fill: #dcefe8 !important;
+  fill-opacity: 1 !important;
+}
+
+
+.temp-average-background {
+  fill: #dff0d8 !important;
+  fill-opacity: 1 !important;
+}
+
+
+.temp-very-high-background {
+  fill: #f2dede !important;
+  fill-opacity: 1 !important;
+}
+*/
+
+/* Media player */
+
+.squeezebox-off {
+  fill: #8AA8A7 !important;
+}
+
+
+.squeezebox-on {
+  fill: #2baaa6 !important;
+}
+
+
+/* Presence */
+
+.presence-zone1 {
+  fill: #78ED2A !important;
+}
+
+.presence-zone2 {
+  fill: #FAFF00 !important;
+}
+
+.presence-zone3 {
+  fill: #436D8C !important;
+}
+
+.presence-zone4 {
+  fill: #436D8C !important;
+}
+
+.presence-zone5 {
+  fill: #436D8C !important;
+}
+
+.presence-zone6 {
+  fill: #436D8C !important;
+}
+
+.presence-zone7 {
+  fill: #FAFF00 !important;
+}
+
+.presence-zone8 {
+  fill: #436D8C !important;
+}
+
+.presence-zone9 {
+  fill: #FAFF00 !important;
+}
+
+.presence-zone10 {
+  fill: #FAFF00 !important;
+}
+
+.presence-away {
+  fill: #BAAE8B !important;
+}
+
+
+/* Generic Button */
+
+.generic-button-off {
+  fill: #FFFA00 !important;
+  fill-opacity: 0 !important;
+}
+
+.generic-button-on {
+  fill: #FFFA00 !important;
+  fill-opacity: 0.25 !important;
+}
+
+.background-on tspan {
+  fill: white !important;
+}
+
+
+/* SONOS */
+
+.sonos-off {
+  fill: #42373C !important;
+  fill-opacity: 0 !important;
+}
+
+.sonos-pause {
+  fill: #420091 !important;
+  fill-opacity: 0.25 !important;
+}
+
+
+/* Battery sensor */
+
+.batt-critical {
+  fill: #ff0004 !important;
+  fill-opacity: 1 !important;
+}
+
+
+.batt-low {
+  fill: #ff9900 !important;
+  fill-opacity: 1 !important;
+}
+
+
+.batt-medium {
+  fill: #fff200 !important;
+  fill-opacity: 1 !important;
+}
+
+
+.batt-ok {
+  fill: #00ff00 !important;
+  fill-opacity: 1 !important;
+}
+
+/* Outdoor Temperature */
+
+.temp-very-low {
+  fill: #00a1ff !important;
+  fill-opacity: 1 !important;
+}
+
+
+.temp-low {
+  fill: #00ddff !important;
+  fill-opacity: 1 !important;
+}
+
+
+.temp-good {
+  fill: #00c609 !important;
+  fill-opacity: 1 !important;
+}
+
+
+.temp-high {
+  fill: #ff4c00 !important;
+  fill-opacity: 1 !important;
+}
+
+/* Intdoor Temperature */
+
+.temp-in-very-low {
+  fill: #00a1ff !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-in-low {
+  fill: #00ddff !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-in-good {
+  fill: #00c609 !important;
+  fill-opacity: 1 !important;
+}
+
+.temp-in-high {
+  fill: #ff4c00 !important;
+  fill-opacity: 1 !important;
+}
+
+/* Plants */
+
+.plant-state-ok {
+  fill: #1BE42F !important;
+}
+
+.plant-state-problem {
+  fill: #FF0005 !important;
+}
+
+
+/* Hide Layers */
+
+.layer-visible {
+  display: initial !important;
+}
+
+.layer-hidden {
+  display: none !important;
+}
+
+/* Halo */
+
+.halo-off {
+  fill: #464646 !important;
+  fill-opacity: 1 !important;
+}
+
+.halo-on {
+  fill: #ffff3C !important;
+  fill-opacity: 1 !important;
+}

@@ -8,11 +8,11 @@
 #    Floorplan    #
 ###################
 
-  - name: floorplan
-    sidebar_title: Floorplan
-    sidebar_icon: mdi:floor-plan
-    url_path: floorplan
-    config: !include floorplan.yaml
+  # - name: floorplan
+  #   sidebar_title: Floorplan
+  #   sidebar_icon: mdi:floor-plan
+  #   url_path: floorplan
+  #   config: !include floorplan.yaml
 
   - name: zwave-graph-panel
     url_path: zwave-graph

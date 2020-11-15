@@ -8,10 +8,10 @@
 #   host: 192.168.0.10
 #   allow_unreachable: true
 
-- platform: yeelight
-  devices:
-    192.168.0.201:
-      name: Living Room Lightstrip
+# - platform: yeelight
+#   devices:
+#     192.168.0.201:
+#       name: Living Room Lightstrip
 
 - platform: skybell
 
