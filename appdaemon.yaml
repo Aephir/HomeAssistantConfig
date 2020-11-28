@@ -1,45 +1,4 @@
-## Appdaemon config file
-
-# secrets: /conf/secrets.yaml
-# log:
-#   accessfile: /logs/access.log
-#   errorfile: /logs/error.log
-#   logfile: /logs/appdaemon.log
-#   log_generations: 3
-#   log_size: 50000
-# appdaemon:
-#   logfile: STDOUT
-#   errorfile: STDERR
-#   threads: 10
-#   # api_port: 5000
-#   app_dir: /conf/appdaemon
-#   api_key: !secret appdaemon_api_key
-#   cert_verify: False
-#   plugins:
-#     HASS:
-#       type: hass
-#       ha_url: "http://192.168.0.100:8123"
-#       token: !secret long_lived_access_token_AppDaemon_1
-#       # token: !secret long_lived_access_token_AppDaemon_1
-#       namespace: default
-#     # MQTT:
-#     #   type: mqtt
-#     #   client_id: appdaemon
-#     #   client_host: 127.0.0.1
-#     #   birth_topic: appdaemon/birth
-#     #   birth_payload: "AppDaemon MQTT is live"
-#     #   will_topic: appdaemon/death
-#     #   will_payload: "Appdaemon MQTT unexpectedly disconnected"
-#     #   namespace: mqtt
-# hadashboard:
-#   dashboard_dir: /conf/appdaemon/dashboards
-#   dash_url: "http://192.168.0.100:5050"
-#   always_compile: 1
-
-
-
-
-#### New Appdaemon 4 test config:
+## Appdaemon 4 config file
 
 secrets: /conf/secrets.yaml
 logs:
@@ -85,7 +44,7 @@ appdaemon:
       ha_url: "http://192.168.0.100:8123"
       token: !secret long_lived_access_token_AppDaemon_1
       # api_port: ????
-      app_init_delay: 20 # how long to wait before initializing apps. This could allow device trackers (home occupancy), z-wave network, etc. to start.
+      app_init_delay: 35 # how long to wait before initializing apps. This could allow device trackers (home occupancy), z-wave network, etc. to start.
       namespace: default
       # plugin_startup_conditions: # Is this the correct level of indentation??
       #   event: {event_type: zwave.network_ready}

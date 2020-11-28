@@ -77,3 +77,124 @@ views:
           #     - entity: light.dining_room_lights
           #       name: Spisestue Lys
           #
+
+
+  - icon: fas:child
+    title: Naia
+    id: naia_control
+    panel: true
+    layout: auto
+    column_num: 3
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        cards:
+          - type: button
+            name: Bevægelsesstyret Lys
+            toggle: false
+            entity: input_boolean.top_floor_lights_motion_control
+            icon: mdi:motion-sensor
+          - type: button
+            name: TV Lys
+            toggle: false
+            entity: light.top_floor_tv_area
+          - type: button
+            name: Krea Lys
+            entities: Bevægelsesstyret Lys
+            entity: light.top_floor_hallway
+              # - entity: input_boolean.top_floor_lights_motion_control
+              #   name: Bevægelsesstyret Lys
+              #   icon: mdi:motion-sensor
+              # - entity: light.top_floor_tv_area
+              #   name: TV Lys
+              # - entity: light.top_floor_hallway
+              #   name: Krea Lys
+              # - entity: light.top_floor_bathroom
+              #   name: Badeværelses Lys
+          - break
+          - type: button
+            title: TV og Playstation
+            name: Strøm til TV & Playstation
+            icon: mdi:playstation
+            entity: switch.top_floor_media
+            # # toggle: false
+            # entities:
+            #   - entity: switch.top_floor_media
+            #     name: Strøm til TV & Playstation
+          - type: button
+            title: Kanin Lys
+            name: Lys i 5 minutter
+            icon: mdi:rabbit
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.turn_off_lights
+            entity: script.rabbit_light_5_min
+          - break
+          - type: button
+            name: Spisestue Lys
+            entity: light.dining_room_lights
+          - type: button
+            name: Udestue Lys
+            entity: light.conservatory_lights
+
+  - icon: fas:child
+    title: Emilie
+    id: emilie_control
+    panel: true
+    layout: auto
+    column_num: 3
+    cards:
+      - type: custom:layout-card
+        layout: vertical
+        cards:
+          - type: button
+            name: Bevægelsesstyret Lys
+            toggle: false
+            entity: input_boolean.top_floor_lights_motion_control
+            icon: mdi:motion-sensor
+          - type: button
+            name: TV Lys
+            toggle: false
+            entity: light.top_floor_tv_area
+          - type: button
+            name: Krea Lys
+            entities: Bevægelsesstyret Lys
+            entity: light.top_floor_hallway
+              # - entity: input_boolean.top_floor_lights_motion_control
+              #   name: Bevægelsesstyret Lys
+              #   icon: mdi:motion-sensor
+              # - entity: light.top_floor_tv_area
+              #   name: TV Lys
+              # - entity: light.top_floor_hallway
+              #   name: Krea Lys
+              # - entity: light.top_floor_bathroom
+              #   name: Badeværelses Lys
+          - break
+          - type: button
+            title: TV og Playstation
+            name: Strøm til TV & Playstation
+            icon: mdi:playstation
+            entity: switch.top_floor_media
+            # # toggle: false
+            # entities:
+            #   - entity: switch.top_floor_media
+            #     name: Strøm til TV & Playstation
+          - type: button
+            title: Kanin Lys
+            name: Lys i 5 minutter
+            icon: mdi:rabbit
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              service_data:
+                entity_id: script.turn_off_lights
+            entity: script.rabbit_light_5_min
+          - break
+          - type: button
+            name: Spisestue Lys
+            entity: light.dining_room_lights
+          - type: button
+            name: Udestue Lys
+            entity: light.conservatory_lights

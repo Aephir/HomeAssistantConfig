@@ -44,7 +44,7 @@ class TextToSpeak(hass.Hass):
     def speak(self, kwargs):
 
         # # Get current state of lights. Get both state and attributes
-        # dining_room = self.get_state('light.dining_room_lights')
+        # dining_room = self.get_state('light.dining_room_lights') 
 
         # Get previous volume
         self.volume = self.get_state('media_player.dining_room_speaker', attribute='volume_level')

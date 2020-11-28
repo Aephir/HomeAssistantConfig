@@ -68,8 +68,8 @@ mopidy_volume:
 #    Cosmetic    #
 ##################
 
-night_time:
-  min: -100
-  max: 100
-  initial: 100
-  name: Night Time
+# night_time:
+#   min: -100
+#   max: 100
+#   initial: 100
+#   name: Night Time
