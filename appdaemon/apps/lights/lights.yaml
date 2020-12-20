@@ -15,10 +15,10 @@ looks_like_were_home:
   autoremote_url: !secret autoremote_url_start
   constrain_input_boolean: input_boolean.vacation_mode
 
-lights_off_at_sunrise:
-  module: off_at_sunrise
-  class: Sunrise
-  non_presence_lights: ['light.conservatory_lights','light.dining_room_lights','light.lightstrip_1','switch.rabbit_light']
+#lights_off_at_sunrise:
+#  module: off_at_sunrise
+#  class: Sunrise
+#  non_presence_lights: ['light.conservatory_lights','light.dining_room_lights','light.lightstrip_1','switch.rabbit_light']
 
 chicken_lights:
   module: chicken_lights

@@ -609,7 +609,7 @@ views:
               - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
                 name: Conservatory
                 color: orange #'#dae0e8'
-              - entity: sensor.temperature_shed
+              - entity: sensor.shed_tasmota_dht11_temp
                 name: Shed
                 color: red #'#e2dae8'
               - color: gray
@@ -665,7 +665,7 @@ views:
                 name: Kitchen
               - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
                 name: Conservatory
-              - entity: sensor.humidity_shed
+              - entity: sensor.shed_tasmota_dht11_hum
                 name: Shed
             show:
               labels_secondary: false

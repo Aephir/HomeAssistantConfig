@@ -35,5 +35,7 @@ logs:
   # queueman: debug
   # AIOGitHubAPI: debug
   custom_components.reolink_dev.camera: critical
+  homeassistant.components.stream.worker: critical
+  custom_components.smartthinq_sensors: critical
   # pydeconz: debug
   # homeassistant.components.deconz: debug

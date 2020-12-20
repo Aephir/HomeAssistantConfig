@@ -357,30 +357,30 @@
 #     service: script.turn_on
 #     entity_id: script.everyone_left_turn_off_everything
 
-- alias: "Sunrise, Night Light Off" # Turns of the night light at sunrise, if left on for the kids
-  initial_state: True
-  trigger:
-    - platform: sun
-      event: sunrise
-#      offset: '+01:00:00'
-#  trigger:
-#    - platform: numeric_state
-#      entity_id: sun.sun
-#      value_template: "{{ state.attributes.elevation }}"
-#    # Can be a positive or negative number
-#      above: 4.5
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: light.kitchen_spots
-        state: 'off'
-      - condition: state
-        entity_id: light.cconservatory
-        state: 'off'
-  action:
-    service: light.turn_off
-    entity_id: group.living_room_lightstrip
+# - alias: "Sunrise, Night Light Off" # Turns of the night light at sunrise, if left on for the kids
+#   initial_state: True
+#   trigger:
+#     - platform: sun
+#       event: sunrise
+# #      offset: '+01:00:00'
+# #  trigger:
+# #    - platform: numeric_state
+# #      entity_id: sun.sun
+# #      value_template: "{{ state.attributes.elevation }}"
+# #    # Can be a positive or negative number
+# #      above: 4.5
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: light.kitchen_spots
+#         state: 'off'
+#       - condition: state
+#         entity_id: light.cconservatory
+#         state: 'off'
+#   action:
+#     service: light.turn_off
+#     entity_id: group.living_room_lightstrip
 
 
 #############
