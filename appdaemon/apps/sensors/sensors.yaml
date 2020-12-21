@@ -62,3 +62,7 @@ battery_out_in_device:
     'sensor.plant_sensor_3_temperature',
     'sensor.plant_sensor_4_temperature'
     ]
+
+workday:
+  module: workday_actual
+  class: Sensor

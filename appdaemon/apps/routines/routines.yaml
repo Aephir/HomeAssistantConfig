@@ -1,0 +1,3 @@
+morning_routine:
+  module: morning_routine
+  class: Routines

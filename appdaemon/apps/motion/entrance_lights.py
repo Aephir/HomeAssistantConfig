@@ -44,8 +44,8 @@ class MotionClass(hass.Hass):
     # If motion on or door open:
     def switch_on(self, entity, attribute, old, new, kwargs):
 
-        workday         = self.get_state('binary_sensor.workday_today')
-        workday_tomorrow= self.get_state('binary_sensor.workday_tomorrow')
+        workday         = self.get_state('sensor.workday_actual') == 'on'
+        workday_tomorrow= self.get_state('sensor.workday_actual', attribute='workday_tomorrow') == 'on'
         sensor_1_state  = self.get_state("binary_sensor.presence_entrance") # Entrance Motion
         sensor_2_state  = self.get_state("binary_sensor.presence_basement_stairway") # Basement Stairway Motion
         sensor_3_state  = self.get_state("binary_sensor.presence_top_floor_stairway") # Top Floor Stairs Motion Sensor
@@ -56,8 +56,13 @@ class MotionClass(hass.Hass):
         if any([sensor_1_state == "on", sensor_2_state == "on", sensor_3_state == "on"]):
             if party_mode:
                 self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
-            elif self.now_is_between('07:00:00', '09:00:00'):
+            elif self.now_is_between('07:00:00', '07:30:00'):
                 self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
+            elif self.now_is_between('07:30:00', '09:00:00'):
+                if workday:
+                    self.turn_on("light.entrance_lights",brightness=250,kelvin=2700)
+                else:
+                    self.turn_on("light.entrance_lights",brightness=100,kelvin=2700)
             elif self.now_is_between('09:00:00', '21:00:00'):
                 self.turn_on("light.entrance_lights",brightness=255,kelvin=2700)
             elif self.now_is_between('21:00:00', '23:00:00'):

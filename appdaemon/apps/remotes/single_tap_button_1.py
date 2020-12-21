@@ -1,5 +1,5 @@
 """
-Xiaomi Single button
+Xiaomi Single button #1
 """
 
 import appdaemon.plugins.hass.hassapi as hass
@@ -34,6 +34,14 @@ class Remote(hass.Hass):
             1003    = Button hold up
         """
 
+        workday             = self.get_state('sensor.workday_actual') == 'on'
+        workday_tomorrow    = self.get_state('sensor.workday_actual', attribute='workday_tomorrow') == 'on'
+        open                = self.get_state('sensor.windows_and_doors') == 'Open'
+        if open:
+            list_of_open    = self.get_state('sensor.windows_and_doors', attribute='list_of_open')
+        walden_home         = self.get_state('device_tracker.meta_walden') == 'home'
+        kristina_home       = self.get_state('device_tracker.meta_kristina') == 'home'
+
         # if self.now_is_between("20:30:00", "00:00:00") and
         #     self.get_state('binary_sensor.workday_tomorrow') == 'on' and
         #     self.get_state('input_boolean.vacation_mode') == 'off' or
@@ -46,87 +54,62 @@ class Remote(hass.Hass):
 
         if data['id'] == self.args['id']: # Single button
             if data['event'] == 1002: # Button 1 up
-                if self.now_is_between("06:00:00", "11:00:00"):
-                    self.turn_on(self.args["entityID1"])
-                elif self.now_is_between("18:00:00", "05:00:00"):
-                    for i in self.args['entityIDlist2']:
+                if self.now_is_between("06:00:00", "14:00:00"):
+                    self.turn_on(self.args["coffee"])
+
+                elif self.now_is_between("18:00:00", "20:00:00"):
+                    for i in self.args['adult_media']:
                         self.turn_off(i)
-                    # self.turn_off('light.main_floor_lights')
-                    # self.turn_off('light.basement_lights')
-                    # self.turn_off('switch.rabbit_light')
-                    # self.turn_on('light.conservatory_floor_1')
-                    self.turn_off(self.args["entityID2"])
-                    self.turn_off("media_player.ue46es8005")
+                    if open:
+                        if walden_home:
+                            self.notify('notify/mobile_app_aephir_s_vog_l29', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+                        elif kristina_home:
+                            self.notify('notify/mobile_app_kristina_iphone11', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+
+                elif self.now_is_between("20:00:00", "21:00:00"):
+                    for i in self.args['adult_media']:
+                        self.turn_off(i)
+                    if open:
+                        if walden_home:
+                            self.notify('notify/mobile_app_aephir_s_vog_l29', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+                        elif kristina_home:
+                            self.notify('notify/mobile_app_kristina_iphone11', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+                    if  workday_tomorrow:
+                        for i in self.args['kid_media']:
+                            self.turn_off(i)
+                        for i in self.args['naia_media']:
+                            self.turn_off(i)
+
+                elif self.now_is_between("21:00:00", "22:00:00"):
+                    for i in self.args['adult_media']:
+                        self.turn_off(i)
+                    if open:
+                        if walden_home:
+                            self.notify('notify/mobile_app_aephir_s_vog_l29', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+                        elif kristina_home:
+                            self.notify('notify/mobile_app_kristina_iphone11', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+                    if  workday_tomorrow:
+                        for i in self.args['kid_media']:
+                            self.turn_off(i)
+                        for i in self.args['naia_media']:
+                            self.turn_off(i)
+
+                elif self.now_is_between("22:00:00", "05:45:00"):
+                    for i in self.args['adult_media']:
+                        self.turn_off(i)
+                    self.notify('notify/mobile_app_aephir_s_vog_l29', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+                    if open:
+                        if walden_home:
+                            self.notify('notify/mobile_app_aephir_s_vog_l29', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+                        elif kristina_home:
+                            self.notify('notify/mobile_app_kristina_iphone11', message='Remember, the following windows and doors are open: ' + str(list_of_open))
+                    if  workday_tomorrow:
+                        for i in self.args['kid_media']:
+                            self.turn_off(i)
+                        for i in self.args['naia_media']:
+                            self.turn_off(i)
+                        for i in self.args['emilie_media']:
+                            self.turn_off(i)
+
             # elif data['event'] == 1003:
             #     Something
-
-
-    #     if workday:
-    #         if self.now_is_between("06:00:00", "10:00:00"):
-    #             morning = True
-    #         else:
-    #             morning = False
-    #     else:
-    #         if self.now_is_between("06:00:00", "11:00:00"):
-    #             morning = True
-    #         else:
-    #             morning = False
-    #
-    #     if workday:
-    #         if self.now_is_between("18:00:00", "01:00:00"):
-    #             evening = True
-    #         else:
-    #             evening = False
-    #     else:
-    #         if self.now_is_between("18:00:00", "05:00:00"):
-    #             evening = True
-    #         else:
-    #             evening = False
-    #
-    #     if entity in self.sensors and morning:
-    #         self.leaving()
-    #     elif entity == self.args["entityID"] and evening:
-    #         self.goingToBed()
-    #     elif entity == self.args["entityID"] and morning:
-    #         self.morningRoutine()
-    #
-    #
-    #
-    # def leaving(self, entity, attribute, old, new, kwargs):
-    #
-    #     windows_open = self.get_state('sensor.windows_and_doors', attribute = 'number_of_windows')
-    #     doors_open = self.get_state('sensor.windows_and_doors', attribute = 'number_of_doors')
-    #
-    #     if windows_open > 0 or doors_open > 0:
-    #         any_open = True
-    #
-    #     if any_open:
-    #         self.notifyForgotten()
-    #
-    #
-    # def button_click(self, entity, attribute, old, new, kwargs):
-    #     if self.now_is_between("06:00:00", "18:00:00"):
-    #         self.turn_on(self.args["entityID1"])
-    #     else:
-    #         self.turn_off(self.args["entityID2"])
-    #         self.turn_off("media_player.ue46es8005")
-    #
-    #
-    # def goodNightRoutine(self):
-    #
-    #     now     = datetime.datetime.now()
-    #     if datetime.date.today().weekday() < 5:
-    #         weekday = True
-    #     else:
-    #         weekday = False
-    #
-    #
-    # def notifyForgotten(self):
-    #
-    #     list_of_open = self.get_state('sensor.windows_and_doors', attributes='list_of_open')
-    #
-    #     if len(self.get_state('sensor.windows_and_doors', attributes='list_of_open')) > 1:
-    #         self.call_service("notify/home_aephir_bot", message="You have left the following doors and/or windows open")
-    #     elif len(self.get_state('sensor.windows_and_doors', attributes='list_of_open')) == 1:
-    #         open = str(self.get_state('sensor.windows_and_doors', attributes='list_of_open'))
-    #         self.call_service("notify/home_aephir_bot", message="You have left the " + open + " open")

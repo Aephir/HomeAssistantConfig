@@ -8,15 +8,15 @@
 #  username: !secret android_ip_cam_user
 #  password: !secret android_ip_cam_pass
 
-- platform: reolink_dev
-  host: 192.168.0.67 #191.168.0.67
-  username: !secret reolink_admin_user # default: admin
-  password: !secret reolink_password
-  name: chicken_coop
-  stream: main # sub # (optional, default main)
-  protocol: rtmp # rtsp # (optional, default rtmp)
-  # channel: NVR camera channel (optional, default 0)
-  scan_interval: 5 # (optional, default 30s)
+# - platform: reolink_dev
+#   host: 192.168.0.67 #191.168.0.67
+#   username: !secret reolink_admin_user # default: admin
+#   password: !secret reolink_password
+#   name: chicken_coop
+#   stream: main # sub # (optional, default main)
+#   protocol: rtmp # rtsp # (optional, default rtmp)
+#   # channel: NVR camera channel (optional, default 0)
+#   scan_interval: 5 # (optional, default 30s)
 
 # - platform: mjpeg
 #   mjpeg_url: http://192.168.0.212/
@@ -45,7 +45,6 @@
 - platform: ffmpeg
   input: !secret octoprint_stream_url
   name: OctoPrint
-
 
 - platform: ffmpeg
   input: !secret wyze_rtsp_url

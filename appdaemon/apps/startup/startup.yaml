@@ -8,7 +8,7 @@
 #    Alarm Clock    #
 #####################
 
-set_alarm:
-  module: get_alarm_clock
-  class: Alarm
-  autoremote_url: !secret autoremote_url_start
+# set_alarm:
+#   module: get_alarm_clock
+#   class: Alarm
+#   autoremote_url: !secret autoremote_url_start

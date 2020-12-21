@@ -2,6 +2,7 @@
 Motion sensors to control the main floor kitchen lights.
 """
 
+from random import randint
 import appdaemon.plugins.hass.hassapi as hass
 
 def get_integer(string_in):
@@ -115,7 +116,8 @@ class MotionClass(hass.Hass):
                 elif self.is_on('light.dining_table_lights'):
                     self.turn_on('light.kitchen_spots', brightness=255, kelvin=2200)
                 else:
-                    self.turn_on('light.kitchen_spots', brightness=10, kelvin=2200)
+                    light = 'light.kitchen_spot_' + str(randint(1,6))
+                    self.turn_on(light, brightness=10, kelvin=2200)
             else:
                 if self.get_state('switch.switch') == 'on':
                     self.turn_on('light.kitchen_cabinet_2', brightness=255, kelvin=2700)

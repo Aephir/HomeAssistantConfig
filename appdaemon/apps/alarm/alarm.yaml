@@ -8,9 +8,9 @@
 #    Alarm    #
 ###############
 
-alarm_notifier:
-  module: alarm_notifier
-  class: Alarm
+# alarm_notifier:
+#   module: alarm_notifier
+#   class: Alarm
 
 # alarm_system:
 #   module: alarm

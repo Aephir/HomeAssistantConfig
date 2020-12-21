@@ -83,11 +83,12 @@ xiaomi_button_1:
   event: deconz_event
   # id: button_1
   id: smart_switch
-  entityID1: switch.switch
-  entityID2: light.all_lights
-  entityID3: light.all_adult_lights
-  entityIDlist1: ['media_player.conservatory_speaker', 'media_player.ue55nu7475xxc', 'media_player.living_room_speaker']
-  entityIDlist2: ['light.main_floor_lights', 'light.basement_lights', 'switch.rabbit_light']
+  coffee: 'switch.switch'
+  adult_media: ['media_player.conservatory_speaker', 'media_player.ue55nu7475xxc', 'media_player.living_room_speaker']
+  kid_media: ['media_player.ue46es8005']
+  naia_media: []
+  emilie_media: []
+  light_list_1: ['light.main_floor_lights', 'light.basement_lights']
 
 xiaomi_cube_1:
   module: mi_magic_cube_1

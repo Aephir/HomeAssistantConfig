@@ -47,6 +47,8 @@ class MotionClass(hass.Hass):
 
         awake = self.areWeAwake("light.living_room_lights")
         party_mode = self.get_state('input_boolean.party_mode') == 'on'
+        workday         = self.get_state('sensor.workday_actual') == 'on'
+        workday_tomorrow= self.get_state('sensor.workday_actual', attribute='workday_tomorrow') == 'on'
 
         # if party_mode:
         #     if new == 'on':
@@ -58,7 +60,10 @@ class MotionClass(hass.Hass):
             # if sensor_2_state == 'off':
             if party_mode:
                 self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
-            elif self.now_is_between('07:00:00', '22:00:00'):
+            elif self.now_is_between('07:00:00', '09:00:00'):
+                if workday:
+                    self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
+            elif self.now_is_between('09:00:00', '22:00:00'):
                 self.turn_on("light.stairway_up",brightness=255,kelvin=2700)
             elif self.now_is_between('22:00:00', '07:00:00'):
                 if awake:
