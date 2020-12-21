@@ -10,6 +10,9 @@ occupancy:
   module: home_occupied
   class: Presence
 
+kids_home:
+  module: kids_home
+  class: Presence
 # occupancy:
 #   module: occupancy
 #   class: Presence
