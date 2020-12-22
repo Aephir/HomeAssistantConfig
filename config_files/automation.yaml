@@ -298,31 +298,31 @@
 ##################
 #__Input_number__#
 
-# - alias: night_number_day
-#   initial_state: True
-#   trigger:
-#     - platform: state
-#       entity_id:
-#         -  sun.sun
-#       to: above_horizon
-#   action:
-#     service: input_number.set_value
-#     data_template:
-#       entity_id: input_number.night_time
-#       value: -100
-#
-# - alias: night_number_night
-#   initial_state: True
-#   trigger:
-#     - platform: state
-#       entity_id:
-#         -  sun.sun
-#       to: below_horizon
-#   action:
-#     service: input_number.set_value
-#     data_template:
-#       entity_id: input_number.night_time
-#       value: 100
+- alias: night_number_day
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id:
+        -  sun.sun
+      to: above_horizon
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.night_time
+      value: -100
+
+- alias: night_number_night
+  initial_state: True
+  trigger:
+    - platform: state
+      entity_id:
+        -  sun.sun
+      to: below_horizon
+  action:
+    service: input_number.set_value
+    data_template:
+      entity_id: input_number.night_time
+      value: 100
 
 ########################################
 #__Location Based Lights and Switches__#

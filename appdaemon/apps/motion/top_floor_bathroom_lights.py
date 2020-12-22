@@ -8,6 +8,7 @@ import time
 class MotionClass(hass.Hass):
 
     def initialize(self):
+        self.timer = None
         # Motion detected = lights on; motion stops = lights off.
         self.listen_state(self.switchonoff,"binary_sensor.presence_top_floor_bathroom")
         # Illumination drops while motion sensor is "on" = light on.
@@ -35,12 +36,13 @@ class MotionClass(hass.Hass):
     # (if day and light levels are low, or turn on dim/red if night and we are not awake).
     def switchonoff(self, entity, attribute, old, new, kwargs):
 
-        sensor_1_state = self.get_state("binary_sensor.presence_top_floor_bathroom")
-        illumination_1 = self.getIntegerState("sensor.lightlevel_top_floor_bathroom")
-
-        party_mode = self.get_state('input_boolean.party_mode') == 'on'
+        sensor_1_state  = self.get_state("binary_sensor.presence_top_floor_bathroom")
+        illumination_1  = self.getIntegerState("sensor.lightlevel_top_floor_bathroom")
+        shower_on       = sefl.get_state('binary_sensor.shower_on')
+        party_mode      = self.get_state('input_boolean.party_mode') == 'on'
 
         if sensor_1_state == "on":
+            sel.cancel_timer(self.timer)
             if party_mode:
                 self.turn_on("light.top_floor_bathroom",brightness=255,kelvin=2700)
             elif self.now_is_between('07:00:00', '20:30:00'):
@@ -55,7 +57,10 @@ class MotionClass(hass.Hass):
                 self.turn_on("light.top_floor_bathroom",brightness=25,kelvin=2200)
 
         else:
-            self.turn_off("light.top_floor_bathroom")
+            if shower_on == 'on':
+                self.timer = self.run_in(self.turn_off("light.top_floor_bathroom"))
+            else:
+                self.turn_off("light.top_floor_bathroom")
 
     def inpuBoolean(self, entity, attribute, old, new, kwargs):
 

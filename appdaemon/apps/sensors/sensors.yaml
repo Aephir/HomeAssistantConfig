@@ -63,6 +63,10 @@ battery_out_in_device:
     'sensor.plant_sensor_4_temperature'
     ]
 
+top_floor_shower:
+  module: top_floor_shower
+  class: Sensor
+
 workday:
   module: workday_actual
   class: Sensor

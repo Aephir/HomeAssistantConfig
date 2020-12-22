@@ -592,6 +592,9 @@ views:
               - entity: sensor.temperature_washing_room
                 name: Washing room
                 color: blue #'#1c2b50'
+              - entity: sensor.temperature_top_bathroom
+                name: Top Bathroom
+                color: cyan
               - entity: sensor.temperature_bathroom
                 name: Bathroom
                 color: green #'#254a6c'
@@ -601,7 +604,7 @@ views:
               - entity: sensor.aeotec_zw100_multisensor_6_temperature_2
                 name: Conservatory
                 color: orange #'#dae0e8'
-              - entity: sensor.temperature_shed
+              - entity: sensor.shed_tasmota_dht11_temp
                 name: Shed
                 color: red #'#e2dae8'
               - entity: sensor.rpi3_04_ee_03_bb_bf_68_temperature
@@ -656,6 +659,9 @@ views:
               - entity: sensor.humidity_washing_room
                 name: Washing room
                 color: blue #'#1c2b50'
+              - entity: sensor.humidity_top_bathroom
+                name: Top Bathroom
+                color: cyan
               - entity: sensor.humidity_bathroom
                 name: Bathroom
                 color: green #'#254a6c'
@@ -665,7 +671,7 @@ views:
               - entity: sensor.aeotec_zw100_multisensor_6_relative_humidity_2
                 name: Conservatory
                 color: orange #'#dae0e8'
-              - entity: sensor.humidity_shed
+              - entity: sensor.shed_tasmota_dht11_hum
                 name: Shed
                 color: red #'#e2dae8'
               - entity: sensor.rpi3_04_ee_03_bb_bf_68_humidity
@@ -767,10 +773,10 @@ views:
             cache: true
             hour24: true
             lower_bound: 0
-            upper_bound: 700
-            # lower_bound_secondary: 0
-            # upper_bound_secondary: 1300
-            points_per_hour: 120
+            upper_bound: 1000
+            lower_bound_secondary: 0
+            upper_bound_secondary: 200
+            points_per_hour: 4
             unit: ppm (ppb for VOC)
             group: false
             height: 180
@@ -788,9 +794,10 @@ views:
                 color: red
               - entity: sensor.rpi3_04_ee_03_bb_bf_68_voc
                 name: Volatile Organic Compounds
+                y_axis: secondary
             show:
               fill: false
-              # labels_secondary: false
+              labels_secondary: true
               labels: true
 
           # - type: history-graph

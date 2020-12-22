@@ -44,7 +44,7 @@ appdaemon:
       ha_url: "http://192.168.0.100:8123"
       token: !secret long_lived_access_token_AppDaemon_1
       # api_port: ????
-      app_init_delay: 35 # how long to wait before initializing apps. This could allow device trackers (home occupancy), z-wave network, etc. to start.
+      app_init_delay: 95 # how long to wait before initializing apps. This could allow device trackers (home occupancy), z-wave network, etc. to start.
       namespace: default
       # plugin_startup_conditions: # Is this the correct level of indentation??
       #   event: {event_type: zwave.network_ready}

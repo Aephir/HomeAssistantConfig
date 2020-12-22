@@ -4,6 +4,8 @@ class Sensor(hass.Hass):
 
     def initialize(self):
 
+        self.set_workday('', '', '', '', '')
+
         self.run_daily(self.set_workday, "00:00:30")
         self.run_daily(self.set_workday, "19:00:00")
         self.listen_state(self.set_workday, "input_boolean.vacation_mode")
